@@ -1,0 +1,640 @@
+\documentclass[
+  doc,
+  floatsintext,
+  longtable,
+  a4paper,
+  nolmodern,
+  notxfonts,
+  notimes,
+  colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{apa7}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\geometry{inner=1in, outer=1in}
+\fancyhfoffset[LE,RO]{0cm}
+
+
+\usepackage[bidi=default]{babel}
+\babelprovide[main,import]{spanish}
+
+
+\babelfont{rm}[,RawFeature={fallback=mainfontfallback}]{Latin Modern
+Roman}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+\RequirePackage{longtable}
+\RequirePackage{threeparttablex}
+
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+	{0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+	{-.5em}%
+	{\normalfont\normalsize\bfseries\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{0.5em}%
+	{0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+	{-\z@\relax}%
+	{\normalfont\normalsize\bfseries\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+
+
+
+\usepackage{longtable, booktabs, multirow, multicol, colortbl, hhline, caption, array, float, xpatch}
+\usepackage{subcaption}
+
+
+\renewcommand\thesubfigure{\Alph{subfigure}}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.7}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{listings,theorems, breakable, skins}
+\usepackage{fontawesome5}
+
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{ACACAC}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582EC}
+\definecolor{quarto-callout-important-color-frame}{HTML}{D9534F}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{F0AD4E}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02B875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{FD7E14}
+
+%\newlength\Oldarrayrulewidth
+%\newlength\Oldtabcolsep
+
+
+\usepackage{hyperref}
+
+
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+
+
+\usepackage{fontspec} 
+
+\defaultfontfeatures{Scale=MatchLowercase}
+\defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+
+  \setmainfont[,RawFeature={fallback=mainfontfallback}]{Latin Modern
+Roman}
+
+
+
+
+\title{Comandos en Windows 11 para Gestionar Redes: Domina comandos en
+Windows 11 para gestionar redes, obtener IP pública y más.}
+
+
+\shorttitle{Editar}
+
+
+\usepackage{etoolbox}
+
+
+
+\ccoppy{\textcopyright~2017}
+
+
+
+\author{Edison Achalma}
+
+
+
+\affiliation{
+{Escuela Profesional de Economía, Universidad Nacional de San Cristóbal
+de Huamanga}}
+
+
+
+
+\leftheader{Achalma}
+
+\date{2023-02-16}
+
+
+\abstract{Primer parrafo de abstrac }
+
+\keywords{keyword1, keyword2}
+
+\authornote{\par{\addORCIDlink{Edison Achalma}{0000-0001-6996-3364}} 
+\par{ }
+\par{   El autor no tiene conflictos de interés que revelar.    Los
+roles de autor se clasificaron utilizando la taxonomía de roles de
+colaborador (CRediT; https://credit.niso.org/) de la siguiente
+manera:  Edison Achalma:   conceptualización, redacción}
+\par{La correspondencia relativa a este artículo debe dirigirse a Edison
+Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@unsch.edu.pe}}
+}
+
+\makeatletter
+\let\endoldlt\endlongtable
+\def\endlongtable{
+\hline
+\endoldlt
+}
+\makeatother
+
+\urlstyle{same}
+
+
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Tabla de contenidos}
+\else
+  \newcommand\contentsname{Tabla de contenidos}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabla}
+\else
+  \newcommand\tablename{Tabla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\makeatother
+
+% From https://tex.stackexchange.com/a/645996/211326
+%%% apa7 doesn't want to add appendix section titles in the toc
+%%% let's make it do it
+\makeatletter
+\xpatchcmd{\appendix}
+  {\par}
+  {\addcontentsline{toc}{section}{\@currentlabelname}\par}
+  {}{}
+\makeatother
+
+%% Disable longtable counter
+%% https://tex.stackexchange.com/a/248395/211326
+
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\LT@caption}
+  {\bgroup}
+  {\bgroup\global\LTpatch@captiontrue}
+  {}{}
+\patchcmd{\longtable}
+  {\par}
+  {\par\global\LTpatch@captionfalse}
+  {}{}
+\apptocmd{\endlongtable}
+  {\ifLTpatch@caption\else\addtocounter{table}{-1}\fi}
+  {}{}
+\newif\ifLTpatch@caption
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\hypertarget{toc}{}
+\tableofcontents
+\newpage
+\section[Introduction]{Comandos en Windows 11 para Gestionar Redes}
+
+\setcounter{secnumdepth}{5}
+
+\setlength\LTleft{0pt}
+
+
+En un mundo hiperconectado, saber gestionar tu red en Windows 11 es una
+habilidad esencial. ¿Alguna vez te has quedado sin internet en medio de
+un proyecto importante o has necesitado verificar tu conexión
+rápidamente? Esta guía actualizada para 2025 te enseña comandos
+prácticos para obtener tu IP pública, inspeccionar controladores Wi-Fi y
+solucionar problemas de red desde la terminal. Perfecta para usuarios
+técnicos, profesionales de TI o cualquiera que quiera optimizar su
+sistema, aquí encontrarás pasos claros, ejemplos reales y consejos
+avanzados.
+
+Introducción: ¿Por Qué Usar Comandos en Windows 11?
+
+Windows 11, con más de 1.500 millones de usuarios en 2025 según
+\href{https://www.statista.com/}{Statista}, ofrece una terminal potente
+que va más allá de la interfaz gráfica. Comandos como nslookup y netsh
+te dan control directo sobre tu red, revelando detalles que las
+herramientas visuales no muestran. En esta guía, exploraremos cómo
+usarlos para diagnosticar conexiones, verificar hardware y mejorar el
+rendimiento. Entidades como Microsoft y tecnologías como Wi-Fi 6 son
+protagonistas, mientras términos como ``IP pública'' o ``controladores
+de red'' serán tus aliados. Empecemos.
+
+Comandos Esenciales para Redes en Windows 11
+
+Estos comandos básicos te permiten explorar y gestionar tu red desde la
+terminal.
+
+Obtener tu IP Pública
+
+Tu IP pública es tu identidad en internet. Para verla:
+
+\begin{itemize}
+\tightlist
+\item
+  Abre CMD o PowerShell.
+\item
+  Escribe: nslookup myip.opendns.com resolver1.opendns.com.
+\end{itemize}
+
+\textbf{Resultado Ejemplo:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{200.121.132.66}
+\end{Highlighting}
+\end{Shaded}
+
+OpenDNS, un servicio líder en resolución de DNS, te devuelve tu IP
+actual. Ideal para verificar tu conexión externa.
+
+Conocer tu IP Local
+
+Para la IP privada en tu red local:
+
+\begin{itemize}
+\tightlist
+\item
+  Usa ipconfig.
+\end{itemize}
+
+\textbf{Resultado Ejemplo:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Dirección IPv4: 192.168.1.100}
+\NormalTok{Máscara de subred: 255.255.255.0}
+\NormalTok{Puerta de enlace predeterminada: 192.168.1.1}
+\end{Highlighting}
+\end{Shaded}
+
+Esto muestra tu configuración interna, útil para ajustes de red.
+
+Otros Comandos Básicos
+
+\begin{itemize}
+\tightlist
+\item
+  ping google.com: Mide la latencia (ej.: 20 ms).
+\item
+  tracert google.com: Rastrea la ruta de paquetes.
+\item
+  netstat -an: Lista conexiones activas.
+\end{itemize}
+
+\textbf{Tabla: Comandos Rápidos}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Comando & Uso & Ejemplo \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+nslookup & Obtener IP pública & nslookup myip\ldots{} \\
+ipconfig & Ver IP local & ipconfig \\
+ping & Probar conectividad & ping google.com \\
+\end{longtable}
+
+Inspeccionando Controladores Wi-Fi con netsh
+
+El comando netsh wlan show drivers revela detalles técnicos de tu
+adaptador Wi-Fi.
+
+Cómo Ejecutarlo
+
+En CMD (como administrador):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{netsh wlan show drivers}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Resultado Ejemplo (actualizado 2025):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Interface name: Wi{-}Fi}
+\NormalTok{Driver: Intel(R) Wi{-}Fi 6 AX201}
+\NormalTok{Vendor: Intel Corporation}
+\NormalTok{Date: 10/15/2024}
+\NormalTok{Version: 23.80.1.5}
+\NormalTok{Radio types supported: 802.11b 802.11g 802.11n 802.11a 802.11ac 802.11ax}
+\NormalTok{FIPS 140{-}2 mode supported: Yes}
+\NormalTok{Authentication supported: WPA3{-}Enterprise, WPA2{-}Personal, CCMP, GCMP{-}256}
+\NormalTok{Wireless Display Supported: Yes}
+\end{Highlighting}
+\end{Shaded}
+
+Qué Significa
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Driver:} Intel Wi-Fi 6 AX201, compatible con Wi-Fi 6
+  (802.11ax), estándar dominante en 2025.
+\item
+  \textbf{Seguridad:} WPA3 y GCMP-256 aseguran conexiones cifradas.
+\item
+  \textbf{Soporte:} Miracast y protección de tramas (802.11w) para redes
+  modernas.
+\end{itemize}
+
+Úsalo para confirmar si tu hardware está listo para redes de alta
+velocidad.
+
+Usos Prácticos para Profesionales y Usuarios Técnicos
+
+Estos comandos tienen aplicaciones reales en contextos técnicos:
+
+Soporte Técnico y Diagnóstico
+
+\begin{itemize}
+\tightlist
+\item
+  Usa ping y tracert para identificar caídas de conexión en una red
+  empresarial.
+\item
+  Verifica con netsh wlan show drivers si un cliente necesita actualizar
+  su adaptador para Wi-Fi 6.
+\end{itemize}
+
+Desarrollo y Pruebas
+
+\begin{itemize}
+\tightlist
+\item
+  Programadores pueden usar ipconfig para configurar entornos de
+  desarrollo local y nslookup para probar APIs externas.
+\item
+  Ejemplo: Asegúrate de que tu servidor local (192.168.1.100) responde
+  antes de subir código.
+\end{itemize}
+
+Gestión de Redes Domésticas
+
+\begin{itemize}
+\tightlist
+\item
+  Con netstat -an, detecta aplicaciones consumiendo ancho de banda.
+\item
+  Usa ipconfig /release y ipconfig /renew para refrescar tu IP si hay
+  conflictos.
+\end{itemize}
+
+\textbf{Imagen:} Terminal Windows 11 \emph{ALT: ``Ejecutando comandos de
+red en Windows 11 2025''}
+
+Técnicas Avanzadas para Redes en 2025
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Explorar Redes Disponibles:} Usa netsh wlan show networks para
+  listar señales Wi-Fi y elegir la mejor.
+\item
+  \textbf{Script Automático:} Crea un .bat:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{@echo off}
+\NormalTok{echo IP Pública: \textgreater{} red{-}info.txt}
+\NormalTok{nslookup myip.opendns.com resolver1.opendns.com \textgreater{}\textgreater{} red{-}info.txt}
+\NormalTok{echo Controladores Wi{-}Fi: \textgreater{}\textgreater{} red{-}info.txt}
+\NormalTok{netsh wlan show drivers \textgreater{}\textgreater{} red{-}info.txt}
+\end{Highlighting}
+\end{Shaded}
+
+  Ejecuta para guardar datos en un archivo.
+\item
+  \textbf{TF-IDF:} Integra términos como ``Wi-Fi 6'', ``diagnóstico de
+  red'', y ``seguridad inalámbrica'' (basados en el TOP 10).
+\item
+  \textbf{Schema:} JSON-LD para ``HowTo'':
+
+  json
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+  \DataTypeTok{"@context"}\FunctionTok{:} \StringTok{"https://schema.org"}\FunctionTok{,}
+  \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"HowTo"}\FunctionTok{,}
+  \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Cómo Gestionar Redes en Windows 11"}\FunctionTok{,}
+  \DataTypeTok{"step"}\FunctionTok{:} \OtherTok{[}
+    \FunctionTok{\{}\DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"HowToStep"}\FunctionTok{,} \DataTypeTok{"text"}\FunctionTok{:} \StringTok{"Abre CMD y usa nslookup para tu IP pública"}\FunctionTok{\}}
+  \OtherTok{]}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+Conclusión: Toma el Control de tu Red Hoy
+
+Dominar comandos en Windows 11 como nslookup, ipconfig, y netsh wlan
+show drivers te da poder sobre tu red en 2025. Esta guía te equipa con
+conocimientos prácticos para diagnosticar problemas, optimizar
+conexiones y aplicar soluciones técnicas. Abre tu terminal, prueba estos
+comandos, y mejora tu experiencia en Windows 11. ¿Quieres más consejos?
+Suscríbete a nuestro boletín o visita
+\href{https://microsoft.com/}{microsoft.com} para recursos adicionales.
+
+\section{Publicaciones Similares}\label{publicaciones-similares}
+
+Si te interesó este artículo, te recomendamos que explores otros blogs y
+recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo
+algunas sugerencias:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2017-05-21-comandos-de-informacion-windows/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2017-05-21-comandos-de-informacion-windows}{Comandos
+  De Informacion Windows}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2019-06-19-adb/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2019-06-19-adb}{Adb}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc}{Limpieza
+  Y Optimizacion De Pc}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2021-10-21-usando-apk-en-windown-11}{Usando
+  Apk En Windown 11}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu}{Gestionar
+  Versiones De Jdk En Kubuntu}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-07-21-instalar-tor-browser/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-07-21-instalar-tor-browser}{Instalar
+  Tor Browser}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux}{Crear
+  Enlaces Duros O Hard Link En Linux}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-09-27-comandos-vim/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-09-27-comandos-vim}{Comandos
+  Vim}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-02-16-guia-de-git-y-github/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-02-16-guia-de-git-y-github}{Guia
+  De Git Y Github}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-05-02-00-primeros-pasos-en-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-05-02-00-primeros-pasos-en-linux}{00
+  Primeros Pasos En Linux}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-17-01-introduccion-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-17-01-introduccion-linux}{01
+  Introduccion Linux}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-18-02-distribuciones-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-18-02-distribuciones-linux}{02
+  Distribuciones Linux}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-19-03-instalacion-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-19-03-instalacion-linux}{03
+  Instalacion Linux}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-20-04-administracion-particiones-volumenes/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-20-04-administracion-particiones-volumenes}{04
+  Administracion Particiones Volumenes}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim}{Atajos
+  De Teclado Y Comandos Para Usar Vim}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2024-07-15-instalando-specitify/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2024-07-15-instalando-specitify}{Instalando
+  Specitify}
+\end{enumerate}
+
+Esperamos que encuentres estas publicaciones igualmente interesantes y
+útiles. ¡Disfruta de la lectura!
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,944 @@
+\documentclass[
+  doc,
+  floatsintext,
+  longtable,
+  a4paper,
+  nolmodern,
+  notxfonts,
+  notimes,
+  colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{apa7}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\geometry{inner=1in, outer=1in}
+\fancyhfoffset[LE,RO]{0cm}
+
+
+\usepackage[bidi=default]{babel}
+\babelprovide[main,import]{spanish}
+
+
+\babelfont{rm}[,RawFeature={fallback=mainfontfallback}]{Latin Modern
+Roman}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+\RequirePackage{longtable}
+\RequirePackage{threeparttablex}
+
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+	{0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+	{-.5em}%
+	{\normalfont\normalsize\bfseries\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{0.5em}%
+	{0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+	{-\z@\relax}%
+	{\normalfont\normalsize\bfseries\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+
+
+
+\usepackage{longtable, booktabs, multirow, multicol, colortbl, hhline, caption, array, float, xpatch}
+\usepackage{subcaption}
+
+
+\renewcommand\thesubfigure{\Alph{subfigure}}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.7}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{listings,theorems, breakable, skins}
+\usepackage{fontawesome5}
+
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{ACACAC}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582EC}
+\definecolor{quarto-callout-important-color-frame}{HTML}{D9534F}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{F0AD4E}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02B875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{FD7E14}
+
+%\newlength\Oldarrayrulewidth
+%\newlength\Oldtabcolsep
+
+
+\usepackage{hyperref}
+
+
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+
+
+\usepackage{fontspec} 
+
+\defaultfontfeatures{Scale=MatchLowercase}
+\defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+
+  \setmainfont[,RawFeature={fallback=mainfontfallback}]{Latin Modern
+Roman}
+
+
+
+
+\title{Guía de Git Cómo trabajar en equipo en proyectos: Aprende a usar
+Git para controlar versiones, colaborar con otros desarrolladores y
+mantener tu código organizado.}
+
+
+\shorttitle{Editar}
+
+
+\usepackage{etoolbox}
+
+
+
+\ccoppy{\textcopyright~2023}
+
+
+
+\author{Edison Achalma}
+
+
+
+\affiliation{
+{Escuela Profesional de Economía, Universidad Nacional de San Cristóbal
+de Huamanga}}
+
+
+
+
+\leftheader{Achalma}
+
+\date{2023-02-16}
+
+
+\abstract{Primer parrafo de abstrac }
+
+\keywords{keyword1, keyword2}
+
+\authornote{\par{\addORCIDlink{Edison Achalma}{0000-0001-6996-3364}} 
+\par{ }
+\par{   El autor no tiene conflictos de interés que revelar.    Los
+roles de autor se clasificaron utilizando la taxonomía de roles de
+colaborador (CRediT; https://credit.niso.org/) de la siguiente
+manera:  Edison Achalma:   conceptualización, redacción}
+\par{La correspondencia relativa a este artículo debe dirigirse a Edison
+Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@unsch.edu.pe}}
+}
+
+\makeatletter
+\let\endoldlt\endlongtable
+\def\endlongtable{
+\hline
+\endoldlt
+}
+\makeatother
+
+\urlstyle{same}
+
+
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Tabla de contenidos}
+\else
+  \newcommand\contentsname{Tabla de contenidos}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabla}
+\else
+  \newcommand\tablename{Tabla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\makeatother
+
+% From https://tex.stackexchange.com/a/645996/211326
+%%% apa7 doesn't want to add appendix section titles in the toc
+%%% let's make it do it
+\makeatletter
+\xpatchcmd{\appendix}
+  {\par}
+  {\addcontentsline{toc}{section}{\@currentlabelname}\par}
+  {}{}
+\makeatother
+
+%% Disable longtable counter
+%% https://tex.stackexchange.com/a/248395/211326
+
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\LT@caption}
+  {\bgroup}
+  {\bgroup\global\LTpatch@captiontrue}
+  {}{}
+\patchcmd{\longtable}
+  {\par}
+  {\par\global\LTpatch@captionfalse}
+  {}{}
+\apptocmd{\endlongtable}
+  {\ifLTpatch@caption\else\addtocounter{table}{-1}\fi}
+  {}{}
+\newif\ifLTpatch@caption
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\hypertarget{toc}{}
+\tableofcontents
+\newpage
+\section[Introduction]{Guía de Git Cómo trabajar en equipo en proyectos}
+
+\setcounter{secnumdepth}{5}
+
+\setlength\LTleft{0pt}
+
+
+\section{Guía esencial de Git y
+GitHub}\label{guuxeda-esencial-de-git-y-github}
+
+Esta guía te introduce a los fundamentos de Git y GitHub, desde la
+instalación hasta la gestión avanzada de proyectos. Ideal tanto para
+principiantes como para quienes buscan perfeccionar sus habilidades en
+control de versiones.
+
+Git es un sistema de control de versiones (SCV) esencial para rastrear
+cambios en el código, colaborar en equipo y experimentar con nuevas
+ideas mediante ramas. Plataformas como GitHub potencian esta
+colaboración al hospedar repositorios y facilitar el intercambio de
+código.
+
+\subsection{¿Cómo funciona Git?}\label{cuxf3mo-funciona-git}
+
+Git organiza los proyectos en tres áreas principales: -
+\textbf{Directorio de trabajo}: Donde editas tus archivos. -
+\textbf{Área de preparación (staging)}: Donde preparas los cambios antes
+de confirmarlos. - \textbf{Directorio Git}: Almacena las instantáneas
+confirmadas de tu proyecto.
+
+Disponible en Linux, Windows y macOS, Git tiene una curva de aprendizaje
+inicial, pero su dominio abre un mundo de posibilidades para gestionar
+proyectos eficientemente.
+
+\subsection{Comandos básicos de Git}\label{comandos-buxe1sicos-de-git}
+
+Aquí tienes los comandos fundamentales:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{echo\ "\#\ Léeme"\ \textgreater{}\textgreater{}\ README.md}:
+  Crea un archivo README.md con el texto ``\# Léeme''.
+\item
+  \texttt{git\ init}: Inicia un nuevo repositorio en el directorio
+  actual.
+\item
+  \texttt{git\ add\ {[}file{]}}: Añade un archivo al área de
+  preparación.
+\item
+  \texttt{git\ commit\ -m\ "Primer\ commit"}: Guarda los cambios con un
+  mensaje descriptivo.
+\item
+  \texttt{git\ branch\ -M\ main}: Muestra las ramas existentes.
+\item
+  \texttt{git\ remote\ add\ origin\ git@github.com:achalmed/repositorio.git}
+  : Vincula el repositorio local con uno remoto en GitHub.
+\item
+  \texttt{git\ push\ -u\ origin\ main}: Envía los cambios al repositorio
+  remoto.
+\item
+  \texttt{git\ status}: Muestra el estado actual del repositorio.
+\item
+  \texttt{git\ log}: Lista el historial de commits.
+\item
+  \texttt{git\ diff}: Compara cambios no confirmados con el último
+  commit.
+\item
+  \texttt{git\ checkout\ {[}branch{]}}: Cambia a una rama específica.
+\item
+  \texttt{git\ merge\ {[}branch{]}}: Fusiona una rama con la actual.
+\item
+  \texttt{git\ config\ -\/-global\ user.name\ "tu-nombre"}: Configura tu
+  nombre de usuario.
+\item
+  \texttt{git\ config\ -\/-global\ user.email\ "tu-email@example.com"}:
+  Configura tu correo.
+\end{enumerate}
+
+\subsection{Instalación de Git en
+Ubuntu}\label{instalaciuxf3n-de-git-en-ubuntu}
+
+\subsubsection{Método 1: Paquetes predeterminados (rápido y
+estable)}\label{muxe9todo-1-paquetes-predeterminados-ruxe1pido-y-estable}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Verifica si Git está instalado:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git} \AttributeTok{{-}{-}version}
+\end{Highlighting}
+\end{Shaded}
+
+  Ejemplo de salida: \texttt{git\ version\ 2.34.1}
+\item
+  Si no está instalado, actualiza e instala con APT:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ apt update}
+\FunctionTok{sudo}\NormalTok{ apt install git}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Configura tu identidad:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ config }\AttributeTok{{-}{-}global}\NormalTok{ user.name }\StringTok{"Tu Nombre"}
+\FunctionTok{git}\NormalTok{ config }\AttributeTok{{-}{-}global}\NormalTok{ user.email }\StringTok{"tu.correo@example.com"}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Verifica la configuración:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ config }\AttributeTok{{-}{-}list}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+\subsubsection{Método 2: Desde la fuente (versión más
+reciente)}\label{muxe9todo-2-desde-la-fuente-versiuxf3n-muxe1s-reciente}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Instala las dependencias:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ apt update}
+\FunctionTok{sudo}\NormalTok{ apt install libz{-}dev libssl{-}dev libcurl4{-}gnutls{-}dev libexpat1{-}dev gettext cmake gcc}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Descarga y descomprime la versión deseada (ejemplo: 2.34.1):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mkdir}\NormalTok{ tmp }\KeywordTok{\&\&} \BuiltInTok{cd}\NormalTok{ tmp}
+\ExtensionTok{curl} \AttributeTok{{-}o}\NormalTok{ git.tar.gz https://mirrors.edge.kernel.org/pub/software/scm/git/git{-}2.34.1.tar.gz}
+\FunctionTok{tar} \AttributeTok{{-}zxf}\NormalTok{ git.tar.gz}
+\BuiltInTok{cd}\NormalTok{ git{-}}\PreprocessorTok{*}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Compila e instala:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{make}\NormalTok{ prefix=/usr/local all}
+\FunctionTok{sudo}\NormalTok{ make prefix=/usr/local install}
+\BuiltInTok{exec}\NormalTok{ bash}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Confirma la instalación:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git} \AttributeTok{{-}{-}version}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+\subsection{Configuración de claves SSH para
+GitHub}\label{configuraciuxf3n-de-claves-ssh-para-github}
+
+\subsubsection{Generar una clave SSH}\label{generar-una-clave-ssh}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Verifica claves existentes:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ls} \AttributeTok{{-}al}\NormalTok{ \textasciitilde{}/.ssh}
+\end{Highlighting}
+\end{Shaded}
+
+  Si no hay claves, crea el directorio:
+  \texttt{mkdir\ \textasciitilde{}/.ssh}.
+\item
+  Genera un par de claves:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ssh{-}keygen} \AttributeTok{{-}t}\NormalTok{ rsa }\AttributeTok{{-}b}\NormalTok{ 4096 }\AttributeTok{{-}C} \StringTok{"tu.email@example.com"}
+\end{Highlighting}
+\end{Shaded}
+
+  Acepta el nombre predeterminado y añade una contraseña (opcional).
+\end{enumerate}
+
+\subsubsection{Añadir la clave a
+ssh-agent}\label{auxf1adir-la-clave-a-ssh-agent}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Inicia el agente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{eval} \StringTok{"}\VariableTok{$(}\FunctionTok{ssh{-}agent} \AttributeTok{{-}s}\VariableTok{)}\StringTok{"}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Añade la clave privada:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ssh{-}add}\NormalTok{ \textasciitilde{}/.ssh/id\_rsa}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+\subsubsection{Vincular la clave a
+GitHub}\label{vincular-la-clave-a-github}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Copia la clave pública:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Linux/Mac: \texttt{cat\ \textasciitilde{}/.ssh/id\_rsa.pub}
+  \item
+    Windows:
+    \texttt{clip\ \textless{}\ \textasciitilde{}/.ssh/id\_rsa.pub}
+  \end{itemize}
+\item
+  En GitHub, ve a \emph{Settings \textgreater{} SSH and GPG keys
+  \textgreater{} New SSH key}, pega la clave y guárdala.
+\item
+  Prueba la conexión:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ssh} \AttributeTok{{-}T}\NormalTok{ git@github.com}
+\end{Highlighting}
+\end{Shaded}
+
+  Resultado esperado:
+  \texttt{Hi\ tu\_usuario!\ You\textquotesingle{}ve\ successfully\ authenticated...}
+\end{enumerate}
+
+\subsection{Crear un repositorio
+local}\label{crear-un-repositorio-local}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Inicia un repositorio:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ init }\PreprocessorTok{[}\SpecialStringTok{nombre}\PreprocessorTok{{-}}\SpecialStringTok{del}\PreprocessorTok{{-}}\SpecialStringTok{proyecto}\PreprocessorTok{]}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Añade archivos y haz un commit:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ add .}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"Primer commit"}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+\subsection{Clonar un repositorio}\label{clonar-un-repositorio}
+
+\subsubsection{Clonación básica}\label{clonaciuxf3n-buxe1sica}
+
+Clona un repositorio remoto:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ clone https://github.com/usuario/repositorio.git}
+\end{Highlighting}
+\end{Shaded}
+
+Clonación en carpeta específica
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ clone https://github.com/usuario/repositorio.git /ruta/deseada}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Clonación superficial}\label{clonaciuxf3n-superficial}
+
+Solo las últimas n confirmaciones:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ clone }\AttributeTok{{-}{-}depth}\OperatorTok{=}\NormalTok{1 https://github.com/usuario/repositorio.git}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Clonar una rama
+específica}\label{clonar-una-rama-especuxedfica}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ clone }\AttributeTok{{-}{-}branch}\OperatorTok{=}\NormalTok{nombre{-}rama https://github.com/usuario/repositorio.git}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Subir un proyecto a
+GitHub}\label{subir-un-proyecto-a-github}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Crea un repositorio en GitHub (público o privado).
+\item
+  En tu proyecto local:
+\end{enumerate}
+
+\textbf{Con SSH}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{echo} \StringTok{"\# examen"} \OperatorTok{\textgreater{}\textgreater{}}\NormalTok{ README.md}
+\FunctionTok{git}\NormalTok{ init}
+\FunctionTok{git}\NormalTok{ add .}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"Primer commit"}
+\FunctionTok{git}\NormalTok{ branch }\AttributeTok{{-}M}\NormalTok{ main}
+\FunctionTok{git}\NormalTok{ remote add origin git@github.com:usuario/repositorio.git}
+\FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}u}\NormalTok{ origin main}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Con HTTPS}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{echo} \StringTok{"\# examen"} \OperatorTok{\textgreater{}\textgreater{}}\NormalTok{ README.md}
+\FunctionTok{git}\NormalTok{ init}
+\FunctionTok{git}\NormalTok{ add .}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"Primer commit"}
+\FunctionTok{git}\NormalTok{ branch }\AttributeTok{{-}M}\NormalTok{ main}
+\FunctionTok{git}\NormalTok{ remote add origin https://github.com/usuario/repositorio.git}
+\FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}u}\NormalTok{ origin main}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  Si aparece el error remote origin already exists:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ remote rm origin}
+\end{Highlighting}
+\end{Shaded}
+
+  Luego repite el paso 2.
+\end{enumerate}
+
+\subsection{Observar el repositorio}\label{observar-el-repositorio}
+
+\begin{itemize}
+\item
+  \texttt{git\ status}: Muestra el estado actual.
+\item
+  \texttt{git\ diff}: Compara cambios no confirmados.
+\item
+  \texttt{git\ log}
+\item
+  \texttt{git\ log\ -\/-graph}
+\item
+  \texttt{git\ log\ -\/-graph\ -\/-pretty=oneline}
+\item
+  \texttt{git\ log\ -\/-graph\ -\/-decorate\ -\/-all\ -\/-oneline}
+\item
+  \texttt{git\ config\ -\/-global\ alias.tree\ "log\ -\/-graph\ -\/-decorate\ -\/-all\ -\/-oneline"}
+\item
+  \texttt{git\ tree}
+\item
+  \texttt{git\ log\ -\/-oneline}: Historial compacto. Ejemplo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{7e320e8}\NormalTok{ update}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \texttt{git\ blame\ {[}archivo{]}}: Autores y fechas de cambios.
+\item
+  \texttt{touch\ .gitignore}
+\end{itemize}
+
+\subsection{Trabajar con ramas}\label{trabajar-con-ramas}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Crea y cambia a una rama:
+\end{enumerate}
+
+Navegando en ramas - \texttt{git\ checkout\ holagit.py} -
+\texttt{git\ log} -
+\texttt{git\ checkout\ 707c7f864de5e036c54b43df5a1bfa464fb4d9ba} -
+\texttt{git\ tree} - \texttt{git\ checkout\ 380beab} Creando ramas
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ checkout }\AttributeTok{{-}b}\NormalTok{ nueva{-}rama}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{git\ branch\ login} \texttt{git\ switch\ login}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Fusiona ramas:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ checkout main}
+\FunctionTok{git}\NormalTok{ merge nueva{-}rama}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+\texttt{git\ switch\ login} \texttt{git\ merge\ main} \texttt{git\ tree}
+
+corrección de conflicto
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{git\ merge\ main}
+\item
+  conflicto tal vez por que se modifico la mimsa linea en distintos
+  branch
+\item
+  corregir el error
+\item
+  \texttt{git\ add\ archivo\_conflicto.py}
+\item
+  \texttt{git\ commit\ -m\ "correccion\ conflicto"}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Reset
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{git\ tree}
+\item
+  \texttt{git\ reset\ -\/-hard\ af18c2a}
+\item
+  \texttt{git\ log}
+\item
+  \texttt{git\ reflog} log completo
+\item
+  \texttt{git\ checkout\ 380beab}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  Etiqueta un commit: (Para versiones)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ tag v1.0.0}
+\FunctionTok{git}\NormalTok{ push origin main }\AttributeTok{{-}{-}tags}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{git\ tag\ clase\_1}
+\item
+  \texttt{git\ log} o \texttt{git\ tree}
+\item
+  \texttt{git\ tag} Listado de tags
+\item
+  \texttt{git\ checkout\ tags/clase\_1}
+\item
+\end{itemize}
+
+\section{Guardar temporalmente un trabajo no
+terminado}\label{guardar-temporalmente-un-trabajo-no-terminado}
+
+\texttt{git\ status}
+
+\texttt{git\ switch\ main}
+
+\texttt{git\ stash}
+
+\texttt{git\ stash\ list} \texttt{git\ switch\ main}
+
+Hago los cambios
+
+\texttt{git\ switch\ login}
+
+\texttt{git\ stash\ pop} \texttt{git\ add\ .}
+\texttt{git\ commit\ -m\ "Login\ v2"}
+
+\texttt{git\ stash\ drop}
+
+\section{Comparar archivos o ramas}\label{comparar-archivos-o-ramas}
+
+\texttt{git\ diff\ login}
+
+\subsection{Sincronización}\label{sincronizaciuxf3n}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{git\ fetch\ origin}: Descarga cambios remotos sin fusionarlos.
+\item
+  \texttt{git\ pull\ origin\ main}: Descarga y fusiona cambios.
+\item
+  \texttt{git\ push\ origin\ main}: Envía cambios locales al remoto.
+\end{itemize}
+
+\section{Conclusión}\label{conclusiuxf3n}
+
+Dominar Git y GitHub es clave para gestionar proyectos de desarrollo.
+Practica estos comandos y consulta \texttt{git\ -\/-help} para más
+detalles.
+
+\section{Publicaciones Similares}\label{publicaciones-similares}
+
+Si te interesó este artículo, te recomendamos que explores otros blogs y
+recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo
+algunas sugerencias:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2017-05-21-comandos-de-informacion-windows/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2017-05-21-comandos-de-informacion-windows}{Comandos
+  De Informacion Windows}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2019-06-19-adb/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2019-06-19-adb}{Adb}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc}{Limpieza
+  Y Optimizacion De Pc}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2021-10-21-usando-apk-en-windown-11}{Usando
+  Apk En Windown 11}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu}{Gestionar
+  Versiones De Jdk En Kubuntu}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-07-21-instalar-tor-browser/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-07-21-instalar-tor-browser}{Instalar
+  Tor Browser}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux}{Crear
+  Enlaces Duros O Hard Link En Linux}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-09-27-comandos-vim/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-09-27-comandos-vim}{Comandos
+  Vim}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-02-16-guia-de-git-y-github/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-02-16-guia-de-git-y-github}{Guia
+  De Git Y Github}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-05-02-00-primeros-pasos-en-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-05-02-00-primeros-pasos-en-linux}{00
+  Primeros Pasos En Linux}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-17-01-introduccion-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-17-01-introduccion-linux}{01
+  Introduccion Linux}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-18-02-distribuciones-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-18-02-distribuciones-linux}{02
+  Distribuciones Linux}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-19-03-instalacion-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-19-03-instalacion-linux}{03
+  Instalacion Linux}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-20-04-administracion-particiones-volumenes/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-20-04-administracion-particiones-volumenes}{04
+  Administracion Particiones Volumenes}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim}{Atajos
+  De Teclado Y Comandos Para Usar Vim}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2024-07-15-instalando-specitify/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2024-07-15-instalando-specitify}{Instalando
+  Specitify}
+\end{enumerate}
+
+Esperamos que encuentres estas publicaciones igualmente interesantes y
+útiles. ¡Disfruta de la lectura!
+
+
+
+
+
+
+\end{document}

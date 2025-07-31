@@ -1,0 +1,567 @@
+\documentclass[
+  jou,
+  floatsintext,
+  longtable,
+  a4paper,
+  nolmodern,
+  notxfonts,
+  notimes,
+  colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{apa7}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+
+\usepackage[bidi=default]{babel}
+\babelprovide[main,import]{spanish}
+
+
+\babelfont{rm}[,RawFeature={fallback=mainfontfallback}]{Latin Modern
+Roman}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+\RequirePackage{longtable}
+\RequirePackage{threeparttablex}
+
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+	{0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+	{-.5em}%
+	{\normalfont\normalsize\bfseries\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{0.5em}%
+	{0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+	{-\z@\relax}%
+	{\normalfont\normalsize\bfseries\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+
+
+
+\usepackage{longtable, booktabs, multirow, multicol, colortbl, hhline, caption, array, float, xpatch}
+\usepackage{subcaption}
+
+
+\renewcommand\thesubfigure{\Alph{subfigure}}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.7}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{listings,theorems, breakable, skins}
+\usepackage{fontawesome5}
+
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{ACACAC}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582EC}
+\definecolor{quarto-callout-important-color-frame}{HTML}{D9534F}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{F0AD4E}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02B875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{FD7E14}
+
+%\newlength\Oldarrayrulewidth
+%\newlength\Oldtabcolsep
+
+
+\usepackage{hyperref}
+
+
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+
+
+\usepackage{fontspec} 
+
+\defaultfontfeatures{Scale=MatchLowercase}
+\defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+
+  \setmainfont[,RawFeature={fallback=mainfontfallback}]{Latin Modern
+Roman}
+
+
+
+
+\title{Descarga, Instalación y Más de GNU/Linux: Descubre cómo
+seleccionar hardware, descargar la imagen ISO y preparar los medios de
+instalación. Exploraremos opciones para probar o instalar Linux en tu
+equipo.}
+
+
+\shorttitle{Editar}
+
+
+\usepackage{etoolbox}
+
+
+
+\ccoppy{\textcopyright~2023}
+
+
+
+\author{Edison Achalma}
+
+
+
+\affiliation{
+{Escuela Profesional de Economía, Universidad Nacional de San Cristóbal
+de Huamanga}}
+
+
+
+
+\leftheader{Achalma}
+
+\date{2023-06-19}
+
+
+\abstract{Primer parrafo de abstrac }
+
+\keywords{keyword1, keyword2}
+
+\authornote{\par{\addORCIDlink{Edison Achalma}{0000-0001-6996-3364}} 
+\par{ }
+\par{   El autor no tiene conflictos de interés que revelar.    Los
+roles de autor se clasificaron utilizando la taxonomía de roles de
+colaborador (CRediT; https://credit.niso.org/) de la siguiente
+manera:  Edison Achalma:   conceptualización, redacción}
+\par{La correspondencia relativa a este artículo debe dirigirse a Edison
+Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@unsch.edu.pe}}
+}
+
+\usepackage{pbalance}
+% \usepackage{float}
+\makeatletter
+\let\oldtpt\ThreePartTable
+\let\endoldtpt\endThreePartTable
+\def\ThreePartTable{\@ifnextchar[\ThreePartTable@i \ThreePartTable@ii}
+\def\ThreePartTable@i[#1]{\begin{figure}[!htbp]
+\onecolumn
+\begin{minipage}{0.485\textwidth}
+\oldtpt[#1]
+}
+\def\ThreePartTable@ii{\begin{figure}[!htbp]
+\onecolumn
+\begin{minipage}{0.48\textwidth}
+\oldtpt
+}
+\def\endThreePartTable{
+\endoldtpt
+\end{minipage}
+\twocolumn
+\end{figure}}
+\makeatother
+
+
+\makeatletter
+\let\endoldlt\endlongtable		
+\def\endlongtable{
+\hline
+\endoldlt}
+\makeatother
+
+\newenvironment{twocolumntable}% environment name
+{% begin code
+\begin{table*}[!htbp]%
+\onecolumn%
+}%
+{%
+\twocolumn%
+\end{table*}%
+}% end code
+
+\urlstyle{same}
+
+
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Tabla de contenidos}
+\else
+  \newcommand\contentsname{Tabla de contenidos}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabla}
+\else
+  \newcommand\tablename{Tabla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\makeatother
+
+% From https://tex.stackexchange.com/a/645996/211326
+%%% apa7 doesn't want to add appendix section titles in the toc
+%%% let's make it do it
+\makeatletter
+\xpatchcmd{\appendix}
+  {\par}
+  {\addcontentsline{toc}{section}{\@currentlabelname}\par}
+  {}{}
+\makeatother
+
+%% Disable longtable counter
+%% https://tex.stackexchange.com/a/248395/211326
+
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\LT@caption}
+  {\bgroup}
+  {\bgroup\global\LTpatch@captiontrue}
+  {}{}
+\patchcmd{\longtable}
+  {\par}
+  {\par\global\LTpatch@captionfalse}
+  {}{}
+\apptocmd{\endlongtable}
+  {\ifLTpatch@caption\else\addtocounter{table}{-1}\fi}
+  {}{}
+\newif\ifLTpatch@caption
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\hypertarget{toc}{}
+\tableofcontents
+\newpage
+\section[Introduction]{Descarga, Instalación y Más de GNU/Linux}
+
+\setcounter{secnumdepth}{5}
+
+\setlength\LTleft{0pt}
+
+
+¡Hola, lector!
+
+Bienvenido a esta emocionante serie de introducción a Linux. Si estás
+dando tus primeros pasos en este fascinante mundo, estás en el lugar
+adecuado. Aquí, desgranaremos algunos aspectos fundamentales que debes
+conocer, desde las distribuciones y entornos gráficos hasta las
+aplicaciones y la administración del sistema.
+
+En esta parte práctica, nos enfocaremos en los pasos necesarios para
+descargar una distribución GNU/Linux y comenzar a probarla en tus
+propios equipos. Te guiaré a través de diferentes etapas, desde la
+selección del hardware hasta la descarga de la imagen ISO y la
+preparación de los medios de instalación. Además, exploraremos diversas
+opciones para probar o instalar Linux.
+
+Si estás listo para embarcarte en esta emocionante aventura, acompáñame
+en este recorrido. ¡Juntos descubriremos el poder y la versatilidad de
+GNU/Linux!
+
+\section{Seleccionar el Hardware}\label{seleccionar-el-hardware}
+
+Antes de sumergirnos en la descarga e instalación de esta emocionante
+plataforma, es importante seleccionar el hardware adecuado.
+
+El hardware es el conjunto de componentes físicos de tu equipo, como el
+procesador, la memoria RAM, el disco duro y otros dispositivos. Aunque
+Linux es conocido por su capacidad para adaptarse a diferentes tipos de
+hardware, es recomendable tener en cuenta algunas consideraciones.
+
+En primer lugar, debes verificar los requisitos mínimos del sistema de
+la distribución Linux que deseas instalar. Estos requisitos suelen estar
+disponibles en el sitio web oficial de la distribución. Asegúrate de que
+tu hardware cumpla con esos requisitos para disfrutar de un rendimiento
+óptimo.
+
+Además, es importante tener en cuenta el propósito de tu instalación de
+Linux. ¿Es para un equipo de escritorio, un servidor o una máquina
+virtual? Dependiendo de tus necesidades, es posible que debas considerar
+diferentes características de hardware, como la capacidad de
+almacenamiento, la potencia de procesamiento y la compatibilidad de los
+controladores.
+
+Recuerda que Linux es conocido por su compatibilidad con una amplia gama
+de hardware, incluidos equipos más antiguos. Así que, incluso si no
+tienes lo último en tecnología, ¡no te preocupes! Es probable que Linux
+funcione sin problemas en tu equipo.
+
+Antes de pasar al siguiente paso, te recomendaría hacer una lista de las
+especificaciones de tu hardware actual para compararlas con los
+requisitos mínimos del sistema de la distribución Linux que elijas. Esto
+te ayudará a tomar una decisión informada y asegurarte de que todo
+funcione sin problemas.
+
+\section{Descargar Imagen ISO de tu Distribución
+Preferida}\label{descargar-imagen-iso-de-tu-distribuciuxf3n-preferida}
+
+Ahora que hemos seleccionado el hardware adecuado, es hora de descargar
+la imagen ISO de la distribución Linux que más te llame la atención. La
+imagen ISO es un archivo que contiene todos los datos necesarios para
+instalar el sistema operativo en tu equipo.
+
+El primer paso es visitar el sitio web oficial de la distribución Linux
+que deseas probar. Allí encontrarás una variedad de opciones para
+descargar la imagen ISO. ¡Pero cuidado! Asegúrate de elegir la versión
+correcta de acuerdo con tu arquitectura de hardware (generalmente 32
+bits o 64 bits) y tus preferencias (como el entorno gráfico).
+
+A continuación de dejo los enlaces a las paginas de descarga de las
+ultimas versiones de algunas de las distribuciones más populares:
+
+\begin{itemize}
+\item
+  \href{https://ubuntu.com/download/desktop}{Descarga Ubuntu 22.04 LTS}
+\item
+  \href{https://www.linuxmint.com/download.php}{Descarga Linux Mint 21}
+\item
+  \href{https://www.debian.org/download}{Descarga Debian 11 Bullseye}
+\item
+  \href{https://get.opensuse.org/leap/15.4/}{Descarga openSUSE Leap
+  15.4}
+\item
+  \href{https://getfedora.org/es/workstation/download/}{Descargar Fedora
+  36 Workstation}
+\end{itemize}
+
+Una vez que hayas seleccionado la versión adecuada, simplemente haz clic
+en el enlace de descarga correspondiente. Dependiendo del tamaño del
+archivo y la velocidad de tu conexión a Internet, la descarga puede
+llevar algunos minutos. Aprovecha este tiempo para preparar una buena
+taza de café o té, y relájate mientras se completa la descarga.
+
+Una vez que la descarga haya finalizado, ¡felicitaciones! Ahora tienes
+la imagen ISO de tu distribución Linux preferida lista para usar. Pero
+antes de seguir adelante, te recomendaría verificar la integridad del
+archivo. Algunos sitios web proporcionan sumas de verificación o firmas
+digitales que te permiten asegurarte de que el archivo se descargó
+correctamente y no se haya corrompido en el proceso.
+
+Si todo está en orden, estás listo para el siguiente paso emocionante:
+preparar los medios de instalación. En nuestro próximo fragmento,
+exploraremos cómo convertir la imagen ISO en un medio de instalación, ya
+sea una unidad USB o un DVD.
+
+\section{Preparar los Medios de
+Instalación}\label{preparar-los-medios-de-instalaciuxf3n}
+
+¡Excelente, explorador de Linux! Ahora que tienes la imagen ISO de tu
+distribución preferida, es hora de convertirla en un medio de
+instalación. Esto te permitirá instalar Linux en tu equipo y comenzar a
+explorar sus maravillas.
+
+La forma más común de preparar los medios de instalación es crear un
+dispositivo USB de arranque. Para hacer esto, necesitarás una unidad USB
+vacía con capacidad suficiente para albergar la imagen ISO. Asegúrate de
+hacer una copia de seguridad de cualquier dato importante que haya en la
+unidad USB, ya que se eliminará durante el proceso.
+
+Para crear el dispositivo USB de arranque, existen varias herramientas
+disponibles. Una de las más populares y fáciles de usar es ``Etcher''.
+Puedes descargarlo desde su sitio web oficial e instalarlo en tu sistema
+operativo actual.
+
+Una vez que hayas instalado Etcher, ábrelo y verás una interfaz sencilla
+y amigable. En primer lugar, selecciona la imagen ISO que descargaste
+haciendo clic en el botón ``Seleccionar imagen''. Luego, elige la unidad
+USB en la que deseas crear el dispositivo de arranque.
+
+Una vez que hayas hecho todas las selecciones, haz clic en el botón
+``Flash!'' y deja que Etcher haga su magia. Ten en cuenta que este
+proceso puede tardar unos minutos, así que ten paciencia.
+
+Una vez completado el proceso, tendrás tu dispositivo USB de arranque
+listo para usar. Ahora estás un paso más cerca de sumergirte en el mundo
+de Linux.
+
+\subsection{Opciones para Probar o Instalar
+Linux}\label{opciones-para-probar-o-instalar-linux}
+
+¡Es hora de decidir cómo quieres probar o instalar Linux en tu equipo,
+intrépido lector! Afortunadamente, tienes varias opciones disponibles
+que se adaptan a tus necesidades y preferencias.
+
+La primera opción es probar Linux sin realizar una instalación completa
+en tu equipo. Esto se conoce como \textbf{``modo Live''.} Es ideal si
+quieres explorar Linux sin hacer cambios permanentes en tu sistema
+operativo actual. Simplemente inserta el dispositivo USB de arranque que
+creaste en el paso anterior, reinicia tu equipo y selecciona la opción
+``Probar Linux'' en el menú de arranque. Esto cargará Linux desde el
+dispositivo USB y podrás experimentar su funcionalidad y
+características. ¡Es como hacer una prueba de manejo antes de decidirte!
+
+Si te sientes cómodo y deseas instalar Linux de forma permanente en tu
+equipo, también tienes esa opción. Reinicia tu equipo con el dispositivo
+USB de arranque insertado y elige la opción \textbf{``Instalar Linux''}
+en el menú de arranque. Esto iniciará el asistente de instalación, donde
+podrás seguir los pasos sencillos para instalar Linux en tu disco duro.
+Recuerda que durante este proceso, se te pedirá que tomes decisiones,
+como la partición del disco y la configuración de usuario. ¡Pero no te
+preocupes, estaré aquí para guiarte!
+
+Una tercera opción, si no deseas hacer cambios en tu disco duro
+principal, es utilizar una \textbf{máquina virtual.} Una máquina virtual
+es un entorno virtualizado en tu sistema operativo actual donde puedes
+ejecutar Linux como si fuera un programa. Existen varias aplicaciones de
+máquina virtual disponibles, como VirtualBox o VMware Player.
+Simplemente descarga e instala una de estas aplicaciones, crea una nueva
+máquina virtual, selecciona la imagen ISO de Linux y ¡voilà!, tendrás
+Linux funcionando dentro de tu sistema operativo actual.
+
+¡Ya casi estás allí, valiente explorador! Estas son las opciones
+principales para probar o instalar Linux en tu equipo. Elige la que
+mejor se adapte a tus necesidades y nivel de comodidad. ¡No te
+preocupes, cualquier opción que elijas, te espera un emocionante viaje
+hacia el mundo de Linux!
+
+\section{Publicaciones Similares}\label{publicaciones-similares}
+
+Si te interesó este artículo, te recomendamos que explores otros blogs y
+recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo
+algunas sugerencias:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2017-05-21-comandos-de-informacion-windows/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2017-05-21-comandos-de-informacion-windows}{Comandos
+  De Informacion Windows}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2019-06-19-adb/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2019-06-19-adb}{Adb}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc}{Limpieza
+  Y Optimizacion De Pc}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2021-10-21-usando-apk-en-windown-11}{Usando
+  Apk En Windown 11}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu}{Gestionar
+  Versiones De Jdk En Kubuntu}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-07-21-instalar-tor-browser/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-07-21-instalar-tor-browser}{Instalar
+  Tor Browser}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux}{Crear
+  Enlaces Duros O Hard Link En Linux}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-09-27-comandos-vim/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-09-27-comandos-vim}{Comandos
+  Vim}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-02-16-guia-de-git-y-github/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-02-16-guia-de-git-y-github}{Guia
+  De Git Y Github}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-05-02-00-primeros-pasos-en-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-05-02-00-primeros-pasos-en-linux}{00
+  Primeros Pasos En Linux}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-17-01-introduccion-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-17-01-introduccion-linux}{01
+  Introduccion Linux}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-18-02-distribuciones-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-18-02-distribuciones-linux}{02
+  Distribuciones Linux}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-19-03-instalacion-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-19-03-instalacion-linux}{03
+  Instalacion Linux}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-20-04-administracion-particiones-volumenes/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-20-04-administracion-particiones-volumenes}{04
+  Administracion Particiones Volumenes}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim}{Atajos
+  De Teclado Y Comandos Para Usar Vim}
+\item
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2024-07-15-instalando-specitify/index.pdf}{\faIcon{file-pdf}}
+  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2024-07-15-instalando-specitify}{Instalando
+  Specitify}
+\end{enumerate}
+
+Esperamos que encuentres estas publicaciones igualmente interesantes y
+útiles. ¡Disfruta de la lectura!
+
+
+
+
+
+
+\end{document}

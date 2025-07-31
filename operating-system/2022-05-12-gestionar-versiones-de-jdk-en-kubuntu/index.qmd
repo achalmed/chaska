@@ -1,0 +1,212 @@
+---
+# documentmode: jou  # Modo de documento: Can be jou (journal), man (manuscript), stu (student), or doc (document)
+    # - man (Manuscrito): Similar al formato .docx
+    # - jou (Revista): Un formato pulido de dos columnas similar a muchas revistas APA.
+    # - doc (Documento): Similar al predeterminado LaTex artículos.
+    # - stu (Estudiante): Formateado para trabajos de estudiantes
+# MODO ESTUDIANTE (STU)
+# course: Metodología (EDUC 5101)
+# professor: Dr. Edison Achalma Mendoza
+# duedate: 01/23/2022
+# MODO REVISTA (JOU)
+# journal: The American Economic Review # Econometrica, The American Economic Review, Revista de Economía, Revista de la CEPAL
+# volume: 2025, Vol. 131, No. 2, 10--60
+copyrightnotice: 2022
+copyrightext: All rights reserved
+# image: featured.png
+title: Guía de Git Cómo trabajar en equipo en proyectos
+subtitle: Aprende a usar Git para controlar versiones, colaborar con otros desarrolladores y mantener tu código organizado.
+shorttitle: "Editar"
+abstract: |
+  Primer parrafo de abstrac
+keywords: [keyword1, keyword2]
+categories:
+  - Operating System
+  - GitHub
+tags:
+  - Git
+  - GitHub
+  - Colaboración
+  - DesarrolloDeSoftware
+  - GitBasics
+  - GitAdvanced
+  - GitTips
+  - OpenSource
+
+# Nota del Autor
+author-note:
+  status-changes: 
+    # Ejemplo: [Nombre del autor] está ahora en [afiliación].
+    affiliation-change: ~
+    # Ejemplo: [Nombre del autor] ha fallecido.
+    deceased: ~
+  # Las divulgaciones se condensan en un párrafo, pero puede iniciar un campo con dos saltos de línea para separarlas: \n\nNew 
+  disclosures:
+    # Ejemplo: Este estudio se registró en X (Identificador Y).
+    study-registration: ~
+    # Reconozca y cite los datos/materiales que se van a compartir.
+    data-sharing: ~
+    # Ejemplo: Este artículo se basa en datos publicados en [Referencia].
+    # Ejemplo: Este artículo se basa en la disertación realizada por [cita].
+    related-report: ~
+    # Ejemplo: [Nombre del autor] ha sido consultor remunerado de la Corporación X, que ha financiado este estudio.
+    conflict-of-interest: El autor no tiene conflictos de interés que revelar.
+    # Ejemplo: Este estudio ha contado con el apoyo de la subvención [Número de subvención] de [Fuente de financiación].
+    financial-support: ~
+    # Ejemplo: Los autores agradecen a [Persona] por [Motivo].
+    gratitude: ~
+    # Ejemplo. Dado que los autores contribuyen por igual, el orden de autoría se determinó mediante el lanzamiento de una moneda al aire.
+    authorship-agreements: ~
+
+description: '' # Texto que se muestra debajo de las etiquetas, no en la página del listado
+# links:
+# - icon: pin-map-fill
+#   name: Collection of maps
+#   url: /project/2024-06-16-ccd-sips #./../talk/2021-03-16-xaringan-deploy-demo/
+# - icon: github
+#   icon_pack: fab
+#   name: R-Ladies template files
+#   url: https://github.com/spcanelon/RLadies-xaringan-template
+eval: false # true(predeterminado): evaluar celda de código, false: no evaluar la celda de código
+# Google Scholar
+# bibliography: mybibliography.bib
+citation:
+  type: article-journal
+  author:
+    - Edison Achalma
+  pdf-url: https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-02-16-guia-de-git-y-github/index.pdf
+date: "05/12/2022"
+draft: false  # Modo de borrador (false = final, true = borrador)
+---
+
+  
+Gestionar varias versiones de JDK en Kubuntu (o cualquier distribución basada en Ubuntu) puede hacerse de varias maneras, aquí te describo algunas de las más comunes:
+
+
+1. Usando update-alternatives para gestionar versiones JDK:
+
+- Listar versiones instaladas:
+
+    
+    ```bash
+    sudo update-alternatives --config java
+    ```
+    
+    Esto te mostrará las versiones de Java disponibles y te permitirá elegir una como predeterminada.
+    
+- Instalar una nueva versión de JDK:
+    
+    - Puedes instalar diferentes versiones de OpenJDK usando apt:
+        
+        
+        ```bash
+        sudo apt update
+        sudo apt install openjdk-8-jdk openjdk-11-jdk openjdk-17-jdk  # O cualquier otra versión que desees
+        ```
+        
+    - Para Oracle JDK, generalmente necesitas añadir un PPA o descargarlo manualmente debido a las licencias:
+        
+        ```bash
+        sudo add-apt-repository ppa:linuxuprising/java
+        sudo apt update
+        sudo apt install oracle-java11-installer  # Asegúrate de reemplazar 11 con la versión que quieras
+        ```
+        
+- Configurar la versión predeterminada: Después de instalar, usa update-alternatives para elegir la versión predeterminada:
+    
+    ```bash
+    sudo update-alternatives --config java
+    sudo update-alternatives --config javac
+    ```
+    
+
+  
+
+1. Usando SDKMAN! para gestionar múltiples JDKs:
+
+- Instalar SDKMAN!:
+    
+    ```bash
+    curl -s "https://get.sdkman.io" | bash
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+    ```
+    
+- Listar versiones disponibles de JDK:
+    
+    
+    ```bash
+    sdk list java
+    ```
+    
+- Instalar una versión específica:
+    
+    
+    ```bash
+    sdk install java <version-id>
+    ```
+    
+    Donde <version-id> es el identificador de la versión que deseas instalar, como 8.0.265-zulu, 17.0.1-tem, etc.
+    
+- Cambiar entre versiones:
+    
+    
+    ```bash
+    sdk use java <version-id>
+    ```
+    
+- Establecer una versión como predeterminada:
+    
+    
+    ```bash
+    sdk default java <version-id>
+    ```
+    
+- Eliminar una versión:
+    
+    
+    ```bash
+    sdk uninstall java <version-id>
+    ```
+    
+- Actualizar una versión: SDKMAN! puede manejar actualizaciones automáticamente, pero para actualizar manualmente:
+
+    
+    ```bash
+    sdk upgrade java
+    ```
+    
+
+  
+
+1. Eliminar versiones de JDK:
+
+- Eliminar con apt:
+    
+    
+    ```bash
+    sudo apt remove openjdk-8-jdk  # Reemplaza 8 con la versión que quieras eliminar
+    ```
+    
+- Eliminar con SDKMAN!: Usa el comando mencionado anteriormente para desinstalar versiones.
+    
+
+  
+
+Consideraciones:
+
+- JAVA_HOME: Después de cambiar la versión de Java, asegúrate de actualizar la variable de entorno JAVA_HOME o usa SDKMAN! que puede manejar esto automáticamente.
+    
+- Compatibilidad de aplicaciones: Algunas aplicaciones pueden requerir una versión específica de Java. Asegúrate de probar después de cambiar la versión predeterminada.
+    
+- Actualizaciones de seguridad: Mantén tus JDKs actualizados para aplicaciones críticas debido a las actualizaciones de seguridad.
+    
+
+  
+
+Estas herramientas y comandos te permitirán gestionar tus versiones de JDK en Kubuntu de manera eficiente, aunque para tareas más complejas o si tienes muchas versiones, SDKMAN! puede ser tu mejor aliado.
+
+{{< include ../../_contenido-inicio.qmd >}}
+
+{{< include ../_contenido_operating-system.qmd >}}
+
+{{< include ../../_contenido-final.qmd >}}
