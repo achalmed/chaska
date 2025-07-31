@@ -3714,6 +3714,18 @@ Achalma, Edison. 2023. <span>“Distribuciones de GNU/Linux,”</span> June.
   <pubDate>Sun, 18 Jun 2023 05:00:00 GMT</pubDate>
 </item>
 <item>
+  <title></title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2023-06-17-01-introduccion-linux/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>Operating System</category>
+  <category>Tecnología</category>
+  <category>Sistemas Operativos</category>
+  <category>Linux</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2023-06-17-01-introduccion-linux/</guid>
+  <pubDate>Sat, 17 Jun 2023 05:00:00 GMT</pubDate>
+</item>
+<item>
   <title>Linux Primeros Pasos</title>
   <dc:creator>Edison Achalma</dc:creator>
   <link>https://achalmaedison.netlify.app/operating-system/2023-05-02-00-primeros-pasos-en-linux/</link>
@@ -5949,220 +5961,40 @@ proyectos,”</span> August. <a href="https://achalmaedison.netlify.app/operatin
   <pubDate>Tue, 17 Aug 2021 05:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>Guía de Git Cómo trabajar en equipo en proyectos</title>
+  <title></title>
   <dc:creator>Edison Achalma</dc:creator>
-  <link>https://achalmaedison.netlify.app/operating-system/2019-06-19-adb/</link>
-  <description><![CDATA[ 
-
-<style>
-:root {
---primary-color: ;
-}
-#title-block-header {
-width: 100%;
-overflow: hidden;
-position: relative;
-}
-.title-block-content {
-position: relative;
-padding-top: 60px;
-
-padding-bottom: 60px;
-
-max-width: 752px;
-margin: 0 auto;
-z-index: 1;
-}
-#particles-js {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-z-index: 0;
-}
-.bg-image {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-object-fit: cover;
-z-index: 0;
-}
-</style>
-
-
-
-
-<section id="comandos-adb-para-conectar-y-instalar-en-windows" class="level1">
-<h1>Comandos ADB para Conectar y Instalar en Windows</h1>
-<section id="versión-de-microsoft-windows-10.0.22000.282" class="level2">
-<h2 class="anchored" data-anchor-id="versión-de-microsoft-windows-10.0.22000.282">Versión de Microsoft Windows: 10.0.22000.282</h2>
-<ol start="3" type="a">
-<li>Microsoft Corporation. Todos los derechos reservados.</li>
-</ol>
-</section>
-<section id="cambio-de-directorio-a-la-ubicación-de-adb" class="level2">
-<h2 class="anchored" data-anchor-id="cambio-de-directorio-a-la-ubicación-de-adb">Cambio de directorio a la ubicación de <code>ADB</code></h2>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">C:\Users\achalmaedison</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span>cd <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"C:\Users\achalmaedison\Downloads\ADB"</span></span></code></pre></div>
-</section>
-<section id="conexión-con-adb" class="level2">
-<h2 class="anchored" data-anchor-id="conexión-con-adb">Conexión con ADB</h2>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">C:\Users\achalmaedison\Downloads\ADB</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span>adb connect 127.0.0.1:58526</span></code></pre></div>
-<p><strong>Salida esperada:</strong></p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Ya</span> conectado a 127.0.0.1:58526</span></code></pre></div>
-</section>
-<section id="instalación-de-instagram-apk" class="level2">
-<h2 class="anchored" data-anchor-id="instalación-de-instagram-apk">Instalación de Instagram APK</h2>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">C:\Users\achalmaedison\Downloads\ADB</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span>adb install Instagram.apk</span></code></pre></div>
-<p><strong>Salida esperada:</strong></p>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Realizando</span> Instalación en Streaming</span>
-<span id="cb5-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Instalación</span> Exitosa</span></code></pre></div>
-<p>Este es un ejemplo de cómo utilizar los comandos ADB en un entorno Windows.</p>
-</section>
-<section id="descarga-de-adb" class="level2">
-<h2 class="anchored" data-anchor-id="descarga-de-adb">Descarga de ADB</h2>
-<p>Puedes descargar ADB desde el siguiente enlace:</p>
-<p><a href="https://developer.android.com/studio/releases/platform-tools">Plataforma de herramientas de Android</a></p>
-</section>
-<section id="configuración" class="level2">
-<h2 class="anchored" data-anchor-id="configuración">Configuración</h2>
-<ol type="1">
-<li>Configurar el subsistema de Android.</li>
-<li>Activar el modo desarrollador.</li>
-<li>Copiar la dirección IP del dispositivo.</li>
-<li>Abrir <strong>CMD</strong> como administrador.</li>
-<li>Navegar a la carpeta <code>platform-tools</code> ubicada en <code>C:\platform-tools</code>:</li>
-</ol>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">cd</span> C:<span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">\p</span>latform-tools</span></code></pre></div>
-</section>
-<section id="comandos-para-conexión-e-instalación-de-aplicaciones" class="level2">
-<h2 class="anchored" data-anchor-id="comandos-para-conexión-e-instalación-de-aplicaciones">Comandos para conexión e instalación de aplicaciones</h2>
-<p>Conectar el dispositivo:</p>
-<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">adb</span> connect 127.0.0.1:58526</span></code></pre></div>
-<p>Instalar aplicaciones:</p>
-<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">adb</span> install gmail.apk</span></code></pre></div>
-<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">adb</span> install facebook-354-0-0-22-110.apk</span></code></pre></div>
-<p><strong>Nota:</strong> Si los comandos no funcionan, intenta reiniciar el sistema.</p>
-</section>
-<section id="ejemplo-de-salida-esperada" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplo-de-salida-esperada">Ejemplo de salida esperada</h2>
-<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Microsoft</span> Windows [Version 10.0.22000.527]</span>
-<span id="cb10-2"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">(</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">c</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">)</span> <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Microsoft</span> Corporation. All rights reserved.</span></code></pre></div>
-<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">C:\platform-tools</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span>adb connect 172.28.22.78</span>
-<span id="cb11-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">*</span> daemon not running<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">;</span> <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">starting</span> now at tcp:5037</span>
-<span id="cb11-3"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">*</span> daemon started successfully</span>
-<span id="cb11-4"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">connected</span> to 172.28.22.78:5555</span></code></pre></div>
-<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">C:\platform-tools</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span>adb install termux-app_v0.118.0+github-debug_arm64-v8a.apk</span>
-<span id="cb12-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Performing</span> Streamed Install</span>
-<span id="cb12-3"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Success</span></span></code></pre></div>
-<div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">C:\platform-tools</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span></span></code></pre></div>
-</section>
-</section>
-<section id="publicaciones-similares" class="level1">
-<h1>Publicaciones Similares</h1>
-<p>Si te interesó este artículo, te recomendamos que explores otros blogs y recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo algunas sugerencias:</p>
-<ol type="1">
-<li><a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2017-05-21-comandos-de-informacion-windows/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2017-05-21-comandos-de-informacion-windows">Comandos De Informacion Windows</a></li>
-<li><a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2019-06-19-adb/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2019-06-19-adb">Adb</a></li>
-<li><a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc">Limpieza Y Optimizacion De Pc</a></li>
-<li><a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2021-10-21-usando-apk-en-windown-11">Usando Apk En Windown 11</a></li>
-<li><a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu">Gestionar Versiones De Jdk En Kubuntu</a></li>
-<li><a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-07-21-instalar-tor-browser/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-07-21-instalar-tor-browser">Instalar Tor Browser</a></li>
-<li><a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux">Crear Enlaces Duros O Hard Link En Linux</a></li>
-<li><a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-09-27-comandos-vim/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2022-09-27-comandos-vim">Comandos Vim</a></li>
-<li><a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-02-16-guia-de-git-y-github/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-02-16-guia-de-git-y-github">Guia De Git Y Github</a></li>
-<li><a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-05-02-00-primeros-pasos-en-linux/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-05-02-00-primeros-pasos-en-linux">00 Primeros Pasos En Linux</a></li>
-<li><a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-17-01-introduccion-linux/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-17-01-introduccion-linux">01 Introduccion Linux</a></li>
-<li><a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-18-02-distribuciones-linux/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-18-02-distribuciones-linux">02 Distribuciones Linux</a></li>
-<li><a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-19-03-instalacion-linux/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-19-03-instalacion-linux">03 Instalacion Linux</a></li>
-<li><a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-20-04-administracion-particiones-volumenes/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-06-20-04-administracion-particiones-volumenes">04 Administracion Particiones Volumenes</a></li>
-<li><a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim">Atajos De Teclado Y Comandos Para Usar Vim</a></li>
-<li><a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2024-07-15-instalando-specitify/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://achalmaedison.netlify.app/tecnologia-seguridad/operating-system/2024-07-15-instalando-specitify">Instalando Specitify</a></li>
-</ol>
-<p>Esperamos que encuentres estas publicaciones igualmente interesantes y útiles. ¡Disfruta de la lectura!</p>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reutilización</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Cómo citar</h2><div><div class="quarto-appendix-secondary-label">Por favor, cita este trabajo como:</div><div id="ref-achalma2019" class="csl-entry quarto-appendix-citeas">
-Achalma, Edison. 2019. <span>“Guía de Git Cómo trabajar en equipo en
-proyectos,”</span> June. <a href="https://achalmaedison.netlify.app/operating-system/2019-06-19-adb/">https://achalmaedison.netlify.app/operating-system/2019-06-19-adb/</a>.
-</div></div></section></div> ]]></description>
-  <category>Operating System</category>
-  <category>GitHub</category>
-  <guid>https://achalmaedison.netlify.app/operating-system/2019-06-19-adb/</guid>
-  <pubDate>Wed, 19 Jun 2019 05:00:00 GMT</pubDate>
+  <link>https://achalmaedison.netlify.app/i3wm/2020-02-23-solucion-de-problemas-comunes-en-i3wm/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>Iwm</category>
+  <category>Blogdown</category>
+  <category>Desarrollo Web</category>
+  <category>Herramientas para R</category>
+  <guid>https://achalmaedison.netlify.app/i3wm/2020-02-23-solucion-de-problemas-comunes-en-i3wm/</guid>
+  <pubDate>Sun, 23 Feb 2020 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title></title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/i3wm/2020-02-22-casos-de-uso-avanzados-de-i3wm/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>Iwm</category>
+  <category>Blogdown</category>
+  <category>Desarrollo Web</category>
+  <category>Herramientas para R</category>
+  <guid>https://achalmaedison.netlify.app/i3wm/2020-02-22-casos-de-uso-avanzados-de-i3wm/</guid>
+  <pubDate>Sat, 22 Feb 2020 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title></title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/i3wm/2020-02-21-integracion-de-i3wm-en-tu-entorno-de-trabajo/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>Iwm</category>
+  <category>Blogdown</category>
+  <category>Desarrollo Web</category>
+  <category>Herramientas para R</category>
+  <guid>https://achalmaedison.netlify.app/i3wm/2020-02-21-integracion-de-i3wm-en-tu-entorno-de-trabajo/</guid>
+  <pubDate>Fri, 21 Feb 2020 05:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
