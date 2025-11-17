@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Edison Achalma B.Sc. Econ.</title>
+<link>https://achalmaedison.netlify.app/</link>
+<atom:link href="https://achalmaedison.netlify.app/index.xml" rel="self" type="application/rss+xml"/>
+<description>Este es mi blog donde practico compartir mi curiosidad.&lt;br&gt;
+Incluye notas y tutoriales para mi futuro y espero que también para ti.&lt;br&gt;&lt;br&gt;
+{{&lt; fa envelope &gt;}} Sign up for my [newsletter](/contact.html#buttondown) to receive updates about new posts.
+</description>
+<generator>quarto-1.7.32</generator>
+<lastBuildDate>Thu, 10 Jul 2025 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>{B4F502887207:/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/</link>
+  <description>{B4F502887207:/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html}</description>
+  <category>Operating System</category>
+  <category>Informática</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/</guid>
+  <pubDate>Thu, 10 Jul 2025 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload/</link>
+  <description>{B4F502887207:/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload/index.html}</description>
+  <category>Operating System</category>
+  <category>GitHub</category>
+  <guid>https://achalmaedison.netlify.app/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload/</guid>
+  <pubDate>Tue, 03 Sep 2024 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/operating-system/2024-07-15-instalando-specitify/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2024-07-15-instalando-specitify/</link>
+  <description>{B4F502887207:/operating-system/2024-07-15-instalando-specitify/index.html}</description>
+  <category>Operating System</category>
+  <category>GitHub</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2024-07-15-instalando-specitify/</guid>
+  <pubDate>Mon, 15 Jul 2024 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/</link>
+  <description>{B4F502887207:/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.html}</description>
+  <category>Operating System</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/</guid>
+  <pubDate>Sat, 01 Jul 2023 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/operating-system/2023-06-20-04-administracion-particiones-volumenes/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2023-06-20-04-administracion-particiones-volumenes/</link>
+  <description>{B4F502887207:/operating-system/2023-06-20-04-administracion-particiones-volumenes/index.html}</description>
+  <category>Operating System</category>
+  <category>Tecnología</category>
+  <category>Sistemas Operativos</category>
+  <category>Linux</category>
+  <category>Administración del Sistema</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2023-06-20-04-administracion-particiones-volumenes/</guid>
+  <pubDate>Tue, 20 Jun 2023 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/operating-system/2023-06-19-03-instalacion-linux/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2023-06-19-03-instalacion-linux/</link>
+  <description>{B4F502887207:/operating-system/2023-06-19-03-instalacion-linux/index.html}</description>
+  <category>Operating System</category>
+  <category>Tecnología</category>
+  <category>Sistemas Operativos</category>
+  <category>Linux</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2023-06-19-03-instalacion-linux/</guid>
+  <pubDate>Mon, 19 Jun 2023 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/operating-system/2023-06-18-02-distribuciones-linux/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2023-06-18-02-distribuciones-linux/</link>
+  <description>{B4F502887207:/operating-system/2023-06-18-02-distribuciones-linux/index.html}</description>
+  <category>Operating System</category>
+  <category>Tecnología</category>
+  <category>Sistemas Operativos</category>
+  <category>Linux</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2023-06-18-02-distribuciones-linux/</guid>
+  <pubDate>Sun, 18 Jun 2023 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/operating-system/2023-05-02-00-primeros-pasos-en-linux/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2023-05-02-00-primeros-pasos-en-linux/</link>
+  <description>{B4F502887207:/operating-system/2023-05-02-00-primeros-pasos-en-linux/index.html}</description>
+  <category>Operating System</category>
+  <category>Sistemas Operativos</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2023-05-02-00-primeros-pasos-en-linux/</guid>
+  <pubDate>Tue, 02 May 2023 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/operating-system/2023-02-16-guia-de-git-y-github/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2023-02-16-guia-de-git-y-github/</link>
+  <description>{B4F502887207:/operating-system/2023-02-16-guia-de-git-y-github/index.html}</description>
+  <category>Operating System</category>
+  <category>GitHub</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2023-02-16-guia-de-git-y-github/</guid>
+  <pubDate>Thu, 16 Feb 2023 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/operating-system/2017-05-21-comandos-de-informacion-windows/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows/</link>
+  <description>{B4F502887207:/operating-system/2017-05-21-comandos-de-informacion-windows/index.html}</description>
+  <category>Operating System</category>
+  <category>GitHub</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows/</guid>
+  <pubDate>Thu, 16 Feb 2023 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/operating-system/2022-09-27-comandos-vim/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2022-09-27-comandos-vim/</link>
+  <description>{B4F502887207:/operating-system/2022-09-27-comandos-vim/index.html}</description>
+  <category>Operating System</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2022-09-27-comandos-vim/</guid>
+  <pubDate>Tue, 27 Sep 2022 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/</link>
+  <description>{B4F502887207:/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.html}</description>
+  <category>Operating System</category>
+  <category>GitHub</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/</guid>
+  <pubDate>Sun, 14 Aug 2022 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/operating-system/2022-07-21-instalar-tor-browser/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2022-07-21-instalar-tor-browser/</link>
+  <description>{B4F502887207:/operating-system/2022-07-21-instalar-tor-browser/index.html}</description>
+  <category>Operating System</category>
+  <category>GitHub</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2022-07-21-instalar-tor-browser/</guid>
+  <pubDate>Thu, 21 Jul 2022 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/</link>
+  <description>{B4F502887207:/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.html}</description>
+  <category>Operating System</category>
+  <category>GitHub</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/</guid>
+  <pubDate>Thu, 12 May 2022 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/operating-system/2021-10-21-usando-apk-en-windown-11/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/</link>
+  <description>{B4F502887207:/operating-system/2021-10-21-usando-apk-en-windown-11/index.html}</description>
+  <category>Operating System</category>
+  <category>Informática</category>
+  <category>Android</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/</guid>
+  <pubDate>Thu, 21 Oct 2021 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/</link>
+  <description>{B4F502887207:/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.html}</description>
+  <category>Operating System</category>
+  <category>GitHub</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/</guid>
+  <pubDate>Tue, 17 Aug 2021 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/operating-system/2019-06-19-adb/index.html}</title>
+  <dc:creator>Edison Achalma</dc:creator>
+  <link>https://achalmaedison.netlify.app/operating-system/2019-06-19-adb/</link>
+  <description>{B4F502887207:/operating-system/2019-06-19-adb/index.html}</description>
+  <category>Operating System</category>
+  <category>GitHub</category>
+  <guid>https://achalmaedison.netlify.app/operating-system/2019-06-19-adb/</guid>
+  <pubDate>Wed, 19 Jun 2019 05:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
