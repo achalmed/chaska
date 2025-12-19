@@ -24,14 +24,8 @@ categories:
   - Operating System
   - GitHub
 tags:
-  - Git
-  - GitHub
-  - Colaboración
-  - DesarrolloDeSoftware
-  - GitBasics
-  - GitAdvanced
-  - GitTips
-  - OpenSource
+  - operating_system
+
 
 # Nota del Autor
 author-note:
@@ -98,7 +92,8 @@ Tor es una herramienta esencial para la privacidad y el anonimato en Internet. A
 
    Sustituye `tor-browser-linux---` por el nombre exacto del archivo que descargaste.  
    ```bash
-   tar -xf tor-browser-linux---
+   tar -xf tor-browser-linux
+---
    ```
 
 4. **Entrar al directorio de Tor**  

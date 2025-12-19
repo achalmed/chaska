@@ -31,11 +31,9 @@ categories:
   - Operating System
   - Informática
 tags:
-  - Dotfiles
-  - GNU Stow
-  - Enlaces simbólicos
-  - Configuraciones personalizadas
-  - Gestión de configuraciones
+  - operating_system
+  - dotfiles
+  - gnu_stow
 
 # Nota del Autor
 author-note:

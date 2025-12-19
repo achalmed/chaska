@@ -25,10 +25,9 @@ categories:
   - Informática
   - Android
 tags:
-  - Windows11
-  - APK
-  - InstalaciónDeAplicaciones
-  - EmuladorDeAndroid
+  - operating_system
+  - windows11
+  - apk
 
 # Nota del Autor
 author-note:

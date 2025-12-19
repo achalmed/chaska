@@ -23,11 +23,8 @@ keywords: [keyword1, keyword2]
 categories:
   - Operating System
 tags:
-  - EconomíaBásica
-  - Economía
-  - Vim
-  - Productividad
-  - Comandos
+  - operating_system
+  - vim
 
 # Nota del Autor
 author-note:

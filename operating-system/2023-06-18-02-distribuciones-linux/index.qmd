@@ -26,13 +26,8 @@ categories:
   - Sistemas Operativos
   - Linux
 tags:
-  - Linux
-  - OpenSource
-  - GNU/Linux
-  - SistemasOperativos
-  - Seguridad
-  - Personalización
-  - Distribuciones
+  - operating_system
+  - linux
 
 # Nota del Autor
 author-note:

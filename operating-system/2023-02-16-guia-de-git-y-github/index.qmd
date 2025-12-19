@@ -24,14 +24,9 @@ categories:
   - Operating System
   - GitHub
 tags:
-  - Git
-  - GitHub
-  - Colaboración
-  - DesarrolloDeSoftware
-  - GitBasics
-  - GitAdvanced
-  - GitTips
-  - OpenSource
+  - operating_system
+  - git
+  - github
 
 # Nota del Autor
 author-note:

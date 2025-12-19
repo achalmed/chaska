@@ -24,10 +24,8 @@ categories:
   - Operating System
   - Sistemas Operativos
 tags:
-  - Linux
-  - Principiantes
-  - OpenSource
-  - Comandos
+  - operating_system
+  - linux
 
 # Nota del Autor
 author-note:

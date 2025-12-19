@@ -26,10 +26,7 @@ categories:
   - Desarrollo Web
   - Herramientas para R
 tags:
-  - RStudio
-  - Blogdown
-  - Comandos
-  - DesarrolloWeb
+  - i3wm
 
 # Nota del Autor
 author-note:
@@ -76,7 +73,6 @@ citation:
 date: "02/20/2020"
 draft: true  # Modo de borrador (false = final, true = borrador)
 ---
-
 
 1. Introducción a la comparativa entre i3wm y otros gestores de ventanas
 ## Importancia de elegir el gestor de ventanas adecuado

@@ -27,14 +27,8 @@ categories:
   - Linux
   - Administración del Sistema
 tags:
-  - Linux
-  - OpenSource
-  - GNU/Linux
-  - SistemasOperativos
-  - Seguridad
-  - Particiones
-  - VolúmenesLVM
-  - CifradoDeDisco
+  - operating_system
+  - linux
 
 # Nota del Autor
 author-note:

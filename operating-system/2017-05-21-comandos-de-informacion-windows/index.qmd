@@ -25,14 +25,7 @@ categories:
   - Operating System
   - GitHub
 tags:
-  - Git
-  - GitHub
-  - Colaboración
-  - DesarrolloDeSoftware
-  - GitBasics
-  - GitAdvanced
-  - GitTips
-  - OpenSource
+  - operating_system
 
 # Nota del Autor
 author-note:
@@ -79,7 +72,6 @@ citation:
 date: 02/16/2023
 draft: false
 ---
-
 
 En un mundo hiperconectado, saber gestionar tu red en Windows 11 es una habilidad esencial. ¿Alguna vez te has quedado sin internet en medio de un proyecto importante o has necesitado verificar tu conexión rápidamente? Esta guía actualizada para 2025 te enseña comandos prácticos para obtener tu IP pública, inspeccionar controladores Wi-Fi y solucionar problemas de red desde la terminal. Perfecta para usuarios técnicos, profesionales de TI o cualquiera que quiera optimizar su sistema, aquí encontrarás pasos claros, ejemplos reales y consejos avanzados.
 

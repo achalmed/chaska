@@ -24,14 +24,8 @@ categories:
   - Operating System
   - GitHub
 tags:
-  - Git
-  - GitHub
-  - Colaboración
-  - DesarrolloDeSoftware
-  - GitBasics
-  - GitAdvanced
-  - GitTips
-  - OpenSource
+  - operating_system
+
 
 # Nota del Autor
 author-note:
@@ -79,7 +73,6 @@ date: "05/12/2022"
 draft: false  # Modo de borrador (false = final, true = borrador)
 ---
 
-  
 Gestionar varias versiones de JDK en Kubuntu (o cualquier distribución basada en Ubuntu) puede hacerse de varias maneras, aquí te describo algunas de las más comunes:
 
 

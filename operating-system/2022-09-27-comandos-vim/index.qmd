@@ -23,10 +23,8 @@ keywords: [keyword1, keyword2]
 categories:
   - Operating System
 tags:
-  - Vim
-  - EditorDeTexto
-  - Comandos
-  - Programación
+  - operating_system
+  - vim
 
 # Nota del Autor
 author-note:
