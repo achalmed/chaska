@@ -6,6 +6,7 @@
   nolmodern,
   notxfonts,
   notimes,
+  12pt,
   colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{apa7}
 
 \usepackage{amsmath}
@@ -17,8 +18,6 @@
 \babelprovide[main,import]{spanish}
 
 
-\babelfont{rm}[,RawFeature={fallback=mainfontfallback}]{Latin Modern
-Roman}
 % get rid of language-specific shorthands (see #6817):
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
@@ -115,21 +114,19 @@ Roman}
 
 
 
-\usepackage{fontspec} 
+\usepackage{newtx}
 
 \defaultfontfeatures{Scale=MatchLowercase}
 \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 
-  \setmainfont[,RawFeature={fallback=mainfontfallback}]{Latin Modern
-Roman}
 
 
 
 
-\title{Editar: Editar}
+\title{Integrando i3wm en tu flujo de trabajo}
 
 
-\shorttitle{Editar}
+\shorttitle{Integrando i3wm en tu flujo de trabajo}
 
 
 \usepackage{etoolbox}
@@ -156,10 +153,6 @@ de Huamanga}}
 \date{2020-02-21}
 
 
-\abstract{Descubre cómo crear tu propio sitio web estático con Blogdown,
-una herramienta poderosa que combina R Markdown y Hugo. Aprende a usar
-comandos sencillos para personalizar, construir y alojar tu sitio web de
-manera fácil y rápida. ¡Comienza tu proyecto web hoy mismo! }
 
 \keywords{keyword1, keyword2}
 
@@ -227,14 +220,14 @@ Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@uns
   \newcommand\contentsname{Tabla de contenidos}
 \fi
 \ifdefined\listfigurename
-  \renewcommand*\listfigurename{List of Figures}
+  \renewcommand*\listfigurename{Lista de Figuras}
 \else
-  \newcommand\listfigurename{List of Figures}
+  \newcommand\listfigurename{Lista de Figuras}
 \fi
 \ifdefined\listtablename
-  \renewcommand*\listtablename{List of Tables}
+  \renewcommand*\listtablename{Lista de Tablas}
 \else
-  \newcommand\listtablename{List of Tables}
+  \newcommand\listtablename{Lista de Tablas}
 \fi
 \ifdefined\figurename
   \renewcommand*\figurename{Figura}
@@ -251,7 +244,7 @@ Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@uns
 \floatstyle{ruled}
 \@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
 \floatname{codelisting}{Listing}
-\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\newcommand*\listoflistings{\listof{codelisting}{Lista de Listings}}
 \makeatother
 \makeatletter
 \makeatother
@@ -297,14 +290,17 @@ Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@uns
 
 \maketitle
 
+
 \hypertarget{toc}{}
 \tableofcontents
 \newpage
-\section[Introduction]{Editar}
+\section[Introduction]{Integrando i3wm en tu flujo de trabajo}
 
-\setcounter{secnumdepth}{5}
+\setcounter{secnumdepth}{3}
 
 \setlength\LTleft{0pt}
+
+
 
 
 \begin{enumerate}
@@ -360,44 +356,44 @@ algunas sugerencias:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-15-introduccion-a-i3wm/index.pdf}{\faIcon{file-pdf}}
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-15-introduccion-a-i3wm}{Introduccion
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-15-introduccion-a-i3wm/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-15-introduccion-a-i3wm}{Introduccion
   A I3wm}
 \item
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-16-guia-de-instalacion-y-configuracion-de-i3wm/index.pdf}{\faIcon{file-pdf}}
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-16-guia-de-instalacion-y-configuracion-de-i3wm}{Guia
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-16-guia-de-instalacion-y-configuracion-de-i3wm/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-16-guia-de-instalacion-y-configuracion-de-i3wm}{Guia
   De Instalacion Y Configuracion De I3wm}
 \item
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-17-atajos-de-teclado-y-comandos-esenciales-de-i3wm/index.pdf}{\faIcon{file-pdf}}
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-17-atajos-de-teclado-y-comandos-esenciales-de-i3wm}{Atajos
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-17-atajos-de-teclado-y-comandos-esenciales-de-i3wm/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-17-atajos-de-teclado-y-comandos-esenciales-de-i3wm}{Atajos
   De Teclado Y Comandos Esenciales De I3wm}
 \item
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-18-personalizando-de-i3wm/index.pdf}{\faIcon{file-pdf}}
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-18-personalizando-de-i3wm}{Personalizando
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-18-personalizando-de-i3wm/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-18-personalizando-de-i3wm}{Personalizando
   De I3wm}
 \item
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-18-trabajando-con-ventanas-en-i3wm/index.pdf}{\faIcon{file-pdf}}
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-18-trabajando-con-ventanas-en-i3wm}{Trabajando
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-18-trabajando-con-ventanas-en-i3wm/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-18-trabajando-con-ventanas-en-i3wm}{Trabajando
   Con Ventanas En I3wm}
 \item
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-19-aumenta-tu-productividad-con-i3wm/index.pdf}{\faIcon{file-pdf}}
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-19-aumenta-tu-productividad-con-i3wm}{Aumenta
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-19-aumenta-tu-productividad-con-i3wm/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-19-aumenta-tu-productividad-con-i3wm}{Aumenta
   Tu Productividad Con I3wm}
 \item
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-20-i3wm-vs-otros-gestores-de-ventanas/index.pdf}{\faIcon{file-pdf}}
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-20-i3wm-vs-otros-gestores-de-ventanas}{I3wm
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-20-i3wm-vs-otros-gestores-de-ventanas/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-20-i3wm-vs-otros-gestores-de-ventanas}{I3wm
   Vs Otros Gestores De Ventanas}
 \item
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-21-integracion-de-i3wm-en-tu-entorno-de-trabajo/index.pdf}{\faIcon{file-pdf}}
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-21-integracion-de-i3wm-en-tu-entorno-de-trabajo}{Integracion
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-21-integracion-de-i3wm-en-tu-entorno-de-trabajo/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-21-integracion-de-i3wm-en-tu-entorno-de-trabajo}{Integracion
   De I3wm En Tu Entorno De Trabajo}
 \item
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-22-casos-de-uso-avanzados-de-i3wm/index.pdf}{\faIcon{file-pdf}}
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-22-casos-de-uso-avanzados-de-i3wm}{Casos
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-22-casos-de-uso-avanzados-de-i3wm/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-22-casos-de-uso-avanzados-de-i3wm}{Casos
   De Uso Avanzados De I3wm}
 \item
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-23-solucion-de-problemas-comunes-en-i3wm/index.pdf}{\faIcon{file-pdf}}
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/i3wm/2020-02-23-solucion-de-problemas-comunes-en-i3wm}{Solucion
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-23-solucion-de-problemas-comunes-en-i3wm/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/i3wm/2020-02-23-solucion-de-problemas-comunes-en-i3wm}{Solucion
   De Problemas Comunes En I3wm}
 \end{enumerate}
 

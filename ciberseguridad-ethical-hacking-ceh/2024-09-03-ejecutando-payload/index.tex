@@ -6,6 +6,7 @@
   nolmodern,
   notxfonts,
   notimes,
+  12pt,
   colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{apa7}
 
 \usepackage{amsmath}
@@ -17,8 +18,6 @@
 \babelprovide[main,import]{spanish}
 
 
-\babelfont{rm}[,RawFeature={fallback=mainfontfallback}]{Latin Modern
-Roman}
 % get rid of language-specific shorthands (see #6817):
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
@@ -155,23 +154,19 @@ Roman}
 
 
 
-\usepackage{fontspec} 
+\usepackage{newtx}
 
 \defaultfontfeatures{Scale=MatchLowercase}
 \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 
-  \setmainfont[,RawFeature={fallback=mainfontfallback}]{Latin Modern
-Roman}
 
 
 
 
-\title{Guía de Git Cómo trabajar en equipo en proyectos: Aprende a usar
-Git para controlar versiones, colaborar con otros desarrolladores y
-mantener tu código organizado.}
+\title{Ejecutando payloads en ethical hacking}
 
 
-\shorttitle{Editar}
+\shorttitle{Ejecutando payloads en ethical hacking}
 
 
 \usepackage{etoolbox}
@@ -198,7 +193,8 @@ de Huamanga}}
 \date{2024-09-03}
 
 
-\abstract{Primer parrafo de abstrac }
+\abstract{Este abstract será actualizado una vez que se complete el
+contenido final del artículo. }
 
 \keywords{keyword1, keyword2}
 
@@ -266,14 +262,14 @@ Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@uns
   \newcommand\contentsname{Tabla de contenidos}
 \fi
 \ifdefined\listfigurename
-  \renewcommand*\listfigurename{List of Figures}
+  \renewcommand*\listfigurename{Lista de Figuras}
 \else
-  \newcommand\listfigurename{List of Figures}
+  \newcommand\listfigurename{Lista de Figuras}
 \fi
 \ifdefined\listtablename
-  \renewcommand*\listtablename{List of Tables}
+  \renewcommand*\listtablename{Lista de Tablas}
 \else
-  \newcommand\listtablename{List of Tables}
+  \newcommand\listtablename{Lista de Tablas}
 \fi
 \ifdefined\figurename
   \renewcommand*\figurename{Figura}
@@ -290,7 +286,7 @@ Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@uns
 \floatstyle{ruled}
 \@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
 \floatname{codelisting}{Listing}
-\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\newcommand*\listoflistings{\listof{codelisting}{Lista de Listings}}
 \makeatother
 \makeatletter
 \makeatother
@@ -336,14 +332,17 @@ Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@uns
 
 \maketitle
 
+
 \hypertarget{toc}{}
 \tableofcontents
 \newpage
-\section[Introduction]{Guía de Git Cómo trabajar en equipo en proyectos}
+\section[Introduction]{Ejecutando payloads en ethical hacking}
 
-\setcounter{secnumdepth}{5}
+\setcounter{secnumdepth}{3}
 
 \setlength\LTleft{0pt}
+
+
 
 
 \section{Creando y Ejecutando un Payload Malicioso con Metasploit: Una
@@ -509,8 +508,8 @@ algunas sugerencias:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload/index.pdf}{\faIcon{file-pdf}}
-  \href{https://achalmaedison.netlify.app/tecnologia-seguridad/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload}{Ejecutando
+  \href{https://chaska-x.netlify.app/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload}{Ejecutando
   Payload}
 \end{enumerate}
 
