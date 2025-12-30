@@ -9429,7 +9429,7 @@ src: url(data:font/ttf;base64,AAEAAAAQAQAABAAAR0RFRkZlQIQAAASkAAAD7kdQT1O7qqlVAA
         <div>
         <div class="quarto-title-meta-heading">Fecha de última modificación</div>
         <div class="quarto-title-meta-contents">
-          <p class="date-modified">22 de diciembre de 2025</p>
+          <p class="date-modified">30 de diciembre de 2025</p>
         </div>
       </div>
         
@@ -9473,9 +9473,22 @@ function hexToRgb(e){var a=/^#?([a-f\d])([a-f\d])([a-f\d])$/i;e=e.replace(a,func
     <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
    
   <ul>
-  <li><a href="#guía-esencial-de-git-y-github" id="toc-guía-esencial-de-git-y-github" class="nav-link active" data-scroll-target="#guía-esencial-de-git-y-github">Guía esencial de Git y GitHub</a></li>
-  <li><a href="#guardar-temporalmente-un-trabajo-no-terminado" id="toc-guardar-temporalmente-un-trabajo-no-terminado" class="nav-link" data-scroll-target="#guardar-temporalmente-un-trabajo-no-terminado">Guardar temporalmente un trabajo no terminado</a></li>
-  <li><a href="#comparar-archivos-o-ramas" id="toc-comparar-archivos-o-ramas" class="nav-link" data-scroll-target="#comparar-archivos-o-ramas">Comparar archivos o ramas</a></li>
+  <li><a href="#instalación-y-configuración" id="toc-instalación-y-configuración" class="nav-link active" data-scroll-target="#instalación-y-configuración">Instalación y Configuración</a></li>
+  <li><a href="#conceptos-fundamentales" id="toc-conceptos-fundamentales" class="nav-link" data-scroll-target="#conceptos-fundamentales">Conceptos Fundamentales</a></li>
+  <li><a href="#comandos-básicos" id="toc-comandos-básicos" class="nav-link" data-scroll-target="#comandos-básicos">Comandos Básicos</a></li>
+  <li><a href="#branching-y-merging" id="toc-branching-y-merging" class="nav-link" data-scroll-target="#branching-y-merging">Branching y Merging</a></li>
+  <li><a href="#trabajo-remoto" id="toc-trabajo-remoto" class="nav-link" data-scroll-target="#trabajo-remoto">Trabajo Remoto</a></li>
+  <li><a href="#comandos-avanzados" id="toc-comandos-avanzados" class="nav-link" data-scroll-target="#comandos-avanzados">Comandos Avanzados</a></li>
+  <li><a href="#resolución-de-conflictos" id="toc-resolución-de-conflictos" class="nav-link" data-scroll-target="#resolución-de-conflictos">Resolución de Conflictos</a></li>
+  <li><a href="#git-workflows" id="toc-git-workflows" class="nav-link" data-scroll-target="#git-workflows">Git Workflows</a></li>
+  <li><a href="#ejemplos-de-uso-diario-de-git" id="toc-ejemplos-de-uso-diario-de-git" class="nav-link" data-scroll-target="#ejemplos-de-uso-diario-de-git">Ejemplos de uso diario de Git</a></li>
+  <li><a href="#mejores-prácticas" id="toc-mejores-prácticas" class="nav-link" data-scroll-target="#mejores-prácticas">Mejores Prácticas</a></li>
+  <li><a href="#comandos-de-bajo-nivel-plumbing" id="toc-comandos-de-bajo-nivel-plumbing" class="nav-link" data-scroll-target="#comandos-de-bajo-nivel-plumbing">Comandos de Bajo Nivel (Plumbing)</a></li>
+  <li><a href="#hooks-y-automatización" id="toc-hooks-y-automatización" class="nav-link" data-scroll-target="#hooks-y-automatización">Hooks y Automatización</a></li>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a></li>
+  <li><a href="#referencia-rápida" id="toc-referencia-rápida" class="nav-link" data-scroll-target="#referencia-rápida">Referencia Rápida</a></li>
+  <li><a href="#recursos-adicionales" id="toc-recursos-adicionales" class="nav-link" data-scroll-target="#recursos-adicionales">Recursos Adicionales</a></li>
+  <li><a href="#glosario" id="toc-glosario" class="nav-link" data-scroll-target="#glosario">Glosario</a></li>
   <li><a href="#conclusión" id="toc-conclusión" class="nav-link" data-scroll-target="#conclusión">Conclusión</a></li>
   <li><a href="#publicaciones-similares" id="toc-publicaciones-similares" class="nav-link" data-scroll-target="#publicaciones-similares">Publicaciones Similares</a></li>
   </ul>
@@ -9529,53 +9542,32 @@ z-index: 0;
 
 
 
-<section id="guía-esencial-de-git-y-github" class="level1">
-<h1>Guía esencial de Git y GitHub</h1>
-<p>Esta guía te introduce a los fundamentos de Git y GitHub, desde la instalación hasta la gestión avanzada de proyectos. Ideal tanto para principiantes como para quienes buscan perfeccionar sus habilidades en control de versiones.</p>
-<p>Git es un sistema de control de versiones (SCV) esencial para rastrear cambios en el código, colaborar en equipo y experimentar con nuevas ideas mediante ramas. Plataformas como GitHub potencian esta colaboración al hospedar repositorios y facilitar el intercambio de código.</p>
-<section id="cómo-funciona-git" class="level2">
-<h2 class="anchored" data-anchor-id="cómo-funciona-git">¿Cómo funciona Git?</h2>
-<p>Git organiza los proyectos en tres áreas principales: - <strong>Directorio de trabajo</strong>: Donde editas tus archivos. - <strong>Área de preparación (staging)</strong>: Donde preparas los cambios antes de confirmarlos. - <strong>Directorio Git</strong>: Almacena las instantáneas confirmadas de tu proyecto.</p>
-<p>Disponible en Linux, Windows y macOS, Git tiene una curva de aprendizaje inicial, pero su dominio abre un mundo de posibilidades para gestionar proyectos eficientemente.</p>
+<p>Git es un sistema de control de versiones distribuido rápido, escalable y eficiente. Fue creado por Linus Torvalds en 2005 para el desarrollo del kernel de Linux.</p>
+<p><strong>Características principales:</strong> - Sistema distribuido (cada desarrollador tiene una copia completa del historial) - Extremadamente rápido - Soporte robusto para desarrollo no lineal (branching y merging) - Integridad de datos garantizada mediante SHA-1</p>
+<section id="arquitectura-de-git" class="level2">
+<h2 class="anchored" data-anchor-id="arquitectura-de-git">Arquitectura de Git</h2>
+<p>Git almacena los datos como instantáneas (snapshots) del proyecto completo, no como diferencias entre archivos. Cada commit es una instantánea completa del estado del proyecto.</p>
+<p><strong>Tres áreas principales:</strong> 1. <strong>Working Directory</strong>: Tu directorio de trabajo actual 2. <strong>Staging Area (Index)</strong>: Área de preparación para el próximo commit 3. <strong>Repository (.git directory)</strong>: Base de datos de objetos y metadata</p>
 </section>
-<section id="comandos-básicos-de-git" class="level2">
-<h2 class="anchored" data-anchor-id="comandos-básicos-de-git">Comandos básicos de Git</h2>
-<p>Aquí tienes los comandos fundamentales:</p>
-<ol type="1">
-<li><code>echo &quot;# Léeme&quot; &gt;&gt; README.md</code>: Crea un archivo README.md con el texto “# Léeme”.</li>
-<li><code>git init</code>: Inicia un nuevo repositorio en el directorio actual.</li>
-<li><code>git add [file]</code>: Añade un archivo al área de preparación.</li>
-<li><code>git commit -m &quot;Primer commit&quot;</code>: Guarda los cambios con un mensaje descriptivo.</li>
-<li><code>git branch -M main</code>: Muestra las ramas existentes.</li>
-<li><code>git remote add origin git@github.com:achalmed/repositorio.git</code> : Vincula el repositorio local con uno remoto en GitHub.</li>
-<li><code>git push -u origin main</code>: Envía los cambios al repositorio remoto.</li>
-<li><code>git status</code>: Muestra el estado actual del repositorio.</li>
-<li><code>git log</code>: Lista el historial de commits.</li>
-<li><code>git diff</code>: Compara cambios no confirmados con el último commit.</li>
-<li><code>git checkout [branch]</code>: Cambia a una rama específica.</li>
-<li><code>git merge [branch]</code>: Fusiona una rama con la actual.</li>
-<li><code>git config --global user.name &quot;tu-nombre&quot;</code>: Configura tu nombre de usuario.</li>
-<li><code>git config --global user.email &quot;tu-email@example.com&quot;</code>: Configura tu correo.</li>
-</ol>
-</section>
-<section id="instalación-de-git-en-ubuntu" class="level2">
-<h2 class="anchored" data-anchor-id="instalación-de-git-en-ubuntu">Instalación de Git en Ubuntu</h2>
+<section id="instalación-y-configuración" class="level1">
+<h1>Instalación y Configuración</h1>
+<section id="instalación" class="level2">
+<h2 class="anchored" data-anchor-id="instalación">Instalación</h2>
 <section id="método-1-paquetes-predeterminados-rápido-y-estable" class="level3">
 <h3 class="anchored" data-anchor-id="método-1-paquetes-predeterminados-rápido-y-estable">Método 1: Paquetes predeterminados (rápido y estable)</h3>
-<ol type="1">
-<li><p>Verifica si Git está instalado:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Ejemplo de salida: <code>git version 2.34.1</code></p></li>
-<li><p>Si no está instalado, actualiza e instala con APT:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">sudo</span> apt update</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">sudo</span> apt install git</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>Configura tu identidad:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">&quot;Tu Nombre&quot;</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">&quot;tu.correo@example.com&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>Verifica la configuración:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">git</span> config <span class="at">--list</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
-</ol>
+<p><strong>Linux (Ubuntu/Debian):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">sudo</span> apt-get update</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">sudo</span> apt-get install git</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Linux (Fedora):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">sudo</span> dnf install git</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>macOS:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">brew</span> install git</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Windows:</strong> Descargar desde: https://git-scm.com/download/win</p>
 </section>
+</section>
+<section id="verificar-instalación" class="level2">
+<h2 class="anchored" data-anchor-id="verificar-instalación">Verificar Instalación</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="método-2-desde-la-fuente-versión-más-reciente" class="level3">
 <h3 class="anchored" data-anchor-id="método-2-desde-la-fuente-versión-más-reciente">Método 2: Desde la fuente (versión más reciente)</h3>
 <ol type="1">
@@ -9596,16 +9588,38 @@ z-index: 0;
 </ol>
 </section>
 </section>
+<section id="configuración-inicial" class="level2">
+<h2 class="anchored" data-anchor-id="configuración-inicial">Configuración Inicial</h2>
+<p><strong>Configurar identidad (obligatorio):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">&quot;Tu Nombre&quot;</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">&quot;tu.email@ejemplo.com&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Editor por defecto:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.editor <span class="st">&quot;vim&quot;</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">git</span> config <span class="at">--global</span> core.editor <span class="st">&quot;nano&quot;</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="fu">git</span> config <span class="at">--global</span> core.editor <span class="st">&quot;code --wait&quot;</span>  <span class="co"># VS Code</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Configurar rama principal:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch main</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Ver configuración:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">git</span> config <span class="at">--list</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">git</span> config <span class="at">--list</span> <span class="at">--show-origin</span>  <span class="co"># Ver de dónde viene cada configuración</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">git</span> config user.name             <span class="co"># Ver configuración específica</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Niveles de configuración:</strong></p>
+<ul>
+<li><code>--system</code>: Para todos los usuarios del sistema (/etc/gitconfig)</li>
+<li><code>--global</code>: Para tu usuario (~/.gitconfig)</li>
+<li><code>--local</code>: Para el repositorio actual (.git/config) [predeterminado]</li>
+</ul>
+</section>
 <section id="configuración-de-claves-ssh-para-github" class="level2">
 <h2 class="anchored" data-anchor-id="configuración-de-claves-ssh-para-github">Configuración de claves SSH para GitHub</h2>
 <section id="generar-una-clave-ssh" class="level3">
 <h3 class="anchored" data-anchor-id="generar-una-clave-ssh">Generar una clave SSH</h3>
 <ol type="1">
 <li><p>Verifica claves existentes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ls</span> <span class="at">-al</span> ~/.ssh</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ls</span> <span class="at">-al</span> ~/.ssh</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Si no hay claves, crea el directorio: <code>mkdir ~/.ssh</code>.</p></li>
 <li><p>Genera un par de claves:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa <span class="at">-b</span> 4096 <span class="at">-C</span> <span class="st">&quot;tu.email@example.com&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa <span class="at">-b</span> 4096 <span class="at">-C</span> <span class="st">&quot;tu.email@example.com&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Acepta el nombre predeterminado y añade una contraseña (opcional).</p></li>
 </ol>
 </section>
@@ -9613,9 +9627,9 @@ z-index: 0;
 <h3 class="anchored" data-anchor-id="añadir-la-clave-a-ssh-agent">Añadir la clave a ssh-agent</h3>
 <ol type="1">
 <li><p>Inicia el agente:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="bu">eval</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">ssh-agent</span> <span class="at">-s</span><span class="va">)</span><span class="st">&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">eval</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">ssh-agent</span> <span class="at">-s</span><span class="va">)</span><span class="st">&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Añade la clave privada:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ssh-add</span> ~/.ssh/id_rsa</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">ssh-add</span> ~/.ssh/id_rsa</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
 </section>
 <section id="vincular-la-clave-a-github" class="level3">
@@ -9628,157 +9642,1005 @@ z-index: 0;
 </ul></li>
 <li><p>En GitHub, ve a <em>Settings &gt; SSH and GPG keys &gt; New SSH key</em>, pega la clave y guárdala.</p></li>
 <li><p>Prueba la conexión:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Resultado esperado: <code>Hi tu_usuario! You&#39;ve successfully authenticated...</code></p></li>
 </ol>
 </section>
 </section>
-<section id="crear-un-repositorio-local" class="level2">
-<h2 class="anchored" data-anchor-id="crear-un-repositorio-local">Crear un repositorio local</h2>
+</section>
+<section id="conceptos-fundamentales" class="level1">
+<h1>Conceptos Fundamentales</h1>
+<section id="objetos-de-git" class="level2">
+<h2 class="anchored" data-anchor-id="objetos-de-git">Objetos de Git</h2>
+<p>Git maneja cuatro tipos de objetos:</p>
 <ol type="1">
-<li><p>Inicia un repositorio:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">git</span> init <span class="pp">[</span><span class="ss">nombre</span><span class="pp">-</span><span class="ss">del</span><span class="pp">-</span><span class="ss">proyecto</span><span class="pp">]</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>Añade archivos y haz un commit:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">git</span> add .</span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Primer commit&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><strong>Blob</strong>: Contenido de archivos</li>
+<li><strong>Tree</strong>: Estructura de directorios (apunta a blobs y otros trees)</li>
+<li><strong>Commit</strong>: Instantánea del proyecto (apunta a un tree y commits padres)</li>
+<li><strong>Tag</strong>: Referencia nombrada a un commit específico</li>
 </ol>
 </section>
-<section id="clonar-un-repositorio" class="level2">
-<h2 class="anchored" data-anchor-id="clonar-un-repositorio">Clonar un repositorio</h2>
-<section id="clonación-básica" class="level3">
-<h3 class="anchored" data-anchor-id="clonación-básica">Clonación básica</h3>
-<p>Clona un repositorio remoto:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">git</span> clone https://github.com/usuario/repositorio.git</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Clonación en carpeta específica</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">git</span> clone https://github.com/usuario/repositorio.git /ruta/deseada</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="referencias-simbólicas" class="level2">
+<h2 class="anchored" data-anchor-id="referencias-simbólicas">Referencias Simbólicas</h2>
+<ul>
+<li><strong>HEAD</strong>: Apunta al commit actual (normalmente la punta de una rama)</li>
+<li><strong>Rama (branch)</strong>: Puntero móvil a un commit</li>
+<li><strong>Tag</strong>: Puntero fijo a un commit</li>
+<li><strong>Remote</strong>: Referencias a ramas en repositorios remotos</li>
+</ul>
 </section>
-<section id="clonación-superficial" class="level3">
-<h3 class="anchored" data-anchor-id="clonación-superficial">Clonación superficial</h3>
+<section id="estados-de-archivos" class="level2">
+<h2 class="anchored" data-anchor-id="estados-de-archivos">Estados de Archivos</h2>
+<ol type="1">
+<li><strong>Untracked</strong>: Archivos nuevos que Git no rastrea</li>
+<li><strong>Unmodified</strong>: Archivos rastreados sin cambios</li>
+<li><strong>Modified</strong>: Archivos rastreados con cambios</li>
+<li><strong>Staged</strong>: Archivos preparados para el próximo commit</li>
+</ol>
+</section>
+<section id="sha-1-y-hashes" class="level2">
+<h2 class="anchored" data-anchor-id="sha-1-y-hashes">SHA-1 y Hashes</h2>
+<p>Cada objeto en Git tiene un identificador único de 40 caracteres hexadecimales (hash SHA-1). Puedes usar las primeras 7 caracteres para referencias cortas.</p>
+</section>
+</section>
+<section id="comandos-básicos" class="level1">
+<h1>Comandos Básicos</h1>
+<section id="crear-e-inicializar-repositorios" class="level2">
+<h2 class="anchored" data-anchor-id="crear-e-inicializar-repositorios">Crear e Inicializar Repositorios</h2>
+<p><strong>Crear nuevo repositorio:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">git</span> init</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="fu">git</span> init nombre-proyecto</span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="fu">git</span> init <span class="at">--bare</span>  <span class="co"># Repositorio sin working directory (para servidores)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Clonar repositorio existente:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>url<span class="op">&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="fu">git</span> clone https://github.com/usuario/repositorio.git</span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="fu">git</span> clone <span class="op">&lt;</span>url<span class="op">&gt;</span> <span class="op">&lt;</span>directorio-destino<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Solo las últimas n confirmaciones:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">git</span> clone <span class="at">--depth</span><span class="op">=</span>1 https://github.com/usuario/repositorio.git</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">git</span> clone <span class="at">--depth</span> 1 <span class="op">&lt;</span>url<span class="op">&gt;</span>  <span class="co"># Clone superficial (solo último commit)</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">git</span> clone <span class="at">-b</span> <span class="op">&lt;</span>rama<span class="op">&gt;</span> <span class="op">&lt;</span>url<span class="op">&gt;</span>  <span class="co"># Clonar rama específica, o,</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="fu">git</span> clone <span class="at">--branch</span><span class="op">=</span>nombre-rama <span class="op">&lt;</span>url<span class="op">&gt;</span> </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="clonar-una-rama-específica" class="level3">
-<h3 class="anchored" data-anchor-id="clonar-una-rama-específica">Clonar una rama específica</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">git</span> clone <span class="at">--branch</span><span class="op">=</span>nombre-rama https://github.com/usuario/repositorio.git</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="estado-y-diferencias" class="level2">
+<h2 class="anchored" data-anchor-id="estado-y-diferencias">Estado y Diferencias</h2>
+<p><strong>Ver estado del repositorio:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">git</span> status</span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">git</span> status <span class="at">-s</span>              <span class="co"># Formato corto</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="fu">git</span> status <span class="at">--short</span>         <span class="co"># Formato abreviado</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="fu">git</span> status <span class="at">-b</span>              <span class="co"># Mostrar rama e información de tracking</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Ver cambios:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">git</span> diff                   <span class="co"># Cambios no staged (no confirmados)</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">git</span> diff <span class="at">--staged</span>          <span class="co"># Cambios staged</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="fu">git</span> diff <span class="at">--cached</span>          <span class="co"># Sinónimo de --staged</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="fu">git</span> diff HEAD              <span class="co"># Todos los cambios desde último commit</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a><span class="fu">git</span> diff <span class="op">&lt;</span>rama1<span class="op">&gt;</span> <span class="op">&lt;</span>rama2<span class="op">&gt;</span>   <span class="co"># Diferencias entre ramas</span></span>
+<span id="cb22-6"><a href="#cb22-6"></a><span class="fu">git</span> diff <span class="op">&lt;</span>commit1<span class="op">&gt;</span> <span class="op">&lt;</span>commit2<span class="op">&gt;</span>  <span class="co"># Diferencias entre commits</span></span>
+<span id="cb22-7"><a href="#cb22-7"></a><span class="fu">git</span> diff <span class="at">--stat</span>            <span class="co"># Resumen estadístico</span></span>
+<span id="cb22-8"><a href="#cb22-8"></a><span class="fu">git</span> diff <span class="at">--name-only</span>       <span class="co"># Solo nombres de archivos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="añadir-archivos-staging" class="level2">
+<h2 class="anchored" data-anchor-id="añadir-archivos-staging">Añadir Archivos (Staging)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">git</span> add <span class="op">&lt;</span>archivo<span class="op">&gt;</span>          <span class="co"># Añadir archivo específico</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="fu">git</span> add .                  <span class="co"># Añadir todos los archivos del directorio actual</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="fu">git</span> add <span class="at">-A</span>                 <span class="co"># Añadir todos los archivos del repositorio</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="fu">git</span> add <span class="pp">*</span>.js               <span class="co"># Añadir por patrón</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a><span class="fu">git</span> add <span class="at">-p</span>                 <span class="co"># Añadir interactivamente por fragmentos</span></span>
+<span id="cb23-6"><a href="#cb23-6"></a><span class="fu">git</span> add <span class="at">-u</span>                 <span class="co"># Añadir solo archivos ya rastreados modificados</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="commits" class="level2">
+<h2 class="anchored" data-anchor-id="commits">Commits</h2>
+<p><strong>Crear commit:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Mensaje del commit&quot;</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="fu">git</span> commit <span class="at">-am</span> <span class="st">&quot;Mensaje&quot;</span>   <span class="co"># Add + commit (solo tracked files)</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="fu">git</span> commit                 <span class="co"># Abre editor para mensaje largo</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="fu">git</span> commit <span class="at">--amend</span>         <span class="co"># Modificar último commit</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a><span class="fu">git</span> commit <span class="at">--amend</span> <span class="at">-m</span> <span class="st">&quot;Nuevo mensaje&quot;</span>  <span class="co"># Cambiar mensaje del último commit</span></span>
+<span id="cb24-6"><a href="#cb24-6"></a><span class="fu">git</span> commit <span class="at">--amend</span> <span class="at">--no-edit</span>  <span class="co"># Añadir cambios sin cambiar mensaje</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Buenas prácticas para mensajes:</strong> - Primera línea: resumen conciso (50 caracteres o menos) - Línea en blanco - Descripción detallada (72 caracteres por línea) - Usar imperativo: “Añade” no “Añadido”</p>
+</section>
+<section id="historial" class="level2">
+<h2 class="anchored" data-anchor-id="historial">Historial</h2>
+<p><strong>Ver historial:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">git</span> log</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">git</span> log <span class="at">--oneline</span>          <span class="co"># Una línea por commit</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="fu">git</span> log <span class="at">--graph</span>            <span class="co"># Vista gráfica</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="fu">git</span> log <span class="at">--all</span>              <span class="co"># Todas las ramas</span></span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="fu">git</span> log <span class="at">--decorate</span>         <span class="co"># Mostrar referencias (ramas, tags)</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a><span class="fu">git</span> log <span class="at">-p</span>                 <span class="co"># Mostrar diferencias (patch)</span></span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="fu">git</span> log <span class="at">-n</span> 5               <span class="co"># Últimos 5 commits</span></span>
+<span id="cb25-8"><a href="#cb25-8"></a><span class="fu">git</span> log <span class="at">--since</span><span class="op">=</span><span class="st">&quot;2 weeks&quot;</span>  <span class="co"># Commits de las últimas 2 semanas</span></span>
+<span id="cb25-9"><a href="#cb25-9"></a><span class="fu">git</span> log <span class="at">--author</span><span class="op">=</span><span class="st">&quot;Edison&quot;</span>  <span class="co"># Commits de un autor</span></span>
+<span id="cb25-10"><a href="#cb25-10"></a><span class="fu">git</span> log <span class="at">--grep</span><span class="op">=</span><span class="st">&quot;palabra&quot;</span>   <span class="co"># Buscar en mensajes de commit</span></span>
+<span id="cb25-11"><a href="#cb25-11"></a><span class="fu">git</span> log <span class="at">--</span> archivo.txt     <span class="co"># Historial de un archivo</span></span>
+<span id="cb25-12"><a href="#cb25-12"></a><span class="fu">git</span> log <span class="at">--follow</span> archivo.txt  <span class="co"># Incluir renombrados</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Formatos personalizados:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">git</span> log <span class="at">--pretty</span><span class="op">=</span>format:<span class="st">&quot;%h - %an, %ar : %s&quot;</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="fu">git</span> log <span class="at">--pretty</span><span class="op">=</span>format:<span class="st">&quot;%h %s&quot;</span> <span class="at">--graph</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="fu">git</span> log <span class="at">--graph</span> <span class="at">--oneline</span> <span class="at">--all</span> <span class="at">--decorate</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a><span class="fu">git</span> config <span class="at">--global</span> alias.tree <span class="st">&quot;log --graph --decorate --all --oneline&quot;</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a><span class="fu">git</span> tree</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Placeholders útiles:</strong> - <code>%h</code>: Hash abreviado - <code>%H</code>: Hash completo - <code>%an</code>: Nombre del autor - <code>%ae</code>: Email del autor - <code>%ad</code>: Fecha del autor - <code>%ar</code>: Fecha relativa - <code>%s</code>: Mensaje del commit</p>
+</section>
+<section id="deshacer-cambios" class="level2">
+<h2 class="anchored" data-anchor-id="deshacer-cambios">Deshacer Cambios</h2>
+<p><strong>Descartar cambios en working directory:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">git</span> checkout <span class="at">--</span> <span class="op">&lt;</span>archivo<span class="op">&gt;</span>  <span class="co"># Método antiguo</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="fu">git</span> restore <span class="op">&lt;</span>archivo<span class="op">&gt;</span>      <span class="co"># Método moderno (Git 2.23+)</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="fu">git</span> restore .              <span class="co"># Restaurar todos los archivos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Quitar archivos del staging area:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">git</span> reset HEAD <span class="op">&lt;</span>archivo<span class="op">&gt;</span>   <span class="co"># Método antiguo</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="fu">git</span> restore <span class="at">--staged</span> <span class="op">&lt;</span>archivo<span class="op">&gt;</span>  <span class="co"># Método moderno</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="fu">git</span> reset HEAD             <span class="co"># Quitar todos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Deshacer commits:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">git</span> reset <span class="at">--soft</span> HEAD~1    <span class="co"># Mantiene cambios en staging</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="fu">git</span> reset <span class="at">--mixed</span> HEAD~1   <span class="co"># Mantiene cambios en working directory [default]</span></span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="fu">git</span> reset <span class="at">--hard</span> HEAD~1    <span class="co"># CUIDADO: Elimina todo</span></span>
+<span id="cb29-4"><a href="#cb29-4"></a><span class="fu">git</span> reset <span class="op">&lt;</span>commit<span class="op">&gt;</span>         <span class="co"># Volver a un commit específico</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Revertir commit (seguro):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">git</span> revert <span class="op">&lt;</span>commit<span class="op">&gt;</span>        <span class="co"># Crea nuevo commit que deshace cambios</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="fu">git</span> revert HEAD            <span class="co"># Revertir último commit</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="fu">git</span> revert <span class="at">--no-commit</span> HEAD~3..HEAD  <span class="co"># Revertir últimos 3 commits</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="eliminar-y-mover-archivos" class="level2">
+<h2 class="anchored" data-anchor-id="eliminar-y-mover-archivos">Eliminar y Mover Archivos</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">git</span> rm <span class="op">&lt;</span>archivo<span class="op">&gt;</span>           <span class="co"># Eliminar archivo</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="fu">git</span> rm <span class="at">--cached</span> <span class="op">&lt;</span>archivo<span class="op">&gt;</span>  <span class="co"># Quitar del tracking pero mantener en disco</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="fu">git</span> rm <span class="at">-r</span> directorio/      <span class="co"># Eliminar directorio recursivamente</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a><span class="fu">git</span> mv <span class="op">&lt;</span>origen<span class="op">&gt;</span> <span class="op">&lt;</span>destino<span class="op">&gt;</span>  <span class="co"># Renombrar/mover archivo</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="subir-un-proyecto-a-github" class="level2">
-<h2 class="anchored" data-anchor-id="subir-un-proyecto-a-github">Subir un proyecto a GitHub</h2>
+<section id="branching-y-merging" class="level1">
+<h1>Branching y Merging</h1>
+<section id="conceptos-de-ramas" class="level2">
+<h2 class="anchored" data-anchor-id="conceptos-de-ramas">Conceptos de Ramas</h2>
+<p>Una rama en Git es simplemente un puntero móvil a un commit. La rama por defecto se llama <code>main</code> (anteriormente <code>master</code>).</p>
+</section>
+<section id="operaciones-con-ramas" class="level2">
+<h2 class="anchored" data-anchor-id="operaciones-con-ramas">Operaciones con Ramas</h2>
+<p><strong>Crear ramas:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">git</span> branch <span class="op">&lt;</span>nombre-rama<span class="op">&gt;</span>   <span class="co"># Crear rama</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="fu">git</span> checkout <span class="at">-b</span> <span class="op">&lt;</span>nombre-rama<span class="op">&gt;</span>  <span class="co"># Crear y cambiar</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="fu">git</span> switch <span class="at">-c</span> <span class="op">&lt;</span>nombre-rama<span class="op">&gt;</span>    <span class="co"># Método moderno (Git 2.23+)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Listar ramas:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">git</span> branch                 <span class="co"># Ramas locales</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="fu">git</span> branch <span class="at">-a</span>              <span class="co"># Todas las ramas (locales + remotas)</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="fu">git</span> branch <span class="at">-r</span>              <span class="co"># Solo ramas remotas</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="fu">git</span> branch <span class="at">-v</span>              <span class="co"># Con último commit de cada rama</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a><span class="fu">git</span> branch <span class="at">--merged</span>        <span class="co"># Ramas fusionadas con la actual</span></span>
+<span id="cb33-6"><a href="#cb33-6"></a><span class="fu">git</span> branch <span class="at">--no-merged</span>     <span class="co"># Ramas no fusionadas</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Cambiar de rama:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">git</span> checkout <span class="op">&lt;</span>rama<span class="op">&gt;</span>        <span class="co"># Método antiguo</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="fu">git</span> switch <span class="op">&lt;</span>rama<span class="op">&gt;</span>          <span class="co"># Método moderno (Git 2.23+)</span></span>
+<span id="cb34-3"><a href="#cb34-3"></a><span class="fu">git</span> checkout <span class="at">-</span>            <span class="co"># Volver a rama anterior</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Eliminar ramas:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">git</span> branch <span class="at">-d</span> <span class="op">&lt;</span>rama<span class="op">&gt;</span>       <span class="co"># Eliminar rama fusionada</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="fu">git</span> branch <span class="at">-D</span> <span class="op">&lt;</span>rama<span class="op">&gt;</span>       <span class="co"># Forzar eliminación</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a><span class="fu">git</span> push origin <span class="at">--delete</span> <span class="op">&lt;</span>rama<span class="op">&gt;</span>  <span class="co"># Eliminar rama remota</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Renombrar rama:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">git</span> branch <span class="at">-m</span> <span class="op">&lt;</span>nuevo-nombre<span class="op">&gt;</span>     <span class="co"># Renombrar rama actual</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="fu">git</span> branch <span class="at">-m</span> <span class="op">&lt;</span>viejo<span class="op">&gt;</span> <span class="op">&lt;</span>nuevo<span class="op">&gt;</span>    <span class="co"># Renombrar otra rama</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="merging-fusionar" class="level2">
+<h2 class="anchored" data-anchor-id="merging-fusionar">Merging (Fusionar)</h2>
+<p><strong>Merge básico:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">git</span> merge <span class="op">&lt;</span>rama<span class="op">&gt;</span>           <span class="co"># Fusionar rama en la actual</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="fu">git</span> merge <span class="at">--no-ff</span> <span class="op">&lt;</span>rama<span class="op">&gt;</span>   <span class="co"># Forzar commit de merge</span></span>
+<span id="cb37-3"><a href="#cb37-3"></a><span class="fu">git</span> merge <span class="at">--squash</span> <span class="op">&lt;</span>rama<span class="op">&gt;</span>  <span class="co"># Fusionar como un solo commit</span></span>
+<span id="cb37-4"><a href="#cb37-4"></a><span class="fu">git</span> merge <span class="at">--abort</span>          <span class="co"># Cancelar merge en conflicto</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Tipos de merge:</strong> 1. <strong>Fast-forward</strong>: Avance directo sin commit de merge 2. <strong>Three-way merge</strong>: Crea commit de merge con dos padres 3. <strong>Squash merge</strong>: Combina todos los commits en uno</p>
+</section>
+<section id="rebasing" class="level2">
+<h2 class="anchored" data-anchor-id="rebasing">Rebasing</h2>
+<p>Rebase reescribe el historial moviendo commits a una nueva base.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">git</span> rebase <span class="op">&lt;</span>rama-base<span class="op">&gt;</span>     <span class="co"># Rebasar rama actual</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="fu">git</span> rebase main            <span class="co"># Rebasar sobre main</span></span>
+<span id="cb38-3"><a href="#cb38-3"></a><span class="fu">git</span> rebase <span class="at">-i</span> HEAD~3       <span class="co"># Rebase interactivo (últimos 3 commits)</span></span>
+<span id="cb38-4"><a href="#cb38-4"></a><span class="fu">git</span> rebase <span class="at">--continue</span>      <span class="co"># Continuar después de resolver conflictos</span></span>
+<span id="cb38-5"><a href="#cb38-5"></a><span class="fu">git</span> rebase <span class="at">--abort</span>         <span class="co"># Cancelar rebase</span></span>
+<span id="cb38-6"><a href="#cb38-6"></a><span class="fu">git</span> rebase <span class="at">--skip</span>          <span class="co"># Saltar commit actual</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Rebase interactivo - comandos:</strong> - <code>pick</code>: Usar commit - <code>reword</code>: Cambiar mensaje - <code>edit</code>: Editar commit - <code>squash</code>: Fusionar con commit anterior - <code>fixup</code>: Como squash pero descarta mensaje - <code>drop</code>: Eliminar commit</p>
+<p><strong>⚠️ REGLA DE ORO: Nunca hagas rebase de commits públicos/compartidos</strong></p>
+</section>
+<section id="cherry-pick" class="level2">
+<h2 class="anchored" data-anchor-id="cherry-pick">Cherry-pick</h2>
+<p>Aplicar commits específicos de una rama a otra:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">git</span> cherry-pick <span class="op">&lt;</span>commit<span class="op">&gt;</span>   <span class="co"># Aplicar un commit</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="fu">git</span> cherry-pick <span class="op">&lt;</span>commit1<span class="op">&gt;</span> <span class="op">&lt;</span>commit2<span class="op">&gt;</span>  <span class="co"># Varios commits</span></span>
+<span id="cb39-3"><a href="#cb39-3"></a><span class="fu">git</span> cherry-pick <span class="op">&lt;</span>commit1<span class="op">&gt;</span>..<span class="op">&lt;</span>commit2<span class="op">&gt;</span>  <span class="co"># Rango de commits</span></span>
+<span id="cb39-4"><a href="#cb39-4"></a><span class="fu">git</span> cherry-pick <span class="at">--continue</span> <span class="co"># Continuar después de conflictos</span></span>
+<span id="cb39-5"><a href="#cb39-5"></a><span class="fu">git</span> cherry-pick <span class="at">--abort</span>    <span class="co"># Cancelar</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="trabajo-remoto" class="level1">
+<h1>Trabajo Remoto</h1>
+<section id="repositorios-remotos" class="level2">
+<h2 class="anchored" data-anchor-id="repositorios-remotos">Repositorios Remotos</h2>
+<p><strong>Ver remotos:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">git</span> remote                 <span class="co"># Listar remotos</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a><span class="fu">git</span> remote <span class="at">-v</span>              <span class="co"># Con URLs</span></span>
+<span id="cb40-3"><a href="#cb40-3"></a><span class="fu">git</span> remote show origin     <span class="co"># Información detallada</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Añadir remotos:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">git</span> remote add <span class="op">&lt;</span>nombre<span class="op">&gt;</span> <span class="op">&lt;</span>url<span class="op">&gt;</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="fu">git</span> remote add origin https://github.com/usuario/repo.git</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Modificar remotos:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">git</span> remote rename <span class="op">&lt;</span>viejo<span class="op">&gt;</span> <span class="op">&lt;</span>nuevo<span class="op">&gt;</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a><span class="fu">git</span> remote remove <span class="op">&lt;</span>nombre<span class="op">&gt;</span></span>
+<span id="cb42-3"><a href="#cb42-3"></a><span class="fu">git</span> remote set-url origin <span class="op">&lt;</span>nueva-url<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="fetch-pull-y-push" class="level2">
+<h2 class="anchored" data-anchor-id="fetch-pull-y-push">Fetch, Pull y Push</h2>
+<p><strong>Fetch (descargar sin fusionar):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">git</span> fetch                  <span class="co"># Fetch de origin</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="fu">git</span> fetch origin           <span class="co"># Fetch de origin explícitamente</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="fu">git</span> fetch <span class="at">--all</span>            <span class="co"># Fetch de todos los remotos</span></span>
+<span id="cb43-4"><a href="#cb43-4"></a><span class="fu">git</span> fetch origin <span class="op">&lt;</span>rama<span class="op">&gt;</span>    <span class="co"># Fetch de rama específica</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pull (fetch + merge):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">git</span> pull                   <span class="co"># Pull de rama actual</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="fu">git</span> pull origin main       <span class="co"># Pull de rama específica</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a><span class="fu">git</span> pull <span class="at">--rebase</span>          <span class="co"># Pull con rebase en lugar de merge</span></span>
+<span id="cb44-4"><a href="#cb44-4"></a><span class="fu">git</span> pull <span class="at">--rebase</span> origin main</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Push (enviar cambios):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">git</span> push                   <span class="co"># Push de rama actual</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="fu">git</span> push origin main       <span class="co"># Push a rama específica</span></span>
+<span id="cb45-3"><a href="#cb45-3"></a><span class="fu">git</span> push <span class="at">-u</span> origin main    <span class="co"># Push y establecer upstream</span></span>
+<span id="cb45-4"><a href="#cb45-4"></a><span class="fu">git</span> push <span class="at">--all</span>             <span class="co"># Push de todas las ramas</span></span>
+<span id="cb45-5"><a href="#cb45-5"></a><span class="fu">git</span> push <span class="at">--tags</span>            <span class="co"># Push de todos los tags</span></span>
+<span id="cb45-6"><a href="#cb45-6"></a><span class="fu">git</span> push origin <span class="at">--delete</span> <span class="op">&lt;</span>rama<span class="op">&gt;</span>  <span class="co"># Eliminar rama remota</span></span>
+<span id="cb45-7"><a href="#cb45-7"></a><span class="fu">git</span> push <span class="at">--force</span>           <span class="co"># ⚠️ Forzar push (PELIGROSO)</span></span>
+<span id="cb45-8"><a href="#cb45-8"></a><span class="fu">git</span> push <span class="at">--force-with-lease</span>  <span class="co"># Forzar pero más seguro</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="tracking-branches" class="level2">
+<h2 class="anchored" data-anchor-id="tracking-branches">Tracking Branches</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">git</span> branch <span class="at">-u</span> origin/main  <span class="co"># Establecer upstream de rama actual</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="fu">git</span> branch <span class="at">--set-upstream-to</span><span class="op">=</span>origin/main</span>
+<span id="cb46-3"><a href="#cb46-3"></a><span class="fu">git</span> branch <span class="at">-vv</span>             <span class="co"># Ver tracking branches</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="comandos-avanzados" class="level1">
+<h1>Comandos Avanzados</h1>
+<section id="stash-guardar-temporalmente" class="level2">
+<h2 class="anchored" data-anchor-id="stash-guardar-temporalmente">Stash (Guardar Temporalmente)</h2>
+<p>Guardar cambios sin hacer commit:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">git</span> stash                  <span class="co"># Guardar cambios</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a><span class="fu">git</span> stash save <span class="st">&quot;mensaje&quot;</span>   <span class="co"># Con mensaje descriptivo</span></span>
+<span id="cb47-3"><a href="#cb47-3"></a><span class="fu">git</span> stash <span class="at">-u</span>               <span class="co"># Incluir archivos untracked</span></span>
+<span id="cb47-4"><a href="#cb47-4"></a><span class="fu">git</span> stash <span class="at">--all</span>            <span class="co"># Incluir todo (untracked + ignored)</span></span>
+<span id="cb47-5"><a href="#cb47-5"></a><span class="fu">git</span> stash list             <span class="co"># Listar stashes</span></span>
+<span id="cb47-6"><a href="#cb47-6"></a><span class="fu">git</span> stash show             <span class="co"># Ver cambios del último stash</span></span>
+<span id="cb47-7"><a href="#cb47-7"></a><span class="fu">git</span> stash show <span class="at">-p</span>          <span class="co"># Ver diff completo</span></span>
+<span id="cb47-8"><a href="#cb47-8"></a><span class="fu">git</span> stash apply            <span class="co"># Aplicar último stash (lo mantiene)</span></span>
+<span id="cb47-9"><a href="#cb47-9"></a><span class="fu">git</span> stash pop              <span class="co"># Aplicar y eliminar último stash</span></span>
+<span id="cb47-10"><a href="#cb47-10"></a><span class="fu">git</span> stash apply stash@{2}  <span class="co"># Aplicar stash específico</span></span>
+<span id="cb47-11"><a href="#cb47-11"></a><span class="fu">git</span> stash drop stash@{0}   <span class="co"># Eliminar stash específico</span></span>
+<span id="cb47-12"><a href="#cb47-12"></a><span class="fu">git</span> stash clear            <span class="co"># Eliminar todos los stashes</span></span>
+<span id="cb47-13"><a href="#cb47-13"></a><span class="fu">git</span> stash branch <span class="op">&lt;</span>rama<span class="op">&gt;</span>    <span class="co"># Crear rama desde stash</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="tags" class="level2">
+<h2 class="anchored" data-anchor-id="tags">Tags</h2>
+<p>Marcar puntos importantes en el historial:</p>
+<p><strong>Tags ligeros:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">git</span> tag v1.0               <span class="co"># Tag ligero</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a><span class="fu">git</span> tag v1.0 <span class="op">&lt;</span>commit<span class="op">&gt;</span>      <span class="co"># Tag en commit específico</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Tags anotados (recomendado):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">git</span> tag <span class="at">-a</span> v1.0 <span class="at">-m</span> <span class="st">&quot;Versión 1.0&quot;</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="fu">git</span> tag <span class="at">-a</span> v1.0 <span class="op">&lt;</span>commit<span class="op">&gt;</span> -m <span class="st">&quot;mensaje&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Operaciones con tags:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">git</span> tag                    <span class="co"># Listar tags</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a><span class="fu">git</span> tag <span class="at">-l</span> <span class="st">&quot;v1.8.*&quot;</span>        <span class="co"># Listar con patrón</span></span>
+<span id="cb50-3"><a href="#cb50-3"></a><span class="fu">git</span> show v1.0              <span class="co"># Ver información del tag</span></span>
+<span id="cb50-4"><a href="#cb50-4"></a><span class="fu">git</span> push origin v1.0       <span class="co"># Push de tag específico</span></span>
+<span id="cb50-5"><a href="#cb50-5"></a><span class="fu">git</span> push origin <span class="at">--tags</span>     <span class="co"># Push de todos los tags</span></span>
+<span id="cb50-6"><a href="#cb50-6"></a><span class="fu">git</span> tag <span class="at">-d</span> v1.0            <span class="co"># Eliminar tag local</span></span>
+<span id="cb50-7"><a href="#cb50-7"></a><span class="fu">git</span> push origin <span class="at">--delete</span> v1.0  <span class="co"># Eliminar tag remoto</span></span>
+<span id="cb50-8"><a href="#cb50-8"></a><span class="fu">git</span> checkout v1.0          <span class="co"># Checkout a tag (detached HEAD)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="buscar-y-encontrar" class="level2">
+<h2 class="anchored" data-anchor-id="buscar-y-encontrar">Buscar y Encontrar</h2>
+<p><strong>Grep (buscar en archivos):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">git</span> grep <span class="st">&quot;texto&quot;</span>           <span class="co"># Buscar en working directory</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a><span class="fu">git</span> grep <span class="st">&quot;texto&quot;</span> <span class="op">&lt;</span>commit<span class="op">&gt;</span>  <span class="co"># Buscar en commit específico</span></span>
+<span id="cb51-3"><a href="#cb51-3"></a><span class="fu">git</span> grep <span class="at">-n</span> <span class="st">&quot;texto&quot;</span>        <span class="co"># Con números de línea</span></span>
+<span id="cb51-4"><a href="#cb51-4"></a><span class="fu">git</span> grep <span class="at">--count</span> <span class="st">&quot;texto&quot;</span>   <span class="co"># Contar coincidencias</span></span>
+<span id="cb51-5"><a href="#cb51-5"></a><span class="fu">git</span> grep <span class="at">-i</span> <span class="st">&quot;texto&quot;</span>        <span class="co"># Case insensitive</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Bisect (búsqueda binaria de bugs):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">git</span> bisect start           <span class="co"># Iniciar bisect</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a><span class="fu">git</span> bisect bad             <span class="co"># Marcar commit actual como malo</span></span>
+<span id="cb52-3"><a href="#cb52-3"></a><span class="fu">git</span> bisect good <span class="op">&lt;</span>commit<span class="op">&gt;</span>   <span class="co"># Marcar commit bueno conocido</span></span>
+<span id="cb52-4"><a href="#cb52-4"></a><span class="co"># Git checkout commits intermedios automáticamente</span></span>
+<span id="cb52-5"><a href="#cb52-5"></a><span class="fu">git</span> bisect good            <span class="co"># Marcar como bueno</span></span>
+<span id="cb52-6"><a href="#cb52-6"></a><span class="fu">git</span> bisect bad             <span class="co"># Marcar como malo</span></span>
+<span id="cb52-7"><a href="#cb52-7"></a><span class="fu">git</span> bisect reset           <span class="co"># Terminar bisect</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Blame (ver quién modificó cada línea):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">git</span> blame <span class="op">&lt;</span>archivo<span class="op">&gt;</span>        <span class="co"># Ver autor de cada línea</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a><span class="fu">git</span> blame <span class="at">-L</span> 10,20 <span class="op">&lt;</span>archivo<span class="op">&gt;</span>  <span class="co"># Solo líneas 10-20</span></span>
+<span id="cb53-3"><a href="#cb53-3"></a><span class="fu">git</span> blame <span class="at">-e</span> <span class="op">&lt;</span>archivo<span class="op">&gt;</span>     <span class="co"># Mostrar emails</span></span>
+<span id="cb53-4"><a href="#cb53-4"></a><span class="fu">git</span> blame <span class="at">-w</span> <span class="op">&lt;</span>archivo<span class="op">&gt;</span>     <span class="co"># Ignorar cambios de whitespace</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="reflog" class="level2">
+<h2 class="anchored" data-anchor-id="reflog">Reflog</h2>
+<p>Registro de todos los cambios a HEAD (incluso commits “perdidos”):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">git</span> reflog                 <span class="co"># Ver reflog</span></span>
+<span id="cb54-2"><a href="#cb54-2"></a><span class="fu">git</span> reflog show            <span class="co"># Igual que git reflog</span></span>
+<span id="cb54-3"><a href="#cb54-3"></a><span class="fu">git</span> reflog <span class="at">--all</span>           <span class="co"># Reflog de todas las referencias</span></span>
+<span id="cb54-4"><a href="#cb54-4"></a><span class="fu">git</span> reset <span class="at">--hard</span> HEAD@{2}  <span class="co"># Volver a estado anterior</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="worktrees" class="level2">
+<h2 class="anchored" data-anchor-id="worktrees">Worktrees</h2>
+<p>Tener múltiples working directories del mismo repositorio:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb55-1"><a href="#cb55-1"></a><span class="fu">git</span> worktree add <span class="op">&lt;</span>path<span class="op">&gt;</span> <span class="op">&lt;</span>branch<span class="op">&gt;</span>  <span class="co"># Crear worktree</span></span>
+<span id="cb55-2"><a href="#cb55-2"></a><span class="fu">git</span> worktree list          <span class="co"># Listar worktrees</span></span>
+<span id="cb55-3"><a href="#cb55-3"></a><span class="fu">git</span> worktree remove <span class="op">&lt;</span>path<span class="op">&gt;</span> <span class="co"># Eliminar worktree</span></span>
+<span id="cb55-4"><a href="#cb55-4"></a><span class="fu">git</span> worktree prune         <span class="co"># Limpiar worktrees obsoletos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="submodules" class="level2">
+<h2 class="anchored" data-anchor-id="submodules">Submodules</h2>
+<p>Incluir repositorios dentro de repositorios:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1"></a><span class="fu">git</span> submodule add <span class="op">&lt;</span>url<span class="op">&gt;</span> <span class="op">&lt;</span>path<span class="op">&gt;</span>  <span class="co"># Añadir submodule</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a><span class="fu">git</span> submodule init         <span class="co"># Inicializar submodules</span></span>
+<span id="cb56-3"><a href="#cb56-3"></a><span class="fu">git</span> submodule update       <span class="co"># Actualizar submodules</span></span>
+<span id="cb56-4"><a href="#cb56-4"></a><span class="fu">git</span> submodule update <span class="at">--init</span> <span class="at">--recursive</span>  <span class="co"># Init + update recursivo</span></span>
+<span id="cb56-5"><a href="#cb56-5"></a><span class="fu">git</span> clone <span class="at">--recurse-submodules</span> <span class="op">&lt;</span>url<span class="op">&gt;</span>  <span class="co"># Clonar con submodules</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="archivos-y-bundles" class="level2">
+<h2 class="anchored" data-anchor-id="archivos-y-bundles">Archivos y Bundles</h2>
+<p><strong>Archive (crear archivo del repositorio):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><a href="#cb57-1"></a><span class="fu">git</span> archive <span class="at">--format</span><span class="op">=</span>zip <span class="at">--output</span><span class="op">=</span>proyecto.zip HEAD</span>
+<span id="cb57-2"><a href="#cb57-2"></a><span class="fu">git</span> archive <span class="at">--format</span><span class="op">=</span>tar.gz <span class="at">--output</span><span class="op">=</span>proyecto.tar.gz main</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Bundle (repositorio portátil):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb58-1"><a href="#cb58-1"></a><span class="fu">git</span> bundle create repo.bundle HEAD <span class="at">--all</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a><span class="fu">git</span> clone repo.bundle repo-clonado</span>
+<span id="cb58-3"><a href="#cb58-3"></a><span class="fu">git</span> bundle verify repo.bundle</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="resolución-de-conflictos" class="level1">
+<h1>Resolución de Conflictos</h1>
+<section id="identificar-conflictos" class="level2">
+<h2 class="anchored" data-anchor-id="identificar-conflictos">Identificar Conflictos</h2>
+<p>Cuando hay conflictos durante merge o rebase:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1"></a><span class="fu">git</span> status                 <span class="co"># Ver archivos con conflictos</span></span>
+<span id="cb59-2"><a href="#cb59-2"></a><span class="fu">git</span> diff                   <span class="co"># Ver conflictos</span></span>
+<span id="cb59-3"><a href="#cb59-3"></a><span class="fu">git</span> diff <span class="at">--ours</span>            <span class="co"># Ver nuestra versión</span></span>
+<span id="cb59-4"><a href="#cb59-4"></a><span class="fu">git</span> diff <span class="at">--theirs</span>          <span class="co"># Ver su versión</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="marcadores-de-conflicto" class="level2">
+<h2 class="anchored" data-anchor-id="marcadores-de-conflicto">Marcadores de Conflicto</h2>
+<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Tu versión del código
+=======
+Su versión del código
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; rama-a-fusionar</code></pre>
+</section>
+<section id="resolver-conflictos" class="level2">
+<h2 class="anchored" data-anchor-id="resolver-conflictos">Resolver Conflictos</h2>
+<p><strong>Manualmente:</strong> 1. Editar archivos para resolver conflictos 2. Eliminar marcadores <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> 3. <code>git add &lt;archivo&gt;</code> para marcar como resuelto 4. <code>git commit</code> o <code>git rebase --continue</code></p>
+<p><strong>Con herramientas:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb61-1"><a href="#cb61-1"></a><span class="fu">git</span> mergetool              <span class="co"># Abrir herramienta de merge</span></span>
+<span id="cb61-2"><a href="#cb61-2"></a><span class="fu">git</span> mergetool <span class="at">--tool</span><span class="op">=</span>vimdiff</span>
+<span id="cb61-3"><a href="#cb61-3"></a><span class="fu">git</span> config <span class="at">--global</span> merge.tool meld  <span class="co"># Configurar herramienta</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Estrategias:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><a href="#cb62-1"></a><span class="fu">git</span> merge <span class="at">-X</span> ours <span class="op">&lt;</span>rama<span class="op">&gt;</span>   <span class="co"># Preferir nuestra versión</span></span>
+<span id="cb62-2"><a href="#cb62-2"></a><span class="fu">git</span> merge <span class="at">-X</span> theirs <span class="op">&lt;</span>rama<span class="op">&gt;</span> <span class="co"># Preferir su versión</span></span>
+<span id="cb62-3"><a href="#cb62-3"></a><span class="fu">git</span> checkout <span class="at">--ours</span> <span class="op">&lt;</span>archivo<span class="op">&gt;</span>    <span class="co"># Tomar nuestra versión</span></span>
+<span id="cb62-4"><a href="#cb62-4"></a><span class="fu">git</span> checkout <span class="at">--theirs</span> <span class="op">&lt;</span>archivo<span class="op">&gt;</span>  <span class="co"># Tomar su versión</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="git-workflows" class="level1">
+<h1>Git Workflows</h1>
+<section id="git-flow" class="level2">
+<h2 class="anchored" data-anchor-id="git-flow">Git Flow</h2>
+<p>Modelo de branching con ramas específicas:</p>
+<ul>
+<li><strong>main</strong>: Código de producción</li>
+<li><strong>develop</strong>: Rama de desarrollo</li>
+<li><strong>feature/</strong>*: Nuevas características</li>
+<li><strong>release/</strong>*: Preparación de releases</li>
+<li><strong>hotfix/</strong>*: Correcciones urgentes</li>
+</ul>
+<p><strong>Comandos (con extensión git-flow):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1"></a><span class="fu">git</span> flow init</span>
+<span id="cb63-2"><a href="#cb63-2"></a><span class="fu">git</span> flow feature start nueva-caracteristica</span>
+<span id="cb63-3"><a href="#cb63-3"></a><span class="fu">git</span> flow feature finish nueva-caracteristica</span>
+<span id="cb63-4"><a href="#cb63-4"></a><span class="fu">git</span> flow release start 1.0.0</span>
+<span id="cb63-5"><a href="#cb63-5"></a><span class="fu">git</span> flow release finish 1.0.0</span>
+<span id="cb63-6"><a href="#cb63-6"></a><span class="fu">git</span> flow hotfix start fix-critico</span>
+<span id="cb63-7"><a href="#cb63-7"></a><span class="fu">git</span> flow hotfix finish fix-critico</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="github-flow" class="level2">
+<h2 class="anchored" data-anchor-id="github-flow">GitHub Flow</h2>
+<p>Workflow más simple: 1. Crear rama desde <code>main</code> 2. Hacer commits 3. Abrir Pull Request 4. Revisión de código 5. Merge a <code>main</code> 6. Deploy automático</p>
+</section>
+<section id="trunk-based-development" class="level2">
+<h2 class="anchored" data-anchor-id="trunk-based-development">Trunk-Based Development</h2>
+<ul>
+<li>Una rama principal (<code>main</code> o <code>trunk</code>)</li>
+<li>Commits frecuentes y pequeños</li>
+<li>Feature flags para ocultar trabajo en progreso</li>
+<li>CI/CD robusto</li>
+</ul>
+</section>
+</section>
+<section id="ejemplos-de-uso-diario-de-git" class="level1">
+<h1>Ejemplos de uso diario de Git</h1>
+<p>Flujos de trabajo más comunes que uso <strong>todos los días</strong> en diferentes tipos de proyectos y entornos (individuales, equipos pequeños, medianos y open-source).</p>
+<section id="flujo-individual-freelance-proyectos-personales-el-más-frecuente-para-principiantes-y-side-projects" class="level2">
+<h2 class="anchored" data-anchor-id="flujo-individual-freelance-proyectos-personales-el-más-frecuente-para-principiantes-y-side-projects">1. Flujo individual / Freelance / Proyectos personales (el más frecuente para principiantes y side projects)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb64"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># Al empezar el día</span></span>
+<span id="cb64-2"><a href="#cb64-2"></a><span class="fu">git</span> pull origin main                <span class="co"># Siempre sincronizo primero</span></span>
+<span id="cb64-3"><a href="#cb64-3"></a><span class="fu">git</span> status <span class="co"># Muestra el estado actual del repositorio.</span></span>
+<span id="cb64-4"><a href="#cb64-4"></a></span>
+<span id="cb64-5"><a href="#cb64-5"></a><span class="co"># Trabajo en una nueva funcionalidad</span></span>
+<span id="cb64-6"><a href="#cb64-6"></a><span class="fu">git</span> switch <span class="at">-c</span> feat/login-social     <span class="co"># Creo rama con convención clara</span></span>
+<span id="cb64-7"><a href="#cb64-7"></a><span class="co"># ... desarrollo varias horas ...</span></span>
+<span id="cb64-8"><a href="#cb64-8"></a><span class="fu">git</span> add .</span>
+<span id="cb64-9"><a href="#cb64-9"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;feat: implementar login con Google y GitHub&quot;</span></span>
+<span id="cb64-10"><a href="#cb64-10"></a></span>
+<span id="cb64-11"><a href="#cb64-11"></a><span class="co"># Pequeña corrección rápida</span></span>
+<span id="cb64-12"><a href="#cb64-12"></a><span class="fu">git</span> add src/components/LoginForm.tsx</span>
+<span id="cb64-13"><a href="#cb64-13"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;fix: corregir validación de email en formulario&quot;</span></span>
+<span id="cb64-14"><a href="#cb64-14"></a></span>
+<span id="cb64-15"><a href="#cb64-15"></a><span class="co"># Al final del día o antes de push</span></span>
+<span id="cb64-16"><a href="#cb64-16"></a><span class="fu">git</span> branch <span class="at">-M</span> main <span class="co"># Muestra las ramas existentes.</span></span>
+<span id="cb64-17"><a href="#cb64-17"></a><span class="fu">git</span> switch main</span>
+<span id="cb64-18"><a href="#cb64-18"></a><span class="fu">git</span> pull                            <span class="co"># Vuelvo a sincronizar por si alguien más empujó</span></span>
+<span id="cb64-19"><a href="#cb64-19"></a><span class="fu">git</span> switch feat/login-social</span>
+<span id="cb64-20"><a href="#cb64-20"></a><span class="fu">git</span> rebase main                     <span class="co"># Mantengo mi rama actualizada (rebase limpio)</span></span>
+<span id="cb64-21"><a href="#cb64-21"></a><span class="fu">git</span> switch main</span>
+<span id="cb64-22"><a href="#cb64-22"></a><span class="fu">git</span> merge <span class="at">--ff-only</span> feat/login-social   <span class="co"># Fast-forward si es posible</span></span>
+<span id="cb64-23"><a href="#cb64-23"></a><span class="fu">git</span> push <span class="at">-u</span> origin main <span class="co"># Envía los cambios al repositorio remoto.</span></span>
+<span id="cb64-24"><a href="#cb64-24"></a><span class="fu">git</span> branch <span class="at">-d</span> feat/login-social     <span class="co"># Elimino la rama ya que está integrada</span></span>
+<span id="cb64-25"><a href="#cb64-25"></a></span>
+<span id="cb64-26"><a href="#cb64-26"></a><span class="co"># Opcional: commit squash al final (muy común en proyectos pequeños)</span></span>
+<span id="cb64-27"><a href="#cb64-27"></a><span class="fu">git</span> merge <span class="at">--squash</span> feat/login-social</span>
+<span id="cb64-28"><a href="#cb64-28"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;feat: login con proveedores sociales + validaciones&quot;</span></span>
+<span id="cb64-29"><a href="#cb64-29"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Ventajas</strong>: Muy rápido, historial relativamente limpio, poco overhead.</p>
+</section>
+<section id="flujo-típico-de-equipo-medianopequeño-con-pull-requests-el-más-usado-en-2025" class="level2">
+<h2 class="anchored" data-anchor-id="flujo-típico-de-equipo-medianopequeño-con-pull-requests-el-más-usado-en-2025">2. Flujo típico de equipo mediano/pequeño con Pull Requests (el más usado en 2025)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb65"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># Inicio de jornada / después de stand-up</span></span>
+<span id="cb65-2"><a href="#cb65-2"></a><span class="fu">git</span> fetch <span class="at">--prune</span>                   <span class="co"># Limpio referencias remotas obsoletas</span></span>
+<span id="cb65-3"><a href="#cb65-3"></a><span class="fu">git</span> switch main</span>
+<span id="cb65-4"><a href="#cb65-4"></a><span class="fu">git</span> pull</span>
+<span id="cb65-5"><a href="#cb65-5"></a></span>
+<span id="cb65-6"><a href="#cb65-6"></a><span class="co"># Nueva tarea (ej: ticket #456 - mejorar rendimiento de dashboard)</span></span>
+<span id="cb65-7"><a href="#cb65-7"></a><span class="fu">git</span> switch <span class="at">-c</span> feature/456-dashboard-perf</span>
+<span id="cb65-8"><a href="#cb65-8"></a></span>
+<span id="cb65-9"><a href="#cb65-9"></a><span class="co"># Desarrollo normal (varios commits)</span></span>
+<span id="cb65-10"><a href="#cb65-10"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;feat(dashboard): lazy loading de gráficos pesados&quot;</span></span>
+<span id="cb65-11"><a href="#cb65-11"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;refactor: extraer hook useChartData&quot;</span></span>
+<span id="cb65-12"><a href="#cb65-12"></a></span>
+<span id="cb65-13"><a href="#cb65-13"></a><span class="co"># Antes de terminar el día</span></span>
+<span id="cb65-14"><a href="#cb65-14"></a><span class="fu">git</span> rebase <span class="at">-i</span> origin/main           <span class="co"># O rebase main si ya está actualizado</span></span>
+<span id="cb65-15"><a href="#cb65-15"></a><span class="co"># Squash/reword si quiero limpiar commits antes de PR</span></span>
+<span id="cb65-16"><a href="#cb65-16"></a></span>
+<span id="cb65-17"><a href="#cb65-17"></a><span class="co"># Subo y creo Pull Request</span></span>
+<span id="cb65-18"><a href="#cb65-18"></a><span class="fu">git</span> push <span class="at">-u</span> origin feature/456-dashboard-perf</span>
+<span id="cb65-19"><a href="#cb65-19"></a></span>
+<span id="cb65-20"><a href="#cb65-20"></a><span class="co"># En GitHub/GitLab:</span></span>
+<span id="cb65-21"><a href="#cb65-21"></a><span class="co">#   → Creo PR → añado reviewers → espero revisión</span></span>
+<span id="cb65-22"><a href="#cb65-22"></a><span class="co">#   → Después de aprobar y pasar CI/CD:</span></span>
+<span id="cb65-23"><a href="#cb65-23"></a><span class="co">#     Merge squash / merge commit / rebase &amp; merge (depende de la política del equipo)</span></span>
+<span id="cb65-24"><a href="#cb65-24"></a></span>
+<span id="cb65-25"><a href="#cb65-25"></a><span class="co"># Una vez mergeado (normalmente por el reviewer o bot)</span></span>
+<span id="cb65-26"><a href="#cb65-26"></a><span class="fu">git</span> switch main</span>
+<span id="cb65-27"><a href="#cb65-27"></a><span class="fu">git</span> pull</span>
+<span id="cb65-28"><a href="#cb65-28"></a><span class="fu">git</span> fetch <span class="at">--prune</span></span>
+<span id="cb65-29"><a href="#cb65-29"></a><span class="fu">git</span> branch <span class="at">-d</span> feature/456-dashboard-perf   <span class="co"># Limpio localmente</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Variante muy común en 2025</strong>:<br>
+Merge squash → un solo commit limpio en <code>main</code> con el título del PR</p>
+</section>
+<section id="corrección-rápida-de-bug-en-producción-hotfix-diario" class="level2">
+<h2 class="anchored" data-anchor-id="corrección-rápida-de-bug-en-producción-hotfix-diario">3. Corrección rápida de bug en producción (hotfix diario)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb66"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Opción más rápida y segura (recomendada)</span></span>
+<span id="cb66-2"><a href="#cb66-2"></a><span class="fu">git</span> switch main</span>
+<span id="cb66-3"><a href="#cb66-3"></a><span class="fu">git</span> pull</span>
+<span id="cb66-4"><a href="#cb66-4"></a><span class="fu">git</span> switch <span class="at">-c</span> hotfix/789-boton-pago-falla</span>
+<span id="cb66-5"><a href="#cb66-5"></a></span>
+<span id="cb66-6"><a href="#cb66-6"></a><span class="co"># Arreglo rápido (1-3 commits)</span></span>
+<span id="cb66-7"><a href="#cb66-7"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;fix: corregir validación de tarjeta en checkout&quot;</span></span>
+<span id="cb66-8"><a href="#cb66-8"></a></span>
+<span id="cb66-9"><a href="#cb66-9"></a><span class="fu">git</span> push <span class="at">-u</span> origin hotfix/789-boton-pago-falla</span>
+<span id="cb66-10"><a href="#cb66-10"></a></span>
+<span id="cb66-11"><a href="#cb66-11"></a><span class="co"># → Crear PR rápido hacia main</span></span>
+<span id="cb66-12"><a href="#cb66-12"></a><span class="co"># → Revisión exprés (o auto-merge si es crítico)</span></span>
+<span id="cb66-13"><a href="#cb66-13"></a><span class="co"># → Merge (preferiblemente squash o rebase)</span></span>
+<span id="cb66-14"><a href="#cb66-14"></a></span>
+<span id="cb66-15"><a href="#cb66-15"></a><span class="co"># Después del deploy</span></span>
+<span id="cb66-16"><a href="#cb66-16"></a><span class="fu">git</span> switch main</span>
+<span id="cb66-17"><a href="#cb66-17"></a><span class="fu">git</span> pull</span>
+<span id="cb66-18"><a href="#cb66-18"></a><span class="fu">git</span> tag hotfix-2025-12-30-boton-pago   <span class="co"># O v1.2.3-hotfix si usas semver</span></span>
+<span id="cb66-19"><a href="#cb66-19"></a><span class="fu">git</span> push <span class="at">--tags</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="flujo-cuando-trabajas-en-varias-tareas-al-mismo-tiempo-muy-común" class="level2">
+<h2 class="anchored" data-anchor-id="flujo-cuando-trabajas-en-varias-tareas-al-mismo-tiempo-muy-común">4. Flujo cuando trabajas en varias tareas al mismo tiempo (muy común)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb67"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Estoy en medio de feature/cuenta-premium</span></span>
+<span id="cb67-2"><a href="#cb67-2"></a><span class="fu">git</span> status</span>
+<span id="cb67-3"><a href="#cb67-3"></a></span>
+<span id="cb67-4"><a href="#cb67-4"></a><span class="co"># → Aparece bug urgente</span></span>
+<span id="cb67-5"><a href="#cb67-5"></a><span class="fu">git</span> stash push <span class="at">-m</span> <span class="st">&quot;WIP premium checkout&quot;</span></span>
+<span id="cb67-6"><a href="#cb67-6"></a></span>
+<span id="cb67-7"><a href="#cb67-7"></a><span class="co"># Arreglo rápido</span></span>
+<span id="cb67-8"><a href="#cb67-8"></a><span class="fu">git</span> switch <span class="at">-c</span> hotfix/791-api-timeout</span>
+<span id="cb67-9"><a href="#cb67-9"></a><span class="co"># ... fix ...</span></span>
+<span id="cb67-10"><a href="#cb67-10"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;fix: aumentar timeout en llamada a /reports&quot;</span></span>
+<span id="cb67-11"><a href="#cb67-11"></a><span class="fu">git</span> push <span class="at">-u</span> origin hotfix/791-api-timeout</span>
+<span id="cb67-12"><a href="#cb67-12"></a><span class="co"># → PR rápido → merge</span></span>
+<span id="cb67-13"><a href="#cb67-13"></a></span>
+<span id="cb67-14"><a href="#cb67-14"></a><span class="co"># Vuelvo a lo mío</span></span>
+<span id="cb67-15"><a href="#cb67-15"></a><span class="fu">git</span> switch feature/cuenta-premium</span>
+<span id="cb67-16"><a href="#cb67-16"></a><span class="fu">git</span> stash pop</span>
+<span id="cb67-17"><a href="#cb67-17"></a><span class="co"># Continúo donde estaba...</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="mini-resumen-de-comandos-que-más-se-usan-en-la-práctica-diaria-2025" class="level2">
+<h2 class="anchored" data-anchor-id="mini-resumen-de-comandos-que-más-se-usan-en-la-práctica-diaria-2025">5. Mini-resumen de comandos que más se usan en la práctica diaria (2025)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 50%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Acción</th>
+<th>Comando más común en 2025</th>
+<th>Frecuencia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sincronizar al empezar</td>
+<td><code>git pull</code> / <code>git fetch --prune &amp;&amp; git pull</code></td>
+<td>★★★★★</td>
+</tr>
+<tr class="even">
+<td>Crear rama de tarea</td>
+<td><code>git switch -c feat/ticket-xxx-nombre</code></td>
+<td>★★★★★</td>
+</tr>
+<tr class="odd">
+<td>Commit atómico</td>
+<td><code>git commit -m &quot;tipo: descripción corta&quot;</code></td>
+<td>★★★★★</td>
+</tr>
+<tr class="even">
+<td>Actualizar rama antes de PR</td>
+<td><code>git rebase main</code> o <code>git merge main</code></td>
+<td>★★★★</td>
+</tr>
+<tr class="odd">
+<td>Subir rama nueva</td>
+<td><code>git push -u origin nombre-rama</code></td>
+<td>★★★★</td>
+</tr>
+<tr class="even">
+<td>Limpiar después de merge</td>
+<td><code>git branch -d rama-antigua</code></td>
+<td>★★★★</td>
+</tr>
+<tr class="odd">
+<td>Guardar trabajo temporal</td>
+<td><code>git stash push -m &quot;...&quot;</code> / <code>git stash pop</code></td>
+<td>★★★</td>
+</tr>
+<tr class="even">
+<td>Ver estado rápido</td>
+<td><code>git status -sb</code> o alias <code>gs</code></td>
+<td>★★★★★</td>
+</tr>
+<tr class="odd">
+<td>Historial bonito</td>
+<td><code>git log --oneline --graph --decorate --all</code></td>
+<td>★★★★</td>
+</tr>
+<tr class="even">
+<td>Comparar con main</td>
+<td><code>git diff main...</code></td>
+<td>★★★</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recomendación final para tu día a día</strong></p>
+<p>Adopta el hábito de:</p>
 <ol type="1">
-<li><p>Crea un repositorio en GitHub (público o privado).</p></li>
-<li><p>En tu proyecto local:</p></li>
-</ol>
-<p><strong>Con SSH</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1"></a><span class="bu">echo</span> <span class="st">&quot;# examen&quot;</span> <span class="op">&gt;&gt;</span> README.md</span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">git</span> init</span>
-<span id="cb20-3"><a href="#cb20-3"></a><span class="fu">git</span> add .</span>
-<span id="cb20-4"><a href="#cb20-4"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Primer commit&quot;</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a><span class="fu">git</span> branch <span class="at">-M</span> main</span>
-<span id="cb20-6"><a href="#cb20-6"></a><span class="fu">git</span> remote add origin git@github.com:usuario/repositorio.git</span>
-<span id="cb20-7"><a href="#cb20-7"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Con HTTPS</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a><span class="bu">echo</span> <span class="st">&quot;# examen&quot;</span> <span class="op">&gt;&gt;</span> README.md</span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">git</span> init</span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="fu">git</span> add .</span>
-<span id="cb21-4"><a href="#cb21-4"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Primer commit&quot;</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="fu">git</span> branch <span class="at">-M</span> main</span>
-<span id="cb21-6"><a href="#cb21-6"></a><span class="fu">git</span> remote add origin https://github.com/usuario/repositorio.git</span>
-<span id="cb21-7"><a href="#cb21-7"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<ol start="3" type="1">
-<li><p>Si aparece el error remote origin already exists:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">git</span> remote rm origin</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Luego repite el paso 2.</p></li>
+<li>Siempre <code>pull</code> al empezar</li>
+<li>Trabajar en ramas cortas y con nombres claros</li>
+<li>Commits pequeños y descriptivos (convención <strong>Conventional Commits</strong> es la más usada actualmente)</li>
+<li>Actualizar tu rama frecuentemente (<code>rebase</code> o <code>merge main</code>)</li>
+<li>Eliminar ramas una vez integradas</li>
 </ol>
 </section>
-<section id="observar-el-repositorio" class="level2">
-<h2 class="anchored" data-anchor-id="observar-el-repositorio">Observar el repositorio</h2>
-<ul>
-<li><p><code>git status</code>: Muestra el estado actual.</p></li>
-<li><p><code>git diff</code>: Compara cambios no confirmados.</p></li>
-<li><p><code>git log</code></p></li>
-<li><p><code>git log --graph</code></p></li>
-<li><p><code>git log --graph --pretty=oneline</code></p></li>
-<li><p><code>git log --graph --decorate --all --oneline</code></p></li>
-<li><p><code>git config --global alias.tree &quot;log --graph --decorate --all --oneline&quot;</code></p></li>
-<li><p><code>git tree</code></p></li>
-<li><p><code>git log --oneline</code>: Historial compacto. Ejemplo:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="ex">7e320e8</span> update</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p><code>git blame [archivo]</code>: Autores y fechas de cambios.</p></li>
-<li><p><code>touch .gitignore</code></p></li>
-</ul>
 </section>
-<section id="trabajar-con-ramas" class="level2">
-<h2 class="anchored" data-anchor-id="trabajar-con-ramas">Trabajar con ramas</h2>
+<section id="mejores-prácticas" class="level1">
+<h1>Mejores Prácticas</h1>
+<section id="commits-1" class="level2">
+<h2 class="anchored" data-anchor-id="commits-1">Commits</h2>
 <ol type="1">
-<li>Crea y cambia a una rama:</li>
+<li><strong>Commits atómicos</strong>: Un commit = un cambio lógico</li>
+<li><strong>Mensajes descriptivos</strong>: Explica el “qué” y el “por qué”</li>
+<li><strong>Commits frecuentes</strong>: Mejor muchos commits pequeños que pocos grandes</li>
+<li><strong>No commitear archivos generados</strong>: Usar .gitignore</li>
+<li><strong>Revisar antes de commitear</strong>: <code>git diff --staged</code></li>
 </ol>
-<p>Navegando en ramas - <code>git checkout holagit.py</code> - <code>git log</code> - <code>git checkout 707c7f864de5e036c54b43df5a1bfa464fb4d9ba</code> - <code>git tree</code> - <code>git checkout 380beab</code> Creando ramas</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> nueva-rama</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>git branch login</code> <code>git switch login</code></p>
-<ol start="2" type="1">
-<li><p>Fusiona ramas:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">git</span> checkout main</span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">git</span> merge nueva-rama</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
+</section>
+<section id="branching" class="level2">
+<h2 class="anchored" data-anchor-id="branching">Branching</h2>
+<ol type="1">
+<li><strong>Nombres descriptivos</strong>: <code>feature/nueva-funcionalidad</code>, <code>bugfix/issue-123</code></li>
+<li><strong>Ramas de vida corta</strong>: Fusionar frecuentemente</li>
+<li><strong>Mantener ramas actualizadas</strong>: Hacer merge/rebase regular de main</li>
+<li><strong>Eliminar ramas fusionadas</strong>: Mantener repositorio limpio</li>
+<li><strong>Proteger rama principal</strong>: Requerir pull requests y revisiones</li>
 </ol>
-<p><code>git switch login</code> <code>git merge main</code> <code>git tree</code></p>
-<p>corrección de conflicto</p>
+</section>
+<section id="colaboración" class="level2">
+<h2 class="anchored" data-anchor-id="colaboración">Colaboración</h2>
+<ol type="1">
+<li><strong>Pull antes de push</strong>: Evitar conflictos</li>
+<li><strong>Revisar código</strong>: Pull requests con revisiones</li>
+<li><strong>No reescribir historial público</strong>: Evitar rebase/amend de commits pusheados</li>
+<li><strong>Comunicación</strong>: Documentar decisiones importantes</li>
+<li><strong>CI/CD</strong>: Automatizar tests y despliegues</li>
+</ol>
+</section>
+<section id="gitignore" class="level2">
+<h2 class="anchored" data-anchor-id="gitignore">.gitignore</h2>
+<p>Ejemplos comunes:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb68"><pre class="sourceCode numberSource gitignore number-lines code-with-copy"><code class="sourceCode"><span id="cb68-1"><a href="#cb68-1"></a># Node.js</span>
+<span id="cb68-2"><a href="#cb68-2"></a>node_modules/</span>
+<span id="cb68-3"><a href="#cb68-3"></a>npm-debug.log</span>
+<span id="cb68-4"><a href="#cb68-4"></a>.env</span>
+<span id="cb68-5"><a href="#cb68-5"></a></span>
+<span id="cb68-6"><a href="#cb68-6"></a># Python</span>
+<span id="cb68-7"><a href="#cb68-7"></a>__pycache__/</span>
+<span id="cb68-8"><a href="#cb68-8"></a>*.py[cod]</span>
+<span id="cb68-9"><a href="#cb68-9"></a>venv/</span>
+<span id="cb68-10"><a href="#cb68-10"></a>.pytest_cache/</span>
+<span id="cb68-11"><a href="#cb68-11"></a></span>
+<span id="cb68-12"><a href="#cb68-12"></a># IDE</span>
+<span id="cb68-13"><a href="#cb68-13"></a>.vscode/</span>
+<span id="cb68-14"><a href="#cb68-14"></a>.idea/</span>
+<span id="cb68-15"><a href="#cb68-15"></a>*.swp</span>
+<span id="cb68-16"><a href="#cb68-16"></a></span>
+<span id="cb68-17"><a href="#cb68-17"></a># OS</span>
+<span id="cb68-18"><a href="#cb68-18"></a>.DS_Store</span>
+<span id="cb68-19"><a href="#cb68-19"></a>Thumbs.db</span>
+<span id="cb68-20"><a href="#cb68-20"></a></span>
+<span id="cb68-21"><a href="#cb68-21"></a># Build</span>
+<span id="cb68-22"><a href="#cb68-22"></a>dist/</span>
+<span id="cb68-23"><a href="#cb68-23"></a>build/</span>
+<span id="cb68-24"><a href="#cb68-24"></a>*.log</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Comandos útiles:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb69"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb69-1"><a href="#cb69-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.excludesfile ~/.gitignore_global</span>
+<span id="cb69-2"><a href="#cb69-2"></a><span class="fu">git</span> check-ignore <span class="at">-v</span> <span class="op">&lt;</span>archivo<span class="op">&gt;</span>  <span class="co"># Ver por qué archivo es ignorado</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="comandos-de-bajo-nivel-plumbing" class="level1">
+<h1>Comandos de Bajo Nivel (Plumbing)</h1>
+<p>Comandos internos de Git para operaciones avanzadas:</p>
+<section id="inspección-de-objetos" class="level2">
+<h2 class="anchored" data-anchor-id="inspección-de-objetos">Inspección de Objetos</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb70"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">git</span> cat-file <span class="at">-p</span> <span class="op">&lt;</span>hash<span class="op">&gt;</span>     <span class="co"># Ver contenido de objeto</span></span>
+<span id="cb70-2"><a href="#cb70-2"></a><span class="fu">git</span> cat-file <span class="at">-t</span> <span class="op">&lt;</span>hash<span class="op">&gt;</span>     <span class="co"># Ver tipo de objeto</span></span>
+<span id="cb70-3"><a href="#cb70-3"></a><span class="fu">git</span> cat-file <span class="at">-s</span> <span class="op">&lt;</span>hash<span class="op">&gt;</span>     <span class="co"># Ver tamaño de objeto</span></span>
+<span id="cb70-4"><a href="#cb70-4"></a><span class="fu">git</span> ls-tree <span class="op">&lt;</span>tree-hash<span class="op">&gt;</span>    <span class="co"># Listar contenido de tree</span></span>
+<span id="cb70-5"><a href="#cb70-5"></a><span class="fu">git</span> ls-files               <span class="co"># Listar archivos en index</span></span>
+<span id="cb70-6"><a href="#cb70-6"></a><span class="fu">git</span> ls-files <span class="at">-s</span>            <span class="co"># Con información detallada</span></span>
+<span id="cb70-7"><a href="#cb70-7"></a><span class="fu">git</span> ls-remote <span class="op">&lt;</span>remote<span class="op">&gt;</span>     <span class="co"># Listar referencias remotas</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="manipulación-del-index" class="level2">
+<h2 class="anchored" data-anchor-id="manipulación-del-index">Manipulación del Index</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb71"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb71-1"><a href="#cb71-1"></a><span class="fu">git</span> update-index <span class="at">--add</span> <span class="op">&lt;</span>archivo<span class="op">&gt;</span>  <span class="co"># Añadir al index</span></span>
+<span id="cb71-2"><a href="#cb71-2"></a><span class="fu">git</span> update-index <span class="at">--remove</span> <span class="op">&lt;</span>archivo<span class="op">&gt;</span>  <span class="co"># Quitar del index</span></span>
+<span id="cb71-3"><a href="#cb71-3"></a><span class="fu">git</span> read-tree <span class="op">&lt;</span>tree<span class="op">&gt;</span>       <span class="co"># Leer tree al index</span></span>
+<span id="cb71-4"><a href="#cb71-4"></a><span class="fu">git</span> write-tree             <span class="co"># Crear tree desde index</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb72"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb72-1"><a href="#cb72-1"></a><span class="fu">git</span> show-ref               <span class="co"># Mostrar todas las referencias</span></span>
+<span id="cb72-2"><a href="#cb72-2"></a><span class="fu">git</span> update-ref refs/heads/main <span class="op">&lt;</span>commit<span class="op">&gt;</span>  <span class="co"># Actualizar referencia</span></span>
+<span id="cb72-3"><a href="#cb72-3"></a><span class="fu">git</span> symbolic-ref HEAD      <span class="co"># Ver a qué apunta HEAD</span></span>
+<span id="cb72-4"><a href="#cb72-4"></a><span class="fu">git</span> for-each-ref           <span class="co"># Iterar sobre referencias</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="objetos-y-hashes" class="level2">
+<h2 class="anchored" data-anchor-id="objetos-y-hashes">Objetos y Hashes</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb73"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb73-1"><a href="#cb73-1"></a><span class="fu">git</span> hash-object <span class="op">&lt;</span>archivo<span class="op">&gt;</span>  <span class="co"># Calcular hash de archivo</span></span>
+<span id="cb73-2"><a href="#cb73-2"></a><span class="fu">git</span> hash-object <span class="at">-w</span> <span class="op">&lt;</span>archivo<span class="op">&gt;</span>  <span class="co"># Escribir objeto</span></span>
+<span id="cb73-3"><a href="#cb73-3"></a><span class="fu">git</span> rev-parse HEAD         <span class="co"># Convertir referencia a hash</span></span>
+<span id="cb73-4"><a href="#cb73-4"></a><span class="fu">git</span> rev-list HEAD          <span class="co"># Listar commits alcanzables</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="hooks-y-automatización" class="level1">
+<h1>Hooks y Automatización</h1>
+<section id="git-hooks" class="level2">
+<h2 class="anchored" data-anchor-id="git-hooks">Git Hooks</h2>
+<p>Scripts que se ejecutan automáticamente en eventos de Git.</p>
+<p><strong>Ubicación:</strong> <code>.git/hooks/</code></p>
+<p><strong>Hooks comunes:</strong></p>
+<p><strong>Client-side:</strong> - <code>pre-commit</code>: Antes de crear commit - <code>prepare-commit-msg</code>: Antes de abrir editor de commit - <code>commit-msg</code>: Validar mensaje de commit - <code>post-commit</code>: Después de crear commit - <code>pre-push</code>: Antes de hacer push</p>
+<p><strong>Server-side:</strong> - <code>pre-receive</code>: Antes de aceptar push - <code>update</code>: Por cada rama actualizada - <code>post-receive</code>: Después de aceptar push</p>
+<p><strong>Ejemplo pre-commit (tests):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb74"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb74-1"><a href="#cb74-1"></a><span class="co">#!/bin/sh</span></span>
+<span id="cb74-2"><a href="#cb74-2"></a><span class="co"># .git/hooks/pre-commit</span></span>
+<span id="cb74-3"><a href="#cb74-3"></a></span>
+<span id="cb74-4"><a href="#cb74-4"></a><span class="ex">npm</span> test</span>
+<span id="cb74-5"><a href="#cb74-5"></a><span class="cf">if</span> <span class="bu">[</span> <span class="va">$?</span> <span class="ot">-ne</span> 0 <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb74-6"><a href="#cb74-6"></a>    <span class="bu">echo</span> <span class="st">&quot;Tests fallaron. Commit cancelado.&quot;</span></span>
+<span id="cb74-7"><a href="#cb74-7"></a>    <span class="bu">exit</span> 1</span>
+<span id="cb74-8"><a href="#cb74-8"></a><span class="cf">fi</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Ejemplo commit-msg (validar formato):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb75"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb75-1"><a href="#cb75-1"></a><span class="co">#!/bin/sh</span></span>
+<span id="cb75-2"><a href="#cb75-2"></a><span class="co"># .git/hooks/commit-msg</span></span>
+<span id="cb75-3"><a href="#cb75-3"></a></span>
+<span id="cb75-4"><a href="#cb75-4"></a><span class="va">commit_msg</span><span class="op">=</span><span class="va">$(</span><span class="fu">cat</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span><span class="va">)</span></span>
+<span id="cb75-5"><a href="#cb75-5"></a><span class="va">pattern</span><span class="op">=</span><span class="st">&quot;^(feat|fix|docs|style|refactor|test|chore): .+&quot;</span></span>
+<span id="cb75-6"><a href="#cb75-6"></a></span>
+<span id="cb75-7"><a href="#cb75-7"></a><span class="cf">if</span> <span class="ot">! </span><span class="bu">echo</span> <span class="st">&quot;</span><span class="va">$commit_msg</span><span class="st">&quot;</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-qE</span> <span class="st">&quot;</span><span class="va">$pattern</span><span class="st">&quot;</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb75-8"><a href="#cb75-8"></a>    <span class="bu">echo</span> <span class="st">&quot;Error: El mensaje debe seguir el formato:&quot;</span></span>
+<span id="cb75-9"><a href="#cb75-9"></a>    <span class="bu">echo</span> <span class="st">&quot;(feat|fix|docs|style|refactor|test|chore): descripción&quot;</span></span>
+<span id="cb75-10"><a href="#cb75-10"></a>    <span class="bu">exit</span> 1</span>
+<span id="cb75-11"><a href="#cb75-11"></a><span class="cf">fi</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="aliases" class="level2">
+<h2 class="anchored" data-anchor-id="aliases">Aliases</h2>
+<p>Crear comandos personalizados:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb76"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb76-1"><a href="#cb76-1"></a><span class="co"># Configurar aliases</span></span>
+<span id="cb76-2"><a href="#cb76-2"></a><span class="fu">git</span> config <span class="at">--global</span> alias.co checkout</span>
+<span id="cb76-3"><a href="#cb76-3"></a><span class="fu">git</span> config <span class="at">--global</span> alias.br branch</span>
+<span id="cb76-4"><a href="#cb76-4"></a><span class="fu">git</span> config <span class="at">--global</span> alias.ci commit</span>
+<span id="cb76-5"><a href="#cb76-5"></a><span class="fu">git</span> config <span class="at">--global</span> alias.st status</span>
+<span id="cb76-6"><a href="#cb76-6"></a><span class="fu">git</span> config <span class="at">--global</span> alias.unstage <span class="st">&#39;reset HEAD --&#39;</span></span>
+<span id="cb76-7"><a href="#cb76-7"></a><span class="fu">git</span> config <span class="at">--global</span> alias.last <span class="st">&#39;log -1 HEAD&#39;</span></span>
+<span id="cb76-8"><a href="#cb76-8"></a><span class="fu">git</span> config <span class="at">--global</span> alias.visual <span class="st">&#39;log --oneline --graph --all --decorate&#39;</span></span>
+<span id="cb76-9"><a href="#cb76-9"></a><span class="fu">git</span> config <span class="at">--global</span> alias.amend <span class="st">&#39;commit --amend --no-edit&#39;</span></span>
+<span id="cb76-10"><a href="#cb76-10"></a></span>
+<span id="cb76-11"><a href="#cb76-11"></a><span class="co"># Usar aliases</span></span>
+<span id="cb76-12"><a href="#cb76-12"></a><span class="fu">git</span> co main</span>
+<span id="cb76-13"><a href="#cb76-13"></a><span class="fu">git</span> visual</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Aliases útiles:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb77"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb77-1"><a href="#cb77-1"></a><span class="fu">git</span> config <span class="at">--global</span> alias.lg <span class="st">&quot;log --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit&quot;</span></span>
+<span id="cb77-2"><a href="#cb77-2"></a><span class="fu">git</span> config <span class="at">--global</span> alias.undo <span class="st">&#39;reset HEAD~1 --mixed&#39;</span></span>
+<span id="cb77-3"><a href="#cb77-3"></a><span class="fu">git</span> config <span class="at">--global</span> alias.contributors <span class="st">&#39;shortlog -sn&#39;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="troubleshooting" class="level1">
+<h1>Troubleshooting</h1>
+<section id="problemas-comunes" class="level2">
+<h2 class="anchored" data-anchor-id="problemas-comunes">Problemas Comunes</h2>
+<p><strong>Descartar todos los cambios locales:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb78"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb78-1"><a href="#cb78-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> HEAD</span>
+<span id="cb78-2"><a href="#cb78-2"></a><span class="fu">git</span> clean <span class="at">-fd</span>  <span class="co"># Eliminar archivos untracked</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Recuperar commit eliminado:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb79"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb79-1"><a href="#cb79-1"></a><span class="fu">git</span> reflog  <span class="co"># Encontrar hash del commit</span></span>
+<span id="cb79-2"><a href="#cb79-2"></a><span class="fu">git</span> checkout <span class="op">&lt;</span>hash<span class="op">&gt;</span></span>
+<span id="cb79-3"><a href="#cb79-3"></a><span class="fu">git</span> branch recovery <span class="op">&lt;</span>hash<span class="op">&gt;</span>  <span class="co"># Crear rama desde commit</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Cambiar último commit:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb80"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb80-1"><a href="#cb80-1"></a><span class="fu">git</span> commit <span class="at">--amend</span>  <span class="co"># Modificar mensaje o añadir archivos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Mover commits a otra rama:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb81"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb81-1"><a href="#cb81-1"></a><span class="fu">git</span> checkout rama-correcta</span>
+<span id="cb81-2"><a href="#cb81-2"></a><span class="fu">git</span> cherry-pick <span class="op">&lt;</span>commit<span class="op">&gt;</span></span>
+<span id="cb81-3"><a href="#cb81-3"></a><span class="fu">git</span> checkout rama-incorrecta</span>
+<span id="cb81-4"><a href="#cb81-4"></a><span class="fu">git</span> reset <span class="at">--hard</span> HEAD~1  <span class="co"># Eliminar de rama incorrecta</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Dividir commit grande:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb82"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb82-1"><a href="#cb82-1"></a><span class="fu">git</span> reset HEAD~1  <span class="co"># Deshacer commit pero mantener cambios</span></span>
+<span id="cb82-2"><a href="#cb82-2"></a><span class="fu">git</span> add <span class="op">&lt;</span>archivo1<span class="op">&gt;</span></span>
+<span id="cb82-3"><a href="#cb82-3"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Primera parte&quot;</span></span>
+<span id="cb82-4"><a href="#cb82-4"></a><span class="fu">git</span> add <span class="op">&lt;</span>archivo2<span class="op">&gt;</span></span>
+<span id="cb82-5"><a href="#cb82-5"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Segunda parte&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Sincronizar fork con upstream:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb83"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb83-1"><a href="#cb83-1"></a><span class="fu">git</span> remote add upstream <span class="op">&lt;</span>url-original<span class="op">&gt;</span></span>
+<span id="cb83-2"><a href="#cb83-2"></a><span class="fu">git</span> fetch upstream</span>
+<span id="cb83-3"><a href="#cb83-3"></a><span class="fu">git</span> checkout main</span>
+<span id="cb83-4"><a href="#cb83-4"></a><span class="fu">git</span> merge upstream/main</span>
+<span id="cb83-5"><a href="#cb83-5"></a><span class="fu">git</span> push origin main</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Resolver “detached HEAD”:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb84"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb84-1"><a href="#cb84-1"></a><span class="fu">git</span> branch temp-branch  <span class="co"># Crear rama desde HEAD actual</span></span>
+<span id="cb84-2"><a href="#cb84-2"></a><span class="fu">git</span> checkout main</span>
+<span id="cb84-3"><a href="#cb84-3"></a><span class="fu">git</span> merge temp-branch</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Limpiar referencias obsoletas:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb85"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb85-1"><a href="#cb85-1"></a><span class="fu">git</span> remote prune origin  <span class="co"># Eliminar referencias remotas obsoletas</span></span>
+<span id="cb85-2"><a href="#cb85-2"></a><span class="fu">git</span> fetch <span class="at">--prune</span>  <span class="co"># Fetch y prune simultáneamente</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Comprimir repositorio:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb86"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb86-1"><a href="#cb86-1"></a><span class="fu">git</span> gc  <span class="co"># Garbage collection</span></span>
+<span id="cb86-2"><a href="#cb86-2"></a><span class="fu">git</span> gc <span class="at">--aggressive</span>  <span class="co"># Más agresivo</span></span>
+<span id="cb86-3"><a href="#cb86-3"></a><span class="fu">git</span> prune  <span class="co"># Eliminar objetos inalcanzables</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Ver archivos grandes:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb87"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb87-1"><a href="#cb87-1"></a><span class="fu">git</span> rev-list <span class="at">--objects</span> <span class="at">--all</span> <span class="dt">\</span></span>
+<span id="cb87-2"><a href="#cb87-2"></a>  <span class="kw">|</span> <span class="fu">git</span> cat-file <span class="at">--batch-check</span><span class="op">=</span><span class="st">&#39;%(objecttype) %(objectname) %(objectsize) %(rest)&#39;</span> <span class="dt">\</span></span>
+<span id="cb87-3"><a href="#cb87-3"></a>  <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-n</span> <span class="st">&#39;s/^blob //p&#39;</span> <span class="dt">\</span></span>
+<span id="cb87-4"><a href="#cb87-4"></a>  <span class="kw">|</span> <span class="fu">sort</span> <span class="at">--numeric-sort</span> <span class="at">--key</span><span class="op">=</span>2 <span class="dt">\</span></span>
+<span id="cb87-5"><a href="#cb87-5"></a>  <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> 10</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Eliminar archivo del historial:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb88"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb88-1"><a href="#cb88-1"></a><span class="fu">git</span> filter-branch <span class="at">--tree-filter</span> <span class="st">&#39;rm -f archivo-sensible&#39;</span> HEAD</span>
+<span id="cb88-2"><a href="#cb88-2"></a><span class="co"># O usar git-filter-repo (más rápido)</span></span>
+<span id="cb88-3"><a href="#cb88-3"></a><span class="fu">git</span> filter-repo <span class="at">--path</span> archivo-sensible <span class="at">--invert-paths</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="referencia-rápida" class="level1">
+<h1>Referencia Rápida</h1>
+<section id="sintaxis-de-referencias" class="level2">
+<h2 class="anchored" data-anchor-id="sintaxis-de-referencias">Sintaxis de Referencias</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb89"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb89-1"><a href="#cb89-1"></a><span class="ex">HEAD</span>           <span class="co"># Commit actual</span></span>
+<span id="cb89-2"><a href="#cb89-2"></a><span class="ex">HEAD^</span>          <span class="co"># Padre de HEAD (HEAD~1)</span></span>
+<span id="cb89-3"><a href="#cb89-3"></a><span class="ex">HEAD^^</span>         <span class="co"># Abuelo de HEAD (HEAD~2)</span></span>
+<span id="cb89-4"><a href="#cb89-4"></a><span class="ex">HEAD~3</span>         <span class="co"># 3 commits antes de HEAD</span></span>
+<span id="cb89-5"><a href="#cb89-5"></a><span class="ex">main^2</span>         <span class="co"># Segundo padre de main (en merge)</span></span>
+<span id="cb89-6"><a href="#cb89-6"></a><span class="op">&lt;</span>branch<span class="op">&gt;</span>@{yesterday}  <span class="co"># Posición ayer</span></span>
+<span id="cb89-7"><a href="#cb89-7"></a><span class="ex">HEAD@{5}</span>       <span class="co"># 5 movimientos atrás en reflog</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="especificar-rangos" class="level2">
+<h2 class="anchored" data-anchor-id="especificar-rangos">Especificar Rangos</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb90"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb90-1"><a href="#cb90-1"></a><span class="op">&lt;</span>commit1<span class="op">&gt;</span>..<span class="op">&lt;</span>commit2<span class="op">&gt;</span>   <span class="co"># Commits alcanzables desde commit2 pero no desde commit1</span></span>
+<span id="cb90-2"><a href="#cb90-2"></a><span class="op">&lt;</span>commit1<span class="op">&gt;</span>...<span class="op">&lt;</span>commit2<span class="op">&gt;</span>  <span class="co"># Commits alcanzables desde cualquiera pero no desde ambos</span></span>
+<span id="cb90-3"><a href="#cb90-3"></a><span class="op">&lt;</span>branch<span class="op">&gt;</span>^@             <span class="co"># Todos los padres de branch</span></span>
+<span id="cb90-4"><a href="#cb90-4"></a><span class="op">&lt;</span>commit<span class="op">&gt;</span>^!             <span class="co"># El commit pero no sus padres</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="variables-de-entorno" class="level2">
+<h2 class="anchored" data-anchor-id="variables-de-entorno">Variables de Entorno</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb91"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb91-1"><a href="#cb91-1"></a><span class="ex">GIT_AUTHOR_NAME</span>        <span class="co"># Nombre del autor</span></span>
+<span id="cb91-2"><a href="#cb91-2"></a><span class="ex">GIT_AUTHOR_EMAIL</span>       <span class="co"># Email del autor</span></span>
+<span id="cb91-3"><a href="#cb91-3"></a><span class="ex">GIT_COMMITTER_NAME</span>     <span class="co"># Nombre del committer</span></span>
+<span id="cb91-4"><a href="#cb91-4"></a><span class="ex">GIT_COMMITTER_EMAIL</span>    <span class="co"># Email del committer</span></span>
+<span id="cb91-5"><a href="#cb91-5"></a><span class="ex">GIT_EDITOR</span>             <span class="co"># Editor predeterminado</span></span>
+<span id="cb91-6"><a href="#cb91-6"></a><span class="ex">GIT_PAGER</span>              <span class="co"># Pager para output</span></span>
+<span id="cb91-7"><a href="#cb91-7"></a><span class="ex">GIT_TRACE</span>              <span class="co"># Activar tracing</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="configuración-útil" class="level2">
+<h2 class="anchored" data-anchor-id="configuración-útil">Configuración Útil</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb92"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb92-1"><a href="#cb92-1"></a><span class="co"># Colorear output</span></span>
+<span id="cb92-2"><a href="#cb92-2"></a><span class="fu">git</span> config <span class="at">--global</span> color.ui auto</span>
+<span id="cb92-3"><a href="#cb92-3"></a></span>
+<span id="cb92-4"><a href="#cb92-4"></a><span class="co"># Guardar credenciales</span></span>
+<span id="cb92-5"><a href="#cb92-5"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper cache</span>
+<span id="cb92-6"><a href="#cb92-6"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper <span class="st">&#39;cache --timeout=3600&#39;</span></span>
+<span id="cb92-7"><a href="#cb92-7"></a></span>
+<span id="cb92-8"><a href="#cb92-8"></a><span class="co"># Autocorrección de comandos</span></span>
+<span id="cb92-9"><a href="#cb92-9"></a><span class="fu">git</span> config <span class="at">--global</span> help.autocorrect 10</span>
+<span id="cb92-10"><a href="#cb92-10"></a></span>
+<span id="cb92-11"><a href="#cb92-11"></a><span class="co"># Rebase por defecto al hacer pull</span></span>
+<span id="cb92-12"><a href="#cb92-12"></a><span class="fu">git</span> config <span class="at">--global</span> pull.rebase true</span>
+<span id="cb92-13"><a href="#cb92-13"></a></span>
+<span id="cb92-14"><a href="#cb92-14"></a><span class="co"># Prune automático</span></span>
+<span id="cb92-15"><a href="#cb92-15"></a><span class="fu">git</span> config <span class="at">--global</span> fetch.prune true</span>
+<span id="cb92-16"><a href="#cb92-16"></a></span>
+<span id="cb92-17"><a href="#cb92-17"></a><span class="co"># Diff mejorado</span></span>
+<span id="cb92-18"><a href="#cb92-18"></a><span class="fu">git</span> config <span class="at">--global</span> diff.algorithm histogram</span>
+<span id="cb92-19"><a href="#cb92-19"></a></span>
+<span id="cb92-20"><a href="#cb92-20"></a><span class="co"># Rerere (reuse recorded resolution)</span></span>
+<span id="cb92-21"><a href="#cb92-21"></a><span class="fu">git</span> config <span class="at">--global</span> rerere.enabled true</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="comandos-de-emergencia" class="level2">
+<h2 class="anchored" data-anchor-id="comandos-de-emergencia">Comandos de Emergencia</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb93"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb93-1"><a href="#cb93-1"></a><span class="co"># Deshacer </span><span class="al">TODO</span><span class="co"> y volver limpio</span></span>
+<span id="cb93-2"><a href="#cb93-2"></a><span class="fu">git</span> reset <span class="at">--hard</span> HEAD</span>
+<span id="cb93-3"><a href="#cb93-3"></a><span class="fu">git</span> clean <span class="at">-fd</span></span>
+<span id="cb93-4"><a href="#cb93-4"></a></span>
+<span id="cb93-5"><a href="#cb93-5"></a><span class="co"># Recuperar trabajo después de reset --hard</span></span>
+<span id="cb93-6"><a href="#cb93-6"></a><span class="fu">git</span> reflog</span>
+<span id="cb93-7"><a href="#cb93-7"></a><span class="fu">git</span> reset <span class="at">--hard</span> <span class="op">&lt;</span>hash<span class="op">&gt;</span></span>
+<span id="cb93-8"><a href="#cb93-8"></a></span>
+<span id="cb93-9"><a href="#cb93-9"></a><span class="co"># Salir de cualquier operación en progreso</span></span>
+<span id="cb93-10"><a href="#cb93-10"></a><span class="fu">git</span> merge <span class="at">--abort</span></span>
+<span id="cb93-11"><a href="#cb93-11"></a><span class="fu">git</span> rebase <span class="at">--abort</span></span>
+<span id="cb93-12"><a href="#cb93-12"></a><span class="fu">git</span> cherry-pick <span class="at">--abort</span></span>
+<span id="cb93-13"><a href="#cb93-13"></a></span>
+<span id="cb93-14"><a href="#cb93-14"></a><span class="co"># Verificar integridad del repositorio</span></span>
+<span id="cb93-15"><a href="#cb93-15"></a><span class="fu">git</span> fsck <span class="at">--full</span></span>
+<span id="cb93-16"><a href="#cb93-16"></a></span>
+<span id="cb93-17"><a href="#cb93-17"></a><span class="co"># Reparar repositorio corrupto</span></span>
+<span id="cb93-18"><a href="#cb93-18"></a><span class="fu">git</span> fsck <span class="at">--full</span> <span class="at">--no-dangling</span></span>
+<span id="cb93-19"><a href="#cb93-19"></a><span class="fu">git</span> gc <span class="at">--aggressive</span> <span class="at">--prune</span><span class="op">=</span>now</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="atajos-de-teclado-shell" class="level2">
+<h2 class="anchored" data-anchor-id="atajos-de-teclado-shell">Atajos de Teclado (Shell)</h2>
+<p>Añadir a <code>~/.bashrc</code> o <code>~/.zshrc</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb94"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb94-1"><a href="#cb94-1"></a><span class="bu">alias</span> g=<span class="st">&#39;git&#39;</span></span>
+<span id="cb94-2"><a href="#cb94-2"></a><span class="bu">alias</span> gs=<span class="st">&#39;git status&#39;</span></span>
+<span id="cb94-3"><a href="#cb94-3"></a><span class="bu">alias</span> ga=<span class="st">&#39;git add&#39;</span></span>
+<span id="cb94-4"><a href="#cb94-4"></a><span class="bu">alias</span> gc=<span class="st">&#39;git commit&#39;</span></span>
+<span id="cb94-5"><a href="#cb94-5"></a><span class="bu">alias</span> gp=<span class="st">&#39;git push&#39;</span></span>
+<span id="cb94-6"><a href="#cb94-6"></a><span class="bu">alias</span> gl=<span class="st">&#39;git pull&#39;</span></span>
+<span id="cb94-7"><a href="#cb94-7"></a><span class="bu">alias</span> gd=<span class="st">&#39;git diff&#39;</span></span>
+<span id="cb94-8"><a href="#cb94-8"></a><span class="bu">alias</span> gco=<span class="st">&#39;git checkout&#39;</span></span>
+<span id="cb94-9"><a href="#cb94-9"></a><span class="bu">alias</span> gb=<span class="st">&#39;git branch&#39;</span></span>
+<span id="cb94-10"><a href="#cb94-10"></a><span class="bu">alias</span> glg=<span class="st">&#39;git log --graph --oneline --all --decorate&#39;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="formato-de-commit-convencional" class="level2">
+<h2 class="anchored" data-anchor-id="formato-de-commit-convencional">Formato de Commit Convencional</h2>
+<pre><code>&lt;tipo&gt;(&lt;ámbito&gt;): &lt;descripción&gt;
+
+&lt;cuerpo&gt;
+
+&lt;pie&gt;</code></pre>
+<p><strong>Tipos:</strong> - <code>feat</code>: Nueva funcionalidad - <code>fix</code>: Corrección de bug - <code>docs</code>: Documentación - <code>style</code>: Formato (no afecta código) - <code>refactor</code>: Refactorización - <code>test</code>: Tests - <code>chore</code>: Tareas de mantenimiento - <code>perf</code>: Mejora de rendimiento</p>
+<p><strong>Ejemplo:</strong></p>
+<pre><code>feat(auth): añadir autenticación con OAuth2
+
+Implementa login con Google y GitHub usando OAuth2.
+Incluye manejo de tokens y refresh automático.
+
+Closes #123</code></pre>
+</section>
+</section>
+<section id="recursos-adicionales" class="level1">
+<h1>Recursos Adicionales</h1>
+<section id="documentación-oficial" class="level2">
+<h2 class="anchored" data-anchor-id="documentación-oficial">Documentación Oficial</h2>
 <ul>
-<li><code>git merge main</code></li>
-<li>conflicto tal vez por que se modifico la mimsa linea en distintos branch</li>
-<li>corregir el error</li>
-<li><code>git add archivo_conflicto.py</code></li>
-<li><code>git commit -m &quot;correccion conflicto&quot;</code></li>
+<li><strong>Manual de Git</strong>: <code>man git</code> o https://git-scm.com/docs</li>
+<li><strong>Libro Pro Git</strong>: https://git-scm.com/book/es/v2</li>
+<li><strong>Git Reference</strong>: https://git-scm.com/docs</li>
 </ul>
-<ol start="3" type="1">
-<li>Reset</li>
-</ol>
+</section>
+<section id="tutoriales-y-cursos" class="level2">
+<h2 class="anchored" data-anchor-id="tutoriales-y-cursos">Tutoriales y Cursos</h2>
 <ul>
-<li><code>git tree</code></li>
-<li><code>git reset --hard af18c2a</code></li>
-<li><code>git log</code></li>
-<li><code>git reflog</code> log completo</li>
-<li><code>git checkout 380beab</code></li>
+<li><strong>Learn Git Branching</strong>: https://learngitbranching.js.org</li>
+<li><strong>Git Tutorial de Atlassian</strong>: https://www.atlassian.com/git/tutorials</li>
+<li><strong>GitHub Learning Lab</strong>: https://lab.github.com</li>
 </ul>
-<ol start="3" type="1">
-<li><p>Etiqueta un commit: (Para versiones)</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">git</span> tag v1.0.0</span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="fu">git</span> push origin main <span class="at">--tags</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
-</ol>
+</section>
+<section id="herramientas" class="level2">
+<h2 class="anchored" data-anchor-id="herramientas">Herramientas</h2>
 <ul>
-<li><code>git tag clase_1</code></li>
-<li><code>git log</code> o <code>git tree</code></li>
-<li><code>git tag</code> Listado de tags</li>
-<li><code>git checkout tags/clase_1</code></li>
-<li></li>
+<li><strong>GitKraken</strong>: Cliente visual multiplataforma</li>
+<li><strong>SourceTree</strong>: Cliente visual de Atlassian</li>
+<li><strong>Fork</strong>: Cliente Git para Mac y Windows</li>
+<li><strong>lazygit</strong>: Cliente TUI (terminal) simple y potente</li>
+<li><strong>tig</strong>: Navegador de texto para repositorios Git</li>
+</ul>
+</section>
+<section id="extensiones" class="level2">
+<h2 class="anchored" data-anchor-id="extensiones">Extensiones</h2>
+<ul>
+<li><strong>git-extras</strong>: Comandos útiles adicionales</li>
+<li><strong>git-flow</strong>: Extensión para Git Flow workflow</li>
+<li><strong>git-lfs</strong>: Large File Storage</li>
+<li><strong>git-filter-repo</strong>: Reescritura avanzada de historial</li>
 </ul>
 </section>
 </section>
-<section id="guardar-temporalmente-un-trabajo-no-terminado" class="level1">
-<h1>Guardar temporalmente un trabajo no terminado</h1>
-<p><code>git status</code></p>
-<p><code>git switch main</code></p>
-<p><code>git stash</code></p>
-<p><code>git stash list</code> <code>git switch main</code></p>
-<p>Hago los cambios</p>
-<p><code>git switch login</code></p>
-<p><code>git stash pop</code> <code>git add .</code> <code>git commit -m &quot;Login v2&quot;</code></p>
-<p><code>git stash drop</code></p>
-</section>
-<section id="comparar-archivos-o-ramas" class="level1">
-<h1>Comparar archivos o ramas</h1>
-<p><code>git diff login</code></p>
-<section id="sincronización" class="level2">
-<h2 class="anchored" data-anchor-id="sincronización">Sincronización</h2>
-<ul>
-<li><code>git fetch origin</code>: Descarga cambios remotos sin fusionarlos.</li>
-<li><code>git pull origin main</code>: Descarga y fusiona cambios.</li>
-<li><code>git push origin main</code>: Envía cambios locales al remoto.</li>
-</ul>
-</section>
+<section id="glosario" class="level1">
+<h1>Glosario</h1>
+<p><strong>Blob</strong>: Objeto que contiene el contenido de un archivo.</p>
+<p><strong>Branch (Rama)</strong>: Puntero móvil a un commit que representa una línea de desarrollo.</p>
+<p><strong>Checkout</strong>: Cambiar el working directory a un commit, rama o tag específico.</p>
+<p><strong>Clone</strong>: Crear una copia local de un repositorio remoto.</p>
+<p><strong>Commit</strong>: Instantánea del proyecto en un momento específico.</p>
+<p><strong>Conflict (Conflicto)</strong>: Situación donde Git no puede fusionar cambios automáticamente.</p>
+<p><strong>Detached HEAD</strong>: Estado donde HEAD apunta directamente a un commit en lugar de a una rama.</p>
+<p><strong>Diff</strong>: Diferencias entre dos versiones de archivos.</p>
+<p><strong>Fast-forward</strong>: Tipo de merge donde simplemente se avanza el puntero de la rama.</p>
+<p><strong>Fetch</strong>: Descargar objetos y referencias desde un repositorio remoto sin fusionar.</p>
+<p><strong>Fork</strong>: Copia de un repositorio en tu propia cuenta.</p>
+<p><strong>HEAD</strong>: Referencia al commit actual.</p>
+<p><strong>Index</strong>: Área de staging donde se preparan cambios para el próximo commit.</p>
+<p><strong>Merge</strong>: Fusionar cambios de una rama a otra.</p>
+<p><strong>Origin</strong>: Nombre por defecto del repositorio remoto principal.</p>
+<p><strong>Pull</strong>: Fetch + Merge en un solo comando.</p>
+<p><strong>Pull Request</strong>: Solicitud para fusionar cambios (terminología de GitHub).</p>
+<p><strong>Push</strong>: Enviar commits locales a un repositorio remoto.</p>
+<p><strong>Rebase</strong>: Mover o combinar commits a una nueva base.</p>
+<p><strong>Remote</strong>: Repositorio alojado en otro lugar (servidor).</p>
+<p><strong>Repository (Repositorio)</strong>: Colección de commits, ramas y configuración de un proyecto.</p>
+<p><strong>SHA-1</strong>: Algoritmo hash usado para identificar objetos de Git.</p>
+<p><strong>Staging Area</strong>: Sinónimo de Index.</p>
+<p><strong>Stash</strong>: Guardar temporalmente cambios sin hacer commit.</p>
+<p><strong>Tag</strong>: Referencia permanente a un commit específico.</p>
+<p><strong>Tree</strong>: Objeto que representa un directorio.</p>
+<p><strong>Upstream</strong>: Rama remota que una rama local rastrea.</p>
+<p><strong>Working Directory (Directorio de Trabajo)</strong>: Directorio actual con archivos del proyecto.</p>
 </section>
 <section id="conclusión" class="level1">
 <h1>Conclusión</h1>
-<p>Dominar Git y GitHub es clave para gestionar proyectos de desarrollo. Practica estos comandos y consulta <code>git --help</code> para más detalles.</p>
+<p>Git es una herramienta poderosa y flexible que requiere práctica para dominar. Esta guía cubre desde conceptos básicos hasta técnicas avanzadas, pero la mejor forma de aprender es usándolo en proyectos reales.</p>
+<p><strong>Consejos finales:</strong></p>
+<ol type="1">
+<li>Practica regularmente</li>
+<li>Experimenta en repositorios de prueba</li>
+<li>Lee los mensajes de error (son informativos)</li>
+<li>Usa <code>git help &lt;comando&gt;</code> cuando tengas dudas</li>
+<li>No temas equivocarte (casi todo se puede deshacer)</li>
+</ol>
+<p><strong>Comandos más importantes para recordar:</strong> - <code>echo &quot;# Léeme&quot; &gt;&gt; README.md</code>: Crea un archivo README.md con el texto “# Léeme”. - <code>git init</code>: Inicia un nuevo repositorio en el directorio actual. - <code>git status</code> - Siempre saber dónde estás - <code>git add</code> - Preparar cambios - <code>git commit -m &quot;Primer commit&quot;</code> - Guardar cambios - <code>git branch -M main</code>: Muestra las ramas existentes. - <code>git push -u origin main</code> - Compartir cambios - <code>git pull</code> - Obtener cambios - <code>git log</code> - Ver historial de commits - <code>git diff</code> - Ver diferencias - <code>git checkout [branch]</code>: Cambia a una rama específica. - <code>git merge [branch]</code>: Fusiona una rama con la actual.</p>
 </section>
 <section id="publicaciones-similares" class="level1">
 <h1>Publicaciones Similares</h1>

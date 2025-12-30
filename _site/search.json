@@ -627,7 +627,7 @@
     "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html",
     "title": "Guía completa de Git y GitHub desde cero",
     "section": "",
-    "text": "Esta guía te introduce a los fundamentos de Git y GitHub, desde la instalación hasta la gestión avanzada de proyectos. Ideal tanto para principiantes como para quienes buscan perfeccionar sus habilidades en control de versiones.\nGit es un sistema de control de versiones (SCV) esencial para rastrear cambios en el código, colaborar en equipo y experimentar con nuevas ideas mediante ramas. Plataformas como GitHub potencian esta colaboración al hospedar repositorios y facilitar el intercambio de código.\n\n\nGit organiza los proyectos en tres áreas principales: - Directorio de trabajo: Donde editas tus archivos. - Área de preparación (staging): Donde preparas los cambios antes de confirmarlos. - Directorio Git: Almacena las instantáneas confirmadas de tu proyecto.\nDisponible en Linux, Windows y macOS, Git tiene una curva de aprendizaje inicial, pero su dominio abre un mundo de posibilidades para gestionar proyectos eficientemente.\n\n\n\nAquí tienes los comandos fundamentales:\n\necho \"# Léeme\" &gt;&gt; README.md: Crea un archivo README.md con el texto “# Léeme”.\ngit init: Inicia un nuevo repositorio en el directorio actual.\ngit add [file]: Añade un archivo al área de preparación.\ngit commit -m \"Primer commit\": Guarda los cambios con un mensaje descriptivo.\ngit branch -M main: Muestra las ramas existentes.\ngit remote add origin git@github.com:achalmed/repositorio.git : Vincula el repositorio local con uno remoto en GitHub.\ngit push -u origin main: Envía los cambios al repositorio remoto.\ngit status: Muestra el estado actual del repositorio.\ngit log: Lista el historial de commits.\ngit diff: Compara cambios no confirmados con el último commit.\ngit checkout [branch]: Cambia a una rama específica.\ngit merge [branch]: Fusiona una rama con la actual.\ngit config --global user.name \"tu-nombre\": Configura tu nombre de usuario.\ngit config --global user.email \"tu-email@example.com\": Configura tu correo.\n\n\n\n\n\n\n\nVerifica si Git está instalado:\ngit --version\nEjemplo de salida: git version 2.34.1\nSi no está instalado, actualiza e instala con APT:\nsudo apt update\nsudo apt install git\nConfigura tu identidad:\ngit config --global user.name \"Tu Nombre\"\ngit config --global user.email \"tu.correo@example.com\"\nVerifica la configuración:\ngit config --list\n\n\n\n\n\nInstala las dependencias:\nsudo apt update\nsudo apt install libz-dev libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext cmake gcc\nDescarga y descomprime la versión deseada (ejemplo: 2.34.1):\nmkdir tmp && cd tmp\ncurl -o git.tar.gz https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.34.1.tar.gz\ntar -zxf git.tar.gz\ncd git-*\nCompila e instala:\nmake prefix=/usr/local all\nsudo make prefix=/usr/local install\nexec bash\nConfirma la instalación:\ngit --version\n\n\n\n\n\n\n\n\nVerifica claves existentes:\nls -al ~/.ssh\nSi no hay claves, crea el directorio: mkdir ~/.ssh.\nGenera un par de claves:\nssh-keygen -t rsa -b 4096 -C \"tu.email@example.com\"\nAcepta el nombre predeterminado y añade una contraseña (opcional).\n\n\n\n\n\nInicia el agente:\neval \"$(ssh-agent -s)\"\nAñade la clave privada:\nssh-add ~/.ssh/id_rsa\n\n\n\n\n\nCopia la clave pública:\n\nLinux/Mac: cat ~/.ssh/id_rsa.pub\nWindows: clip &lt; ~/.ssh/id_rsa.pub\n\nEn GitHub, ve a Settings &gt; SSH and GPG keys &gt; New SSH key, pega la clave y guárdala.\nPrueba la conexión:\nssh -T git@github.com\nResultado esperado: Hi tu_usuario! You've successfully authenticated...\n\n\n\n\n\n\nInicia un repositorio:\ngit init [nombre-del-proyecto]\nAñade archivos y haz un commit:\ngit add .\ngit commit -m \"Primer commit\"\n\n\n\n\n\n\nClona un repositorio remoto:\ngit clone https://github.com/usuario/repositorio.git\nClonación en carpeta específica\ngit clone https://github.com/usuario/repositorio.git /ruta/deseada\n\n\n\nSolo las últimas n confirmaciones:\ngit clone --depth=1 https://github.com/usuario/repositorio.git\n\n\n\ngit clone --branch=nombre-rama https://github.com/usuario/repositorio.git\n\n\n\n\n\nCrea un repositorio en GitHub (público o privado).\nEn tu proyecto local:\n\nCon SSH\necho \"# examen\" &gt;&gt; README.md\ngit init\ngit add .\ngit commit -m \"Primer commit\"\ngit branch -M main\ngit remote add origin git@github.com:usuario/repositorio.git\ngit push -u origin main\nCon HTTPS\necho \"# examen\" &gt;&gt; README.md\ngit init\ngit add .\ngit commit -m \"Primer commit\"\ngit branch -M main\ngit remote add origin https://github.com/usuario/repositorio.git\ngit push -u origin main\n\nSi aparece el error remote origin already exists:\ngit remote rm origin\nLuego repite el paso 2.\n\n\n\n\n\ngit status: Muestra el estado actual.\ngit diff: Compara cambios no confirmados.\ngit log\ngit log --graph\ngit log --graph --pretty=oneline\ngit log --graph --decorate --all --oneline\ngit config --global alias.tree \"log --graph --decorate --all --oneline\"\ngit tree\ngit log --oneline: Historial compacto. Ejemplo:\n7e320e8 update\ngit blame [archivo]: Autores y fechas de cambios.\ntouch .gitignore\n\n\n\n\n\nCrea y cambia a una rama:\n\nNavegando en ramas - git checkout holagit.py - git log - git checkout 707c7f864de5e036c54b43df5a1bfa464fb4d9ba - git tree - git checkout 380beab Creando ramas\ngit checkout -b nueva-rama\ngit branch login git switch login\n\nFusiona ramas:\ngit checkout main\ngit merge nueva-rama\n\ngit switch login git merge main git tree\ncorrección de conflicto\n\ngit merge main\nconflicto tal vez por que se modifico la mimsa linea en distintos branch\ncorregir el error\ngit add archivo_conflicto.py\ngit commit -m \"correccion conflicto\"\n\n\nReset\n\n\ngit tree\ngit reset --hard af18c2a\ngit log\ngit reflog log completo\ngit checkout 380beab\n\n\nEtiqueta un commit: (Para versiones)\ngit tag v1.0.0\ngit push origin main --tags\n\n\ngit tag clase_1\ngit log o git tree\ngit tag Listado de tags\ngit checkout tags/clase_1"
+    "text": "Git es un sistema de control de versiones distribuido rápido, escalable y eficiente. Fue creado por Linus Torvalds en 2005 para el desarrollo del kernel de Linux.\nCaracterísticas principales: - Sistema distribuido (cada desarrollador tiene una copia completa del historial) - Extremadamente rápido - Soporte robusto para desarrollo no lineal (branching y merging) - Integridad de datos garantizada mediante SHA-1"
   },
   {
     "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#cómo-funciona-git",
@@ -654,8 +654,8 @@
     "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#configuración-de-claves-ssh-para-github",
     "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#configuración-de-claves-ssh-para-github",
     "title": "Guía completa de Git y GitHub desde cero",
-    "section": "",
-    "text": "Verifica claves existentes:\nls -al ~/.ssh\nSi no hay claves, crea el directorio: mkdir ~/.ssh.\nGenera un par de claves:\nssh-keygen -t rsa -b 4096 -C \"tu.email@example.com\"\nAcepta el nombre predeterminado y añade una contraseña (opcional).\n\n\n\n\n\nInicia el agente:\neval \"$(ssh-agent -s)\"\nAñade la clave privada:\nssh-add ~/.ssh/id_rsa\n\n\n\n\n\nCopia la clave pública:\n\nLinux/Mac: cat ~/.ssh/id_rsa.pub\nWindows: clip &lt; ~/.ssh/id_rsa.pub\n\nEn GitHub, ve a Settings &gt; SSH and GPG keys &gt; New SSH key, pega la clave y guárdala.\nPrueba la conexión:\nssh -T git@github.com\nResultado esperado: Hi tu_usuario! You've successfully authenticated..."
+    "section": "Configuración de claves SSH para GitHub",
+    "text": "Configuración de claves SSH para GitHub\n\nGenerar una clave SSH\n\nVerifica claves existentes:\nls -al ~/.ssh\nSi no hay claves, crea el directorio: mkdir ~/.ssh.\nGenera un par de claves:\nssh-keygen -t rsa -b 4096 -C \"tu.email@example.com\"\nAcepta el nombre predeterminado y añade una contraseña (opcional).\n\n\n\nAñadir la clave a ssh-agent\n\nInicia el agente:\neval \"$(ssh-agent -s)\"\nAñade la clave privada:\nssh-add ~/.ssh/id_rsa\n\n\n\nVincular la clave a GitHub\n\nCopia la clave pública:\n\nLinux/Mac: cat ~/.ssh/id_rsa.pub\nWindows: clip &lt; ~/.ssh/id_rsa.pub\n\nEn GitHub, ve a Settings &gt; SSH and GPG keys &gt; New SSH key, pega la clave y guárdala.\nPrueba la conexión:\nssh -T git@github.com\nResultado esperado: Hi tu_usuario! You've successfully authenticated..."
   },
   {
     "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#crear-un-repositorio-local",
@@ -845,5 +845,446 @@
     "title": "Security Policy",
     "section": "",
     "text": "Use this section to tell people how to report a vulnerability.\nTell them where to go, how often they can expect to get an update on a reported vulnerability, what to expect if the vulnerability is accepted or declined, etc."
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#arquitectura-de-git",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#arquitectura-de-git",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Arquitectura de Git",
+    "text": "Arquitectura de Git\nGit almacena los datos como instantáneas (snapshots) del proyecto completo, no como diferencias entre archivos. Cada commit es una instantánea completa del estado del proyecto.\nTres áreas principales: 1. Working Directory: Tu directorio de trabajo actual 2. Staging Area (Index): Área de preparación para el próximo commit 3. Repository (.git directory): Base de datos de objetos y metadata"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#instalación",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#instalación",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Instalación",
+    "text": "Instalación\n\nMétodo 1: Paquetes predeterminados (rápido y estable)\nLinux (Ubuntu/Debian):\nsudo apt-get update\nsudo apt-get install git\nLinux (Fedora):\nsudo dnf install git\nmacOS:\nbrew install git\nWindows: Descargar desde: https://git-scm.com/download/win"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#verificar-instalación",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#verificar-instalación",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Verificar Instalación",
+    "text": "Verificar Instalación\ngit --version\n\nMétodo 2: Desde la fuente (versión más reciente)\n\nInstala las dependencias:\nsudo apt update\nsudo apt install libz-dev libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext cmake gcc\nDescarga y descomprime la versión deseada (ejemplo: 2.34.1):\nmkdir tmp && cd tmp\ncurl -o git.tar.gz https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.34.1.tar.gz\ntar -zxf git.tar.gz\ncd git-*\nCompila e instala:\nmake prefix=/usr/local all\nsudo make prefix=/usr/local install\nexec bash\nConfirma la instalación:\ngit --version"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#configuración-inicial",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#configuración-inicial",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Configuración Inicial",
+    "text": "Configuración Inicial\nConfigurar identidad (obligatorio):\ngit config --global user.name \"Tu Nombre\"\ngit config --global user.email \"tu.email@ejemplo.com\"\nEditor por defecto:\ngit config --global core.editor \"vim\"\ngit config --global core.editor \"nano\"\ngit config --global core.editor \"code --wait\"  # VS Code\nConfigurar rama principal:\ngit config --global init.defaultBranch main\nVer configuración:\ngit config --list\ngit config --list --show-origin  # Ver de dónde viene cada configuración\ngit config user.name             # Ver configuración específica\nNiveles de configuración:\n\n--system: Para todos los usuarios del sistema (/etc/gitconfig)\n--global: Para tu usuario (~/.gitconfig)\n--local: Para el repositorio actual (.git/config) [predeterminado]"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#objetos-de-git",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#objetos-de-git",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Objetos de Git",
+    "text": "Objetos de Git\nGit maneja cuatro tipos de objetos:\n\nBlob: Contenido de archivos\nTree: Estructura de directorios (apunta a blobs y otros trees)\nCommit: Instantánea del proyecto (apunta a un tree y commits padres)\nTag: Referencia nombrada a un commit específico"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#referencias-simbólicas",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#referencias-simbólicas",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Referencias Simbólicas",
+    "text": "Referencias Simbólicas\n\nHEAD: Apunta al commit actual (normalmente la punta de una rama)\nRama (branch): Puntero móvil a un commit\nTag: Puntero fijo a un commit\nRemote: Referencias a ramas en repositorios remotos"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#estados-de-archivos",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#estados-de-archivos",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Estados de Archivos",
+    "text": "Estados de Archivos\n\nUntracked: Archivos nuevos que Git no rastrea\nUnmodified: Archivos rastreados sin cambios\nModified: Archivos rastreados con cambios\nStaged: Archivos preparados para el próximo commit"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#sha-1-y-hashes",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#sha-1-y-hashes",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "SHA-1 y Hashes",
+    "text": "SHA-1 y Hashes\nCada objeto en Git tiene un identificador único de 40 caracteres hexadecimales (hash SHA-1). Puedes usar las primeras 7 caracteres para referencias cortas."
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#crear-e-inicializar-repositorios",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#crear-e-inicializar-repositorios",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Crear e Inicializar Repositorios",
+    "text": "Crear e Inicializar Repositorios\nCrear nuevo repositorio:\ngit init\ngit init nombre-proyecto\ngit init --bare  # Repositorio sin working directory (para servidores)\nClonar repositorio existente:\ngit clone &lt;url&gt;\ngit clone https://github.com/usuario/repositorio.git\ngit clone &lt;url&gt; &lt;directorio-destino&gt;\nSolo las últimas n confirmaciones:\ngit clone --depth 1 &lt;url&gt;  # Clone superficial (solo último commit)\ngit clone -b &lt;rama&gt; &lt;url&gt;  # Clonar rama específica, o,\ngit clone --branch=nombre-rama &lt;url&gt;"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#estado-y-diferencias",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#estado-y-diferencias",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Estado y Diferencias",
+    "text": "Estado y Diferencias\nVer estado del repositorio:\ngit status\ngit status -s              # Formato corto\ngit status --short         # Formato abreviado\ngit status -b              # Mostrar rama e información de tracking\nVer cambios:\ngit diff                   # Cambios no staged (no confirmados)\ngit diff --staged          # Cambios staged\ngit diff --cached          # Sinónimo de --staged\ngit diff HEAD              # Todos los cambios desde último commit\ngit diff &lt;rama1&gt; &lt;rama2&gt;   # Diferencias entre ramas\ngit diff &lt;commit1&gt; &lt;commit2&gt;  # Diferencias entre commits\ngit diff --stat            # Resumen estadístico\ngit diff --name-only       # Solo nombres de archivos"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#añadir-archivos-staging",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#añadir-archivos-staging",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Añadir Archivos (Staging)",
+    "text": "Añadir Archivos (Staging)\ngit add &lt;archivo&gt;          # Añadir archivo específico\ngit add .                  # Añadir todos los archivos del directorio actual\ngit add -A                 # Añadir todos los archivos del repositorio\ngit add *.js               # Añadir por patrón\ngit add -p                 # Añadir interactivamente por fragmentos\ngit add -u                 # Añadir solo archivos ya rastreados modificados"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#commits",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#commits",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Commits",
+    "text": "Commits\nCrear commit:\ngit commit -m \"Mensaje del commit\"\ngit commit -am \"Mensaje\"   # Add + commit (solo tracked files)\ngit commit                 # Abre editor para mensaje largo\ngit commit --amend         # Modificar último commit\ngit commit --amend -m \"Nuevo mensaje\"  # Cambiar mensaje del último commit\ngit commit --amend --no-edit  # Añadir cambios sin cambiar mensaje\nBuenas prácticas para mensajes: - Primera línea: resumen conciso (50 caracteres o menos) - Línea en blanco - Descripción detallada (72 caracteres por línea) - Usar imperativo: “Añade” no “Añadido”"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#historial",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#historial",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Historial",
+    "text": "Historial\nVer historial:\ngit log\ngit log --oneline          # Una línea por commit\ngit log --graph            # Vista gráfica\ngit log --all              # Todas las ramas\ngit log --decorate         # Mostrar referencias (ramas, tags)\ngit log -p                 # Mostrar diferencias (patch)\ngit log -n 5               # Últimos 5 commits\ngit log --since=\"2 weeks\"  # Commits de las últimas 2 semanas\ngit log --author=\"Edison\"  # Commits de un autor\ngit log --grep=\"palabra\"   # Buscar en mensajes de commit\ngit log -- archivo.txt     # Historial de un archivo\ngit log --follow archivo.txt  # Incluir renombrados\nFormatos personalizados:\ngit log --pretty=format:\"%h - %an, %ar : %s\"\ngit log --pretty=format:\"%h %s\" --graph\ngit log --graph --oneline --all --decorate\ngit config --global alias.tree \"log --graph --decorate --all --oneline\"\ngit tree\nPlaceholders útiles: - %h: Hash abreviado - %H: Hash completo - %an: Nombre del autor - %ae: Email del autor - %ad: Fecha del autor - %ar: Fecha relativa - %s: Mensaje del commit"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#deshacer-cambios",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#deshacer-cambios",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Deshacer Cambios",
+    "text": "Deshacer Cambios\nDescartar cambios en working directory:\ngit checkout -- &lt;archivo&gt;  # Método antiguo\ngit restore &lt;archivo&gt;      # Método moderno (Git 2.23+)\ngit restore .              # Restaurar todos los archivos\nQuitar archivos del staging area:\ngit reset HEAD &lt;archivo&gt;   # Método antiguo\ngit restore --staged &lt;archivo&gt;  # Método moderno\ngit reset HEAD             # Quitar todos\nDeshacer commits:\ngit reset --soft HEAD~1    # Mantiene cambios en staging\ngit reset --mixed HEAD~1   # Mantiene cambios en working directory [default]\ngit reset --hard HEAD~1    # CUIDADO: Elimina todo\ngit reset &lt;commit&gt;         # Volver a un commit específico\nRevertir commit (seguro):\ngit revert &lt;commit&gt;        # Crea nuevo commit que deshace cambios\ngit revert HEAD            # Revertir último commit\ngit revert --no-commit HEAD~3..HEAD  # Revertir últimos 3 commits"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#eliminar-y-mover-archivos",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#eliminar-y-mover-archivos",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Eliminar y Mover Archivos",
+    "text": "Eliminar y Mover Archivos\ngit rm &lt;archivo&gt;           # Eliminar archivo\ngit rm --cached &lt;archivo&gt;  # Quitar del tracking pero mantener en disco\ngit rm -r directorio/      # Eliminar directorio recursivamente\ngit mv &lt;origen&gt; &lt;destino&gt;  # Renombrar/mover archivo"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#conceptos-de-ramas",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#conceptos-de-ramas",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Conceptos de Ramas",
+    "text": "Conceptos de Ramas\nUna rama en Git es simplemente un puntero móvil a un commit. La rama por defecto se llama main (anteriormente master)."
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#operaciones-con-ramas",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#operaciones-con-ramas",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Operaciones con Ramas",
+    "text": "Operaciones con Ramas\nCrear ramas:\ngit branch &lt;nombre-rama&gt;   # Crear rama\ngit checkout -b &lt;nombre-rama&gt;  # Crear y cambiar\ngit switch -c &lt;nombre-rama&gt;    # Método moderno (Git 2.23+)\nListar ramas:\ngit branch                 # Ramas locales\ngit branch -a              # Todas las ramas (locales + remotas)\ngit branch -r              # Solo ramas remotas\ngit branch -v              # Con último commit de cada rama\ngit branch --merged        # Ramas fusionadas con la actual\ngit branch --no-merged     # Ramas no fusionadas\nCambiar de rama:\ngit checkout &lt;rama&gt;        # Método antiguo\ngit switch &lt;rama&gt;          # Método moderno (Git 2.23+)\ngit checkout -            # Volver a rama anterior\nEliminar ramas:\ngit branch -d &lt;rama&gt;       # Eliminar rama fusionada\ngit branch -D &lt;rama&gt;       # Forzar eliminación\ngit push origin --delete &lt;rama&gt;  # Eliminar rama remota\nRenombrar rama:\ngit branch -m &lt;nuevo-nombre&gt;     # Renombrar rama actual\ngit branch -m &lt;viejo&gt; &lt;nuevo&gt;    # Renombrar otra rama"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#merging-fusionar",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#merging-fusionar",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Merging (Fusionar)",
+    "text": "Merging (Fusionar)\nMerge básico:\ngit merge &lt;rama&gt;           # Fusionar rama en la actual\ngit merge --no-ff &lt;rama&gt;   # Forzar commit de merge\ngit merge --squash &lt;rama&gt;  # Fusionar como un solo commit\ngit merge --abort          # Cancelar merge en conflicto\nTipos de merge: 1. Fast-forward: Avance directo sin commit de merge 2. Three-way merge: Crea commit de merge con dos padres 3. Squash merge: Combina todos los commits en uno"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#rebasing",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#rebasing",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Rebasing",
+    "text": "Rebasing\nRebase reescribe el historial moviendo commits a una nueva base.\ngit rebase &lt;rama-base&gt;     # Rebasar rama actual\ngit rebase main            # Rebasar sobre main\ngit rebase -i HEAD~3       # Rebase interactivo (últimos 3 commits)\ngit rebase --continue      # Continuar después de resolver conflictos\ngit rebase --abort         # Cancelar rebase\ngit rebase --skip          # Saltar commit actual\nRebase interactivo - comandos: - pick: Usar commit - reword: Cambiar mensaje - edit: Editar commit - squash: Fusionar con commit anterior - fixup: Como squash pero descarta mensaje - drop: Eliminar commit\n⚠️ REGLA DE ORO: Nunca hagas rebase de commits públicos/compartidos"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#cherry-pick",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#cherry-pick",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Cherry-pick",
+    "text": "Cherry-pick\nAplicar commits específicos de una rama a otra:\ngit cherry-pick &lt;commit&gt;   # Aplicar un commit\ngit cherry-pick &lt;commit1&gt; &lt;commit2&gt;  # Varios commits\ngit cherry-pick &lt;commit1&gt;..&lt;commit2&gt;  # Rango de commits\ngit cherry-pick --continue # Continuar después de conflictos\ngit cherry-pick --abort    # Cancelar"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#repositorios-remotos",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#repositorios-remotos",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Repositorios Remotos",
+    "text": "Repositorios Remotos\nVer remotos:\ngit remote                 # Listar remotos\ngit remote -v              # Con URLs\ngit remote show origin     # Información detallada\nAñadir remotos:\ngit remote add &lt;nombre&gt; &lt;url&gt;\ngit remote add origin https://github.com/usuario/repo.git\nModificar remotos:\ngit remote rename &lt;viejo&gt; &lt;nuevo&gt;\ngit remote remove &lt;nombre&gt;\ngit remote set-url origin &lt;nueva-url&gt;"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#fetch-pull-y-push",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#fetch-pull-y-push",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Fetch, Pull y Push",
+    "text": "Fetch, Pull y Push\nFetch (descargar sin fusionar):\ngit fetch                  # Fetch de origin\ngit fetch origin           # Fetch de origin explícitamente\ngit fetch --all            # Fetch de todos los remotos\ngit fetch origin &lt;rama&gt;    # Fetch de rama específica\nPull (fetch + merge):\ngit pull                   # Pull de rama actual\ngit pull origin main       # Pull de rama específica\ngit pull --rebase          # Pull con rebase en lugar de merge\ngit pull --rebase origin main\nPush (enviar cambios):\ngit push                   # Push de rama actual\ngit push origin main       # Push a rama específica\ngit push -u origin main    # Push y establecer upstream\ngit push --all             # Push de todas las ramas\ngit push --tags            # Push de todos los tags\ngit push origin --delete &lt;rama&gt;  # Eliminar rama remota\ngit push --force           # ⚠️ Forzar push (PELIGROSO)\ngit push --force-with-lease  # Forzar pero más seguro"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#tracking-branches",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#tracking-branches",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Tracking Branches",
+    "text": "Tracking Branches\ngit branch -u origin/main  # Establecer upstream de rama actual\ngit branch --set-upstream-to=origin/main\ngit branch -vv             # Ver tracking branches"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#stash-guardar-temporalmente",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#stash-guardar-temporalmente",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Stash (Guardar Temporalmente)",
+    "text": "Stash (Guardar Temporalmente)\nGuardar cambios sin hacer commit:\ngit stash                  # Guardar cambios\ngit stash save \"mensaje\"   # Con mensaje descriptivo\ngit stash -u               # Incluir archivos untracked\ngit stash --all            # Incluir todo (untracked + ignored)\ngit stash list             # Listar stashes\ngit stash show             # Ver cambios del último stash\ngit stash show -p          # Ver diff completo\ngit stash apply            # Aplicar último stash (lo mantiene)\ngit stash pop              # Aplicar y eliminar último stash\ngit stash apply stash@{2}  # Aplicar stash específico\ngit stash drop stash@{0}   # Eliminar stash específico\ngit stash clear            # Eliminar todos los stashes\ngit stash branch &lt;rama&gt;    # Crear rama desde stash"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#tags",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#tags",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Tags",
+    "text": "Tags\nMarcar puntos importantes en el historial:\nTags ligeros:\ngit tag v1.0               # Tag ligero\ngit tag v1.0 &lt;commit&gt;      # Tag en commit específico\nTags anotados (recomendado):\ngit tag -a v1.0 -m \"Versión 1.0\"\ngit tag -a v1.0 &lt;commit&gt; -m \"mensaje\"\nOperaciones con tags:\ngit tag                    # Listar tags\ngit tag -l \"v1.8.*\"        # Listar con patrón\ngit show v1.0              # Ver información del tag\ngit push origin v1.0       # Push de tag específico\ngit push origin --tags     # Push de todos los tags\ngit tag -d v1.0            # Eliminar tag local\ngit push origin --delete v1.0  # Eliminar tag remoto\ngit checkout v1.0          # Checkout a tag (detached HEAD)"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#buscar-y-encontrar",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#buscar-y-encontrar",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Buscar y Encontrar",
+    "text": "Buscar y Encontrar\nGrep (buscar en archivos):\ngit grep \"texto\"           # Buscar en working directory\ngit grep \"texto\" &lt;commit&gt;  # Buscar en commit específico\ngit grep -n \"texto\"        # Con números de línea\ngit grep --count \"texto\"   # Contar coincidencias\ngit grep -i \"texto\"        # Case insensitive\nBisect (búsqueda binaria de bugs):\ngit bisect start           # Iniciar bisect\ngit bisect bad             # Marcar commit actual como malo\ngit bisect good &lt;commit&gt;   # Marcar commit bueno conocido\n# Git checkout commits intermedios automáticamente\ngit bisect good            # Marcar como bueno\ngit bisect bad             # Marcar como malo\ngit bisect reset           # Terminar bisect\nBlame (ver quién modificó cada línea):\ngit blame &lt;archivo&gt;        # Ver autor de cada línea\ngit blame -L 10,20 &lt;archivo&gt;  # Solo líneas 10-20\ngit blame -e &lt;archivo&gt;     # Mostrar emails\ngit blame -w &lt;archivo&gt;     # Ignorar cambios de whitespace"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#reflog",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#reflog",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Reflog",
+    "text": "Reflog\nRegistro de todos los cambios a HEAD (incluso commits “perdidos”):\ngit reflog                 # Ver reflog\ngit reflog show            # Igual que git reflog\ngit reflog --all           # Reflog de todas las referencias\ngit reset --hard HEAD@{2}  # Volver a estado anterior"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#worktrees",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#worktrees",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Worktrees",
+    "text": "Worktrees\nTener múltiples working directories del mismo repositorio:\ngit worktree add &lt;path&gt; &lt;branch&gt;  # Crear worktree\ngit worktree list          # Listar worktrees\ngit worktree remove &lt;path&gt; # Eliminar worktree\ngit worktree prune         # Limpiar worktrees obsoletos"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#submodules",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#submodules",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Submodules",
+    "text": "Submodules\nIncluir repositorios dentro de repositorios:\ngit submodule add &lt;url&gt; &lt;path&gt;  # Añadir submodule\ngit submodule init         # Inicializar submodules\ngit submodule update       # Actualizar submodules\ngit submodule update --init --recursive  # Init + update recursivo\ngit clone --recurse-submodules &lt;url&gt;  # Clonar con submodules"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#archivos-y-bundles",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#archivos-y-bundles",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Archivos y Bundles",
+    "text": "Archivos y Bundles\nArchive (crear archivo del repositorio):\ngit archive --format=zip --output=proyecto.zip HEAD\ngit archive --format=tar.gz --output=proyecto.tar.gz main\nBundle (repositorio portátil):\ngit bundle create repo.bundle HEAD --all\ngit clone repo.bundle repo-clonado\ngit bundle verify repo.bundle"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#identificar-conflictos",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#identificar-conflictos",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Identificar Conflictos",
+    "text": "Identificar Conflictos\nCuando hay conflictos durante merge o rebase:\ngit status                 # Ver archivos con conflictos\ngit diff                   # Ver conflictos\ngit diff --ours            # Ver nuestra versión\ngit diff --theirs          # Ver su versión"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#marcadores-de-conflicto",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#marcadores-de-conflicto",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Marcadores de Conflicto",
+    "text": "Marcadores de Conflicto\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nTu versión del código\n=======\nSu versión del código\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; rama-a-fusionar"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#resolver-conflictos",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#resolver-conflictos",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Resolver Conflictos",
+    "text": "Resolver Conflictos\nManualmente: 1. Editar archivos para resolver conflictos 2. Eliminar marcadores &lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt; 3. git add &lt;archivo&gt; para marcar como resuelto 4. git commit o git rebase --continue\nCon herramientas:\ngit mergetool              # Abrir herramienta de merge\ngit mergetool --tool=vimdiff\ngit config --global merge.tool meld  # Configurar herramienta\nEstrategias:\ngit merge -X ours &lt;rama&gt;   # Preferir nuestra versión\ngit merge -X theirs &lt;rama&gt; # Preferir su versión\ngit checkout --ours &lt;archivo&gt;    # Tomar nuestra versión\ngit checkout --theirs &lt;archivo&gt;  # Tomar su versión"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#git-flow",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#git-flow",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Git Flow",
+    "text": "Git Flow\nModelo de branching con ramas específicas:\n\nmain: Código de producción\ndevelop: Rama de desarrollo\nfeature/*: Nuevas características\nrelease/*: Preparación de releases\nhotfix/*: Correcciones urgentes\n\nComandos (con extensión git-flow):\ngit flow init\ngit flow feature start nueva-caracteristica\ngit flow feature finish nueva-caracteristica\ngit flow release start 1.0.0\ngit flow release finish 1.0.0\ngit flow hotfix start fix-critico\ngit flow hotfix finish fix-critico"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#github-flow",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#github-flow",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "GitHub Flow",
+    "text": "GitHub Flow\nWorkflow más simple: 1. Crear rama desde main 2. Hacer commits 3. Abrir Pull Request 4. Revisión de código 5. Merge a main 6. Deploy automático"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#trunk-based-development",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#trunk-based-development",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Trunk-Based Development",
+    "text": "Trunk-Based Development\n\nUna rama principal (main o trunk)\nCommits frecuentes y pequeños\nFeature flags para ocultar trabajo en progreso\nCI/CD robusto"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#flujo-individual-freelance-proyectos-personales-el-más-frecuente-para-principiantes-y-side-projects",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#flujo-individual-freelance-proyectos-personales-el-más-frecuente-para-principiantes-y-side-projects",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "1. Flujo individual / Freelance / Proyectos personales (el más frecuente para principiantes y side projects)",
+    "text": "1. Flujo individual / Freelance / Proyectos personales (el más frecuente para principiantes y side projects)\n# Al empezar el día\ngit pull origin main                # Siempre sincronizo primero\ngit status # Muestra el estado actual del repositorio.\n\n# Trabajo en una nueva funcionalidad\ngit switch -c feat/login-social     # Creo rama con convención clara\n# ... desarrollo varias horas ...\ngit add .\ngit commit -m \"feat: implementar login con Google y GitHub\"\n\n# Pequeña corrección rápida\ngit add src/components/LoginForm.tsx\ngit commit -m \"fix: corregir validación de email en formulario\"\n\n# Al final del día o antes de push\ngit branch -M main # Muestra las ramas existentes.\ngit switch main\ngit pull                            # Vuelvo a sincronizar por si alguien más empujó\ngit switch feat/login-social\ngit rebase main                     # Mantengo mi rama actualizada (rebase limpio)\ngit switch main\ngit merge --ff-only feat/login-social   # Fast-forward si es posible\ngit push -u origin main # Envía los cambios al repositorio remoto.\ngit branch -d feat/login-social     # Elimino la rama ya que está integrada\n\n# Opcional: commit squash al final (muy común en proyectos pequeños)\ngit merge --squash feat/login-social\ngit commit -m \"feat: login con proveedores sociales + validaciones\"\ngit push\nVentajas: Muy rápido, historial relativamente limpio, poco overhead."
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#flujo-típico-de-equipo-medianopequeño-con-pull-requests-el-más-usado-en-2025",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#flujo-típico-de-equipo-medianopequeño-con-pull-requests-el-más-usado-en-2025",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "2. Flujo típico de equipo mediano/pequeño con Pull Requests (el más usado en 2025)",
+    "text": "2. Flujo típico de equipo mediano/pequeño con Pull Requests (el más usado en 2025)\n# Inicio de jornada / después de stand-up\ngit fetch --prune                   # Limpio referencias remotas obsoletas\ngit switch main\ngit pull\n\n# Nueva tarea (ej: ticket #456 - mejorar rendimiento de dashboard)\ngit switch -c feature/456-dashboard-perf\n\n# Desarrollo normal (varios commits)\ngit commit -m \"feat(dashboard): lazy loading de gráficos pesados\"\ngit commit -m \"refactor: extraer hook useChartData\"\n\n# Antes de terminar el día\ngit rebase -i origin/main           # O rebase main si ya está actualizado\n# Squash/reword si quiero limpiar commits antes de PR\n\n# Subo y creo Pull Request\ngit push -u origin feature/456-dashboard-perf\n\n# En GitHub/GitLab:\n#   → Creo PR → añado reviewers → espero revisión\n#   → Después de aprobar y pasar CI/CD:\n#     Merge squash / merge commit / rebase & merge (depende de la política del equipo)\n\n# Una vez mergeado (normalmente por el reviewer o bot)\ngit switch main\ngit pull\ngit fetch --prune\ngit branch -d feature/456-dashboard-perf   # Limpio localmente\nVariante muy común en 2025:\nMerge squash → un solo commit limpio en main con el título del PR"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#corrección-rápida-de-bug-en-producción-hotfix-diario",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#corrección-rápida-de-bug-en-producción-hotfix-diario",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "3. Corrección rápida de bug en producción (hotfix diario)",
+    "text": "3. Corrección rápida de bug en producción (hotfix diario)\n# Opción más rápida y segura (recomendada)\ngit switch main\ngit pull\ngit switch -c hotfix/789-boton-pago-falla\n\n# Arreglo rápido (1-3 commits)\ngit commit -m \"fix: corregir validación de tarjeta en checkout\"\n\ngit push -u origin hotfix/789-boton-pago-falla\n\n# → Crear PR rápido hacia main\n# → Revisión exprés (o auto-merge si es crítico)\n# → Merge (preferiblemente squash o rebase)\n\n# Después del deploy\ngit switch main\ngit pull\ngit tag hotfix-2025-12-30-boton-pago   # O v1.2.3-hotfix si usas semver\ngit push --tags"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#flujo-cuando-trabajas-en-varias-tareas-al-mismo-tiempo-muy-común",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#flujo-cuando-trabajas-en-varias-tareas-al-mismo-tiempo-muy-común",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "4. Flujo cuando trabajas en varias tareas al mismo tiempo (muy común)",
+    "text": "4. Flujo cuando trabajas en varias tareas al mismo tiempo (muy común)\n# Estoy en medio de feature/cuenta-premium\ngit status\n\n# → Aparece bug urgente\ngit stash push -m \"WIP premium checkout\"\n\n# Arreglo rápido\ngit switch -c hotfix/791-api-timeout\n# ... fix ...\ngit commit -m \"fix: aumentar timeout en llamada a /reports\"\ngit push -u origin hotfix/791-api-timeout\n# → PR rápido → merge\n\n# Vuelvo a lo mío\ngit switch feature/cuenta-premium\ngit stash pop\n# Continúo donde estaba..."
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#mini-resumen-de-comandos-que-más-se-usan-en-la-práctica-diaria-2025",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#mini-resumen-de-comandos-que-más-se-usan-en-la-práctica-diaria-2025",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "5. Mini-resumen de comandos que más se usan en la práctica diaria (2025)",
+    "text": "5. Mini-resumen de comandos que más se usan en la práctica diaria (2025)\n\n\n\n\n\n\n\n\nAcción\nComando más común en 2025\nFrecuencia\n\n\n\n\nSincronizar al empezar\ngit pull / git fetch --prune && git pull\n★★★★★\n\n\nCrear rama de tarea\ngit switch -c feat/ticket-xxx-nombre\n★★★★★\n\n\nCommit atómico\ngit commit -m \"tipo: descripción corta\"\n★★★★★\n\n\nActualizar rama antes de PR\ngit rebase main o git merge main\n★★★★\n\n\nSubir rama nueva\ngit push -u origin nombre-rama\n★★★★\n\n\nLimpiar después de merge\ngit branch -d rama-antigua\n★★★★\n\n\nGuardar trabajo temporal\ngit stash push -m \"...\" / git stash pop\n★★★\n\n\nVer estado rápido\ngit status -sb o alias gs\n★★★★★\n\n\nHistorial bonito\ngit log --oneline --graph --decorate --all\n★★★★\n\n\nComparar con main\ngit diff main...\n★★★\n\n\n\nRecomendación final para tu día a día\nAdopta el hábito de:\n\nSiempre pull al empezar\nTrabajar en ramas cortas y con nombres claros\nCommits pequeños y descriptivos (convención Conventional Commits es la más usada actualmente)\nActualizar tu rama frecuentemente (rebase o merge main)\nEliminar ramas una vez integradas"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#commits-1",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#commits-1",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Commits",
+    "text": "Commits\n\nCommits atómicos: Un commit = un cambio lógico\nMensajes descriptivos: Explica el “qué” y el “por qué”\nCommits frecuentes: Mejor muchos commits pequeños que pocos grandes\nNo commitear archivos generados: Usar .gitignore\nRevisar antes de commitear: git diff --staged"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#branching",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#branching",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Branching",
+    "text": "Branching\n\nNombres descriptivos: feature/nueva-funcionalidad, bugfix/issue-123\nRamas de vida corta: Fusionar frecuentemente\nMantener ramas actualizadas: Hacer merge/rebase regular de main\nEliminar ramas fusionadas: Mantener repositorio limpio\nProteger rama principal: Requerir pull requests y revisiones"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#colaboración",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#colaboración",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Colaboración",
+    "text": "Colaboración\n\nPull antes de push: Evitar conflictos\nRevisar código: Pull requests con revisiones\nNo reescribir historial público: Evitar rebase/amend de commits pusheados\nComunicación: Documentar decisiones importantes\nCI/CD: Automatizar tests y despliegues"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#gitignore",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#gitignore",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": ".gitignore",
+    "text": ".gitignore\nEjemplos comunes:\n# Node.js\nnode_modules/\nnpm-debug.log\n.env\n\n# Python\n__pycache__/\n*.py[cod]\nvenv/\n.pytest_cache/\n\n# IDE\n.vscode/\n.idea/\n*.swp\n\n# OS\n.DS_Store\nThumbs.db\n\n# Build\ndist/\nbuild/\n*.log\nComandos útiles:\ngit config --global core.excludesfile ~/.gitignore_global\ngit check-ignore -v &lt;archivo&gt;  # Ver por qué archivo es ignorado"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#inspección-de-objetos",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#inspección-de-objetos",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Inspección de Objetos",
+    "text": "Inspección de Objetos\ngit cat-file -p &lt;hash&gt;     # Ver contenido de objeto\ngit cat-file -t &lt;hash&gt;     # Ver tipo de objeto\ngit cat-file -s &lt;hash&gt;     # Ver tamaño de objeto\ngit ls-tree &lt;tree-hash&gt;    # Listar contenido de tree\ngit ls-files               # Listar archivos en index\ngit ls-files -s            # Con información detallada\ngit ls-remote &lt;remote&gt;     # Listar referencias remotas"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#manipulación-del-index",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#manipulación-del-index",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Manipulación del Index",
+    "text": "Manipulación del Index\ngit update-index --add &lt;archivo&gt;  # Añadir al index\ngit update-index --remove &lt;archivo&gt;  # Quitar del index\ngit read-tree &lt;tree&gt;       # Leer tree al index\ngit write-tree             # Crear tree desde index"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#referencias",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#referencias",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Referencias",
+    "text": "Referencias\ngit show-ref               # Mostrar todas las referencias\ngit update-ref refs/heads/main &lt;commit&gt;  # Actualizar referencia\ngit symbolic-ref HEAD      # Ver a qué apunta HEAD\ngit for-each-ref           # Iterar sobre referencias"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#objetos-y-hashes",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#objetos-y-hashes",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Objetos y Hashes",
+    "text": "Objetos y Hashes\ngit hash-object &lt;archivo&gt;  # Calcular hash de archivo\ngit hash-object -w &lt;archivo&gt;  # Escribir objeto\ngit rev-parse HEAD         # Convertir referencia a hash\ngit rev-list HEAD          # Listar commits alcanzables"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#git-hooks",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#git-hooks",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Git Hooks",
+    "text": "Git Hooks\nScripts que se ejecutan automáticamente en eventos de Git.\nUbicación: .git/hooks/\nHooks comunes:\nClient-side: - pre-commit: Antes de crear commit - prepare-commit-msg: Antes de abrir editor de commit - commit-msg: Validar mensaje de commit - post-commit: Después de crear commit - pre-push: Antes de hacer push\nServer-side: - pre-receive: Antes de aceptar push - update: Por cada rama actualizada - post-receive: Después de aceptar push\nEjemplo pre-commit (tests):\n#!/bin/sh\n# .git/hooks/pre-commit\n\nnpm test\nif [ $? -ne 0 ]; then\n    echo \"Tests fallaron. Commit cancelado.\"\n    exit 1\nfi\nEjemplo commit-msg (validar formato):\n#!/bin/sh\n# .git/hooks/commit-msg\n\ncommit_msg=$(cat \"$1\")\npattern=\"^(feat|fix|docs|style|refactor|test|chore): .+\"\n\nif ! echo \"$commit_msg\" | grep -qE \"$pattern\"; then\n    echo \"Error: El mensaje debe seguir el formato:\"\n    echo \"(feat|fix|docs|style|refactor|test|chore): descripción\"\n    exit 1\nfi"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#aliases",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#aliases",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Aliases",
+    "text": "Aliases\nCrear comandos personalizados:\n# Configurar aliases\ngit config --global alias.co checkout\ngit config --global alias.br branch\ngit config --global alias.ci commit\ngit config --global alias.st status\ngit config --global alias.unstage 'reset HEAD --'\ngit config --global alias.last 'log -1 HEAD'\ngit config --global alias.visual 'log --oneline --graph --all --decorate'\ngit config --global alias.amend 'commit --amend --no-edit'\n\n# Usar aliases\ngit co main\ngit visual\nAliases útiles:\ngit config --global alias.lg \"log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit\"\ngit config --global alias.undo 'reset HEAD~1 --mixed'\ngit config --global alias.contributors 'shortlog -sn'"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#problemas-comunes",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#problemas-comunes",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Problemas Comunes",
+    "text": "Problemas Comunes\nDescartar todos los cambios locales:\ngit reset --hard HEAD\ngit clean -fd  # Eliminar archivos untracked\nRecuperar commit eliminado:\ngit reflog  # Encontrar hash del commit\ngit checkout &lt;hash&gt;\ngit branch recovery &lt;hash&gt;  # Crear rama desde commit\nCambiar último commit:\ngit commit --amend  # Modificar mensaje o añadir archivos\nMover commits a otra rama:\ngit checkout rama-correcta\ngit cherry-pick &lt;commit&gt;\ngit checkout rama-incorrecta\ngit reset --hard HEAD~1  # Eliminar de rama incorrecta\nDividir commit grande:\ngit reset HEAD~1  # Deshacer commit pero mantener cambios\ngit add &lt;archivo1&gt;\ngit commit -m \"Primera parte\"\ngit add &lt;archivo2&gt;\ngit commit -m \"Segunda parte\"\nSincronizar fork con upstream:\ngit remote add upstream &lt;url-original&gt;\ngit fetch upstream\ngit checkout main\ngit merge upstream/main\ngit push origin main\nResolver “detached HEAD”:\ngit branch temp-branch  # Crear rama desde HEAD actual\ngit checkout main\ngit merge temp-branch\nLimpiar referencias obsoletas:\ngit remote prune origin  # Eliminar referencias remotas obsoletas\ngit fetch --prune  # Fetch y prune simultáneamente\nComprimir repositorio:\ngit gc  # Garbage collection\ngit gc --aggressive  # Más agresivo\ngit prune  # Eliminar objetos inalcanzables\nVer archivos grandes:\ngit rev-list --objects --all \\\n  | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \\\n  | sed -n 's/^blob //p' \\\n  | sort --numeric-sort --key=2 \\\n  | tail -n 10\nEliminar archivo del historial:\ngit filter-branch --tree-filter 'rm -f archivo-sensible' HEAD\n# O usar git-filter-repo (más rápido)\ngit filter-repo --path archivo-sensible --invert-paths"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#sintaxis-de-referencias",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#sintaxis-de-referencias",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Sintaxis de Referencias",
+    "text": "Sintaxis de Referencias\nHEAD           # Commit actual\nHEAD^          # Padre de HEAD (HEAD~1)\nHEAD^^         # Abuelo de HEAD (HEAD~2)\nHEAD~3         # 3 commits antes de HEAD\nmain^2         # Segundo padre de main (en merge)\n&lt;branch&gt;@{yesterday}  # Posición ayer\nHEAD@{5}       # 5 movimientos atrás en reflog"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#especificar-rangos",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#especificar-rangos",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Especificar Rangos",
+    "text": "Especificar Rangos\n&lt;commit1&gt;..&lt;commit2&gt;   # Commits alcanzables desde commit2 pero no desde commit1\n&lt;commit1&gt;...&lt;commit2&gt;  # Commits alcanzables desde cualquiera pero no desde ambos\n&lt;branch&gt;^@             # Todos los padres de branch\n&lt;commit&gt;^!             # El commit pero no sus padres"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#variables-de-entorno",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#variables-de-entorno",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Variables de Entorno",
+    "text": "Variables de Entorno\nGIT_AUTHOR_NAME        # Nombre del autor\nGIT_AUTHOR_EMAIL       # Email del autor\nGIT_COMMITTER_NAME     # Nombre del committer\nGIT_COMMITTER_EMAIL    # Email del committer\nGIT_EDITOR             # Editor predeterminado\nGIT_PAGER              # Pager para output\nGIT_TRACE              # Activar tracing"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#configuración-útil",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#configuración-útil",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Configuración Útil",
+    "text": "Configuración Útil\n# Colorear output\ngit config --global color.ui auto\n\n# Guardar credenciales\ngit config --global credential.helper cache\ngit config --global credential.helper 'cache --timeout=3600'\n\n# Autocorrección de comandos\ngit config --global help.autocorrect 10\n\n# Rebase por defecto al hacer pull\ngit config --global pull.rebase true\n\n# Prune automático\ngit config --global fetch.prune true\n\n# Diff mejorado\ngit config --global diff.algorithm histogram\n\n# Rerere (reuse recorded resolution)\ngit config --global rerere.enabled true"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#comandos-de-emergencia",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#comandos-de-emergencia",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Comandos de Emergencia",
+    "text": "Comandos de Emergencia\n# Deshacer TODO y volver limpio\ngit reset --hard HEAD\ngit clean -fd\n\n# Recuperar trabajo después de reset --hard\ngit reflog\ngit reset --hard &lt;hash&gt;\n\n# Salir de cualquier operación en progreso\ngit merge --abort\ngit rebase --abort\ngit cherry-pick --abort\n\n# Verificar integridad del repositorio\ngit fsck --full\n\n# Reparar repositorio corrupto\ngit fsck --full --no-dangling\ngit gc --aggressive --prune=now"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#atajos-de-teclado-shell",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#atajos-de-teclado-shell",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Atajos de Teclado (Shell)",
+    "text": "Atajos de Teclado (Shell)\nAñadir a ~/.bashrc o ~/.zshrc:\nalias g='git'\nalias gs='git status'\nalias ga='git add'\nalias gc='git commit'\nalias gp='git push'\nalias gl='git pull'\nalias gd='git diff'\nalias gco='git checkout'\nalias gb='git branch'\nalias glg='git log --graph --oneline --all --decorate'"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#formato-de-commit-convencional",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#formato-de-commit-convencional",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Formato de Commit Convencional",
+    "text": "Formato de Commit Convencional\n&lt;tipo&gt;(&lt;ámbito&gt;): &lt;descripción&gt;\n\n&lt;cuerpo&gt;\n\n&lt;pie&gt;\nTipos: - feat: Nueva funcionalidad - fix: Corrección de bug - docs: Documentación - style: Formato (no afecta código) - refactor: Refactorización - test: Tests - chore: Tareas de mantenimiento - perf: Mejora de rendimiento\nEjemplo:\nfeat(auth): añadir autenticación con OAuth2\n\nImplementa login con Google y GitHub usando OAuth2.\nIncluye manejo de tokens y refresh automático.\n\nCloses #123"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#documentación-oficial",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#documentación-oficial",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Documentación Oficial",
+    "text": "Documentación Oficial\n\nManual de Git: man git o https://git-scm.com/docs\nLibro Pro Git: https://git-scm.com/book/es/v2\nGit Reference: https://git-scm.com/docs"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#tutoriales-y-cursos",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#tutoriales-y-cursos",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Tutoriales y Cursos",
+    "text": "Tutoriales y Cursos\n\nLearn Git Branching: https://learngitbranching.js.org\nGit Tutorial de Atlassian: https://www.atlassian.com/git/tutorials\nGitHub Learning Lab: https://lab.github.com"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#herramientas",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#herramientas",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Herramientas",
+    "text": "Herramientas\n\nGitKraken: Cliente visual multiplataforma\nSourceTree: Cliente visual de Atlassian\nFork: Cliente Git para Mac y Windows\nlazygit: Cliente TUI (terminal) simple y potente\ntig: Navegador de texto para repositorios Git"
+  },
+  {
+    "objectID": "operating-system/2023-02-16-guia-de-git-y-github/index.html#extensiones",
+    "href": "operating-system/2023-02-16-guia-de-git-y-github/index.html#extensiones",
+    "title": "Guía completa de Git y GitHub desde cero",
+    "section": "Extensiones",
+    "text": "Extensiones\n\ngit-extras: Comandos útiles adicionales\ngit-flow: Extensión para Git Flow workflow\ngit-lfs: Large File Storage\ngit-filter-repo: Reescritura avanzada de historial"
   }
 ]
