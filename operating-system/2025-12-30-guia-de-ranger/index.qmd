@@ -35,7 +35,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github/index.pdf
-date: 02/16/2023
+date: 12/30/2025
 draft: false
 image: ../featured.jpg
 ---
