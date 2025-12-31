@@ -65,9 +65,9 @@
   {
     "objectID": "operating-system/2022-09-27-comandos-vim/index.html",
     "href": "operating-system/2022-09-27-comandos-vim/index.html",
-    "title": "Comandos esenciales de Vim para productividad",
+    "title": "Guía Completa de Vim y Neovim",
     "section": "",
-    "text": "Vim es un editor de texto muy poderoso utilizado en sistemas Linux y Unix. A continuación, se presentan algunos de los comandos y combinaciones de teclas más utilizados en Vim:\n\nModos de Vim:\n\nModo de comandos: el modo predeterminado de Vim, en el que se pueden ingresar comandos para editar el texto. Para activar el modo comando en Vim, debes presionar la tecla “Esc”. Esto te llevará al modo comando desde cualquier otro modo en el que te encuentres, como el modo insertar o el modo de reemplazo. Una vez que estés en el modo comando, puedes utilizar una variedad de comandos y combinaciones de teclas para navegar, editar y guardar tus archivos. Para salir de Vim, puedes ingresar el comando “:q” seguido de Enter. Si has realizado cambios y deseas guardarlos antes de salir, utiliza el comando “:wq” para escribir y guardar los cambios y salir de Vim.\nModo de inserción: el modo en el que se puede ingresar texto normal.\nModo de visualización: el modo utilizado para seleccionar y manipular bloques de texto.\n\nModo de navegación:\n\nh: mueve el cursor una posición a la izquierda.\nj: mueve el cursor una posición hacia abajo.\nk: mueve el cursor una posición hacia arriba.\nl: mueve el cursor una posición a la derecha.\n0: mueve el cursor al inicio de la línea.\n$: mueve el cursor al final de la línea.\nw: mueve el cursor a la siguiente palabra.\nb: mueve el cursor a la palabra anterior.\ngg: mueve el cursor al inicio del archivo.\nG: mueve el cursor al final del archivo.\n:numero: mueve el cursor a la línea con el número especificado.\n\nModo de edición:\n\ni: entra en el modo de inserción antes del cursor.\na: entra en el modo de inserción después del cursor.\no: inserta una nueva línea debajo del cursor y entra en el modo de inserción.\nO: Insertar una nueva línea encima de la línea actual y entrar en modo de inserción.\nEsc: Salir del modo de inserción y volver al modo normal.\nd: elimina el texto seleccionado.\ny: copia el texto seleccionado.\np: pega el texto copiado o eliminado después del cursor.\nu: deshace la última acción.\nCtrl+r: rehace la última acción.\n\nGuardar y Salir\n\n:w: guarda el archivo actual.\n:q: sale de Vim.\n:wq: guarda el archivo y sale de Vim.\n:q!: sale de Vim sin guardar los cambios.\n\nManejo de Texto:\n\nx: elimina el carácter bajo el cursor.\ndw: elimina la palabra bajo el cursor.\ndd: elimina la línea actual.\nu: deshace la última cambio.\nCtrl+r: rehace el último cambio.\n\nCopiar, Cortar y Pegar\n\nyy: copia la línea actual.\n2yy: copia dos líneas a partir de la línea actual.\np: pega después del cursor.\nP: pega antes del cursor.\ndd: Cortar (eliminar) la línea actual.\n:set number: muestra los números de línea en el archivo.\n:set nonumber: oculta los números de línea en el archivo.\n\nComandos de búsqueda y reemplazo:\n\n/: busca el texto especificado hacia adelante.\n?: busca el texto especificado hacia atrás.\nn: busca la siguiente ocurrencia del texto especificado.\nN: busca la ocurrencia anterior del texto especificado.\n:s/old/new/g: reemplaza la primera ocurrencia de “old” con “new” en la línea actual.\n:s/old/new/gc: reemplaza todas las ocurrencias de “old” con “new” en la línea actual y pide confirmación antes de cada reemplazo.\n\n\nEstos son solo algunos de los comandos y combinaciones de teclas más utilizados en Vim. Hay muchos más disponibles, y la lista completa se puede encontrar en la documentación de Vim.\n\nPublicaciones Similares\nSi te interesó este artículo, te recomendamos que explores otros blogs y recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo algunas sugerencias:\n\n Comandos De Informacion Windows\n Adb\n Limpieza Y Optimizacion De Pc\n Usando Apk En Windown 11\n Gestionar Versiones De Jdk En Kubuntu\n Instalar Tor Browser\n Crear Enlaces Duros O Hard Link En Linux\n Comandos Vim\n Guia De Git Y Github\n 00 Primeros Pasos En Linux\n 01 Introduccion Linux\n 02 Distribuciones Linux\n 03 Instalacion Linux\n 04 Administracion Particiones Volumenes\n Atajos De Teclado Y Comandos Para Usar Vim\n Instalando Specitify\n Gestiona Tus Dotfiles Con Gnu Stow\n\nEsperamos que encuentres estas publicaciones igualmente interesantes y útiles. ¡Disfruta de la lectura!\n\n\n\n\nReutilizaciónCC BY-SA 4.0Cómo citarPor favor, cita este trabajo como:\nAchalma, Edison. 2022. “Comandos esenciales de Vim para\nproductividad,” September. https://chaska-x.netlify.app/operating-system/2022-09-27-comandos-vim/."
+    "text": "¿Qué es Vim?\nVim (Vi IMproved) es un editor de texto modal altamente configurable, creado por Bram Moolenaar como una versión mejorada del editor Unix vi. Es conocido por:\n¿Qué es Neovim?\nNeovim es una refactorización moderna de Vim que mantiene compatibilidad mientras añade:\nDiferencias Principales"
   },
   {
     "objectID": "operating-system/2023-06-20-04-administracion-particiones-volumenes/index.html",
@@ -1321,5 +1321,1545 @@
     "title": "Guía completa de Git y GitHub",
     "section": "Mini-resumen de comandos que más se usan en la práctica diaria",
     "text": "Mini-resumen de comandos que más se usan en la práctica diaria\n\n\n\n\n\n\n\n\nAcción\nComando más común en 2025\nFrecuencia\n\n\n\n\nSincronizar al empezar\ngit pull / git fetch --prune && git pull\n★★★★★\n\n\nCrear rama de tarea\ngit switch -c feat/ticket-xxx-nombre\n★★★★★\n\n\nCommit atómico\ngit commit -m \"tipo: descripción corta\"\n★★★★★\n\n\nActualizar rama antes de PR\ngit rebase main o git merge main\n★★★★\n\n\nSubir rama nueva\ngit push -u origin nombre-rama\n★★★★\n\n\nLimpiar después de merge\ngit branch -d rama-antigua\n★★★★\n\n\nGuardar trabajo temporal\ngit stash push -m \"...\" / git stash pop\n★★★\n\n\nVer estado rápido\ngit status -sb o alias gs\n★★★★★\n\n\nHistorial bonito\ngit log --oneline --graph --decorate --all\n★★★★\n\n\nComparar con main\ngit diff main...\n★★★\n\n\n\nRecomendación final para tu día a día\nAdopta el hábito de:\n\nSiempre pull al empezar\nTrabajar en ramas cortas y con nombres claros\nCommits pequeños y descriptivos (convención Conventional Commits es la más usada actualmente)\nActualizar tu rama frecuentemente (rebase o merge main)\nEliminar ramas una vez integradas"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html",
+    "title": "Guía Completa de Ranger",
+    "section": "",
+    "text": "¿Qué es Ranger?\nRanger es un gestor de archivos de consola con: - Atajos de teclado inspirados en Vim - Interfaz minimalista con curses - Vista de jerarquía de directorios (multi-columna) - Previsualización automática de archivos - Integración con rifle (lanzador de archivos inteligente)\nFilosofía de Diseño\nCaracterísticas Principales"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#desde-repositorios",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#desde-repositorios",
+    "title": "Guía Completa de Ranger",
+    "section": "Desde Repositorios",
+    "text": "Desde Repositorios\nUbuntu/Debian:\nsudo apt-get update\nsudo apt-get install ranger\nFedora:\nsudo dnf install ranger\nArch Linux:\nsudo pacman -S ranger\nmacOS (Homebrew):\nbrew install ranger"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#desde-pypi",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#desde-pypi",
+    "title": "Guía Completa de Ranger",
+    "section": "Desde PyPI",
+    "text": "Desde PyPI\npip install ranger-fm\n# O mejor con pipx (entorno aislado)\npipx install ranger-fm"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#desde-código-fuente",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#desde-código-fuente",
+    "title": "Guía Completa de Ranger",
+    "section": "Desde Código Fuente",
+    "text": "Desde Código Fuente\ngit clone https://github.com/ranger/ranger.git\ncd ranger\nsudo make install"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#verificar-instalación",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#verificar-instalación",
+    "title": "Guía Completa de Ranger",
+    "section": "Verificar Instalación",
+    "text": "Verificar Instalación\nranger --version"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#dependencias-opcionales",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#dependencias-opcionales",
+    "title": "Guía Completa de Ranger",
+    "section": "Dependencias Opcionales",
+    "text": "Dependencias Opcionales\nPara funcionalidad completa:\n# Determinar tipos de archivo\nsudo apt-get install file\n\n# Detección mejorada de codificación\npip install chardet\n\n# Nombres bidireccionales (árabe, hebreo)\npip install python-bidi\n\n# Previsualización de imágenes\nsudo apt-get install caca-utils w3m-img\n\n# Conversión de imágenes\nsudo apt-get install imagemagick\n\n# Resaltado de sintaxis\nsudo apt-get install highlight\n# O\npip install pygments\n\n# Previsualización de archivos comprimidos\nsudo apt-get install atool unrar p7zip-full\n\n# Previsualización de PDFs\nsudo apt-get install poppler-utils\n\n# Previsualización de videos\nsudo apt-get install ffmpegthumbnailer\n\n# Información de medios\nsudo apt-get install mediainfo\n\n# Convertir SVG\nsudo apt-get install librsvg2-bin"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#generar-archivos-de-configuración",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#generar-archivos-de-configuración",
+    "title": "Guía Completa de Ranger",
+    "section": "Generar Archivos de Configuración",
+    "text": "Generar Archivos de Configuración\nRanger puede copiar automáticamente los archivos de configuración por defecto:\n# Copiar todas las configuraciones\nranger --copy-config=all\n\n# Copiar archivos específicos\nranger --copy-config=rc          # Configuración principal\nranger --copy-config=rifle       # Configuración de rifle\nranger --copy-config=scope       # Script de previsualización\nranger --copy-config=commands    # Comandos personalizados"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#ubicación-de-archivos",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#ubicación-de-archivos",
+    "title": "Guía Completa de Ranger",
+    "section": "Ubicación de Archivos",
+    "text": "Ubicación de Archivos\nLos archivos de configuración se encuentran en:\n~/.config/ranger/\n├── rc.conf           # Configuración principal y atajos\n├── rifle.conf        # Lanzador de archivos\n├── scope.sh          # Script de previsualización\n├── commands.py       # Comandos personalizados (Python)\n├── commands_full.py  # Comandos adicionales\n└── plugins/          # Directorio para plugins"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#primer-lanzamiento",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#primer-lanzamiento",
+    "title": "Guía Completa de Ranger",
+    "section": "Primer Lanzamiento",
+    "text": "Primer Lanzamiento\nranger\nAl iniciar ranger por primera vez:\n\nSe abre en el directorio actual\nMuestra tres columnas: padre, actual, previsualización\nUsa las flechas o hjkl para navegar"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#estructura-de-la-pantalla",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#estructura-de-la-pantalla",
+    "title": "Guía Completa de Ranger",
+    "section": "Estructura de la Pantalla",
+    "text": "Estructura de la Pantalla\n┌─────────────────────────────────────────────────────────┐\n│ Directorio Padre │ Directorio Actual │ Previsualización │\n│                  │                   │                  │\n│  parent/         │ &gt; archivo1.txt    │ Contenido del    │\n│  current/        │   archivo2.py     │ archivo1.txt...  │\n│  sibling/        │   carpeta/        │                  │\n│                  │   imagen.png      │                  │\n│                  │                   │                  │\n├─────────────────────────────────────────────────────────┤\n│ Barra de Estado: PWD, permisos, tamaño, fecha           │\n└─────────────────────────────────────────────────────────┘"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#columnas-explicadas",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#columnas-explicadas",
+    "title": "Guía Completa de Ranger",
+    "section": "Columnas Explicadas",
+    "text": "Columnas Explicadas\n\nColumna Izquierda: Contenido del directorio padre\nColumna Central: Directorio actual (principal)\nColumna Derecha: Previsualización del archivo/directorio seleccionado"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#barra-de-estado",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#barra-de-estado",
+    "title": "Guía Completa de Ranger",
+    "section": "Barra de Estado",
+    "text": "Barra de Estado\nMuestra información del archivo seleccionado:\n\nPermisos (rwxr-xr-x)\nUsuario y grupo propietario\nTamaño del archivo\nFecha de modificación\nRuta completa del directorio actual"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#navegación-básica-estilo-vim",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#navegación-básica-estilo-vim",
+    "title": "Guía Completa de Ranger",
+    "section": "Navegación Básica (Estilo Vim)",
+    "text": "Navegación Básica (Estilo Vim)\n\n\n\nTecla\nAcción\n\n\n\n\nh\nIr al directorio padre (arriba en jerarquía)\n\n\nj\nMover cursor hacia abajo\n\n\nk\nMover cursor hacia arriba\n\n\nl\nEntrar a directorio / Abrir archivo\n\n\n↑\nMover cursor hacia arriba\n\n\n↓\nMover cursor hacia abajo\n\n\n←\nIr al directorio padre\n\n\n→\nEntrar a directorio / Abrir archivo"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#movimiento-rápido",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#movimiento-rápido",
+    "title": "Guía Completa de Ranger",
+    "section": "Movimiento Rápido",
+    "text": "Movimiento Rápido\n\n\n\nTecla\nAcción\n\n\n\n\ngg\nIr al inicio de la lista\n\n\nG\nIr al final de la lista\n\n\nH\nIr al inicio de la pantalla visible\n\n\nM\nIr a la mitad de la pantalla visible\n\n\nL\nIr al final de la pantalla visible\n\n\n{\nSubir una página\n\n\n}\nBajar una página\n\n\nCtrl+u\nMedia página arriba\n\n\nCtrl+d\nMedia página abajo\n\n\nCtrl+b\nPágina completa arriba\n\n\nCtrl+f\nPágina completa abajo"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#salir-y-ayuda",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#salir-y-ayuda",
+    "title": "Guía Completa de Ranger",
+    "section": "Salir y Ayuda",
+    "text": "Salir y Ayuda\n\n\n\nTecla\nAcción\n\n\n\n\nq\nSalir de ranger\n\n\nQ\nSalir sin cambiar directorio\n\n\n?\nAbrir manual de ayuda\n\n\nW\nVer log de ranger"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#historial-de-navegación",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#historial-de-navegación",
+    "title": "Guía Completa de Ranger",
+    "section": "Historial de Navegación",
+    "text": "Historial de Navegación\n\n\n\nTecla\nAcción\n\n\n\n\nH\nIr atrás en el historial (history back)\n\n\nL\nIr adelante en el historial (history forward)\n\n\nAlt+Left\nHistorial atrás\n\n\nAlt+Right\nHistorial adelante"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#saltos-rápidos",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#saltos-rápidos",
+    "title": "Guía Completa de Ranger",
+    "section": "Saltos Rápidos",
+    "text": "Saltos Rápidos\n\n\n\nTecla\nAcción\n\n\n\n\ngh\nIr a HOME (~)\n\n\nge\nIr a /etc\n\n\ngu\nIr a /usr\n\n\ngd\nIr a /dev\n\n\ngo\nIr a /opt\n\n\ngv\nIr a /var\n\n\ngm\nIr a /media\n\n\ngM\nIr a /mnt\n\n\ngs\nIr a /srv\n\n\ngR\nIr a / (root)\n\n\ng/\nIr a / (root)\n\n\ng?\nIr a /usr/share/doc/ranger"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#navegación-por-primera-letra",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#navegación-por-primera-letra",
+    "title": "Guía Completa de Ranger",
+    "section": "Navegación por Primera Letra",
+    "text": "Navegación por Primera Letra\n\n\n\nTecla\nAcción\n\n\n\n\nf&lt;letra&gt;\nBuscar archivo que empiece con letra\n\n\nF&lt;letra&gt;\nBuscar archivo que empiece con letra (multi-match)\n\n\n\nEjemplo: - ft - Salta al primer archivo que empiece con ‘t’ - Ft - Salta a archivos que empiecen con ‘t’, presiona ; para siguiente"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#ir-a-directorio-específico",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#ir-a-directorio-específico",
+    "title": "Guía Completa de Ranger",
+    "section": "Ir a Directorio Específico",
+    "text": "Ir a Directorio Específico\n\n\n\nTecla\nAcción\n\n\n\n\ncd\nAbrir prompt para cambiar directorio\n\n\n:cd /ruta\nIr a ruta específica\n\n\n:cd -\nIr al directorio anterior"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#copiar-cortar-y-pegar",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#copiar-cortar-y-pegar",
+    "title": "Guía Completa de Ranger",
+    "section": "Copiar, Cortar y Pegar",
+    "text": "Copiar, Cortar y Pegar\n\n\n\nTecla\nAcción\n\n\n\n\nyy\nCopiar (yank) archivo seleccionado\n\n\ndd\nCortar (cut) archivo seleccionado\n\n\npp\nPegar archivo\n\n\npo\nPegar sobrescribiendo\n\n\npP\nPegar creando enlaces simbólicos\n\n\npO\nPegar enlaces simbólicos sobrescribiendo\n\n\npl\nPegar creando enlaces duros (hardlinks)\n\n\npL\nPegar enlaces duros con nuevo nombre\n\n\nud\nDeshacer (undo) operación de cortar\n\n\nuy\nDeshacer (undo) operación de copiar"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#eliminar",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#eliminar",
+    "title": "Guía Completa de Ranger",
+    "section": "Eliminar",
+    "text": "Eliminar\n\n\n\nTecla\nAcción\n\n\n\n\ndD\nEliminar archivo (pide confirmación)\n\n\ndT\nMover a papelera (si está configurada)"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#crear-y-editar",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#crear-y-editar",
+    "title": "Guía Completa de Ranger",
+    "section": "Crear y Editar",
+    "text": "Crear y Editar\n\n\n\nTecla\nAcción\n\n\n\n\n:touch nombre\nCrear archivo nuevo\n\n\n:mkdir nombre\nCrear directorio nuevo\n\n\ni\nMostrar nombre del archivo actual\n\n\nE\nEditar archivo con editor por defecto\n\n\ncw\nRenombrar archivo (change word)\n\n\na\nRenombrar - cursor al final\n\n\nA\nRenombrar - cursor después de extensión\n\n\nI\nRenombrar - cursor al principio"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#permisos-y-propiedades",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#permisos-y-propiedades",
+    "title": "Guía Completa de Ranger",
+    "section": "Permisos y Propiedades",
+    "text": "Permisos y Propiedades\n\n\n\nTecla\nAcción\n\n\n\n\n=\nMostrar permisos en notación chmod\n\n\n+&lt;permisos&gt;\nAñadir permisos (ej: +x)\n\n\n-&lt;permisos&gt;\nQuitar permisos (ej: -w)\n\n\n\nEjemplos:\n+x    # Añadir permiso de ejecución\n-w    # Quitar permiso de escritura\n=755  # Establecer permisos exactos"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#seleccionar-archivos",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#seleccionar-archivos",
+    "title": "Guía Completa de Ranger",
+    "section": "Seleccionar Archivos",
+    "text": "Seleccionar Archivos\n\n\n\nTecla\nAcción\n\n\n\n\nSpace\nMarcar/desmarcar archivo y bajar\n\n\nv\nInvertir selección de todos los archivos\n\n\nV\nEntrar en modo visual (selección continua)\n\n\nuv\nDesmarcar todos los archivos"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#modo-visual",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#modo-visual",
+    "title": "Guía Completa de Ranger",
+    "section": "Modo Visual",
+    "text": "Modo Visual\nEn modo visual (V):\n\nj/k - Extender selección arriba/abajo\ngg/G - Seleccionar hasta inicio/final\no - Cambiar punto de anclaje de selección"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#operaciones-con-múltiples-archivos",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#operaciones-con-múltiples-archivos",
+    "title": "Guía Completa de Ranger",
+    "section": "Operaciones con Múltiples Archivos",
+    "text": "Operaciones con Múltiples Archivos\nUna vez seleccionados:\n\nyy - Copiar todos los seleccionados\ndd - Cortar todos los seleccionados\ndD - Eliminar todos los seleccionados\n:bulkrename - Renombrar múltiples archivos en editor"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#renombrado-masivo",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#renombrado-masivo",
+    "title": "Guía Completa de Ranger",
+    "section": "Renombrado Masivo",
+    "text": "Renombrado Masivo\n# Seleccionar archivos con Space\n# Ejecutar:\n:bulkrename\n\n# Se abre tu editor con lista de archivos\n# Edita los nombres\n# Guarda y cierra\n# Ranger renombra los archivos automáticamente"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#búsqueda",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#búsqueda",
+    "title": "Guía Completa de Ranger",
+    "section": "Búsqueda",
+    "text": "Búsqueda\n\n\n\nTecla\nAcción\n\n\n\n\n/\nBuscar hacia adelante\n\n\n?\nBuscar hacia atrás\n\n\nn\nIr a siguiente resultado\n\n\nN\nIr a resultado anterior\n\n\nct\nBuscar en subdirectorios (content search)\n\n\ncs\nCancelar búsqueda"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#filtrado",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#filtrado",
+    "title": "Guía Completa de Ranger",
+    "section": "Filtrado",
+    "text": "Filtrado\n\n\n\nTecla\nAcción\n\n\n\n\nzf\nFiltrar archivos (solo mostrar coincidencias)\n\n\nzz\nCambiar configuración de filtro\n\n\nzh\nMostrar/ocultar archivos ocultos"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#ordenamiento",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#ordenamiento",
+    "title": "Guía Completa de Ranger",
+    "section": "Ordenamiento",
+    "text": "Ordenamiento\n\n\n\nTecla\nAcción\n\n\n\n\non\nOrdenar por nombre\n\n\nos\nOrdenar por tamaño\n\n\not\nOrdenar por fecha de modificación\n\n\noa\nOrdenar por fecha de acceso\n\n\noc\nOrdenar por fecha de creación\n\n\noe\nOrdenar por extensión\n\n\nob\nOrdenar por nombre base (sin extensión)\n\n\nor\nInvertir orden\n\n\noz\nAleatorio\n\n\noS\nOrdenar naturalmente (números: 1, 2, 10 no 1, 10, 2)"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#gestión-de-pestañas",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#gestión-de-pestañas",
+    "title": "Guía Completa de Ranger",
+    "section": "Gestión de Pestañas",
+    "text": "Gestión de Pestañas\n\n\n\nTecla\nAcción\n\n\n\n\ngn\nCrear pestaña nueva (tab new)\n\n\ngt\nIr a siguiente pestaña (tab next)\n\n\ngT\nIr a pestaña anterior (tab previous)\n\n\ngc\nCerrar pestaña actual (tab close)\n\n\nAlt+1\nIr a pestaña 1\n\n\nAlt+2\nIr a pestaña 2\n\n\n…\n…\n\n\nAlt+9\nIr a pestaña 9\n\n\nuq\nRestaurar pestaña cerrada"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#movimiento-entre-pestañas",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#movimiento-entre-pestañas",
+    "title": "Guía Completa de Ranger",
+    "section": "Movimiento Entre Pestañas",
+    "text": "Movimiento Entre Pestañas\n# Con números\n1gt   # Ir a pestaña 1\n3gt   # Ir a pestaña 3\n\n# Navegación relativa\ngt    # Siguiente\ngT    # Anterior"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#crear-y-usar-marcadores",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#crear-y-usar-marcadores",
+    "title": "Guía Completa de Ranger",
+    "section": "Crear y Usar Marcadores",
+    "text": "Crear y Usar Marcadores\n\n\n\nTecla\nAcción\n\n\n\n\nm&lt;letra&gt;\nCrear marcador (ej: ma)\n\n\n'&lt;letra&gt;\nIr a marcador (ej: 'a)\n\n\n`&lt;letra&gt;\nIr a marcador (igual que ’)\n\n\num&lt;letra&gt;\nEliminar marcador"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#marcadores-especiales",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#marcadores-especiales",
+    "title": "Guía Completa de Ranger",
+    "section": "Marcadores Especiales",
+    "text": "Marcadores Especiales\n\n\n\nMarcador\nUbicación\n\n\n\n\n''\nPosición anterior\n\n\n ``\nPosición anterior (backtick)\n\n\n\nEjemplo de uso:\n# Estás en /home/usuario/documentos\nma        # Crear marcador 'a'\n# Navega a otro lugar\ncd /etc\n# Volver rápido\n'a        # Regresa a /home/usuario/documentos"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#ver-marcadores",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#ver-marcadores",
+    "title": "Guía Completa de Ranger",
+    "section": "Ver Marcadores",
+    "text": "Ver Marcadores\n:marks    # Ver todos los marcadores"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#configurar-previsualización",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#configurar-previsualización",
+    "title": "Guía Completa de Ranger",
+    "section": "Configurar Previsualización",
+    "text": "Configurar Previsualización\n\n\n\nTecla\nAcción\n\n\n\n\nzp\nActivar/desactivar previsualización\n\n\nzP\nActivar/desactivar previsualización de directorios\n\n\nzi\nActivar/desactivar previsualización de imágenes\n\n\nzv\nCambiar modo de vista (Miller, Multipane)"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#tipos-de-previsualización",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#tipos-de-previsualización",
+    "title": "Guía Completa de Ranger",
+    "section": "Tipos de Previsualización",
+    "text": "Tipos de Previsualización\nTexto:\n\nArchivos de texto plano\nCódigo fuente con resaltado de sintaxis\nArchivos de configuración\n\nImágenes:\n\nPrevisualización ASCII (con caca-utils)\nPrevisualización real (con w3m-img, ueberzug, kitty, etc.)\n\nArchivos Comprimidos:\n\nListado de contenido (.zip, .tar.gz, .rar, etc.)\n\nDocumentos:\n\nPDFs (convertidos a texto con pdftotext)\nOffice documents (convertidos con herramientas apropiadas)\n\nMedia:\n\nVideos (miniaturas con ffmpegthumbnailer)\nAudio (metadatos con mediainfo)"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#configurar-scope.sh",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#configurar-scope.sh",
+    "title": "Guía Completa de Ranger",
+    "section": "Configurar scope.sh",
+    "text": "Configurar scope.sh\nEl archivo ~/.config/ranger/scope.sh controla qué se previsualiza y cómo.\nEjemplo - Añadir tipo de archivo:\n# En scope.sh, añadir nuevo caso\ncase \"$mimetype\" in\n    application/json)\n        jq . \"$path\" && exit 5\n        cat \"$path\" && exit 5\n        exit 1;;\nesac"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#acceder-a-la-consola",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#acceder-a-la-consola",
+    "title": "Guía Completa de Ranger",
+    "section": "Acceder a la Consola",
+    "text": "Acceder a la Consola\n\n\n\nTecla\nAcción\n\n\n\n\n:\nAbrir consola de comandos\n\n\n!\nEjecutar comando shell\n\n\ns\nAbrir shell en directorio actual\n\n\nS\nAbrir shell con escalada de privilegios"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#comandos-principales",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#comandos-principales",
+    "title": "Guía Completa de Ranger",
+    "section": "Comandos Principales",
+    "text": "Comandos Principales"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#navegación",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#navegación",
+    "title": "Guía Completa de Ranger",
+    "section": "Navegación",
+    "text": "Navegación\n:cd &lt;directorio&gt;           # Cambiar directorio\n:cd -                      # Directorio anterior\n:cd ~                      # Ir a HOME"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#operaciones-de-archivos",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#operaciones-de-archivos",
+    "title": "Guía Completa de Ranger",
+    "section": "Operaciones de Archivos",
+    "text": "Operaciones de Archivos\n:touch &lt;nombre&gt;            # Crear archivo\n:mkdir &lt;nombre&gt;            # Crear directorio\n:rename &lt;nuevo_nombre&gt;     # Renombrar\n:delete                    # Eliminar con confirmación\n:chmod &lt;permisos&gt;          # Cambiar permisos"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#búsqueda-1",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#búsqueda-1",
+    "title": "Guía Completa de Ranger",
+    "section": "Búsqueda",
+    "text": "Búsqueda\n:search &lt;patrón&gt;           # Buscar archivos\n:search_inc &lt;patrón&gt;       # Búsqueda incremental\n:filter &lt;patrón&gt;           # Filtrar archivos mostrados"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#pestañas-y-marcadores",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#pestañas-y-marcadores",
+    "title": "Guía Completa de Ranger",
+    "section": "Pestañas y Marcadores",
+    "text": "Pestañas y Marcadores\n:tab_new                   # Nueva pestaña\n:tab_close                 # Cerrar pestaña\n:tab_move &lt;n&gt;              # Mover a pestaña n\n:mark &lt;letra&gt;              # Crear marcador"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#configuración",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#configuración",
+    "title": "Guía Completa de Ranger",
+    "section": "Configuración",
+    "text": "Configuración\n:set &lt;opción&gt; &lt;valor&gt;      # Establecer opción\n:set show_hidden true      # Mostrar archivos ocultos\n:set column_ratios 1,3,4   # Cambiar proporciones de columnas\n:set colorscheme &lt;nombre&gt;  # Cambiar tema de colores"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#ayuda-y-sistema",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#ayuda-y-sistema",
+    "title": "Guía Completa de Ranger",
+    "section": "Ayuda y Sistema",
+    "text": "Ayuda y Sistema\n:help                      # Abrir ayuda\n:source &lt;archivo&gt;          # Cargar configuración\n:shell &lt;comando&gt;           # Ejecutar comando shell\n:quit                      # Salir"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#comandos-de-shell",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#comandos-de-shell",
+    "title": "Guía Completa de Ranger",
+    "section": "Comandos de Shell",
+    "text": "Comandos de Shell\n# Ejecutar comando y ver output\n!ls -la\n\n# Ejecutar en segundo plano\n!make &\n\n# Ejecutar con privilegios\nS\n# O\n!sudo &lt;comando&gt;"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#autocompletado",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#autocompletado",
+    "title": "Guía Completa de Ranger",
+    "section": "Autocompletado",
+    "text": "Autocompletado\n\nTab - Autocompletar comando/ruta\nShift+Tab - Autocompletar hacia atrás"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#rc.conf---configuración-principal",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#rc.conf---configuración-principal",
+    "title": "Guía Completa de Ranger",
+    "section": "rc.conf - Configuración Principal",
+    "text": "rc.conf - Configuración Principal\nUbicación: ~/.config/ranger/rc.conf"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#opciones-comunes",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#opciones-comunes",
+    "title": "Guía Completa de Ranger",
+    "section": "Opciones Comunes",
+    "text": "Opciones Comunes\n# Mostrar archivos ocultos\nset show_hidden true\n\n# Cambiar editor por defecto\nset editor vim\n# set editor nano\n# set editor code\n\n# Proporciones de columnas (padre:actual:previsualización)\nset column_ratios 1,3,4\n\n# Confirmación antes de eliminar\nset confirm_on_delete multiple\n\n# Mostrar números de línea\nset line_numbers relative\n# Opciones: false, absolute, relative\n\n# Tema de colores\nset colorscheme default\n# Otros: jungle, snow, solarized\n\n# Previsualización automática\nset preview_files true\nset preview_directories true\nset preview_images true\n\n# Método de previsualización de imágenes\nset preview_images_method w3m\n# Opciones: w3m, ueberzug, kitty, iterm2\n\n# Guardar historial\nset save_console_history true\n\n# Tamaño máximo de previsualización\nset preview_max_size 0  # 0 = sin límite\n\n# Mostrar información VCS (git)\nset vcs_aware true\n\n# Comportamiento del mouse\nset mouse_enabled true\n\n# Scroll automático\nset autosave_bookmarks true\nset autoupdate_cumulative_size false\n\n# Padding alrededor de la selección\nset padding_right true"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#mapeos-de-teclado-personalizados",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#mapeos-de-teclado-personalizados",
+    "title": "Guía Completa de Ranger",
+    "section": "Mapeos de Teclado Personalizados",
+    "text": "Mapeos de Teclado Personalizados\n# Mapear tecla a comando\nmap &lt;tecla&gt; &lt;comando&gt;\n\n# Ejemplos:\nmap DD shell trash-put %s          # Mover a papelera\nmap x shell chmod +x %s            # Hacer ejecutable\nmap bg shell feh --bg-scale %s     # Establecer fondo de pantalla\nmap &lt;C-t&gt; shell alacritty &        # Abrir terminal\nmap &lt;A-1&gt; tab_move 1               # Ir a pestaña 1\nmap ee edit_file                   # Editar archivo\nmap et shell alacritty -e vim %s & # Editar en terminal nueva\n\n# Desmap tecla\nunmap dd  # Quitar mapeo de dd"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#comandos-de-shell-1",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#comandos-de-shell-1",
+    "title": "Guía Completa de Ranger",
+    "section": "Comandos de Shell",
+    "text": "Comandos de Shell\n# Ejecutar comando con archivo actual\nmap X shell -f &lt;comando&gt; %f\n\n# Variables disponibles:\n# %f - archivo actual\n# %d - directorio actual\n# %s - archivos seleccionados\n# %t - archivos etiquetados (tagged)\n# %c - ruta completa del archivo actual"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#rifle.conf---lanzador-de-archivos",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#rifle.conf---lanzador-de-archivos",
+    "title": "Guía Completa de Ranger",
+    "section": "rifle.conf - Lanzador de Archivos",
+    "text": "rifle.conf - Lanzador de Archivos\nUbicación: ~/.config/ranger/rifle.conf\nDetermina qué programa abre cada tipo de archivo.\nSintaxis:\n&lt;condición&gt; = &lt;comando&gt;\nEjemplos:\n# Texto plano\nmime ^text, label editor = ${VISUAL:-$EDITOR} -- \"$@\"\nmime ^text, label pager  = \"$PAGER\" -- \"$@\"\n\n# PDFs\next pdf, has evince,  X, flag f = evince -- \"$@\"\next pdf, has zathura, X, flag f = zathura -- \"$@\"\next pdf, has okular,  X, flag f = okular -- \"$@\"\n\n# Imágenes\nmime ^image, has feh,       X, flag f = feh -- \"$@\"\nmime ^image, has gimp,      X, flag f = gimp -- \"$@\"\nmime ^image, has sxiv,      X, flag f = sxiv -- \"$@\"\n\n# Videos\nmime ^video, has mpv,       X, flag f = mpv -- \"$@\"\nmime ^video, has vlc,       X, flag f = vlc -- \"$@\"\n\n# Audio\nmime ^audio, has mpv,       X, flag f = mpv --no-video -- \"$@\"\n\n# Archivos comprimidos\next 7z|ace|ar|arc|bz2?|cab|cpio|cpt|deb|dgc|dmg|gz,  has atool = atool --list --each -- \"$@\" | \"$PAGER\"\next iso|jar|msi|pkg|rar|shar|tar|tgz|xar|xpi|xz|zip, has atool = atool --list --each -- \"$@\" | \"$PAGER\"\n\n# Documentos Office\next docx?|xlsx?|pptx?|odt|ods|odp, has libreoffice, X, flag f = libreoffice \"$@\"\n\n# HTML\next html?, has firefox,  X, flag f = firefox -- \"$@\"\next html?, has chromium, X, flag f = chromium -- \"$@\"\n\n# Código fuente\next py,  has python  = python -- \"$1\"\next pl,  has perl    = perl -- \"$1\"\next rb,  has ruby    = ruby -- \"$1\"\next js,  has node    = node -- \"$1\"\next sh,  has sh      = sh -- \"$1\"\nCondiciones disponibles:\n\next &lt;extensión&gt; - Extensión de archivo\nmime &lt;tipo&gt; - Tipo MIME\nname &lt;patrón&gt; - Nombre de archivo (regex)\nhas &lt;programa&gt; - Programa disponible\nX - Requiere X11\nflag f - Fork (ejecutar en segundo plano)\nflag t - Terminal (ejecutar en terminal)"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#commands.py---comandos-personalizados",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#commands.py---comandos-personalizados",
+    "title": "Guía Completa de Ranger",
+    "section": "commands.py - Comandos Personalizados",
+    "text": "commands.py - Comandos Personalizados\nUbicación: ~/.config/ranger/commands.py\nCrear comandos Python personalizados.\nEjemplo - Comando para comprimir:\nfrom ranger.api.commands import Command\n\nclass compress(Command):\n    def execute(self):\n        \"\"\"Comprimir archivos seleccionados\"\"\"\n        import os\n        \n        # Obtener archivos seleccionados\n        if self.fm.thisdir.marked_items:\n            files = [f.basename for f in self.fm.thisdir.marked_items]\n        else:\n            files = [self.fm.thisfile.basename]\n        \n        # Nombre del archivo comprimido\n        archive_name = self.rest(1) if self.rest(1) else \"archive.tar.gz\"\n        \n        # Comprimir\n        self.fm.execute_command(f\"tar czf {archive_name} {' '.join(files)}\")\n        self.fm.notify(f\"Comprimido como {archive_name}\")\n\nclass extract(Command):\n    def execute(self):\n        \"\"\"Extraer archivo comprimido\"\"\"\n        if self.fm.thisfile.extension in ['zip', 'tar', 'gz', 'bz2', 'xz']:\n            self.fm.execute_command(f\"atool -x {self.fm.thisfile.basename}\")\n            self.fm.notify(\"Archivo extraído\")\n\nclass mkcd(Command):\n    \"\"\"Crear directorio y entrar en él\"\"\"\n    def execute(self):\n        from os.path import join, expanduser, lexists\n        dirname = join(self.fm.thisdir.path, expanduser(self.rest(1)))\n        if not lexists(dirname):\n            os.makedirs(dirname)\n            self.fm.cd(dirname)\n        else:\n            self.fm.notify(\"Directorio ya existe\", bad=True)\nUsar comandos personalizados:\n:compress archivo.tar.gz    # Comprimir selección\n:extract                    # Extraer archivo\n:mkcd nueva-carpeta        # Crear y entrar"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#qué-es-rifle",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#qué-es-rifle",
+    "title": "Guía Completa de Ranger",
+    "section": "¿Qué es Rifle?",
+    "text": "¿Qué es Rifle?\nRifle es el programa que ranger usa para determinar con qué abrir archivos. Es inteligente y tiene fallbacks."
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#uso-básico",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#uso-básico",
+    "title": "Guía Completa de Ranger",
+    "section": "Uso Básico",
+    "text": "Uso Básico\n# Abrir archivo con rifle\nrifle archivo.pdf\n\n# Listar programas disponibles\nrifle -l archivo.pdf\n\n# Abrir con programa específico\nrifle -p 2 archivo.pdf  # Usar opción 2 de la lista"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#dentro-de-ranger",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#dentro-de-ranger",
+    "title": "Guía Completa de Ranger",
+    "section": "Dentro de Ranger",
+    "text": "Dentro de Ranger\n\n\n\nTecla\nAcción\n\n\n\n\nr\nAbrir con programa (muestra opciones)\n\n\nEnter o l\nAbrir con programa por defecto"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#configurar-rifle",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#configurar-rifle",
+    "title": "Guía Completa de Ranger",
+    "section": "Configurar Rifle",
+    "text": "Configurar Rifle\nEditar ~/.config/ranger/rifle.conf\nPrioridad: Primera coincidencia gana\n# Ejemplo: Abrir PDFs con zathura si está disponible\next pdf, has zathura, X, flag f = zathura -- \"$@\"\n\n# Si no, con evince\next pdf, has evince, X, flag f = evince -- \"$@\"\n\n# Si no, convertir a texto\next pdf, has pdftotext = pdftotext -l 10 -nopgbrk -q -- \"$@\" -"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#flags-de-rifle",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#flags-de-rifle",
+    "title": "Guía Completa de Ranger",
+    "section": "Flags de Rifle",
+    "text": "Flags de Rifle\n\nf - Fork (ejecutar en segundo plano)\nt - Terminal (ejecutar en terminal y esperar)\nw - Wait (esperar que termine)\nc - Close stdout/stderr\nr - Requiere terminal, pero usa rifle.conf del sistema"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#ubicación-de-plugins",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#ubicación-de-plugins",
+    "title": "Guía Completa de Ranger",
+    "section": "Ubicación de Plugins",
+    "text": "Ubicación de Plugins\n~/.config/ranger/plugins/"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#plugins-populares",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#plugins-populares",
+    "title": "Guía Completa de Ranger",
+    "section": "Plugins Populares",
+    "text": "Plugins Populares"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#ranger_devicons",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#ranger_devicons",
+    "title": "Guía Completa de Ranger",
+    "section": "1. ranger_devicons",
+    "text": "1. ranger_devicons\nAñade iconos a tipos de archivo.\ngit clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons\nActivar en rc.conf:\ndefault_linemode devicons"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#ranger-archives",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#ranger-archives",
+    "title": "Guía Completa de Ranger",
+    "section": "2. ranger-archives",
+    "text": "2. ranger-archives\nMejorar manejo de archivos comprimidos.\ngit clone https://github.com/maximtrp/ranger-archives.git ~/.config/ranger/plugins/ranger-archives"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#fasd-integration",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#fasd-integration",
+    "title": "Guía Completa de Ranger",
+    "section": "3. fasd Integration",
+    "text": "3. fasd Integration\nIntegración con fasd (autojump rápido).\nEn rc.conf:\nmap f shell fasd -d | fzf --no-sort | xargs -I{} ranger --selectfile \"{}\""
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#fzf-integration",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#fzf-integration",
+    "title": "Guía Completa de Ranger",
+    "section": "4. fzf Integration",
+    "text": "4. fzf Integration\nBúsqueda fuzzy con fzf.\nEn commands.py:\nclass fzf_select(Command):\n    def execute(self):\n        import subprocess\n        command = \"find -L . -path '*/\\.*' -prune -o -print 2&gt; /dev/null | fzf +m\"\n        fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)\n        stdout, stderr = fzf.communicate()\n        if fzf.returncode == 0:\n            fzf_file = os.path.abspath(stdout.decode('utf-8').rstrip('\\n'))\n            if os.path.isdir(fzf_file):\n                self.fm.cd(fzf_file)\n            else:\n                self.fm.select_file(fzf_file)\nMapear en rc.conf:\nmap &lt;C-f&gt; fzf_select"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#crear-plugin-propio",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#crear-plugin-propio",
+    "title": "Guía Completa de Ranger",
+    "section": "Crear Plugin Propio",
+    "text": "Crear Plugin Propio\nEstructura básica:\n# ~/.config/ranger/plugins/mi_plugin.py\nimport ranger.api\n\nclass CustomCommand(ranger.api.commands.Command):\n    def execute(self):\n        # Tu código aquí\n        self.fm.notify(\"Hola desde mi plugin!\")\n\n# Hook para inicialización\nold_hook_init = ranger.api.hook_init\n\ndef hook_init(fm):\n    # Inicialización personalizada\n    fm.notify(\"Plugin cargado\")\n    return old_hook_init(fm)\n\nranger.api.hook_init = hook_init"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#cambiar-directorio-al-salir",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#cambiar-directorio-al-salir",
+    "title": "Guía Completa de Ranger",
+    "section": "Cambiar Directorio al Salir",
+    "text": "Cambiar Directorio al Salir\nRanger puede cambiar el directorio de tu shell al salir."
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#bash",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#bash",
+    "title": "Guía Completa de Ranger",
+    "section": "Bash",
+    "text": "Bash\nAñadir a ~/.bashrc:\nfunction ranger-cd {\n    tempfile=\"$(mktemp -t tmp.XXXXXX)\"\n    ranger --choosedir=\"$tempfile\" \"${@:-$(pwd)}\"\n    test -f \"$tempfile\" &&\n    if [ \"$(cat -- \"$tempfile\")\" != \"$(echo -n `pwd`)\" ]; then\n        cd -- \"$(cat \"$tempfile\")\"\n    fi  \n    rm -f -- \"$tempfile\"\n}\n\n# Alias para usar\nalias rr='ranger-cd'"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#zsh",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#zsh",
+    "title": "Guía Completa de Ranger",
+    "section": "Zsh",
+    "text": "Zsh\nAñadir a ~/.zshrc:\nfunction ranger-cd {\n    tempfile=\"$(mktemp -t tmp.XXXXXX)\"\n    ranger --choosedir=\"$tempfile\" \"${@:-$(pwd)}\"\n    test -f \"$tempfile\" &&\n    if [ \"$(cat -- \"$tempfile\")\" != \"$(echo -n `pwd`)\" ]; then\n        cd -- \"$(cat \"$tempfile\")\"\n    fi  \n    rm -f -- \"$tempfile\"\n}\n\nalias rr='ranger-cd'"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#fish",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#fish",
+    "title": "Guía Completa de Ranger",
+    "section": "Fish",
+    "text": "Fish\nAñadir a ~/.config/fish/config.fish:\nfunction ranger-cd\n    set tempfile (mktemp -t tmp.XXXXXX)\n    ranger --choosedir=$tempfile $argv\n    if test -f $tempfile\n        if test (cat $tempfile) != (pwd)\n            cd (cat $tempfile)\n        end\n    end\n    rm -f $tempfile\nend\n\nalias rr='ranger-cd'"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#file-picker",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#file-picker",
+    "title": "Guía Completa de Ranger",
+    "section": "File Picker",
+    "text": "File Picker\nUsar ranger como selector de archivos.\nScript:\n#!/bin/bash\n# ranger-picker.sh\ntempfile=\"$(mktemp -t tmp.XXXXXX)\"\nranger --choosefile=\"$tempfile\"\nif [ -f \"$tempfile\" ]; then\n    cat \"$tempfile\"\n    rm -f \"$tempfile\"\nfi\nUsar:\nselected_file=$(ranger-picker.sh)\necho \"Archivo seleccionado: $selected_file\""
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#preview-de-archivos-con-sintaxis",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#preview-de-archivos-con-sintaxis",
+    "title": "Guía Completa de Ranger",
+    "section": "1. Preview de Archivos con Sintaxis",
+    "text": "1. Preview de Archivos con Sintaxis\nInstalar highlight o bat:\nsudo apt-get install highlight\n# O\ncargo install bat\nEditar scope.sh para usar bat:\ncase \"$mimetype\" in\n    text/* | */xml)\n        bat --style=numbers --color=always \"$path\" && exit 5\n        exit 2;;\nesac"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#thumbnails-de-videos",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#thumbnails-de-videos",
+    "title": "Guía Completa de Ranger",
+    "section": "2. Thumbnails de Videos",
+    "text": "2. Thumbnails de Videos\nInstalar ffmpegthumbnailer:\nsudo apt-get install ffmpegthumbnailer\nYa debería funcionar con scope.sh por defecto."
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#preview-de-imágenes-terminal-compatible",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#preview-de-imágenes-terminal-compatible",
+    "title": "Guía Completa de Ranger",
+    "section": "3. Preview de Imágenes (Terminal Compatible)",
+    "text": "3. Preview de Imágenes (Terminal Compatible)\nCon w3m:\nsudo apt-get install w3m w3m-img\nEn rc.conf:\nset preview_images true\nset preview_images_method w3m\nCon kitty (mejor calidad):\nset preview_images_method kitty\nCon ueberzug (mejor compatibilidad):\npip install ueberzug\nset preview_images_method ueberzug"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#búsqueda-con-fzf",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#búsqueda-con-fzf",
+    "title": "Guía Completa de Ranger",
+    "section": "4. Búsqueda con FZF",
+    "text": "4. Búsqueda con FZF\nIntegrar búsqueda fuzzy:\nEn commands.py:\nimport subprocess\n\nclass fzf(Command):\n    def execute(self):\n        command=\"find -L . \\( -path '*/\\.*' -o -fstype 'dev' -o -fstype 'proc' \\) -prune -o -print 2&gt; /dev/null | sed 1d | cut -b3- | fzf +m\"\n        fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)\n        stdout, _ = fzf.communicate()\n        if fzf.returncode == 0:\n            fzf_file = os.path.abspath(stdout.decode('utf-8').rstrip('\\n'))\n            if os.path.isdir(fzf_file):\n                self.fm.cd(fzf_file)\n            else:\n                self.fm.select_file(fzf_file)\nMapear:\nmap &lt;C-f&gt; fzf"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#integración-con-git",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#integración-con-git",
+    "title": "Guía Completa de Ranger",
+    "section": "5. Integración con Git",
+    "text": "5. Integración con Git\nVer estado de Git:\nEn rc.conf:\nset vcs_aware true\nset vcs_backend_git enabled\nRanger mostrará información de Git en archivos/directorios."
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#archivos-grandes",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#archivos-grandes",
+    "title": "Guía Completa de Ranger",
+    "section": "6. Archivos Grandes",
+    "text": "6. Archivos Grandes\nEvitar lag con archivos grandes:\nEn rc.conf:\nset preview_max_size 10485760  # 10MB\nset max_history_size 20\nset max_console_history_size 50"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#abrir-en-programa-externo",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#abrir-en-programa-externo",
+    "title": "Guía Completa de Ranger",
+    "section": "7. Abrir en Programa Externo",
+    "text": "7. Abrir en Programa Externo\nCrear atajos para programas específicos:\nEn rc.conf:\n# Abrir en VS Code\nmap code shell code \"$PWD\"\n\n# Abrir terminal aquí\nmap tt shell alacritty &\n\n# Abrir file manager GUI\nmap fm shell nautilus \"$PWD\" &\n\n# Ejecutar script\nmap ex shell chmod +x %s && ./%s"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#sincronizar-con-dropboxdrive",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#sincronizar-con-dropboxdrive",
+    "title": "Guía Completa de Ranger",
+    "section": "8. Sincronizar con Dropbox/Drive",
+    "text": "8. Sincronizar con Dropbox/Drive\n# Crear marcador para cloud storage\nmap gdb cd ~/Dropbox\nmap gdv cd ~/Google\\ Drive"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#operaciones-bulk",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#operaciones-bulk",
+    "title": "Guía Completa de Ranger",
+    "section": "9. Operaciones Bulk",
+    "text": "9. Operaciones Bulk\nRenombrar múltiples archivos:\n# Seleccionar archivos con Space\n# Ejecutar:\n:bulkrename\n\n# Se abre editor con lista\n# Modificar nombres\n# Guardar y cerrar"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#preview-de-archivos-jsonyaml",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#preview-de-archivos-jsonyaml",
+    "title": "Guía Completa de Ranger",
+    "section": "10. Preview de Archivos JSON/YAML",
+    "text": "10. Preview de Archivos JSON/YAML\nEn scope.sh:\n# JSON\njson)\n    jq --color-output . \"${FILE_PATH}\" && exit 5\n    python -m json.tool -- \"${FILE_PATH}\" && exit 5\n    ;;\n\n# YAML\nyaml)\n    yq eval --colors -- \"${FILE_PATH}\" && exit 5\n    ;;"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-imágenes-no-se-previsualizan",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-imágenes-no-se-previsualizan",
+    "title": "Guía Completa de Ranger",
+    "section": "Problema: Imágenes no se previsualizan",
+    "text": "Problema: Imágenes no se previsualizan\nSolución:\n# Verificar método configurado\n:set preview_images_method\n\n# Cambiar método\n:set preview_images_method w3m\n# O kitty, ueberzug, iterm2\n\n# Verificar instalación\nwhich w3mimgdisplay"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-colores-incorrectos",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-colores-incorrectos",
+    "title": "Guía Completa de Ranger",
+    "section": "Problema: Colores incorrectos",
+    "text": "Problema: Colores incorrectos\nSolución:\n# Verificar TERM\necho $TERM\n\n# Debería ser xterm-256color o similar\nexport TERM=xterm-256color\n\n# En rc.conf cambiar colorscheme\nset colorscheme default"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-resaltado-de-sintaxis-no-funciona",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-resaltado-de-sintaxis-no-funciona",
+    "title": "Guía Completa de Ranger",
+    "section": "Problema: Resaltado de sintaxis no funciona",
+    "text": "Problema: Resaltado de sintaxis no funciona\nSolución:\n# Instalar highlight o pygments\nsudo apt-get install highlight\n\n# O\npip install pygments\n\n# Verificar scope.sh está configurado correctamente"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-ranger-lento",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-ranger-lento",
+    "title": "Guía Completa de Ranger",
+    "section": "Problema: Ranger lento",
+    "text": "Problema: Ranger lento\nSoluciones: 1. Limitar tamaño de preview 2. Desactivar preview de imágenes en directorios grandes 3. Reducir historial\n# En rc.conf\nset preview_max_size 1048576  # 1MB\nset preview_images false\nset max_history_size 10"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-no-cambia-directorio-del-shell",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-no-cambia-directorio-del-shell",
+    "title": "Guía Completa de Ranger",
+    "section": "Problema: No cambia directorio del shell",
+    "text": "Problema: No cambia directorio del shell\nVerificar que usas la función wrapper:\n# Debe estar en ~/.bashrc o ~/.zshrc\nfunction ranger-cd { ... }\nalias rr='ranger-cd'"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-archivos-ocultos-no-se-muestran",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-archivos-ocultos-no-se-muestran",
+    "title": "Guía Completa de Ranger",
+    "section": "Problema: Archivos ocultos no se muestran",
+    "text": "Problema: Archivos ocultos no se muestran\n# Presionar\nzh\n\n# O en rc.conf\nset show_hidden true"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-rifle-no-encuentra-programas",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-rifle-no-encuentra-programas",
+    "title": "Guía Completa de Ranger",
+    "section": "Problema: Rifle no encuentra programas",
+    "text": "Problema: Rifle no encuentra programas\n# Verificar PATH\necho $PATH\n\n# Editar rifle.conf para usar rutas absolutas\next pdf = /usr/bin/zathura -- \"$@\""
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#navegación-1",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#navegación-1",
+    "title": "Guía Completa de Ranger",
+    "section": "Navegación",
+    "text": "Navegación\n\n\n\nTecla\nAcción\n\n\n\n\nh / ←\nDirectorio padre\n\n\nj / ↓\nCursor abajo\n\n\nk / ↑\nCursor arriba\n\n\nl / → / Enter\nEntrar/Abrir\n\n\nH\nHistorial atrás\n\n\nL\nHistorial adelante\n\n\ngg\nInicio de lista\n\n\nG\nFinal de lista\n\n\n{\nPágina arriba\n\n\n}\nPágina abajo\n\n\nCtrl+u\nMedia página arriba\n\n\nCtrl+d\nMedia página abajo\n\n\nCtrl+b\nPágina completa arriba\n\n\nCtrl+f\nPágina completa abajo"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#archivos",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#archivos",
+    "title": "Guía Completa de Ranger",
+    "section": "Archivos",
+    "text": "Archivos\n\n\n\nTecla\nAcción\n\n\n\n\nyy\nCopiar\n\n\ndd\nCortar\n\n\npp\nPegar\n\n\npo\nPegar sobrescribiendo\n\n\ndD\nEliminar\n\n\ncw\nRenombrar\n\n\na\nRenombrar (cursor al final)\n\n\nA\nRenombrar (después de extensión)\n\n\nI\nRenombrar (cursor al inicio)\n\n\nE\nEditar con editor\n\n\ni\nInspeccionar archivo"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#selección",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#selección",
+    "title": "Guía Completa de Ranger",
+    "section": "Selección",
+    "text": "Selección\n\n\n\nTecla\nAcción\n\n\n\n\nSpace\nMarcar/desmarcar\n\n\nv\nInvertir selección\n\n\nV\nModo visual\n\n\nuv\nDesmarcar todos"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#búsqueda-2",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#búsqueda-2",
+    "title": "Guía Completa de Ranger",
+    "section": "Búsqueda",
+    "text": "Búsqueda\n\n\n\nTecla\nAcción\n\n\n\n\n/\nBuscar adelante\n\n\n?\nBuscar atrás\n\n\nn\nSiguiente resultado\n\n\nN\nResultado anterior\n\n\nf&lt;letra&gt;\nBuscar por primera letra"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#pestañas",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#pestañas",
+    "title": "Guía Completa de Ranger",
+    "section": "Pestañas",
+    "text": "Pestañas\n\n\n\nTecla\nAcción\n\n\n\n\ngn / Ctrl+n\nNueva pestaña\n\n\ngt / Tab\nSiguiente pestaña\n\n\ngT / Shift+Tab\nPestaña anterior\n\n\ngc / Ctrl+w\nCerrar pestaña\n\n\nAlt+1...9\nIr a pestaña N"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#marcadores",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#marcadores",
+    "title": "Guía Completa de Ranger",
+    "section": "Marcadores",
+    "text": "Marcadores\n\n\n\nTecla\nAcción\n\n\n\n\nm&lt;letra&gt;\nCrear marcador\n\n\n'&lt;letra&gt;\nIr a marcador\n\n\num&lt;letra&gt;\nEliminar marcador"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#ordenamiento-1",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#ordenamiento-1",
+    "title": "Guía Completa de Ranger",
+    "section": "Ordenamiento",
+    "text": "Ordenamiento\n\n\n\nTecla\nAcción\n\n\n\n\non\nPor nombre\n\n\nos\nPor tamaño\n\n\not\nPor fecha modificación\n\n\noe\nPor extensión\n\n\nor\nInvertir orden"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#vista",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#vista",
+    "title": "Guía Completa de Ranger",
+    "section": "Vista",
+    "text": "Vista\n\n\n\nTecla\nAcción\n\n\n\n\nzp\nToggle preview\n\n\nzP\nToggle preview directorios\n\n\nzi\nToggle preview imágenes\n\n\nzv\nCambiar modo vista\n\n\nzh\nToggle archivos ocultos\n\n\nzf\nFiltrar"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#sistema",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#sistema",
+    "title": "Guía Completa de Ranger",
+    "section": "Sistema",
+    "text": "Sistema\n\n\n\nTecla\nAcción\n\n\n\n\nq\nSalir\n\n\nQ\nSalir sin cd\n\n\nR\nRecargar\n\n\n?\nAyuda\n\n\n:\nConsola\n\n\n!\nShell command\n\n\ns\nShell\n\n\nS\nShell como root"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#ir-a-g",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#ir-a-g",
+    "title": "Guía Completa de Ranger",
+    "section": "Ir a (g)",
+    "text": "Ir a (g)\n\n\n\nTecla\nAcción\n\n\n\n\ngh\nHome\n\n\nge\n/etc\n\n\ngu\n/usr\n\n\ngd\n/dev\n\n\ngo\n/opt\n\n\ngv\n/var\n\n\ngm\n/media\n\n\ngM\n/mnt\n\n\ngr\n/\n\n\ngR\n/"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#documentación-oficial",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#documentación-oficial",
+    "title": "Guía Completa de Ranger",
+    "section": "Documentación Oficial",
+    "text": "Documentación Oficial\n\nSitio web: https://ranger.fm/\nGitHub: https://github.com/ranger/ranger\nManual: man ranger o https://ranger.fm/man.html\nWiki: https://github.com/ranger/ranger/wiki"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#tutoriales",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#tutoriales",
+    "title": "Guía Completa de Ranger",
+    "section": "Tutoriales",
+    "text": "Tutoriales\n\nOfficial User Guide: En el repositorio de GitHub\nArch Wiki: https://wiki.archlinux.org/title/Ranger"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#comunidad",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#comunidad",
+    "title": "Guía Completa de Ranger",
+    "section": "Comunidad",
+    "text": "Comunidad\n\nIRC: #ranger en Libera.Chat\nReddit: r/ranger\nIssues: https://github.com/ranger/ranger/issues"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#configuraciones-de-ejemplo",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#configuraciones-de-ejemplo",
+    "title": "Guía Completa de Ranger",
+    "section": "Configuraciones de Ejemplo",
+    "text": "Configuraciones de Ejemplo\n\nDotfiles repos: Buscar en GitHub “ranger config”\nr/unixporn: Muchas configuraciones compartidas"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#instalar-vim",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#instalar-vim",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Instalar Vim",
+    "text": "Instalar Vim\nUbuntu/Debian:\nsudo apt update\nsudo apt install vim\nFedora:\nsudo dnf install vim-enhanced\nmacOS:\nbrew install vim\nWindows: Descargar desde: https://www.vim.org/download.php"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#instalar-neovim",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#instalar-neovim",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Instalar Neovim",
+    "text": "Instalar Neovim\nUbuntu/Debian (PPA):\nsudo add-apt-repository ppa:neovim-ppa/stable\nsudo apt update\nsudo apt install neovim\nFedora:\nsudo dnf install neovim\nmacOS:\nbrew install neovim\nArch Linux:\nsudo pacman -S neovim\nDesde AppImage (cualquier Linux):\ncurl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage\nchmod u+x nvim.appimage\n./nvim.appimage\nWindows:\nchoco install neovim\n# O\nscoop install neovim"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#verificar-instalación",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#verificar-instalación",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Verificar Instalación",
+    "text": "Verificar Instalación\n# Vim\nvim --version\n\n# Neovim\nnvim --version"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#configurar-alias",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#configurar-alias",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Configurar Alias",
+    "text": "Configurar Alias\nPara usar vim para lanzar Neovim:\n# En ~/.bashrc o ~/.zshrc\nalias vim='nvim'\nalias vi='nvim'"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#filosofía-modal",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#filosofía-modal",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Filosofía Modal",
+    "text": "Filosofía Modal\nVim usa modos diferentes para distintas tareas:\n\nNormal: Navegar y ejecutar comandos (modo por defecto)\nInsert: Insertar texto\nVisual: Seleccionar texto\nCommand: Ejecutar comandos Ex\n\nEsta separación permite:\n\nEficiencia: Cada tecla hace algo útil en modo Normal\nComposición: Combinar operadores con movimientos\nRepetición: El comando . repite la última acción"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#composición-de-comandos",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#composición-de-comandos",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Composición de Comandos",
+    "text": "Composición de Comandos\nVim usa una gramática:\n[operador][movimiento]\n[operador][número][movimiento]\nEjemplos:\n\nd2w = Eliminar (delete) 2 palabras (words)\nc$ = Cambiar (change) hasta fin de línea\ny3j = Copiar (yank) 3 líneas hacia abajo"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#filosofía-modal-1",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#filosofía-modal-1",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Filosofía “Modal”",
+    "text": "Filosofía “Modal”\n\nSeparación de tareas: No mezclar edición y navegación\nComando vs texto: Modo Normal para comandos, Insert para texto\nEficiencia sobre simplicidad: Curva de aprendizaje pero altamente eficiente"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#el-camino-del-vim",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#el-camino-del-vim",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "El Camino del Vim",
+    "text": "El Camino del Vim\n\nSemana 1-2: Básicos (hjkl, i, a, o, Esc, :wq)\nMes 1: Movimientos (w, b, f, t, /, n)\nMeses 2-3: Operadores (d, c, y con movimientos)\nMeses 4-6: Visual, macros, registros\nDespués: Plugins, configuración avanzada, Vimscript/Lua"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#modo-normal-default",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#modo-normal-default",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Modo Normal (Default)",
+    "text": "Modo Normal (Default)\nEl modo por defecto. Todas las teclas son comandos. Para activar el modo comando en Vim, debes presionar la tecla “Esc”. Esto te llevará al modo comando desde cualquier otro modo en el que te encuentres, como el modo insertar o el modo de reemplazo. Una vez que estés en el modo comando, puedes utilizar una variedad de comandos y combinaciones de teclas para navegar, editar y guardar tus archivos. Para salir de Vim, puedes ingresar el comando “:q” seguido de Enter. Si has realizado cambios y deseas guardarlos antes de salir, utiliza el comando “:wq” para escribir y guardar los cambios y salir de Vim.\nEntrar:\n\nEsc desde cualquier modo\nCtrl+[ (alternativa a Esc)\nCtrl+c (similar a Esc)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#modo-insert",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#modo-insert",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Modo Insert",
+    "text": "Modo Insert\nPara insertar texto.\nEntrar desde Normal:\n\ni - Insertar antes del cursor\nI - Insertar al inicio de la línea\na - Insertar después del cursor (append)\nA - Insertar al final de la línea\no - Abrir línea nueva abajo\nO - Abrir línea nueva arriba\ns - Sustituir carácter (eliminar + insert)\nS - Sustituir línea completa\nC - Cambiar hasta fin de línea (c$)\n\nSalir:\n\nEsc o Ctrl+[ - Volver a Normal"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#modo-visual",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#modo-visual",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Modo Visual",
+    "text": "Modo Visual\nPara seleccionar texto.\nEntrar desde Normal:\n\nv - Visual por carácter\nV - Visual por línea\nCtrl+v - Visual en bloque\n\nOperaciones:\nUna vez seleccionado:\n\nd - Eliminar\nc - Cambiar\ny - Copiar\n&gt; - Indentar\n&lt; - Desindentar\n~ - Cambiar mayúsculas/minúsculas"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#modo-command-command-line",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#modo-command-command-line",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Modo Command (Command-line)",
+    "text": "Modo Command (Command-line)\nPara ejecutar comandos Ex.\nEntrar desde Normal:\n\n: - Comando Ex\n/ - Búsqueda hacia adelante\n? - Búsqueda hacia atrás\n\nComandos comunes:\n\n:w - Guardar (write)\n:q - Salir (quit)\n:wq o :x - Guardar y salir\n:q! - Salir sin guardar\n:e archivo - Abrir archivo (edit)\n:help tema - Ayuda"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#modo-replace",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#modo-replace",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Modo Replace",
+    "text": "Modo Replace\nSobrescribir texto existente.\nEntrar desde Normal:\n\nR - Modo replace (sobrescribir)\nr - Reemplazar un solo carácter"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#modo-select",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#modo-select",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Modo Select",
+    "text": "Modo Select\nSimilar a selección en editores normales.\nEntrar:\n\ngh - Select mode por carácter\ngH - Select mode por línea\ng Ctrl+h - Select mode en bloque"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#movimiento-de-cursor-modo-normal",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#movimiento-de-cursor-modo-normal",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Movimiento de Cursor (Modo Normal)",
+    "text": "Movimiento de Cursor (Modo Normal)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#básico-hjkl",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#básico-hjkl",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Básico (hjkl)",
+    "text": "Básico (hjkl)\n\n\n\nTecla\nMovimiento\n\n\n\n\nh\n← Izquierda\n\n\nj\n↓ Abajo\n\n\nk\n↑ Arriba\n\n\nl\n→ Derecha"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#por-palabras",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#por-palabras",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Por Palabras",
+    "text": "Por Palabras\n\n\n\nTecla\nMovimiento\n\n\n\n\nw\nInicio de siguiente palabra\n\n\nW\nInicio de siguiente PALABRA (ignora puntuación)\n\n\ne\nFinal de palabra actual/siguiente\n\n\nE\nFinal de PALABRA\n\n\nb\nInicio de palabra anterior\n\n\nB\nInicio de PALABRA anterior\n\n\nge\nFinal de palabra anterior\n\n\n\nNota: “palabra” = letras/números, “PALABRA” = cualquier carácter no-espacio"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#por-línea",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#por-línea",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Por Línea",
+    "text": "Por Línea\n\n\n\nTecla\nMovimiento\n\n\n\n\n0\nInicio de línea (columna 0)\n\n\n^\nPrimer carácter no-blanco\n\n\n$\nFinal de línea\n\n\ng_\nÚltimo carácter no-blanco\n\n\ng0\nInicio de línea visual (con wrap)\n\n\ng$\nFinal de línea visual"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#por-pantalla",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#por-pantalla",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Por Pantalla",
+    "text": "Por Pantalla\n\n\n\nTecla\nMovimiento\n\n\n\n\nH\nTop de pantalla (High)\n\n\nM\nMedio de pantalla (Middle)\n\n\nL\nBottom de pantalla (Low)\n\n\nzt\nScroll: línea actual arriba\n\n\nzz\nScroll: línea actual al centro\n\n\nzb\nScroll: línea actual abajo\n\n\nCtrl+e\nScroll abajo una línea\n\n\nCtrl+y\nScroll arriba una línea\n\n\nCtrl+d\nMedia página abajo\n\n\nCtrl+u\nMedia página arriba\n\n\nCtrl+f\nPágina completa abajo (forward)\n\n\nCtrl+b\nPágina completa arriba (backward)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#por-archivo",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#por-archivo",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Por Archivo",
+    "text": "Por Archivo\n\n\n\nTecla\nMovimiento\n\n\n\n\ngg\nInicio del archivo\n\n\nG\nFinal del archivo\n\n\n:&lt;n&gt; o &lt;n&gt;G\nIr a línea n\n\n\n%\nIr al paréntesis/llave/corchete coincidente"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#búsqueda-de-caracteres-en-línea",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#búsqueda-de-caracteres-en-línea",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Búsqueda de Caracteres en Línea",
+    "text": "Búsqueda de Caracteres en Línea\n\n\n\nTecla\nMovimiento\n\n\n\n\nf{char}\nFind: ir a siguiente {char}\n\n\nF{char}\nFind: ir a anterior {char}\n\n\nt{char}\nTill: ir antes de siguiente {char}\n\n\nT{char}\nTill: ir después de anterior {char}\n\n\n;\nRepetir último f/F/t/T\n\n\n,\nRepetir último f/F/t/T en reversa\n\n\n\nEjemplos:\nEsta es una línea de ejemplo\nCon cursor en ‘E’:\n\nfw - Ir a ‘u’ (primera ‘u’)\n3fl - Ir a tercera ‘l’\nt. - Ir antes del punto"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#insertar",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#insertar",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Insertar",
+    "text": "Insertar\n\n\n\nComando\nAcción\n\n\n\n\ni\nInsertar antes del cursor\n\n\nI\nInsertar al inicio de línea\n\n\na\nInsertar después del cursor (append)\n\n\nA\nInsertar al final de línea\n\n\no\nAbrir línea nueva abajo\n\n\nO\nAbrir línea nueva arriba\n\n\ngi\nInsertar en última posición de inserción"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#eliminar",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#eliminar",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Eliminar",
+    "text": "Eliminar\n\n\n\nComando\nAcción\n\n\n\n\nx\nEliminar carácter bajo cursor\n\n\nX\nEliminar carácter antes del cursor\n\n\ndd\nEliminar línea\n\n\nD\nEliminar hasta fin de línea d$\n\n\nd{movimiento}\nEliminar hasta movimiento\n\n\ndw\nEliminar palabra\n\n\ndb\nEliminar palabra hacia atrás\n\n\nd$ o D\nEliminar hasta fin de línea\n\n\nd0\nEliminar hasta inicio de línea\n\n\ndG\nEliminar hasta fin de archivo\n\n\ndgg\nEliminar hasta inicio de archivo"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#cambiar-change",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#cambiar-change",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Cambiar (Change)",
+    "text": "Cambiar (Change)\nIgual que eliminar pero entra en modo Insert.\n\n\n\nComando\nAcción\n\n\n\n\nc{movimiento}\nCambiar texto\n\n\ncc o S\nCambiar línea completa\n\n\nC\nCambiar hasta fin de línea\n\n\ncw\nCambiar palabra\n\n\nciw\nCambiar palabra interna (inner word)\n\n\nci\"\nCambiar dentro de comillas\n\n\nci(\nCambiar dentro de paréntesis\n\n\ncit\nCambiar dentro de tag HTML"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#copiar-y-pegar-yankput",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#copiar-y-pegar-yankput",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Copiar y Pegar (Yank/Put)",
+    "text": "Copiar y Pegar (Yank/Put)\n\n\n\nComando\nAcción\n\n\n\n\ny{movimiento}\nCopiar (yank)\n\n\nyy o Y\nCopiar línea\n\n\nyw\nCopiar palabra\n\n\ny$\nCopiar hasta fin de línea\n\n\np\nPegar después del cursor\n\n\nP\nPegar antes del cursor\n\n\ngp\nPegar y mover cursor después\n\n\ngP\nPegar antes y mover cursor"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#reemplazar",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#reemplazar",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Reemplazar",
+    "text": "Reemplazar\n\n\n\nComando\nAcción\n\n\n\n\nr{char}\nReemplazar carácter bajo cursor\n\n\nR\nEntrar en modo Replace\n\n\n~\nCambiar mayúscula/minúscula\n\n\ng~{movimiento}\nCambiar caso\n\n\ngu{movimiento}\nA minúsculas\n\n\ngU{movimiento}\nA MAYÚSCULAS"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#deshacer-y-rehacer",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#deshacer-y-rehacer",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Deshacer y Rehacer",
+    "text": "Deshacer y Rehacer\n\n\n\nComando\nAcción\n\n\n\n\nu\nDeshacer (undo)\n\n\nCtrl+r\nRehacer (redo)\n\n\nU\nDeshacer todos los cambios en línea"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#repetir",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#repetir",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Repetir",
+    "text": "Repetir\n\n\n\nComando\nAcción\n\n\n\n\n.\nRepetir último cambio\n\n\n@:\nRepetir último comando Ex\n\n\n@@\nRepetir último macro"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#unir-líneas",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#unir-líneas",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Unir Líneas",
+    "text": "Unir Líneas\n\n\n\nComando\nAcción\n\n\n\n\nJ\nUnir línea siguiente con actual\n\n\ngJ\nUnir sin añadir espacio"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#indentación",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#indentación",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Indentación",
+    "text": "Indentación\n\n\n\nComando\nAcción\n\n\n\n\n&gt;&gt;\nIndentar línea\n\n\n&lt;&lt;\nDesindentar línea\n\n\n==\nAuto-indentar línea\n\n\n&gt;%\nIndentar bloque (con cursor en paréntesis)\n\n\ngg=G\nAuto-indentar archivo completo"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#búsqueda-básica",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#búsqueda-básica",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Búsqueda Básica",
+    "text": "Búsqueda Básica\n\n\n\nComando\nAcción\n\n\n\n\n/patrón\nBuscar hacia adelante\n\n\n?patrón\nBuscar hacia atrás\n\n\nn\nSiguiente ocurrencia\n\n\nN\nOcurrencia anterior\n\n\n*\nBuscar palabra bajo cursor (adelante)\n\n\n#\nBuscar palabra bajo cursor (atrás)\n\n\ng*\nBuscar parcial hacia adelante\n\n\ng#\nBuscar parcial hacia atrás"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#opciones-de-búsqueda",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#opciones-de-búsqueda",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Opciones de Búsqueda",
+    "text": "Opciones de Búsqueda\n:set ignorecase   \" Ignorar mayúsculas/minúsculas\n:set smartcase    \" Case-sensitive si hay mayúsculas\n:set incsearch    \" Búsqueda incremental\n:set hlsearch     \" Resaltar búsquedas\n:nohlsearch       \" Quitar resaltado (o :noh)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#expresiones-regulares",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#expresiones-regulares",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Expresiones Regulares",
+    "text": "Expresiones Regulares\nMetacaracteres básicos:\n\n. - Cualquier carácter\n* - 0 o más del anterior\n^ - Inicio de línea\n$ - Fin de línea\n[] - Conjunto de caracteres\n\\&lt; - Inicio de palabra\n\\&gt; - Fin de palabra\n\nEjemplos:\n/\\&lt;vim\\&gt;        \" Palabra exacta \"vim\"\n/^#             \" Líneas que empiezan con #\n/error.*$       \" \"error\" hasta fin de línea\n/[0-9]\\+        \" Uno o más dígitos\n/\\d\\{3}-\\d\\{4}  \" XXX-XXXX (teléfono)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#búsqueda-y-reemplazo",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#búsqueda-y-reemplazo",
+    "title": "Comandos esenciales de Vim para productividad",
+    "section": "Búsqueda y Reemplazo",
+    "text": "Búsqueda y Reemplazo\nVer sección Búsqueda y Reemplazo más adelante."
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#tipos-de-selección-visual",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#tipos-de-selección-visual",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Tipos de Selección Visual",
+    "text": "Tipos de Selección Visual\n\n\n\nComando\nTipo\n\n\n\n\nv\nVisual por carácter\n\n\nV\nVisual por línea\n\n\nCtrl+v\nVisual en bloque (columnar)\n\n\ngv\nReseleccionar última selección"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#operaciones-en-visual",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#operaciones-en-visual",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Operaciones en Visual",
+    "text": "Operaciones en Visual\nUna vez en modo visual:\n\n\n\nComando\nAcción\n\n\n\n\nd\nEliminar selección\n\n\nc\nCambiar selección\n\n\ny\nCopiar selección\n\n\n&gt;\nIndentar\n\n\n&lt;\nDesindentar\n\n\n=\nAuto-indentar\n\n\n~\nCambiar mayúsculas/minúsculas\n\n\nu\nA minúsculas\n\n\nU\nA MAYÚSCULAS\n\n\no\nIr al otro extremo de selección\n\n\nO\nIr a otra esquina (bloque)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#visual-block-columnar",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#visual-block-columnar",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Visual Block (Columnar)",
+    "text": "Visual Block (Columnar)\nCasos de uso:\n\nInsertar en múltiples líneas\nEliminar columnas\nCambiar bloques\n\nEjemplo - Insertar en múltiples líneas:\n1. Ctrl+v (visual block)\n2. Seleccionar líneas (j/k)\n3. I (Insert al inicio)\n4. Escribir texto\n5. Esc (se aplica a todas las líneas)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#objetos-de-texto",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#objetos-de-texto",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Objetos de Texto",
+    "text": "Objetos de Texto\nOperan sobre “objetos” como palabras, párrafos, etc.\nSintaxis: {operador}{a/i}{objeto}\n\n\n\nObjeto\nDescripción\n\n\n\n\nw\nPalabra (word)\n\n\nW\nPALABRA\n\n\ns\nSentencia\n\n\np\nPárrafo\n\n\n[ o ]\nBloque []\n\n\n( o )\nBloque ()\n\n\n{ o }\nBloque {}\n\n\n&lt; o &gt;\nBloque &lt;&gt;\n\n\nt\nTag HTML\n\n\n\"\nComillas dobles\n\n\n'\nComillas simples\n\n\n`\nBackticks\n\n\n\nModificadores:\n\na - “a” (around) - incluye delimitadores\ni - “inner” - solo contenido\n\nEjemplos:\nciw    \" Change inner word\nda\"    \" Delete a quote (incluye comillas)\nyi(    \" Yank inner parentheses\nvit    \" Visual select inner tag\nci{    \" Change inner braces"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#registros",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#registros",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Registros",
+    "text": "Registros\nVim tiene múltiples “clipboards” llamados registros."
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#tipos-de-registros",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#tipos-de-registros",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Tipos de Registros",
+    "text": "Tipos de Registros\n\n\n\nRegistro\nDescripción\n\n\n\n\n\"\"\nSin nombre (defecto)\n\n\n\"0\nÚltimo yank\n\n\n\"1-\"9\nHistorial de deletes\n\n\n\"a-\"z\nNombrados (minúsculas)\n\n\n\"A-\"Z\nNombrados (append)\n\n\n\"_\nAgujero negro (no guarda)\n\n\n\"+\nClipboard del sistema\n\n\n\"*\nClipboard de selección (X11)\n\n\n\"%\nNombre del archivo actual\n\n\n\"#\nNombre del archivo alterno\n\n\n\"/\nÚltimo patrón de búsqueda\n\n\n\":\nÚltimo comando Ex"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#usar-registros",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#usar-registros",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Usar Registros",
+    "text": "Usar Registros\nSintaxis: \"{registro}{comando}\n\"ayy       \" Copiar línea al registro a\n\"ap        \" Pegar desde registro a\n\"Ayy       \" Añadir línea al registro a\n\"_dd       \" Eliminar sin guardar\n\"+y        \" Copiar al clipboard del sistema\n\"+p        \" Pegar desde clipboard"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#ver-registros",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#ver-registros",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Ver Registros",
+    "text": "Ver Registros\n:registers      \" Ver todos los registros\n:reg a b c      \" Ver registros específicos"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#macros",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#macros",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Macros",
+    "text": "Macros\nGrabar y repetir secuencias de comandos."
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#grabar-macro",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#grabar-macro",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Grabar Macro",
+    "text": "Grabar Macro\nq{registro}     \" Empezar a grabar en registro\n... comandos ...\nq               \" Terminar grabación"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#ejecutar-macro",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#ejecutar-macro",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Ejecutar Macro",
+    "text": "Ejecutar Macro\n@{registro}     \" Ejecutar macro\n@@              \" Repetir último macro\n{n}@{registro}  \" Ejecutar n veces\nEjemplo - Formatear lista:\n# Lista:\nitem 1\nitem 2\nitem 3\n\n# Grabar macro en registro a:\nqa              \" Empezar grabación\nI- &lt;Esc&gt;        \" Insertar \"- \" al inicio\nj               \" Bajar una línea\nq               \" Terminar grabación\n\n# Ejecutar:\n2@a             \" Aplicar a siguientes 2 líneas\n\n# Resultado:\n- item 1\n- item 2\n- item 3"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#editar-macros",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#editar-macros",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Editar Macros",
+    "text": "Editar Macros\n# Ver contenido del registro\n:echo @a\n\n# Editar\n:let @a = 'nuevo contenido'\n\n# O pegar en buffer, editar, y copiar de vuelta\n\"ap             \" Pegar macro\n... editar ...\n\"ayy            \" Copiar de vuelta"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#ventanas-splits",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#ventanas-splits",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Ventanas (Splits)",
+    "text": "Ventanas (Splits)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#crear-ventanas",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#crear-ventanas",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Crear Ventanas",
+    "text": "Crear Ventanas\n\n\n\nComando\nAcción\n\n\n\n\n:split o :sp\nDividir horizontalmente\n\n\n:vsplit o :vsp\nDividir verticalmente\n\n\n:new\nNueva ventana horizontal\n\n\n:vnew\nNueva ventana vertical\n\n\nCtrl+w s\nSplit horizontal\n\n\nCtrl+w v\nSplit vertical\n\n\n:sp archivo\nAbrir archivo en split"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#navegar-entre-ventanas",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#navegar-entre-ventanas",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Navegar Entre Ventanas",
+    "text": "Navegar Entre Ventanas\n\n\n\nComando\nAcción\n\n\n\n\nCtrl+w h\nIr a ventana izquierda\n\n\nCtrl+w j\nIr a ventana abajo\n\n\nCtrl+w k\nIr a ventana arriba\n\n\nCtrl+w l\nIr a ventana derecha\n\n\nCtrl+w w\nCiclar entre ventanas\n\n\nCtrl+w p\nIr a ventana anterior"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#mover-ventanas",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#mover-ventanas",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Mover Ventanas",
+    "text": "Mover Ventanas\n\n\n\nComando\nAcción\n\n\n\n\nCtrl+w H\nMover ventana a la izquierda\n\n\nCtrl+w J\nMover ventana abajo\n\n\nCtrl+w K\nMover ventana arriba\n\n\nCtrl+w L\nMover ventana a la derecha\n\n\nCtrl+w r\nRotar ventanas\n\n\nCtrl+w x\nIntercambiar con siguiente"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#redimensionar-ventanas",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#redimensionar-ventanas",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Redimensionar Ventanas",
+    "text": "Redimensionar Ventanas\n\n\n\nComando\nAcción\n\n\n\n\nCtrl+w =\nIgualar tamaños\n\n\nCtrl+w +\nAumentar altura\n\n\nCtrl+w -\nDisminuir altura\n\n\nCtrl+w &gt;\nAumentar ancho\n\n\nCtrl+w &lt;\nDisminuir ancho\n\n\nCtrl+w _\nMaximizar altura\n\n\nCtrl+w |\nMaximizar ancho\n\n\n:resize {n}\nEstablecer altura\n\n\n:vertical resize {n}\nEstablecer ancho"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#cerrar-ventanas",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#cerrar-ventanas",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Cerrar Ventanas",
+    "text": "Cerrar Ventanas\n\n\n\nComando\nAcción\n\n\n\n\n:q o Ctrl+w q\nCerrar ventana actual\n\n\n:only o Ctrl+w o\nCerrar todas menos actual"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#pestañas-tabs",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#pestañas-tabs",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Pestañas (Tabs)",
+    "text": "Pestañas (Tabs)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#gestión-de-pestañas",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#gestión-de-pestañas",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Gestión de Pestañas",
+    "text": "Gestión de Pestañas\n\n\n\nComando\nAcción\n\n\n\n\n:tabnew\nNueva pestaña\n\n\n:tabe archivo\nAbrir archivo en pestaña\n\n\n:tabc\nCerrar pestaña actual\n\n\n:tabo\nCerrar todas las pestañas menos actual\n\n\ngt\nSiguiente pestaña\n\n\ngT\nPestaña anterior\n\n\n{n}gt\nIr a pestaña n\n\n\n:tabs\nListar pestañas"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#qué-son-los-buffers",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#qué-son-los-buffers",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "¿Qué son los Buffers?",
+    "text": "¿Qué son los Buffers?\nUn buffer es un archivo cargado en memoria. Puedes tener múltiples buffers abiertos."
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#comandos-de-buffer",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#comandos-de-buffer",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Comandos de Buffer",
+    "text": "Comandos de Buffer\n\n\n\nComando\nAcción\n\n\n\n\n:ls o :buffers\nListar buffers\n\n\n:b {n}\nIr a buffer n\n\n\n:b {nombre}\nIr a buffer por nombre (Tab complete)\n\n\n:bn o :bnext\nSiguiente buffer\n\n\n:bp o :bprevious\nBuffer anterior\n\n\n:bf\nPrimer buffer\n\n\n:bl\nÚltimo buffer\n\n\n:bd\nEliminar buffer (cerrar archivo)\n\n\n:e archivo\nEditar archivo (crear buffer)\n\n\n:badd archivo\nAñadir archivo a buffer list"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#navegación-rápida",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#navegación-rápida",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Navegación Rápida",
+    "text": "Navegación Rápida\nCtrl+^      \" Alternar entre buffer actual y anterior\nCtrl+o      \" Saltar a posición anterior\nCtrl+i      \" Saltar a posición siguiente"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#comando-substitute",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#comando-substitute",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Comando Substitute",
+    "text": "Comando Substitute\nSintaxis:\n:[rango]s/patrón/reemplazo/[flags]"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#rangos",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#rangos",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Rangos",
+    "text": "Rangos\n\n\n\nRango\nDescripción\n\n\n\n\n%\nTodo el archivo\n\n\n.\nLínea actual\n\n\n$\nÚltima línea\n\n\n'&lt;,'&gt;\nSelección visual\n\n\n{n},{m}\nLíneas n a m\n\n\n.,+5\nLínea actual + 5 líneas\n\n\ng/patrón/\nLíneas que coinciden con patrón"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#flags",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#flags",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Flags",
+    "text": "Flags\n\n\n\nFlag\nDescripción\n\n\n\n\ng\nGlobal (todas las ocurrencias en línea)\n\n\nc\nConfirmar cada reemplazo\n\n\ni\nCase-insensitive\n\n\nI\nCase-sensitive\n\n\nn\nReportar número de coincidencias"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#ejemplos-prácticos",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#ejemplos-prácticos",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Ejemplos Prácticos",
+    "text": "Ejemplos Prácticos\n# Reemplazar en todo el archivo\n:%s/foo/bar/g\n\n# Reemplazar en líneas 10-20\n:10,20s/old/new/g\n\n# Reemplazar con confirmación\n:%s/foo/bar/gc\n\n# Reemplazar solo palabras completas\n:%s/\\&lt;foo\\&gt;/bar/g\n\n# Eliminar espacios al final de línea\n:%s/\\s\\+$//g\n\n# Añadir ; al final de líneas con texto\n:%s/\\(.\\+\\)/\\1;/g\n\n# Reemplazar en selección visual\n:'&lt;,'&gt;s/old/new/g\n\n# Case-insensitive\n:%s/error/ERROR/gi\n\n# Eliminar líneas vacías\n:g/^$/d\n\n# Eliminar líneas que contengan patrón\n:g/DEBUG/d\n\n# Mantener solo líneas que coincidan\n:v/KEEP/d\n\n# Duplicar líneas que contengan patrón\n:g/TODO/t.\n\n# Mover líneas que contengan patrón\n:g/ERROR/m$"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#caracteres-especiales-en-reemplazo",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#caracteres-especiales-en-reemplazo",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Caracteres Especiales en Reemplazo",
+    "text": "Caracteres Especiales en Reemplazo\n\n\n\nCarácter\nSignificado\n\n\n\n\n&\nTexto coincidente completo\n\n\n\\0\nTexto coincidente completo\n\n\n\\1-\\9\nGrupo capturado 1-9\n\n\n\\L\nSiguiente en minúsculas\n\n\n\\U\nSiguiente en mayúsculas\n\n\n\\l\nSiguiente carácter en minúscula\n\n\n\\u\nSiguiente carácter en mayúscula\n\n\n\\e\nFin de \\U o \\L\n\n\n\nEjemplos:\n# Convertir \"lastName\" a \"last_name\"\n:%s/\\([a-z]\\)\\([A-Z]\\)/\\1_\\L\\2/g\n\n# Convertir a mayúsculas primera letra\n:%s/\\&lt;\\(\\w\\)/\\u\\1/g\n\n# Invertir orden (swap)\n:%s/\\(.*\\), \\(.*\\)/\\2 \\1/g"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#qué-es-folding",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#qué-es-folding",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "¿Qué es Folding?",
+    "text": "¿Qué es Folding?\nFolding permite ocultar secciones de texto para enfocarse en otras partes."
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#métodos-de-plegado",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#métodos-de-plegado",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Métodos de Plegado",
+    "text": "Métodos de Plegado\n:set foldmethod=manual    \" Manual\n:set foldmethod=indent    \" Por indentación\n:set foldmethod=syntax    \" Por sintaxis\n:set foldmethod=marker    \" Por marcadores\n:set foldmethod=expr      \" Por expresión"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#comandos-de-plegado",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#comandos-de-plegado",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Comandos de Plegado",
+    "text": "Comandos de Plegado\n\n\n\nComando\nAcción\n\n\n\n\nzf{movimiento}\nCrear fold (manual)\n\n\nzf3j\nFold 3 líneas abajo\n\n\nzfap\nFold párrafo\n\n\nza\nToggle fold\n\n\nzA\nToggle fold recursivamente\n\n\nzo\nAbrir fold\n\n\nzO\nAbrir fold recursivamente\n\n\nzc\nCerrar fold\n\n\nzC\nCerrar fold recursivamente\n\n\nzd\nEliminar fold\n\n\nzD\nEliminar folds recursivamente\n\n\nzR\nAbrir todos los folds\n\n\nzM\nCerrar todos los folds\n\n\nzj\nMover al siguiente fold\n\n\nzk\nMover al fold anterior"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#nivel-de-plegado",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#nivel-de-plegado",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Nivel de Plegado",
+    "text": "Nivel de Plegado\n:set foldlevel=0     \" Cerrar todos\n:set foldlevel=99    \" Abrir todos\nzm                   \" Aumentar foldlevel (cerrar más)\nzr                   \" Disminuir foldlevel (abrir más)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#marcas-marks",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#marcas-marks",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Marcas (Marks)",
+    "text": "Marcas (Marks)\nGuardar posiciones en el archivo."
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#establecer-marcas",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#establecer-marcas",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Establecer Marcas",
+    "text": "Establecer Marcas\nm{a-z}      \" Marca local al buffer\nm{A-Z}      \" Marca global (entre archivos)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#ir-a-marcas",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#ir-a-marcas",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Ir a Marcas",
+    "text": "Ir a Marcas\n\n\n\nComando\nAcción\n\n\n\n\n'{marca}\nIr a línea de marca\n\n\n`{marca}\nIr a posición exacta\n\n\n''\nIr a posición antes del último salto\n\n\n``\nIr a posición exacta antes del salto\n\n\n'.\nIr a última modificación\n\n\n`.\nIr a posición exacta de última modificación\n\n\n'^\nIr a posición donde se salió de Insert"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#ver-marcas",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#ver-marcas",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Ver Marcas",
+    "text": "Ver Marcas\n:marks          \" Ver todas las marcas\n:marks abc      \" Ver marcas específicas"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#lista-de-saltos-jump-list",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#lista-de-saltos-jump-list",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Lista de Saltos (Jump List)",
+    "text": "Lista de Saltos (Jump List)\nVim mantiene historial de saltos.\n\n\n\nComando\nAcción\n\n\n\n\nCtrl+o\nSalto atrás\n\n\nCtrl+i o Tab\nSalto adelante\n\n\n:jumps\nVer lista de saltos"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#lista-de-cambios-change-list",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#lista-de-cambios-change-list",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Lista de Cambios (Change List)",
+    "text": "Lista de Cambios (Change List)\n\n\n\nComando\nAcción\n\n\n\n\ng;\nIr a cambio anterior\n\n\ng,\nIr a siguiente cambio\n\n\n:changes\nVer lista de cambios"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#comandos-de-archivo",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#comandos-de-archivo",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Comandos de Archivo",
+    "text": "Comandos de Archivo\n:w              \" Guardar\n:w archivo      \" Guardar como\n:w!             \" Forzar guardar\n:wa             \" Guardar todos\n:q              \" Salir\n:q!             \" Forzar salir\n:wq o :x        \" Guardar y salir\n:qa             \" Salir de todos\n:qa!            \" Forzar salir de todos\n:e archivo      \" Editar archivo\n:e!             \" Recargar archivo\n:saveas archivo \" Guardar como (cambiar nombre)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#comandos-de-shell",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#comandos-de-shell",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Comandos de Shell",
+    "text": "Comandos de Shell\n:!comando       \" Ejecutar comando shell\n:r !comando     \" Insertar output de comando\n:w !comando     \" Pasar buffer a comando\n:%!comando      \" Filtrar buffer por comando\nEjemplos:\n:!ls            \" Listar archivos\n:r !date        \" Insertar fecha\n:%!sort         \" Ordenar líneas\n:%!python -m json.tool  \" Formatear JSON"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#comandos-de-ayuda",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#comandos-de-ayuda",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Comandos de Ayuda",
+    "text": "Comandos de Ayuda\n:help            \" Ayuda general\n:help comando    \" Ayuda de comando específico\n:help 'opción'   \" Ayuda de opción\n:helpgrep patrón \" Buscar en ayuda\nCtrl+]           \" Seguir enlace (en ayuda)\nCtrl+t           \" Volver (en ayuda)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#ubicaciones",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#ubicaciones",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Ubicaciones",
+    "text": "Ubicaciones\nVim:\n\nLinux/Mac: ~/.vimrc\nWindows: ~/_vimrc\n\nNeovim:\n\nLinux/Mac: ~/.config/nvim/init.vim o ~/.config/nvim/init.lua\nWindows: ~/AppData/Local/nvim/init.vim"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#configuración-básica",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#configuración-básica",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Configuración Básica",
+    "text": "Configuración Básica\n\" ============================================\n\" CONFIGURACIÓN BÁSICA\n\" ============================================\n\n\" Deshabilitar compatibilidad con vi\nset nocompatible\n\n\" Habilitar tipo de archivo y plugins\nfiletype plugin indent on\n\n\" Habilitar sintaxis\nsyntax enable\n\n\" Codificación\nset encoding=utf-8\nset fileencoding=utf-8\n\n\" ============================================\n\" INTERFAZ\n\" ============================================\n\n\" Números de línea\nset number          \" Mostrar números\nset relativenumber  \" Números relativos\n\n\" Cursor\nset cursorline      \" Resaltar línea actual\nset scrolloff=8     \" Mantener 8 líneas visibles arriba/abajo\n\n\" Búsqueda\nset incsearch       \" Búsqueda incremental\nset hlsearch        \" Resaltar búsquedas\nset ignorecase      \" Ignorar mayúsculas en búsqueda\nset smartcase       \" Case-sensitive si hay mayúsculas\n\n\" Interfaz\nset showcmd         \" Mostrar comando en progreso\nset showmode        \" Mostrar modo actual\nset wildmenu        \" Autocompletado de comandos mejorado\nset laststatus=2    \" Siempre mostrar statusline\nset ruler           \" Mostrar posición del cursor\n\n\" Split behavior\nset splitbelow      \" Split horizontal abajo\nset splitright      \" Split vertical a la derecha\n\n\" ============================================\n\" EDICIÓN\n\" ============================================\n\n\" Indentación\nset tabstop=4       \" Ancho de tab\nset shiftwidth=4    \" Ancho de indentación\nset expandtab       \" Usar espacios en lugar de tabs\nset smartindent     \" Indentación inteligente\nset autoindent      \" Mantener indentación\n\n\" Wrap\nset wrap            \" Ajustar líneas largas\nset linebreak       \" Romper en palabras completas\n\n\" Clipboard\nset clipboard=unnamedplus  \" Usar clipboard del sistema\n\n\" Backup y swap\nset nobackup        \" No crear backups\nset noswapfile      \" No crear swap files\n\" O guardarlos en directorio específico:\n\" set backupdir=~/.vim/backup\n\" set directory=~/.vim/swap\n\n\" Undo persistente\nset undofile\nset undodir=~/.vim/undo\n\n\" Mouse\nset mouse=a         \" Habilitar mouse\n\n\" Tiempo de espera\nset timeoutlen=500  \" Tiempo para secuencias de teclas\n\n\" ============================================\n\" MAPEOS\n\" ============================================\n\n\" Líder key\nlet mapleader = \" \"      \" Usar espacio como líder\nlet maplocalleader = \",\" \" Líder local\n\n\" Guardar con Ctrl+S\nnnoremap &lt;C-s&gt; :w&lt;CR&gt;\ninoremap &lt;C-s&gt; &lt;Esc&gt;:w&lt;CR&gt;\n\n\" Salir de Insert con jj\ninoremap jj &lt;Esc&gt;\n\n\" Navegar entre ventanas más fácil\nnnoremap &lt;C-h&gt; &lt;C-w&gt;h\nnnoremap &lt;C-j&gt; &lt;C-w&gt;j\nnnoremap &lt;C-k&gt; &lt;C-w&gt;k\nnnoremap &lt;C-l&gt; &lt;C-w&gt;l\n\n\" Mover líneas\nnnoremap &lt;A-j&gt; :m .+1&lt;CR&gt;==\nnnoremap &lt;A-k&gt; :m .-2&lt;CR&gt;==\nvnoremap &lt;A-j&gt; :m '&gt;+1&lt;CR&gt;gv=gv\nvnoremap &lt;A-k&gt; :m '&lt;-2&lt;CR&gt;gv=gv\n\n\" Mantener selección al indentar\nvnoremap &lt; &lt;gv\nvnoremap &gt; &gt;gv\n\n\" Quitar highlight de búsqueda\nnnoremap &lt;leader&gt;&lt;space&gt; :nohlsearch&lt;CR&gt;\n\n\" Split rápido\nnnoremap &lt;leader&gt;v :vsplit&lt;CR&gt;\nnnoremap &lt;leader&gt;h :split&lt;CR&gt;\n\n\" Buffer navigation\nnnoremap &lt;leader&gt;bn :bnext&lt;CR&gt;\nnnoremap &lt;leader&gt;bp :bprevious&lt;CR&gt;\nnnoremap &lt;leader&gt;bd :bdelete&lt;CR&gt;\n\n\" ============================================\n\" COLORES\n\" ============================================\n\n\" Tema (requiere instalación)\ncolorscheme desert  \" Tema por defecto\n\n\" True color\nif has('termguicolors')\n    set termguicolors\nendif\n\n\" ============================================\n\" AUTOCOMANDOS\n\" ============================================\n\naugroup vimrc\n    autocmd!\n    \" Volver a última posición al abrir archivo\n    autocmd BufReadPost * if line(\"'\\\"\") &gt; 1 && line(\"'\\\"\") &lt;= line(\"$\") | exe \"normal! g'\\\"\" | endif\n    \n    \" Eliminar espacios al final al guardar\n    autocmd BufWritePre * :%s/\\s\\+$//e\n    \n    \" Resaltar yank\n    autocmd TextYankPost * silent! lua vim.highlight.on_yank()\naugroup END\n\n\" ============================================\n\" FUNCIONES PERSONALIZADAS\n\" ============================================\n\n\" Toggle números relativos\nfunction! NumberToggle()\n    if(&relativenumber == 1)\n        set norelativenumber\n    else\n        set relativenumber\n    endif\nendfunction\nnnoremap &lt;leader&gt;n :call NumberToggle()&lt;CR&gt;"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#opciones-útiles",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#opciones-útiles",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Opciones Útiles",
+    "text": "Opciones Útiles\n\" Persistencia\nset hidden          \" Permitir buffers ocultos con cambios\n\n\" Rendimiento\nset lazyredraw      \" No redibujar durante macros\nset updatetime=300  \" Tiempo de espera para swap/CursorHold\n\n\" Signos\nset signcolumn=yes  \" Siempre mostrar columna de signos\n\n\" Formato\nset textwidth=80    \" Ancho de texto\nset colorcolumn=80  \" Línea visual en columna 80\n\n\" Completion\nset completeopt=menuone,noselect,noinsert\n\n\" Diff\nset diffopt+=vertical  \" Diff vertical"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#gestores-de-plugins",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#gestores-de-plugins",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Gestores de Plugins",
+    "text": "Gestores de Plugins"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#vim-plug-recomendado",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#vim-plug-recomendado",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "vim-plug (Recomendado)",
+    "text": "vim-plug (Recomendado)\nInstalación:\n# Vim\ncurl -fLo ~/.vim/autoload/plug.vim --create-dirs \\\n    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim\n\n# Neovim\nsh -c 'curl -fLo \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/autoload/plug.vim --create-dirs \\\n       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'\nUso en .vimrc:\ncall plug#begin('~/.vim/plugged')\n\n\" Plugins aquí\nPlug 'tpope/vim-surround'\nPlug 'junegunn/fzf.vim'\nPlug 'preservim/nerdtree'\n\ncall plug#end()\nComandos:\n:PlugInstall    \" Instalar plugins\n:PlugUpdate     \" Actualizar plugins\n:PlugClean      \" Eliminar plugins no usados\n:PlugStatus     \" Ver estado"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#packer-neovim-lua",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#packer-neovim-lua",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Packer (Neovim + Lua)",
+    "text": "Packer (Neovim + Lua)\n-- ~/.config/nvim/lua/plugins.lua\nreturn require('packer').startup(function(use)\n    use 'wbthomason/packer.nvim'\n    use 'tpope/vim-surround'\n    use 'nvim-telescope/telescope.nvim'\nend)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#plugins-esenciales",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#plugins-esenciales",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Plugins Esenciales",
+    "text": "Plugins Esenciales"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#navegación-de-archivos",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#navegación-de-archivos",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "1. Navegación de Archivos",
+    "text": "1. Navegación de Archivos\nNERDTree:\nPlug 'preservim/nerdtree'\n\n\" Mapeo\nnnoremap &lt;C-n&gt; :NERDTreeToggle&lt;CR&gt;\nfzf.vim:\nPlug 'junegunn/fzf', { 'do': { -&gt; fzf#install() } }\nPlug 'junegunn/fzf.vim'\n\n\" Mapeos\nnnoremap &lt;C-p&gt; :Files&lt;CR&gt;\nnnoremap &lt;leader&gt;b :Buffers&lt;CR&gt;\nnnoremap &lt;leader&gt;g :Rg&lt;CR&gt;"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#edición",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#edición",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "2. Edición",
+    "text": "2. Edición\nvim-surround:\nPlug 'tpope/vim-surround'\n\n\" Comandos:\n\" ysiw\" - Rodear palabra con \"\n\" cs\"' - Cambiar \" por '\n\" ds\" - Eliminar \"\n\" yss) - Rodear línea con ()\nvim-commentary:\nPlug 'tpope/vim-commentary'\n\n\" Comandos:\n\" gcc - Comentar/descomentar línea\n\" gc{movimiento} - Comentar movimiento\n\" gcap - Comentar párrafo\nvim-repeat:\nPlug 'tpope/vim-repeat'\n\" Permite usar . con plugins"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#git",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#git",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "3. Git",
+    "text": "3. Git\nvim-fugitive:\nPlug 'tpope/vim-fugitive'\n\n\" Comandos:\n:Git       \" Git status\n:Git add %\n:Git commit\n:Git push\n:Gvdiffsplit  \" Ver diff\ngitsigns (Neovim):\nPlug 'lewis6991/gitsigns.nvim'"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#temas",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#temas",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "4. Temas",
+    "text": "4. Temas\nPlug 'gruvbox-community/gruvbox'\nPlug 'morhetz/gruvbox'\nPlug 'dracula/vim'\nPlug 'joshdick/onedark.vim'\nPlug 'arcticicestudio/nord-vim'\n\ncolorscheme gruvbox"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#statusline",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#statusline",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "5. Statusline",
+    "text": "5. Statusline\nvim-airline:\nPlug 'vim-airline/vim-airline'\nPlug 'vim-airline/vim-airline-themes'\n\nlet g:airline_theme='gruvbox'\nlet g:airline_powerline_fonts = 1\nlualine (Neovim):\nuse {\n    'nvim-lualine/lualine.nvim',\n    requires = { 'kyazdani42/nvim-web-devicons' }\n}"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#diferencias-con-vim",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#diferencias-con-vim",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Diferencias con Vim",
+    "text": "Diferencias con Vim\nArquitectura:\n\nAPI asíncrona\nCliente-servidor\nSoporte para UIs remotas\nJobs y canales nativos\n\nCaracterísticas:\n\nLSP integrado\nTree-sitter (parsing AST)\nLua como lenguaje de primera clase\nMejor rendimiento\nAPI moderna"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#configuración-en-lua",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#configuración-en-lua",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Configuración en Lua",
+    "text": "Configuración en Lua\ninit.lua:\n-- ~/.config/nvim/init.lua\n\n-- Opciones básicas\nvim.opt.number = true\nvim.opt.relativenumber = true\nvim.opt.expandtab = true\nvim.opt.tabstop = 4\nvim.opt.shiftwidth = 4\nvim.opt.smartindent = true\nvim.opt.wrap = false\nvim.opt.swapfile = false\nvim.opt.backup = false\nvim.opt.undofile = true\nvim.opt.hlsearch = false\nvim.opt.incsearch = true\nvim.opt.termguicolors = true\nvim.opt.scrolloff = 8\nvim.opt.signcolumn = \"yes\"\nvim.opt.updatetime = 50\nvim.opt.colorcolumn = \"80\"\n\n-- Leader key\nvim.g.mapleader = \" \"\nvim.g.maplocalleader = \",\"\n\n-- Mapeos\nvim.keymap.set(\"n\", \"&lt;leader&gt;pv\", vim.cmd.Ex)\nvim.keymap.set(\"n\", \"&lt;C-s&gt;\", \":w&lt;CR&gt;\")\nvim.keymap.set(\"i\", \"jj\", \"&lt;Esc&gt;\")\n\n-- Mover líneas\nvim.keymap.set(\"v\", \"J\", \":m '&gt;+1&lt;CR&gt;gv=gv\")\nvim.keymap.set(\"v\", \"K\", \":m '&lt;-2&lt;CR&gt;gv=gv\")\n\n-- Mantener cursor centrado\nvim.keymap.set(\"n\", \"&lt;C-d&gt;\", \"&lt;C-d&gt;zz\")\nvim.keymap.set(\"n\", \"&lt;C-u&gt;\", \"&lt;C-u&gt;zz\")\nvim.keymap.set(\"n\", \"n\", \"nzzzv\")\nvim.keymap.set(\"n\", \"N\", \"Nzzzv\")\n\n-- Navegar ventanas\nvim.keymap.set(\"n\", \"&lt;C-h&gt;\", \"&lt;C-w&gt;h\")\nvim.keymap.set(\"n\", \"&lt;C-j&gt;\", \"&lt;C-w&gt;j\")\nvim.keymap.set(\"n\", \"&lt;C-k&gt;\", \"&lt;C-w&gt;k\")\nvim.keymap.set(\"n\", \"&lt;C-l&gt;\", \"&lt;C-w&gt;l\")\n\n-- Resaltar yank\nvim.api.nvim_create_autocmd(\"TextYankPost\", {\n    group = vim.api.nvim_create_augroup(\"highlight_yank\", { clear = true }),\n    callback = function()\n        vim.highlight.on_yank()\n    end,\n})"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#tree-sitter",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#tree-sitter",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Tree-sitter",
+    "text": "Tree-sitter\nParser incremental para mejor resaltado de sintaxis.\nuse {\n    'nvim-treesitter/nvim-treesitter',\n    run = ':TSUpdate'\n}\n\nrequire'nvim-treesitter.configs'.setup {\n    ensure_installed = { \"python\", \"javascript\", \"lua\", \"vim\" },\n    highlight = {\n        enable = true,\n    },\n}"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#telescope-fuzzy-finder",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#telescope-fuzzy-finder",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Telescope (Fuzzy Finder)",
+    "text": "Telescope (Fuzzy Finder)\nuse {\n    'nvim-telescope/telescope.nvim',\n    requires = { 'nvim-lua/plenary.nvim' }\n}\n\n-- Mapeos\nvim.keymap.set('n', '&lt;leader&gt;ff', ':Telescope find_files&lt;CR&gt;')\nvim.keymap.set('n', '&lt;leader&gt;fg', ':Telescope live_grep&lt;CR&gt;')\nvim.keymap.set('n', '&lt;leader&gt;fb', ':Telescope buffers&lt;CR&gt;')"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#lsp-en-neovim",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#lsp-en-neovim",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "LSP en Neovim",
+    "text": "LSP en Neovim\nInstalar nvim-lspconfig:\nuse 'neovim/nvim-lspconfig'\n\n-- Configurar servidor\nlocal lspconfig = require('lspconfig')\n\n-- Python\nlspconfig.pyright.setup{}\n\n-- JavaScript/TypeScript\nlspconfig.tsserver.setup{}\n\n-- Lua\nlspconfig.lua_ls.setup{\n    settings = {\n        Lua = {\n            diagnostics = {\n                globals = { 'vim' }\n            }\n        }\n    }\n}"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#mapeos-lsp",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#mapeos-lsp",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Mapeos LSP",
+    "text": "Mapeos LSP\n-- Después de attach LSP\nlocal opts = { noremap=true, silent=true }\nvim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)\nvim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)\nvim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)\nvim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)\nvim.keymap.set('n', '&lt;C-k&gt;', vim.lsp.buf.signature_help, opts)\nvim.keymap.set('n', '&lt;leader&gt;rn', vim.lsp.buf.rename, opts)\nvim.keymap.set('n', '&lt;leader&gt;ca', vim.lsp.buf.code_action, opts)\nvim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#nvim-cmp-autocompletado",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#nvim-cmp-autocompletado",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "nvim-cmp (Autocompletado)",
+    "text": "nvim-cmp (Autocompletado)\nuse 'hrsh7th/nvim-cmp'\nuse 'hrsh7th/cmp-nvim-lsp'\nuse 'hrsh7th/cmp-buffer'\nuse 'hrsh7th/cmp-path'\nuse 'L3MON4D3/LuaSnip'\n\nlocal cmp = require'cmp'\n\ncmp.setup({\n    snippet = {\n        expand = function(args)\n            require('luasnip').lsp_expand(args.body)\n        end,\n    },\n    mapping = {\n        ['&lt;C-p&gt;'] = cmp.mapping.select_prev_item(),\n        ['&lt;C-n&gt;'] = cmp.mapping.select_next_item(),\n        ['&lt;C-d&gt;'] = cmp.mapping.scroll_docs(-4),\n        ['&lt;C-f&gt;'] = cmp.mapping.scroll_docs(4),\n        ['&lt;C-Space&gt;'] = cmp.mapping.complete(),\n        ['&lt;C-e&gt;'] = cmp.mapping.close(),\n        ['&lt;CR&gt;'] = cmp.mapping.confirm({ select = true }),\n    },\n    sources = {\n        { name = 'nvim_lsp' },\n        { name = 'buffer' },\n        { name = 'path' },\n    }\n})"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#vimscript-básico",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#vimscript-básico",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Vimscript Básico",
+    "text": "Vimscript Básico\nVariables:\nlet variable = \"valor\"\nlet g:global_var = 1\nlet l:local_var = 2\nlet s:script_var = 3\nCondicionales:\nif condición\n    \" código\nelseif otra_condición\n    \" código\nelse\n    \" código\nendif\nLoops:\nfor item in lista\n    \" código\nendfor\n\nwhile condición\n    \" código\nendwhile\nFunciones:\nfunction! MiFuncion(arg1, arg2)\n    \" código\n    return resultado\nendfunction\n\n\" Llamar\ncall MiFuncion(1, 2)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#lua-básico",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#lua-básico",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Lua Básico",
+    "text": "Lua Básico\nVariables:\nlocal variable = \"valor\"\nvim.g.global_var = 1\nCondicionales:\nif condición then\n    -- código\nelseif otra_condición then\n    -- código\nelse\n    -- código\nend\nLoops:\nfor i = 1, 10 do\n    -- código\nend\n\nfor key, value in pairs(tabla) do\n    -- código\nend\nFunciones:\nlocal function mi_funcion(arg1, arg2)\n    -- código\n    return resultado\nend"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#edición-de-múltiples-archivos",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#edición-de-múltiples-archivos",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "1. Edición de Múltiples Archivos",
+    "text": "1. Edición de Múltiples Archivos\nArgumentos:\n:args *.js          \" Cargar todos los .js\n:argdo %s/old/new/g | update  \" Reemplazar en todos\nBuffers:\n:bufdo %s/old/new/g | update\nQuickfix:\n:vimgrep /patrón/ **/*.py   \" Buscar en archivos\n:copen                      \" Abrir quickfix list\n:cn                         \" Siguiente\n:cp                         \" Anterior"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#edición-avanzada-con-expresiones",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#edición-avanzada-con-expresiones",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "2. Edición Avanzada con Expresiones",
+    "text": "2. Edición Avanzada con Expresiones\nIncrementar números:\nCtrl+a      \" Incrementar número bajo cursor\nCtrl+x      \" Decrementar\n\n# En visual block:\ng Ctrl+a    \" Incrementar secuencialmente\nEvaluar expresiones:\n# En insert mode:\nCtrl+r =2+2&lt;CR&gt;  \" Inserta resultado (4)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#cambiar-en-múltiples-líneas",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#cambiar-en-múltiples-líneas",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "3. Cambiar en Múltiples Líneas",
+    "text": "3. Cambiar en Múltiples Líneas\nVisual Block:\n1. Ctrl+v (visual block)\n2. Seleccionar líneas\n3. I (insertar al inicio) o A (al final)\n4. Escribir\n5. Esc (se aplica a todas)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#formatear-código",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#formatear-código",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "4. Formatear Código",
+    "text": "4. Formatear Código\nFormatear párrafo:\ngqap        \" Format paragraph\ngwap        \" Format and keep cursor position\nExternal formatter:\n:%!python -m json.tool     \" JSON\n:%!xmllint --format -      \" XML\n:% !prettier --parser babel  \" JavaScript"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#diff-files",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#diff-files",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "5. Diff Files",
+    "text": "5. Diff Files\n:vert diffsplit archivo2\n:diffthis       \" Marcar ventana actual para diff\n:diffoff        \" Desactivar diff\n]c              \" Siguiente cambio\n[c              \" Cambio anterior\ndo              \" Diff obtain (obtener cambio)\ndp              \" Diff put (poner cambio)"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#sesiones",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#sesiones",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "6. Sesiones",
+    "text": "6. Sesiones\nGuardar sesión:\n:mksession ~/sesion.vim\nCargar sesión:\n:source ~/sesion.vim\n# O al iniciar:\nvim -S ~/sesion.vim"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#spell-checking",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#spell-checking",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "7. Spell Checking",
+    "text": "7. Spell Checking\n:set spell spelllang=es    \" Activar corrector español\n:set spell spelllang=en    \" Inglés\n\n]s      \" Siguiente error\n[s      \" Error anterior\nz=      \" Sugerencias\nzg      \" Añadir palabra a diccionario\nzw      \" Marcar palabra como mal escrita"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#abrir-url",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#abrir-url",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "8. Abrir URL",
+    "text": "8. Abrir URL\ngx      \" Abrir URL bajo cursor en navegador"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#ejecutar-línea-como-comando",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#ejecutar-línea-como-comando",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "9. Ejecutar Línea como Comando",
+    "text": "9. Ejecutar Línea como Comando\n:.!sh   \" Ejecutar línea actual como comando shell"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#formateo-de-tabla",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#formateo-de-tabla",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "10. Formateo de Tabla",
+    "text": "10. Formateo de Tabla\n# Seleccionar tabla en visual\n:!column -t     \" Alinear columnas"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#problemas-comunes",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#problemas-comunes",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Problemas Comunes",
+    "text": "Problemas Comunes"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#vimneovim-lento",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#vimneovim-lento",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "1. Vim/Neovim Lento",
+    "text": "1. Vim/Neovim Lento\nSoluciones:\n\" Deshabilitar plugins temporalmente\nvim --noplugin\n\n\" Ver tiempo de inicio\nvim --startuptime tiempo.log\n\n\" Lazy loading de plugins\nPlug 'plugin/name', { 'on': 'Comando' }\n\n\" Reducir updatetime\nset updatetime=300"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#clipboard-no-funciona",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#clipboard-no-funciona",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "2. Clipboard No Funciona",
+    "text": "2. Clipboard No Funciona\nVerificar soporte:\n:echo has('clipboard')  \" Debe retornar 1\nSolución Ubuntu:\nsudo apt install vim-gtk3\n# O para Neovim:\nsudo apt install xclip"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#colores-incorrectos",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#colores-incorrectos",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "3. Colores Incorrectos",
+    "text": "3. Colores Incorrectos\n\" Habilitar true color\nset termguicolors\n\n\" O verificar $TERM\necho $TERM  \" Debe ser xterm-256color o similar"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#lsp-no-funciona-neovim",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#lsp-no-funciona-neovim",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "4. LSP No Funciona (Neovim)",
+    "text": "4. LSP No Funciona (Neovim)\nVerificar:\n:checkhealth        \" Diagnóstico completo\n:LspInfo            \" Info de LSP\n\n\" Instalar servidor manualmente\n:LspInstall pyright"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#plugins-no-se-instalan",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#plugins-no-se-instalan",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "5. Plugins No Se Instalan",
+    "text": "5. Plugins No Se Instalan\n\" vim-plug\n:PlugInstall\n:PlugUpdate\n\n\" Verificar errores\n:messages"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#debugging",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#debugging",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Debugging",
+    "text": "Debugging\nModo verbose:\n:set verbose=9      \" Nivel de verbosidad\n:set verbosefile=~/vim_debug.log\nVer opciones:\n:set all            \" Ver todas las opciones\n:set opción?        \" Ver valor de opción específica\nVer mapeos:\n:map                \" Ver todos los mapeos\n:nmap               \" Mapeos en modo Normal\n:imap               \" Mapeos en modo Insert"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#atajos-esenciales",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#atajos-esenciales",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Atajos Esenciales",
+    "text": "Atajos Esenciales\nNavegación:\nhjkl        Básico\nw/b         Palabra adelante/atrás\n0/$         Inicio/fin de línea\ngg/G        Inicio/fin de archivo\nCtrl+d/u    Media página\nf/F{char}   Find carácter\nEdición:\ni/a         Insert/append\no/O         Nueva línea abajo/arriba\nx/dd        Eliminar carácter/línea\nyy/p        Copiar/pegar\nu/Ctrl+r    Undo/redo\n.           Repetir\nVisual:\nv/V/Ctrl+v  Visual char/line/block\ny/d/c       Copiar/eliminar/cambiar\n&gt;/&lt;         Indentar/desindentar\nBúsqueda:\n/texto      Buscar\nn/N         Siguiente/anterior\n*/#         Buscar palabra bajo cursor\n:%s/old/new/g  Reemplazar\nArchivos:\n:w          Guardar\n:q          Salir\n:e archivo  Abrir\n:bn/:bp     Buffer siguiente/anterior\nVentanas:\n:sp/:vsp    Split\nCtrl+w hjkl Navegar\nCtrl+w =    Igualar tamaños"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#comandos-por-modo",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#comandos-por-modo",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Comandos por Modo",
+    "text": "Comandos por Modo\nNormal Mode:\n\nNavegación: hjkl, w, b, 0, $, gg, G\nEdición: i, a, o, x, dd, yy, p\nVisual: v, V, Ctrl+v\nBúsqueda: /, ?, *, #, n, N\nComandos: :\n\nInsert Mode:\n\nSalir: Esc, Ctrl+[\nAutocompletado: Ctrl+n/p, Ctrl+x Ctrl+o\nInsertar: Ctrl+r{registro}\n\nVisual Mode:\n\nOperadores: y, d, c, &gt;, &lt;, =\nCambiar modo: v, V, Ctrl+v\nObjetos: aw, iw, ap, i(, a\"\n\nCommand Mode:\n\nArchivo: :w, :q, :e, :wq\nBúsqueda: /, ?\nRango: :%s, :., :'&lt;,'&gt;"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#el-viaje-de-aprendizaje",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#el-viaje-de-aprendizaje",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "El Viaje de Aprendizaje",
+    "text": "El Viaje de Aprendizaje\nNivel 1 - Básicos (Semana 1):\n\nModos (Normal, Insert)\nNavegación básica (hjkl)\nGuardar y salir (:wq)\nInsert/append (i, a, o)\n\nNivel 2 - Movimientos (Mes 1):\n\nMovimientos de palabra (w, b, e)\nLínea (0, $, ^)\nBúsqueda (/, ?, *, #)\nObjetos de texto (iw, aw)\n\nNivel 3 - Operadores (Meses 2-3):\n\nEliminar/cambiar/copiar (d, c, y)\nComposición (dw, ciw, yap)\nVisual mode (v, V, Ctrl+v)\nRegistros básicos\n\nNivel 4 - Avanzado (Meses 4-6):\n\nMacros (q, @)\nMúltiples buffers/ventanas\nBúsqueda y reemplazo avanzado\nConfiguración personalizada\n\nNivel 5 - Maestro (6+ meses):\n\nPlugins y ecosistema\nVimscript/Lua\nLSP y autocompletado\nWorkflow completamente personalizado"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#recursos",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#recursos",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Recursos",
+    "text": "Recursos\nTutoriales:\n\nvimtutor (incluido con Vim)\nVim Adventures (juego)\nOpenvim.com\nvim.fandom.com\n\nDocumentación:\n\n:help (ayuda integrada)\nvimhelp.org\nneovim.io/doc\n\nComunidad:\n\nr/vim, r/neovim (Reddit)\nvi.stackexchange.com\nGitHub Discussions"
+  },
+  {
+    "objectID": "operating-system/2022-09-27-comandos-vim/index.html#tips-finales",
+    "href": "operating-system/2022-09-27-comandos-vim/index.html#tips-finales",
+    "title": "Guía Completa de Vim y Neovim",
+    "section": "Tips Finales",
+    "text": "Tips Finales\n\nPractica diariamente: 15-30 minutos al día\nAprende incrementalmente: No trates de aprender todo a la vez\nUsa vimtutor: El tutorial interactivo es excelente\nEvita plugins al inicio: Aprende Vim vanilla primero\nConfigura gradualmente: Añade opciones según las necesites\nUsa el help: :help {tema} es tu mejor amigo\nSé paciente: La curva de aprendizaje vale la pena"
   }
 ]

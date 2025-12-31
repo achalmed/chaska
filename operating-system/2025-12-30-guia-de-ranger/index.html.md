@@ -1,0 +1,1568 @@
+---
+documentmode: doc
+copyrightnotice: 2025
+copyrightext: All rights reserved
+title: Guía Completa de Ranger
+abstract: Ranger es un gestor de archivos basado en consola altamente eficiente, diseñado con una fuerte inspiración en los atajos de teclado de Vim y una filosofía minimalista. Esta guía completa explora en detalle su instalación en diferentes sistemas operativos, configuración inicial y avanzada, estructura de archivos de configuración (rc.conf, rifle.conf, scope.sh, commands.py), así como la personalización profunda mediante mapeos de teclado, comandos personalizados en Python y plugins. Se detallan las características principales que lo distinguen; navegación multi-columna, previsualización automática de múltiples tipos de archivo (texto, código, imágenes, PDFs, videos, comprimidos), gestión inteligente de archivos mediante rifle, soporte de pestañas, marcadores, renombrado masivo, integración con el shell y capacidades de preview mejoradas mediante herramientas externas. La guía incluye referencias prácticas de atajos fundamentales y avanzados, ejemplos de configuración realistas, soluciones a problemas comunes, trucos de productividad y recomendaciones para integrar Ranger en flujos de trabajo diarios de usuarios de terminal (especialmente aquellos familiarizados con Vim/Neovim). Dirigida tanto a usuarios noveles que buscan reemplazar gestores gráficos tradicionales, como a usuarios avanzados que desean optimizar y extender al máximo esta poderosa herramienta de gestión de archivos en entornos Unix-like.
+keywords:
+- Vim
+- Ranger
+- File Manager
+categories:
+- Operating System
+tags:
+- operating_system
+- vim
+- ranger
+- file_manager
+- rifle
+author-note:
+  status-changes:
+    affiliation-change: null
+    deceased: null
+  disclosures:
+    study-registration: null
+    data-sharing: null
+    related-report: null
+    conflict-of-interest: El autor no tiene conflictos de interés que revelar.
+    financial-support: null
+    gratitude: null
+    authorship-agreements: null
+description: El gestor de archivos de consola inspirado en Vim.
+eval: false
+citation:
+  type: article-journal
+  author:
+  - Edison Achalma
+  pdf-url: https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github/index.pdf
+date: 02/16/2023
+draft: false
+image: ../featured.jpg
+---
+
+**¿Qué es Ranger?**
+
+Ranger es un gestor de archivos de consola con:
+- Atajos de teclado inspirados en Vim
+- Interfaz minimalista con curses
+- Vista de jerarquía de directorios (multi-columna)
+- Previsualización automática de archivos
+- Integración con rifle (lanzador de archivos inteligente)
+
+**Filosofía de Diseño**
+
+- **Mantenible**: Escrito en Python de alto nivel
+- **Rápido**: Cambiar directorios y navegar eficientemente
+- **Minimalista**: Pequeño pero útil, hace una cosa bien
+- **Integrado**: Perfecta integración con el shell Unix
+
+**Características Principales**
+
+- Soporte UTF-8  
+- Pantalla multi-columna  
+- Previsualización del archivo/directorio seleccionado  
+- Operaciones comunes con archivos (crear/chmod/copiar/eliminar)  
+- Renombrado múltiple de archivos  
+- Consola y atajos estilo VIM  
+- Determina tipos de archivo automáticamente  
+- Pestañas, marcadores, soporte de ratón  
+- Cambia el directorio del shell al salir  
+
+
+# Instalación
+
+## Desde Repositorios
+
+**Ubuntu/Debian:**
+```bash
+sudo apt-get update
+sudo apt-get install ranger
+```
+
+**Fedora:**
+```bash
+sudo dnf install ranger
+```
+
+**Arch Linux:**
+```bash
+sudo pacman -S ranger
+```
+
+**macOS (Homebrew):**
+```bash
+brew install ranger
+```
+
+## Desde PyPI
+
+```bash
+pip install ranger-fm
+# O mejor con pipx (entorno aislado)
+pipx install ranger-fm
+```
+
+## Desde Código Fuente
+
+```bash
+git clone https://github.com/ranger/ranger.git
+cd ranger
+sudo make install
+```
+
+## Verificar Instalación
+
+```bash
+ranger --version
+```
+
+## Dependencias Opcionales
+
+**Para funcionalidad completa:**
+```bash
+# Determinar tipos de archivo
+sudo apt-get install file
+
+# Detección mejorada de codificación
+pip install chardet
+
+# Nombres bidireccionales (árabe, hebreo)
+pip install python-bidi
+
+# Previsualización de imágenes
+sudo apt-get install caca-utils w3m-img
+
+# Conversión de imágenes
+sudo apt-get install imagemagick
+
+# Resaltado de sintaxis
+sudo apt-get install highlight
+# O
+pip install pygments
+
+# Previsualización de archivos comprimidos
+sudo apt-get install atool unrar p7zip-full
+
+# Previsualización de PDFs
+sudo apt-get install poppler-utils
+
+# Previsualización de videos
+sudo apt-get install ffmpegthumbnailer
+
+# Información de medios
+sudo apt-get install mediainfo
+
+# Convertir SVG
+sudo apt-get install librsvg2-bin
+```
+
+# Configuración Inicial
+
+## Generar Archivos de Configuración
+
+Ranger puede copiar automáticamente los archivos de configuración por defecto:
+
+```bash
+# Copiar todas las configuraciones
+ranger --copy-config=all
+
+# Copiar archivos específicos
+ranger --copy-config=rc          # Configuración principal
+ranger --copy-config=rifle       # Configuración de rifle
+ranger --copy-config=scope       # Script de previsualización
+ranger --copy-config=commands    # Comandos personalizados
+```
+
+## Ubicación de Archivos
+
+Los archivos de configuración se encuentran en:
+
+```
+~/.config/ranger/
+├── rc.conf           # Configuración principal y atajos
+├── rifle.conf        # Lanzador de archivos
+├── scope.sh          # Script de previsualización
+├── commands.py       # Comandos personalizados (Python)
+├── commands_full.py  # Comandos adicionales
+└── plugins/          # Directorio para plugins
+```
+
+## Primer Lanzamiento
+
+```bash
+ranger
+```
+
+Al iniciar ranger por primera vez:
+
+- Se abre en el directorio actual
+- Muestra tres columnas: padre, actual, previsualización
+- Usa las flechas o hjkl para navegar
+
+
+# Interfaz y Navegación Básica
+
+## Estructura de la Pantalla
+
+```
+┌─────────────────────────────────────────────────────────┐
+│ Directorio Padre │ Directorio Actual │ Previsualización │
+│                  │                   │                  │
+│  parent/         │ > archivo1.txt    │ Contenido del    │
+│  current/        │   archivo2.py     │ archivo1.txt...  │
+│  sibling/        │   carpeta/        │                  │
+│                  │   imagen.png      │                  │
+│                  │                   │                  │
+├─────────────────────────────────────────────────────────┤
+│ Barra de Estado: PWD, permisos, tamaño, fecha           │
+└─────────────────────────────────────────────────────────┘
+```
+
+## Columnas Explicadas
+
+1. **Columna Izquierda**: Contenido del directorio padre
+2. **Columna Central**: Directorio actual (principal)
+3. **Columna Derecha**: Previsualización del archivo/directorio seleccionado
+
+## Barra de Estado
+
+Muestra información del archivo seleccionado:
+
+- Permisos (rwxr-xr-x)
+- Usuario y grupo propietario
+- Tamaño del archivo
+- Fecha de modificación
+- Ruta completa del directorio actual
+
+
+# Atajos de Teclado Fundamentales
+
+## Navegación Básica (Estilo Vim)
+
+| Tecla | Acción |
+|-------|--------|
+| `h` | Ir al directorio padre (arriba en jerarquía) |
+| `j` | Mover cursor hacia abajo |
+| `k` | Mover cursor hacia arriba |
+| `l` | Entrar a directorio / Abrir archivo |
+| `↑` | Mover cursor hacia arriba |
+| `↓` | Mover cursor hacia abajo |
+| `←` | Ir al directorio padre |
+| `→` | Entrar a directorio / Abrir archivo |
+
+## Movimiento Rápido
+
+| Tecla | Acción |
+|-------|--------|
+| `gg` | Ir al inicio de la lista |
+| `G` | Ir al final de la lista |
+| `H` | Ir al inicio de la pantalla visible |
+| `M` | Ir a la mitad de la pantalla visible |
+| `L` | Ir al final de la pantalla visible |
+| `{` | Subir una página |
+| `}` | Bajar una página |
+| `Ctrl+u` | Media página arriba |
+| `Ctrl+d` | Media página abajo |
+| `Ctrl+b` | Página completa arriba |
+| `Ctrl+f` | Página completa abajo |
+
+## Salir y Ayuda
+
+| Tecla | Acción |
+|-------|--------|
+| `q` | Salir de ranger |
+| `Q` | Salir sin cambiar directorio |
+| `?` | Abrir manual de ayuda |
+| `W` | Ver log de ranger |
+
+
+# Navegación Avanzada
+
+## Historial de Navegación
+
+| Tecla | Acción |
+|-------|--------|
+| `H` | Ir atrás en el historial (history back) |
+| `L` | Ir adelante en el historial (history forward) |
+| `Alt+Left` | Historial atrás |
+| `Alt+Right` | Historial adelante |
+
+## Saltos Rápidos
+
+| Tecla | Acción |
+|-------|--------|
+| `gh` | Ir a HOME (~) |
+| `ge` | Ir a /etc |
+| `gu` | Ir a /usr |
+| `gd` | Ir a /dev |
+| `go` | Ir a /opt |
+| `gv` | Ir a /var |
+| `gm` | Ir a /media |
+| `gM` | Ir a /mnt |
+| `gs` | Ir a /srv |
+| `gR` | Ir a / (root) |
+| `g/` | Ir a / (root) |
+| `g?` | Ir a /usr/share/doc/ranger |
+
+## Navegación por Primera Letra
+
+| Tecla | Acción |
+|-------|--------|
+| `f<letra>` | Buscar archivo que empiece con letra |
+| `F<letra>` | Buscar archivo que empiece con letra (multi-match) |
+
+**Ejemplo:**
+- `ft` - Salta al primer archivo que empiece con 't'
+- `Ft` - Salta a archivos que empiecen con 't', presiona `;` para siguiente
+
+## Ir a Directorio Específico
+
+| Tecla | Acción |
+|-------|--------|
+| `cd` | Abrir prompt para cambiar directorio |
+| `:cd /ruta` | Ir a ruta específica |
+| `:cd -` | Ir al directorio anterior |
+
+
+# Operaciones con Archivos
+
+## Copiar, Cortar y Pegar
+
+| Tecla | Acción |
+|-------|--------|
+| `yy` | Copiar (yank) archivo seleccionado |
+| `dd` | Cortar (cut) archivo seleccionado |
+| `pp` | Pegar archivo |
+| `po` | Pegar sobrescribiendo |
+| `pP` | Pegar creando enlaces simbólicos |
+| `pO` | Pegar enlaces simbólicos sobrescribiendo |
+| `pl` | Pegar creando enlaces duros (hardlinks) |
+| `pL` | Pegar enlaces duros con nuevo nombre |
+| `ud` | Deshacer (undo) operación de cortar |
+| `uy` | Deshacer (undo) operación de copiar |
+
+## Eliminar
+
+| Tecla | Acción |
+|-------|--------|
+| `dD` | Eliminar archivo (pide confirmación) |
+| `dT` | Mover a papelera (si está configurada) |
+
+## Crear y Editar
+
+| Tecla | Acción |
+|-------|--------|
+| `:touch nombre` | Crear archivo nuevo |
+| `:mkdir nombre` | Crear directorio nuevo |
+| `i` | Mostrar nombre del archivo actual |
+| `E` | Editar archivo con editor por defecto |
+| `cw` | Renombrar archivo (change word) |
+| `a` | Renombrar - cursor al final |
+| `A` | Renombrar - cursor después de extensión |
+| `I` | Renombrar - cursor al principio |
+
+## Permisos y Propiedades
+
+| Tecla | Acción |
+|-------|--------|
+| `=` | Mostrar permisos en notación chmod |
+| `+<permisos>` | Añadir permisos (ej: `+x`) |
+| `-<permisos>` | Quitar permisos (ej: `-w`) |
+
+**Ejemplos:**
+
+```
++x    # Añadir permiso de ejecución
+-w    # Quitar permiso de escritura
+=755  # Establecer permisos exactos
+```
+
+
+# Selección Múltiple
+
+## Seleccionar Archivos
+
+| Tecla | Acción |
+|-------|--------|
+| `Space` | Marcar/desmarcar archivo y bajar |
+| `v` | Invertir selección de todos los archivos |
+| `V` | Entrar en modo visual (selección continua) |
+| `uv` | Desmarcar todos los archivos |
+
+## Modo Visual
+
+En modo visual (`V`):
+
+- `j/k` - Extender selección arriba/abajo
+- `gg/G` - Seleccionar hasta inicio/final
+- `o` - Cambiar punto de anclaje de selección
+
+## Operaciones con Múltiples Archivos
+
+Una vez seleccionados:
+
+- `yy` - Copiar todos los seleccionados
+- `dd` - Cortar todos los seleccionados
+- `dD` - Eliminar todos los seleccionados
+- `:bulkrename` - Renombrar múltiples archivos en editor
+
+## Renombrado Masivo
+
+```bash
+# Seleccionar archivos con Space
+# Ejecutar:
+:bulkrename
+
+# Se abre tu editor con lista de archivos
+# Edita los nombres
+# Guarda y cierra
+# Ranger renombra los archivos automáticamente
+```
+
+
+# Búsqueda y Filtrado
+
+## Búsqueda
+
+| Tecla | Acción |
+|-------|--------|
+| `/` | Buscar hacia adelante |
+| `?` | Buscar hacia atrás |
+| `n` | Ir a siguiente resultado |
+| `N` | Ir a resultado anterior |
+| `ct` | Buscar en subdirectorios (content search) |
+| `cs` | Cancelar búsqueda |
+
+## Filtrado
+
+| Tecla | Acción |
+|-------|--------|
+| `zf` | Filtrar archivos (solo mostrar coincidencias) |
+| `zz` | Cambiar configuración de filtro |
+| `zh` | Mostrar/ocultar archivos ocultos |
+
+## Ordenamiento
+
+| Tecla | Acción |
+|-------|--------|
+| `on` | Ordenar por nombre |
+| `os` | Ordenar por tamaño |
+| `ot` | Ordenar por fecha de modificación |
+| `oa` | Ordenar por fecha de acceso |
+| `oc` | Ordenar por fecha de creación |
+| `oe` | Ordenar por extensión |
+| `ob` | Ordenar por nombre base (sin extensión) |
+| `or` | Invertir orden |
+| `oz` | Aleatorio |
+| `oS` | Ordenar naturalmente (números: 1, 2, 10 no 1, 10, 2) |
+
+
+# Pestañas (Tabs)
+
+## Gestión de Pestañas
+
+| Tecla | Acción |
+|-------|--------|
+| `gn` | Crear pestaña nueva (tab new) |
+| `gt` | Ir a siguiente pestaña (tab next) |
+| `gT` | Ir a pestaña anterior (tab previous) |
+| `gc` | Cerrar pestaña actual (tab close) |
+| `Alt+1` | Ir a pestaña 1 |
+| `Alt+2` | Ir a pestaña 2 |
+| ... | ... |
+| `Alt+9` | Ir a pestaña 9 |
+| `uq` | Restaurar pestaña cerrada |
+
+## Movimiento Entre Pestañas
+
+```bash
+# Con números
+1gt   # Ir a pestaña 1
+3gt   # Ir a pestaña 3
+
+# Navegación relativa
+gt    # Siguiente
+gT    # Anterior
+```
+
+
+# Marcadores (Bookmarks)
+
+## Crear y Usar Marcadores
+
+| Tecla | Acción |
+|-------|--------|
+| `m<letra>` | Crear marcador (ej: `ma`) |
+| `'<letra>` | Ir a marcador (ej: `'a`) |
+| `` `<letra> `` | Ir a marcador (igual que ') |
+| `um<letra>` | Eliminar marcador |
+
+## Marcadores Especiales
+
+| Marcador | Ubicación |
+|----------|-----------|
+| `''` | Posición anterior |
+| `` `` `` | Posición anterior (backtick) |
+
+**Ejemplo de uso:**
+```bash
+# Estás en /home/usuario/documentos
+ma        # Crear marcador 'a'
+# Navega a otro lugar
+cd /etc
+# Volver rápido
+'a        # Regresa a /home/usuario/documentos
+```
+
+## Ver Marcadores
+
+```bash
+:marks    # Ver todos los marcadores
+```
+
+
+# Previsualización de Archivos
+
+## Configurar Previsualización
+
+| Tecla | Acción |
+|-------|--------|
+| `zp` | Activar/desactivar previsualización |
+| `zP` | Activar/desactivar previsualización de directorios |
+| `zi` | Activar/desactivar previsualización de imágenes |
+| `zv` | Cambiar modo de vista (Miller, Multipane) |
+
+## Tipos de Previsualización
+
+**Texto:**
+
+- Archivos de texto plano
+- Código fuente con resaltado de sintaxis
+- Archivos de configuración
+
+**Imágenes:**
+
+- Previsualización ASCII (con caca-utils)
+- Previsualización real (con w3m-img, ueberzug, kitty, etc.)
+
+**Archivos Comprimidos:**
+
+- Listado de contenido (.zip, .tar.gz, .rar, etc.)
+
+**Documentos:**
+
+- PDFs (convertidos a texto con pdftotext)
+- Office documents (convertidos con herramientas apropiadas)
+
+**Media:**
+
+- Videos (miniaturas con ffmpegthumbnailer)
+- Audio (metadatos con mediainfo)
+
+## Configurar scope.sh
+
+El archivo `~/.config/ranger/scope.sh` controla qué se previsualiza y cómo.
+
+**Ejemplo - Añadir tipo de archivo:**
+
+```bash
+# En scope.sh, añadir nuevo caso
+case "$mimetype" in
+    application/json)
+        jq . "$path" && exit 5
+        cat "$path" && exit 5
+        exit 1;;
+esac
+```
+
+
+# Comandos de Consola
+
+## Acceder a la Consola
+
+| Tecla | Acción |
+|-------|--------|
+| `:` | Abrir consola de comandos |
+| `!` | Ejecutar comando shell |
+| `s` | Abrir shell en directorio actual |
+| `S` | Abrir shell con escalada de privilegios |
+
+## Comandos Principales
+
+## Navegación
+
+```bash
+:cd <directorio>           # Cambiar directorio
+:cd -                      # Directorio anterior
+:cd ~                      # Ir a HOME
+```
+
+## Operaciones de Archivos
+
+```bash
+:touch <nombre>            # Crear archivo
+:mkdir <nombre>            # Crear directorio
+:rename <nuevo_nombre>     # Renombrar
+:delete                    # Eliminar con confirmación
+:chmod <permisos>          # Cambiar permisos
+```
+
+## Búsqueda
+
+```bash
+:search <patrón>           # Buscar archivos
+:search_inc <patrón>       # Búsqueda incremental
+:filter <patrón>           # Filtrar archivos mostrados
+```
+
+## Pestañas y Marcadores
+
+```bash
+:tab_new                   # Nueva pestaña
+:tab_close                 # Cerrar pestaña
+:tab_move <n>              # Mover a pestaña n
+:mark <letra>              # Crear marcador
+```
+
+## Configuración
+
+```bash
+:set <opción> <valor>      # Establecer opción
+:set show_hidden true      # Mostrar archivos ocultos
+:set column_ratios 1,3,4   # Cambiar proporciones de columnas
+:set colorscheme <nombre>  # Cambiar tema de colores
+```
+
+## Ayuda y Sistema
+
+```bash
+:help                      # Abrir ayuda
+:source <archivo>          # Cargar configuración
+:shell <comando>           # Ejecutar comando shell
+:quit                      # Salir
+```
+
+## Comandos de Shell
+
+```bash
+# Ejecutar comando y ver output
+!ls -la
+
+# Ejecutar en segundo plano
+!make &
+
+# Ejecutar con privilegios
+S
+# O
+!sudo <comando>
+```
+
+## Autocompletado
+
+- `Tab` - Autocompletar comando/ruta
+- `Shift+Tab` - Autocompletar hacia atrás
+
+
+# Configuración Avanzada
+
+## rc.conf - Configuración Principal
+
+Ubicación: `~/.config/ranger/rc.conf`
+
+## Opciones Comunes
+
+```bash
+# Mostrar archivos ocultos
+set show_hidden true
+
+# Cambiar editor por defecto
+set editor vim
+# set editor nano
+# set editor code
+
+# Proporciones de columnas (padre:actual:previsualización)
+set column_ratios 1,3,4
+
+# Confirmación antes de eliminar
+set confirm_on_delete multiple
+
+# Mostrar números de línea
+set line_numbers relative
+# Opciones: false, absolute, relative
+
+# Tema de colores
+set colorscheme default
+# Otros: jungle, snow, solarized
+
+# Previsualización automática
+set preview_files true
+set preview_directories true
+set preview_images true
+
+# Método de previsualización de imágenes
+set preview_images_method w3m
+# Opciones: w3m, ueberzug, kitty, iterm2
+
+# Guardar historial
+set save_console_history true
+
+# Tamaño máximo de previsualización
+set preview_max_size 0  # 0 = sin límite
+
+# Mostrar información VCS (git)
+set vcs_aware true
+
+# Comportamiento del mouse
+set mouse_enabled true
+
+# Scroll automático
+set autosave_bookmarks true
+set autoupdate_cumulative_size false
+
+# Padding alrededor de la selección
+set padding_right true
+```
+
+## Mapeos de Teclado Personalizados
+
+```bash
+# Mapear tecla a comando
+map <tecla> <comando>
+
+# Ejemplos:
+map DD shell trash-put %s          # Mover a papelera
+map x shell chmod +x %s            # Hacer ejecutable
+map bg shell feh --bg-scale %s     # Establecer fondo de pantalla
+map <C-t> shell alacritty &        # Abrir terminal
+map <A-1> tab_move 1               # Ir a pestaña 1
+map ee edit_file                   # Editar archivo
+map et shell alacritty -e vim %s & # Editar en terminal nueva
+
+# Desmap tecla
+unmap dd  # Quitar mapeo de dd
+```
+
+## Comandos de Shell
+
+```bash
+# Ejecutar comando con archivo actual
+map X shell -f <comando> %f
+
+# Variables disponibles:
+# %f - archivo actual
+# %d - directorio actual
+# %s - archivos seleccionados
+# %t - archivos etiquetados (tagged)
+# %c - ruta completa del archivo actual
+```
+
+## rifle.conf - Lanzador de Archivos
+
+Ubicación: `~/.config/ranger/rifle.conf`
+
+Determina qué programa abre cada tipo de archivo.
+
+**Sintaxis:**
+
+```bash
+<condición> = <comando>
+```
+
+**Ejemplos:**
+```bash
+# Texto plano
+mime ^text, label editor = ${VISUAL:-$EDITOR} -- "$@"
+mime ^text, label pager  = "$PAGER" -- "$@"
+
+# PDFs
+ext pdf, has evince,  X, flag f = evince -- "$@"
+ext pdf, has zathura, X, flag f = zathura -- "$@"
+ext pdf, has okular,  X, flag f = okular -- "$@"
+
+# Imágenes
+mime ^image, has feh,       X, flag f = feh -- "$@"
+mime ^image, has gimp,      X, flag f = gimp -- "$@"
+mime ^image, has sxiv,      X, flag f = sxiv -- "$@"
+
+# Videos
+mime ^video, has mpv,       X, flag f = mpv -- "$@"
+mime ^video, has vlc,       X, flag f = vlc -- "$@"
+
+# Audio
+mime ^audio, has mpv,       X, flag f = mpv --no-video -- "$@"
+
+# Archivos comprimidos
+ext 7z|ace|ar|arc|bz2?|cab|cpio|cpt|deb|dgc|dmg|gz,  has atool = atool --list --each -- "$@" | "$PAGER"
+ext iso|jar|msi|pkg|rar|shar|tar|tgz|xar|xpi|xz|zip, has atool = atool --list --each -- "$@" | "$PAGER"
+
+# Documentos Office
+ext docx?|xlsx?|pptx?|odt|ods|odp, has libreoffice, X, flag f = libreoffice "$@"
+
+# HTML
+ext html?, has firefox,  X, flag f = firefox -- "$@"
+ext html?, has chromium, X, flag f = chromium -- "$@"
+
+# Código fuente
+ext py,  has python  = python -- "$1"
+ext pl,  has perl    = perl -- "$1"
+ext rb,  has ruby    = ruby -- "$1"
+ext js,  has node    = node -- "$1"
+ext sh,  has sh      = sh -- "$1"
+```
+
+**Condiciones disponibles:**
+
+- `ext <extensión>` - Extensión de archivo
+- `mime <tipo>` - Tipo MIME
+- `name <patrón>` - Nombre de archivo (regex)
+- `has <programa>` - Programa disponible
+- `X` - Requiere X11
+- `flag f` - Fork (ejecutar en segundo plano)
+- `flag t` - Terminal (ejecutar en terminal)
+
+## commands.py - Comandos Personalizados
+
+Ubicación: `~/.config/ranger/commands.py`
+
+Crear comandos Python personalizados.
+
+**Ejemplo - Comando para comprimir:**
+```python
+from ranger.api.commands import Command
+
+class compress(Command):
+    def execute(self):
+        """Comprimir archivos seleccionados"""
+        import os
+        
+        # Obtener archivos seleccionados
+        if self.fm.thisdir.marked_items:
+            files = [f.basename for f in self.fm.thisdir.marked_items]
+        else:
+            files = [self.fm.thisfile.basename]
+        
+        # Nombre del archivo comprimido
+        archive_name = self.rest(1) if self.rest(1) else "archive.tar.gz"
+        
+        # Comprimir
+        self.fm.execute_command(f"tar czf {archive_name} {' '.join(files)}")
+        self.fm.notify(f"Comprimido como {archive_name}")
+
+class extract(Command):
+    def execute(self):
+        """Extraer archivo comprimido"""
+        if self.fm.thisfile.extension in ['zip', 'tar', 'gz', 'bz2', 'xz']:
+            self.fm.execute_command(f"atool -x {self.fm.thisfile.basename}")
+            self.fm.notify("Archivo extraído")
+
+class mkcd(Command):
+    """Crear directorio y entrar en él"""
+    def execute(self):
+        from os.path import join, expanduser, lexists
+        dirname = join(self.fm.thisdir.path, expanduser(self.rest(1)))
+        if not lexists(dirname):
+            os.makedirs(dirname)
+            self.fm.cd(dirname)
+        else:
+            self.fm.notify("Directorio ya existe", bad=True)
+```
+
+**Usar comandos personalizados:**
+
+```bash
+:compress archivo.tar.gz    # Comprimir selección
+:extract                    # Extraer archivo
+:mkcd nueva-carpeta        # Crear y entrar
+```
+
+# Rifle - El Lanzador de Archivos
+
+## ¿Qué es Rifle?
+
+Rifle es el programa que ranger usa para determinar con qué abrir archivos. Es inteligente y tiene fallbacks.
+
+## Uso Básico
+
+```bash
+# Abrir archivo con rifle
+rifle archivo.pdf
+
+# Listar programas disponibles
+rifle -l archivo.pdf
+
+# Abrir con programa específico
+rifle -p 2 archivo.pdf  # Usar opción 2 de la lista
+```
+
+## Dentro de Ranger
+
+| Tecla | Acción |
+|-------|--------|
+| `r` | Abrir con programa (muestra opciones) |
+| `Enter` o `l` | Abrir con programa por defecto |
+
+## Configurar Rifle
+
+Editar `~/.config/ranger/rifle.conf`
+
+**Prioridad:** Primera coincidencia gana
+
+```bash
+# Ejemplo: Abrir PDFs con zathura si está disponible
+ext pdf, has zathura, X, flag f = zathura -- "$@"
+
+# Si no, con evince
+ext pdf, has evince, X, flag f = evince -- "$@"
+
+# Si no, convertir a texto
+ext pdf, has pdftotext = pdftotext -l 10 -nopgbrk -q -- "$@" -
+```
+
+## Flags de Rifle
+
+- `f` - Fork (ejecutar en segundo plano)
+- `t` - Terminal (ejecutar en terminal y esperar)
+- `w` - Wait (esperar que termine)
+- `c` - Close stdout/stderr
+- `r` - Requiere terminal, pero usa rifle.conf del sistema
+
+
+# Plugins y Extensiones
+
+## Ubicación de Plugins
+
+```bash
+~/.config/ranger/plugins/
+```
+
+## Plugins Populares
+
+## 1. ranger_devicons
+
+Añade iconos a tipos de archivo.
+
+```bash
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+```
+
+**Activar en rc.conf:**
+```bash
+default_linemode devicons
+```
+
+## 2. ranger-archives
+
+Mejorar manejo de archivos comprimidos.
+
+```bash
+git clone https://github.com/maximtrp/ranger-archives.git ~/.config/ranger/plugins/ranger-archives
+```
+
+## 3. fasd Integration
+
+Integración con fasd (autojump rápido).
+
+**En rc.conf:**
+```bash
+map f shell fasd -d | fzf --no-sort | xargs -I{} ranger --selectfile "{}"
+```
+
+## 4. fzf Integration
+
+Búsqueda fuzzy con fzf.
+
+**En commands.py:**
+```python
+class fzf_select(Command):
+    def execute(self):
+        import subprocess
+        command = "find -L . -path '*/\.*' -prune -o -print 2> /dev/null | fzf +m"
+        fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
+        stdout, stderr = fzf.communicate()
+        if fzf.returncode == 0:
+            fzf_file = os.path.abspath(stdout.decode('utf-8').rstrip('\n'))
+            if os.path.isdir(fzf_file):
+                self.fm.cd(fzf_file)
+            else:
+                self.fm.select_file(fzf_file)
+```
+
+**Mapear en rc.conf:**
+```bash
+map <C-f> fzf_select
+```
+
+## Crear Plugin Propio
+
+**Estructura básica:**
+```python
+# ~/.config/ranger/plugins/mi_plugin.py
+import ranger.api
+
+class CustomCommand(ranger.api.commands.Command):
+    def execute(self):
+        # Tu código aquí
+        self.fm.notify("Hola desde mi plugin!")
+
+# Hook para inicialización
+old_hook_init = ranger.api.hook_init
+
+def hook_init(fm):
+    # Inicialización personalizada
+    fm.notify("Plugin cargado")
+    return old_hook_init(fm)
+
+ranger.api.hook_init = hook_init
+```
+
+
+# Integración con Shell
+
+## Cambiar Directorio al Salir
+
+Ranger puede cambiar el directorio de tu shell al salir.
+
+## Bash
+
+Añadir a `~/.bashrc`:
+```bash
+function ranger-cd {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi  
+    rm -f -- "$tempfile"
+}
+
+# Alias para usar
+alias rr='ranger-cd'
+```
+
+## Zsh
+
+Añadir a `~/.zshrc`:
+
+```bash
+function ranger-cd {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi  
+    rm -f -- "$tempfile"
+}
+
+alias rr='ranger-cd'
+```
+
+## Fish
+
+Añadir a `~/.config/fish/config.fish`:
+
+```fish
+function ranger-cd
+    set tempfile (mktemp -t tmp.XXXXXX)
+    ranger --choosedir=$tempfile $argv
+    if test -f $tempfile
+        if test (cat $tempfile) != (pwd)
+            cd (cat $tempfile)
+        end
+    end
+    rm -f $tempfile
+end
+
+alias rr='ranger-cd'
+```
+
+## File Picker
+
+Usar ranger como selector de archivos.
+
+**Script:**
+
+```bash
+#!/bin/bash
+# ranger-picker.sh
+tempfile="$(mktemp -t tmp.XXXXXX)"
+ranger --choosefile="$tempfile"
+if [ -f "$tempfile" ]; then
+    cat "$tempfile"
+    rm -f "$tempfile"
+fi
+```
+
+**Usar:**
+
+```bash
+selected_file=$(ranger-picker.sh)
+echo "Archivo seleccionado: $selected_file"
+```
+
+
+# Trucos y Tips Avanzados
+
+## 1. Preview de Archivos con Sintaxis
+
+Instalar `highlight` o `bat`:
+
+```bash
+sudo apt-get install highlight
+# O
+cargo install bat
+```
+
+Editar `scope.sh` para usar `bat`:
+
+```bash
+case "$mimetype" in
+    text/* | */xml)
+        bat --style=numbers --color=always "$path" && exit 5
+        exit 2;;
+esac
+```
+
+## 2. Thumbnails de Videos
+
+Instalar `ffmpegthumbnailer`:
+
+```bash
+sudo apt-get install ffmpegthumbnailer
+```
+
+Ya debería funcionar con `scope.sh` por defecto.
+
+## 3. Preview de Imágenes (Terminal Compatible)
+
+**Con w3m:**
+
+```bash
+sudo apt-get install w3m w3m-img
+```
+
+**En rc.conf:**
+
+```bash
+set preview_images true
+set preview_images_method w3m
+```
+
+**Con kitty (mejor calidad):**
+
+```bash
+set preview_images_method kitty
+```
+
+**Con ueberzug (mejor compatibilidad):**
+
+```bash
+pip install ueberzug
+set preview_images_method ueberzug
+```
+
+## 4. Búsqueda con FZF
+
+Integrar búsqueda fuzzy:
+
+**En commands.py:**
+
+```python
+import subprocess
+
+class fzf(Command):
+    def execute(self):
+        command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune -o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+        fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
+        stdout, _ = fzf.communicate()
+        if fzf.returncode == 0:
+            fzf_file = os.path.abspath(stdout.decode('utf-8').rstrip('\n'))
+            if os.path.isdir(fzf_file):
+                self.fm.cd(fzf_file)
+            else:
+                self.fm.select_file(fzf_file)
+```
+
+**Mapear:**
+
+```bash
+map <C-f> fzf
+```
+
+## 5. Integración con Git
+
+Ver estado de Git:
+
+**En rc.conf:**
+
+```bash
+set vcs_aware true
+set vcs_backend_git enabled
+```
+
+Ranger mostrará información de Git en archivos/directorios.
+
+## 6. Archivos Grandes
+
+Evitar lag con archivos grandes:
+
+**En rc.conf:**
+
+```bash
+set preview_max_size 10485760  # 10MB
+set max_history_size 20
+set max_console_history_size 50
+```
+
+## 7. Abrir en Programa Externo
+
+Crear atajos para programas específicos:
+
+**En rc.conf:**
+
+```bash
+# Abrir en VS Code
+map code shell code "$PWD"
+
+# Abrir terminal aquí
+map tt shell alacritty &
+
+# Abrir file manager GUI
+map fm shell nautilus "$PWD" &
+
+# Ejecutar script
+map ex shell chmod +x %s && ./%s
+```
+
+## 8. Sincronizar con Dropbox/Drive
+
+```bash
+# Crear marcador para cloud storage
+map gdb cd ~/Dropbox
+map gdv cd ~/Google\ Drive
+```
+
+## 9. Operaciones Bulk
+
+Renombrar múltiples archivos:
+
+```bash
+# Seleccionar archivos con Space
+# Ejecutar:
+:bulkrename
+
+# Se abre editor con lista
+# Modificar nombres
+# Guardar y cerrar
+```
+
+## 10. Preview de Archivos JSON/YAML
+
+**En scope.sh:**
+
+```bash
+# JSON
+json)
+    jq --color-output . "${FILE_PATH}" && exit 5
+    python -m json.tool -- "${FILE_PATH}" && exit 5
+    ;;
+
+# YAML
+yaml)
+    yq eval --colors -- "${FILE_PATH}" && exit 5
+    ;;
+```
+
+
+# Solución de Problemas
+
+## Problema: Imágenes no se previsualizan
+
+**Solución:**
+
+```bash
+# Verificar método configurado
+:set preview_images_method
+
+# Cambiar método
+:set preview_images_method w3m
+# O kitty, ueberzug, iterm2
+
+# Verificar instalación
+which w3mimgdisplay
+```
+
+## Problema: Colores incorrectos
+
+**Solución:**
+
+```bash
+# Verificar TERM
+echo $TERM
+
+# Debería ser xterm-256color o similar
+export TERM=xterm-256color
+
+# En rc.conf cambiar colorscheme
+set colorscheme default
+```
+
+## Problema: Resaltado de sintaxis no funciona
+
+**Solución:**
+
+```bash
+# Instalar highlight o pygments
+sudo apt-get install highlight
+
+# O
+pip install pygments
+
+# Verificar scope.sh está configurado correctamente
+```
+
+## Problema: Ranger lento
+
+**Soluciones:**
+1. Limitar tamaño de preview
+2. Desactivar preview de imágenes en directorios grandes
+3. Reducir historial
+
+```bash
+# En rc.conf
+set preview_max_size 1048576  # 1MB
+set preview_images false
+set max_history_size 10
+```
+
+## Problema: No cambia directorio del shell
+
+Verificar que usas la función wrapper:
+
+```bash
+# Debe estar en ~/.bashrc o ~/.zshrc
+function ranger-cd { ... }
+alias rr='ranger-cd'
+```
+
+## Problema: Archivos ocultos no se muestran
+
+```bash
+# Presionar
+zh
+
+# O en rc.conf
+set show_hidden true
+```
+
+## Problema: Rifle no encuentra programas
+
+```bash
+# Verificar PATH
+echo $PATH
+
+# Editar rifle.conf para usar rutas absolutas
+ext pdf = /usr/bin/zathura -- "$@"
+```
+
+
+# Referencia Completa de Atajos
+
+## Navegación
+
+| Tecla | Acción |
+|-------|--------|
+| `h` / `←` | Directorio padre |
+| `j` / `↓` | Cursor abajo |
+| `k` / `↑` | Cursor arriba |
+| `l` / `→` / `Enter` | Entrar/Abrir |
+| `H` | Historial atrás |
+| `L` | Historial adelante |
+| `gg` | Inicio de lista |
+| `G` | Final de lista |
+| `{` | Página arriba |
+| `}` | Página abajo |
+| `Ctrl+u` | Media página arriba |
+| `Ctrl+d` | Media página abajo |
+| `Ctrl+b` | Página completa arriba |
+| `Ctrl+f` | Página completa abajo |
+
+## Archivos
+
+| Tecla | Acción |
+|-------|--------|
+| `yy` | Copiar |
+| `dd` | Cortar |
+| `pp` | Pegar |
+| `po` | Pegar sobrescribiendo |
+| `dD` | Eliminar |
+| `cw` | Renombrar |
+| `a` | Renombrar (cursor al final) |
+| `A` | Renombrar (después de extensión) |
+| `I` | Renombrar (cursor al inicio) |
+| `E` | Editar con editor |
+| `i` | Inspeccionar archivo |
+
+## Selección
+
+| Tecla | Acción |
+|-------|--------|
+| `Space` | Marcar/desmarcar |
+| `v` | Invertir selección |
+| `V` | Modo visual |
+| `uv` | Desmarcar todos |
+
+## Búsqueda
+
+| Tecla | Acción |
+|-------|--------|
+| `/` | Buscar adelante |
+| `?` | Buscar atrás |
+| `n` | Siguiente resultado |
+| `N` | Resultado anterior |
+| `f<letra>` | Buscar por primera letra |
+
+## Pestañas
+
+| Tecla | Acción |
+|-------|--------|
+| `gn` / `Ctrl+n` | Nueva pestaña |
+| `gt` / `Tab` | Siguiente pestaña |
+| `gT` / `Shift+Tab` | Pestaña anterior |
+| `gc` / `Ctrl+w` | Cerrar pestaña |
+| `Alt+1...9` | Ir a pestaña N |
+
+## Marcadores
+
+| Tecla | Acción |
+|-------|--------|
+| `m<letra>` | Crear marcador |
+| `'<letra>` | Ir a marcador |
+| `um<letra>` | Eliminar marcador |
+
+## Ordenamiento
+
+| Tecla | Acción |
+|-------|--------|
+| `on` | Por nombre |
+| `os` | Por tamaño |
+| `ot` | Por fecha modificación |
+| `oe` | Por extensión |
+| `or` | Invertir orden |
+
+## Vista
+
+| Tecla | Acción |
+|-------|--------|
+| `zp` | Toggle preview |
+| `zP` | Toggle preview directorios |
+| `zi` | Toggle preview imágenes |
+| `zv` | Cambiar modo vista |
+| `zh` | Toggle archivos ocultos |
+| `zf` | Filtrar |
+
+## Sistema
+
+| Tecla | Acción |
+|-------|--------|
+| `q` | Salir |
+| `Q` | Salir sin cd |
+| `R` | Recargar |
+| `?` | Ayuda |
+| `:` | Consola |
+| `!` | Shell command |
+| `s` | Shell |
+| `S` | Shell como root |
+
+## Ir a (g)
+
+| Tecla | Acción |
+|-------|--------|
+| `gh` | Home |
+| `ge` | /etc |
+| `gu` | /usr |
+| `gd` | /dev |
+| `go` | /opt |
+| `gv` | /var |
+| `gm` | /media |
+| `gM` | /mnt |
+| `gr` | / |
+| `gR` | / |
+
+
+# Recursos y Enlaces
+
+## Documentación Oficial
+
+- **Sitio web**: https://ranger.fm/
+- **GitHub**: https://github.com/ranger/ranger
+- **Manual**: `man ranger` o https://ranger.fm/man.html
+- **Wiki**: https://github.com/ranger/ranger/wiki
+
+## Tutoriales
+
+- **Official User Guide**: En el repositorio de GitHub
+- **Arch Wiki**: https://wiki.archlinux.org/title/Ranger
+
+## Comunidad
+
+- **IRC**: #ranger en Libera.Chat
+- **Reddit**: r/ranger
+- **Issues**: https://github.com/ranger/ranger/issues
+
+## Configuraciones de Ejemplo
+
+- **Dotfiles repos**: Buscar en GitHub "ranger config"
+- **r/unixporn**: Muchas configuraciones compartidas
+
+
+# Conclusión
+
+Ranger es una herramienta poderosa que combina la eficiencia de los atajos de teclado estilo Vim con las capacidades modernas de previsualización y gestión de archivos.
+
+**Consejos finales:**
+
+1. **Aprende gradualmente**: Comienza con los atajos básicos (hjkl, yy, dd, pp)
+2. **Personaliza**: Ajusta rc.conf a tu flujo de trabajo
+3. **Practica**: La memoria muscular viene con el uso
+4. **Explora plugins**: Hay muchas extensiones útiles
+5. **Lee el código**: Ranger es Python, fácil de extender
+
+**Atajos esenciales para memorizar:**
+
+- `hjkl` - Navegación
+- `yy/dd/pp` - Copiar/cortar/pegar
+- `Space` - Seleccionar
+- `gg/G` - Inicio/fin
+- `/` - Buscar
+- `zh` - Mostrar ocultos
+- `q` - Salir
+
+
+# Publicaciones Similares
+
+Si te interesó este artículo, te recomendamos que explores otros blogs y recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo algunas sugerencias:
+
+
+1. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows/index.pdf) [Comandos De Informacion Windows](https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows)
+2. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2019-06-19-adb/index.pdf) [Adb](https://chaska-x.netlify.app/operating-system/2019-06-19-adb)
+3. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.pdf) [Limpieza Y Optimizacion De Pc](https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc)
+4. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf) [Usando Apk En Windown 11](https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11)
+5. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf) [Gestionar Versiones De Jdk En Kubuntu](https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu)
+6. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser/index.pdf) [Instalar Tor Browser](https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser)
+7. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.pdf) [Crear Enlaces Duros O Hard Link En Linux](https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux)
+8. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2022-09-27-comandos-vim/index.pdf) [Comandos Vim](https://chaska-x.netlify.app/operating-system/2022-09-27-comandos-vim)
+9. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github/index.pdf) [Guia De Git Y Github](https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github)
+10. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2023-05-02-00-primeros-pasos-en-linux/index.pdf) [00 Primeros Pasos En Linux](https://chaska-x.netlify.app/operating-system/2023-05-02-00-primeros-pasos-en-linux)
+11. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2023-06-17-01-introduccion-linux/index.pdf) [01 Introduccion Linux](https://chaska-x.netlify.app/operating-system/2023-06-17-01-introduccion-linux)
+12. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2023-06-18-02-distribuciones-linux/index.pdf) [02 Distribuciones Linux](https://chaska-x.netlify.app/operating-system/2023-06-18-02-distribuciones-linux)
+13. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2023-06-19-03-instalacion-linux/index.pdf) [03 Instalacion Linux](https://chaska-x.netlify.app/operating-system/2023-06-19-03-instalacion-linux)
+14. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2023-06-20-04-administracion-particiones-volumenes/index.pdf) [04 Administracion Particiones Volumenes](https://chaska-x.netlify.app/operating-system/2023-06-20-04-administracion-particiones-volumenes)
+15. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.pdf) [Atajos De Teclado Y Comandos Para Usar Vim](https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim)
+16. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify/index.pdf) [Instalando Specitify](https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify)
+17. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.pdf) [Gestiona Tus Dotfiles Con Gnu Stow](https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow)
+
+
+Esperamos que encuentres estas publicaciones igualmente interesantes y útiles. ¡Disfruta de la lectura!
+

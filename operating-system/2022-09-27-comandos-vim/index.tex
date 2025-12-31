@@ -1,5 +1,5 @@
 \documentclass[
-  jou,
+  doc,
   floatsintext,
   longtable,
   a4paper,
@@ -12,6 +12,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 
+\geometry{inner=1in, outer=1in}
+\fancyhfoffset[LE,RO]{0cm}
 
 
 \usepackage[bidi=default]{babel}
@@ -78,6 +80,46 @@
 
 
 
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -123,10 +165,10 @@
 
 
 
-\title{Comandos esenciales de Vim para productividad}
+\title{Guía Completa de Vim y Neovim}
 
 
-\shorttitle{Comandos esenciales de Vim para productividad}
+\shorttitle{Guía Completa de Vim y Neovim}
 
 
 \usepackage{etoolbox}
@@ -153,10 +195,27 @@ de Huamanga}}
 \date{2022-09-27}
 
 
-\abstract{Este abstract será actualizado una vez que se complete el
-contenido final del artículo. }
+\abstract{Esta guía exhaustiva presenta una introducción progresiva y
+práctica al editor de texto Vim y su evolución moderna, Neovim. Se
+abordan desde los fundamentos filosóficos y modales del editor hasta
+técnicas avanzadas de edición, navegación eficiente, composición de
+comandos, uso de registros, macros, múltiples ventanas y buffers,
+búsqueda/reemplazo con expresiones regulares, plegado, marcas y
+configuración personalizada tanto en Vimscript como en Lua. Se detallan
+las diferencias clave entre ambas versiones, con énfasis en las ventajas
+contemporáneas de Neovim; soporte nativo para LSP, Tree-sitter,
+arquitectura asíncrona y configuración en Lua. La obra incluye
+instrucciones detalladas de instalación en múltiples sistemas
+operativos, una selección comentada de plugins esenciales, mapeos
+prácticos, trucos avanzados y una hoja de ruta de aprendizaje por
+niveles. Dirigida tanto a principiantes que buscan superar la curva
+inicial de aprendizaje como a usuarios intermedios-avanzados que desean
+optimizar su flujo de trabajo en entornos Linux/Unix, esta guía busca
+servir como referencia completa y actualizada para dominar uno de los
+editores de texto más potentes y ubicuos del ecosistema del software
+libre. }
 
-\keywords{keyword1, keyword2}
+\keywords{Vim, Neovim, Comandos Vim}
 
 \authornote{\par{\addORCIDlink{Edison Achalma}{0000-0001-6996-3364}} 
 \par{ }
@@ -168,46 +227,13 @@ manera:  Edison Achalma:   conceptualización, redacción}
 Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@unsch.edu.pe}}
 }
 
-\usepackage{pbalance}
-% \usepackage{float}
 \makeatletter
-\let\oldtpt\ThreePartTable
-\let\endoldtpt\endThreePartTable
-\def\ThreePartTable{\@ifnextchar[\ThreePartTable@i \ThreePartTable@ii}
-\def\ThreePartTable@i[#1]{\begin{figure}[!htbp]
-\onecolumn
-\begin{minipage}{0.485\textwidth}
-\oldtpt[#1]
-}
-\def\ThreePartTable@ii{\begin{figure}[!htbp]
-\onecolumn
-\begin{minipage}{0.48\textwidth}
-\oldtpt
-}
-\def\endThreePartTable{
-\endoldtpt
-\end{minipage}
-\twocolumn
-\end{figure}}
-\makeatother
-
-
-\makeatletter
-\let\endoldlt\endlongtable		
+\let\endoldlt\endlongtable
 \def\endlongtable{
 \hline
-\endoldlt}
+\endoldlt
+}
 \makeatother
-
-\newenvironment{twocolumntable}% environment name
-{% begin code
-\begin{table*}[!htbp]%
-\onecolumn%
-}%
-{%
-\twocolumn%
-\end{table*}%
-}% end code
 
 \urlstyle{same}
 
@@ -296,7 +322,7 @@ Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@uns
 \hypertarget{toc}{}
 \tableofcontents
 \newpage
-\section[Introduction]{Comandos esenciales de Vim para productividad}
+\section[Introduction]{Guía Completa de Vim y Neovim}
 
 \setcounter{secnumdepth}{3}
 
@@ -305,165 +331,2753 @@ Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@uns
 
 
 
-Vim es un editor de texto muy poderoso utilizado en sistemas Linux y
-Unix. A continuación, se presentan algunos de los comandos y
-combinaciones de teclas más utilizados en Vim:
+\textbf{¿Qué es Vim?}
+
+Vim (Vi IMproved) es un editor de texto modal altamente configurable,
+creado por Bram Moolenaar como una versión mejorada del editor Unix
+\texttt{vi}. Es conocido por:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Eficiencia}: Una vez dominado, permite editar texto
+  extremadamente rápido
+\item
+  \textbf{Ubicuidad}: Disponible en prácticamente todos los sistemas
+  Unix/Linux
+\item
+  \textbf{Potencia}: Capacidades avanzadas de edición y automatización
+\item
+  \textbf{Extensibilidad}: Sistema robusto de plugins y configuración
+\end{itemize}
+
+\textbf{¿Qué es Neovim?}
+
+Neovim es una refactorización moderna de Vim que mantiene compatibilidad
+mientras añade:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Arquitectura moderna}: Cliente-servidor, API asíncrona
+\item
+  \textbf{LSP integrado}: Language Server Protocol nativo
+\item
+  \textbf{Lua}: Lenguaje de configuración más rápido que Vimscript
+\item
+  \textbf{UI remota}: Soporte para interfaces gráficas externas
+\item
+  \textbf{Rendimiento}: Más rápido y eficiente
+\item
+  \textbf{Desarrollo activo}: Comunidad muy activa
+\end{itemize}
+
+\textbf{Diferencias Principales}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Característica & Vim & Neovim \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Lenguaje config & Vimscript & Vimscript + Lua \\
+LSP & Plugin & Integrado \\
+Async & Plugin & Nativo \\
+Tree-sitter & No & Sí \\
+UI externa & Limitada & Completa \\
+Desarrollo & Conservador & Agresivo \\
+\end{longtable}
+
+\section{Instalación}\label{instalaciuxf3n}
+
+\subsection{Instalar Vim}\label{instalar-vim}
+
+\textbf{Ubuntu/Debian:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ apt update}
+\FunctionTok{sudo}\NormalTok{ apt install vim}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Fedora:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ dnf install vim{-}enhanced}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{macOS:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{brew}\NormalTok{ install vim}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Windows:} Descargar desde: https://www.vim.org/download.php
+
+\subsection{Instalar Neovim}\label{instalar-neovim}
+
+\textbf{Ubuntu/Debian (PPA):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ add{-}apt{-}repository ppa:neovim{-}ppa/stable}
+\FunctionTok{sudo}\NormalTok{ apt update}
+\FunctionTok{sudo}\NormalTok{ apt install neovim}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Fedora:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ dnf install neovim}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{macOS:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{brew}\NormalTok{ install neovim}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Arch Linux:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ neovim}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Desde AppImage (cualquier Linux):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{curl} \AttributeTok{{-}LO}\NormalTok{ https://github.com/neovim/neovim/releases/latest/download/nvim.appimage}
+\FunctionTok{chmod}\NormalTok{ u+x nvim.appimage}
+\ExtensionTok{./nvim.appimage}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Windows:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{choco}\NormalTok{ install neovim}
+\CommentTok{\# O}
+\ExtensionTok{scoop}\NormalTok{ install neovim}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Verificar Instalación}\label{verificar-instalaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Vim}
+\ExtensionTok{vim} \AttributeTok{{-}{-}version}
+
+\CommentTok{\# Neovim}
+\ExtensionTok{nvim} \AttributeTok{{-}{-}version}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Configurar Alias}\label{configurar-alias}
+
+Para usar \texttt{vim} para lanzar Neovim:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# En \textasciitilde{}/.bashrc o \textasciitilde{}/.zshrc}
+\BuiltInTok{alias}\NormalTok{ vim=}\StringTok{\textquotesingle{}nvim\textquotesingle{}}
+\BuiltInTok{alias}\NormalTok{ vi=}\StringTok{\textquotesingle{}nvim\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Filosofía y Conceptos
+Básicos}\label{filosofuxeda-y-conceptos-buxe1sicos}
+
+\subsection{Filosofía Modal}\label{filosofuxeda-modal}
+
+Vim usa \textbf{modos} diferentes para distintas tareas:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Normal}: Navegar y ejecutar comandos (modo por defecto)
+\item
+  \textbf{Insert}: Insertar texto
+\item
+  \textbf{Visual}: Seleccionar texto
+\item
+  \textbf{Command}: Ejecutar comandos Ex
+\end{itemize}
+
+Esta separación permite:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Eficiencia}: Cada tecla hace algo útil en modo Normal
+\item
+  \textbf{Composición}: Combinar operadores con movimientos
+\item
+  \textbf{Repetición}: El comando \texttt{.} repite la última acción
+\end{itemize}
+
+\subsection{Composición de Comandos}\label{composiciuxf3n-de-comandos}
+
+Vim usa una gramática:
+
+\begin{verbatim}
+[operador][movimiento]
+[operador][número][movimiento]
+\end{verbatim}
+
+\textbf{Ejemplos:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{d2w} = Eliminar (delete) 2 palabras (words)
+\item
+  \texttt{c\$} = Cambiar (change) hasta fin de línea
+\item
+  \texttt{y3j} = Copiar (yank) 3 líneas hacia abajo
+\end{itemize}
+
+\subsection{Filosofía ``Modal''}\label{filosofuxeda-modal-1}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Separación de tareas}: No mezclar edición y navegación
+\item
+  \textbf{Comando vs texto}: Modo Normal para comandos, Insert para
+  texto
+\item
+  \textbf{Eficiencia sobre simplicidad}: Curva de aprendizaje pero
+  altamente eficiente
+\end{itemize}
+
+\subsection{El Camino del Vim}\label{el-camino-del-vim}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  Modos de Vim:
-
-  \begin{itemize}
-  \item
-    Modo de comandos: el modo predeterminado de Vim, en el que se pueden
-    ingresar comandos para editar el texto. Para activar el modo comando
-    en Vim, debes presionar la tecla ``Esc''. Esto te llevará al modo
-    comando desde cualquier otro modo en el que te encuentres, como el
-    modo insertar o el modo de reemplazo. Una vez que estés en el modo
-    comando, puedes utilizar una variedad de comandos y combinaciones de
-    teclas para navegar, editar y guardar tus archivos. Para salir de
-    Vim, puedes ingresar el comando ``:q'' seguido de Enter. Si has
-    realizado cambios y deseas guardarlos antes de salir, utiliza el
-    comando ``:wq'' para escribir y guardar los cambios y salir de Vim.
-  \item
-    Modo de inserción: el modo en el que se puede ingresar texto normal.
-  \item
-    Modo de visualización: el modo utilizado para seleccionar y
-    manipular bloques de texto.
-  \end{itemize}
+  \textbf{Semana 1-2}: Básicos (hjkl, i, a, o, Esc, :wq)
 \item
-  Modo de navegación:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    h: mueve el cursor una posición a la izquierda.
-  \item
-    j: mueve el cursor una posición hacia abajo.
-  \item
-    k: mueve el cursor una posición hacia arriba.
-  \item
-    l: mueve el cursor una posición a la derecha.
-  \item
-    0: mueve el cursor al inicio de la línea.
-  \item
-    \$: mueve el cursor al final de la línea.
-  \item
-    w: mueve el cursor a la siguiente palabra.
-  \item
-    b: mueve el cursor a la palabra anterior.
-  \item
-    gg: mueve el cursor al inicio del archivo.
-  \item
-    G: mueve el cursor al final del archivo.
-  \item
-    :numero: mueve el cursor a la línea con el número especificado.
-  \end{itemize}
+  \textbf{Mes 1}: Movimientos (w, b, f, t, /, n)
 \item
-  Modo de edición:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    i: entra en el modo de inserción antes del cursor.
-  \item
-    a: entra en el modo de inserción después del cursor.
-  \item
-    o: inserta una nueva línea debajo del cursor y entra en el modo de
-    inserción.
-  \item
-    O: Insertar una nueva línea encima de la línea actual y entrar en
-    modo de inserción.
-  \item
-    Esc: Salir del modo de inserción y volver al modo normal.
-  \item
-    d: elimina el texto seleccionado.
-  \item
-    y: copia el texto seleccionado.
-  \item
-    p: pega el texto copiado o eliminado después del cursor.
-  \item
-    u: deshace la última acción.
-  \item
-    Ctrl+r: rehace la última acción.
-  \end{itemize}
+  \textbf{Meses 2-3}: Operadores (d, c, y con movimientos)
 \item
-  Guardar y Salir
-
-  \begin{itemize}
-  \tightlist
-  \item
-    :w: guarda el archivo actual.
-  \item
-    :q: sale de Vim.
-  \item
-    :wq: guarda el archivo y sale de Vim.
-  \item
-    :q!: sale de Vim sin guardar los cambios.
-  \end{itemize}
+  \textbf{Meses 4-6}: Visual, macros, registros
 \item
-  Manejo de Texto:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    x: elimina el carácter bajo el cursor.
-  \item
-    dw: elimina la palabra bajo el cursor.
-  \item
-    dd: elimina la línea actual.
-  \item
-    u: deshace la última cambio.
-  \item
-    Ctrl+r: rehace el último cambio.
-  \end{itemize}
-\item
-  Copiar, Cortar y Pegar
-
-  \begin{itemize}
-  \tightlist
-  \item
-    yy: copia la línea actual.
-  \item
-    2yy: copia dos líneas a partir de la línea actual.
-  \item
-    p: pega después del cursor.
-  \item
-    P: pega antes del cursor.
-  \item
-    dd: Cortar (eliminar) la línea actual.
-  \item
-    :set number: muestra los números de línea en el archivo.
-  \item
-    :set nonumber: oculta los números de línea en el archivo.
-  \end{itemize}
-\item
-  Comandos de búsqueda y reemplazo:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    /: busca el texto especificado hacia adelante.
-  \item
-    ?: busca el texto especificado hacia atrás.
-  \item
-    n: busca la siguiente ocurrencia del texto especificado.
-  \item
-    N: busca la ocurrencia anterior del texto especificado.
-  \item
-    :s/old/new/g: reemplaza la primera ocurrencia de ``old'' con ``new''
-    en la línea actual.
-  \item
-    :s/old/new/gc: reemplaza todas las ocurrencias de ``old'' con
-    ``new'' en la línea actual y pide confirmación antes de cada
-    reemplazo.
-  \end{itemize}
+  \textbf{Después}: Plugins, configuración avanzada, Vimscript/Lua
 \end{enumerate}
 
-Estos son solo algunos de los comandos y combinaciones de teclas más
-utilizados en Vim. Hay muchos más disponibles, y la lista completa se
-puede encontrar en la documentación de Vim.
+\section{Modos de Vim}\label{modos-de-vim}
+
+\subsection{Modo Normal (Default)}\label{modo-normal-default}
+
+El modo por defecto. Todas las teclas son comandos. Para activar el modo
+comando en Vim, debes presionar la tecla ``Esc''. Esto te llevará al
+modo comando desde cualquier otro modo en el que te encuentres, como el
+modo insertar o el modo de reemplazo. Una vez que estés en el modo
+comando, puedes utilizar una variedad de comandos y combinaciones de
+teclas para navegar, editar y guardar tus archivos. Para salir de Vim,
+puedes ingresar el comando ``:q'' seguido de Enter. Si has realizado
+cambios y deseas guardarlos antes de salir, utiliza el comando ``:wq''
+para escribir y guardar los cambios y salir de Vim.
+
+\textbf{Entrar:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Esc} desde cualquier modo
+\item
+  \texttt{Ctrl+{[}} (alternativa a Esc)
+\item
+  \texttt{Ctrl+c} (similar a Esc)
+\end{itemize}
+
+\subsection{Modo Insert}\label{modo-insert}
+
+Para insertar texto.
+
+\textbf{Entrar desde Normal:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{i} - Insertar antes del cursor
+\item
+  \texttt{I} - Insertar al inicio de la línea
+\item
+  \texttt{a} - Insertar después del cursor (append)
+\item
+  \texttt{A} - Insertar al final de la línea
+\item
+  \texttt{o} - Abrir línea nueva abajo
+\item
+  \texttt{O} - Abrir línea nueva arriba
+\item
+  \texttt{s} - Sustituir carácter (eliminar + insert)
+\item
+  \texttt{S} - Sustituir línea completa
+\item
+  \texttt{C} - Cambiar hasta fin de línea (c\$)
+\end{itemize}
+
+\textbf{Salir:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Esc} o \texttt{Ctrl+{[}} - Volver a Normal
+\end{itemize}
+
+\subsection{Modo Visual}\label{modo-visual}
+
+Para seleccionar texto.
+
+\textbf{Entrar desde Normal:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{v} - Visual por carácter
+\item
+  \texttt{V} - Visual por línea
+\item
+  \texttt{Ctrl+v} - Visual en bloque
+\end{itemize}
+
+\textbf{Operaciones:}
+
+Una vez seleccionado:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{d} - Eliminar
+\item
+  \texttt{c} - Cambiar
+\item
+  \texttt{y} - Copiar
+\item
+  \texttt{\textgreater{}} - Indentar
+\item
+  \texttt{\textless{}} - Desindentar
+\item
+  \texttt{\textasciitilde{}} - Cambiar mayúsculas/minúsculas
+\end{itemize}
+
+\subsection{Modo Command
+(Command-line)}\label{modo-command-command-line}
+
+Para ejecutar comandos Ex.
+
+\textbf{Entrar desde Normal:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{:} - Comando Ex
+\item
+  \texttt{/} - Búsqueda hacia adelante
+\item
+  \texttt{?} - Búsqueda hacia atrás
+\end{itemize}
+
+\textbf{Comandos comunes:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{:w} - Guardar (write)
+\item
+  \texttt{:q} - Salir (quit)
+\item
+  \texttt{:wq} o \texttt{:x} - Guardar y salir
+\item
+  \texttt{:q!} - Salir sin guardar
+\item
+  \texttt{:e\ archivo} - Abrir archivo (edit)
+\item
+  \texttt{:help\ tema} - Ayuda
+\end{itemize}
+
+\subsection{Modo Replace}\label{modo-replace}
+
+Sobrescribir texto existente.
+
+\textbf{Entrar desde Normal:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{R} - Modo replace (sobrescribir)
+\item
+  \texttt{r} - Reemplazar un solo carácter
+\end{itemize}
+
+\subsection{Modo Select}\label{modo-select}
+
+Similar a selección en editores normales.
+
+\textbf{Entrar:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{gh} - Select mode por carácter
+\item
+  \texttt{gH} - Select mode por línea
+\item
+  \texttt{g\ Ctrl+h} - Select mode en bloque
+\end{itemize}
+
+\section{Navegación Básica}\label{navegaciuxf3n-buxe1sica}
+
+\subsection{Movimiento de Cursor (Modo
+Normal)}\label{movimiento-de-cursor-modo-normal}
+
+\subsection{Básico (hjkl)}\label{buxe1sico-hjkl}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Tecla & Movimiento \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{h} & ← Izquierda \\
+\texttt{j} & ↓ Abajo \\
+\texttt{k} & ↑ Arriba \\
+\texttt{l} & → Derecha \\
+\end{longtable}
+
+\subsection{Por Palabras}\label{por-palabras}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Tecla & Movimiento \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{w} & Inicio de siguiente palabra \\
+\texttt{W} & Inicio de siguiente PALABRA (ignora puntuación) \\
+\texttt{e} & Final de palabra actual/siguiente \\
+\texttt{E} & Final de PALABRA \\
+\texttt{b} & Inicio de palabra anterior \\
+\texttt{B} & Inicio de PALABRA anterior \\
+\texttt{ge} & Final de palabra anterior \\
+\end{longtable}
+
+\textbf{Nota:} ``palabra'' = letras/números, ``PALABRA'' = cualquier
+carácter no-espacio
+
+\subsection{Por Línea}\label{por-luxednea}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Tecla & Movimiento \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{0} & Inicio de línea (columna 0) \\
+\texttt{\^{}} & Primer carácter no-blanco \\
+\texttt{\$} & Final de línea \\
+\texttt{g\_} & Último carácter no-blanco \\
+\texttt{g0} & Inicio de línea visual (con wrap) \\
+\texttt{g\$} & Final de línea visual \\
+\end{longtable}
+
+\subsection{Por Pantalla}\label{por-pantalla}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Tecla & Movimiento \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{H} & Top de pantalla (High) \\
+\texttt{M} & Medio de pantalla (Middle) \\
+\texttt{L} & Bottom de pantalla (Low) \\
+\texttt{zt} & Scroll: línea actual arriba \\
+\texttt{zz} & Scroll: línea actual al centro \\
+\texttt{zb} & Scroll: línea actual abajo \\
+\texttt{Ctrl+e} & Scroll abajo una línea \\
+\texttt{Ctrl+y} & Scroll arriba una línea \\
+\texttt{Ctrl+d} & Media página abajo \\
+\texttt{Ctrl+u} & Media página arriba \\
+\texttt{Ctrl+f} & Página completa abajo (forward) \\
+\texttt{Ctrl+b} & Página completa arriba (backward) \\
+\end{longtable}
+
+\subsection{Por Archivo}\label{por-archivo}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Tecla & Movimiento \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{gg} & Inicio del archivo \\
+\texttt{G} & Final del archivo \\
+\texttt{:\textless{}n\textgreater{}} o
+\texttt{\textless{}n\textgreater{}G} & Ir a línea n \\
+\texttt{\%} & Ir al paréntesis/llave/corchete coincidente \\
+\end{longtable}
+
+\subsection{Búsqueda de Caracteres en
+Línea}\label{buxfasqueda-de-caracteres-en-luxednea}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Tecla & Movimiento \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{f\{char\}} & Find: ir a siguiente \{char\} \\
+\texttt{F\{char\}} & Find: ir a anterior \{char\} \\
+\texttt{t\{char\}} & Till: ir antes de siguiente \{char\} \\
+\texttt{T\{char\}} & Till: ir después de anterior \{char\} \\
+\texttt{;} & Repetir último f/F/t/T \\
+\texttt{,} & Repetir último f/F/t/T en reversa \\
+\end{longtable}
+
+\textbf{Ejemplos:}
+
+\begin{verbatim}
+Esta es una línea de ejemplo
+\end{verbatim}
+
+Con cursor en `E':
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{fw} - Ir a `u' (primera `u')
+\item
+  \texttt{3fl} - Ir a tercera `l'
+\item
+  \texttt{t.} - Ir antes del punto
+\end{itemize}
+
+\section{Edición de Texto}\label{ediciuxf3n-de-texto}
+
+\subsection{Insertar}\label{insertar}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{i} & Insertar antes del cursor \\
+\texttt{I} & Insertar al inicio de línea \\
+\texttt{a} & Insertar después del cursor (append) \\
+\texttt{A} & Insertar al final de línea \\
+\texttt{o} & Abrir línea nueva abajo \\
+\texttt{O} & Abrir línea nueva arriba \\
+\texttt{gi} & Insertar en última posición de inserción \\
+\end{longtable}
+
+\subsection{Eliminar}\label{eliminar}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{x} & Eliminar carácter bajo cursor \\
+\texttt{X} & Eliminar carácter antes del cursor \\
+\texttt{dd} & Eliminar línea \\
+\texttt{D} & Eliminar hasta fin de línea \texttt{d\$} \\
+\texttt{d\{movimiento\}} & Eliminar hasta movimiento \\
+\texttt{dw} & Eliminar palabra \\
+\texttt{db} & Eliminar palabra hacia atrás \\
+\texttt{d\$} o \texttt{D} & Eliminar hasta fin de línea \\
+\texttt{d0} & Eliminar hasta inicio de línea \\
+\texttt{dG} & Eliminar hasta fin de archivo \\
+\texttt{dgg} & Eliminar hasta inicio de archivo \\
+\end{longtable}
+
+\subsection{Cambiar (Change)}\label{cambiar-change}
+
+Igual que eliminar pero entra en modo Insert.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{c\{movimiento\}} & Cambiar texto \\
+\texttt{cc} o \texttt{S} & Cambiar línea completa \\
+\texttt{C} & Cambiar hasta fin de línea \\
+\texttt{cw} & Cambiar palabra \\
+\texttt{ciw} & Cambiar palabra interna (inner word) \\
+\texttt{ci"} & Cambiar dentro de comillas \\
+\texttt{ci(} & Cambiar dentro de paréntesis \\
+\texttt{cit} & Cambiar dentro de tag HTML \\
+\end{longtable}
+
+\subsection{Copiar y Pegar (Yank/Put)}\label{copiar-y-pegar-yankput}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{y\{movimiento\}} & Copiar (yank) \\
+\texttt{yy} o \texttt{Y} & Copiar línea \\
+\texttt{yw} & Copiar palabra \\
+\texttt{y\$} & Copiar hasta fin de línea \\
+\texttt{p} & Pegar después del cursor \\
+\texttt{P} & Pegar antes del cursor \\
+\texttt{gp} & Pegar y mover cursor después \\
+\texttt{gP} & Pegar antes y mover cursor \\
+\end{longtable}
+
+\subsection{Reemplazar}\label{reemplazar}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{r\{char\}} & Reemplazar carácter bajo cursor \\
+\texttt{R} & Entrar en modo Replace \\
+\texttt{\textasciitilde{}} & Cambiar mayúscula/minúscula \\
+\texttt{g\textasciitilde{}\{movimiento\}} & Cambiar caso \\
+\texttt{gu\{movimiento\}} & A minúsculas \\
+\texttt{gU\{movimiento\}} & A MAYÚSCULAS \\
+\end{longtable}
+
+\subsection{Deshacer y Rehacer}\label{deshacer-y-rehacer}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{u} & Deshacer (undo) \\
+\texttt{Ctrl+r} & Rehacer (redo) \\
+\texttt{U} & Deshacer todos los cambios en línea \\
+\end{longtable}
+
+\subsection{Repetir}\label{repetir}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{.} & Repetir último cambio \\
+\texttt{@:} & Repetir último comando Ex \\
+\texttt{@@} & Repetir último macro \\
+\end{longtable}
+
+\subsection{Unir Líneas}\label{unir-luxedneas}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{J} & Unir línea siguiente con actual \\
+\texttt{gJ} & Unir sin añadir espacio \\
+\end{longtable}
+
+\subsection{Indentación}\label{indentaciuxf3n}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{\textgreater{}\textgreater{}} & Indentar línea \\
+\texttt{\textless{}\textless{}} & Desindentar línea \\
+\texttt{==} & Auto-indentar línea \\
+\texttt{\textgreater{}\%} & Indentar bloque (con cursor en
+paréntesis) \\
+\texttt{gg=G} & Auto-indentar archivo completo \\
+\end{longtable}
+
+\section{Comandos de Búsqueda}\label{comandos-de-buxfasqueda}
+
+\subsection{Búsqueda Básica}\label{buxfasqueda-buxe1sica}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{/patrón} & Buscar hacia adelante \\
+\texttt{?patrón} & Buscar hacia atrás \\
+\texttt{n} & Siguiente ocurrencia \\
+\texttt{N} & Ocurrencia anterior \\
+\texttt{*} & Buscar palabra bajo cursor (adelante) \\
+\texttt{\#} & Buscar palabra bajo cursor (atrás) \\
+\texttt{g*} & Buscar parcial hacia adelante \\
+\texttt{g\#} & Buscar parcial hacia atrás \\
+\end{longtable}
+
+\subsection{Opciones de Búsqueda}\label{opciones-de-buxfasqueda}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:set ignorecase   " Ignorar mayúsculas/minúsculas}
+\NormalTok{:set smartcase    " Case{-}sensitive si hay mayúsculas}
+\NormalTok{:set incsearch    " Búsqueda incremental}
+\NormalTok{:set hlsearch     " Resaltar búsquedas}
+\NormalTok{:nohlsearch       " Quitar resaltado (o :noh)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Expresiones Regulares}\label{expresiones-regulares}
+
+\textbf{Metacaracteres básicos:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{.} - Cualquier carácter
+\item
+  \texttt{*} - 0 o más del anterior
+\item
+  \texttt{\^{}} - Inicio de línea
+\item
+  \texttt{\$} - Fin de línea
+\item
+  \texttt{{[}{]}} - Conjunto de caracteres
+\item
+  \texttt{\textbackslash{}\textless{}} - Inicio de palabra
+\item
+  \texttt{\textbackslash{}\textgreater{}} - Fin de palabra
+\end{itemize}
+
+\textbf{Ejemplos:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{/\textbackslash{}\textless{}vim\textbackslash{}\textgreater{}        " Palabra exacta "vim"}
+\NormalTok{/\^{}\#             " Líneas que empiezan con \#}
+\NormalTok{/error.*$       " "error" hasta fin de línea}
+\NormalTok{/[0{-}9]\textbackslash{}+        " Uno o más dígitos}
+\NormalTok{/\textbackslash{}d\textbackslash{}\{3\}{-}\textbackslash{}d\textbackslash{}\{4\}  " XXX{-}XXXX (teléfono)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Modo Visual}\label{modo-visual-1}
+
+\subsection{Tipos de Selección
+Visual}\label{tipos-de-selecciuxf3n-visual}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Tipo \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{v} & Visual por carácter \\
+\texttt{V} & Visual por línea \\
+\texttt{Ctrl+v} & Visual en bloque (columnar) \\
+\texttt{gv} & Reseleccionar última selección \\
+\end{longtable}
+
+\subsection{Operaciones en Visual}\label{operaciones-en-visual}
+
+Una vez en modo visual:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{d} & Eliminar selección \\
+\texttt{c} & Cambiar selección \\
+\texttt{y} & Copiar selección \\
+\texttt{\textgreater{}} & Indentar \\
+\texttt{\textless{}} & Desindentar \\
+\texttt{=} & Auto-indentar \\
+\texttt{\textasciitilde{}} & Cambiar mayúsculas/minúsculas \\
+\texttt{u} & A minúsculas \\
+\texttt{U} & A MAYÚSCULAS \\
+\texttt{o} & Ir al otro extremo de selección \\
+\texttt{O} & Ir a otra esquina (bloque) \\
+\end{longtable}
+
+\subsection{Visual Block (Columnar)}\label{visual-block-columnar}
+
+\textbf{Casos de uso:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Insertar en múltiples líneas}
+\item
+  \textbf{Eliminar columnas}
+\item
+  \textbf{Cambiar bloques}
+\end{enumerate}
+
+\textbf{Ejemplo - Insertar en múltiples líneas:}
+
+\begin{verbatim}
+1. Ctrl+v (visual block)
+2. Seleccionar líneas (j/k)
+3. I (Insert al inicio)
+4. Escribir texto
+5. Esc (se aplica a todas las líneas)
+\end{verbatim}
+
+\subsection{Objetos de Texto}\label{objetos-de-texto}
+
+Operan sobre ``objetos'' como palabras, párrafos, etc.
+
+\textbf{Sintaxis:} \texttt{\{operador\}\{a/i\}\{objeto\}}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Objeto & Descripción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{w} & Palabra (word) \\
+\texttt{W} & PALABRA \\
+\texttt{s} & Sentencia \\
+\texttt{p} & Párrafo \\
+\texttt{{[}} o \texttt{{]}} & Bloque {[}{]} \\
+\texttt{(} o \texttt{)} & Bloque () \\
+\texttt{\{} o \texttt{\}} & Bloque \{\} \\
+\texttt{\textless{}} o \texttt{\textgreater{}} & Bloque
+\textless\textgreater{} \\
+\texttt{t} & Tag HTML \\
+\texttt{"} & Comillas dobles \\
+\texttt{\textquotesingle{}} & Comillas simples \\
+\texttt{\textasciigrave{}} & Backticks \\
+\end{longtable}
+
+\textbf{Modificadores:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{a} - ``a'' (around) - incluye delimitadores
+\item
+  \texttt{i} - ``inner'' - solo contenido
+\end{itemize}
+
+\textbf{Ejemplos:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ciw    " Change inner word}
+\NormalTok{da"    " Delete a quote (incluye comillas)}
+\NormalTok{yi(    " Yank inner parentheses}
+\NormalTok{vit    " Visual select inner tag}
+\NormalTok{ci\{    " Change inner braces}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Registros y Macros}\label{registros-y-macros}
+
+\subsection{Registros}\label{registros}
+
+Vim tiene múltiples ``clipboards'' llamados registros.
+
+\subsection{Tipos de Registros}\label{tipos-de-registros}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Registro & Descripción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{""} & Sin nombre (defecto) \\
+\texttt{"0} & Último yank \\
+\texttt{"1}-\texttt{"9} & Historial de deletes \\
+\texttt{"a}-\texttt{"z} & Nombrados (minúsculas) \\
+\texttt{"A}-\texttt{"Z} & Nombrados (append) \\
+\texttt{"\_} & Agujero negro (no guarda) \\
+\texttt{"+} & Clipboard del sistema \\
+\texttt{"*} & Clipboard de selección (X11) \\
+\texttt{"\%} & Nombre del archivo actual \\
+\texttt{"\#} & Nombre del archivo alterno \\
+\texttt{"/} & Último patrón de búsqueda \\
+\texttt{":} & Último comando Ex \\
+\end{longtable}
+
+\subsection{Usar Registros}\label{usar-registros}
+
+\textbf{Sintaxis:} \texttt{"\{registro\}\{comando\}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{"ayy       " Copiar línea al registro a}
+\NormalTok{"ap        " Pegar desde registro a}
+\NormalTok{"Ayy       " Añadir línea al registro a}
+\NormalTok{"\_dd       " Eliminar sin guardar}
+\NormalTok{"+y        " Copiar al clipboard del sistema}
+\NormalTok{"+p        " Pegar desde clipboard}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Ver Registros}\label{ver-registros}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:registers      " Ver todos los registros}
+\NormalTok{:reg a b c      " Ver registros específicos}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Macros}\label{macros}
+
+Grabar y repetir secuencias de comandos.
+
+\subsection{Grabar Macro}\label{grabar-macro}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{q\{registro\}     " Empezar a grabar en registro}
+\NormalTok{... comandos ...}
+\NormalTok{q               " Terminar grabación}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Ejecutar Macro}\label{ejecutar-macro}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{@\{registro\}     " Ejecutar macro}
+\NormalTok{@@              " Repetir último macro}
+\NormalTok{\{n\}@\{registro\}  " Ejecutar n veces}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Ejemplo - Formatear lista:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\# Lista:}
+\NormalTok{item 1}
+\NormalTok{item 2}
+\NormalTok{item 3}
+
+\NormalTok{\# Grabar macro en registro a:}
+\NormalTok{qa              " Empezar grabación}
+\NormalTok{I{-} \textless{}Esc\textgreater{}        " Insertar "{-} " al inicio}
+\NormalTok{j               " Bajar una línea}
+\NormalTok{q               " Terminar grabación}
+
+\NormalTok{\# Ejecutar:}
+\NormalTok{2@a             " Aplicar a siguientes 2 líneas}
+
+\NormalTok{\# Resultado:}
+\NormalTok{{-} item 1}
+\NormalTok{{-} item 2}
+\NormalTok{{-} item 3}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Editar Macros}\label{editar-macros}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\# Ver contenido del registro}
+\NormalTok{:echo @a}
+
+\NormalTok{\# Editar}
+\NormalTok{:let @a = \textquotesingle{}nuevo contenido\textquotesingle{}}
+
+\NormalTok{\# O pegar en buffer, editar, y copiar de vuelta}
+\NormalTok{"ap             " Pegar macro}
+\NormalTok{... editar ...}
+\NormalTok{"ayy            " Copiar de vuelta}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Ventanas y Pestañas}\label{ventanas-y-pestauxf1as}
+
+\subsection{Ventanas (Splits)}\label{ventanas-splits}
+
+\subsection{Crear Ventanas}\label{crear-ventanas}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{:split} o \texttt{:sp} & Dividir horizontalmente \\
+\texttt{:vsplit} o \texttt{:vsp} & Dividir verticalmente \\
+\texttt{:new} & Nueva ventana horizontal \\
+\texttt{:vnew} & Nueva ventana vertical \\
+\texttt{Ctrl+w\ s} & Split horizontal \\
+\texttt{Ctrl+w\ v} & Split vertical \\
+\texttt{:sp\ archivo} & Abrir archivo en split \\
+\end{longtable}
+
+\subsection{Navegar Entre Ventanas}\label{navegar-entre-ventanas}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+w\ h} & Ir a ventana izquierda \\
+\texttt{Ctrl+w\ j} & Ir a ventana abajo \\
+\texttt{Ctrl+w\ k} & Ir a ventana arriba \\
+\texttt{Ctrl+w\ l} & Ir a ventana derecha \\
+\texttt{Ctrl+w\ w} & Ciclar entre ventanas \\
+\texttt{Ctrl+w\ p} & Ir a ventana anterior \\
+\end{longtable}
+
+\subsection{Mover Ventanas}\label{mover-ventanas}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+w\ H} & Mover ventana a la izquierda \\
+\texttt{Ctrl+w\ J} & Mover ventana abajo \\
+\texttt{Ctrl+w\ K} & Mover ventana arriba \\
+\texttt{Ctrl+w\ L} & Mover ventana a la derecha \\
+\texttt{Ctrl+w\ r} & Rotar ventanas \\
+\texttt{Ctrl+w\ x} & Intercambiar con siguiente \\
+\end{longtable}
+
+\subsection{Redimensionar Ventanas}\label{redimensionar-ventanas}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+w\ =} & Igualar tamaños \\
+\texttt{Ctrl+w\ +} & Aumentar altura \\
+\texttt{Ctrl+w\ -} & Disminuir altura \\
+\texttt{Ctrl+w\ \textgreater{}} & Aumentar ancho \\
+\texttt{Ctrl+w\ \textless{}} & Disminuir ancho \\
+\texttt{Ctrl+w\ \_} & Maximizar altura \\
+\texttt{Ctrl+w\ \textbar{}} & Maximizar ancho \\
+\texttt{:resize\ \{n\}} & Establecer altura \\
+\texttt{:vertical\ resize\ \{n\}} & Establecer ancho \\
+\end{longtable}
+
+\subsection{Cerrar Ventanas}\label{cerrar-ventanas}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{:q} o \texttt{Ctrl+w\ q} & Cerrar ventana actual \\
+\texttt{:only} o \texttt{Ctrl+w\ o} & Cerrar todas menos actual \\
+\end{longtable}
+
+\subsection{Pestañas (Tabs)}\label{pestauxf1as-tabs}
+
+\subsection{Gestión de Pestañas}\label{gestiuxf3n-de-pestauxf1as}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{:tabnew} & Nueva pestaña \\
+\texttt{:tabe\ archivo} & Abrir archivo en pestaña \\
+\texttt{:tabc} & Cerrar pestaña actual \\
+\texttt{:tabo} & Cerrar todas las pestañas menos actual \\
+\texttt{gt} & Siguiente pestaña \\
+\texttt{gT} & Pestaña anterior \\
+\texttt{\{n\}gt} & Ir a pestaña n \\
+\texttt{:tabs} & Listar pestañas \\
+\end{longtable}
+
+\section{Buffers}\label{buffers}
+
+\subsection{¿Qué son los Buffers?}\label{quuxe9-son-los-buffers}
+
+Un buffer es un archivo cargado en memoria. Puedes tener múltiples
+buffers abiertos.
+
+\subsection{Comandos de Buffer}\label{comandos-de-buffer}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{:ls} o \texttt{:buffers} & Listar buffers \\
+\texttt{:b\ \{n\}} & Ir a buffer n \\
+\texttt{:b\ \{nombre\}} & Ir a buffer por nombre (Tab complete) \\
+\texttt{:bn} o \texttt{:bnext} & Siguiente buffer \\
+\texttt{:bp} o \texttt{:bprevious} & Buffer anterior \\
+\texttt{:bf} & Primer buffer \\
+\texttt{:bl} & Último buffer \\
+\texttt{:bd} & Eliminar buffer (cerrar archivo) \\
+\texttt{:e\ archivo} & Editar archivo (crear buffer) \\
+\texttt{:badd\ archivo} & Añadir archivo a buffer list \\
+\end{longtable}
+
+\subsection{Navegación Rápida}\label{navegaciuxf3n-ruxe1pida}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Ctrl+\^{}      " Alternar entre buffer actual y anterior}
+\NormalTok{Ctrl+o      " Saltar a posición anterior}
+\NormalTok{Ctrl+i      " Saltar a posición siguiente}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Búsqueda y Reemplazo}\label{buxfasqueda-y-reemplazo}
+
+\subsection{Comando Substitute}\label{comando-substitute}
+
+\textbf{Sintaxis:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:[rango]s/patrón/reemplazo/[flags]}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Rangos}\label{rangos}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Rango & Descripción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{\%} & Todo el archivo \\
+\texttt{.} & Línea actual \\
+\texttt{\$} & Última línea \\
+\texttt{\textquotesingle{}\textless{},\textquotesingle{}\textgreater{}}
+& Selección visual \\
+\texttt{\{n\},\{m\}} & Líneas n a m \\
+\texttt{.,+5} & Línea actual + 5 líneas \\
+\texttt{g/patrón/} & Líneas que coinciden con patrón \\
+\end{longtable}
+
+\subsection{Flags}\label{flags}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Flag & Descripción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{g} & Global (todas las ocurrencias en línea) \\
+\texttt{c} & Confirmar cada reemplazo \\
+\texttt{i} & Case-insensitive \\
+\texttt{I} & Case-sensitive \\
+\texttt{n} & Reportar número de coincidencias \\
+\end{longtable}
+
+\subsection{Ejemplos Prácticos}\label{ejemplos-pruxe1cticos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\# Reemplazar en todo el archivo}
+\NormalTok{:\%s/foo/bar/g}
+
+\NormalTok{\# Reemplazar en líneas 10{-}20}
+\NormalTok{:10,20s/old/new/g}
+
+\NormalTok{\# Reemplazar con confirmación}
+\NormalTok{:\%s/foo/bar/gc}
+
+\NormalTok{\# Reemplazar solo palabras completas}
+\NormalTok{:\%s/\textbackslash{}\textless{}foo\textbackslash{}\textgreater{}/bar/g}
+
+\NormalTok{\# Eliminar espacios al final de línea}
+\NormalTok{:\%s/\textbackslash{}s\textbackslash{}+$//g}
+
+\NormalTok{\# Añadir ; al final de líneas con texto}
+\NormalTok{:\%s/\textbackslash{}(.\textbackslash{}+\textbackslash{})/\textbackslash{}1;/g}
+
+\NormalTok{\# Reemplazar en selección visual}
+\NormalTok{:\textquotesingle{}\textless{},\textquotesingle{}\textgreater{}s/old/new/g}
+
+\NormalTok{\# Case{-}insensitive}
+\NormalTok{:\%s/error/ERROR/gi}
+
+\NormalTok{\# Eliminar líneas vacías}
+\NormalTok{:g/\^{}$/d}
+
+\NormalTok{\# Eliminar líneas que contengan patrón}
+\NormalTok{:g/DEBUG/d}
+
+\NormalTok{\# Mantener solo líneas que coincidan}
+\NormalTok{:v/KEEP/d}
+
+\NormalTok{\# Duplicar líneas que contengan patrón}
+\NormalTok{:g/TODO/t.}
+
+\NormalTok{\# Mover líneas que contengan patrón}
+\NormalTok{:g/ERROR/m$}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caracteres Especiales en
+Reemplazo}\label{caracteres-especiales-en-reemplazo}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Carácter & Significado \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{\&} & Texto coincidente completo \\
+\texttt{\textbackslash{}0} & Texto coincidente completo \\
+\texttt{\textbackslash{}1}-\texttt{\textbackslash{}9} & Grupo capturado
+1-9 \\
+\texttt{\textbackslash{}L} & Siguiente en minúsculas \\
+\texttt{\textbackslash{}U} & Siguiente en mayúsculas \\
+\texttt{\textbackslash{}l} & Siguiente carácter en minúscula \\
+\texttt{\textbackslash{}u} & Siguiente carácter en mayúscula \\
+\texttt{\textbackslash{}e} & Fin de \texttt{\textbackslash{}U} o
+\texttt{\textbackslash{}L} \\
+\end{longtable}
+
+\textbf{Ejemplos:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\# Convertir "lastName" a "last\_name"}
+\NormalTok{:\%s/\textbackslash{}([a{-}z]\textbackslash{})\textbackslash{}([A{-}Z]\textbackslash{})/\textbackslash{}1\_\textbackslash{}L\textbackslash{}2/g}
+
+\NormalTok{\# Convertir a mayúsculas primera letra}
+\NormalTok{:\%s/\textbackslash{}\textless{}\textbackslash{}(\textbackslash{}w\textbackslash{})/\textbackslash{}u\textbackslash{}1/g}
+
+\NormalTok{\# Invertir orden (swap)}
+\NormalTok{:\%s/\textbackslash{}(.*\textbackslash{}), \textbackslash{}(.*\textbackslash{})/\textbackslash{}2 \textbackslash{}1/g}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Plegado (Folding)}\label{plegado-folding}
+
+\subsection{¿Qué es Folding?}\label{quuxe9-es-folding}
+
+Folding permite ocultar secciones de texto para enfocarse en otras
+partes.
+
+\subsection{Métodos de Plegado}\label{muxe9todos-de-plegado}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:set foldmethod=manual    " Manual}
+\NormalTok{:set foldmethod=indent    " Por indentación}
+\NormalTok{:set foldmethod=syntax    " Por sintaxis}
+\NormalTok{:set foldmethod=marker    " Por marcadores}
+\NormalTok{:set foldmethod=expr      " Por expresión}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Comandos de Plegado}\label{comandos-de-plegado}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{zf\{movimiento\}} & Crear fold (manual) \\
+\texttt{zf3j} & Fold 3 líneas abajo \\
+\texttt{zfap} & Fold párrafo \\
+\texttt{za} & Toggle fold \\
+\texttt{zA} & Toggle fold recursivamente \\
+\texttt{zo} & Abrir fold \\
+\texttt{zO} & Abrir fold recursivamente \\
+\texttt{zc} & Cerrar fold \\
+\texttt{zC} & Cerrar fold recursivamente \\
+\texttt{zd} & Eliminar fold \\
+\texttt{zD} & Eliminar folds recursivamente \\
+\texttt{zR} & Abrir todos los folds \\
+\texttt{zM} & Cerrar todos los folds \\
+\texttt{zj} & Mover al siguiente fold \\
+\texttt{zk} & Mover al fold anterior \\
+\end{longtable}
+
+\subsection{Nivel de Plegado}\label{nivel-de-plegado}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:set foldlevel=0     " Cerrar todos}
+\NormalTok{:set foldlevel=99    " Abrir todos}
+\NormalTok{zm                   " Aumentar foldlevel (cerrar más)}
+\NormalTok{zr                   " Disminuir foldlevel (abrir más)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Marcas y Saltos}\label{marcas-y-saltos}
+
+\subsection{Marcas (Marks)}\label{marcas-marks}
+
+Guardar posiciones en el archivo.
+
+\subsection{Establecer Marcas}\label{establecer-marcas}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m\{a{-}z\}      " Marca local al buffer}
+\NormalTok{m\{A{-}Z\}      " Marca global (entre archivos)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Ir a Marcas}\label{ir-a-marcas}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{\textquotesingle{}\{marca\}} & Ir a línea de marca \\
+\texttt{\textasciigrave{}\{marca\}} & Ir a posición exacta \\
+\texttt{\textquotesingle{}\textquotesingle{}} & Ir a posición antes del
+último salto \\
+\texttt{\textasciigrave{}\textasciigrave{}} & Ir a posición exacta antes
+del salto \\
+\texttt{\textquotesingle{}.} & Ir a última modificación \\
+\texttt{\textasciigrave{}.} & Ir a posición exacta de última
+modificación \\
+\texttt{\textquotesingle{}\^{}} & Ir a posición donde se salió de
+Insert \\
+\end{longtable}
+
+\subsection{Ver Marcas}\label{ver-marcas}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:marks          " Ver todas las marcas}
+\NormalTok{:marks abc      " Ver marcas específicas}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Lista de Saltos (Jump
+List)}\label{lista-de-saltos-jump-list}
+
+Vim mantiene historial de saltos.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+o} & Salto atrás \\
+\texttt{Ctrl+i} o \texttt{Tab} & Salto adelante \\
+\texttt{:jumps} & Ver lista de saltos \\
+\end{longtable}
+
+\subsection{Lista de Cambios (Change
+List)}\label{lista-de-cambios-change-list}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Comando & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{g;} & Ir a cambio anterior \\
+\texttt{g,} & Ir a siguiente cambio \\
+\texttt{:changes} & Ver lista de cambios \\
+\end{longtable}
+
+\section{Comandos Ex}\label{comandos-ex}
+
+\subsection{Comandos de Archivo}\label{comandos-de-archivo}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:w              " Guardar}
+\NormalTok{:w archivo      " Guardar como}
+\NormalTok{:w!             " Forzar guardar}
+\NormalTok{:wa             " Guardar todos}
+\NormalTok{:q              " Salir}
+\NormalTok{:q!             " Forzar salir}
+\NormalTok{:wq o :x        " Guardar y salir}
+\NormalTok{:qa             " Salir de todos}
+\NormalTok{:qa!            " Forzar salir de todos}
+\NormalTok{:e archivo      " Editar archivo}
+\NormalTok{:e!             " Recargar archivo}
+\NormalTok{:saveas archivo " Guardar como (cambiar nombre)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Comandos de Shell}\label{comandos-de-shell}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:!comando       " Ejecutar comando shell}
+\NormalTok{:r !comando     " Insertar output de comando}
+\NormalTok{:w !comando     " Pasar buffer a comando}
+\NormalTok{:\%!comando      " Filtrar buffer por comando}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Ejemplos:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:!ls            " Listar archivos}
+\NormalTok{:r !date        " Insertar fecha}
+\NormalTok{:\%!sort         " Ordenar líneas}
+\NormalTok{:\%!python {-}m json.tool  " Formatear JSON}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Comandos de Ayuda}\label{comandos-de-ayuda}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:help            " Ayuda general}
+\NormalTok{:help comando    " Ayuda de comando específico}
+\NormalTok{:help \textquotesingle{}opción\textquotesingle{}   " Ayuda de opción}
+\NormalTok{:helpgrep patrón " Buscar en ayuda}
+\NormalTok{Ctrl+]           " Seguir enlace (en ayuda)}
+\NormalTok{Ctrl+t           " Volver (en ayuda)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Configuración
+(.vimrc/init.vim)}\label{configuraciuxf3n-.vimrcinit.vim}
+
+\subsection{Ubicaciones}\label{ubicaciones}
+
+\textbf{Vim:}
+
+\begin{itemize}
+\tightlist
+\item
+  Linux/Mac: \texttt{\textasciitilde{}/.vimrc}
+\item
+  Windows: \texttt{\textasciitilde{}/\_vimrc}
+\end{itemize}
+
+\textbf{Neovim:}
+
+\begin{itemize}
+\tightlist
+\item
+  Linux/Mac: \texttt{\textasciitilde{}/.config/nvim/init.vim} o
+  \texttt{\textasciitilde{}/.config/nvim/init.lua}
+\item
+  Windows: \texttt{\textasciitilde{}/AppData/Local/nvim/init.vim}
+\end{itemize}
+
+\subsection{Configuración Básica}\label{configuraciuxf3n-buxe1sica}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{" ============================================}
+\NormalTok{" CONFIGURACIÓN BÁSICA}
+\NormalTok{" ============================================}
+
+\NormalTok{" Deshabilitar compatibilidad con vi}
+\NormalTok{set nocompatible}
+
+\NormalTok{" Habilitar tipo de archivo y plugins}
+\NormalTok{filetype plugin indent on}
+
+\NormalTok{" Habilitar sintaxis}
+\NormalTok{syntax enable}
+
+\NormalTok{" Codificación}
+\NormalTok{set encoding=utf{-}8}
+\NormalTok{set fileencoding=utf{-}8}
+
+\NormalTok{" ============================================}
+\NormalTok{" INTERFAZ}
+\NormalTok{" ============================================}
+
+\NormalTok{" Números de línea}
+\NormalTok{set number          " Mostrar números}
+\NormalTok{set relativenumber  " Números relativos}
+
+\NormalTok{" Cursor}
+\NormalTok{set cursorline      " Resaltar línea actual}
+\NormalTok{set scrolloff=8     " Mantener 8 líneas visibles arriba/abajo}
+
+\NormalTok{" Búsqueda}
+\NormalTok{set incsearch       " Búsqueda incremental}
+\NormalTok{set hlsearch        " Resaltar búsquedas}
+\NormalTok{set ignorecase      " Ignorar mayúsculas en búsqueda}
+\NormalTok{set smartcase       " Case{-}sensitive si hay mayúsculas}
+
+\NormalTok{" Interfaz}
+\NormalTok{set showcmd         " Mostrar comando en progreso}
+\NormalTok{set showmode        " Mostrar modo actual}
+\NormalTok{set wildmenu        " Autocompletado de comandos mejorado}
+\NormalTok{set laststatus=2    " Siempre mostrar statusline}
+\NormalTok{set ruler           " Mostrar posición del cursor}
+
+\NormalTok{" Split behavior}
+\NormalTok{set splitbelow      " Split horizontal abajo}
+\NormalTok{set splitright      " Split vertical a la derecha}
+
+\NormalTok{" ============================================}
+\NormalTok{" EDICIÓN}
+\NormalTok{" ============================================}
+
+\NormalTok{" Indentación}
+\NormalTok{set tabstop=4       " Ancho de tab}
+\NormalTok{set shiftwidth=4    " Ancho de indentación}
+\NormalTok{set expandtab       " Usar espacios en lugar de tabs}
+\NormalTok{set smartindent     " Indentación inteligente}
+\NormalTok{set autoindent      " Mantener indentación}
+
+\NormalTok{" Wrap}
+\NormalTok{set wrap            " Ajustar líneas largas}
+\NormalTok{set linebreak       " Romper en palabras completas}
+
+\NormalTok{" Clipboard}
+\NormalTok{set clipboard=unnamedplus  " Usar clipboard del sistema}
+
+\NormalTok{" Backup y swap}
+\NormalTok{set nobackup        " No crear backups}
+\NormalTok{set noswapfile      " No crear swap files}
+\NormalTok{" O guardarlos en directorio específico:}
+\NormalTok{" set backupdir=\textasciitilde{}/.vim/backup}
+\NormalTok{" set directory=\textasciitilde{}/.vim/swap}
+
+\NormalTok{" Undo persistente}
+\NormalTok{set undofile}
+\NormalTok{set undodir=\textasciitilde{}/.vim/undo}
+
+\NormalTok{" Mouse}
+\NormalTok{set mouse=a         " Habilitar mouse}
+
+\NormalTok{" Tiempo de espera}
+\NormalTok{set timeoutlen=500  " Tiempo para secuencias de teclas}
+
+\NormalTok{" ============================================}
+\NormalTok{" MAPEOS}
+\NormalTok{" ============================================}
+
+\NormalTok{" Líder key}
+\NormalTok{let mapleader = " "      " Usar espacio como líder}
+\NormalTok{let maplocalleader = "," " Líder local}
+
+\NormalTok{" Guardar con Ctrl+S}
+\NormalTok{nnoremap \textless{}C{-}s\textgreater{} :w\textless{}CR\textgreater{}}
+\NormalTok{inoremap \textless{}C{-}s\textgreater{} \textless{}Esc\textgreater{}:w\textless{}CR\textgreater{}}
+
+\NormalTok{" Salir de Insert con jj}
+\NormalTok{inoremap jj \textless{}Esc\textgreater{}}
+
+\NormalTok{" Navegar entre ventanas más fácil}
+\NormalTok{nnoremap \textless{}C{-}h\textgreater{} \textless{}C{-}w\textgreater{}h}
+\NormalTok{nnoremap \textless{}C{-}j\textgreater{} \textless{}C{-}w\textgreater{}j}
+\NormalTok{nnoremap \textless{}C{-}k\textgreater{} \textless{}C{-}w\textgreater{}k}
+\NormalTok{nnoremap \textless{}C{-}l\textgreater{} \textless{}C{-}w\textgreater{}l}
+
+\NormalTok{" Mover líneas}
+\NormalTok{nnoremap \textless{}A{-}j\textgreater{} :m .+1\textless{}CR\textgreater{}==}
+\NormalTok{nnoremap \textless{}A{-}k\textgreater{} :m .{-}2\textless{}CR\textgreater{}==}
+\NormalTok{vnoremap \textless{}A{-}j\textgreater{} :m \textquotesingle{}\textgreater{}+1\textless{}CR\textgreater{}gv=gv}
+\NormalTok{vnoremap \textless{}A{-}k\textgreater{} :m \textquotesingle{}\textless{}{-}2\textless{}CR\textgreater{}gv=gv}
+
+\NormalTok{" Mantener selección al indentar}
+\NormalTok{vnoremap \textless{} \textless{}gv}
+\NormalTok{vnoremap \textgreater{} \textgreater{}gv}
+
+\NormalTok{" Quitar highlight de búsqueda}
+\NormalTok{nnoremap \textless{}leader\textgreater{}\textless{}space\textgreater{} :nohlsearch\textless{}CR\textgreater{}}
+
+\NormalTok{" Split rápido}
+\NormalTok{nnoremap \textless{}leader\textgreater{}v :vsplit\textless{}CR\textgreater{}}
+\NormalTok{nnoremap \textless{}leader\textgreater{}h :split\textless{}CR\textgreater{}}
+
+\NormalTok{" Buffer navigation}
+\NormalTok{nnoremap \textless{}leader\textgreater{}bn :bnext\textless{}CR\textgreater{}}
+\NormalTok{nnoremap \textless{}leader\textgreater{}bp :bprevious\textless{}CR\textgreater{}}
+\NormalTok{nnoremap \textless{}leader\textgreater{}bd :bdelete\textless{}CR\textgreater{}}
+
+\NormalTok{" ============================================}
+\NormalTok{" COLORES}
+\NormalTok{" ============================================}
+
+\NormalTok{" Tema (requiere instalación)}
+\NormalTok{colorscheme desert  " Tema por defecto}
+
+\NormalTok{" True color}
+\NormalTok{if has(\textquotesingle{}termguicolors\textquotesingle{})}
+\NormalTok{    set termguicolors}
+\NormalTok{endif}
+
+\NormalTok{" ============================================}
+\NormalTok{" AUTOCOMANDOS}
+\NormalTok{" ============================================}
+
+\NormalTok{augroup vimrc}
+\NormalTok{    autocmd!}
+\NormalTok{    " Volver a última posición al abrir archivo}
+\NormalTok{    autocmd BufReadPost * if line("\textquotesingle{}\textbackslash{}"") \textgreater{} 1 \&\& line("\textquotesingle{}\textbackslash{}"") \textless{}= line("$") | exe "normal! g\textquotesingle{}\textbackslash{}"" | endif}
+    
+\NormalTok{    " Eliminar espacios al final al guardar}
+\NormalTok{    autocmd BufWritePre * :\%s/\textbackslash{}s\textbackslash{}+$//e}
+    
+\NormalTok{    " Resaltar yank}
+\NormalTok{    autocmd TextYankPost * silent! lua vim.highlight.on\_yank()}
+\NormalTok{augroup END}
+
+\NormalTok{" ============================================}
+\NormalTok{" FUNCIONES PERSONALIZADAS}
+\NormalTok{" ============================================}
+
+\NormalTok{" Toggle números relativos}
+\NormalTok{function! NumberToggle()}
+\NormalTok{    if(\&relativenumber == 1)}
+\NormalTok{        set norelativenumber}
+\NormalTok{    else}
+\NormalTok{        set relativenumber}
+\NormalTok{    endif}
+\NormalTok{endfunction}
+\NormalTok{nnoremap \textless{}leader\textgreater{}n :call NumberToggle()\textless{}CR\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Opciones Útiles}\label{opciones-uxfatiles}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{" Persistencia}
+\NormalTok{set hidden          " Permitir buffers ocultos con cambios}
+
+\NormalTok{" Rendimiento}
+\NormalTok{set lazyredraw      " No redibujar durante macros}
+\NormalTok{set updatetime=300  " Tiempo de espera para swap/CursorHold}
+
+\NormalTok{" Signos}
+\NormalTok{set signcolumn=yes  " Siempre mostrar columna de signos}
+
+\NormalTok{" Formato}
+\NormalTok{set textwidth=80    " Ancho de texto}
+\NormalTok{set colorcolumn=80  " Línea visual en columna 80}
+
+\NormalTok{" Completion}
+\NormalTok{set completeopt=menuone,noselect,noinsert}
+
+\NormalTok{" Diff}
+\NormalTok{set diffopt+=vertical  " Diff vertical}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Plugins}\label{plugins}
+
+\subsection{Gestores de Plugins}\label{gestores-de-plugins}
+
+\subsection{vim-plug (Recomendado)}\label{vim-plug-recomendado}
+
+\textbf{Instalación:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Vim}
+\ExtensionTok{curl} \AttributeTok{{-}fLo}\NormalTok{ \textasciitilde{}/.vim/autoload/plug.vim }\AttributeTok{{-}{-}create{-}dirs} \DataTypeTok{\textbackslash{}}
+\NormalTok{    https://raw.githubusercontent.com/junegunn/vim{-}plug/master/plug.vim}
+
+\CommentTok{\# Neovim}
+\FunctionTok{sh} \AttributeTok{{-}c} \StringTok{\textquotesingle{}curl {-}fLo "$\{XDG\_DATA\_HOME:{-}$HOME/.local/share\}"/nvim/site/autoload/plug.vim {-}{-}create{-}dirs \textbackslash{}}
+\StringTok{       https://raw.githubusercontent.com/junegunn/vim{-}plug/master/plug.vim\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Uso en .vimrc:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{call plug\#begin(\textquotesingle{}\textasciitilde{}/.vim/plugged\textquotesingle{})}
+
+\NormalTok{" Plugins aquí}
+\NormalTok{Plug \textquotesingle{}tpope/vim{-}surround\textquotesingle{}}
+\NormalTok{Plug \textquotesingle{}junegunn/fzf.vim\textquotesingle{}}
+\NormalTok{Plug \textquotesingle{}preservim/nerdtree\textquotesingle{}}
+
+\NormalTok{call plug\#end()}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Comandos:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:PlugInstall    " Instalar plugins}
+\NormalTok{:PlugUpdate     " Actualizar plugins}
+\NormalTok{:PlugClean      " Eliminar plugins no usados}
+\NormalTok{:PlugStatus     " Ver estado}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Packer (Neovim + Lua)}\label{packer-neovim-lua}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{{-}{-} \textasciitilde{}/.config/nvim/lua/plugins.lua}
+\ControlFlowTok{return} \FunctionTok{require}\OperatorTok{(}\StringTok{\textquotesingle{}packer\textquotesingle{}}\OperatorTok{).}\NormalTok{startup}\OperatorTok{(}\KeywordTok{function}\OperatorTok{(}\VariableTok{use}\OperatorTok{)}
+\NormalTok{    use }\StringTok{\textquotesingle{}wbthomason/packer.nvim\textquotesingle{}}
+\NormalTok{    use }\StringTok{\textquotesingle{}tpope/vim{-}surround\textquotesingle{}}
+\NormalTok{    use }\StringTok{\textquotesingle{}nvim{-}telescope/telescope.nvim\textquotesingle{}}
+\KeywordTok{end}\OperatorTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Plugins Esenciales}\label{plugins-esenciales}
+
+\subsection{1. Navegación de Archivos}\label{navegaciuxf3n-de-archivos}
+
+\textbf{NERDTree:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Plug \textquotesingle{}preservim/nerdtree\textquotesingle{}}
+
+\NormalTok{" Mapeo}
+\NormalTok{nnoremap \textless{}C{-}n\textgreater{} :NERDTreeToggle\textless{}CR\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{fzf.vim:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Plug \textquotesingle{}junegunn/fzf\textquotesingle{}, \{ \textquotesingle{}do\textquotesingle{}: \{ {-}\textgreater{} fzf\#install() \} \}}
+\NormalTok{Plug \textquotesingle{}junegunn/fzf.vim\textquotesingle{}}
+
+\NormalTok{" Mapeos}
+\NormalTok{nnoremap \textless{}C{-}p\textgreater{} :Files\textless{}CR\textgreater{}}
+\NormalTok{nnoremap \textless{}leader\textgreater{}b :Buffers\textless{}CR\textgreater{}}
+\NormalTok{nnoremap \textless{}leader\textgreater{}g :Rg\textless{}CR\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{2. Edición}\label{ediciuxf3n}
+
+\textbf{vim-surround:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Plug \textquotesingle{}tpope/vim{-}surround\textquotesingle{}}
+
+\NormalTok{" Comandos:}
+\NormalTok{" ysiw" {-} Rodear palabra con "}
+\NormalTok{" cs"\textquotesingle{} {-} Cambiar " por \textquotesingle{}}
+\NormalTok{" ds" {-} Eliminar "}
+\NormalTok{" yss) {-} Rodear línea con ()}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{vim-commentary:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Plug \textquotesingle{}tpope/vim{-}commentary\textquotesingle{}}
+
+\NormalTok{" Comandos:}
+\NormalTok{" gcc {-} Comentar/descomentar línea}
+\NormalTok{" gc\{movimiento\} {-} Comentar movimiento}
+\NormalTok{" gcap {-} Comentar párrafo}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{vim-repeat:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Plug \textquotesingle{}tpope/vim{-}repeat\textquotesingle{}}
+\NormalTok{" Permite usar . con plugins}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{3. Git}\label{git}
+
+\textbf{vim-fugitive:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Plug \textquotesingle{}tpope/vim{-}fugitive\textquotesingle{}}
+
+\NormalTok{" Comandos:}
+\NormalTok{:Git       " Git status}
+\NormalTok{:Git add \%}
+\NormalTok{:Git commit}
+\NormalTok{:Git push}
+\NormalTok{:Gvdiffsplit  " Ver diff}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{gitsigns (Neovim):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Plug \textquotesingle{}lewis6991/gitsigns.nvim\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{4. Temas}\label{temas}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Plug \textquotesingle{}gruvbox{-}community/gruvbox\textquotesingle{}}
+\NormalTok{Plug \textquotesingle{}morhetz/gruvbox\textquotesingle{}}
+\NormalTok{Plug \textquotesingle{}dracula/vim\textquotesingle{}}
+\NormalTok{Plug \textquotesingle{}joshdick/onedark.vim\textquotesingle{}}
+\NormalTok{Plug \textquotesingle{}arcticicestudio/nord{-}vim\textquotesingle{}}
+
+\NormalTok{colorscheme gruvbox}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{5. Statusline}\label{statusline}
+
+\textbf{vim-airline:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Plug \textquotesingle{}vim{-}airline/vim{-}airline\textquotesingle{}}
+\NormalTok{Plug \textquotesingle{}vim{-}airline/vim{-}airline{-}themes\textquotesingle{}}
+
+\NormalTok{let g:airline\_theme=\textquotesingle{}gruvbox\textquotesingle{}}
+\NormalTok{let g:airline\_powerline\_fonts = 1}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{lualine (Neovim):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{use }\OperatorTok{\{}
+    \StringTok{\textquotesingle{}nvim{-}lualine/lualine.nvim\textquotesingle{}}\OperatorTok{,}
+    \VariableTok{requires} \OperatorTok{=} \OperatorTok{\{} \StringTok{\textquotesingle{}kyazdani42/nvim{-}web{-}devicons\textquotesingle{}} \OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Neovim - Características
+Especiales}\label{neovim---caracteruxedsticas-especiales}
+
+\subsection{Diferencias con Vim}\label{diferencias-con-vim}
+
+\textbf{Arquitectura:}
+
+\begin{itemize}
+\tightlist
+\item
+  API asíncrona
+\item
+  Cliente-servidor
+\item
+  Soporte para UIs remotas
+\item
+  Jobs y canales nativos
+\end{itemize}
+
+\textbf{Características:}
+
+\begin{itemize}
+\tightlist
+\item
+  LSP integrado
+\item
+  Tree-sitter (parsing AST)
+\item
+  Lua como lenguaje de primera clase
+\item
+  Mejor rendimiento
+\item
+  API moderna
+\end{itemize}
+
+\subsection{Configuración en Lua}\label{configuraciuxf3n-en-lua}
+
+\textbf{init.lua:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{{-}{-} \textasciitilde{}/.config/nvim/init.lua}
+
+\CommentTok{{-}{-} Opciones básicas}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{number} \OperatorTok{=} \KeywordTok{true}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{relativenumber} \OperatorTok{=} \KeywordTok{true}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{expandtab} \OperatorTok{=} \KeywordTok{true}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{tabstop} \OperatorTok{=} \DecValTok{4}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{shiftwidth} \OperatorTok{=} \DecValTok{4}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{smartindent} \OperatorTok{=} \KeywordTok{true}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{wrap} \OperatorTok{=} \KeywordTok{false}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{swapfile} \OperatorTok{=} \KeywordTok{false}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{backup} \OperatorTok{=} \KeywordTok{false}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{undofile} \OperatorTok{=} \KeywordTok{true}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{hlsearch} \OperatorTok{=} \KeywordTok{false}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{incsearch} \OperatorTok{=} \KeywordTok{true}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{termguicolors} \OperatorTok{=} \KeywordTok{true}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{scrolloff} \OperatorTok{=} \DecValTok{8}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{signcolumn} \OperatorTok{=} \StringTok{"yes"}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{updatetime} \OperatorTok{=} \DecValTok{50}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{colorcolumn} \OperatorTok{=} \StringTok{"80"}
+
+\CommentTok{{-}{-} Leader key}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{g}\OperatorTok{.}\VariableTok{mapleader} \OperatorTok{=} \StringTok{" "}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{g}\OperatorTok{.}\VariableTok{maplocalleader} \OperatorTok{=} \StringTok{","}
+
+\CommentTok{{-}{-} Mapeos}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{"n"}\OperatorTok{,} \StringTok{"\textless{}leader\textgreater{}pv"}\OperatorTok{,} \VariableTok{vim}\OperatorTok{.}\VariableTok{cmd}\OperatorTok{.}\VariableTok{Ex}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{"n"}\OperatorTok{,} \StringTok{"\textless{}C{-}s\textgreater{}"}\OperatorTok{,} \StringTok{":w\textless{}CR\textgreater{}"}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{"i"}\OperatorTok{,} \StringTok{"jj"}\OperatorTok{,} \StringTok{"\textless{}Esc\textgreater{}"}\OperatorTok{)}
+
+\CommentTok{{-}{-} Mover líneas}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{"v"}\OperatorTok{,} \StringTok{"J"}\OperatorTok{,} \StringTok{":m \textquotesingle{}\textgreater{}+1\textless{}CR\textgreater{}gv=gv"}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{"v"}\OperatorTok{,} \StringTok{"K"}\OperatorTok{,} \StringTok{":m \textquotesingle{}\textless{}{-}2\textless{}CR\textgreater{}gv=gv"}\OperatorTok{)}
+
+\CommentTok{{-}{-} Mantener cursor centrado}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{"n"}\OperatorTok{,} \StringTok{"\textless{}C{-}d\textgreater{}"}\OperatorTok{,} \StringTok{"\textless{}C{-}d\textgreater{}zz"}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{"n"}\OperatorTok{,} \StringTok{"\textless{}C{-}u\textgreater{}"}\OperatorTok{,} \StringTok{"\textless{}C{-}u\textgreater{}zz"}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{"n"}\OperatorTok{,} \StringTok{"n"}\OperatorTok{,} \StringTok{"nzzzv"}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{"n"}\OperatorTok{,} \StringTok{"N"}\OperatorTok{,} \StringTok{"Nzzzv"}\OperatorTok{)}
+
+\CommentTok{{-}{-} Navegar ventanas}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{"n"}\OperatorTok{,} \StringTok{"\textless{}C{-}h\textgreater{}"}\OperatorTok{,} \StringTok{"\textless{}C{-}w\textgreater{}h"}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{"n"}\OperatorTok{,} \StringTok{"\textless{}C{-}j\textgreater{}"}\OperatorTok{,} \StringTok{"\textless{}C{-}w\textgreater{}j"}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{"n"}\OperatorTok{,} \StringTok{"\textless{}C{-}k\textgreater{}"}\OperatorTok{,} \StringTok{"\textless{}C{-}w\textgreater{}k"}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{"n"}\OperatorTok{,} \StringTok{"\textless{}C{-}l\textgreater{}"}\OperatorTok{,} \StringTok{"\textless{}C{-}w\textgreater{}l"}\OperatorTok{)}
+
+\CommentTok{{-}{-} Resaltar yank}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{api}\OperatorTok{.}\NormalTok{nvim\_create\_autocmd}\OperatorTok{(}\StringTok{"TextYankPost"}\OperatorTok{,} \OperatorTok{\{}
+    \VariableTok{group} \OperatorTok{=} \VariableTok{vim}\OperatorTok{.}\VariableTok{api}\OperatorTok{.}\NormalTok{nvim\_create\_augroup}\OperatorTok{(}\StringTok{"highlight\_yank"}\OperatorTok{,} \OperatorTok{\{} \VariableTok{clear} \OperatorTok{=} \KeywordTok{true} \OperatorTok{\}),}
+    \VariableTok{callback} \OperatorTok{=} \KeywordTok{function}\OperatorTok{()}
+        \VariableTok{vim}\OperatorTok{.}\VariableTok{highlight}\OperatorTok{.}\NormalTok{on\_yank}\OperatorTok{()}
+    \KeywordTok{end}\OperatorTok{,}
+\OperatorTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Tree-sitter}\label{tree-sitter}
+
+Parser incremental para mejor resaltado de sintaxis.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{use }\OperatorTok{\{}
+    \StringTok{\textquotesingle{}nvim{-}treesitter/nvim{-}treesitter\textquotesingle{}}\OperatorTok{,}
+    \VariableTok{run} \OperatorTok{=} \StringTok{\textquotesingle{}:TSUpdate\textquotesingle{}}
+\OperatorTok{\}}
+
+\FunctionTok{require}\StringTok{\textquotesingle{}nvim{-}treesitter.configs\textquotesingle{}}\OperatorTok{.}\NormalTok{setup }\OperatorTok{\{}
+    \VariableTok{ensure\_installed} \OperatorTok{=} \OperatorTok{\{} \StringTok{"python"}\OperatorTok{,} \StringTok{"javascript"}\OperatorTok{,} \StringTok{"lua"}\OperatorTok{,} \StringTok{"vim"} \OperatorTok{\},}
+    \VariableTok{highlight} \OperatorTok{=} \OperatorTok{\{}
+        \VariableTok{enable} \OperatorTok{=} \KeywordTok{true}\OperatorTok{,}
+    \OperatorTok{\},}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Telescope (Fuzzy Finder)}\label{telescope-fuzzy-finder}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{use }\OperatorTok{\{}
+    \StringTok{\textquotesingle{}nvim{-}telescope/telescope.nvim\textquotesingle{}}\OperatorTok{,}
+    \VariableTok{requires} \OperatorTok{=} \OperatorTok{\{} \StringTok{\textquotesingle{}nvim{-}lua/plenary.nvim\textquotesingle{}} \OperatorTok{\}}
+\OperatorTok{\}}
+
+\CommentTok{{-}{-} Mapeos}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{\textquotesingle{}n\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}\textless{}leader\textgreater{}ff\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}:Telescope find\_files\textless{}CR\textgreater{}\textquotesingle{}}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{\textquotesingle{}n\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}\textless{}leader\textgreater{}fg\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}:Telescope live\_grep\textless{}CR\textgreater{}\textquotesingle{}}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{\textquotesingle{}n\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}\textless{}leader\textgreater{}fb\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}:Telescope buffers\textless{}CR\textgreater{}\textquotesingle{}}\OperatorTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{LSP y Autocompletado}\label{lsp-y-autocompletado}
+
+\subsection{LSP en Neovim}\label{lsp-en-neovim}
+
+\textbf{Instalar nvim-lspconfig:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{use }\StringTok{\textquotesingle{}neovim/nvim{-}lspconfig\textquotesingle{}}
+
+\CommentTok{{-}{-} Configurar servidor}
+\KeywordTok{local} \VariableTok{lspconfig} \OperatorTok{=} \FunctionTok{require}\OperatorTok{(}\StringTok{\textquotesingle{}lspconfig\textquotesingle{}}\OperatorTok{)}
+
+\CommentTok{{-}{-} Python}
+\VariableTok{lspconfig}\OperatorTok{.}\VariableTok{pyright}\OperatorTok{.}\NormalTok{setup}\OperatorTok{\{\}}
+
+\CommentTok{{-}{-} JavaScript/TypeScript}
+\VariableTok{lspconfig}\OperatorTok{.}\VariableTok{tsserver}\OperatorTok{.}\NormalTok{setup}\OperatorTok{\{\}}
+
+\CommentTok{{-}{-} Lua}
+\VariableTok{lspconfig}\OperatorTok{.}\VariableTok{lua\_ls}\OperatorTok{.}\NormalTok{setup}\OperatorTok{\{}
+    \VariableTok{settings} \OperatorTok{=} \OperatorTok{\{}
+        \VariableTok{Lua} \OperatorTok{=} \OperatorTok{\{}
+            \VariableTok{diagnostics} \OperatorTok{=} \OperatorTok{\{}
+                \VariableTok{globals} \OperatorTok{=} \OperatorTok{\{} \StringTok{\textquotesingle{}vim\textquotesingle{}} \OperatorTok{\}}
+            \OperatorTok{\}}
+        \OperatorTok{\}}
+    \OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Mapeos LSP}\label{mapeos-lsp}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{{-}{-} Después de attach LSP}
+\KeywordTok{local} \VariableTok{opts} \OperatorTok{=} \OperatorTok{\{} \VariableTok{noremap}\OperatorTok{=}\KeywordTok{true}\OperatorTok{,} \VariableTok{silent}\OperatorTok{=}\KeywordTok{true} \OperatorTok{\}}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{\textquotesingle{}n\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}gD\textquotesingle{}}\OperatorTok{,} \VariableTok{vim}\OperatorTok{.}\VariableTok{lsp}\OperatorTok{.}\VariableTok{buf}\OperatorTok{.}\VariableTok{declaration}\OperatorTok{,} \VariableTok{opts}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{\textquotesingle{}n\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}gd\textquotesingle{}}\OperatorTok{,} \VariableTok{vim}\OperatorTok{.}\VariableTok{lsp}\OperatorTok{.}\VariableTok{buf}\OperatorTok{.}\VariableTok{definition}\OperatorTok{,} \VariableTok{opts}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{\textquotesingle{}n\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}K\textquotesingle{}}\OperatorTok{,} \VariableTok{vim}\OperatorTok{.}\VariableTok{lsp}\OperatorTok{.}\VariableTok{buf}\OperatorTok{.}\VariableTok{hover}\OperatorTok{,} \VariableTok{opts}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{\textquotesingle{}n\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}gi\textquotesingle{}}\OperatorTok{,} \VariableTok{vim}\OperatorTok{.}\VariableTok{lsp}\OperatorTok{.}\VariableTok{buf}\OperatorTok{.}\VariableTok{implementation}\OperatorTok{,} \VariableTok{opts}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{\textquotesingle{}n\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}\textless{}C{-}k\textgreater{}\textquotesingle{}}\OperatorTok{,} \VariableTok{vim}\OperatorTok{.}\VariableTok{lsp}\OperatorTok{.}\VariableTok{buf}\OperatorTok{.}\VariableTok{signature\_help}\OperatorTok{,} \VariableTok{opts}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{\textquotesingle{}n\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}\textless{}leader\textgreater{}rn\textquotesingle{}}\OperatorTok{,} \VariableTok{vim}\OperatorTok{.}\VariableTok{lsp}\OperatorTok{.}\VariableTok{buf}\OperatorTok{.}\VariableTok{rename}\OperatorTok{,} \VariableTok{opts}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{\textquotesingle{}n\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}\textless{}leader\textgreater{}ca\textquotesingle{}}\OperatorTok{,} \VariableTok{vim}\OperatorTok{.}\VariableTok{lsp}\OperatorTok{.}\VariableTok{buf}\OperatorTok{.}\VariableTok{code\_action}\OperatorTok{,} \VariableTok{opts}\OperatorTok{)}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{\textquotesingle{}n\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}gr\textquotesingle{}}\OperatorTok{,} \VariableTok{vim}\OperatorTok{.}\VariableTok{lsp}\OperatorTok{.}\VariableTok{buf}\OperatorTok{.}\VariableTok{references}\OperatorTok{,} \VariableTok{opts}\OperatorTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{nvim-cmp (Autocompletado)}\label{nvim-cmp-autocompletado}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{use }\StringTok{\textquotesingle{}hrsh7th/nvim{-}cmp\textquotesingle{}}
+\NormalTok{use }\StringTok{\textquotesingle{}hrsh7th/cmp{-}nvim{-}lsp\textquotesingle{}}
+\NormalTok{use }\StringTok{\textquotesingle{}hrsh7th/cmp{-}buffer\textquotesingle{}}
+\NormalTok{use }\StringTok{\textquotesingle{}hrsh7th/cmp{-}path\textquotesingle{}}
+\NormalTok{use }\StringTok{\textquotesingle{}L3MON4D3/LuaSnip\textquotesingle{}}
+
+\KeywordTok{local} \VariableTok{cmp} \OperatorTok{=} \FunctionTok{require}\StringTok{\textquotesingle{}cmp\textquotesingle{}}
+
+\VariableTok{cmp}\OperatorTok{.}\NormalTok{setup}\OperatorTok{(\{}
+    \VariableTok{snippet} \OperatorTok{=} \OperatorTok{\{}
+        \VariableTok{expand} \OperatorTok{=} \KeywordTok{function}\OperatorTok{(}\VariableTok{args}\OperatorTok{)}
+            \FunctionTok{require}\OperatorTok{(}\StringTok{\textquotesingle{}luasnip\textquotesingle{}}\OperatorTok{).}\NormalTok{lsp\_expand}\OperatorTok{(}\VariableTok{args}\OperatorTok{.}\VariableTok{body}\OperatorTok{)}
+        \KeywordTok{end}\OperatorTok{,}
+    \OperatorTok{\},}
+    \VariableTok{mapping} \OperatorTok{=} \OperatorTok{\{}
+        \OperatorTok{[}\StringTok{\textquotesingle{}\textless{}C{-}p\textgreater{}\textquotesingle{}}\OperatorTok{]} \OperatorTok{=} \VariableTok{cmp}\OperatorTok{.}\VariableTok{mapping}\OperatorTok{.}\NormalTok{select\_prev\_item}\OperatorTok{(),}
+        \OperatorTok{[}\StringTok{\textquotesingle{}\textless{}C{-}n\textgreater{}\textquotesingle{}}\OperatorTok{]} \OperatorTok{=} \VariableTok{cmp}\OperatorTok{.}\VariableTok{mapping}\OperatorTok{.}\NormalTok{select\_next\_item}\OperatorTok{(),}
+        \OperatorTok{[}\StringTok{\textquotesingle{}\textless{}C{-}d\textgreater{}\textquotesingle{}}\OperatorTok{]} \OperatorTok{=} \VariableTok{cmp}\OperatorTok{.}\VariableTok{mapping}\OperatorTok{.}\NormalTok{scroll\_docs}\OperatorTok{({-}}\DecValTok{4}\OperatorTok{),}
+        \OperatorTok{[}\StringTok{\textquotesingle{}\textless{}C{-}f\textgreater{}\textquotesingle{}}\OperatorTok{]} \OperatorTok{=} \VariableTok{cmp}\OperatorTok{.}\VariableTok{mapping}\OperatorTok{.}\NormalTok{scroll\_docs}\OperatorTok{(}\DecValTok{4}\OperatorTok{),}
+        \OperatorTok{[}\StringTok{\textquotesingle{}\textless{}C{-}Space\textgreater{}\textquotesingle{}}\OperatorTok{]} \OperatorTok{=} \VariableTok{cmp}\OperatorTok{.}\VariableTok{mapping}\OperatorTok{.}\NormalTok{complete}\OperatorTok{(),}
+        \OperatorTok{[}\StringTok{\textquotesingle{}\textless{}C{-}e\textgreater{}\textquotesingle{}}\OperatorTok{]} \OperatorTok{=} \VariableTok{cmp}\OperatorTok{.}\VariableTok{mapping}\OperatorTok{.}\NormalTok{close}\OperatorTok{(),}
+        \OperatorTok{[}\StringTok{\textquotesingle{}\textless{}CR\textgreater{}\textquotesingle{}}\OperatorTok{]} \OperatorTok{=} \VariableTok{cmp}\OperatorTok{.}\VariableTok{mapping}\OperatorTok{.}\NormalTok{confirm}\OperatorTok{(\{} \FunctionTok{select} \OperatorTok{=} \KeywordTok{true} \OperatorTok{\}),}
+    \OperatorTok{\},}
+    \VariableTok{sources} \OperatorTok{=} \OperatorTok{\{}
+        \OperatorTok{\{} \VariableTok{name} \OperatorTok{=} \StringTok{\textquotesingle{}nvim\_lsp\textquotesingle{}} \OperatorTok{\},}
+        \OperatorTok{\{} \VariableTok{name} \OperatorTok{=} \StringTok{\textquotesingle{}buffer\textquotesingle{}} \OperatorTok{\},}
+        \OperatorTok{\{} \VariableTok{name} \OperatorTok{=} \StringTok{\textquotesingle{}path\textquotesingle{}} \OperatorTok{\},}
+    \OperatorTok{\}}
+\OperatorTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Vimscript y Lua}\label{vimscript-y-lua}
+
+\subsection{Vimscript Básico}\label{vimscript-buxe1sico}
+
+\textbf{Variables:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{let variable = "valor"}
+\NormalTok{let g:global\_var = 1}
+\NormalTok{let l:local\_var = 2}
+\NormalTok{let s:script\_var = 3}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Condicionales:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{if condición}
+\NormalTok{    " código}
+\NormalTok{elseif otra\_condición}
+\NormalTok{    " código}
+\NormalTok{else}
+\NormalTok{    " código}
+\NormalTok{endif}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Loops:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{for item in lista}
+\NormalTok{    " código}
+\NormalTok{endfor}
+
+\NormalTok{while condición}
+\NormalTok{    " código}
+\NormalTok{endwhile}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Funciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{function! MiFuncion(arg1, arg2)}
+\NormalTok{    " código}
+\NormalTok{    return resultado}
+\NormalTok{endfunction}
+
+\NormalTok{" Llamar}
+\NormalTok{call MiFuncion(1, 2)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Lua Básico}\label{lua-buxe1sico}
+
+\textbf{Variables:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{local} \VariableTok{variable} \OperatorTok{=} \StringTok{"valor"}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{g}\OperatorTok{.}\VariableTok{global\_var} \OperatorTok{=} \DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Condicionales:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if} \VariableTok{condici}\NormalTok{ó}\VariableTok{n} \ControlFlowTok{then}
+    \CommentTok{{-}{-} código}
+\ControlFlowTok{elseif} \VariableTok{otra\_condici}\NormalTok{ó}\VariableTok{n} \ControlFlowTok{then}
+    \CommentTok{{-}{-} código}
+\ControlFlowTok{else}
+    \CommentTok{{-}{-} código}
+\ControlFlowTok{end}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Loops:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for} \VariableTok{i} \OperatorTok{=} \DecValTok{1}\OperatorTok{,} \DecValTok{10} \ControlFlowTok{do}
+    \CommentTok{{-}{-} código}
+\ControlFlowTok{end}
+
+\ControlFlowTok{for} \VariableTok{key}\OperatorTok{,} \VariableTok{value} \KeywordTok{in} \FunctionTok{pairs}\OperatorTok{(}\VariableTok{tabla}\OperatorTok{)} \ControlFlowTok{do}
+    \CommentTok{{-}{-} código}
+\ControlFlowTok{end}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Funciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{local} \KeywordTok{function}\NormalTok{ mi\_funcion}\OperatorTok{(}\VariableTok{arg1}\OperatorTok{,} \VariableTok{arg2}\OperatorTok{)}
+    \CommentTok{{-}{-} código}
+    \ControlFlowTok{return} \VariableTok{resultado}
+\KeywordTok{end}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Trucos Avanzados}\label{trucos-avanzados}
+
+\subsection{1. Edición de Múltiples
+Archivos}\label{ediciuxf3n-de-muxfaltiples-archivos}
+
+\textbf{Argumentos:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:args *.js          " Cargar todos los .js}
+\NormalTok{:argdo \%s/old/new/g | update  " Reemplazar en todos}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Buffers:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:bufdo \%s/old/new/g | update}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Quickfix:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:vimgrep /patrón/ **/*.py   " Buscar en archivos}
+\NormalTok{:copen                      " Abrir quickfix list}
+\NormalTok{:cn                         " Siguiente}
+\NormalTok{:cp                         " Anterior}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{2. Edición Avanzada con
+Expresiones}\label{ediciuxf3n-avanzada-con-expresiones}
+
+\textbf{Incrementar números:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Ctrl+a      " Incrementar número bajo cursor}
+\NormalTok{Ctrl+x      " Decrementar}
+
+\NormalTok{\# En visual block:}
+\NormalTok{g Ctrl+a    " Incrementar secuencialmente}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Evaluar expresiones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\# En insert mode:}
+\NormalTok{Ctrl+r =2+2\textless{}CR\textgreater{}  " Inserta resultado (4)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{3. Cambiar en Múltiples
+Líneas}\label{cambiar-en-muxfaltiples-luxedneas}
+
+\textbf{Visual Block:}
+
+\begin{verbatim}
+1. Ctrl+v (visual block)
+2. Seleccionar líneas
+3. I (insertar al inicio) o A (al final)
+4. Escribir
+5. Esc (se aplica a todas)
+\end{verbatim}
+
+\subsection{4. Formatear Código}\label{formatear-cuxf3digo}
+
+\textbf{Formatear párrafo:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gqap        " Format paragraph}
+\NormalTok{gwap        " Format and keep cursor position}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{External formatter:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:\%!python {-}m json.tool     " JSON}
+\NormalTok{:\%!xmllint {-}{-}format {-}      " XML}
+\NormalTok{:\% !prettier {-}{-}parser babel  " JavaScript}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{5. Diff Files}\label{diff-files}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:vert diffsplit archivo2}
+\NormalTok{:diffthis       " Marcar ventana actual para diff}
+\NormalTok{:diffoff        " Desactivar diff}
+\NormalTok{]c              " Siguiente cambio}
+\NormalTok{[c              " Cambio anterior}
+\NormalTok{do              " Diff obtain (obtener cambio)}
+\NormalTok{dp              " Diff put (poner cambio)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{6. Sesiones}\label{sesiones}
+
+\textbf{Guardar sesión:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:mksession \textasciitilde{}/sesion.vim}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Cargar sesión:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:source \textasciitilde{}/sesion.vim}
+\NormalTok{\# O al iniciar:}
+\NormalTok{vim {-}S \textasciitilde{}/sesion.vim}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{7. Spell Checking}\label{spell-checking}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:set spell spelllang=es    " Activar corrector español}
+\NormalTok{:set spell spelllang=en    " Inglés}
+
+\NormalTok{]s      " Siguiente error}
+\NormalTok{[s      " Error anterior}
+\NormalTok{z=      " Sugerencias}
+\NormalTok{zg      " Añadir palabra a diccionario}
+\NormalTok{zw      " Marcar palabra como mal escrita}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{8. Abrir URL}\label{abrir-url}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gx      " Abrir URL bajo cursor en navegador}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{9. Ejecutar Línea como
+Comando}\label{ejecutar-luxednea-como-comando}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:.!sh   " Ejecutar línea actual como comando shell}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{10. Formateo de Tabla}\label{formateo-de-tabla}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\# Seleccionar tabla en visual}
+\NormalTok{:!column {-}t     " Alinear columnas}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Solución de Problemas}\label{soluciuxf3n-de-problemas}
+
+\subsection{Problemas Comunes}\label{problemas-comunes}
+
+\subsection{1. Vim/Neovim Lento}\label{vimneovim-lento}
+
+\textbf{Soluciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{" Deshabilitar plugins temporalmente}
+\NormalTok{vim {-}{-}noplugin}
+
+\NormalTok{" Ver tiempo de inicio}
+\NormalTok{vim {-}{-}startuptime tiempo.log}
+
+\NormalTok{" Lazy loading de plugins}
+\NormalTok{Plug \textquotesingle{}plugin/name\textquotesingle{}, \{ \textquotesingle{}on\textquotesingle{}: \textquotesingle{}Comando\textquotesingle{} \}}
+
+\NormalTok{" Reducir updatetime}
+\NormalTok{set updatetime=300}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{2. Clipboard No Funciona}\label{clipboard-no-funciona}
+
+\textbf{Verificar soporte:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:echo has(\textquotesingle{}clipboard\textquotesingle{})  " Debe retornar 1}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Solución Ubuntu:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ apt install vim{-}gtk3}
+\CommentTok{\# O para Neovim:}
+\FunctionTok{sudo}\NormalTok{ apt install xclip}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{3. Colores Incorrectos}\label{colores-incorrectos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{" Habilitar true color}
+\NormalTok{set termguicolors}
+
+\NormalTok{" O verificar $TERM}
+\NormalTok{echo $TERM  " Debe ser xterm{-}256color o similar}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{4. LSP No Funciona (Neovim)}\label{lsp-no-funciona-neovim}
+
+\textbf{Verificar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:checkhealth        " Diagnóstico completo}
+\NormalTok{:LspInfo            " Info de LSP}
+
+\NormalTok{" Instalar servidor manualmente}
+\NormalTok{:LspInstall pyright}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{5. Plugins No Se Instalan}\label{plugins-no-se-instalan}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{" vim{-}plug}
+\NormalTok{:PlugInstall}
+\NormalTok{:PlugUpdate}
+
+\NormalTok{" Verificar errores}
+\NormalTok{:messages}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Debugging}\label{debugging}
+
+\textbf{Modo verbose:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:set verbose=9      " Nivel de verbosidad}
+\NormalTok{:set verbosefile=\textasciitilde{}/vim\_debug.log}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Ver opciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:set all            " Ver todas las opciones}
+\NormalTok{:set opción?        " Ver valor de opción específica}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Ver mapeos:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{:map                " Ver todos los mapeos}
+\NormalTok{:nmap               " Mapeos en modo Normal}
+\NormalTok{:imap               " Mapeos en modo Insert}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Referencia Rápida}\label{referencia-ruxe1pida}
+
+\subsection{Atajos Esenciales}\label{atajos-esenciales}
+
+\textbf{Navegación:}
+
+\begin{verbatim}
+hjkl        Básico
+w/b         Palabra adelante/atrás
+0/$         Inicio/fin de línea
+gg/G        Inicio/fin de archivo
+Ctrl+d/u    Media página
+f/F{char}   Find carácter
+\end{verbatim}
+
+\textbf{Edición:}
+
+\begin{verbatim}
+i/a         Insert/append
+o/O         Nueva línea abajo/arriba
+x/dd        Eliminar carácter/línea
+yy/p        Copiar/pegar
+u/Ctrl+r    Undo/redo
+.           Repetir
+\end{verbatim}
+
+\textbf{Visual:}
+
+\begin{verbatim}
+v/V/Ctrl+v  Visual char/line/block
+y/d/c       Copiar/eliminar/cambiar
+>/<         Indentar/desindentar
+\end{verbatim}
+
+\textbf{Búsqueda:}
+
+\begin{verbatim}
+/texto      Buscar
+n/N         Siguiente/anterior
+*/#         Buscar palabra bajo cursor
+:%s/old/new/g  Reemplazar
+\end{verbatim}
+
+\textbf{Archivos:}
+
+\begin{verbatim}
+:w          Guardar
+:q          Salir
+:e archivo  Abrir
+:bn/:bp     Buffer siguiente/anterior
+\end{verbatim}
+
+\textbf{Ventanas:}
+
+\begin{verbatim}
+:sp/:vsp    Split
+Ctrl+w hjkl Navegar
+Ctrl+w =    Igualar tamaños
+\end{verbatim}
+
+\subsection{Comandos por Modo}\label{comandos-por-modo}
+
+\textbf{Normal Mode:}
+
+\begin{itemize}
+\tightlist
+\item
+  Navegación: \texttt{hjkl}, \texttt{w}, \texttt{b}, \texttt{0},
+  \texttt{\$}, \texttt{gg}, \texttt{G}
+\item
+  Edición: \texttt{i}, \texttt{a}, \texttt{o}, \texttt{x}, \texttt{dd},
+  \texttt{yy}, \texttt{p}
+\item
+  Visual: \texttt{v}, \texttt{V}, \texttt{Ctrl+v}
+\item
+  Búsqueda: \texttt{/}, \texttt{?}, \texttt{*}, \texttt{\#}, \texttt{n},
+  \texttt{N}
+\item
+  Comandos: \texttt{:}
+\end{itemize}
+
+\textbf{Insert Mode:}
+
+\begin{itemize}
+\tightlist
+\item
+  Salir: \texttt{Esc}, \texttt{Ctrl+{[}}
+\item
+  Autocompletado: \texttt{Ctrl+n/p}, \texttt{Ctrl+x\ Ctrl+o}
+\item
+  Insertar: \texttt{Ctrl+r\{registro\}}
+\end{itemize}
+
+\textbf{Visual Mode:}
+
+\begin{itemize}
+\tightlist
+\item
+  Operadores: \texttt{y}, \texttt{d}, \texttt{c},
+  \texttt{\textgreater{}}, \texttt{\textless{}}, \texttt{=}
+\item
+  Cambiar modo: \texttt{v}, \texttt{V}, \texttt{Ctrl+v}
+\item
+  Objetos: \texttt{aw}, \texttt{iw}, \texttt{ap}, \texttt{i(},
+  \texttt{a"}
+\end{itemize}
+
+\textbf{Command Mode:}
+
+\begin{itemize}
+\tightlist
+\item
+  Archivo: \texttt{:w}, \texttt{:q}, \texttt{:e}, \texttt{:wq}
+\item
+  Búsqueda: \texttt{/}, \texttt{?}
+\item
+  Rango: \texttt{:\%s}, \texttt{:.},
+  \texttt{:\textquotesingle{}\textless{},\textquotesingle{}\textgreater{}}
+\end{itemize}
+
+\section{Conclusión}\label{conclusiuxf3n}
+
+\subsection{El Viaje de Aprendizaje}\label{el-viaje-de-aprendizaje}
+
+\textbf{Nivel 1 - Básicos (Semana 1):}
+
+\begin{itemize}
+\tightlist
+\item
+  Modos (Normal, Insert)
+\item
+  Navegación básica (hjkl)
+\item
+  Guardar y salir (:wq)
+\item
+  Insert/append (i, a, o)
+\end{itemize}
+
+\textbf{Nivel 2 - Movimientos (Mes 1):}
+
+\begin{itemize}
+\tightlist
+\item
+  Movimientos de palabra (w, b, e)
+\item
+  Línea (0, \$, \^{})
+\item
+  Búsqueda (/, ?, *, \#)
+\item
+  Objetos de texto (iw, aw)
+\end{itemize}
+
+\textbf{Nivel 3 - Operadores (Meses 2-3):}
+
+\begin{itemize}
+\tightlist
+\item
+  Eliminar/cambiar/copiar (d, c, y)
+\item
+  Composición (dw, ciw, yap)
+\item
+  Visual mode (v, V, Ctrl+v)
+\item
+  Registros básicos
+\end{itemize}
+
+\textbf{Nivel 4 - Avanzado (Meses 4-6):}
+
+\begin{itemize}
+\tightlist
+\item
+  Macros (q, @)
+\item
+  Múltiples buffers/ventanas
+\item
+  Búsqueda y reemplazo avanzado
+\item
+  Configuración personalizada
+\end{itemize}
+
+\textbf{Nivel 5 - Maestro (6+ meses):}
+
+\begin{itemize}
+\tightlist
+\item
+  Plugins y ecosistema
+\item
+  Vimscript/Lua
+\item
+  LSP y autocompletado
+\item
+  Workflow completamente personalizado
+\end{itemize}
+
+\subsection{Recursos}\label{recursos}
+
+\textbf{Tutoriales:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{vimtutor} (incluido con Vim)
+\item
+  Vim Adventures (juego)
+\item
+  Openvim.com
+\item
+  vim.fandom.com
+\end{itemize}
+
+\textbf{Documentación:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{:help} (ayuda integrada)
+\item
+  vimhelp.org
+\item
+  neovim.io/doc
+\end{itemize}
+
+\textbf{Comunidad:}
+
+\begin{itemize}
+\tightlist
+\item
+  r/vim, r/neovim (Reddit)
+\item
+  vi.stackexchange.com
+\item
+  GitHub Discussions
+\end{itemize}
+
+\subsection{Tips Finales}\label{tips-finales}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Practica diariamente}: 15-30 minutos al día
+\item
+  \textbf{Aprende incrementalmente}: No trates de aprender todo a la vez
+\item
+  \textbf{Usa vimtutor}: El tutorial interactivo es excelente
+\item
+  \textbf{Evita plugins al inicio}: Aprende Vim vanilla primero
+\item
+  \textbf{Configura gradualmente}: Añade opciones según las necesites
+\item
+  \textbf{Usa el help}: \texttt{:help\ \{tema\}} es tu mejor amigo
+\item
+  \textbf{Sé paciente}: La curva de aprendizaje vale la pena
+\end{enumerate}
 
 \section{Publicaciones Similares}\label{publicaciones-similares}
 
