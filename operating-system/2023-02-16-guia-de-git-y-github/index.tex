@@ -165,10 +165,10 @@
 
 
 
-\title{Guía completa de Git y GitHub desde cero}
+\title{Guía completa de Git y GitHub}
 
 
-\shorttitle{Guía completa de Git y GitHub desde cero}
+\shorttitle{Guía completa de Git y GitHub}
 
 
 \usepackage{etoolbox}
@@ -195,10 +195,19 @@ de Huamanga}}
 \date{2023-02-16}
 
 
-\abstract{Este abstract será actualizado una vez que se complete el
-contenido final del artículo. }
+\abstract{Esta guía completa de Git y GitHub ofrece una visión integral
+y actualizada del sistema de control de versiones más utilizado en el
+desarrollo de software. Desde los fundamentos teóricos (arquitectura,
+objetos y estados de archivos) hasta comandos esenciales, flujos de
+trabajo diarios reales, resolución avanzada de conflictos, mejores
+prácticas modernas (incluyendo Conventional Commits y trunk-based
+development) y ejemplos prácticos aplicados en 2025, este documento
+sirve como referencia exhaustiva tanto para principiantes que dan sus
+primeros pasos como para desarrolladores intermedios que desean
+optimizar su flujo de trabajo diario en entornos individuales, equipos
+pequeños y proyectos colaborativos en GitHub. }
 
-\keywords{keyword1, keyword2}
+\keywords{Git, GitHub, Control de versiones}
 
 \authornote{\par{\addORCIDlink{Edison Achalma}{0000-0001-6996-3364}} 
 \par{ }
@@ -305,7 +314,7 @@ Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@uns
 \hypertarget{toc}{}
 \tableofcontents
 \newpage
-\section[Introduction]{Guía completa de Git y GitHub desde cero}
+\section[Introduction]{Guía completa de Git y GitHub}
 
 \setcounter{secnumdepth}{3}
 
@@ -318,21 +327,41 @@ Git es un sistema de control de versiones distribuido rápido, escalable
 y eficiente. Fue creado por Linus Torvalds en 2005 para el desarrollo
 del kernel de Linux.
 
-\textbf{Características principales:} - Sistema distribuido (cada
-desarrollador tiene una copia completa del historial) - Extremadamente
-rápido - Soporte robusto para desarrollo no lineal (branching y merging)
-- Integridad de datos garantizada mediante SHA-1
+\textbf{Características principales:}
 
-\subsection{Arquitectura de Git}\label{arquitectura-de-git}
+\begin{itemize}
+\tightlist
+\item
+  Sistema distribuido (cada desarrollador tiene una copia completa del
+  historial)
+\item
+  Extremadamente rápido
+\item
+  Soporte robusto para desarrollo no lineal (branching y merging)
+\item
+  Integridad de datos garantizada mediante SHA-1
+\end{itemize}
+
+\textbf{Arquitectura de Git}
 
 Git almacena los datos como instantáneas (snapshots) del proyecto
 completo, no como diferencias entre archivos. Cada commit es una
 instantánea completa del estado del proyecto.
 
-\textbf{Tres áreas principales:} 1. \textbf{Working Directory}: Tu
-directorio de trabajo actual 2. \textbf{Staging Area (Index)}: Área de
-preparación para el próximo commit 3. \textbf{Repository (.git
-directory)}: Base de datos de objetos y metadata
+\textbf{Tres áreas principales:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Working Directory}: Tu directorio de trabajo actual
+\item
+  \textbf{Staging Area (Index)}: Área de preparación para el próximo
+  commit
+\item
+  \textbf{Repository (.git directory)}: Base de datos de objetos y
+  metadata
+\end{enumerate}
 
 \section{Instalación y
 Configuración}\label{instalaciuxf3n-y-configuraciuxf3n}
@@ -369,14 +398,6 @@ estable)}\label{muxe9todo-1-paquetes-predeterminados-ruxe1pido-y-estable}
 
 \textbf{Windows:} Descargar desde: https://git-scm.com/download/win
 
-\subsection{Verificar Instalación}\label{verificar-instalaciuxf3n}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{git} \AttributeTok{{-}{-}version}
-\end{Highlighting}
-\end{Shaded}
-
 \subsubsection{Método 2: Desde la fuente (versión más
 reciente)}\label{muxe9todo-2-desde-la-fuente-versiuxf3n-muxe1s-reciente}
 
@@ -388,7 +409,8 @@ reciente)}\label{muxe9todo-2-desde-la-fuente-versiuxf3n-muxe1s-reciente}
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{sudo}\NormalTok{ apt update}
-\FunctionTok{sudo}\NormalTok{ apt install libz{-}dev libssl{-}dev libcurl4{-}gnutls{-}dev libexpat1{-}dev gettext cmake gcc}
+\FunctionTok{sudo}\NormalTok{ apt install libz{-}dev libssl{-}dev libcurl4{-}gnutls{-}dev }\DataTypeTok{\textbackslash{}}
+\NormalTok{libexpat1{-}dev gettext cmake gcc}
 \end{Highlighting}
 \end{Shaded}
 \item
@@ -397,7 +419,8 @@ reciente)}\label{muxe9todo-2-desde-la-fuente-versiuxf3n-muxe1s-reciente}
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mkdir}\NormalTok{ tmp }\KeywordTok{\&\&} \BuiltInTok{cd}\NormalTok{ tmp}
-\ExtensionTok{curl} \AttributeTok{{-}o}\NormalTok{ git.tar.gz https://mirrors.edge.kernel.org/pub/software/scm/git/git{-}2.34.1.tar.gz}
+\ExtensionTok{curl} \AttributeTok{{-}o}\NormalTok{ git.tar.gz }\DataTypeTok{\textbackslash{}}
+\NormalTok{https://mirrors.edge.kernel.org/pub/software/scm/git/git{-}2.34.1.tar.gz}
 \FunctionTok{tar} \AttributeTok{{-}zxf}\NormalTok{ git.tar.gz}
 \BuiltInTok{cd}\NormalTok{ git{-}}\PreprocessorTok{*}
 \end{Highlighting}
@@ -412,15 +435,15 @@ reciente)}\label{muxe9todo-2-desde-la-fuente-versiuxf3n-muxe1s-reciente}
 \BuiltInTok{exec}\NormalTok{ bash}
 \end{Highlighting}
 \end{Shaded}
-\item
-  Confirma la instalación:
+\end{enumerate}
+
+\subsection{Verificar Instalación}\label{verificar-instalaciuxf3n}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{git} \AttributeTok{{-}{-}version}
 \end{Highlighting}
 \end{Shaded}
-\end{enumerate}
 
 \subsection{Configuración Inicial}\label{configuraciuxf3n-inicial}
 
@@ -684,12 +707,12 @@ Solo las últimas n confirmaciones:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ add }\OperatorTok{\textless{}}\NormalTok{archivo}\OperatorTok{\textgreater{}}          \CommentTok{\# Añadir archivo específico}
-\FunctionTok{git}\NormalTok{ add .                  }\CommentTok{\# Añadir todos los archivos del directorio actual}
-\FunctionTok{git}\NormalTok{ add }\AttributeTok{{-}A}                 \CommentTok{\# Añadir todos los archivos del repositorio}
-\FunctionTok{git}\NormalTok{ add }\PreprocessorTok{*}\NormalTok{.js               }\CommentTok{\# Añadir por patrón}
-\FunctionTok{git}\NormalTok{ add }\AttributeTok{{-}p}                 \CommentTok{\# Añadir interactivamente por fragmentos}
-\FunctionTok{git}\NormalTok{ add }\AttributeTok{{-}u}                 \CommentTok{\# Añadir solo archivos ya rastreados modificados}
+\FunctionTok{git}\NormalTok{ add }\OperatorTok{\textless{}}\NormalTok{archivo}\OperatorTok{\textgreater{}}        \CommentTok{\# Añadir archivo específico}
+\FunctionTok{git}\NormalTok{ add .                }\CommentTok{\# Añadir todos los archivos del directorio actual}
+\FunctionTok{git}\NormalTok{ add }\AttributeTok{{-}A}               \CommentTok{\# Añadir todos los archivos del repositorio}
+\FunctionTok{git}\NormalTok{ add }\PreprocessorTok{*}\NormalTok{.js             }\CommentTok{\# Añadir por patrón}
+\FunctionTok{git}\NormalTok{ add }\AttributeTok{{-}p}               \CommentTok{\# Añadir interactivamente por fragmentos}
+\FunctionTok{git}\NormalTok{ add }\AttributeTok{{-}u}               \CommentTok{\# Añadir solo archivos ya rastreados modificados}
 \end{Highlighting}
 \end{Shaded}
 
@@ -708,10 +731,19 @@ Solo las últimas n confirmaciones:
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Buenas prácticas para mensajes:} - Primera línea: resumen
-conciso (50 caracteres o menos) - Línea en blanco - Descripción
-detallada (72 caracteres por línea) - Usar imperativo: ``Añade'' no
-``Añadido''
+\textbf{Buenas prácticas para mensajes:}
+
+\begin{itemize}
+\tightlist
+\item
+  Primera línea: resumen conciso (50 caracteres o menos)
+\item
+  Línea en blanco
+\item
+  Descripción detallada (72 caracteres por línea)
+\item
+  Usar imperativo: ``Añade'' no ``Añadido''
+\end{itemize}
 
 \subsection{Historial}\label{historial}
 
@@ -746,10 +778,25 @@ detallada (72 caracteres por línea) - Usar imperativo: ``Añade'' no
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Placeholders útiles:} - \texttt{\%h}: Hash abreviado -
-\texttt{\%H}: Hash completo - \texttt{\%an}: Nombre del autor -
-\texttt{\%ae}: Email del autor - \texttt{\%ad}: Fecha del autor -
-\texttt{\%ar}: Fecha relativa - \texttt{\%s}: Mensaje del commit
+\textbf{Placeholders útiles:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{\%h}: Hash abreviado
+\item
+  \texttt{\%H}: Hash completo
+\item
+  \texttt{\%an}: Nombre del autor
+\item
+  \texttt{\%ae}: Email del autor
+\item
+  \texttt{\%ad}: Fecha del autor
+\item
+  \texttt{\%ar}: Fecha relativa
+\item
+  \texttt{\%s}: Mensaje del commit
+\end{itemize}
 
 \subsection{Deshacer Cambios}\label{deshacer-cambios}
 
@@ -777,10 +824,10 @@ detallada (72 caracteres por línea) - Usar imperativo: ``Añade'' no
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ reset }\AttributeTok{{-}{-}soft}\NormalTok{ HEAD\textasciitilde{}1    }\CommentTok{\# Mantiene cambios en staging}
-\FunctionTok{git}\NormalTok{ reset }\AttributeTok{{-}{-}mixed}\NormalTok{ HEAD\textasciitilde{}1   }\CommentTok{\# Mantiene cambios en working directory [default]}
-\FunctionTok{git}\NormalTok{ reset }\AttributeTok{{-}{-}hard}\NormalTok{ HEAD\textasciitilde{}1    }\CommentTok{\# CUIDADO: Elimina todo}
-\FunctionTok{git}\NormalTok{ reset }\OperatorTok{\textless{}}\NormalTok{commit}\OperatorTok{\textgreater{}}         \CommentTok{\# Volver a un commit específico}
+\FunctionTok{git}\NormalTok{ reset }\AttributeTok{{-}{-}soft}\NormalTok{ HEAD\textasciitilde{}1   }\CommentTok{\# Mantiene cambios en staging}
+\FunctionTok{git}\NormalTok{ reset }\AttributeTok{{-}{-}mixed}\NormalTok{ HEAD\textasciitilde{}1  }\CommentTok{\# Mantiene cambios en working directory [default]}
+\FunctionTok{git}\NormalTok{ reset }\AttributeTok{{-}{-}hard}\NormalTok{ HEAD\textasciitilde{}1   }\CommentTok{\# CUIDADO: Elimina todo}
+\FunctionTok{git}\NormalTok{ reset }\OperatorTok{\textless{}}\NormalTok{commit}\OperatorTok{\textgreater{}}        \CommentTok{\# Volver a un commit específico}
 \end{Highlighting}
 \end{Shaded}
 
@@ -843,7 +890,7 @@ defecto se llama \texttt{main} (anteriormente \texttt{master}).
 \begin{Highlighting}[]
 \FunctionTok{git}\NormalTok{ checkout }\OperatorTok{\textless{}}\NormalTok{rama}\OperatorTok{\textgreater{}}        \CommentTok{\# Método antiguo}
 \FunctionTok{git}\NormalTok{ switch }\OperatorTok{\textless{}}\NormalTok{rama}\OperatorTok{\textgreater{}}          \CommentTok{\# Método moderno (Git 2.23+)}
-\FunctionTok{git}\NormalTok{ checkout }\AttributeTok{{-}}            \CommentTok{\# Volver a rama anterior}
+\FunctionTok{git}\NormalTok{ checkout }\AttributeTok{{-}}             \CommentTok{\# Volver a rama anterior}
 \end{Highlighting}
 \end{Shaded}
 
@@ -879,9 +926,18 @@ defecto se llama \texttt{main} (anteriormente \texttt{master}).
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Tipos de merge:} 1. \textbf{Fast-forward}: Avance directo sin
-commit de merge 2. \textbf{Three-way merge}: Crea commit de merge con
-dos padres 3. \textbf{Squash merge}: Combina todos los commits en uno
+\textbf{Tipos de merge:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Fast-forward}: Avance directo sin commit de merge
+\item
+  \textbf{Three-way merge}: Crea commit de merge con dos padres
+\item
+  \textbf{Squash merge}: Combina todos los commits en uno
+\end{enumerate}
 
 \subsection{Rebasing}\label{rebasing}
 
@@ -898,10 +954,23 @@ Rebase reescribe el historial moviendo commits a una nueva base.
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Rebase interactivo - comandos:} - \texttt{pick}: Usar commit -
-\texttt{reword}: Cambiar mensaje - \texttt{edit}: Editar commit -
-\texttt{squash}: Fusionar con commit anterior - \texttt{fixup}: Como
-squash pero descarta mensaje - \texttt{drop}: Eliminar commit
+\textbf{Rebase interactivo - comandos:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{pick}: Usar commit
+\item
+  \texttt{reword}: Cambiar mensaje
+\item
+  \texttt{edit}: Editar commit
+\item
+  \texttt{squash}: Fusionar con commit anterior
+\item
+  \texttt{fixup}: Como squash pero descarta mensaje
+\item
+  \texttt{drop}: Eliminar commit
+\end{itemize}
 
 \textbf{⚠️ REGLA DE ORO: Nunca hagas rebase de commits
 públicos/compartidos}
@@ -913,7 +982,7 @@ Aplicar commits específicos de una rama a otra:
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{git}\NormalTok{ cherry{-}pick }\OperatorTok{\textless{}}\NormalTok{commit}\OperatorTok{\textgreater{}}   \CommentTok{\# Aplicar un commit}
-\FunctionTok{git}\NormalTok{ cherry{-}pick }\OperatorTok{\textless{}}\NormalTok{commit1}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{commit2}\OperatorTok{\textgreater{}}  \CommentTok{\# Varios commits}
+\FunctionTok{git}\NormalTok{ cherry{-}pick }\OperatorTok{\textless{}}\NormalTok{commit1}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{commit2}\OperatorTok{\textgreater{}}   \CommentTok{\# Varios commits}
 \FunctionTok{git}\NormalTok{ cherry{-}pick }\OperatorTok{\textless{}}\NormalTok{commit1}\OperatorTok{\textgreater{}}\NormalTok{..}\OperatorTok{\textless{}}\NormalTok{commit2}\OperatorTok{\textgreater{}}  \CommentTok{\# Rango de commits}
 \FunctionTok{git}\NormalTok{ cherry{-}pick }\AttributeTok{{-}{-}continue} \CommentTok{\# Continuar después de conflictos}
 \FunctionTok{git}\NormalTok{ cherry{-}pick }\AttributeTok{{-}{-}abort}    \CommentTok{\# Cancelar}
@@ -981,13 +1050,13 @@ Aplicar commits específicos de una rama a otra:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ push                   }\CommentTok{\# Push de rama actual}
-\FunctionTok{git}\NormalTok{ push origin main       }\CommentTok{\# Push a rama específica}
-\FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}u}\NormalTok{ origin main    }\CommentTok{\# Push y establecer upstream}
-\FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}{-}all}             \CommentTok{\# Push de todas las ramas}
-\FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}{-}tags}            \CommentTok{\# Push de todos los tags}
+\FunctionTok{git}\NormalTok{ push                     }\CommentTok{\# Push de rama actual}
+\FunctionTok{git}\NormalTok{ push origin main         }\CommentTok{\# Push a rama específica}
+\FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}u}\NormalTok{ origin main      }\CommentTok{\# Push y establecer upstream}
+\FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}{-}all}               \CommentTok{\# Push de todas las ramas}
+\FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}{-}tags}              \CommentTok{\# Push de todos los tags}
 \FunctionTok{git}\NormalTok{ push origin }\AttributeTok{{-}{-}delete} \OperatorTok{\textless{}}\NormalTok{rama}\OperatorTok{\textgreater{}}  \CommentTok{\# Eliminar rama remota}
-\FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}{-}force}           \CommentTok{\# ⚠️ Forzar push (PELIGROSO)}
+\FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}{-}force}             \CommentTok{\# ⚠️ Forzar push (PELIGROSO)}
 \FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}{-}force{-}with{-}lease}  \CommentTok{\# Forzar pero más seguro}
 \end{Highlighting}
 \end{Shaded}
@@ -1135,11 +1204,11 @@ Incluir repositorios dentro de repositorios:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ submodule add }\OperatorTok{\textless{}}\NormalTok{url}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{path}\OperatorTok{\textgreater{}}  \CommentTok{\# Añadir submodule}
-\FunctionTok{git}\NormalTok{ submodule init         }\CommentTok{\# Inicializar submodules}
-\FunctionTok{git}\NormalTok{ submodule update       }\CommentTok{\# Actualizar submodules}
+\FunctionTok{git}\NormalTok{ submodule add }\OperatorTok{\textless{}}\NormalTok{url}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{path}\OperatorTok{\textgreater{}}           \CommentTok{\# Añadir submodule}
+\FunctionTok{git}\NormalTok{ submodule init                       }\CommentTok{\# Inicializar submodules}
+\FunctionTok{git}\NormalTok{ submodule update                     }\CommentTok{\# Actualizar submodules}
 \FunctionTok{git}\NormalTok{ submodule update }\AttributeTok{{-}{-}init} \AttributeTok{{-}{-}recursive}  \CommentTok{\# Init + update recursivo}
-\FunctionTok{git}\NormalTok{ clone }\AttributeTok{{-}{-}recurse{-}submodules} \OperatorTok{\textless{}}\NormalTok{url}\OperatorTok{\textgreater{}}  \CommentTok{\# Clonar con submodules}
+\FunctionTok{git}\NormalTok{ clone }\AttributeTok{{-}{-}recurse{-}submodules} \OperatorTok{\textless{}}\NormalTok{url}\OperatorTok{\textgreater{}}     \CommentTok{\# Clonar con submodules}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1191,19 +1260,30 @@ Su versión del código
 
 \subsection{Resolver Conflictos}\label{resolver-conflictos}
 
-\textbf{Manualmente:} 1. Editar archivos para resolver conflictos 2.
-Eliminar marcadores
-\texttt{\textless{}\textless{}\textless{}\textless{}\textless{}\textless{}\textless{}},
-\texttt{=======},
-\texttt{\textgreater{}\textgreater{}\textgreater{}\textgreater{}\textgreater{}\textgreater{}\textgreater{}}
-3. \texttt{git\ add\ \textless{}archivo\textgreater{}} para marcar como
-resuelto 4. \texttt{git\ commit} o \texttt{git\ rebase\ -\/-continue}
+\textbf{Manualmente:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Editar archivos para resolver conflictos
+\item
+  Eliminar marcadores
+  \texttt{\textless{}\textless{}\textless{}\textless{}\textless{}\textless{}\textless{}},
+  \texttt{=======},
+  \texttt{\textgreater{}\textgreater{}\textgreater{}\textgreater{}\textgreater{}\textgreater{}\textgreater{}}
+\item
+  \texttt{git\ add\ \textless{}archivo\textgreater{}} para marcar como
+  resuelto
+\item
+  \texttt{git\ commit} o \texttt{git\ rebase\ -\/-continue}
+\end{enumerate}
 
 \textbf{Con herramientas:}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ mergetool              }\CommentTok{\# Abrir herramienta de merge}
+\FunctionTok{git}\NormalTok{ mergetool                        }\CommentTok{\# Abrir herramienta de merge}
 \FunctionTok{git}\NormalTok{ mergetool }\AttributeTok{{-}{-}tool}\OperatorTok{=}\NormalTok{vimdiff}
 \FunctionTok{git}\NormalTok{ config }\AttributeTok{{-}{-}global}\NormalTok{ merge.tool meld  }\CommentTok{\# Configurar herramienta}
 \end{Highlighting}
@@ -1213,8 +1293,8 @@ resuelto 4. \texttt{git\ commit} o \texttt{git\ rebase\ -\/-continue}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ merge }\AttributeTok{{-}X}\NormalTok{ ours }\OperatorTok{\textless{}}\NormalTok{rama}\OperatorTok{\textgreater{}}   \CommentTok{\# Preferir nuestra versión}
-\FunctionTok{git}\NormalTok{ merge }\AttributeTok{{-}X}\NormalTok{ theirs }\OperatorTok{\textless{}}\NormalTok{rama}\OperatorTok{\textgreater{}} \CommentTok{\# Preferir su versión}
+\FunctionTok{git}\NormalTok{ merge }\AttributeTok{{-}X}\NormalTok{ ours }\OperatorTok{\textless{}}\NormalTok{rama}\OperatorTok{\textgreater{}}         \CommentTok{\# Preferir nuestra versión}
+\FunctionTok{git}\NormalTok{ merge }\AttributeTok{{-}X}\NormalTok{ theirs }\OperatorTok{\textless{}}\NormalTok{rama}\OperatorTok{\textgreater{}}       \CommentTok{\# Preferir su versión}
 \FunctionTok{git}\NormalTok{ checkout }\AttributeTok{{-}{-}ours} \OperatorTok{\textless{}}\NormalTok{archivo}\OperatorTok{\textgreater{}}    \CommentTok{\# Tomar nuestra versión}
 \FunctionTok{git}\NormalTok{ checkout }\AttributeTok{{-}{-}theirs} \OperatorTok{\textless{}}\NormalTok{archivo}\OperatorTok{\textgreater{}}  \CommentTok{\# Tomar su versión}
 \end{Highlighting}
@@ -1256,9 +1336,24 @@ Modelo de branching con ramas específicas:
 
 \subsection{GitHub Flow}\label{github-flow}
 
-Workflow más simple: 1. Crear rama desde \texttt{main} 2. Hacer commits
-3. Abrir Pull Request 4. Revisión de código 5. Merge a \texttt{main} 6.
-Deploy automático
+Workflow más simple:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Crear rama desde \texttt{main}
+\item
+  Hacer commits
+\item
+  Abrir Pull Request
+\item
+  Revisión de código
+\item
+  Merge a \texttt{main}
+\item
+  Deploy automático
+\end{enumerate}
 
 \subsection{Trunk-Based Development}\label{trunk-based-development}
 
@@ -1281,18 +1376,18 @@ Flujos de trabajo más comunes que uso \textbf{todos los días} en
 diferentes tipos de proyectos y entornos (individuales, equipos
 pequeños, medianos y open-source).
 
-\subsection{1. Flujo individual / Freelance / Proyectos personales (el
-más frecuente para principiantes y side
-projects)}\label{flujo-individual-freelance-proyectos-personales-el-muxe1s-frecuente-para-principiantes-y-side-projects}
+\subsection{Flujo individual / Freelance / Proyectos
+personales}\label{flujo-individual-freelance-proyectos-personales}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Al empezar el día}
-\FunctionTok{git}\NormalTok{ pull origin main                }\CommentTok{\# Siempre sincronizo primero}
-\FunctionTok{git}\NormalTok{ status }\CommentTok{\# Muestra el estado actual del repositorio.}
+\FunctionTok{git}\NormalTok{ pull origin main  }\CommentTok{\# Siempre sincronizo primero}
+\FunctionTok{git}\NormalTok{ status            }\CommentTok{\# Muestra el estado actual del repositorio.}
 
 \CommentTok{\# Trabajo en una nueva funcionalidad}
-\FunctionTok{git}\NormalTok{ switch }\AttributeTok{{-}c}\NormalTok{ feat/login{-}social     }\CommentTok{\# Creo rama con convención clara}
+\FunctionTok{git}\NormalTok{ switch }\AttributeTok{{-}c}\NormalTok{ feat/login{-}social   }\CommentTok{\# Creo rama con convención clara}
+
 \CommentTok{\# ... desarrollo varias horas ...}
 \FunctionTok{git}\NormalTok{ add .}
 \FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"feat: implementar login con Google y GitHub"}
@@ -1304,13 +1399,13 @@ projects)}\label{flujo-individual-freelance-proyectos-personales-el-muxe1s-frecu
 \CommentTok{\# Al final del día o antes de push}
 \FunctionTok{git}\NormalTok{ branch }\AttributeTok{{-}M}\NormalTok{ main }\CommentTok{\# Muestra las ramas existentes.}
 \FunctionTok{git}\NormalTok{ switch main}
-\FunctionTok{git}\NormalTok{ pull                            }\CommentTok{\# Vuelvo a sincronizar por si alguien más empujó}
+\FunctionTok{git}\NormalTok{ pull                 }\CommentTok{\# Vuelvo a sincronizar por si alguien más empujó}
 \FunctionTok{git}\NormalTok{ switch feat/login{-}social}
-\FunctionTok{git}\NormalTok{ rebase main                     }\CommentTok{\# Mantengo mi rama actualizada (rebase limpio)}
+\FunctionTok{git}\NormalTok{ rebase main          }\CommentTok{\# Mantengo mi rama actualizada (rebase limpio)}
 \FunctionTok{git}\NormalTok{ switch main}
 \FunctionTok{git}\NormalTok{ merge }\AttributeTok{{-}{-}ff{-}only}\NormalTok{ feat/login{-}social   }\CommentTok{\# Fast{-}forward si es posible}
-\FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}u}\NormalTok{ origin main }\CommentTok{\# Envía los cambios al repositorio remoto.}
-\FunctionTok{git}\NormalTok{ branch }\AttributeTok{{-}d}\NormalTok{ feat/login{-}social     }\CommentTok{\# Elimino la rama ya que está integrada}
+\FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}u}\NormalTok{ origin main  }\CommentTok{\# Envía los cambios al repositorio remoto.}
+\FunctionTok{git}\NormalTok{ branch }\AttributeTok{{-}d}\NormalTok{ feat/login{-}social   }\CommentTok{\# Elimino la rama ya que está integrada}
 
 \CommentTok{\# Opcional: commit squash al final (muy común en proyectos pequeños)}
 \FunctionTok{git}\NormalTok{ merge }\AttributeTok{{-}{-}squash}\NormalTok{ feat/login{-}social}
@@ -1322,14 +1417,13 @@ projects)}\label{flujo-individual-freelance-proyectos-personales-el-muxe1s-frecu
 \textbf{Ventajas}: Muy rápido, historial relativamente limpio, poco
 overhead.
 
-\subsection{2. Flujo típico de equipo mediano/pequeño con Pull Requests
-(el más usado en
-2025)}\label{flujo-tuxedpico-de-equipo-medianopequeuxf1o-con-pull-requests-el-muxe1s-usado-en-2025}
+\subsection{Flujo típico de equipo mediano/pequeño con Pull
+Requests}\label{flujo-tuxedpico-de-equipo-medianopequeuxf1o-con-pull-requests}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Inicio de jornada / después de stand{-}up}
-\FunctionTok{git}\NormalTok{ fetch }\AttributeTok{{-}{-}prune}                   \CommentTok{\# Limpio referencias remotas obsoletas}
+\FunctionTok{git}\NormalTok{ fetch }\AttributeTok{{-}{-}prune}          \CommentTok{\# Limpio referencias remotas obsoletas}
 \FunctionTok{git}\NormalTok{ switch main}
 \FunctionTok{git}\NormalTok{ pull}
 
@@ -1341,7 +1435,7 @@ overhead.
 \FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"refactor: extraer hook useChartData"}
 
 \CommentTok{\# Antes de terminar el día}
-\FunctionTok{git}\NormalTok{ rebase }\AttributeTok{{-}i}\NormalTok{ origin/main           }\CommentTok{\# O rebase main si ya está actualizado}
+\FunctionTok{git}\NormalTok{ rebase }\AttributeTok{{-}i}\NormalTok{ origin/main    }\CommentTok{\# O rebase main si ya está actualizado}
 \CommentTok{\# Squash/reword si quiero limpiar commits antes de PR}
 
 \CommentTok{\# Subo y creo Pull Request}
@@ -1350,7 +1444,8 @@ overhead.
 \CommentTok{\# En GitHub/GitLab:}
 \CommentTok{\#   → Creo PR → añado reviewers → espero revisión}
 \CommentTok{\#   → Después de aprobar y pasar CI/CD:}
-\CommentTok{\#     Merge squash / merge commit / rebase \& merge (depende de la política del equipo)}
+\CommentTok{\#     Merge squash / merge commit / }
+\CommentTok{\#     rebase \& merge (depende de la política del equipo)}
 
 \CommentTok{\# Una vez mergeado (normalmente por el reviewer o bot)}
 \FunctionTok{git}\NormalTok{ switch main}
@@ -1364,8 +1459,8 @@ overhead.
 Merge squash → un solo commit limpio en \texttt{main} con el título del
 PR
 
-\subsection{3. Corrección rápida de bug en producción (hotfix
-diario)}\label{correcciuxf3n-ruxe1pida-de-bug-en-producciuxf3n-hotfix-diario}
+\subsection{Corrección rápida de bug en
+producción}\label{correcciuxf3n-ruxe1pida-de-bug-en-producciuxf3n}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1391,9 +1486,8 @@ diario)}\label{correcciuxf3n-ruxe1pida-de-bug-en-producciuxf3n-hotfix-diario}
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{4. Flujo cuando trabajas en varias tareas al mismo tiempo
-(muy
-común)}\label{flujo-cuando-trabajas-en-varias-tareas-al-mismo-tiempo-muy-comuxfan}
+\subsection{Flujo cuando trabajas en varias tareas al mismo
+tiempo}\label{flujo-cuando-trabajas-en-varias-tareas-al-mismo-tiempo}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1417,9 +1511,8 @@ común)}\label{flujo-cuando-trabajas-en-varias-tareas-al-mismo-tiempo-muy-comuxf
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{5. Mini-resumen de comandos que más se usan en la práctica
-diaria
-(2025)}\label{mini-resumen-de-comandos-que-muxe1s-se-usan-en-la-pruxe1ctica-diaria-2025}
+\subsection{Mini-resumen de comandos que más se usan en la práctica
+diaria}\label{mini-resumen-de-comandos-que-muxe1s-se-usan-en-la-pruxe1ctica-diaria}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3737}}
@@ -1601,7 +1694,7 @@ Comandos internos de Git para operaciones avanzadas:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ update{-}index }\AttributeTok{{-}{-}add} \OperatorTok{\textless{}}\NormalTok{archivo}\OperatorTok{\textgreater{}}  \CommentTok{\# Añadir al index}
+\FunctionTok{git}\NormalTok{ update{-}index }\AttributeTok{{-}{-}add} \OperatorTok{\textless{}}\NormalTok{archivo}\OperatorTok{\textgreater{}}     \CommentTok{\# Añadir al index}
 \FunctionTok{git}\NormalTok{ update{-}index }\AttributeTok{{-}{-}remove} \OperatorTok{\textless{}}\NormalTok{archivo}\OperatorTok{\textgreater{}}  \CommentTok{\# Quitar del index}
 \FunctionTok{git}\NormalTok{ read{-}tree }\OperatorTok{\textless{}}\NormalTok{tree}\OperatorTok{\textgreater{}}       \CommentTok{\# Leer tree al index}
 \FunctionTok{git}\NormalTok{ write{-}tree             }\CommentTok{\# Crear tree desde index}
@@ -1621,10 +1714,10 @@ Comandos internos de Git para operaciones avanzadas:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ hash{-}object }\OperatorTok{\textless{}}\NormalTok{archivo}\OperatorTok{\textgreater{}}  \CommentTok{\# Calcular hash de archivo}
+\FunctionTok{git}\NormalTok{ hash{-}object }\OperatorTok{\textless{}}\NormalTok{archivo}\OperatorTok{\textgreater{}}     \CommentTok{\# Calcular hash de archivo}
 \FunctionTok{git}\NormalTok{ hash{-}object }\AttributeTok{{-}w} \OperatorTok{\textless{}}\NormalTok{archivo}\OperatorTok{\textgreater{}}  \CommentTok{\# Escribir objeto}
-\FunctionTok{git}\NormalTok{ rev{-}parse HEAD         }\CommentTok{\# Convertir referencia a hash}
-\FunctionTok{git}\NormalTok{ rev{-}list HEAD          }\CommentTok{\# Listar commits alcanzables}
+\FunctionTok{git}\NormalTok{ rev{-}parse HEAD            }\CommentTok{\# Convertir referencia a hash}
+\FunctionTok{git}\NormalTok{ rev{-}list HEAD             }\CommentTok{\# Listar commits alcanzables}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1638,14 +1731,33 @@ Scripts que se ejecutan automáticamente en eventos de Git.
 
 \textbf{Hooks comunes:}
 
-\textbf{Client-side:} - \texttt{pre-commit}: Antes de crear commit -
-\texttt{prepare-commit-msg}: Antes de abrir editor de commit -
-\texttt{commit-msg}: Validar mensaje de commit - \texttt{post-commit}:
-Después de crear commit - \texttt{pre-push}: Antes de hacer push
+\textbf{Client-side:}
 
-\textbf{Server-side:} - \texttt{pre-receive}: Antes de aceptar push -
-\texttt{update}: Por cada rama actualizada - \texttt{post-receive}:
-Después de aceptar push
+\begin{itemize}
+\tightlist
+\item
+  \texttt{pre-commit}: Antes de crear commit
+\item
+  \texttt{prepare-commit-msg}: Antes de abrir editor de commit
+\item
+  \texttt{commit-msg}: Validar mensaje de commit
+\item
+  \texttt{post-commit}: Después de crear commit
+\item
+  \texttt{pre-push}: Antes de hacer push
+\end{itemize}
+
+\textbf{Server-side:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{pre-receive}: Antes de aceptar push
+\item
+  \texttt{update}: Por cada rama actualizada
+\item
+  \texttt{post-receive}: Después de aceptar push
+\end{itemize}
 
 \textbf{Ejemplo pre-commit (tests):}
 
@@ -1706,7 +1818,8 @@ Crear comandos personalizados:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ config }\AttributeTok{{-}{-}global}\NormalTok{ alias.lg }\StringTok{"log {-}{-}graph {-}{-}pretty=format:\textquotesingle{}\%Cred\%h\%Creset {-}\%C(yellow)\%d\%Creset \%s \%Cgreen(\%cr) \%C(bold blue)\textless{}\%an\textgreater{}\%Creset\textquotesingle{} {-}{-}abbrev{-}commit"}
+\FunctionTok{git}\NormalTok{ config }\AttributeTok{{-}{-}global}\NormalTok{ alias.lg }\StringTok{"log {-}{-}graph {-}{-}pretty=format:\textquotesingle{}\%Cred\%h\%Creset }\DataTypeTok{\textbackslash{}}
+\StringTok{{-}\%C(yellow)\%d\%Creset \%s \%Cgreen(\%cr) \%C(bold blue)\textless{}\%an\textgreater{}\%Creset\textquotesingle{} {-}{-}abbrev{-}commit"}
 \FunctionTok{git}\NormalTok{ config }\AttributeTok{{-}{-}global}\NormalTok{ alias.undo }\StringTok{\textquotesingle{}reset HEAD\textasciitilde{}1 {-}{-}mixed\textquotesingle{}}
 \FunctionTok{git}\NormalTok{ config }\AttributeTok{{-}{-}global}\NormalTok{ alias.contributors }\StringTok{\textquotesingle{}shortlog {-}sn\textquotesingle{}}
 \end{Highlighting}
@@ -1793,7 +1906,7 @@ Crear comandos personalizados:
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{git}\NormalTok{ remote prune origin  }\CommentTok{\# Eliminar referencias remotas obsoletas}
-\FunctionTok{git}\NormalTok{ fetch }\AttributeTok{{-}{-}prune}  \CommentTok{\# Fetch y prune simultáneamente}
+\FunctionTok{git}\NormalTok{ fetch }\AttributeTok{{-}{-}prune}        \CommentTok{\# Fetch y prune simultáneamente}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1801,9 +1914,9 @@ Crear comandos personalizados:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ gc  }\CommentTok{\# Garbage collection}
+\FunctionTok{git}\NormalTok{ gc               }\CommentTok{\# Garbage collection}
 \FunctionTok{git}\NormalTok{ gc }\AttributeTok{{-}{-}aggressive}  \CommentTok{\# Más agresivo}
-\FunctionTok{git}\NormalTok{ prune  }\CommentTok{\# Eliminar objetos inalcanzables}
+\FunctionTok{git}\NormalTok{ prune            }\CommentTok{\# Eliminar objetos inalcanzables}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1835,13 +1948,13 @@ Crear comandos personalizados:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ExtensionTok{HEAD}           \CommentTok{\# Commit actual}
-\ExtensionTok{HEAD\^{}}          \CommentTok{\# Padre de HEAD (HEAD\textasciitilde{}1)}
-\ExtensionTok{HEAD\^{}\^{}}         \CommentTok{\# Abuelo de HEAD (HEAD\textasciitilde{}2)}
-\ExtensionTok{HEAD\textasciitilde{}3}         \CommentTok{\# 3 commits antes de HEAD}
-\ExtensionTok{main\^{}2}         \CommentTok{\# Segundo padre de main (en merge)}
+\ExtensionTok{HEAD}                  \CommentTok{\# Commit actual}
+\ExtensionTok{HEAD\^{}}                 \CommentTok{\# Padre de HEAD (HEAD\textasciitilde{}1)}
+\ExtensionTok{HEAD\^{}\^{}}                \CommentTok{\# Abuelo de HEAD (HEAD\textasciitilde{}2)}
+\ExtensionTok{HEAD\textasciitilde{}3}                \CommentTok{\# 3 commits antes de HEAD}
+\ExtensionTok{main\^{}2}                \CommentTok{\# Segundo padre de main (en merge)}
 \OperatorTok{\textless{}}\NormalTok{branch}\OperatorTok{\textgreater{}}\NormalTok{@\{yesterday\}  }\CommentTok{\# Posición ayer}
-\ExtensionTok{HEAD@\{5\}}       \CommentTok{\# 5 movimientos atrás en reflog}
+\ExtensionTok{HEAD@\{5\}}              \CommentTok{\# 5 movimientos atrás en reflog}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1955,11 +2068,27 @@ Convencional}\label{formato-de-commit-convencional}
 <pie>
 \end{verbatim}
 
-\textbf{Tipos:} - \texttt{feat}: Nueva funcionalidad - \texttt{fix}:
-Corrección de bug - \texttt{docs}: Documentación - \texttt{style}:
-Formato (no afecta código) - \texttt{refactor}: Refactorización -
-\texttt{test}: Tests - \texttt{chore}: Tareas de mantenimiento -
-\texttt{perf}: Mejora de rendimiento
+\textbf{Tipos:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{feat}: Nueva funcionalidad
+\item
+  \texttt{fix}: Corrección de bug
+\item
+  \texttt{docs}: Documentación
+\item
+  \texttt{style}: Formato (no afecta código)
+\item
+  \texttt{refactor}: Refactorización
+\item
+  \texttt{test}: Tests
+\item
+  \texttt{chore}: Tareas de mantenimiento
+\item
+  \texttt{perf}: Mejora de rendimiento
+\end{itemize}
 
 \textbf{Ejemplo:}
 
@@ -2122,18 +2251,37 @@ reales.
   No temas equivocarte (casi todo se puede deshacer)
 \end{enumerate}
 
-\textbf{Comandos más importantes para recordar:} -
-\texttt{echo\ "\#\ Léeme"\ \textgreater{}\textgreater{}\ README.md}:
-Crea un archivo README.md con el texto ``\# Léeme''. -
-\texttt{git\ init}: Inicia un nuevo repositorio en el directorio actual.
-- \texttt{git\ status} - Siempre saber dónde estás - \texttt{git\ add} -
-Preparar cambios - \texttt{git\ commit\ -m\ "Primer\ commit"} - Guardar
-cambios - \texttt{git\ branch\ -M\ main}: Muestra las ramas existentes.
-- \texttt{git\ push\ -u\ origin\ main} - Compartir cambios -
-\texttt{git\ pull} - Obtener cambios - \texttt{git\ log} - Ver historial
-de commits - \texttt{git\ diff} - Ver diferencias -
-\texttt{git\ checkout\ {[}branch{]}}: Cambia a una rama específica. -
-\texttt{git\ merge\ {[}branch{]}}: Fusiona una rama con la actual.
+\textbf{Comandos más importantes para recordar:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{echo\ "\#\ Léeme"\ \textgreater{}\textgreater{}\ README.md}:
+  Crea un archivo README.md con el texto ``\# Léeme''.
+\item
+  \texttt{git\ init}: Inicia un nuevo repositorio en el directorio
+  actual.
+\item
+  \texttt{git\ status} - Siempre saber dónde estás
+\item
+  \texttt{git\ add} - Preparar cambios
+\item
+  \texttt{git\ commit\ -m\ "Primer\ commit"} - Guardar cambios
+\item
+  \texttt{git\ branch\ -M\ main}: Muestra las ramas existentes.
+\item
+  \texttt{git\ push\ -u\ origin\ main} - Compartir cambios
+\item
+  \texttt{git\ pull} - Obtener cambios
+\item
+  \texttt{git\ log} - Ver historial de commits
+\item
+  \texttt{git\ diff} - Ver diferencias
+\item
+  \texttt{git\ checkout\ {[}branch{]}}: Cambia a una rama específica.
+\item
+  \texttt{git\ merge\ {[}branch{]}}: Fusiona una rama con la actual.
+\end{itemize}
 
 \section{Publicaciones Similares}\label{publicaciones-similares}
 

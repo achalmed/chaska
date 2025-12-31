@@ -2,12 +2,12 @@
 documentmode: doc
 copyrightnotice: 2023
 copyrightext: All rights reserved
-title: Guía completa de Git y GitHub desde cero
-abstract: Este abstract será actualizado una vez que se complete el contenido final
-  del artículo.
+title: Guía completa de Git y GitHub
+abstract: Esta guía completa de Git y GitHub ofrece una visión integral y actualizada del sistema de control de versiones más utilizado en el desarrollo de software. Desde los fundamentos teóricos (arquitectura, objetos y estados de archivos) hasta comandos esenciales, flujos de trabajo diarios reales, resolución avanzada de conflictos, mejores prácticas modernas (incluyendo Conventional Commits y trunk-based development) y ejemplos prácticos aplicados en 2025, este documento sirve como referencia exhaustiva tanto para principiantes que dan sus primeros pasos como para desarrolladores intermedios que desean optimizar su flujo de trabajo diario en entornos individuales, equipos pequeños y proyectos colaborativos en GitHub.
 keywords:
-- keyword1
-- keyword2
+- Git
+- GitHub
+- Control de versiones
 categories:
 - Operating System
 tags:
@@ -42,16 +42,18 @@ image: ../featured.jpg
 Git es un sistema de control de versiones distribuido rápido, escalable y eficiente. Fue creado por Linus Torvalds en 2005 para el desarrollo del kernel de Linux.
 
 **Características principales:**
+
 - Sistema distribuido (cada desarrollador tiene una copia completa del historial)
 - Extremadamente rápido
 - Soporte robusto para desarrollo no lineal (branching y merging)
 - Integridad de datos garantizada mediante SHA-1
 
-## Arquitectura de Git
+**Arquitectura de Git**
 
 Git almacena los datos como instantáneas (snapshots) del proyecto completo, no como diferencias entre archivos. Cada commit es una instantánea completa del estado del proyecto.
 
 **Tres áreas principales:**
+
 1. **Working Directory**: Tu directorio de trabajo actual
 2. **Staging Area (Index)**: Área de preparación para el próximo commit
 3. **Repository (.git directory)**: Base de datos de objetos y metadata
@@ -65,31 +67,26 @@ Git almacena los datos como instantáneas (snapshots) del proyecto completo, no 
 
 **Linux (Ubuntu/Debian):**
 
-```bash
-sudo apt-get update
-sudo apt-get install git
-```
+   ```bash
+   sudo apt-get update
+   sudo apt-get install git
+   ```
 
 **Linux (Fedora):**
 
-```bash
-sudo dnf install git
-```
+   ```bash
+   sudo dnf install git
+   ```
 
 **macOS:**
 
-```bash
-brew install git
-```
+   ```bash
+   brew install git
+   ```
 
 **Windows:**
 Descargar desde: https://git-scm.com/download/win
 
-## Verificar Instalación
-
-```bash
-git --version
-```
 
 ### Método 2: Desde la fuente (versión más reciente)
 
@@ -97,14 +94,16 @@ git --version
 
    ```bash
    sudo apt update
-   sudo apt install libz-dev libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext cmake gcc
+   sudo apt install libz-dev libssl-dev libcurl4-gnutls-dev \
+   libexpat1-dev gettext cmake gcc
    ```
 
 2. Descarga y descomprime la versión deseada (ejemplo: 2.34.1):
 
    ```bash
    mkdir tmp && cd tmp
-   curl -o git.tar.gz https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.34.1.tar.gz
+   curl -o git.tar.gz \
+   https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.34.1.tar.gz
    tar -zxf git.tar.gz
    cd git-*
    ```
@@ -117,11 +116,11 @@ git --version
    exec bash
    ```
 
-4. Confirma la instalación:
+## Verificar Instalación
 
-   ```bash
-   git --version
-   ```
+```bash
+git --version
+```
 
 ## Configuración Inicial
 
@@ -295,12 +294,12 @@ git diff --name-only       # Solo nombres de archivos
 ## Añadir Archivos (Staging)
 
 ```bash
-git add <archivo>          # Añadir archivo específico
-git add .                  # Añadir todos los archivos del directorio actual
-git add -A                 # Añadir todos los archivos del repositorio
-git add *.js               # Añadir por patrón
-git add -p                 # Añadir interactivamente por fragmentos
-git add -u                 # Añadir solo archivos ya rastreados modificados
+git add <archivo>        # Añadir archivo específico
+git add .                # Añadir todos los archivos del directorio actual
+git add -A               # Añadir todos los archivos del repositorio
+git add *.js             # Añadir por patrón
+git add -p               # Añadir interactivamente por fragmentos
+git add -u               # Añadir solo archivos ya rastreados modificados
 ```
 
 ## Commits
@@ -317,6 +316,7 @@ git commit --amend --no-edit  # Añadir cambios sin cambiar mensaje
 ```
 
 **Buenas prácticas para mensajes:**
+
 - Primera línea: resumen conciso (50 caracteres o menos)
 - Línea en blanco
 - Descripción detallada (72 caracteres por línea)
@@ -352,6 +352,7 @@ git tree
 ```
 
 **Placeholders útiles:**
+
 - `%h`: Hash abreviado
 - `%H`: Hash completo
 - `%an`: Nombre del autor
@@ -381,10 +382,10 @@ git reset HEAD             # Quitar todos
 **Deshacer commits:**
 
 ```bash
-git reset --soft HEAD~1    # Mantiene cambios en staging
-git reset --mixed HEAD~1   # Mantiene cambios en working directory [default]
-git reset --hard HEAD~1    # CUIDADO: Elimina todo
-git reset <commit>         # Volver a un commit específico
+git reset --soft HEAD~1   # Mantiene cambios en staging
+git reset --mixed HEAD~1  # Mantiene cambios en working directory [default]
+git reset --hard HEAD~1   # CUIDADO: Elimina todo
+git reset <commit>        # Volver a un commit específico
 ```
 
 **Revertir commit (seguro):**
@@ -436,7 +437,7 @@ git branch --no-merged     # Ramas no fusionadas
 ```bash
 git checkout <rama>        # Método antiguo
 git switch <rama>          # Método moderno (Git 2.23+)
-git checkout -            # Volver a rama anterior
+git checkout -             # Volver a rama anterior
 ```
 
 **Eliminar ramas:**
@@ -466,6 +467,7 @@ git merge --abort          # Cancelar merge en conflicto
 ```
 
 **Tipos de merge:**
+
 1. **Fast-forward**: Avance directo sin commit de merge
 2. **Three-way merge**: Crea commit de merge con dos padres
 3. **Squash merge**: Combina todos los commits en uno
@@ -484,6 +486,7 @@ git rebase --skip          # Saltar commit actual
 ```
 
 **Rebase interactivo - comandos:**
+
 - `pick`: Usar commit
 - `reword`: Cambiar mensaje
 - `edit`: Editar commit
@@ -499,7 +502,7 @@ Aplicar commits específicos de una rama a otra:
 
 ```bash
 git cherry-pick <commit>   # Aplicar un commit
-git cherry-pick <commit1> <commit2>  # Varios commits
+git cherry-pick <commit1> <commit2>   # Varios commits
 git cherry-pick <commit1>..<commit2>  # Rango de commits
 git cherry-pick --continue # Continuar después de conflictos
 git cherry-pick --abort    # Cancelar
@@ -555,13 +558,13 @@ git pull --rebase origin main
 **Push (enviar cambios):**
 
 ```bash
-git push                   # Push de rama actual
-git push origin main       # Push a rama específica
-git push -u origin main    # Push y establecer upstream
-git push --all             # Push de todas las ramas
-git push --tags            # Push de todos los tags
+git push                     # Push de rama actual
+git push origin main         # Push a rama específica
+git push -u origin main      # Push y establecer upstream
+git push --all               # Push de todas las ramas
+git push --tags              # Push de todos los tags
 git push origin --delete <rama>  # Eliminar rama remota
-git push --force           # ⚠️ Forzar push (PELIGROSO)
+git push --force             # ⚠️ Forzar push (PELIGROSO)
 git push --force-with-lease  # Forzar pero más seguro
 ```
 
@@ -686,11 +689,11 @@ git worktree prune         # Limpiar worktrees obsoletos
 Incluir repositorios dentro de repositorios:
 
 ```bash
-git submodule add <url> <path>  # Añadir submodule
-git submodule init         # Inicializar submodules
-git submodule update       # Actualizar submodules
+git submodule add <url> <path>           # Añadir submodule
+git submodule init                       # Inicializar submodules
+git submodule update                     # Actualizar submodules
 git submodule update --init --recursive  # Init + update recursivo
-git clone --recurse-submodules <url>  # Clonar con submodules
+git clone --recurse-submodules <url>     # Clonar con submodules
 ```
 
 ## Archivos y Bundles
@@ -736,6 +739,7 @@ Su versión del código
 ## Resolver Conflictos
 
 **Manualmente:**
+
 1. Editar archivos para resolver conflictos
 2. Eliminar marcadores `<<<<<<<`, `=======`, `>>>>>>>`
 3. `git add <archivo>` para marcar como resuelto
@@ -744,7 +748,7 @@ Su versión del código
 **Con herramientas:**
 
 ```bash
-git mergetool              # Abrir herramienta de merge
+git mergetool                        # Abrir herramienta de merge
 git mergetool --tool=vimdiff
 git config --global merge.tool meld  # Configurar herramienta
 ```
@@ -752,8 +756,8 @@ git config --global merge.tool meld  # Configurar herramienta
 **Estrategias:**
 
 ```bash
-git merge -X ours <rama>   # Preferir nuestra versión
-git merge -X theirs <rama> # Preferir su versión
+git merge -X ours <rama>         # Preferir nuestra versión
+git merge -X theirs <rama>       # Preferir su versión
 git checkout --ours <archivo>    # Tomar nuestra versión
 git checkout --theirs <archivo>  # Tomar su versión
 ```
@@ -785,6 +789,7 @@ git flow hotfix finish fix-critico
 ## GitHub Flow
 
 Workflow más simple:
+
 1. Crear rama desde `main`
 2. Hacer commits
 3. Abrir Pull Request
@@ -804,15 +809,16 @@ Workflow más simple:
 
 Flujos de trabajo más comunes que uso **todos los días** en diferentes tipos de proyectos y entornos (individuales, equipos pequeños, medianos y open-source).
 
-## 1. Flujo individual / Freelance / Proyectos personales (el más frecuente para principiantes y side projects)
+## Flujo individual / Freelance / Proyectos personales
 
 ```bash
 # Al empezar el día
-git pull origin main                # Siempre sincronizo primero
-git status # Muestra el estado actual del repositorio.
+git pull origin main  # Siempre sincronizo primero
+git status            # Muestra el estado actual del repositorio.
 
 # Trabajo en una nueva funcionalidad
-git switch -c feat/login-social     # Creo rama con convención clara
+git switch -c feat/login-social   # Creo rama con convención clara
+
 # ... desarrollo varias horas ...
 git add .
 git commit -m "feat: implementar login con Google y GitHub"
@@ -824,13 +830,13 @@ git commit -m "fix: corregir validación de email en formulario"
 # Al final del día o antes de push
 git branch -M main # Muestra las ramas existentes.
 git switch main
-git pull                            # Vuelvo a sincronizar por si alguien más empujó
+git pull                 # Vuelvo a sincronizar por si alguien más empujó
 git switch feat/login-social
-git rebase main                     # Mantengo mi rama actualizada (rebase limpio)
+git rebase main          # Mantengo mi rama actualizada (rebase limpio)
 git switch main
 git merge --ff-only feat/login-social   # Fast-forward si es posible
-git push -u origin main # Envía los cambios al repositorio remoto.
-git branch -d feat/login-social     # Elimino la rama ya que está integrada
+git push -u origin main  # Envía los cambios al repositorio remoto.
+git branch -d feat/login-social   # Elimino la rama ya que está integrada
 
 # Opcional: commit squash al final (muy común en proyectos pequeños)
 git merge --squash feat/login-social
@@ -840,11 +846,11 @@ git push
 
 **Ventajas**: Muy rápido, historial relativamente limpio, poco overhead.
 
-## 2. Flujo típico de equipo mediano/pequeño con Pull Requests (el más usado en 2025)
+## Flujo típico de equipo mediano/pequeño con Pull Requests
 
 ```bash
 # Inicio de jornada / después de stand-up
-git fetch --prune                   # Limpio referencias remotas obsoletas
+git fetch --prune          # Limpio referencias remotas obsoletas
 git switch main
 git pull
 
@@ -856,7 +862,7 @@ git commit -m "feat(dashboard): lazy loading de gráficos pesados"
 git commit -m "refactor: extraer hook useChartData"
 
 # Antes de terminar el día
-git rebase -i origin/main           # O rebase main si ya está actualizado
+git rebase -i origin/main    # O rebase main si ya está actualizado
 # Squash/reword si quiero limpiar commits antes de PR
 
 # Subo y creo Pull Request
@@ -865,7 +871,8 @@ git push -u origin feature/456-dashboard-perf
 # En GitHub/GitLab:
 #   → Creo PR → añado reviewers → espero revisión
 #   → Después de aprobar y pasar CI/CD:
-#     Merge squash / merge commit / rebase & merge (depende de la política del equipo)
+#     Merge squash / merge commit / 
+#     rebase & merge (depende de la política del equipo)
 
 # Una vez mergeado (normalmente por el reviewer o bot)
 git switch main
@@ -877,7 +884,7 @@ git branch -d feature/456-dashboard-perf   # Limpio localmente
 **Variante muy común en 2025**:  
 Merge squash → un solo commit limpio en `main` con el título del PR
 
-## 3. Corrección rápida de bug en producción (hotfix diario)
+## Corrección rápida de bug en producción
 
 ```bash
 # Opción más rápida y segura (recomendada)
@@ -901,7 +908,7 @@ git tag hotfix-2025-12-30-boton-pago   # O v1.2.3-hotfix si usas semver
 git push --tags
 ```
 
-## 4. Flujo cuando trabajas en varias tareas al mismo tiempo (muy común)
+## Flujo cuando trabajas en varias tareas al mismo tiempo
 
 ```bash
 # Estoy en medio de feature/cuenta-premium
@@ -923,7 +930,7 @@ git stash pop
 # Continúo donde estaba...
 ```
 
-## 5. Mini-resumen de comandos que más se usan en la práctica diaria (2025)
+## Mini-resumen de comandos que más se usan en la práctica diaria
 
 | Acción                              | Comando más común en 2025                        | Frecuencia |
 |-------------------------------------|--------------------------------------------------|------------|
@@ -1013,8 +1020,6 @@ git config --global core.excludesfile ~/.gitignore_global
 git check-ignore -v <archivo>  # Ver por qué archivo es ignorado
 ```
 
-
-
 # Comandos de Bajo Nivel (Plumbing)
 
 Comandos internos de Git para operaciones avanzadas:
@@ -1034,7 +1039,7 @@ git ls-remote <remote>     # Listar referencias remotas
 ## Manipulación del Index
 
 ```bash
-git update-index --add <archivo>  # Añadir al index
+git update-index --add <archivo>     # Añadir al index
 git update-index --remove <archivo>  # Quitar del index
 git read-tree <tree>       # Leer tree al index
 git write-tree             # Crear tree desde index
@@ -1052,10 +1057,10 @@ git for-each-ref           # Iterar sobre referencias
 ## Objetos y Hashes
 
 ```bash
-git hash-object <archivo>  # Calcular hash de archivo
+git hash-object <archivo>     # Calcular hash de archivo
 git hash-object -w <archivo>  # Escribir objeto
-git rev-parse HEAD         # Convertir referencia a hash
-git rev-list HEAD          # Listar commits alcanzables
+git rev-parse HEAD            # Convertir referencia a hash
+git rev-list HEAD             # Listar commits alcanzables
 ```
 
 # Hooks y Automatización
@@ -1069,6 +1074,7 @@ Scripts que se ejecutan automáticamente en eventos de Git.
 **Hooks comunes:**
 
 **Client-side:**
+
 - `pre-commit`: Antes de crear commit
 - `prepare-commit-msg`: Antes de abrir editor de commit
 - `commit-msg`: Validar mensaje de commit
@@ -1076,6 +1082,7 @@ Scripts que se ejecutan automáticamente en eventos de Git.
 - `pre-push`: Antes de hacer push
 
 **Server-side:**
+
 - `pre-receive`: Antes de aceptar push
 - `update`: Por cada rama actualizada
 - `post-receive`: Después de aceptar push
@@ -1132,7 +1139,8 @@ git visual
 **Aliases útiles:**
 
 ```bash
-git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset \
+-%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --global alias.undo 'reset HEAD~1 --mixed'
 git config --global alias.contributors 'shortlog -sn'
 ```
@@ -1203,14 +1211,14 @@ git merge temp-branch
 
 ```bash
 git remote prune origin  # Eliminar referencias remotas obsoletas
-git fetch --prune  # Fetch y prune simultáneamente
+git fetch --prune        # Fetch y prune simultáneamente
 ```
 
 **Comprimir repositorio:**
 ```bash
-git gc  # Garbage collection
+git gc               # Garbage collection
 git gc --aggressive  # Más agresivo
-git prune  # Eliminar objetos inalcanzables
+git prune            # Eliminar objetos inalcanzables
 ```
 
 **Ver archivos grandes:**
@@ -1236,13 +1244,13 @@ git filter-repo --path archivo-sensible --invert-paths
 ## Sintaxis de Referencias
 
 ```bash
-HEAD           # Commit actual
-HEAD^          # Padre de HEAD (HEAD~1)
-HEAD^^         # Abuelo de HEAD (HEAD~2)
-HEAD~3         # 3 commits antes de HEAD
-main^2         # Segundo padre de main (en merge)
+HEAD                  # Commit actual
+HEAD^                 # Padre de HEAD (HEAD~1)
+HEAD^^                # Abuelo de HEAD (HEAD~2)
+HEAD~3                # 3 commits antes de HEAD
+main^2                # Segundo padre de main (en merge)
 <branch>@{yesterday}  # Posición ayer
-HEAD@{5}       # 5 movimientos atrás en reflog
+HEAD@{5}              # 5 movimientos atrás en reflog
 ```
 
 ## Especificar Rangos
@@ -1344,6 +1352,7 @@ alias glg='git log --graph --oneline --all --decorate'
 ```
 
 **Tipos:**
+
 - `feat`: Nueva funcionalidad
 - `fix`: Corrección de bug
 - `docs`: Documentación
@@ -1467,6 +1476,7 @@ Git es una herramienta poderosa y flexible que requiere práctica para dominar. 
 5. No temas equivocarte (casi todo se puede deshacer)
 
 **Comandos más importantes para recordar:**
+
 - `echo "# Léeme" >> README.md`: Crea un archivo README.md con el texto "# Léeme".
 - `git init`: Inicia un nuevo repositorio en el directorio actual.
 - `git status` - Siempre saber dónde estás
