@@ -69,7 +69,6 @@ Ranger es un gestor de archivos de consola con:
 - Pestañas, marcadores, soporte de ratón  
 - Cambia el directorio del shell al salir  
 
-
 # Instalación
 
 ## Desde Repositorios
@@ -123,43 +122,105 @@ ranger --version
 
 ## Dependencias Opcionales
 
-**Para funcionalidad completa:**
+Para habilitar todas las funcionalidades de previsualización y análisis de archivos en `ranger`, se recomienda instalar las siguientes dependencias según tu distribución.
+
+### Para Debian / Ubuntu / derivados
 
 ```bash
-# Determinar tipos de archivo
-sudo apt-get install file
+# Básico (casi imprescindible)
+sudo apt install file
 
-# Detección mejorada de codificación
-pip install chardet
+# Resaltado de sintaxis (elige uno o varios)
+sudo apt install highlight
+sudo apt install bat
+# pygments vía pip si prefieres la versión python:
+# pip install --user pygments
 
-# Nombres bidireccionales (árabe, hebreo)
-pip install python-bidi
+# Imágenes (elige según tu terminal)
+sudo apt install w3m w3m-img           # Método clásico
+sudo apt install caca-utils            # Arte ASCII alternativo
+# kitty / wezterm / alacritty → mejor con ueberzugpp
 
-# Previsualización de imágenes
-sudo apt-get install caca-utils w3m-img
+# Conversión y procesamiento de imágenes
+sudo apt install imagemagick
 
-# Conversión de imágenes
-sudo apt-get install imagemagick
+# Archivos comprimidos
+sudo apt install atool unrar p7zip-full
 
-# Resaltado de sintaxis
-sudo apt-get install highlight
-# O
-pip install pygments
+# PDFs
+sudo apt install poppler-utils
 
-# Previsualización de archivos comprimidos
-sudo apt-get install atool unrar p7zip-full
-
-# Previsualización de PDFs
-sudo apt-get install poppler-utils
-
-# Previsualización de videos
-sudo apt-get install ffmpegthumbnailer
+# Miniaturas de video
+sudo apt install ffmpegthumbnailer
 
 # Información de medios
-sudo apt-get install mediainfo
+sudo apt install mediainfo
+
+# Idiomas y codificación especial
+sudo apt install python3-chardet
+pip install --user python-bidi        # Para árabe, hebreo, etc.
 
 # Convertir SVG
 sudo apt-get install librsvg2-bin
+```
+
+### Para Arch Linux / Manjaro / derivados
+
+```bash
+# Básico (casi imprescindible)
+sudo pacman -S file
+
+# Resaltado de sintaxis (elige uno o varios)
+sudo pacman -S highlight
+sudo pacman -S bat
+# pygments vía pip si prefieres:
+# pip install --user pygments
+
+# Imágenes (elige según tu terminal)
+sudo pacman -S w3m libcaca             # Método clásico + ASCII
+sudo pacman -S ueberzugpp              # Muy recomendado (mejor que w3m)
+# kitty / wezterm → soporte nativo excelente
+
+# Conversión y procesamiento de imágenes
+sudo pacman -S imagemagick
+
+# Archivos comprimidos
+sudo pacman -S atool unrar p7zip
+
+# PDFs
+sudo pacman -S poppler
+
+# Miniaturas de video
+sudo pacman -S ffmpegthumbnailer
+
+# Información de medios
+sudo pacman -S mediainfo
+
+# Idiomas y codificación especial
+sudo pacman -S python-chardet
+sudo pacman -S python-bidi             # Para textos RTL (árabe, hebreo...)
+
+# Convertir SVG
+sudo pacman -S librsvg
+```
+
+### Instalación recomendada mínima (elige según tu caso)
+
+**Usuario de Arch + kitty/wezterm:**
+
+```bash
+sudo pacman -S file highlight bat imagemagick ffmpegthumbnailer \
+poppler mediainfo ueberzugpp
+# Opcional pero muy útil:
+sudo pacman -S atool unrar p7zip python-bidi python-chardet
+```
+
+**Usuario de Ubuntu + terminal clásico:**
+
+```bash
+sudo apt install file highlight imagemagick ffmpegthumbnailer \
+poppler-utils mediainfo w3m w3m-img atool unrar p7zip-full python3-chardet
+# Opcional: pip install --user python-bidi
 ```
 
 # Configuración Inicial
@@ -243,76 +304,75 @@ Muestra información del archivo seleccionado:
 
 ## Navegación Básica (Estilo Vim)
 
-| Tecla | Acción |
-|-------|--------|
-| `h` | Ir al directorio padre (arriba en jerarquía) |
-| `j` | Mover cursor hacia abajo |
-| `k` | Mover cursor hacia arriba |
-| `l` | Entrar a directorio / Abrir archivo |
-| `↑` | Mover cursor hacia arriba |
-| `↓` | Mover cursor hacia abajo |
-| `←` | Ir al directorio padre |
-| `→` | Entrar a directorio / Abrir archivo |
+| Tecla | Acción                                       |
+| ----- | -------------------------------------------- |
+| `h`   | Ir al directorio padre (arriba en jerarquía) |
+| `j`   | Mover cursor hacia abajo                     |
+| `k`   | Mover cursor hacia arriba                    |
+| `l`   | Entrar a directorio / Abrir archivo          |
+| `↑`   | Mover cursor hacia arriba                    |
+| `↓`   | Mover cursor hacia abajo                     |
+| `←`   | Ir al directorio padre                       |
+| `→`   | Entrar a directorio / Abrir archivo          |
 
 ## Movimiento Rápido
 
-| Tecla | Acción |
-|-------|--------|
-| `gg` | Ir al inicio de la lista |
-| `G` | Ir al final de la lista |
-| `H` | Ir al inicio de la pantalla visible |
-| `M` | Ir a la mitad de la pantalla visible |
-| `L` | Ir al final de la pantalla visible |
-| `{` | Subir una página |
-| `}` | Bajar una página |
-| `Ctrl+u` | Media página arriba |
-| `Ctrl+d` | Media página abajo |
-| `Ctrl+b` | Página completa arriba |
-| `Ctrl+f` | Página completa abajo |
+| Tecla    | Acción                               |
+| -------- | ------------------------------------ |
+| `gg`     | Ir al inicio de la lista             |
+| `G`      | Ir al final de la lista              |
+| `H`      | Ir al inicio de la pantalla visible  |
+| `M`      | Ir a la mitad de la pantalla visible |
+| `L`      | Ir al final de la pantalla visible   |
+| `{`      | Subir una página                     |
+| `}`      | Bajar una página                     |
+| `Ctrl+u` | Media página arriba                  |
+| `Ctrl+d` | Media página abajo                   |
+| `Ctrl+b` | Página completa arriba               |
+| `Ctrl+f` | Página completa abajo                |
 
 ## Salir y Ayuda
 
-| Tecla | Acción |
-|-------|--------|
-| `q` | Salir de ranger |
-| `Q` | Salir sin cambiar directorio |
-| `?` | Abrir manual de ayuda |
-| `W` | Ver log de ranger |
-
+| Tecla | Acción                       |
+| ----- | ---------------------------- |
+| `q`   | Salir de ranger              |
+| `Q`   | Salir sin cambiar directorio |
+| `?`   | Abrir manual de ayuda        |
+| `W`   | Ver log de ranger            |
 
 # Navegación Avanzada
 
 ## Historial de Navegación
 
-| Tecla | Acción |
-|-------|--------|
-| `H` | Ir atrás en el historial (history back) |
-| `L` | Ir adelante en el historial (history forward) |
-| `Alt+Left` | Historial atrás |
-| `Alt+Right` | Historial adelante |
+| Tecla       | Acción                                        |
+| ----------- | --------------------------------------------- |
+| `H`         | Ir atrás en el historial (history back)       |
+| `L`         | Ir adelante en el historial (history forward) |
+| `Alt+Left`  | Historial atrás                               |
+| `Alt+Right` | Historial adelante                            |
 
 ## Saltos Rápidos
 
-| Tecla | Acción |
-|-------|--------|
-| `gh` | Ir a HOME (~) |
-| `ge` | Ir a /etc |
-| `gu` | Ir a /usr |
-| `gd` | Ir a /dev |
-| `go` | Ir a /opt |
-| `gv` | Ir a /var |
-| `gm` | Ir a /media |
-| `gM` | Ir a /mnt |
-| `gs` | Ir a /srv |
-| `gR` | Ir a / (root) |
-| `g/` | Ir a / (root) |
-| `g?` | Ir a /usr/share/doc/ranger |
+| Tecla | Acción                     |
+| ----- | -------------------------- |
+| `gh`  | Ir a HOME `~`              |
+| `ge`  | Ir a /etc                  |
+| `gu`  | Ir a /usr                  |
+| `gd`  | Ir a /dev                  |
+| `go`  | Ir a /opt                  |
+| `gv`  | Ir a /var                  |
+| `gm`  | Ir a /media                |
+| `gM`  | Ir a /mnt                  |
+| `gs`  | Ir a /srv                  |
+| `gR`  | Ir a / (root)              |
+| `g/`  | Ir a / (root)              |
+| `g?`  | Ir a /usr/share/doc/ranger |
 
 ## Navegación por Primera Letra
 
-| Tecla | Acción |
-|-------|--------|
-| `f<letra>` | Buscar archivo que empiece con letra |
+| Tecla      | Acción                                             |
+| ---------- | -------------------------------------------------- |
+| `f<letra>` | Buscar archivo que empiece con letra               |
 | `F<letra>` | Buscar archivo que empiece con letra (multi-match) |
 
 **Ejemplo:**
@@ -322,56 +382,56 @@ Muestra información del archivo seleccionado:
 
 ## Ir a Directorio Específico
 
-| Tecla | Acción |
-|-------|--------|
-| `cd` | Abrir prompt para cambiar directorio |
-| `:cd /ruta` | Ir a ruta específica |
-| `:cd -` | Ir al directorio anterior |
+| Tecla       | Acción                               |
+| ----------- | ------------------------------------ |
+| `cd`        | Abrir prompt para cambiar directorio |
+| `:cd /ruta` | Ir a ruta específica                 |
+| `:cd -`     | Ir al directorio anterior            |
 
 # Operaciones con Archivos
 
 ## Copiar, Cortar y Pegar
 
-| Tecla | Acción |
-|-------|--------|
-| `yy` | Copiar (yank) archivo seleccionado |
-| `dd` | Cortar (cut) archivo seleccionado |
-| `pp` | Pegar archivo |
-| `po` | Pegar sobrescribiendo |
-| `pP` | Pegar creando enlaces simbólicos |
-| `pO` | Pegar enlaces simbólicos sobrescribiendo |
-| `pl` | Pegar creando enlaces duros (hardlinks) |
-| `pL` | Pegar enlaces duros con nuevo nombre |
-| `ud` | Deshacer (undo) operación de cortar |
-| `uy` | Deshacer (undo) operación de copiar |
+| Tecla | Acción                                   |
+| ----- | ---------------------------------------- |
+| `yy`  | Copiar (yank) archivo seleccionado       |
+| `dd`  | Cortar (cut) archivo seleccionado        |
+| `pp`  | Pegar archivo                            |
+| `po`  | Pegar sobrescribiendo                    |
+| `pP`  | Pegar creando enlaces simbólicos         |
+| `pO`  | Pegar enlaces simbólicos sobrescribiendo |
+| `pl`  | Pegar creando enlaces duros (hardlinks)  |
+| `pL`  | Pegar enlaces duros con nuevo nombre     |
+| `ud`  | Deshacer (undo) operación de cortar      |
+| `uy`  | Deshacer (undo) operación de copiar      |
 
 ## Eliminar
 
-| Tecla | Acción |
-|-------|--------|
-| `dD` | Eliminar archivo (pide confirmación) |
-| `dT` | Mover a papelera (si está configurada) |
+| Tecla | Acción                                 |
+| ----- | -------------------------------------- |
+| `dD`  | Eliminar archivo (pide confirmación)   |
+| `dT`  | Mover a papelera (si está configurada) |
 
 ## Crear y Editar
 
-| Tecla | Acción |
-|-------|--------|
-| `:touch nombre` | Crear archivo nuevo |
-| `:mkdir nombre` | Crear directorio nuevo |
-| `i` | Mostrar nombre del archivo actual |
-| `E` | Editar archivo con editor por defecto |
-| `cw` | Renombrar archivo (change word) |
-| `a` | Renombrar - cursor al final |
-| `A` | Renombrar - cursor después de extensión |
-| `I` | Renombrar - cursor al principio |
+| Tecla           | Acción                                  |
+| --------------- | --------------------------------------- |
+| `:touch nombre` | Crear archivo nuevo                     |
+| `:mkdir nombre` | Crear directorio nuevo                  |
+| `i`             | Mostrar nombre del archivo actual       |
+| `E`             | Editar archivo con editor por defecto   |
+| `cw`            | Renombrar archivo (change word)         |
+| `a`             | Renombrar - cursor al final             |
+| `A`             | Renombrar - cursor después de extensión |
+| `I`             | Renombrar - cursor al principio         |
 
 ## Permisos y Propiedades
 
-| Tecla | Acción |
-|-------|--------|
-| `=` | Mostrar permisos en notación chmod |
-| `+<permisos>` | Añadir permisos (ej: `+x`) |
-| `-<permisos>` | Quitar permisos (ej: `-w`) |
+| Tecla         | Acción                             |
+| ------------- | ---------------------------------- |
+| `=`           | Mostrar permisos en notación chmod |
+| `+<permisos>` | Añadir permisos (ej: `+x`)         |
+| `-<permisos>` | Quitar permisos (ej: `-w`)         |
 
 **Ejemplos:**
 
@@ -385,12 +445,12 @@ Muestra información del archivo seleccionado:
 
 ## Seleccionar Archivos
 
-| Tecla | Acción |
-|-------|--------|
-| `Space` | Marcar/desmarcar archivo y bajar |
-| `v` | Invertir selección de todos los archivos |
-| `V` | Entrar en modo visual (selección continua) |
-| `uv` | Desmarcar todos los archivos |
+| Tecla   | Acción                                     |
+| ------- | ------------------------------------------ |
+| `Space` | Marcar/desmarcar archivo y bajar           |
+| `v`     | Invertir selección de todos los archivos   |
+| `V`     | Entrar en modo visual (selección continua) |
+| `uv`    | Desmarcar todos los archivos               |
 
 ## Modo Visual
 
@@ -426,54 +486,53 @@ Una vez seleccionados:
 
 ## Búsqueda
 
-| Tecla | Acción |
-|-------|--------|
-| `/` | Buscar hacia adelante |
-| `?` | Buscar hacia atrás |
-| `n` | Ir a siguiente resultado |
-| `N` | Ir a resultado anterior |
-| `ct` | Buscar en subdirectorios (content search) |
-| `cs` | Cancelar búsqueda |
+| Tecla | Acción                                    |
+| ----- | ----------------------------------------- |
+| `/`   | Buscar hacia adelante                     |
+| `?`   | Buscar hacia atrás                        |
+| `n`   | Ir a siguiente resultado                  |
+| `N`   | Ir a resultado anterior                   |
+| `ct`  | Buscar en subdirectorios (content search) |
+| `cs`  | Cancelar búsqueda                         |
 
 ## Filtrado
 
-| Tecla | Acción |
-|-------|--------|
-| `zf` | Filtrar archivos (solo mostrar coincidencias) |
-| `zz` | Cambiar configuración de filtro |
-| `zh` | Mostrar/ocultar archivos ocultos |
+| Tecla | Acción                                        |
+| ----- | --------------------------------------------- |
+| `zf`  | Filtrar archivos (solo mostrar coincidencias) |
+| `zz`  | Cambiar configuración de filtro               |
+| `zh`  | Mostrar/ocultar archivos ocultos              |
 
 ## Ordenamiento
 
-| Tecla | Acción |
-|-------|--------|
-| `on` | Ordenar por nombre |
-| `os` | Ordenar por tamaño |
-| `ot` | Ordenar por fecha de modificación |
-| `oa` | Ordenar por fecha de acceso |
-| `oc` | Ordenar por fecha de creación |
-| `oe` | Ordenar por extensión |
-| `ob` | Ordenar por nombre base (sin extensión) |
-| `or` | Invertir orden |
-| `oz` | Aleatorio |
-| `oS` | Ordenar naturalmente (números: 1, 2, 10 no 1, 10, 2) |
-
+| Tecla | Acción                                               |
+| ----- | ---------------------------------------------------- |
+| `on`  | Ordenar por nombre                                   |
+| `os`  | Ordenar por tamaño                                   |
+| `ot`  | Ordenar por fecha de modificación                    |
+| `oa`  | Ordenar por fecha de acceso                          |
+| `oc`  | Ordenar por fecha de creación                        |
+| `oe`  | Ordenar por extensión                                |
+| `ob`  | Ordenar por nombre base (sin extensión)              |
+| `or`  | Invertir orden                                       |
+| `oz`  | Aleatorio                                            |
+| `oS`  | Ordenar naturalmente (números: 1, 2, 10 no 1, 10, 2) |
 
 # Pestañas (Tabs)
 
 ## Gestión de Pestañas
 
-| Tecla | Acción |
-|-------|--------|
-| `gn` | Crear pestaña nueva (tab new) |
-| `gt` | Ir a siguiente pestaña (tab next) |
-| `gT` | Ir a pestaña anterior (tab previous) |
-| `gc` | Cerrar pestaña actual (tab close) |
-| `Alt+1` | Ir a pestaña 1 |
-| `Alt+2` | Ir a pestaña 2 |
-| ... | ... |
-| `Alt+9` | Ir a pestaña 9 |
-| `uq` | Restaurar pestaña cerrada |
+| Tecla   | Acción                               |
+| ------- | ------------------------------------ |
+| `gn`    | Crear pestaña nueva (tab new)        |
+| `gt`    | Ir a siguiente pestaña (tab next)    |
+| `gT`    | Ir a pestaña anterior (tab previous) |
+| `gc`    | Cerrar pestaña actual (tab close)    |
+| `Alt+1` | Ir a pestaña 1                       |
+| `Alt+2` | Ir a pestaña 2                       |
+| ...     | ...                                  |
+| `Alt+9` | Ir a pestaña 9                       |
+| `uq`    | Restaurar pestaña cerrada            |
 
 ## Movimiento Entre Pestañas
 
@@ -491,19 +550,19 @@ gT    # Anterior
 
 ## Crear y Usar Marcadores
 
-| Tecla | Acción |
-|-------|--------|
-| `m<letra>` | Crear marcador (ej: `ma`) |
-| `'<letra>` | Ir a marcador (ej: `'a`) |
+| Tecla          | Acción                      |
+| -------------- | --------------------------- |
+| `m<letra>`     | Crear marcador (ej: `ma`)   |
+| `'<letra>`     | Ir a marcador (ej: `'a`)    |
 | `` `<letra> `` | Ir a marcador (igual que ') |
-| `um<letra>` | Eliminar marcador |
+| `um<letra>`    | Eliminar marcador           |
 
 ## Marcadores Especiales
 
-| Marcador | Ubicación |
-|----------|-----------|
-| `''` | Posición anterior |
-| `` `` `` | Posición anterior (backtick) |
+| Marcador | Ubicación                    |
+| -------- | ---------------------------- |
+| `''`     | Posición anterior            |
+| ` ` ``   | Posición anterior (backtick) |
 
 **Ejemplo de uso:**
 
@@ -523,17 +582,16 @@ cd /etc   # Navega a otro lugar
 :marks    # Ver todos los marcadores
 ```
 
-
 # Previsualización de Archivos
 
 ## Configurar Previsualización
 
-| Tecla | Acción |
-|-------|--------|
-| `zp` | Activar/desactivar previsualización |
-| `zP` | Activar/desactivar previsualización de directorios |
-| `zi` | Activar/desactivar previsualización de imágenes |
-| `zv` | Cambiar modo de vista (Miller, Multipane) |
+| Tecla | Acción                                             |
+| ----- | -------------------------------------------------- |
+| `zp`  | Activar/desactivar previsualización                |
+| `zP`  | Activar/desactivar previsualización de directorios |
+| `zi`  | Activar/desactivar previsualización de imágenes    |
+| `zv`  | Cambiar modo de vista (Miller, Multipane)          |
 
 ## Tipos de Previsualización
 
@@ -703,6 +761,7 @@ set preview_images true
 # Método de previsualización de imágenes
 set preview_images_method w3m
 # Opciones: w3m, ueberzug, kitty, iterm2
+set preview_images_method kitty
 
 # Guardar historial
 set save_console_history true
@@ -899,10 +958,10 @@ rifle -p 2 archivo.pdf  # Usar opción 2 de la lista
 
 ## Dentro de Ranger
 
-| Tecla | Acción |
-|-------|--------|
-| `r` | Abrir con programa (muestra opciones) |
-| `Enter` o `l` | Abrir con programa por defecto |
+| Tecla         | Acción                                |
+| ------------- | ------------------------------------- |
+| `r`           | Abrir con programa (muestra opciones) |
+| `Enter` o `l` | Abrir con programa por defecto        |
 
 ## Configurar Rifle
 
@@ -1376,125 +1435,124 @@ ext pdf = /usr/bin/zathura -- "$@"
 
 ## Navegación
 
-| Tecla | Acción |
-|-------|--------|
-| `h` / `←` | Directorio padre |
-| `j` / `↓` | Cursor abajo |
-| `k` / `↑` | Cursor arriba |
-| `l` / `→` / `Enter` | Entrar/Abrir |
-| `H` | Historial atrás |
-| `L` | Historial adelante |
-| `gg` | Inicio de lista |
-| `G` | Final de lista |
-| `{` | Página arriba |
-| `}` | Página abajo |
-| `Ctrl+u` | Media página arriba |
-| `Ctrl+d` | Media página abajo |
-| `Ctrl+b` | Página completa arriba |
-| `Ctrl+f` | Página completa abajo |
+| Tecla               | Acción                 |
+| ------------------- | ---------------------- |
+| `h` / `←`           | Directorio padre       |
+| `j` / `↓`           | Cursor abajo           |
+| `k` / `↑`           | Cursor arriba          |
+| `l` / `→` / `Enter` | Entrar/Abrir           |
+| `H`                 | Historial atrás        |
+| `L`                 | Historial adelante     |
+| `gg`                | Inicio de lista        |
+| `G`                 | Final de lista         |
+| `{`                 | Página arriba          |
+| `}`                 | Página abajo           |
+| `Ctrl+u`            | Media página arriba    |
+| `Ctrl+d`            | Media página abajo     |
+| `Ctrl+b`            | Página completa arriba |
+| `Ctrl+f`            | Página completa abajo  |
 
 ## Archivos
 
-| Tecla | Acción |
-|-------|--------|
-| `yy` | Copiar |
-| `dd` | Cortar |
-| `pp` | Pegar |
-| `po` | Pegar sobrescribiendo |
-| `dD` | Eliminar |
-| `cw` | Renombrar |
-| `a` | Renombrar (cursor al final) |
-| `A` | Renombrar (después de extensión) |
-| `I` | Renombrar (cursor al inicio) |
-| `E` | Editar con editor |
-| `i` | Inspeccionar archivo |
+| Tecla | Acción                           |
+| ----- | -------------------------------- |
+| `yy`  | Copiar                           |
+| `dd`  | Cortar                           |
+| `pp`  | Pegar                            |
+| `po`  | Pegar sobrescribiendo            |
+| `dD`  | Eliminar                         |
+| `cw`  | Renombrar                        |
+| `a`   | Renombrar (cursor al final)      |
+| `A`   | Renombrar (después de extensión) |
+| `I`   | Renombrar (cursor al inicio)     |
+| `E`   | Editar con editor                |
+| `i`   | Inspeccionar archivo             |
 
 ## Selección
 
-| Tecla | Acción |
-|-------|--------|
-| `Space` | Marcar/desmarcar |
-| `v` | Invertir selección |
-| `V` | Modo visual |
-| `uv` | Desmarcar todos |
+| Tecla   | Acción             |
+| ------- | ------------------ |
+| `Space` | Marcar/desmarcar   |
+| `v`     | Invertir selección |
+| `V`     | Modo visual        |
+| `uv`    | Desmarcar todos    |
 
 ## Búsqueda
 
-| Tecla | Acción |
-|-------|--------|
-| `/` | Buscar adelante |
-| `?` | Buscar atrás |
-| `n` | Siguiente resultado |
-| `N` | Resultado anterior |
+| Tecla      | Acción                   |
+| ---------- | ------------------------ |
+| `/`        | Buscar adelante          |
+| `?`        | Buscar atrás             |
+| `n`        | Siguiente resultado      |
+| `N`        | Resultado anterior       |
 | `f<letra>` | Buscar por primera letra |
 
 ## Pestañas
 
-| Tecla | Acción |
-|-------|--------|
-| `gn` / `Ctrl+n` | Nueva pestaña |
-| `gt` / `Tab` | Siguiente pestaña |
-| `gT` / `Shift+Tab` | Pestaña anterior |
-| `gc` / `Ctrl+w` | Cerrar pestaña |
-| `Alt+1...9` | Ir a pestaña N |
+| Tecla              | Acción            |
+| ------------------ | ----------------- |
+| `gn` / `Ctrl+n`    | Nueva pestaña     |
+| `gt` / `Tab`       | Siguiente pestaña |
+| `gT` / `Shift+Tab` | Pestaña anterior  |
+| `gc` / `Ctrl+w`    | Cerrar pestaña    |
+| `Alt+1...9`        | Ir a pestaña N    |
 
 ## Marcadores
 
-| Tecla | Acción |
-|-------|--------|
-| `m<letra>` | Crear marcador |
-| `'<letra>` | Ir a marcador |
+| Tecla       | Acción            |
+| ----------- | ----------------- |
+| `m<letra>`  | Crear marcador    |
+| `'<letra>`  | Ir a marcador     |
 | `um<letra>` | Eliminar marcador |
 
 ## Ordenamiento
 
-| Tecla | Acción |
-|-------|--------|
-| `on` | Por nombre |
-| `os` | Por tamaño |
-| `ot` | Por fecha modificación |
-| `oe` | Por extensión |
-| `or` | Invertir orden |
+| Tecla | Acción                 |
+| ----- | ---------------------- |
+| `on`  | Por nombre             |
+| `os`  | Por tamaño             |
+| `ot`  | Por fecha modificación |
+| `oe`  | Por extensión          |
+| `or`  | Invertir orden         |
 
 ## Vista
 
-| Tecla | Acción |
-|-------|--------|
-| `zp` | Toggle preview |
-| `zP` | Toggle preview directorios |
-| `zi` | Toggle preview imágenes |
-| `zv` | Cambiar modo vista |
-| `zh` | Toggle archivos ocultos |
-| `zf` | Filtrar |
+| Tecla | Acción                     |
+| ----- | -------------------------- |
+| `zp`  | Toggle preview             |
+| `zP`  | Toggle preview directorios |
+| `zi`  | Toggle preview imágenes    |
+| `zv`  | Cambiar modo vista         |
+| `zh`  | Toggle archivos ocultos    |
+| `zf`  | Filtrar                    |
 
 ## Sistema
 
-| Tecla | Acción |
-|-------|--------|
-| `q` | Salir |
-| `Q` | Salir sin cd |
-| `R` | Recargar |
-| `?` | Ayuda |
-| `:` | Consola |
-| `!` | Shell command |
-| `s` | Shell |
-| `S` | Shell como root |
+| Tecla | Acción          |
+| ----- | --------------- |
+| `q`   | Salir           |
+| `Q`   | Salir sin cd    |
+| `R`   | Recargar        |
+| `?`   | Ayuda           |
+| `:`   | Consola         |
+| `!`   | Shell command   |
+| `s`   | Shell           |
+| `S`   | Shell como root |
 
 ## Ir a (g)
 
 | Tecla | Acción |
-|-------|--------|
-| `gh` | Home |
-| `ge` | /etc |
-| `gu` | /usr |
-| `gd` | /dev |
-| `go` | /opt |
-| `gv` | /var |
-| `gm` | /media |
-| `gM` | /mnt |
-| `gr` | / |
-| `gR` | / |
-
+| ----- | ------ |
+| `gh`  | Home   |
+| `ge`  | /etc   |
+| `gu`  | /usr   |
+| `gd`  | /dev   |
+| `go`  | /opt   |
+| `gv`  | /var   |
+| `gm`  | /media |
+| `gM`  | /mnt   |
+| `gr`  | /      |
+| `gR`  | /      |
 
 # Recursos y Enlaces
 

@@ -9457,7 +9457,7 @@ src: url(data:font/ttf;base64,AAEAAAAQAQAABAAAR0RFRkZlQIQAAASkAAAD7kdQT1O7qqlVAA
         <div>
         <div class="quarto-title-meta-heading">Fecha de última modificación</div>
         <div class="quarto-title-meta-contents">
-          <p class="date-modified">30 de diciembre de 2025</p>
+          <p class="date-modified">31 de diciembre de 2025</p>
         </div>
       </div>
         
@@ -9642,41 +9642,95 @@ z-index: 0;
 </section>
 <section id="dependencias-opcionales" class="level2">
 <h2 class="anchored" data-anchor-id="dependencias-opcionales">Dependencias Opcionales</h2>
-<p><strong>Para funcionalidad completa:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Determinar tipos de archivo</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">sudo</span> apt-get install file</span>
+<p>Para habilitar todas las funcionalidades de previsualización y análisis de archivos en <code>ranger</code>, se recomienda instalar las siguientes dependencias según tu distribución.</p>
+<section id="para-debian-ubuntu-derivados" class="level3">
+<h3 class="anchored" data-anchor-id="para-debian-ubuntu-derivados">Para Debian / Ubuntu / derivados</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Básico (casi imprescindible)</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">sudo</span> apt install file</span>
 <span id="cb8-3"><a href="#cb8-3"></a></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># Detección mejorada de codificación</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="ex">pip</span> install chardet</span>
-<span id="cb8-6"><a href="#cb8-6"></a></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="co"># Nombres bidireccionales (árabe, hebreo)</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="ex">pip</span> install python-bidi</span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># Resaltado de sintaxis (elige uno o varios)</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="fu">sudo</span> apt install highlight</span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="fu">sudo</span> apt install bat</span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co"># pygments vía pip si prefieres la versión python:</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co"># pip install --user pygments</span></span>
 <span id="cb8-9"><a href="#cb8-9"></a></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="co"># Previsualización de imágenes</span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="fu">sudo</span> apt-get install caca-utils w3m-img</span>
-<span id="cb8-12"><a href="#cb8-12"></a></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="co"># Conversión de imágenes</span></span>
-<span id="cb8-14"><a href="#cb8-14"></a><span class="fu">sudo</span> apt-get install imagemagick</span>
-<span id="cb8-15"><a href="#cb8-15"></a></span>
-<span id="cb8-16"><a href="#cb8-16"></a><span class="co"># Resaltado de sintaxis</span></span>
-<span id="cb8-17"><a href="#cb8-17"></a><span class="fu">sudo</span> apt-get install highlight</span>
-<span id="cb8-18"><a href="#cb8-18"></a><span class="co"># O</span></span>
-<span id="cb8-19"><a href="#cb8-19"></a><span class="ex">pip</span> install pygments</span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="co"># Imágenes (elige según tu terminal)</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="fu">sudo</span> apt install w3m w3m-img           <span class="co"># Método clásico</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="fu">sudo</span> apt install caca-utils            <span class="co"># Arte ASCII alternativo</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="co"># kitty / wezterm / alacritty → mejor con ueberzugpp</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="co"># Conversión y procesamiento de imágenes</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="fu">sudo</span> apt install imagemagick</span>
+<span id="cb8-17"><a href="#cb8-17"></a></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="co"># Archivos comprimidos</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="fu">sudo</span> apt install atool unrar p7zip-full</span>
 <span id="cb8-20"><a href="#cb8-20"></a></span>
-<span id="cb8-21"><a href="#cb8-21"></a><span class="co"># Previsualización de archivos comprimidos</span></span>
-<span id="cb8-22"><a href="#cb8-22"></a><span class="fu">sudo</span> apt-get install atool unrar p7zip-full</span>
+<span id="cb8-21"><a href="#cb8-21"></a><span class="co"># PDFs</span></span>
+<span id="cb8-22"><a href="#cb8-22"></a><span class="fu">sudo</span> apt install poppler-utils</span>
 <span id="cb8-23"><a href="#cb8-23"></a></span>
-<span id="cb8-24"><a href="#cb8-24"></a><span class="co"># Previsualización de PDFs</span></span>
-<span id="cb8-25"><a href="#cb8-25"></a><span class="fu">sudo</span> apt-get install poppler-utils</span>
+<span id="cb8-24"><a href="#cb8-24"></a><span class="co"># Miniaturas de video</span></span>
+<span id="cb8-25"><a href="#cb8-25"></a><span class="fu">sudo</span> apt install ffmpegthumbnailer</span>
 <span id="cb8-26"><a href="#cb8-26"></a></span>
-<span id="cb8-27"><a href="#cb8-27"></a><span class="co"># Previsualización de videos</span></span>
-<span id="cb8-28"><a href="#cb8-28"></a><span class="fu">sudo</span> apt-get install ffmpegthumbnailer</span>
+<span id="cb8-27"><a href="#cb8-27"></a><span class="co"># Información de medios</span></span>
+<span id="cb8-28"><a href="#cb8-28"></a><span class="fu">sudo</span> apt install mediainfo</span>
 <span id="cb8-29"><a href="#cb8-29"></a></span>
-<span id="cb8-30"><a href="#cb8-30"></a><span class="co"># Información de medios</span></span>
-<span id="cb8-31"><a href="#cb8-31"></a><span class="fu">sudo</span> apt-get install mediainfo</span>
-<span id="cb8-32"><a href="#cb8-32"></a></span>
-<span id="cb8-33"><a href="#cb8-33"></a><span class="co"># Convertir SVG</span></span>
-<span id="cb8-34"><a href="#cb8-34"></a><span class="fu">sudo</span> apt-get install librsvg2-bin</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-30"><a href="#cb8-30"></a><span class="co"># Idiomas y codificación especial</span></span>
+<span id="cb8-31"><a href="#cb8-31"></a><span class="fu">sudo</span> apt install python3-chardet</span>
+<span id="cb8-32"><a href="#cb8-32"></a><span class="ex">pip</span> install <span class="at">--user</span> python-bidi        <span class="co"># Para árabe, hebreo, etc.</span></span>
+<span id="cb8-33"><a href="#cb8-33"></a></span>
+<span id="cb8-34"><a href="#cb8-34"></a><span class="co"># Convertir SVG</span></span>
+<span id="cb8-35"><a href="#cb8-35"></a><span class="fu">sudo</span> apt-get install librsvg2-bin</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="para-arch-linux-manjaro-derivados" class="level3">
+<h3 class="anchored" data-anchor-id="para-arch-linux-manjaro-derivados">Para Arch Linux / Manjaro / derivados</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Básico (casi imprescindible)</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> file</span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co"># Resaltado de sintaxis (elige uno o varios)</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> highlight</span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> bat</span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co"># pygments vía pip si prefieres:</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co"># pip install --user pygments</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co"># Imágenes (elige según tu terminal)</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> w3m libcaca             <span class="co"># Método clásico + ASCII</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> ueberzugpp              <span class="co"># Muy recomendado (mejor que w3m)</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="co"># kitty / wezterm → soporte nativo excelente</span></span>
+<span id="cb9-14"><a href="#cb9-14"></a></span>
+<span id="cb9-15"><a href="#cb9-15"></a><span class="co"># Conversión y procesamiento de imágenes</span></span>
+<span id="cb9-16"><a href="#cb9-16"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> imagemagick</span>
+<span id="cb9-17"><a href="#cb9-17"></a></span>
+<span id="cb9-18"><a href="#cb9-18"></a><span class="co"># Archivos comprimidos</span></span>
+<span id="cb9-19"><a href="#cb9-19"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> atool unrar p7zip</span>
+<span id="cb9-20"><a href="#cb9-20"></a></span>
+<span id="cb9-21"><a href="#cb9-21"></a><span class="co"># PDFs</span></span>
+<span id="cb9-22"><a href="#cb9-22"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> poppler</span>
+<span id="cb9-23"><a href="#cb9-23"></a></span>
+<span id="cb9-24"><a href="#cb9-24"></a><span class="co"># Miniaturas de video</span></span>
+<span id="cb9-25"><a href="#cb9-25"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> ffmpegthumbnailer</span>
+<span id="cb9-26"><a href="#cb9-26"></a></span>
+<span id="cb9-27"><a href="#cb9-27"></a><span class="co"># Información de medios</span></span>
+<span id="cb9-28"><a href="#cb9-28"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> mediainfo</span>
+<span id="cb9-29"><a href="#cb9-29"></a></span>
+<span id="cb9-30"><a href="#cb9-30"></a><span class="co"># Idiomas y codificación especial</span></span>
+<span id="cb9-31"><a href="#cb9-31"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> python-chardet</span>
+<span id="cb9-32"><a href="#cb9-32"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> python-bidi             <span class="co"># Para textos RTL (árabe, hebreo...)</span></span>
+<span id="cb9-33"><a href="#cb9-33"></a></span>
+<span id="cb9-34"><a href="#cb9-34"></a><span class="co"># Convertir SVG</span></span>
+<span id="cb9-35"><a href="#cb9-35"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> librsvg</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="instalación-recomendada-mínima-elige-según-tu-caso" class="level3">
+<h3 class="anchored" data-anchor-id="instalación-recomendada-mínima-elige-según-tu-caso">Instalación recomendada mínima (elige según tu caso)</h3>
+<p><strong>Usuario de Arch + kitty/wezterm:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> file highlight bat imagemagick ffmpegthumbnailer <span class="dt">\</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>poppler mediainfo ueberzugpp</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co"># Opcional pero muy útil:</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> atool unrar p7zip python-bidi python-chardet</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Usuario de Ubuntu + terminal clásico:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">sudo</span> apt install file highlight imagemagick ffmpegthumbnailer <span class="dt">\</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>poppler-utils mediainfo w3m w3m-img atool unrar p7zip-full python3-chardet</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co"># Opcional: pip install --user python-bidi</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
 </section>
 </section>
 <section id="configuración-inicial" class="level1">
@@ -9684,29 +9738,29 @@ z-index: 0;
 <section id="generar-archivos-de-configuración" class="level2">
 <h2 class="anchored" data-anchor-id="generar-archivos-de-configuración">Generar Archivos de Configuración</h2>
 <p>Ranger puede copiar automáticamente los archivos de configuración por defecto:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Copiar todas las configuraciones</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="ex">ranger</span> <span class="at">--copy-config</span><span class="op">=</span>all</span>
-<span id="cb9-3"><a href="#cb9-3"></a></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co"># Copiar archivos específicos</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="ex">ranger</span> <span class="at">--copy-config</span><span class="op">=</span>rc          <span class="co"># Configuración principal</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="ex">ranger</span> <span class="at">--copy-config</span><span class="op">=</span>rifle       <span class="co"># Configuración de rifle</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="ex">ranger</span> <span class="at">--copy-config</span><span class="op">=</span>scope       <span class="co"># Script de previsualización</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="ex">ranger</span> <span class="at">--copy-config</span><span class="op">=</span>commands    <span class="co"># Comandos personalizados</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Copiar todas las configuraciones</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="ex">ranger</span> <span class="at">--copy-config</span><span class="op">=</span>all</span>
+<span id="cb12-3"><a href="#cb12-3"></a></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="co"># Copiar archivos específicos</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="ex">ranger</span> <span class="at">--copy-config</span><span class="op">=</span>rc          <span class="co"># Configuración principal</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="ex">ranger</span> <span class="at">--copy-config</span><span class="op">=</span>rifle       <span class="co"># Configuración de rifle</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="ex">ranger</span> <span class="at">--copy-config</span><span class="op">=</span>scope       <span class="co"># Script de previsualización</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="ex">ranger</span> <span class="at">--copy-config</span><span class="op">=</span>commands    <span class="co"># Comandos personalizados</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="ubicación-de-archivos" class="level2">
 <h2 class="anchored" data-anchor-id="ubicación-de-archivos">Ubicación de Archivos</h2>
 <p>Los archivos de configuración se encuentran en:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">~/.config/ranger/</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="ex">├──</span> rc.conf           <span class="co"># Configuración principal y atajos</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="ex">├──</span> rifle.conf        <span class="co"># Lanzador de archivos</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="ex">├──</span> scope.sh          <span class="co"># Script de previsualización</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="ex">├──</span> commands.py       <span class="co"># Comandos personalizados (Python)</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="ex">├──</span> commands_full.py  <span class="co"># Comandos adicionales</span></span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="ex">└──</span> plugins/          <span class="co"># Directorio para plugins</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="ex">~/.config/ranger/</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="ex">├──</span> rc.conf           <span class="co"># Configuración principal y atajos</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="ex">├──</span> rifle.conf        <span class="co"># Lanzador de archivos</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="ex">├──</span> scope.sh          <span class="co"># Script de previsualización</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="ex">├──</span> commands.py       <span class="co"># Comandos personalizados (Python)</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="ex">├──</span> commands_full.py  <span class="co"># Comandos adicionales</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="ex">└──</span> plugins/          <span class="co"># Directorio para plugins</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="primer-lanzamiento" class="level2">
 <h2 class="anchored" data-anchor-id="primer-lanzamiento">Primer Lanzamiento</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="ex">ranger</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="ex">ranger</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Al iniciar ranger por primera vez:</p>
 <ul>
 <li>Se abre en el directorio actual</li>
@@ -9719,17 +9773,17 @@ z-index: 0;
 <h1>Interfaz y Navegación Básica</h1>
 <section id="estructura-de-la-pantalla" class="level2">
 <h2 class="anchored" data-anchor-id="estructura-de-la-pantalla">Estructura de la Pantalla</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="ex">┌─────────────────────────────────────────────────────────┐</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="ex">│</span> Directorio Padre │ Directorio Actual │ Previsualización │</span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="ex">│</span>                  │                   │                  │</span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="ex">│</span>  parent/         │ <span class="op">&gt;</span> archivo1.txt    │ Contenido del    │</span>
-<span id="cb12-5"><a href="#cb12-5"></a><span class="ex">│</span>  current/        │   archivo2.py     │ archivo1.txt...  │</span>
-<span id="cb12-6"><a href="#cb12-6"></a><span class="ex">│</span>  sibling/        │   carpeta/        │                  │</span>
-<span id="cb12-7"><a href="#cb12-7"></a><span class="ex">│</span>                  │   imagen.png      │                  │</span>
-<span id="cb12-8"><a href="#cb12-8"></a><span class="ex">│</span>                  │                   │                  │</span>
-<span id="cb12-9"><a href="#cb12-9"></a><span class="ex">├─────────────────────────────────────────────────────────┤</span></span>
-<span id="cb12-10"><a href="#cb12-10"></a><span class="ex">│</span> Barra de Estado: PWD, permisos, tamaño, fecha           │</span>
-<span id="cb12-11"><a href="#cb12-11"></a><span class="ex">└─────────────────────────────────────────────────────────┘</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="ex">┌─────────────────────────────────────────────────────────┐</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="ex">│</span> Directorio Padre │ Directorio Actual │ Previsualización │</span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="ex">│</span>                  │                   │                  │</span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="ex">│</span>  parent/         │ <span class="op">&gt;</span> archivo1.txt    │ Contenido del    │</span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="ex">│</span>  current/        │   archivo2.py     │ archivo1.txt...  │</span>
+<span id="cb15-6"><a href="#cb15-6"></a><span class="ex">│</span>  sibling/        │   carpeta/        │                  │</span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="ex">│</span>                  │   imagen.png      │                  │</span>
+<span id="cb15-8"><a href="#cb15-8"></a><span class="ex">│</span>                  │                   │                  │</span>
+<span id="cb15-9"><a href="#cb15-9"></a><span class="ex">├─────────────────────────────────────────────────────────┤</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a><span class="ex">│</span> Barra de Estado: PWD, permisos, tamaño, fecha           │</span>
+<span id="cb15-11"><a href="#cb15-11"></a><span class="ex">└─────────────────────────────────────────────────────────┘</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="columnas" class="level2">
 <h2 class="anchored" data-anchor-id="columnas">Columnas</h2>
@@ -9928,7 +9982,7 @@ z-index: 0;
 <tbody>
 <tr class="odd">
 <td><code>gh</code></td>
-<td>Ir a HOME (~)</td>
+<td>Ir a HOME <code>~</code></td>
 </tr>
 <tr class="even">
 <td><code>ge</code></td>
@@ -10175,9 +10229,9 @@ z-index: 0;
 </tbody>
 </table>
 <p><strong>Ejemplos:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="ex">+x</span>    <span class="co"># Añadir permiso de ejecución</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="ex">-w</span>    <span class="co"># Quitar permiso de escritura</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="ex">=755</span>  <span class="co"># Establecer permisos exactos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="ex">+x</span>    <span class="co"># Añadir permiso de ejecución</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="ex">-w</span>    <span class="co"># Quitar permiso de escritura</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="ex">=755</span>  <span class="co"># Establecer permisos exactos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="selección-múltiple" class="level1">
@@ -10232,14 +10286,14 @@ z-index: 0;
 </section>
 <section id="renombrado-masivo" class="level2">
 <h2 class="anchored" data-anchor-id="renombrado-masivo">Renombrado Masivo</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Seleccionar archivos con Space</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="co"># Ejecutar:</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="ex">:bulkrename</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a></span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="co"># Se abre tu editor con lista de archivos</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a><span class="co"># Edita los nombres</span></span>
-<span id="cb14-7"><a href="#cb14-7"></a><span class="co"># Guarda y cierra</span></span>
-<span id="cb14-8"><a href="#cb14-8"></a><span class="co"># Ranger renombra los archivos automáticamente</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Seleccionar archivos con Space</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="co"># Ejecutar:</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="ex">:bulkrename</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a></span>
+<span id="cb17-5"><a href="#cb17-5"></a><span class="co"># Se abre tu editor con lista de archivos</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="co"># Edita los nombres</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a><span class="co"># Guarda y cierra</span></span>
+<span id="cb17-8"><a href="#cb17-8"></a><span class="co"># Ranger renombra los archivos automáticamente</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="búsqueda-y-filtrado" class="level1">
@@ -10413,13 +10467,13 @@ z-index: 0;
 </section>
 <section id="movimiento-entre-pestañas" class="level2">
 <h2 class="anchored" data-anchor-id="movimiento-entre-pestañas">Movimiento Entre Pestañas</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Con números</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="ex">1gt</span>   <span class="co"># Ir a pestaña 1</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="ex">3gt</span>   <span class="co"># Ir a pestaña 3</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="co"># Navegación relativa</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a><span class="ex">gt</span>    <span class="co"># Siguiente</span></span>
-<span id="cb15-7"><a href="#cb15-7"></a><span class="ex">gT</span>    <span class="co"># Anterior</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Con números</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="ex">1gt</span>   <span class="co"># Ir a pestaña 1</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="ex">3gt</span>   <span class="co"># Ir a pestaña 3</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="co"># Navegación relativa</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="ex">gt</span>    <span class="co"># Siguiente</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a><span class="ex">gT</span>    <span class="co"># Anterior</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="marcadores-bookmarks" class="level1">
@@ -10474,17 +10528,17 @@ z-index: 0;
 </tbody>
 </table>
 <p><strong>Ejemplo de uso:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Estás en /home/usuario/documentos</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="ex">ma</span>        <span class="co"># Crear marcador &#39;a&#39;</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a></span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="bu">cd</span> /etc   <span class="co"># Navega a otro lugar</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a></span>
-<span id="cb16-6"><a href="#cb16-6"></a><span class="co"># Volver rápido</span></span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="st">&#39;a        # Regresa a /home/usuario/documentos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Estás en /home/usuario/documentos</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="ex">ma</span>        <span class="co"># Crear marcador &#39;a&#39;</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="bu">cd</span> /etc   <span class="co"># Navega a otro lugar</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a></span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="co"># Volver rápido</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a><span class="st">&#39;a        # Regresa a /home/usuario/documentos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="ver-marcadores" class="level2">
 <h2 class="anchored" data-anchor-id="ver-marcadores">Ver Marcadores</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="ex">:marks</span>    <span class="co"># Ver todos los marcadores</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1"></a><span class="ex">:marks</span>    <span class="co"># Ver todos los marcadores</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="previsualización-de-archivos" class="level1">
@@ -10550,13 +10604,13 @@ z-index: 0;
 <h2 class="anchored" data-anchor-id="configurar-scope.sh">Configurar scope.sh</h2>
 <p>El archivo <code>~/.config/ranger/scope.sh</code> controla qué se previsualiza y cómo.</p>
 <p><strong>Ejemplo - Añadir tipo de archivo:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># En scope.sh, añadir nuevo caso</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="cf">case</span> <span class="st">&quot;</span><span class="va">$mimetype</span><span class="st">&quot;</span> <span class="kw">in</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a>    <span class="ss">application/json</span><span class="kw">)</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a>        <span class="ex">jq</span> . <span class="st">&quot;</span><span class="va">$path</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span> <span class="bu">exit</span> 5</span>
-<span id="cb18-5"><a href="#cb18-5"></a>        <span class="fu">cat</span> <span class="st">&quot;</span><span class="va">$path</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span> <span class="bu">exit</span> 5</span>
-<span id="cb18-6"><a href="#cb18-6"></a>        <span class="bu">exit</span> 1<span class="cf">;;</span></span>
-<span id="cb18-7"><a href="#cb18-7"></a><span class="cf">esac</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># En scope.sh, añadir nuevo caso</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="cf">case</span> <span class="st">&quot;</span><span class="va">$mimetype</span><span class="st">&quot;</span> <span class="kw">in</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>    <span class="ss">application/json</span><span class="kw">)</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>        <span class="ex">jq</span> . <span class="st">&quot;</span><span class="va">$path</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span> <span class="bu">exit</span> 5</span>
+<span id="cb21-5"><a href="#cb21-5"></a>        <span class="fu">cat</span> <span class="st">&quot;</span><span class="va">$path</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span> <span class="bu">exit</span> 5</span>
+<span id="cb21-6"><a href="#cb21-6"></a>        <span class="bu">exit</span> 1<span class="cf">;;</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a><span class="cf">esac</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="comandos-de-consola" class="level1">
@@ -10595,57 +10649,57 @@ z-index: 0;
 </section>
 <section id="navegación" class="level2">
 <h2 class="anchored" data-anchor-id="navegación">Navegación</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a><span class="ex">:cd</span> <span class="op">&lt;</span>directorio<span class="op">&gt;</span>           <span class="co"># Cambiar directorio</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="ex">:cd</span> <span class="at">-</span>                      <span class="co"># Directorio anterior</span></span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="ex">:cd</span> ~                      <span class="co"># Ir a HOME</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1"></a><span class="ex">:cd</span> <span class="op">&lt;</span>directorio<span class="op">&gt;</span>           <span class="co"># Cambiar directorio</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="ex">:cd</span> <span class="at">-</span>                      <span class="co"># Directorio anterior</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="ex">:cd</span> ~                      <span class="co"># Ir a HOME</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="operaciones-de-archivos" class="level2">
 <h2 class="anchored" data-anchor-id="operaciones-de-archivos">Operaciones de Archivos</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1"></a><span class="ex">:touch</span> <span class="op">&lt;</span>nombre<span class="op">&gt;</span>            <span class="co"># Crear archivo</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="ex">:mkdir</span> <span class="op">&lt;</span>nombre<span class="op">&gt;</span>            <span class="co"># Crear directorio</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a><span class="ex">:rename</span> <span class="op">&lt;</span>nuevo_nombre<span class="op">&gt;</span>     <span class="co"># Renombrar</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a><span class="ex">:delete</span>                    <span class="co"># Eliminar con confirmación</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a><span class="ex">:chmod</span> <span class="op">&lt;</span>permisos<span class="op">&gt;</span>          <span class="co"># Cambiar permisos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="ex">:touch</span> <span class="op">&lt;</span>nombre<span class="op">&gt;</span>            <span class="co"># Crear archivo</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="ex">:mkdir</span> <span class="op">&lt;</span>nombre<span class="op">&gt;</span>            <span class="co"># Crear directorio</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="ex">:rename</span> <span class="op">&lt;</span>nuevo_nombre<span class="op">&gt;</span>     <span class="co"># Renombrar</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="ex">:delete</span>                    <span class="co"># Eliminar con confirmación</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a><span class="ex">:chmod</span> <span class="op">&lt;</span>permisos<span class="op">&gt;</span>          <span class="co"># Cambiar permisos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="búsqueda-1" class="level2">
 <h2 class="anchored" data-anchor-id="búsqueda-1">Búsqueda</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a><span class="ex">:search</span> <span class="op">&lt;</span>patrón<span class="op">&gt;</span>           <span class="co"># Buscar archivos</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="ex">:search_inc</span> <span class="op">&lt;</span>patrón<span class="op">&gt;</span>       <span class="co"># Búsqueda incremental</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="ex">:filter</span> <span class="op">&lt;</span>patrón<span class="op">&gt;</span>           <span class="co"># Filtrar archivos mostrados</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="ex">:search</span> <span class="op">&lt;</span>patrón<span class="op">&gt;</span>           <span class="co"># Buscar archivos</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="ex">:search_inc</span> <span class="op">&lt;</span>patrón<span class="op">&gt;</span>       <span class="co"># Búsqueda incremental</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="ex">:filter</span> <span class="op">&lt;</span>patrón<span class="op">&gt;</span>           <span class="co"># Filtrar archivos mostrados</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="pestañas-y-marcadores" class="level2">
 <h2 class="anchored" data-anchor-id="pestañas-y-marcadores">Pestañas y Marcadores</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1"></a><span class="ex">:tab_new</span>                   <span class="co"># Nueva pestaña</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="ex">:tab_close</span>                 <span class="co"># Cerrar pestaña</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="ex">:tab_move</span> <span class="op">&lt;</span>n<span class="op">&gt;</span>              <span class="co"># Mover a pestaña n</span></span>
-<span id="cb22-4"><a href="#cb22-4"></a><span class="ex">:mark</span> <span class="op">&lt;</span>letra<span class="op">&gt;</span>              <span class="co"># Crear marcador</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="ex">:tab_new</span>                   <span class="co"># Nueva pestaña</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="ex">:tab_close</span>                 <span class="co"># Cerrar pestaña</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="ex">:tab_move</span> <span class="op">&lt;</span>n<span class="op">&gt;</span>              <span class="co"># Mover a pestaña n</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="ex">:mark</span> <span class="op">&lt;</span>letra<span class="op">&gt;</span>              <span class="co"># Crear marcador</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="configuración" class="level2">
 <h2 class="anchored" data-anchor-id="configuración">Configuración</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="ex">:set</span> <span class="op">&lt;</span>opción<span class="op">&gt;</span> <span class="op">&lt;</span>valor<span class="op">&gt;</span>      <span class="co"># Establecer opción</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="ex">:set</span> show_hidden true      <span class="co"># Mostrar archivos ocultos</span></span>
-<span id="cb23-3"><a href="#cb23-3"></a><span class="ex">:set</span> column_ratios 1,3,4   <span class="co"># Cambiar proporciones de columnas</span></span>
-<span id="cb23-4"><a href="#cb23-4"></a><span class="ex">:set</span> colorscheme <span class="op">&lt;</span>nombre<span class="op">&gt;</span>  <span class="co"># Cambiar tema de colores</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="ex">:set</span> <span class="op">&lt;</span>opción<span class="op">&gt;</span> <span class="op">&lt;</span>valor<span class="op">&gt;</span>      <span class="co"># Establecer opción</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="ex">:set</span> show_hidden true      <span class="co"># Mostrar archivos ocultos</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="ex">:set</span> column_ratios 1,3,4   <span class="co"># Cambiar proporciones de columnas</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a><span class="ex">:set</span> colorscheme <span class="op">&lt;</span>nombre<span class="op">&gt;</span>  <span class="co"># Cambiar tema de colores</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="ayuda-y-sistema" class="level2">
 <h2 class="anchored" data-anchor-id="ayuda-y-sistema">Ayuda y Sistema</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="ex">:help</span>                      <span class="co"># Abrir ayuda</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="ex">:source</span> <span class="op">&lt;</span>archivo<span class="op">&gt;</span>          <span class="co"># Cargar configuración</span></span>
-<span id="cb24-3"><a href="#cb24-3"></a><span class="ex">:shell</span> <span class="op">&lt;</span>comando<span class="op">&gt;</span>           <span class="co"># Ejecutar comando shell</span></span>
-<span id="cb24-4"><a href="#cb24-4"></a><span class="ex">:quit</span>                      <span class="co"># Salir</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1"></a><span class="ex">:help</span>                      <span class="co"># Abrir ayuda</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="ex">:source</span> <span class="op">&lt;</span>archivo<span class="op">&gt;</span>          <span class="co"># Cargar configuración</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="ex">:shell</span> <span class="op">&lt;</span>comando<span class="op">&gt;</span>           <span class="co"># Ejecutar comando shell</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="ex">:quit</span>                      <span class="co"># Salir</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="comandos-de-shell" class="level2">
 <h2 class="anchored" data-anchor-id="comandos-de-shell">Comandos de Shell</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Ejecutar comando y ver output</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="ex">!ls</span> <span class="at">-la</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a></span>
-<span id="cb25-4"><a href="#cb25-4"></a><span class="co"># Ejecutar en segundo plano</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a><span class="ex">!make</span> <span class="kw">&amp;</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a></span>
-<span id="cb25-7"><a href="#cb25-7"></a><span class="co"># Ejecutar con privilegios</span></span>
-<span id="cb25-8"><a href="#cb25-8"></a><span class="ex">S</span></span>
-<span id="cb25-9"><a href="#cb25-9"></a><span class="co"># O</span></span>
-<span id="cb25-10"><a href="#cb25-10"></a><span class="ex">!sudo</span> <span class="op">&lt;</span>comando<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Ejecutar comando y ver output</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="ex">!ls</span> <span class="at">-la</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a></span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="co"># Ejecutar en segundo plano</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a><span class="ex">!make</span> <span class="kw">&amp;</span></span>
+<span id="cb28-6"><a href="#cb28-6"></a></span>
+<span id="cb28-7"><a href="#cb28-7"></a><span class="co"># Ejecutar con privilegios</span></span>
+<span id="cb28-8"><a href="#cb28-8"></a><span class="ex">S</span></span>
+<span id="cb28-9"><a href="#cb28-9"></a><span class="co"># O</span></span>
+<span id="cb28-10"><a href="#cb28-10"></a><span class="ex">!sudo</span> <span class="op">&lt;</span>comando<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="autocompletado" class="level2">
 <h2 class="anchored" data-anchor-id="autocompletado">Autocompletado</h2>
@@ -10663,130 +10717,131 @@ z-index: 0;
 </section>
 <section id="opciones-comunes" class="level2">
 <h2 class="anchored" data-anchor-id="opciones-comunes">Opciones Comunes</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Mostrar archivos ocultos</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="bu">set</span> show_hidden true</span>
-<span id="cb26-3"><a href="#cb26-3"></a></span>
-<span id="cb26-4"><a href="#cb26-4"></a><span class="co"># Cambiar editor por defecto</span></span>
-<span id="cb26-5"><a href="#cb26-5"></a><span class="bu">set</span> editor vim</span>
-<span id="cb26-6"><a href="#cb26-6"></a><span class="co"># set editor nano</span></span>
-<span id="cb26-7"><a href="#cb26-7"></a><span class="co"># set editor code</span></span>
-<span id="cb26-8"><a href="#cb26-8"></a></span>
-<span id="cb26-9"><a href="#cb26-9"></a><span class="co"># Proporciones de columnas (padre:actual:previsualización)</span></span>
-<span id="cb26-10"><a href="#cb26-10"></a><span class="bu">set</span> column_ratios 1,3,4</span>
-<span id="cb26-11"><a href="#cb26-11"></a></span>
-<span id="cb26-12"><a href="#cb26-12"></a><span class="co"># Confirmación antes de eliminar</span></span>
-<span id="cb26-13"><a href="#cb26-13"></a><span class="bu">set</span> confirm_on_delete multiple</span>
-<span id="cb26-14"><a href="#cb26-14"></a></span>
-<span id="cb26-15"><a href="#cb26-15"></a><span class="co"># Mostrar números de línea</span></span>
-<span id="cb26-16"><a href="#cb26-16"></a><span class="bu">set</span> line_numbers relative</span>
-<span id="cb26-17"><a href="#cb26-17"></a><span class="co"># Opciones: false, absolute, relative</span></span>
-<span id="cb26-18"><a href="#cb26-18"></a></span>
-<span id="cb26-19"><a href="#cb26-19"></a><span class="co"># Tema de colores</span></span>
-<span id="cb26-20"><a href="#cb26-20"></a><span class="bu">set</span> colorscheme default</span>
-<span id="cb26-21"><a href="#cb26-21"></a><span class="co"># Otros: jungle, snow, solarized</span></span>
-<span id="cb26-22"><a href="#cb26-22"></a></span>
-<span id="cb26-23"><a href="#cb26-23"></a><span class="co"># Previsualización automática</span></span>
-<span id="cb26-24"><a href="#cb26-24"></a><span class="bu">set</span> preview_files true</span>
-<span id="cb26-25"><a href="#cb26-25"></a><span class="bu">set</span> preview_directories true</span>
-<span id="cb26-26"><a href="#cb26-26"></a><span class="bu">set</span> preview_images true</span>
-<span id="cb26-27"><a href="#cb26-27"></a></span>
-<span id="cb26-28"><a href="#cb26-28"></a><span class="co"># Método de previsualización de imágenes</span></span>
-<span id="cb26-29"><a href="#cb26-29"></a><span class="bu">set</span> preview_images_method w3m</span>
-<span id="cb26-30"><a href="#cb26-30"></a><span class="co"># Opciones: w3m, ueberzug, kitty, iterm2</span></span>
-<span id="cb26-31"><a href="#cb26-31"></a></span>
-<span id="cb26-32"><a href="#cb26-32"></a><span class="co"># Guardar historial</span></span>
-<span id="cb26-33"><a href="#cb26-33"></a><span class="bu">set</span> save_console_history true</span>
-<span id="cb26-34"><a href="#cb26-34"></a></span>
-<span id="cb26-35"><a href="#cb26-35"></a><span class="co"># Tamaño máximo de previsualización</span></span>
-<span id="cb26-36"><a href="#cb26-36"></a><span class="bu">set</span> preview_max_size 0  <span class="co"># 0 = sin límite</span></span>
-<span id="cb26-37"><a href="#cb26-37"></a></span>
-<span id="cb26-38"><a href="#cb26-38"></a><span class="co"># Mostrar información VCS (git)</span></span>
-<span id="cb26-39"><a href="#cb26-39"></a><span class="bu">set</span> vcs_aware true</span>
-<span id="cb26-40"><a href="#cb26-40"></a></span>
-<span id="cb26-41"><a href="#cb26-41"></a><span class="co"># Comportamiento del mouse</span></span>
-<span id="cb26-42"><a href="#cb26-42"></a><span class="bu">set</span> mouse_enabled true</span>
-<span id="cb26-43"><a href="#cb26-43"></a></span>
-<span id="cb26-44"><a href="#cb26-44"></a><span class="co"># Scroll automático</span></span>
-<span id="cb26-45"><a href="#cb26-45"></a><span class="bu">set</span> autosave_bookmarks true</span>
-<span id="cb26-46"><a href="#cb26-46"></a><span class="bu">set</span> autoupdate_cumulative_size false</span>
-<span id="cb26-47"><a href="#cb26-47"></a></span>
-<span id="cb26-48"><a href="#cb26-48"></a><span class="co"># Padding alrededor de la selección</span></span>
-<span id="cb26-49"><a href="#cb26-49"></a><span class="bu">set</span> padding_right true</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Mostrar archivos ocultos</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="bu">set</span> show_hidden true</span>
+<span id="cb29-3"><a href="#cb29-3"></a></span>
+<span id="cb29-4"><a href="#cb29-4"></a><span class="co"># Cambiar editor por defecto</span></span>
+<span id="cb29-5"><a href="#cb29-5"></a><span class="bu">set</span> editor vim</span>
+<span id="cb29-6"><a href="#cb29-6"></a><span class="co"># set editor nano</span></span>
+<span id="cb29-7"><a href="#cb29-7"></a><span class="co"># set editor code</span></span>
+<span id="cb29-8"><a href="#cb29-8"></a></span>
+<span id="cb29-9"><a href="#cb29-9"></a><span class="co"># Proporciones de columnas (padre:actual:previsualización)</span></span>
+<span id="cb29-10"><a href="#cb29-10"></a><span class="bu">set</span> column_ratios 1,3,4</span>
+<span id="cb29-11"><a href="#cb29-11"></a></span>
+<span id="cb29-12"><a href="#cb29-12"></a><span class="co"># Confirmación antes de eliminar</span></span>
+<span id="cb29-13"><a href="#cb29-13"></a><span class="bu">set</span> confirm_on_delete multiple</span>
+<span id="cb29-14"><a href="#cb29-14"></a></span>
+<span id="cb29-15"><a href="#cb29-15"></a><span class="co"># Mostrar números de línea</span></span>
+<span id="cb29-16"><a href="#cb29-16"></a><span class="bu">set</span> line_numbers relative</span>
+<span id="cb29-17"><a href="#cb29-17"></a><span class="co"># Opciones: false, absolute, relative</span></span>
+<span id="cb29-18"><a href="#cb29-18"></a></span>
+<span id="cb29-19"><a href="#cb29-19"></a><span class="co"># Tema de colores</span></span>
+<span id="cb29-20"><a href="#cb29-20"></a><span class="bu">set</span> colorscheme default</span>
+<span id="cb29-21"><a href="#cb29-21"></a><span class="co"># Otros: jungle, snow, solarized</span></span>
+<span id="cb29-22"><a href="#cb29-22"></a></span>
+<span id="cb29-23"><a href="#cb29-23"></a><span class="co"># Previsualización automática</span></span>
+<span id="cb29-24"><a href="#cb29-24"></a><span class="bu">set</span> preview_files true</span>
+<span id="cb29-25"><a href="#cb29-25"></a><span class="bu">set</span> preview_directories true</span>
+<span id="cb29-26"><a href="#cb29-26"></a><span class="bu">set</span> preview_images true</span>
+<span id="cb29-27"><a href="#cb29-27"></a></span>
+<span id="cb29-28"><a href="#cb29-28"></a><span class="co"># Método de previsualización de imágenes</span></span>
+<span id="cb29-29"><a href="#cb29-29"></a><span class="bu">set</span> preview_images_method w3m</span>
+<span id="cb29-30"><a href="#cb29-30"></a><span class="co"># Opciones: w3m, ueberzug, kitty, iterm2</span></span>
+<span id="cb29-31"><a href="#cb29-31"></a><span class="bu">set</span> preview_images_method kitty</span>
+<span id="cb29-32"><a href="#cb29-32"></a></span>
+<span id="cb29-33"><a href="#cb29-33"></a><span class="co"># Guardar historial</span></span>
+<span id="cb29-34"><a href="#cb29-34"></a><span class="bu">set</span> save_console_history true</span>
+<span id="cb29-35"><a href="#cb29-35"></a></span>
+<span id="cb29-36"><a href="#cb29-36"></a><span class="co"># Tamaño máximo de previsualización</span></span>
+<span id="cb29-37"><a href="#cb29-37"></a><span class="bu">set</span> preview_max_size 0  <span class="co"># 0 = sin límite</span></span>
+<span id="cb29-38"><a href="#cb29-38"></a></span>
+<span id="cb29-39"><a href="#cb29-39"></a><span class="co"># Mostrar información VCS (git)</span></span>
+<span id="cb29-40"><a href="#cb29-40"></a><span class="bu">set</span> vcs_aware true</span>
+<span id="cb29-41"><a href="#cb29-41"></a></span>
+<span id="cb29-42"><a href="#cb29-42"></a><span class="co"># Comportamiento del mouse</span></span>
+<span id="cb29-43"><a href="#cb29-43"></a><span class="bu">set</span> mouse_enabled true</span>
+<span id="cb29-44"><a href="#cb29-44"></a></span>
+<span id="cb29-45"><a href="#cb29-45"></a><span class="co"># Scroll automático</span></span>
+<span id="cb29-46"><a href="#cb29-46"></a><span class="bu">set</span> autosave_bookmarks true</span>
+<span id="cb29-47"><a href="#cb29-47"></a><span class="bu">set</span> autoupdate_cumulative_size false</span>
+<span id="cb29-48"><a href="#cb29-48"></a></span>
+<span id="cb29-49"><a href="#cb29-49"></a><span class="co"># Padding alrededor de la selección</span></span>
+<span id="cb29-50"><a href="#cb29-50"></a><span class="bu">set</span> padding_right true</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="mapeos-de-teclado-personalizados" class="level2">
 <h2 class="anchored" data-anchor-id="mapeos-de-teclado-personalizados">Mapeos de Teclado Personalizados</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Mapear tecla a comando</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="ex">map</span> <span class="op">&lt;</span>tecla<span class="op">&gt;</span> <span class="op">&lt;</span>comando<span class="op">&gt;</span></span>
-<span id="cb27-3"><a href="#cb27-3"></a></span>
-<span id="cb27-4"><a href="#cb27-4"></a><span class="co"># Ejemplos:</span></span>
-<span id="cb27-5"><a href="#cb27-5"></a><span class="ex">map</span> DD shell trash-put %s          <span class="co"># Mover a papelera</span></span>
-<span id="cb27-6"><a href="#cb27-6"></a><span class="ex">map</span> x shell chmod +x %s            <span class="co"># Hacer ejecutable</span></span>
-<span id="cb27-7"><a href="#cb27-7"></a><span class="ex">map</span> bg shell feh <span class="at">--bg-scale</span> %s     <span class="co"># Establecer fondo de pantalla</span></span>
-<span id="cb27-8"><a href="#cb27-8"></a><span class="ex">map</span> <span class="op">&lt;</span>C-t<span class="op">&gt;</span> shell alacritty <span class="kw">&amp;</span>        <span class="co"># Abrir terminal</span></span>
-<span id="cb27-9"><a href="#cb27-9"></a><span class="ex">map</span> <span class="op">&lt;</span>A-1<span class="op">&gt;</span> tab_move 1               <span class="co"># Ir a pestaña 1</span></span>
-<span id="cb27-10"><a href="#cb27-10"></a><span class="ex">map</span> ee edit_file                   <span class="co"># Editar archivo</span></span>
-<span id="cb27-11"><a href="#cb27-11"></a><span class="ex">map</span> et shell alacritty <span class="at">-e</span> vim %s <span class="kw">&amp;</span> <span class="co"># Editar en terminal nueva</span></span>
-<span id="cb27-12"><a href="#cb27-12"></a></span>
-<span id="cb27-13"><a href="#cb27-13"></a><span class="co"># Desmap tecla</span></span>
-<span id="cb27-14"><a href="#cb27-14"></a><span class="ex">unmap</span> dd  <span class="co"># Quitar mapeo de dd</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Mapear tecla a comando</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="ex">map</span> <span class="op">&lt;</span>tecla<span class="op">&gt;</span> <span class="op">&lt;</span>comando<span class="op">&gt;</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a></span>
+<span id="cb30-4"><a href="#cb30-4"></a><span class="co"># Ejemplos:</span></span>
+<span id="cb30-5"><a href="#cb30-5"></a><span class="ex">map</span> DD shell trash-put %s          <span class="co"># Mover a papelera</span></span>
+<span id="cb30-6"><a href="#cb30-6"></a><span class="ex">map</span> x shell chmod +x %s            <span class="co"># Hacer ejecutable</span></span>
+<span id="cb30-7"><a href="#cb30-7"></a><span class="ex">map</span> bg shell feh <span class="at">--bg-scale</span> %s     <span class="co"># Establecer fondo de pantalla</span></span>
+<span id="cb30-8"><a href="#cb30-8"></a><span class="ex">map</span> <span class="op">&lt;</span>C-t<span class="op">&gt;</span> shell alacritty <span class="kw">&amp;</span>        <span class="co"># Abrir terminal</span></span>
+<span id="cb30-9"><a href="#cb30-9"></a><span class="ex">map</span> <span class="op">&lt;</span>A-1<span class="op">&gt;</span> tab_move 1               <span class="co"># Ir a pestaña 1</span></span>
+<span id="cb30-10"><a href="#cb30-10"></a><span class="ex">map</span> ee edit_file                   <span class="co"># Editar archivo</span></span>
+<span id="cb30-11"><a href="#cb30-11"></a><span class="ex">map</span> et shell alacritty <span class="at">-e</span> vim %s <span class="kw">&amp;</span> <span class="co"># Editar en terminal nueva</span></span>
+<span id="cb30-12"><a href="#cb30-12"></a></span>
+<span id="cb30-13"><a href="#cb30-13"></a><span class="co"># Desmap tecla</span></span>
+<span id="cb30-14"><a href="#cb30-14"></a><span class="ex">unmap</span> dd  <span class="co"># Quitar mapeo de dd</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="comandos-de-shell-1" class="level2">
 <h2 class="anchored" data-anchor-id="comandos-de-shell-1">Comandos de Shell</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Ejecutar comando con archivo actual</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a><span class="ex">map</span> X shell <span class="at">-f</span> <span class="op">&lt;</span>comando<span class="op">&gt;</span> %f</span>
-<span id="cb28-3"><a href="#cb28-3"></a></span>
-<span id="cb28-4"><a href="#cb28-4"></a><span class="co"># Variables disponibles:</span></span>
-<span id="cb28-5"><a href="#cb28-5"></a><span class="co"># %f - archivo actual</span></span>
-<span id="cb28-6"><a href="#cb28-6"></a><span class="co"># %d - directorio actual</span></span>
-<span id="cb28-7"><a href="#cb28-7"></a><span class="co"># %s - archivos seleccionados</span></span>
-<span id="cb28-8"><a href="#cb28-8"></a><span class="co"># %t - archivos etiquetados (tagged)</span></span>
-<span id="cb28-9"><a href="#cb28-9"></a><span class="co"># %c - ruta completa del archivo actual</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Ejecutar comando con archivo actual</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="ex">map</span> X shell <span class="at">-f</span> <span class="op">&lt;</span>comando<span class="op">&gt;</span> %f</span>
+<span id="cb31-3"><a href="#cb31-3"></a></span>
+<span id="cb31-4"><a href="#cb31-4"></a><span class="co"># Variables disponibles:</span></span>
+<span id="cb31-5"><a href="#cb31-5"></a><span class="co"># %f - archivo actual</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a><span class="co"># %d - directorio actual</span></span>
+<span id="cb31-7"><a href="#cb31-7"></a><span class="co"># %s - archivos seleccionados</span></span>
+<span id="cb31-8"><a href="#cb31-8"></a><span class="co"># %t - archivos etiquetados (tagged)</span></span>
+<span id="cb31-9"><a href="#cb31-9"></a><span class="co"># %c - ruta completa del archivo actual</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="rifle.conf---lanzador-de-archivos" class="level2">
 <h2 class="anchored" data-anchor-id="rifle.conf---lanzador-de-archivos">rifle.conf - Lanzador de Archivos</h2>
 <p>Ubicación: <code>~/.config/ranger/rifle.conf</code></p>
 <p>Determina qué programa abre cada tipo de archivo.</p>
 <p><strong>Sintaxis:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1"></a><span class="op">&lt;</span>condición<span class="op">&gt;</span> = <span class="op">&lt;</span>comando<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="op">&lt;</span>condición<span class="op">&gt;</span> = <span class="op">&lt;</span>comando<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Ejemplos:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Texto plano</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a><span class="ex">mime</span> ^text, label editor = <span class="va">${VISUAL</span><span class="op">:-</span><span class="va">$EDITOR}</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
-<span id="cb30-3"><a href="#cb30-3"></a><span class="ex">mime</span> ^text, label pager  = <span class="st">&quot;</span><span class="va">$PAGER</span><span class="st">&quot;</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
-<span id="cb30-4"><a href="#cb30-4"></a></span>
-<span id="cb30-5"><a href="#cb30-5"></a><span class="co"># PDFs</span></span>
-<span id="cb30-6"><a href="#cb30-6"></a><span class="ex">ext</span> pdf, has evince,  X, flag f = evince <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
-<span id="cb30-7"><a href="#cb30-7"></a><span class="ex">ext</span> pdf, has zathura, X, flag f = zathura <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
-<span id="cb30-8"><a href="#cb30-8"></a><span class="ex">ext</span> pdf, has okular,  X, flag f = okular <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
-<span id="cb30-9"><a href="#cb30-9"></a></span>
-<span id="cb30-10"><a href="#cb30-10"></a><span class="co"># Imágenes</span></span>
-<span id="cb30-11"><a href="#cb30-11"></a><span class="ex">mime</span> ^image, has feh,       X, flag f = feh <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
-<span id="cb30-12"><a href="#cb30-12"></a><span class="ex">mime</span> ^image, has gimp,      X, flag f = gimp <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
-<span id="cb30-13"><a href="#cb30-13"></a><span class="ex">mime</span> ^image, has sxiv,      X, flag f = sxiv <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
-<span id="cb30-14"><a href="#cb30-14"></a></span>
-<span id="cb30-15"><a href="#cb30-15"></a><span class="co"># Videos</span></span>
-<span id="cb30-16"><a href="#cb30-16"></a><span class="ex">mime</span> ^video, has mpv,       X, flag f = mpv <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
-<span id="cb30-17"><a href="#cb30-17"></a><span class="ex">mime</span> ^video, has vlc,       X, flag f = vlc <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
-<span id="cb30-18"><a href="#cb30-18"></a></span>
-<span id="cb30-19"><a href="#cb30-19"></a><span class="co"># Audio</span></span>
-<span id="cb30-20"><a href="#cb30-20"></a><span class="ex">mime</span> ^audio, has mpv,       X, flag f = mpv <span class="at">--no-video</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
-<span id="cb30-21"><a href="#cb30-21"></a></span>
-<span id="cb30-22"><a href="#cb30-22"></a><span class="co"># Archivos comprimidos</span></span>
-<span id="cb30-23"><a href="#cb30-23"></a><span class="ex">ext</span> 7z<span class="kw">|</span><span class="ex">ace</span><span class="kw">|</span><span class="fu">ar</span><span class="kw">|</span><span class="ex">arc</span><span class="kw">|</span><span class="ex">bz2?</span><span class="kw">|</span><span class="ex">cab</span><span class="kw">|</span><span class="fu">cpio</span><span class="kw">|</span><span class="ex">cpt</span><span class="kw">|</span><span class="ex">deb</span><span class="kw">|</span><span class="ex">dgc</span><span class="kw">|</span><span class="ex">dmg</span><span class="kw">|</span><span class="ex">gz,</span>  has atool = atool <span class="at">--list</span> <span class="at">--each</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span> <span class="kw">|</span> <span class="st">&quot;</span><span class="va">$PAGER</span><span class="st">&quot;</span></span>
-<span id="cb30-24"><a href="#cb30-24"></a><span class="ex">ext</span> iso<span class="kw">|</span><span class="ex">jar</span><span class="kw">|</span><span class="ex">msi</span><span class="kw">|</span><span class="ex">pkg</span><span class="kw">|</span><span class="ex">rar</span><span class="kw">|</span><span class="ex">shar</span><span class="kw">|</span><span class="fu">tar</span><span class="kw">|</span><span class="ex">tgz</span><span class="kw">|</span><span class="ex">xar</span><span class="kw">|</span><span class="ex">xpi</span><span class="kw">|</span><span class="fu">xz</span><span class="kw">|</span><span class="fu">zip</span>, has atool = atool <span class="at">--list</span> <span class="at">--each</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span> <span class="kw">|</span> <span class="st">&quot;</span><span class="va">$PAGER</span><span class="st">&quot;</span></span>
-<span id="cb30-25"><a href="#cb30-25"></a></span>
-<span id="cb30-26"><a href="#cb30-26"></a><span class="co"># Documentos Office</span></span>
-<span id="cb30-27"><a href="#cb30-27"></a><span class="ex">ext</span> docx<span class="pp">?</span><span class="kw">|</span><span class="ex">xlsx?</span><span class="kw">|</span><span class="ex">pptx?</span><span class="kw">|</span><span class="ex">odt</span><span class="kw">|</span><span class="ex">ods</span><span class="kw">|</span><span class="ex">odp,</span> has libreoffice, X, flag f = libreoffice <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
-<span id="cb30-28"><a href="#cb30-28"></a></span>
-<span id="cb30-29"><a href="#cb30-29"></a><span class="co"># HTML</span></span>
-<span id="cb30-30"><a href="#cb30-30"></a><span class="ex">ext</span> html<span class="pp">?</span>, has firefox,  X, flag f = firefox <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
-<span id="cb30-31"><a href="#cb30-31"></a><span class="ex">ext</span> html<span class="pp">?</span>, has chromium, X, flag f = chromium <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
-<span id="cb30-32"><a href="#cb30-32"></a></span>
-<span id="cb30-33"><a href="#cb30-33"></a><span class="co"># Código fuente</span></span>
-<span id="cb30-34"><a href="#cb30-34"></a><span class="ex">ext</span> py,  has python  = python <span class="at">--</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span></span>
-<span id="cb30-35"><a href="#cb30-35"></a><span class="ex">ext</span> pl,  has perl    = perl <span class="at">--</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span></span>
-<span id="cb30-36"><a href="#cb30-36"></a><span class="ex">ext</span> rb,  has ruby    = ruby <span class="at">--</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span></span>
-<span id="cb30-37"><a href="#cb30-37"></a><span class="ex">ext</span> js,  has node    = node <span class="at">--</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span></span>
-<span id="cb30-38"><a href="#cb30-38"></a><span class="ex">ext</span> sh,  has sh      = sh <span class="at">--</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Texto plano</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="ex">mime</span> ^text, label editor = <span class="va">${VISUAL</span><span class="op">:-</span><span class="va">$EDITOR}</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="ex">mime</span> ^text, label pager  = <span class="st">&quot;</span><span class="va">$PAGER</span><span class="st">&quot;</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a></span>
+<span id="cb33-5"><a href="#cb33-5"></a><span class="co"># PDFs</span></span>
+<span id="cb33-6"><a href="#cb33-6"></a><span class="ex">ext</span> pdf, has evince,  X, flag f = evince <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
+<span id="cb33-7"><a href="#cb33-7"></a><span class="ex">ext</span> pdf, has zathura, X, flag f = zathura <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
+<span id="cb33-8"><a href="#cb33-8"></a><span class="ex">ext</span> pdf, has okular,  X, flag f = okular <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
+<span id="cb33-9"><a href="#cb33-9"></a></span>
+<span id="cb33-10"><a href="#cb33-10"></a><span class="co"># Imágenes</span></span>
+<span id="cb33-11"><a href="#cb33-11"></a><span class="ex">mime</span> ^image, has feh,       X, flag f = feh <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
+<span id="cb33-12"><a href="#cb33-12"></a><span class="ex">mime</span> ^image, has gimp,      X, flag f = gimp <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
+<span id="cb33-13"><a href="#cb33-13"></a><span class="ex">mime</span> ^image, has sxiv,      X, flag f = sxiv <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
+<span id="cb33-14"><a href="#cb33-14"></a></span>
+<span id="cb33-15"><a href="#cb33-15"></a><span class="co"># Videos</span></span>
+<span id="cb33-16"><a href="#cb33-16"></a><span class="ex">mime</span> ^video, has mpv,       X, flag f = mpv <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
+<span id="cb33-17"><a href="#cb33-17"></a><span class="ex">mime</span> ^video, has vlc,       X, flag f = vlc <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
+<span id="cb33-18"><a href="#cb33-18"></a></span>
+<span id="cb33-19"><a href="#cb33-19"></a><span class="co"># Audio</span></span>
+<span id="cb33-20"><a href="#cb33-20"></a><span class="ex">mime</span> ^audio, has mpv,       X, flag f = mpv <span class="at">--no-video</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
+<span id="cb33-21"><a href="#cb33-21"></a></span>
+<span id="cb33-22"><a href="#cb33-22"></a><span class="co"># Archivos comprimidos</span></span>
+<span id="cb33-23"><a href="#cb33-23"></a><span class="ex">ext</span> 7z<span class="kw">|</span><span class="ex">ace</span><span class="kw">|</span><span class="fu">ar</span><span class="kw">|</span><span class="ex">arc</span><span class="kw">|</span><span class="ex">bz2?</span><span class="kw">|</span><span class="ex">cab</span><span class="kw">|</span><span class="fu">cpio</span><span class="kw">|</span><span class="ex">cpt</span><span class="kw">|</span><span class="ex">deb</span><span class="kw">|</span><span class="ex">dgc</span><span class="kw">|</span><span class="ex">dmg</span><span class="kw">|</span><span class="ex">gz,</span>  has atool = atool <span class="at">--list</span> <span class="at">--each</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span> <span class="kw">|</span> <span class="st">&quot;</span><span class="va">$PAGER</span><span class="st">&quot;</span></span>
+<span id="cb33-24"><a href="#cb33-24"></a><span class="ex">ext</span> iso<span class="kw">|</span><span class="ex">jar</span><span class="kw">|</span><span class="ex">msi</span><span class="kw">|</span><span class="ex">pkg</span><span class="kw">|</span><span class="ex">rar</span><span class="kw">|</span><span class="ex">shar</span><span class="kw">|</span><span class="fu">tar</span><span class="kw">|</span><span class="ex">tgz</span><span class="kw">|</span><span class="ex">xar</span><span class="kw">|</span><span class="ex">xpi</span><span class="kw">|</span><span class="fu">xz</span><span class="kw">|</span><span class="fu">zip</span>, has atool = atool <span class="at">--list</span> <span class="at">--each</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span> <span class="kw">|</span> <span class="st">&quot;</span><span class="va">$PAGER</span><span class="st">&quot;</span></span>
+<span id="cb33-25"><a href="#cb33-25"></a></span>
+<span id="cb33-26"><a href="#cb33-26"></a><span class="co"># Documentos Office</span></span>
+<span id="cb33-27"><a href="#cb33-27"></a><span class="ex">ext</span> docx<span class="pp">?</span><span class="kw">|</span><span class="ex">xlsx?</span><span class="kw">|</span><span class="ex">pptx?</span><span class="kw">|</span><span class="ex">odt</span><span class="kw">|</span><span class="ex">ods</span><span class="kw">|</span><span class="ex">odp,</span> has libreoffice, X, flag f = libreoffice <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
+<span id="cb33-28"><a href="#cb33-28"></a></span>
+<span id="cb33-29"><a href="#cb33-29"></a><span class="co"># HTML</span></span>
+<span id="cb33-30"><a href="#cb33-30"></a><span class="ex">ext</span> html<span class="pp">?</span>, has firefox,  X, flag f = firefox <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
+<span id="cb33-31"><a href="#cb33-31"></a><span class="ex">ext</span> html<span class="pp">?</span>, has chromium, X, flag f = chromium <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
+<span id="cb33-32"><a href="#cb33-32"></a></span>
+<span id="cb33-33"><a href="#cb33-33"></a><span class="co"># Código fuente</span></span>
+<span id="cb33-34"><a href="#cb33-34"></a><span class="ex">ext</span> py,  has python  = python <span class="at">--</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span></span>
+<span id="cb33-35"><a href="#cb33-35"></a><span class="ex">ext</span> pl,  has perl    = perl <span class="at">--</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span></span>
+<span id="cb33-36"><a href="#cb33-36"></a><span class="ex">ext</span> rb,  has ruby    = ruby <span class="at">--</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span></span>
+<span id="cb33-37"><a href="#cb33-37"></a><span class="ex">ext</span> js,  has node    = node <span class="at">--</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span></span>
+<span id="cb33-38"><a href="#cb33-38"></a><span class="ex">ext</span> sh,  has sh      = sh <span class="at">--</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Condiciones disponibles:</strong></p>
 <ul>
 <li><code>ext &lt;extensión&gt;</code> - Extensión de archivo</li>
@@ -10803,47 +10858,47 @@ z-index: 0;
 <p>Ubicación: <code>~/.config/ranger/commands.py</code></p>
 <p>Crear comandos Python personalizados.</p>
 <p><strong>Ejemplo - Comando para comprimir:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="im">from</span> ranger.api.commands <span class="im">import</span> Command</span>
-<span id="cb31-2"><a href="#cb31-2"></a></span>
-<span id="cb31-3"><a href="#cb31-3"></a><span class="kw">class</span> compress(Command):</span>
-<span id="cb31-4"><a href="#cb31-4"></a>    <span class="kw">def</span> execute(<span class="va">self</span>):</span>
-<span id="cb31-5"><a href="#cb31-5"></a>        <span class="co">&quot;&quot;&quot;Comprimir archivos seleccionados&quot;&quot;&quot;</span></span>
-<span id="cb31-6"><a href="#cb31-6"></a>        <span class="im">import</span> os</span>
-<span id="cb31-7"><a href="#cb31-7"></a>        </span>
-<span id="cb31-8"><a href="#cb31-8"></a>        <span class="co"># Obtener archivos seleccionados</span></span>
-<span id="cb31-9"><a href="#cb31-9"></a>        <span class="cf">if</span> <span class="va">self</span>.fm.thisdir.marked_items:</span>
-<span id="cb31-10"><a href="#cb31-10"></a>            files <span class="op">=</span> [f.basename <span class="cf">for</span> f <span class="kw">in</span> <span class="va">self</span>.fm.thisdir.marked_items]</span>
-<span id="cb31-11"><a href="#cb31-11"></a>        <span class="cf">else</span>:</span>
-<span id="cb31-12"><a href="#cb31-12"></a>            files <span class="op">=</span> [<span class="va">self</span>.fm.thisfile.basename]</span>
-<span id="cb31-13"><a href="#cb31-13"></a>        </span>
-<span id="cb31-14"><a href="#cb31-14"></a>        <span class="co"># Nombre del archivo comprimido</span></span>
-<span id="cb31-15"><a href="#cb31-15"></a>        archive_name <span class="op">=</span> <span class="va">self</span>.rest(<span class="dv">1</span>) <span class="cf">if</span> <span class="va">self</span>.rest(<span class="dv">1</span>) <span class="cf">else</span> <span class="st">&quot;archive.tar.gz&quot;</span></span>
-<span id="cb31-16"><a href="#cb31-16"></a>        </span>
-<span id="cb31-17"><a href="#cb31-17"></a>        <span class="co"># Comprimir</span></span>
-<span id="cb31-18"><a href="#cb31-18"></a>        <span class="va">self</span>.fm.execute_command(<span class="ss">f&quot;tar czf </span><span class="sc">{</span>archive_name<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span><span class="st">&#39; &#39;</span><span class="sc">.</span>join(files)<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb31-19"><a href="#cb31-19"></a>        <span class="va">self</span>.fm.notify(<span class="ss">f&quot;Comprimido como </span><span class="sc">{</span>archive_name<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb31-20"><a href="#cb31-20"></a></span>
-<span id="cb31-21"><a href="#cb31-21"></a><span class="kw">class</span> extract(Command):</span>
-<span id="cb31-22"><a href="#cb31-22"></a>    <span class="kw">def</span> execute(<span class="va">self</span>):</span>
-<span id="cb31-23"><a href="#cb31-23"></a>        <span class="co">&quot;&quot;&quot;Extraer archivo comprimido&quot;&quot;&quot;</span></span>
-<span id="cb31-24"><a href="#cb31-24"></a>        <span class="cf">if</span> <span class="va">self</span>.fm.thisfile.extension <span class="kw">in</span> [<span class="st">&#39;zip&#39;</span>, <span class="st">&#39;tar&#39;</span>, <span class="st">&#39;gz&#39;</span>, <span class="st">&#39;bz2&#39;</span>, <span class="st">&#39;xz&#39;</span>]:</span>
-<span id="cb31-25"><a href="#cb31-25"></a>            <span class="va">self</span>.fm.execute_command(<span class="ss">f&quot;atool -x </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>fm<span class="sc">.</span>thisfile<span class="sc">.</span>basename<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb31-26"><a href="#cb31-26"></a>            <span class="va">self</span>.fm.notify(<span class="st">&quot;Archivo extraído&quot;</span>)</span>
-<span id="cb31-27"><a href="#cb31-27"></a></span>
-<span id="cb31-28"><a href="#cb31-28"></a><span class="kw">class</span> mkcd(Command):</span>
-<span id="cb31-29"><a href="#cb31-29"></a>    <span class="co">&quot;&quot;&quot;Crear directorio y entrar en él&quot;&quot;&quot;</span></span>
-<span id="cb31-30"><a href="#cb31-30"></a>    <span class="kw">def</span> execute(<span class="va">self</span>):</span>
-<span id="cb31-31"><a href="#cb31-31"></a>        <span class="im">from</span> os.path <span class="im">import</span> join, expanduser, lexists</span>
-<span id="cb31-32"><a href="#cb31-32"></a>        dirname <span class="op">=</span> join(<span class="va">self</span>.fm.thisdir.path, expanduser(<span class="va">self</span>.rest(<span class="dv">1</span>)))</span>
-<span id="cb31-33"><a href="#cb31-33"></a>        <span class="cf">if</span> <span class="kw">not</span> lexists(dirname):</span>
-<span id="cb31-34"><a href="#cb31-34"></a>            os.makedirs(dirname)</span>
-<span id="cb31-35"><a href="#cb31-35"></a>            <span class="va">self</span>.fm.cd(dirname)</span>
-<span id="cb31-36"><a href="#cb31-36"></a>        <span class="cf">else</span>:</span>
-<span id="cb31-37"><a href="#cb31-37"></a>            <span class="va">self</span>.fm.notify(<span class="st">&quot;Directorio ya existe&quot;</span>, bad<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="im">from</span> ranger.api.commands <span class="im">import</span> Command</span>
+<span id="cb34-2"><a href="#cb34-2"></a></span>
+<span id="cb34-3"><a href="#cb34-3"></a><span class="kw">class</span> compress(Command):</span>
+<span id="cb34-4"><a href="#cb34-4"></a>    <span class="kw">def</span> execute(<span class="va">self</span>):</span>
+<span id="cb34-5"><a href="#cb34-5"></a>        <span class="co">&quot;&quot;&quot;Comprimir archivos seleccionados&quot;&quot;&quot;</span></span>
+<span id="cb34-6"><a href="#cb34-6"></a>        <span class="im">import</span> os</span>
+<span id="cb34-7"><a href="#cb34-7"></a>        </span>
+<span id="cb34-8"><a href="#cb34-8"></a>        <span class="co"># Obtener archivos seleccionados</span></span>
+<span id="cb34-9"><a href="#cb34-9"></a>        <span class="cf">if</span> <span class="va">self</span>.fm.thisdir.marked_items:</span>
+<span id="cb34-10"><a href="#cb34-10"></a>            files <span class="op">=</span> [f.basename <span class="cf">for</span> f <span class="kw">in</span> <span class="va">self</span>.fm.thisdir.marked_items]</span>
+<span id="cb34-11"><a href="#cb34-11"></a>        <span class="cf">else</span>:</span>
+<span id="cb34-12"><a href="#cb34-12"></a>            files <span class="op">=</span> [<span class="va">self</span>.fm.thisfile.basename]</span>
+<span id="cb34-13"><a href="#cb34-13"></a>        </span>
+<span id="cb34-14"><a href="#cb34-14"></a>        <span class="co"># Nombre del archivo comprimido</span></span>
+<span id="cb34-15"><a href="#cb34-15"></a>        archive_name <span class="op">=</span> <span class="va">self</span>.rest(<span class="dv">1</span>) <span class="cf">if</span> <span class="va">self</span>.rest(<span class="dv">1</span>) <span class="cf">else</span> <span class="st">&quot;archive.tar.gz&quot;</span></span>
+<span id="cb34-16"><a href="#cb34-16"></a>        </span>
+<span id="cb34-17"><a href="#cb34-17"></a>        <span class="co"># Comprimir</span></span>
+<span id="cb34-18"><a href="#cb34-18"></a>        <span class="va">self</span>.fm.execute_command(<span class="ss">f&quot;tar czf </span><span class="sc">{</span>archive_name<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span><span class="st">&#39; &#39;</span><span class="sc">.</span>join(files)<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb34-19"><a href="#cb34-19"></a>        <span class="va">self</span>.fm.notify(<span class="ss">f&quot;Comprimido como </span><span class="sc">{</span>archive_name<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb34-20"><a href="#cb34-20"></a></span>
+<span id="cb34-21"><a href="#cb34-21"></a><span class="kw">class</span> extract(Command):</span>
+<span id="cb34-22"><a href="#cb34-22"></a>    <span class="kw">def</span> execute(<span class="va">self</span>):</span>
+<span id="cb34-23"><a href="#cb34-23"></a>        <span class="co">&quot;&quot;&quot;Extraer archivo comprimido&quot;&quot;&quot;</span></span>
+<span id="cb34-24"><a href="#cb34-24"></a>        <span class="cf">if</span> <span class="va">self</span>.fm.thisfile.extension <span class="kw">in</span> [<span class="st">&#39;zip&#39;</span>, <span class="st">&#39;tar&#39;</span>, <span class="st">&#39;gz&#39;</span>, <span class="st">&#39;bz2&#39;</span>, <span class="st">&#39;xz&#39;</span>]:</span>
+<span id="cb34-25"><a href="#cb34-25"></a>            <span class="va">self</span>.fm.execute_command(<span class="ss">f&quot;atool -x </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>fm<span class="sc">.</span>thisfile<span class="sc">.</span>basename<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb34-26"><a href="#cb34-26"></a>            <span class="va">self</span>.fm.notify(<span class="st">&quot;Archivo extraído&quot;</span>)</span>
+<span id="cb34-27"><a href="#cb34-27"></a></span>
+<span id="cb34-28"><a href="#cb34-28"></a><span class="kw">class</span> mkcd(Command):</span>
+<span id="cb34-29"><a href="#cb34-29"></a>    <span class="co">&quot;&quot;&quot;Crear directorio y entrar en él&quot;&quot;&quot;</span></span>
+<span id="cb34-30"><a href="#cb34-30"></a>    <span class="kw">def</span> execute(<span class="va">self</span>):</span>
+<span id="cb34-31"><a href="#cb34-31"></a>        <span class="im">from</span> os.path <span class="im">import</span> join, expanduser, lexists</span>
+<span id="cb34-32"><a href="#cb34-32"></a>        dirname <span class="op">=</span> join(<span class="va">self</span>.fm.thisdir.path, expanduser(<span class="va">self</span>.rest(<span class="dv">1</span>)))</span>
+<span id="cb34-33"><a href="#cb34-33"></a>        <span class="cf">if</span> <span class="kw">not</span> lexists(dirname):</span>
+<span id="cb34-34"><a href="#cb34-34"></a>            os.makedirs(dirname)</span>
+<span id="cb34-35"><a href="#cb34-35"></a>            <span class="va">self</span>.fm.cd(dirname)</span>
+<span id="cb34-36"><a href="#cb34-36"></a>        <span class="cf">else</span>:</span>
+<span id="cb34-37"><a href="#cb34-37"></a>            <span class="va">self</span>.fm.notify(<span class="st">&quot;Directorio ya existe&quot;</span>, bad<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Usar comandos personalizados:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="ex">:compress</span> archivo.tar.gz    <span class="co"># Comprimir selección</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a><span class="ex">:extract</span>                    <span class="co"># Extraer archivo</span></span>
-<span id="cb32-3"><a href="#cb32-3"></a><span class="ex">:mkcd</span> nueva-carpeta         <span class="co"># Crear y entrar</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1"></a><span class="ex">:compress</span> archivo.tar.gz    <span class="co"># Comprimir selección</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="ex">:extract</span>                    <span class="co"># Extraer archivo</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a><span class="ex">:mkcd</span> nueva-carpeta         <span class="co"># Crear y entrar</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="rifle---el-lanzador-de-archivos" class="level1">
@@ -10854,14 +10909,14 @@ z-index: 0;
 </section>
 <section id="uso-básico" class="level2">
 <h2 class="anchored" data-anchor-id="uso-básico">Uso Básico</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Abrir archivo con rifle</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a><span class="ex">rifle</span> archivo.pdf</span>
-<span id="cb33-3"><a href="#cb33-3"></a></span>
-<span id="cb33-4"><a href="#cb33-4"></a><span class="co"># Listar programas disponibles</span></span>
-<span id="cb33-5"><a href="#cb33-5"></a><span class="ex">rifle</span> <span class="at">-l</span> archivo.pdf</span>
-<span id="cb33-6"><a href="#cb33-6"></a></span>
-<span id="cb33-7"><a href="#cb33-7"></a><span class="co"># Abrir con programa específico</span></span>
-<span id="cb33-8"><a href="#cb33-8"></a><span class="ex">rifle</span> <span class="at">-p</span> 2 archivo.pdf  <span class="co"># Usar opción 2 de la lista</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Abrir archivo con rifle</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="ex">rifle</span> archivo.pdf</span>
+<span id="cb36-3"><a href="#cb36-3"></a></span>
+<span id="cb36-4"><a href="#cb36-4"></a><span class="co"># Listar programas disponibles</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a><span class="ex">rifle</span> <span class="at">-l</span> archivo.pdf</span>
+<span id="cb36-6"><a href="#cb36-6"></a></span>
+<span id="cb36-7"><a href="#cb36-7"></a><span class="co"># Abrir con programa específico</span></span>
+<span id="cb36-8"><a href="#cb36-8"></a><span class="ex">rifle</span> <span class="at">-p</span> 2 archivo.pdf  <span class="co"># Usar opción 2 de la lista</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="dentro-de-ranger" class="level2">
 <h2 class="anchored" data-anchor-id="dentro-de-ranger">Dentro de Ranger</h2>
@@ -10888,14 +10943,14 @@ z-index: 0;
 <h2 class="anchored" data-anchor-id="configurar-rifle">Configurar Rifle</h2>
 <p>Editar <code>~/.config/ranger/rifle.conf</code></p>
 <p><strong>Prioridad:</strong> Primera coincidencia gana</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Ejemplo: Abrir PDFs con zathura si está disponible</span></span>
-<span id="cb34-2"><a href="#cb34-2"></a><span class="ex">ext</span> pdf, has zathura, X, flag f = zathura <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
-<span id="cb34-3"><a href="#cb34-3"></a></span>
-<span id="cb34-4"><a href="#cb34-4"></a><span class="co"># Si no, con evince</span></span>
-<span id="cb34-5"><a href="#cb34-5"></a><span class="ex">ext</span> pdf, has evince, X, flag f = evince <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
-<span id="cb34-6"><a href="#cb34-6"></a></span>
-<span id="cb34-7"><a href="#cb34-7"></a><span class="co"># Si no, convertir a texto</span></span>
-<span id="cb34-8"><a href="#cb34-8"></a><span class="ex">ext</span> pdf, has pdftotext = pdftotext <span class="at">-l</span> 10 <span class="at">-nopgbrk</span> <span class="at">-q</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span> <span class="at">-</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Ejemplo: Abrir PDFs con zathura si está disponible</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="ex">ext</span> pdf, has zathura, X, flag f = zathura <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
+<span id="cb37-3"><a href="#cb37-3"></a></span>
+<span id="cb37-4"><a href="#cb37-4"></a><span class="co"># Si no, con evince</span></span>
+<span id="cb37-5"><a href="#cb37-5"></a><span class="ex">ext</span> pdf, has evince, X, flag f = evince <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span>
+<span id="cb37-6"><a href="#cb37-6"></a></span>
+<span id="cb37-7"><a href="#cb37-7"></a><span class="co"># Si no, convertir a texto</span></span>
+<span id="cb37-8"><a href="#cb37-8"></a><span class="ex">ext</span> pdf, has pdftotext = pdftotext <span class="at">-l</span> 10 <span class="at">-nopgbrk</span> <span class="at">-q</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span> <span class="at">-</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="flags-de-rifle" class="level2">
 <h2 class="anchored" data-anchor-id="flags-de-rifle">Flags de Rifle</h2>
@@ -10912,7 +10967,7 @@ z-index: 0;
 <h1>Plugins y Extensiones</h1>
 <section id="ubicación-de-plugins" class="level2">
 <h2 class="anchored" data-anchor-id="ubicación-de-plugins">Ubicación de Plugins</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1"></a><span class="ex">~/.config/ranger/plugins/</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1"></a><span class="ex">~/.config/ranger/plugins/</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="plugins-populares" class="level2">
 <h2 class="anchored" data-anchor-id="plugins-populares">Plugins Populares</h2>
@@ -10920,60 +10975,60 @@ z-index: 0;
 <section id="ranger_devicons" class="level2">
 <h2 class="anchored" data-anchor-id="ranger_devicons">1. ranger_devicons</h2>
 <p>Añade iconos a tipos de archivo.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">git</span> clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">git</span> clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Activar en rc.conf:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1"></a><span class="ex">default_linemode</span> devicons</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1"></a><span class="ex">default_linemode</span> devicons</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="ranger-archives" class="level2">
 <h2 class="anchored" data-anchor-id="ranger-archives">2. ranger-archives</h2>
 <p>Mejorar manejo de archivos comprimidos.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">git</span> clone https://github.com/maximtrp/ranger-archives.git ~/.config/ranger/plugins/ranger-archives</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">git</span> clone https://github.com/maximtrp/ranger-archives.git ~/.config/ranger/plugins/ranger-archives</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="fasd-integration" class="level2">
 <h2 class="anchored" data-anchor-id="fasd-integration">3. fasd Integration</h2>
 <p>Integración con fasd (autojump rápido).</p>
 <p><strong>En rc.conf:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1"></a><span class="ex">map</span> f shell fasd <span class="at">-d</span> <span class="kw">|</span> <span class="ex">fzf</span> <span class="at">--no-sort</span> <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-I{}</span> ranger <span class="at">--selectfile</span> <span class="st">&quot;{}&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1"></a><span class="ex">map</span> f shell fasd <span class="at">-d</span> <span class="kw">|</span> <span class="ex">fzf</span> <span class="at">--no-sort</span> <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-I{}</span> ranger <span class="at">--selectfile</span> <span class="st">&quot;{}&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="fzf-integration" class="level2">
 <h2 class="anchored" data-anchor-id="fzf-integration">4. fzf Integration</h2>
 <p>Búsqueda fuzzy con fzf.</p>
 <p><strong>En commands.py:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="kw">class</span> fzf_select(Command):</span>
-<span id="cb40-2"><a href="#cb40-2"></a>    <span class="kw">def</span> execute(<span class="va">self</span>):</span>
-<span id="cb40-3"><a href="#cb40-3"></a>        <span class="im">import</span> subprocess</span>
-<span id="cb40-4"><a href="#cb40-4"></a>        command <span class="op">=</span> <span class="st">&quot;find -L . -path &#39;*/</span><span class="er">\</span><span class="st">.*&#39; -prune -o -print 2&gt; /dev/null | fzf +m&quot;</span></span>
-<span id="cb40-5"><a href="#cb40-5"></a>        fzf <span class="op">=</span> <span class="va">self</span>.fm.execute_command(command, stdout<span class="op">=</span>subprocess.PIPE)</span>
-<span id="cb40-6"><a href="#cb40-6"></a>        stdout, stderr <span class="op">=</span> fzf.communicate()</span>
-<span id="cb40-7"><a href="#cb40-7"></a>        <span class="cf">if</span> fzf.returncode <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb40-8"><a href="#cb40-8"></a>            fzf_file <span class="op">=</span> os.path.abspath(stdout.decode(<span class="st">&#39;utf-8&#39;</span>).rstrip(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>))</span>
-<span id="cb40-9"><a href="#cb40-9"></a>            <span class="cf">if</span> os.path.isdir(fzf_file):</span>
-<span id="cb40-10"><a href="#cb40-10"></a>                <span class="va">self</span>.fm.cd(fzf_file)</span>
-<span id="cb40-11"><a href="#cb40-11"></a>            <span class="cf">else</span>:</span>
-<span id="cb40-12"><a href="#cb40-12"></a>                <span class="va">self</span>.fm.select_file(fzf_file)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="kw">class</span> fzf_select(Command):</span>
+<span id="cb43-2"><a href="#cb43-2"></a>    <span class="kw">def</span> execute(<span class="va">self</span>):</span>
+<span id="cb43-3"><a href="#cb43-3"></a>        <span class="im">import</span> subprocess</span>
+<span id="cb43-4"><a href="#cb43-4"></a>        command <span class="op">=</span> <span class="st">&quot;find -L . -path &#39;*/</span><span class="er">\</span><span class="st">.*&#39; -prune -o -print 2&gt; /dev/null | fzf +m&quot;</span></span>
+<span id="cb43-5"><a href="#cb43-5"></a>        fzf <span class="op">=</span> <span class="va">self</span>.fm.execute_command(command, stdout<span class="op">=</span>subprocess.PIPE)</span>
+<span id="cb43-6"><a href="#cb43-6"></a>        stdout, stderr <span class="op">=</span> fzf.communicate()</span>
+<span id="cb43-7"><a href="#cb43-7"></a>        <span class="cf">if</span> fzf.returncode <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb43-8"><a href="#cb43-8"></a>            fzf_file <span class="op">=</span> os.path.abspath(stdout.decode(<span class="st">&#39;utf-8&#39;</span>).rstrip(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>))</span>
+<span id="cb43-9"><a href="#cb43-9"></a>            <span class="cf">if</span> os.path.isdir(fzf_file):</span>
+<span id="cb43-10"><a href="#cb43-10"></a>                <span class="va">self</span>.fm.cd(fzf_file)</span>
+<span id="cb43-11"><a href="#cb43-11"></a>            <span class="cf">else</span>:</span>
+<span id="cb43-12"><a href="#cb43-12"></a>                <span class="va">self</span>.fm.select_file(fzf_file)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Mapear en rc.conf:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="ex">map</span> <span class="op">&lt;</span>C-f<span class="op">&gt;</span> fzf_select</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1"></a><span class="ex">map</span> <span class="op">&lt;</span>C-f<span class="op">&gt;</span> fzf_select</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="crear-plugin-propio" class="level2">
 <h2 class="anchored" data-anchor-id="crear-plugin-propio">Crear Plugin Propio</h2>
 <p><strong>Estructura básica:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># ~/.config/ranger/plugins/mi_plugin.py</span></span>
-<span id="cb42-2"><a href="#cb42-2"></a><span class="im">import</span> ranger.api</span>
-<span id="cb42-3"><a href="#cb42-3"></a></span>
-<span id="cb42-4"><a href="#cb42-4"></a><span class="kw">class</span> CustomCommand(ranger.api.commands.Command):</span>
-<span id="cb42-5"><a href="#cb42-5"></a>    <span class="kw">def</span> execute(<span class="va">self</span>):</span>
-<span id="cb42-6"><a href="#cb42-6"></a>        <span class="co"># Tu código aquí</span></span>
-<span id="cb42-7"><a href="#cb42-7"></a>        <span class="va">self</span>.fm.notify(<span class="st">&quot;Hola desde mi plugin!&quot;</span>)</span>
-<span id="cb42-8"><a href="#cb42-8"></a></span>
-<span id="cb42-9"><a href="#cb42-9"></a><span class="co"># Hook para inicialización</span></span>
-<span id="cb42-10"><a href="#cb42-10"></a>old_hook_init <span class="op">=</span> ranger.api.hook_init</span>
-<span id="cb42-11"><a href="#cb42-11"></a></span>
-<span id="cb42-12"><a href="#cb42-12"></a><span class="kw">def</span> hook_init(fm):</span>
-<span id="cb42-13"><a href="#cb42-13"></a>    <span class="co"># Inicialización personalizada</span></span>
-<span id="cb42-14"><a href="#cb42-14"></a>    fm.notify(<span class="st">&quot;Plugin cargado&quot;</span>)</span>
-<span id="cb42-15"><a href="#cb42-15"></a>    <span class="cf">return</span> old_hook_init(fm)</span>
-<span id="cb42-16"><a href="#cb42-16"></a></span>
-<span id="cb42-17"><a href="#cb42-17"></a>ranger.api.hook_init <span class="op">=</span> hook_init</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># ~/.config/ranger/plugins/mi_plugin.py</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="im">import</span> ranger.api</span>
+<span id="cb45-3"><a href="#cb45-3"></a></span>
+<span id="cb45-4"><a href="#cb45-4"></a><span class="kw">class</span> CustomCommand(ranger.api.commands.Command):</span>
+<span id="cb45-5"><a href="#cb45-5"></a>    <span class="kw">def</span> execute(<span class="va">self</span>):</span>
+<span id="cb45-6"><a href="#cb45-6"></a>        <span class="co"># Tu código aquí</span></span>
+<span id="cb45-7"><a href="#cb45-7"></a>        <span class="va">self</span>.fm.notify(<span class="st">&quot;Hola desde mi plugin!&quot;</span>)</span>
+<span id="cb45-8"><a href="#cb45-8"></a></span>
+<span id="cb45-9"><a href="#cb45-9"></a><span class="co"># Hook para inicialización</span></span>
+<span id="cb45-10"><a href="#cb45-10"></a>old_hook_init <span class="op">=</span> ranger.api.hook_init</span>
+<span id="cb45-11"><a href="#cb45-11"></a></span>
+<span id="cb45-12"><a href="#cb45-12"></a><span class="kw">def</span> hook_init(fm):</span>
+<span id="cb45-13"><a href="#cb45-13"></a>    <span class="co"># Inicialización personalizada</span></span>
+<span id="cb45-14"><a href="#cb45-14"></a>    fm.notify(<span class="st">&quot;Plugin cargado&quot;</span>)</span>
+<span id="cb45-15"><a href="#cb45-15"></a>    <span class="cf">return</span> old_hook_init(fm)</span>
+<span id="cb45-16"><a href="#cb45-16"></a></span>
+<span id="cb45-17"><a href="#cb45-17"></a>ranger.api.hook_init <span class="op">=</span> hook_init</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="integración-con-shell" class="level1">
@@ -10985,65 +11040,65 @@ z-index: 0;
 <section id="bash" class="level2">
 <h2 class="anchored" data-anchor-id="bash">Bash</h2>
 <p>Añadir a <code>~/.bashrc</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1"></a><span class="kw">function</span><span class="fu"> ranger-cd</span> <span class="kw">{</span></span>
-<span id="cb43-2"><a href="#cb43-2"></a>    <span class="va">tempfile</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$(</span><span class="fu">mktemp</span> <span class="at">-t</span> tmp.XXXXXX<span class="va">)</span><span class="st">&quot;</span></span>
-<span id="cb43-3"><a href="#cb43-3"></a>    <span class="ex">ranger</span> <span class="at">--choosedir</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span> <span class="st">&quot;</span><span class="va">${@</span><span class="op">:-</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)}</span><span class="st">&quot;</span></span>
-<span id="cb43-4"><a href="#cb43-4"></a>    <span class="bu">test</span> <span class="at">-f</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span></span>
-<span id="cb43-5"><a href="#cb43-5"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">cat</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span><span class="va">)</span><span class="st">&quot;</span> <span class="ot">!=</span> <span class="st">&quot;</span><span class="va">$(</span><span class="bu">echo</span> <span class="at">-n</span> <span class="kw">`</span><span class="bu">pwd</span><span class="kw">`</span><span class="va">)</span><span class="st">&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb43-6"><a href="#cb43-6"></a>        <span class="bu">cd</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">cat</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span><span class="va">)</span><span class="st">&quot;</span></span>
-<span id="cb43-7"><a href="#cb43-7"></a>    <span class="cf">fi</span>  </span>
-<span id="cb43-8"><a href="#cb43-8"></a>    <span class="fu">rm</span> <span class="at">-f</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span></span>
-<span id="cb43-9"><a href="#cb43-9"></a><span class="kw">}</span></span>
-<span id="cb43-10"><a href="#cb43-10"></a></span>
-<span id="cb43-11"><a href="#cb43-11"></a><span class="co"># Alias para usar</span></span>
-<span id="cb43-12"><a href="#cb43-12"></a><span class="bu">alias</span> rr=<span class="st">&#39;ranger-cd&#39;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1"></a><span class="kw">function</span><span class="fu"> ranger-cd</span> <span class="kw">{</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>    <span class="va">tempfile</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$(</span><span class="fu">mktemp</span> <span class="at">-t</span> tmp.XXXXXX<span class="va">)</span><span class="st">&quot;</span></span>
+<span id="cb46-3"><a href="#cb46-3"></a>    <span class="ex">ranger</span> <span class="at">--choosedir</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span> <span class="st">&quot;</span><span class="va">${@</span><span class="op">:-</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)}</span><span class="st">&quot;</span></span>
+<span id="cb46-4"><a href="#cb46-4"></a>    <span class="bu">test</span> <span class="at">-f</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span></span>
+<span id="cb46-5"><a href="#cb46-5"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">cat</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span><span class="va">)</span><span class="st">&quot;</span> <span class="ot">!=</span> <span class="st">&quot;</span><span class="va">$(</span><span class="bu">echo</span> <span class="at">-n</span> <span class="kw">`</span><span class="bu">pwd</span><span class="kw">`</span><span class="va">)</span><span class="st">&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb46-6"><a href="#cb46-6"></a>        <span class="bu">cd</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">cat</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span><span class="va">)</span><span class="st">&quot;</span></span>
+<span id="cb46-7"><a href="#cb46-7"></a>    <span class="cf">fi</span>  </span>
+<span id="cb46-8"><a href="#cb46-8"></a>    <span class="fu">rm</span> <span class="at">-f</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span></span>
+<span id="cb46-9"><a href="#cb46-9"></a><span class="kw">}</span></span>
+<span id="cb46-10"><a href="#cb46-10"></a></span>
+<span id="cb46-11"><a href="#cb46-11"></a><span class="co"># Alias para usar</span></span>
+<span id="cb46-12"><a href="#cb46-12"></a><span class="bu">alias</span> rr=<span class="st">&#39;ranger-cd&#39;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="zsh" class="level2">
 <h2 class="anchored" data-anchor-id="zsh">Zsh</h2>
 <p>Añadir a <code>~/.zshrc</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1"></a><span class="kw">function</span><span class="fu"> ranger-cd</span> <span class="kw">{</span></span>
-<span id="cb44-2"><a href="#cb44-2"></a>    <span class="va">tempfile</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$(</span><span class="fu">mktemp</span> <span class="at">-t</span> tmp.XXXXXX<span class="va">)</span><span class="st">&quot;</span></span>
-<span id="cb44-3"><a href="#cb44-3"></a>    <span class="ex">ranger</span> <span class="at">--choosedir</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span> <span class="st">&quot;</span><span class="va">${@</span><span class="op">:-</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)}</span><span class="st">&quot;</span></span>
-<span id="cb44-4"><a href="#cb44-4"></a>    <span class="bu">test</span> <span class="at">-f</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span></span>
-<span id="cb44-5"><a href="#cb44-5"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">cat</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span><span class="va">)</span><span class="st">&quot;</span> <span class="ot">!=</span> <span class="st">&quot;</span><span class="va">$(</span><span class="bu">echo</span> <span class="at">-n</span> <span class="kw">`</span><span class="bu">pwd</span><span class="kw">`</span><span class="va">)</span><span class="st">&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb44-6"><a href="#cb44-6"></a>        <span class="bu">cd</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">cat</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span><span class="va">)</span><span class="st">&quot;</span></span>
-<span id="cb44-7"><a href="#cb44-7"></a>    <span class="cf">fi</span>  </span>
-<span id="cb44-8"><a href="#cb44-8"></a>    <span class="fu">rm</span> <span class="at">-f</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span></span>
-<span id="cb44-9"><a href="#cb44-9"></a><span class="kw">}</span></span>
-<span id="cb44-10"><a href="#cb44-10"></a></span>
-<span id="cb44-11"><a href="#cb44-11"></a><span class="bu">alias</span> rr=<span class="st">&#39;ranger-cd&#39;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1"></a><span class="kw">function</span><span class="fu"> ranger-cd</span> <span class="kw">{</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a>    <span class="va">tempfile</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$(</span><span class="fu">mktemp</span> <span class="at">-t</span> tmp.XXXXXX<span class="va">)</span><span class="st">&quot;</span></span>
+<span id="cb47-3"><a href="#cb47-3"></a>    <span class="ex">ranger</span> <span class="at">--choosedir</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span> <span class="st">&quot;</span><span class="va">${@</span><span class="op">:-</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)}</span><span class="st">&quot;</span></span>
+<span id="cb47-4"><a href="#cb47-4"></a>    <span class="bu">test</span> <span class="at">-f</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span></span>
+<span id="cb47-5"><a href="#cb47-5"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">cat</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span><span class="va">)</span><span class="st">&quot;</span> <span class="ot">!=</span> <span class="st">&quot;</span><span class="va">$(</span><span class="bu">echo</span> <span class="at">-n</span> <span class="kw">`</span><span class="bu">pwd</span><span class="kw">`</span><span class="va">)</span><span class="st">&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb47-6"><a href="#cb47-6"></a>        <span class="bu">cd</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">cat</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span><span class="va">)</span><span class="st">&quot;</span></span>
+<span id="cb47-7"><a href="#cb47-7"></a>    <span class="cf">fi</span>  </span>
+<span id="cb47-8"><a href="#cb47-8"></a>    <span class="fu">rm</span> <span class="at">-f</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span></span>
+<span id="cb47-9"><a href="#cb47-9"></a><span class="kw">}</span></span>
+<span id="cb47-10"><a href="#cb47-10"></a></span>
+<span id="cb47-11"><a href="#cb47-11"></a><span class="bu">alias</span> rr=<span class="st">&#39;ranger-cd&#39;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="fish" class="level2">
 <h2 class="anchored" data-anchor-id="fish">Fish</h2>
 <p>Añadir a <code>~/.config/fish/config.fish</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource fish number-lines code-with-copy"><code class="sourceCode"><span id="cb45-1"><a href="#cb45-1"></a>function ranger-cd</span>
-<span id="cb45-2"><a href="#cb45-2"></a>    set tempfile (mktemp -t tmp.XXXXXX)</span>
-<span id="cb45-3"><a href="#cb45-3"></a>    ranger --choosedir=$tempfile $argv</span>
-<span id="cb45-4"><a href="#cb45-4"></a>    if test -f $tempfile</span>
-<span id="cb45-5"><a href="#cb45-5"></a>        if test (cat $tempfile) != (pwd)</span>
-<span id="cb45-6"><a href="#cb45-6"></a>            cd (cat $tempfile)</span>
-<span id="cb45-7"><a href="#cb45-7"></a>        end</span>
-<span id="cb45-8"><a href="#cb45-8"></a>    end</span>
-<span id="cb45-9"><a href="#cb45-9"></a>    rm -f $tempfile</span>
-<span id="cb45-10"><a href="#cb45-10"></a>end</span>
-<span id="cb45-11"><a href="#cb45-11"></a></span>
-<span id="cb45-12"><a href="#cb45-12"></a>alias rr=&#39;ranger-cd&#39;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode numberSource fish number-lines code-with-copy"><code class="sourceCode"><span id="cb48-1"><a href="#cb48-1"></a>function ranger-cd</span>
+<span id="cb48-2"><a href="#cb48-2"></a>    set tempfile (mktemp -t tmp.XXXXXX)</span>
+<span id="cb48-3"><a href="#cb48-3"></a>    ranger --choosedir=$tempfile $argv</span>
+<span id="cb48-4"><a href="#cb48-4"></a>    if test -f $tempfile</span>
+<span id="cb48-5"><a href="#cb48-5"></a>        if test (cat $tempfile) != (pwd)</span>
+<span id="cb48-6"><a href="#cb48-6"></a>            cd (cat $tempfile)</span>
+<span id="cb48-7"><a href="#cb48-7"></a>        end</span>
+<span id="cb48-8"><a href="#cb48-8"></a>    end</span>
+<span id="cb48-9"><a href="#cb48-9"></a>    rm -f $tempfile</span>
+<span id="cb48-10"><a href="#cb48-10"></a>end</span>
+<span id="cb48-11"><a href="#cb48-11"></a></span>
+<span id="cb48-12"><a href="#cb48-12"></a>alias rr=&#39;ranger-cd&#39;</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="file-picker" class="level2">
 <h2 class="anchored" data-anchor-id="file-picker">File Picker</h2>
 <p>Usar ranger como selector de archivos.</p>
 <p><strong>Script:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb46-2"><a href="#cb46-2"></a><span class="co"># ranger-picker.sh</span></span>
-<span id="cb46-3"><a href="#cb46-3"></a><span class="va">tempfile</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$(</span><span class="fu">mktemp</span> <span class="at">-t</span> tmp.XXXXXX<span class="va">)</span><span class="st">&quot;</span></span>
-<span id="cb46-4"><a href="#cb46-4"></a><span class="ex">ranger</span> <span class="at">--choosefile</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span></span>
-<span id="cb46-5"><a href="#cb46-5"></a><span class="cf">if</span> <span class="bu">[</span> <span class="ot">-f</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb46-6"><a href="#cb46-6"></a>    <span class="fu">cat</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span></span>
-<span id="cb46-7"><a href="#cb46-7"></a>    <span class="fu">rm</span> <span class="at">-f</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span></span>
-<span id="cb46-8"><a href="#cb46-8"></a><span class="cf">fi</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="co"># ranger-picker.sh</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a><span class="va">tempfile</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$(</span><span class="fu">mktemp</span> <span class="at">-t</span> tmp.XXXXXX<span class="va">)</span><span class="st">&quot;</span></span>
+<span id="cb49-4"><a href="#cb49-4"></a><span class="ex">ranger</span> <span class="at">--choosefile</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span></span>
+<span id="cb49-5"><a href="#cb49-5"></a><span class="cf">if</span> <span class="bu">[</span> <span class="ot">-f</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb49-6"><a href="#cb49-6"></a>    <span class="fu">cat</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span></span>
+<span id="cb49-7"><a href="#cb49-7"></a>    <span class="fu">rm</span> <span class="at">-f</span> <span class="st">&quot;</span><span class="va">$tempfile</span><span class="st">&quot;</span></span>
+<span id="cb49-8"><a href="#cb49-8"></a><span class="cf">fi</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Usar:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1"></a><span class="va">selected_file</span><span class="op">=</span><span class="va">$(</span><span class="ex">ranger-picker.sh</span><span class="va">)</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a><span class="bu">echo</span> <span class="st">&quot;Archivo seleccionado: </span><span class="va">$selected_file</span><span class="st">&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1"></a><span class="va">selected_file</span><span class="op">=</span><span class="va">$(</span><span class="ex">ranger-picker.sh</span><span class="va">)</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a><span class="bu">echo</span> <span class="st">&quot;Archivo seleccionado: </span><span class="va">$selected_file</span><span class="st">&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="trucos-y-tips-avanzados" class="level1">
@@ -11051,117 +11106,117 @@ z-index: 0;
 <section id="preview-de-archivos-con-sintaxis" class="level2">
 <h2 class="anchored" data-anchor-id="preview-de-archivos-con-sintaxis">Preview de Archivos con Sintaxis</h2>
 <p>Instalar <code>highlight</code> o <code>bat</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">sudo</span> apt-get install highlight</span>
-<span id="cb48-2"><a href="#cb48-2"></a><span class="co"># O</span></span>
-<span id="cb48-3"><a href="#cb48-3"></a><span class="ex">cargo</span> install bat</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">sudo</span> apt-get install highlight</span>
+<span id="cb51-2"><a href="#cb51-2"></a><span class="co"># O</span></span>
+<span id="cb51-3"><a href="#cb51-3"></a><span class="ex">cargo</span> install bat</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Editar <code>scope.sh</code> para usar <code>bat</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1"></a><span class="cf">case</span> <span class="st">&quot;</span><span class="va">$mimetype</span><span class="st">&quot;</span> <span class="kw">in</span></span>
-<span id="cb49-2"><a href="#cb49-2"></a>    <span class="ss">text/</span><span class="pp">*</span> <span class="kw">|</span> <span class="pp">*</span><span class="ss">/xml</span><span class="kw">)</span></span>
-<span id="cb49-3"><a href="#cb49-3"></a>        <span class="ex">bat</span> <span class="at">--style</span><span class="op">=</span>numbers <span class="at">--color</span><span class="op">=</span>always <span class="st">&quot;</span><span class="va">$path</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span> <span class="bu">exit</span> 5</span>
-<span id="cb49-4"><a href="#cb49-4"></a>        <span class="bu">exit</span> 2<span class="cf">;;</span></span>
-<span id="cb49-5"><a href="#cb49-5"></a><span class="cf">esac</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1"></a><span class="cf">case</span> <span class="st">&quot;</span><span class="va">$mimetype</span><span class="st">&quot;</span> <span class="kw">in</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>    <span class="ss">text/</span><span class="pp">*</span> <span class="kw">|</span> <span class="pp">*</span><span class="ss">/xml</span><span class="kw">)</span></span>
+<span id="cb52-3"><a href="#cb52-3"></a>        <span class="ex">bat</span> <span class="at">--style</span><span class="op">=</span>numbers <span class="at">--color</span><span class="op">=</span>always <span class="st">&quot;</span><span class="va">$path</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span> <span class="bu">exit</span> 5</span>
+<span id="cb52-4"><a href="#cb52-4"></a>        <span class="bu">exit</span> 2<span class="cf">;;</span></span>
+<span id="cb52-5"><a href="#cb52-5"></a><span class="cf">esac</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="thumbnails-de-videos" class="level2">
 <h2 class="anchored" data-anchor-id="thumbnails-de-videos">Thumbnails de Videos</h2>
 <p>Instalar <code>ffmpegthumbnailer</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">sudo</span> apt-get install ffmpegthumbnailer</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">sudo</span> apt-get install ffmpegthumbnailer</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Ya debería funcionar con <code>scope.sh</code> por defecto.</p>
 </section>
 <section id="preview-de-imágenes-terminal-compatible" class="level2">
 <h2 class="anchored" data-anchor-id="preview-de-imágenes-terminal-compatible">Preview de Imágenes (Terminal Compatible)</h2>
 <p><strong>Con w3m:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">sudo</span> apt-get install w3m w3m-img</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">sudo</span> apt-get install w3m w3m-img</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>En rc.conf:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1"></a><span class="bu">set</span> preview_images true</span>
-<span id="cb52-2"><a href="#cb52-2"></a><span class="bu">set</span> preview_images_method w3m</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb55-1"><a href="#cb55-1"></a><span class="bu">set</span> preview_images true</span>
+<span id="cb55-2"><a href="#cb55-2"></a><span class="bu">set</span> preview_images_method w3m</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Con kitty (mejor calidad):</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1"></a><span class="bu">set</span> preview_images_method kitty</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1"></a><span class="bu">set</span> preview_images_method kitty</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Con ueberzug (mejor compatibilidad):</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1"></a><span class="ex">pip</span> install ueberzug</span>
-<span id="cb54-2"><a href="#cb54-2"></a><span class="bu">set</span> preview_images_method ueberzug</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><a href="#cb57-1"></a><span class="ex">pip</span> install ueberzug</span>
+<span id="cb57-2"><a href="#cb57-2"></a><span class="bu">set</span> preview_images_method ueberzug</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="búsqueda-con-fzf" class="level2">
 <h2 class="anchored" data-anchor-id="búsqueda-con-fzf">Búsqueda con FZF</h2>
 <p>Integrar búsqueda fuzzy:</p>
 <p><strong>En commands.py:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a><span class="im">import</span> subprocess</span>
-<span id="cb55-2"><a href="#cb55-2"></a></span>
-<span id="cb55-3"><a href="#cb55-3"></a><span class="kw">class</span> fzf(Command):</span>
-<span id="cb55-4"><a href="#cb55-4"></a>    <span class="kw">def</span> execute(<span class="va">self</span>):</span>
-<span id="cb55-5"><a href="#cb55-5"></a>        command<span class="op">=</span><span class="st">&quot;find -L . </span><span class="er">\</span><span class="st">( -path &#39;*/</span><span class="er">\</span><span class="st">.*&#39; -o -fstype &#39;dev&#39; -o -fstype &#39;proc&#39; </span><span class="er">\</span><span class="st">) -prune -o -print 2&gt; /dev/null | sed 1d | cut -b3- | fzf +m&quot;</span></span>
-<span id="cb55-6"><a href="#cb55-6"></a>        fzf <span class="op">=</span> <span class="va">self</span>.fm.execute_command(command, stdout<span class="op">=</span>subprocess.PIPE)</span>
-<span id="cb55-7"><a href="#cb55-7"></a>        stdout, _ <span class="op">=</span> fzf.communicate()</span>
-<span id="cb55-8"><a href="#cb55-8"></a>        <span class="cf">if</span> fzf.returncode <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb55-9"><a href="#cb55-9"></a>            fzf_file <span class="op">=</span> os.path.abspath(stdout.decode(<span class="st">&#39;utf-8&#39;</span>).rstrip(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>))</span>
-<span id="cb55-10"><a href="#cb55-10"></a>            <span class="cf">if</span> os.path.isdir(fzf_file):</span>
-<span id="cb55-11"><a href="#cb55-11"></a>                <span class="va">self</span>.fm.cd(fzf_file)</span>
-<span id="cb55-12"><a href="#cb55-12"></a>            <span class="cf">else</span>:</span>
-<span id="cb55-13"><a href="#cb55-13"></a>                <span class="va">self</span>.fm.select_file(fzf_file)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="im">import</span> subprocess</span>
+<span id="cb58-2"><a href="#cb58-2"></a></span>
+<span id="cb58-3"><a href="#cb58-3"></a><span class="kw">class</span> fzf(Command):</span>
+<span id="cb58-4"><a href="#cb58-4"></a>    <span class="kw">def</span> execute(<span class="va">self</span>):</span>
+<span id="cb58-5"><a href="#cb58-5"></a>        command<span class="op">=</span><span class="st">&quot;find -L . </span><span class="er">\</span><span class="st">( -path &#39;*/</span><span class="er">\</span><span class="st">.*&#39; -o -fstype &#39;dev&#39; -o -fstype &#39;proc&#39; </span><span class="er">\</span><span class="st">) -prune -o -print 2&gt; /dev/null | sed 1d | cut -b3- | fzf +m&quot;</span></span>
+<span id="cb58-6"><a href="#cb58-6"></a>        fzf <span class="op">=</span> <span class="va">self</span>.fm.execute_command(command, stdout<span class="op">=</span>subprocess.PIPE)</span>
+<span id="cb58-7"><a href="#cb58-7"></a>        stdout, _ <span class="op">=</span> fzf.communicate()</span>
+<span id="cb58-8"><a href="#cb58-8"></a>        <span class="cf">if</span> fzf.returncode <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb58-9"><a href="#cb58-9"></a>            fzf_file <span class="op">=</span> os.path.abspath(stdout.decode(<span class="st">&#39;utf-8&#39;</span>).rstrip(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>))</span>
+<span id="cb58-10"><a href="#cb58-10"></a>            <span class="cf">if</span> os.path.isdir(fzf_file):</span>
+<span id="cb58-11"><a href="#cb58-11"></a>                <span class="va">self</span>.fm.cd(fzf_file)</span>
+<span id="cb58-12"><a href="#cb58-12"></a>            <span class="cf">else</span>:</span>
+<span id="cb58-13"><a href="#cb58-13"></a>                <span class="va">self</span>.fm.select_file(fzf_file)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Mapear:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1"></a><span class="ex">map</span> <span class="op">&lt;</span>C-f<span class="op">&gt;</span> fzf</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1"></a><span class="ex">map</span> <span class="op">&lt;</span>C-f<span class="op">&gt;</span> fzf</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="integración-con-git" class="level2">
 <h2 class="anchored" data-anchor-id="integración-con-git">Integración con Git</h2>
 <p>Ver estado de Git:</p>
 <p><strong>En rc.conf:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><a href="#cb57-1"></a><span class="bu">set</span> vcs_aware true</span>
-<span id="cb57-2"><a href="#cb57-2"></a><span class="bu">set</span> vcs_backend_git enabled</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1"></a><span class="bu">set</span> vcs_aware true</span>
+<span id="cb60-2"><a href="#cb60-2"></a><span class="bu">set</span> vcs_backend_git enabled</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Ranger mostrará información de Git en archivos/directorios.</p>
 </section>
 <section id="archivos-grandes" class="level2">
 <h2 class="anchored" data-anchor-id="archivos-grandes">Archivos Grandes</h2>
 <p>Evitar lag con archivos grandes:</p>
 <p><strong>En rc.conf:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb58-1"><a href="#cb58-1"></a><span class="bu">set</span> preview_max_size 10485760  <span class="co"># 10MB</span></span>
-<span id="cb58-2"><a href="#cb58-2"></a><span class="bu">set</span> max_history_size 20</span>
-<span id="cb58-3"><a href="#cb58-3"></a><span class="bu">set</span> max_console_history_size 50</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb61-1"><a href="#cb61-1"></a><span class="bu">set</span> preview_max_size 10485760  <span class="co"># 10MB</span></span>
+<span id="cb61-2"><a href="#cb61-2"></a><span class="bu">set</span> max_history_size 20</span>
+<span id="cb61-3"><a href="#cb61-3"></a><span class="bu">set</span> max_console_history_size 50</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="abrir-en-programa-externo" class="level2">
 <h2 class="anchored" data-anchor-id="abrir-en-programa-externo">Abrir en Programa Externo</h2>
 <p>Crear atajos para programas específicos:</p>
 <p><strong>En rc.conf:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># Abrir en VS Code</span></span>
-<span id="cb59-2"><a href="#cb59-2"></a><span class="ex">map</span> code shell code <span class="st">&quot;</span><span class="va">$PWD</span><span class="st">&quot;</span></span>
-<span id="cb59-3"><a href="#cb59-3"></a></span>
-<span id="cb59-4"><a href="#cb59-4"></a><span class="co"># Abrir terminal aquí</span></span>
-<span id="cb59-5"><a href="#cb59-5"></a><span class="ex">map</span> tt shell alacritty <span class="kw">&amp;</span></span>
-<span id="cb59-6"><a href="#cb59-6"></a></span>
-<span id="cb59-7"><a href="#cb59-7"></a><span class="co"># Abrir file manager GUI</span></span>
-<span id="cb59-8"><a href="#cb59-8"></a><span class="ex">map</span> fm shell nautilus <span class="st">&quot;</span><span class="va">$PWD</span><span class="st">&quot;</span> <span class="kw">&amp;</span></span>
-<span id="cb59-9"><a href="#cb59-9"></a></span>
-<span id="cb59-10"><a href="#cb59-10"></a><span class="co"># Ejecutar script</span></span>
-<span id="cb59-11"><a href="#cb59-11"></a><span class="ex">map</span> ex shell chmod +x %s <span class="kw">&amp;&amp;</span> <span class="ex">./%s</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># Abrir en VS Code</span></span>
+<span id="cb62-2"><a href="#cb62-2"></a><span class="ex">map</span> code shell code <span class="st">&quot;</span><span class="va">$PWD</span><span class="st">&quot;</span></span>
+<span id="cb62-3"><a href="#cb62-3"></a></span>
+<span id="cb62-4"><a href="#cb62-4"></a><span class="co"># Abrir terminal aquí</span></span>
+<span id="cb62-5"><a href="#cb62-5"></a><span class="ex">map</span> tt shell alacritty <span class="kw">&amp;</span></span>
+<span id="cb62-6"><a href="#cb62-6"></a></span>
+<span id="cb62-7"><a href="#cb62-7"></a><span class="co"># Abrir file manager GUI</span></span>
+<span id="cb62-8"><a href="#cb62-8"></a><span class="ex">map</span> fm shell nautilus <span class="st">&quot;</span><span class="va">$PWD</span><span class="st">&quot;</span> <span class="kw">&amp;</span></span>
+<span id="cb62-9"><a href="#cb62-9"></a></span>
+<span id="cb62-10"><a href="#cb62-10"></a><span class="co"># Ejecutar script</span></span>
+<span id="cb62-11"><a href="#cb62-11"></a><span class="ex">map</span> ex shell chmod +x %s <span class="kw">&amp;&amp;</span> <span class="ex">./%s</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="sincronizar-con-dropboxdrive" class="level2">
 <h2 class="anchored" data-anchor-id="sincronizar-con-dropboxdrive">Sincronizar con Dropbox/Drive</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1"></a><span class="co"># Crear marcador para cloud storage</span></span>
-<span id="cb60-2"><a href="#cb60-2"></a><span class="ex">map</span> gdb cd ~/Dropbox</span>
-<span id="cb60-3"><a href="#cb60-3"></a><span class="ex">map</span> gdv cd ~/Google\ Drive</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># Crear marcador para cloud storage</span></span>
+<span id="cb63-2"><a href="#cb63-2"></a><span class="ex">map</span> gdb cd ~/Dropbox</span>
+<span id="cb63-3"><a href="#cb63-3"></a><span class="ex">map</span> gdv cd ~/Google\ Drive</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="operaciones-bulk" class="level2">
 <h2 class="anchored" data-anchor-id="operaciones-bulk">Operaciones Bulk</h2>
 <p>Renombrar múltiples archivos:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># Seleccionar archivos con Space</span></span>
-<span id="cb61-2"><a href="#cb61-2"></a><span class="co"># Ejecutar:</span></span>
-<span id="cb61-3"><a href="#cb61-3"></a><span class="ex">:bulkrename</span></span>
-<span id="cb61-4"><a href="#cb61-4"></a></span>
-<span id="cb61-5"><a href="#cb61-5"></a><span class="co"># Se abre editor con lista</span></span>
-<span id="cb61-6"><a href="#cb61-6"></a><span class="co"># Modificar nombres</span></span>
-<span id="cb61-7"><a href="#cb61-7"></a><span class="co"># Guardar y cerrar</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb64"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># Seleccionar archivos con Space</span></span>
+<span id="cb64-2"><a href="#cb64-2"></a><span class="co"># Ejecutar:</span></span>
+<span id="cb64-3"><a href="#cb64-3"></a><span class="ex">:bulkrename</span></span>
+<span id="cb64-4"><a href="#cb64-4"></a></span>
+<span id="cb64-5"><a href="#cb64-5"></a><span class="co"># Se abre editor con lista</span></span>
+<span id="cb64-6"><a href="#cb64-6"></a><span class="co"># Modificar nombres</span></span>
+<span id="cb64-7"><a href="#cb64-7"></a><span class="co"># Guardar y cerrar</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="preview-de-archivos-jsonyaml" class="level2">
 <h2 class="anchored" data-anchor-id="preview-de-archivos-jsonyaml">Preview de Archivos JSON/YAML</h2>
 <p><strong>En scope.sh:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># JSON</span></span>
-<span id="cb62-2"><a href="#cb62-2"></a><span class="ex">json</span><span class="er">)</span></span>
-<span id="cb62-3"><a href="#cb62-3"></a>    <span class="ex">jq</span> <span class="at">--color-output</span> . <span class="st">&quot;</span><span class="va">${FILE_PATH}</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span> <span class="bu">exit</span> 5</span>
-<span id="cb62-4"><a href="#cb62-4"></a>    <span class="ex">python</span> <span class="at">-m</span> json.tool <span class="at">--</span> <span class="st">&quot;</span><span class="va">${FILE_PATH}</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span> <span class="bu">exit</span> 5</span>
-<span id="cb62-5"><a href="#cb62-5"></a>    <span class="kw">;;</span></span>
-<span id="cb62-6"><a href="#cb62-6"></a></span>
-<span id="cb62-7"><a href="#cb62-7"></a><span class="co"># YAML</span></span>
-<span id="cb62-8"><a href="#cb62-8"></a><span class="ex">yaml</span><span class="er">)</span></span>
-<span id="cb62-9"><a href="#cb62-9"></a>    <span class="ex">yq</span> eval <span class="at">--colors</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">${FILE_PATH}</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span> <span class="bu">exit</span> 5</span>
-<span id="cb62-10"><a href="#cb62-10"></a>    <span class="kw">;;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb65"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># JSON</span></span>
+<span id="cb65-2"><a href="#cb65-2"></a><span class="ex">json</span><span class="er">)</span></span>
+<span id="cb65-3"><a href="#cb65-3"></a>    <span class="ex">jq</span> <span class="at">--color-output</span> . <span class="st">&quot;</span><span class="va">${FILE_PATH}</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span> <span class="bu">exit</span> 5</span>
+<span id="cb65-4"><a href="#cb65-4"></a>    <span class="ex">python</span> <span class="at">-m</span> json.tool <span class="at">--</span> <span class="st">&quot;</span><span class="va">${FILE_PATH}</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span> <span class="bu">exit</span> 5</span>
+<span id="cb65-5"><a href="#cb65-5"></a>    <span class="kw">;;</span></span>
+<span id="cb65-6"><a href="#cb65-6"></a></span>
+<span id="cb65-7"><a href="#cb65-7"></a><span class="co"># YAML</span></span>
+<span id="cb65-8"><a href="#cb65-8"></a><span class="ex">yaml</span><span class="er">)</span></span>
+<span id="cb65-9"><a href="#cb65-9"></a>    <span class="ex">yq</span> eval <span class="at">--colors</span> <span class="at">--</span> <span class="st">&quot;</span><span class="va">${FILE_PATH}</span><span class="st">&quot;</span> <span class="kw">&amp;&amp;</span> <span class="bu">exit</span> 5</span>
+<span id="cb65-10"><a href="#cb65-10"></a>    <span class="kw">;;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="solución-de-problemas" class="level1">
@@ -11169,38 +11224,38 @@ z-index: 0;
 <section id="problema-imágenes-no-se-previsualizan" class="level2">
 <h2 class="anchored" data-anchor-id="problema-imágenes-no-se-previsualizan">Problema: Imágenes no se previsualizan</h2>
 <p><strong>Solución:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># Verificar método configurado</span></span>
-<span id="cb63-2"><a href="#cb63-2"></a><span class="ex">:set</span> preview_images_method</span>
-<span id="cb63-3"><a href="#cb63-3"></a></span>
-<span id="cb63-4"><a href="#cb63-4"></a><span class="co"># Cambiar método</span></span>
-<span id="cb63-5"><a href="#cb63-5"></a><span class="ex">:set</span> preview_images_method w3m</span>
-<span id="cb63-6"><a href="#cb63-6"></a><span class="co"># O kitty, ueberzug, iterm2</span></span>
-<span id="cb63-7"><a href="#cb63-7"></a></span>
-<span id="cb63-8"><a href="#cb63-8"></a><span class="co"># Verificar instalación</span></span>
-<span id="cb63-9"><a href="#cb63-9"></a><span class="fu">which</span> w3mimgdisplay</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb66"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Verificar método configurado</span></span>
+<span id="cb66-2"><a href="#cb66-2"></a><span class="ex">:set</span> preview_images_method</span>
+<span id="cb66-3"><a href="#cb66-3"></a></span>
+<span id="cb66-4"><a href="#cb66-4"></a><span class="co"># Cambiar método</span></span>
+<span id="cb66-5"><a href="#cb66-5"></a><span class="ex">:set</span> preview_images_method w3m</span>
+<span id="cb66-6"><a href="#cb66-6"></a><span class="co"># O kitty, ueberzug, iterm2</span></span>
+<span id="cb66-7"><a href="#cb66-7"></a></span>
+<span id="cb66-8"><a href="#cb66-8"></a><span class="co"># Verificar instalación</span></span>
+<span id="cb66-9"><a href="#cb66-9"></a><span class="fu">which</span> w3mimgdisplay</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="problema-colores-incorrectos" class="level2">
 <h2 class="anchored" data-anchor-id="problema-colores-incorrectos">Problema: Colores incorrectos</h2>
 <p><strong>Solución:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb64"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># Verificar TERM</span></span>
-<span id="cb64-2"><a href="#cb64-2"></a><span class="bu">echo</span> <span class="va">$TERM</span></span>
-<span id="cb64-3"><a href="#cb64-3"></a></span>
-<span id="cb64-4"><a href="#cb64-4"></a><span class="co"># Debería ser xterm-256color o similar</span></span>
-<span id="cb64-5"><a href="#cb64-5"></a><span class="bu">export</span> <span class="va">TERM</span><span class="op">=</span>xterm-256color</span>
-<span id="cb64-6"><a href="#cb64-6"></a></span>
-<span id="cb64-7"><a href="#cb64-7"></a><span class="co"># En rc.conf cambiar colorscheme</span></span>
-<span id="cb64-8"><a href="#cb64-8"></a><span class="bu">set</span> colorscheme default</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb67"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Verificar TERM</span></span>
+<span id="cb67-2"><a href="#cb67-2"></a><span class="bu">echo</span> <span class="va">$TERM</span></span>
+<span id="cb67-3"><a href="#cb67-3"></a></span>
+<span id="cb67-4"><a href="#cb67-4"></a><span class="co"># Debería ser xterm-256color o similar</span></span>
+<span id="cb67-5"><a href="#cb67-5"></a><span class="bu">export</span> <span class="va">TERM</span><span class="op">=</span>xterm-256color</span>
+<span id="cb67-6"><a href="#cb67-6"></a></span>
+<span id="cb67-7"><a href="#cb67-7"></a><span class="co"># En rc.conf cambiar colorscheme</span></span>
+<span id="cb67-8"><a href="#cb67-8"></a><span class="bu">set</span> colorscheme default</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="problema-resaltado-de-sintaxis-no-funciona" class="level2">
 <h2 class="anchored" data-anchor-id="problema-resaltado-de-sintaxis-no-funciona">Problema: Resaltado de sintaxis no funciona</h2>
 <p><strong>Solución:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb65"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># Instalar highlight o pygments</span></span>
-<span id="cb65-2"><a href="#cb65-2"></a><span class="fu">sudo</span> apt-get install highlight</span>
-<span id="cb65-3"><a href="#cb65-3"></a></span>
-<span id="cb65-4"><a href="#cb65-4"></a><span class="co"># O</span></span>
-<span id="cb65-5"><a href="#cb65-5"></a><span class="ex">pip</span> install pygments</span>
-<span id="cb65-6"><a href="#cb65-6"></a></span>
-<span id="cb65-7"><a href="#cb65-7"></a><span class="co"># Verificar scope.sh está configurado correctamente</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb68"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># Instalar highlight o pygments</span></span>
+<span id="cb68-2"><a href="#cb68-2"></a><span class="fu">sudo</span> apt-get install highlight</span>
+<span id="cb68-3"><a href="#cb68-3"></a></span>
+<span id="cb68-4"><a href="#cb68-4"></a><span class="co"># O</span></span>
+<span id="cb68-5"><a href="#cb68-5"></a><span class="ex">pip</span> install pygments</span>
+<span id="cb68-6"><a href="#cb68-6"></a></span>
+<span id="cb68-7"><a href="#cb68-7"></a><span class="co"># Verificar scope.sh está configurado correctamente</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="problema-ranger-lento" class="level2">
 <h2 class="anchored" data-anchor-id="problema-ranger-lento">Problema: Ranger lento</h2>
@@ -11210,33 +11265,33 @@ z-index: 0;
 <li>Desactivar preview de imágenes en directorios grandes</li>
 <li>Reducir historial</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb66"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># En rc.conf</span></span>
-<span id="cb66-2"><a href="#cb66-2"></a><span class="bu">set</span> preview_max_size 1048576  <span class="co"># 1MB</span></span>
-<span id="cb66-3"><a href="#cb66-3"></a><span class="bu">set</span> preview_images false</span>
-<span id="cb66-4"><a href="#cb66-4"></a><span class="bu">set</span> max_history_size 10</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb69"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># En rc.conf</span></span>
+<span id="cb69-2"><a href="#cb69-2"></a><span class="bu">set</span> preview_max_size 1048576  <span class="co"># 1MB</span></span>
+<span id="cb69-3"><a href="#cb69-3"></a><span class="bu">set</span> preview_images false</span>
+<span id="cb69-4"><a href="#cb69-4"></a><span class="bu">set</span> max_history_size 10</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="problema-no-cambia-directorio-del-shell" class="level2">
 <h2 class="anchored" data-anchor-id="problema-no-cambia-directorio-del-shell">Problema: No cambia directorio del shell</h2>
 <p>Verificar que usas la función wrapper:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb67"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Debe estar en ~/.bashrc o ~/.zshrc</span></span>
-<span id="cb67-2"><a href="#cb67-2"></a><span class="kw">function</span><span class="fu"> ranger-cd</span> <span class="kw">{</span> <span class="ex">...</span> }</span>
-<span id="cb67-3"><a href="#cb67-3"></a><span class="bu">alias</span> rr=<span class="st">&#39;ranger-cd&#39;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb70"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># Debe estar en ~/.bashrc o ~/.zshrc</span></span>
+<span id="cb70-2"><a href="#cb70-2"></a><span class="kw">function</span><span class="fu"> ranger-cd</span> <span class="kw">{</span> <span class="ex">...</span> }</span>
+<span id="cb70-3"><a href="#cb70-3"></a><span class="bu">alias</span> rr=<span class="st">&#39;ranger-cd&#39;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="problema-archivos-ocultos-no-se-muestran" class="level2">
 <h2 class="anchored" data-anchor-id="problema-archivos-ocultos-no-se-muestran">Problema: Archivos ocultos no se muestran</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb68"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># Presionar</span></span>
-<span id="cb68-2"><a href="#cb68-2"></a><span class="ex">zh</span></span>
-<span id="cb68-3"><a href="#cb68-3"></a></span>
-<span id="cb68-4"><a href="#cb68-4"></a><span class="co"># O en rc.conf</span></span>
-<span id="cb68-5"><a href="#cb68-5"></a><span class="bu">set</span> show_hidden true</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb71"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb71-1"><a href="#cb71-1"></a><span class="co"># Presionar</span></span>
+<span id="cb71-2"><a href="#cb71-2"></a><span class="ex">zh</span></span>
+<span id="cb71-3"><a href="#cb71-3"></a></span>
+<span id="cb71-4"><a href="#cb71-4"></a><span class="co"># O en rc.conf</span></span>
+<span id="cb71-5"><a href="#cb71-5"></a><span class="bu">set</span> show_hidden true</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="problema-rifle-no-encuentra-programas" class="level2">
 <h2 class="anchored" data-anchor-id="problema-rifle-no-encuentra-programas">Problema: Rifle no encuentra programas</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb69"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># Verificar PATH</span></span>
-<span id="cb69-2"><a href="#cb69-2"></a><span class="bu">echo</span> <span class="va">$PATH</span></span>
-<span id="cb69-3"><a href="#cb69-3"></a></span>
-<span id="cb69-4"><a href="#cb69-4"></a><span class="co"># Editar rifle.conf para usar rutas absolutas</span></span>
-<span id="cb69-5"><a href="#cb69-5"></a><span class="ex">ext</span> pdf = /usr/bin/zathura <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb72"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb72-1"><a href="#cb72-1"></a><span class="co"># Verificar PATH</span></span>
+<span id="cb72-2"><a href="#cb72-2"></a><span class="bu">echo</span> <span class="va">$PATH</span></span>
+<span id="cb72-3"><a href="#cb72-3"></a></span>
+<span id="cb72-4"><a href="#cb72-4"></a><span class="co"># Editar rifle.conf para usar rutas absolutas</span></span>
+<span id="cb72-5"><a href="#cb72-5"></a><span class="ex">ext</span> pdf = /usr/bin/zathura <span class="at">--</span> <span class="st">&quot;</span><span class="va">$@</span><span class="st">&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="referencia-completa-de-atajos" class="level1">

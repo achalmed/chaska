@@ -162,89 +162,257 @@ font-style: inherit;">--version</span></span></code></pre></div></div>
 </section>
 <section id="dependencias-opcionales" class="level2">
 <h2 class="anchored" data-anchor-id="dependencias-opcionales">Dependencias Opcionales</h2>
-<p><strong>Para funcionalidad completa:</strong></p>
+<p>Para habilitar todas las funcionalidades de previsualización y análisis de archivos en <code>ranger</code>, se recomienda instalar las siguientes dependencias según tu distribución.</p>
+<section id="para-debian-ubuntu-derivados" class="level3">
+<h3 class="anchored" data-anchor-id="para-debian-ubuntu-derivados">Para Debian / Ubuntu / derivados</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># Determinar tipos de archivo</span></span>
+font-style: inherit;"># Básico (casi imprescindible)</span></span>
 <span id="cb8-2"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">sudo</span> apt-get install file</span>
+font-style: inherit;">sudo</span> apt install file</span>
 <span id="cb8-3"></span>
 <span id="cb8-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># Detección mejorada de codificación</span></span>
-<span id="cb8-5"><span class="ex" style="color: null;
+font-style: inherit;"># Resaltado de sintaxis (elige uno o varios)</span></span>
+<span id="cb8-5"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">pip</span> install chardet</span>
-<span id="cb8-6"></span>
+font-style: inherit;">sudo</span> apt install highlight</span>
+<span id="cb8-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> apt install bat</span>
 <span id="cb8-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># Nombres bidireccionales (árabe, hebreo)</span></span>
-<span id="cb8-8"><span class="ex" style="color: null;
+font-style: inherit;"># pygments vía pip si prefieres la versión python:</span></span>
+<span id="cb8-8"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">pip</span> install python-bidi</span>
+font-style: inherit;"># pip install --user pygments</span></span>
 <span id="cb8-9"></span>
 <span id="cb8-10"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># Previsualización de imágenes</span></span>
+font-style: inherit;"># Imágenes (elige según tu terminal)</span></span>
 <span id="cb8-11"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">sudo</span> apt-get install caca-utils w3m-img</span>
-<span id="cb8-12"></span>
+font-style: inherit;">sudo</span> apt install w3m w3m-img           <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Método clásico</span></span>
+<span id="cb8-12"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> apt install caca-utils            <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Arte ASCII alternativo</span></span>
 <span id="cb8-13"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># Conversión de imágenes</span></span>
-<span id="cb8-14"><span class="fu" style="color: #4758AB;
+font-style: inherit;"># kitty / wezterm / alacritty → mejor con ueberzugpp</span></span>
+<span id="cb8-14"></span>
+<span id="cb8-15"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">sudo</span> apt-get install imagemagick</span>
-<span id="cb8-15"></span>
-<span id="cb8-16"><span class="co" style="color: #5E5E5E;
+font-style: inherit;"># Conversión y procesamiento de imágenes</span></span>
+<span id="cb8-16"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"># Resaltado de sintaxis</span></span>
-<span id="cb8-17"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sudo</span> apt-get install highlight</span>
+font-style: inherit;">sudo</span> apt install imagemagick</span>
+<span id="cb8-17"></span>
 <span id="cb8-18"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># O</span></span>
-<span id="cb8-19"><span class="ex" style="color: null;
+font-style: inherit;"># Archivos comprimidos</span></span>
+<span id="cb8-19"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">pip</span> install pygments</span>
+font-style: inherit;">sudo</span> apt install atool unrar p7zip-full</span>
 <span id="cb8-20"></span>
 <span id="cb8-21"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># Previsualización de archivos comprimidos</span></span>
+font-style: inherit;"># PDFs</span></span>
 <span id="cb8-22"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">sudo</span> apt-get install atool unrar p7zip-full</span>
+font-style: inherit;">sudo</span> apt install poppler-utils</span>
 <span id="cb8-23"></span>
 <span id="cb8-24"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># Previsualización de PDFs</span></span>
+font-style: inherit;"># Miniaturas de video</span></span>
 <span id="cb8-25"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">sudo</span> apt-get install poppler-utils</span>
+font-style: inherit;">sudo</span> apt install ffmpegthumbnailer</span>
 <span id="cb8-26"></span>
 <span id="cb8-27"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># Previsualización de videos</span></span>
+font-style: inherit;"># Información de medios</span></span>
 <span id="cb8-28"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">sudo</span> apt-get install ffmpegthumbnailer</span>
+font-style: inherit;">sudo</span> apt install mediainfo</span>
 <span id="cb8-29"></span>
 <span id="cb8-30"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># Información de medios</span></span>
+font-style: inherit;"># Idiomas y codificación especial</span></span>
 <span id="cb8-31"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">sudo</span> apt-get install mediainfo</span>
-<span id="cb8-32"></span>
-<span id="cb8-33"><span class="co" style="color: #5E5E5E;
+font-style: inherit;">sudo</span> apt install python3-chardet</span>
+<span id="cb8-32"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pip</span> install <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--user</span> python-bidi        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Para árabe, hebreo, etc.</span></span>
+<span id="cb8-33"></span>
+<span id="cb8-34"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Convertir SVG</span></span>
-<span id="cb8-34"><span class="fu" style="color: #4758AB;
+<span id="cb8-35"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sudo</span> apt-get install librsvg2-bin</span></code></pre></div></div>
+</section>
+<section id="para-arch-linux-manjaro-derivados" class="level3">
+<h3 class="anchored" data-anchor-id="para-arch-linux-manjaro-derivados">Para Arch Linux / Manjaro / derivados</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Básico (casi imprescindible)</span></span>
+<span id="cb9-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> pacman <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> file</span>
+<span id="cb9-3"></span>
+<span id="cb9-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Resaltado de sintaxis (elige uno o varios)</span></span>
+<span id="cb9-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> pacman <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> highlight</span>
+<span id="cb9-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> pacman <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> bat</span>
+<span id="cb9-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># pygments vía pip si prefieres:</span></span>
+<span id="cb9-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># pip install --user pygments</span></span>
+<span id="cb9-9"></span>
+<span id="cb9-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Imágenes (elige según tu terminal)</span></span>
+<span id="cb9-11"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> pacman <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> w3m libcaca             <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Método clásico + ASCII</span></span>
+<span id="cb9-12"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> pacman <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> ueberzugpp              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Muy recomendado (mejor que w3m)</span></span>
+<span id="cb9-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># kitty / wezterm → soporte nativo excelente</span></span>
+<span id="cb9-14"></span>
+<span id="cb9-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Conversión y procesamiento de imágenes</span></span>
+<span id="cb9-16"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> pacman <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> imagemagick</span>
+<span id="cb9-17"></span>
+<span id="cb9-18"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Archivos comprimidos</span></span>
+<span id="cb9-19"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> pacman <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> atool unrar p7zip</span>
+<span id="cb9-20"></span>
+<span id="cb9-21"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># PDFs</span></span>
+<span id="cb9-22"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> pacman <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> poppler</span>
+<span id="cb9-23"></span>
+<span id="cb9-24"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Miniaturas de video</span></span>
+<span id="cb9-25"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> pacman <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> ffmpegthumbnailer</span>
+<span id="cb9-26"></span>
+<span id="cb9-27"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Información de medios</span></span>
+<span id="cb9-28"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> pacman <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> mediainfo</span>
+<span id="cb9-29"></span>
+<span id="cb9-30"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Idiomas y codificación especial</span></span>
+<span id="cb9-31"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> pacman <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> python-chardet</span>
+<span id="cb9-32"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> pacman <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> python-bidi             <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Para textos RTL (árabe, hebreo...)</span></span>
+<span id="cb9-33"></span>
+<span id="cb9-34"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Convertir SVG</span></span>
+<span id="cb9-35"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> pacman <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> librsvg</span></code></pre></div></div>
+</section>
+<section id="instalación-recomendada-mínima-elige-según-tu-caso" class="level3">
+<h3 class="anchored" data-anchor-id="instalación-recomendada-mínima-elige-según-tu-caso">Instalación recomendada mínima (elige según tu caso)</h3>
+<p><strong>Usuario de Arch + kitty/wezterm:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> pacman <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> file highlight bat imagemagick ffmpegthumbnailer <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb10-2">poppler mediainfo ueberzugpp</span>
+<span id="cb10-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Opcional pero muy útil:</span></span>
+<span id="cb10-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> pacman <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> atool unrar p7zip python-bidi python-chardet</span></code></pre></div></div>
+<p><strong>Usuario de Ubuntu + terminal clásico:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> apt install file highlight imagemagick ffmpegthumbnailer <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb11-2">poppler-utils mediainfo w3m w3m-img atool unrar p7zip-full python3-chardet</span>
+<span id="cb11-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Opcional: pip install --user python-bidi</span></span></code></pre></div></div>
+</section>
 </section>
 </section>
 <section id="configuración-inicial" class="level1">
@@ -252,21 +420,21 @@ font-style: inherit;">sudo</span> apt-get install librsvg2-bin</span></code></pr
 <section id="generar-archivos-de-configuración" class="level2">
 <h2 class="anchored" data-anchor-id="generar-archivos-de-configuración">Generar Archivos de Configuración</h2>
 <p>Ranger puede copiar automáticamente los archivos de configuración por defecto:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Copiar todas las configuraciones</span></span>
-<span id="cb9-2"><span class="ex" style="color: null;
+<span id="cb12-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ranger</span> <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">--copy-config</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>all</span>
-<span id="cb9-3"></span>
-<span id="cb9-4"><span class="co" style="color: #5E5E5E;
+<span id="cb12-3"></span>
+<span id="cb12-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Copiar archivos específicos</span></span>
-<span id="cb9-5"><span class="ex" style="color: null;
+<span id="cb12-5"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ranger</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -275,7 +443,7 @@ background-color: null;
 font-style: inherit;">=</span>rc          <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Configuración principal</span></span>
-<span id="cb9-6"><span class="ex" style="color: null;
+<span id="cb12-6"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ranger</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -284,7 +452,7 @@ background-color: null;
 font-style: inherit;">=</span>rifle       <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Configuración de rifle</span></span>
-<span id="cb9-7"><span class="ex" style="color: null;
+<span id="cb12-7"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ranger</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -293,7 +461,7 @@ background-color: null;
 font-style: inherit;">=</span>scope       <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Script de previsualización</span></span>
-<span id="cb9-8"><span class="ex" style="color: null;
+<span id="cb12-8"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ranger</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -306,35 +474,35 @@ font-style: inherit;"># Comandos personalizados</span></span></code></pre></div>
 <section id="ubicación-de-archivos" class="level2">
 <h2 class="anchored" data-anchor-id="ubicación-de-archivos">Ubicación de Archivos</h2>
 <p>Los archivos de configuración se encuentran en:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">~/.config/ranger/</span></span>
-<span id="cb10-2"><span class="ex" style="color: null;
+<span id="cb13-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">├──</span> rc.conf           <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Configuración principal y atajos</span></span>
-<span id="cb10-3"><span class="ex" style="color: null;
+<span id="cb13-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">├──</span> rifle.conf        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Lanzador de archivos</span></span>
-<span id="cb10-4"><span class="ex" style="color: null;
+<span id="cb13-4"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">├──</span> scope.sh          <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Script de previsualización</span></span>
-<span id="cb10-5"><span class="ex" style="color: null;
+<span id="cb13-5"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">├──</span> commands.py       <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Comandos personalizados (Python)</span></span>
-<span id="cb10-6"><span class="ex" style="color: null;
+<span id="cb13-6"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">├──</span> commands_full.py  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Comandos adicionales</span></span>
-<span id="cb10-7"><span class="ex" style="color: null;
+<span id="cb13-7"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">└──</span> plugins/          <span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -342,7 +510,7 @@ font-style: inherit;"># Directorio para plugins</span></span></code></pre></div>
 </section>
 <section id="primer-lanzamiento" class="level2">
 <h2 class="anchored" data-anchor-id="primer-lanzamiento">Primer Lanzamiento</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ranger</span></span></code></pre></div></div>
 <p>Al iniciar ranger por primera vez:</p>
@@ -357,39 +525,39 @@ font-style: inherit;">ranger</span></span></code></pre></div></div>
 <h1>Interfaz y Navegación Básica</h1>
 <section id="estructura-de-la-pantalla" class="level2">
 <h2 class="anchored" data-anchor-id="estructura-de-la-pantalla">Estructura de la Pantalla</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">┌─────────────────────────────────────────────────────────┐</span></span>
-<span id="cb12-2"><span class="ex" style="color: null;
+<span id="cb15-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">│</span> Directorio Padre │ Directorio Actual │ Previsualización │</span>
-<span id="cb12-3"><span class="ex" style="color: null;
+<span id="cb15-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">│</span>                  │                   │                  │</span>
-<span id="cb12-4"><span class="ex" style="color: null;
+<span id="cb15-4"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">│</span>  parent/         │ <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span> archivo1.txt    │ Contenido del    │</span>
-<span id="cb12-5"><span class="ex" style="color: null;
+<span id="cb15-5"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">│</span>  current/        │   archivo2.py     │ archivo1.txt...  │</span>
-<span id="cb12-6"><span class="ex" style="color: null;
+<span id="cb15-6"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">│</span>  sibling/        │   carpeta/        │                  │</span>
-<span id="cb12-7"><span class="ex" style="color: null;
+<span id="cb15-7"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">│</span>                  │   imagen.png      │                  │</span>
-<span id="cb12-8"><span class="ex" style="color: null;
+<span id="cb15-8"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">│</span>                  │                   │                  │</span>
-<span id="cb12-9"><span class="ex" style="color: null;
+<span id="cb15-9"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">├─────────────────────────────────────────────────────────┤</span></span>
-<span id="cb12-10"><span class="ex" style="color: null;
+<span id="cb15-10"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">│</span> Barra de Estado: PWD, permisos, tamaño, fecha           │</span>
-<span id="cb12-11"><span class="ex" style="color: null;
+<span id="cb15-11"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">└─────────────────────────────────────────────────────────┘</span></span></code></pre></div></div>
 </section>
@@ -590,7 +758,7 @@ font-style: inherit;">└──────────────────�
 <tbody>
 <tr class="odd">
 <td><code>gh</code></td>
-<td>Ir a HOME (~)</td>
+<td>Ir a HOME <code>~</code></td>
 </tr>
 <tr class="even">
 <td><code>ge</code></td>
@@ -837,17 +1005,17 @@ font-style: inherit;">└──────────────────�
 </tbody>
 </table>
 <p><strong>Ejemplos:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">+x</span>    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Añadir permiso de ejecución</span></span>
-<span id="cb13-2"><span class="ex" style="color: null;
+<span id="cb16-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">-w</span>    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Quitar permiso de escritura</span></span>
-<span id="cb13-3"><span class="ex" style="color: null;
+<span id="cb16-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">=755</span>  <span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -906,26 +1074,26 @@ font-style: inherit;"># Establecer permisos exactos</span></span></code></pre></
 </section>
 <section id="renombrado-masivo" class="level2">
 <h2 class="anchored" data-anchor-id="renombrado-masivo">Renombrado Masivo</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Seleccionar archivos con Space</span></span>
-<span id="cb14-2"><span class="co" style="color: #5E5E5E;
+<span id="cb17-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ejecutar:</span></span>
-<span id="cb14-3"><span class="ex" style="color: null;
+<span id="cb17-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:bulkrename</span></span>
-<span id="cb14-4"></span>
-<span id="cb14-5"><span class="co" style="color: #5E5E5E;
+<span id="cb17-4"></span>
+<span id="cb17-5"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Se abre tu editor con lista de archivos</span></span>
-<span id="cb14-6"><span class="co" style="color: #5E5E5E;
+<span id="cb17-6"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Edita los nombres</span></span>
-<span id="cb14-7"><span class="co" style="color: #5E5E5E;
+<span id="cb17-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Guarda y cierra</span></span>
-<span id="cb14-8"><span class="co" style="color: #5E5E5E;
+<span id="cb17-8"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ranger renombra los archivos automáticamente</span></span></code></pre></div></div>
 </section>
@@ -1101,29 +1269,29 @@ font-style: inherit;"># Ranger renombra los archivos automáticamente</span></sp
 </section>
 <section id="movimiento-entre-pestañas" class="level2">
 <h2 class="anchored" data-anchor-id="movimiento-entre-pestañas">Movimiento Entre Pestañas</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Con números</span></span>
-<span id="cb15-2"><span class="ex" style="color: null;
+<span id="cb18-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">1gt</span>   <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ir a pestaña 1</span></span>
-<span id="cb15-3"><span class="ex" style="color: null;
+<span id="cb18-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">3gt</span>   <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ir a pestaña 3</span></span>
-<span id="cb15-4"></span>
-<span id="cb15-5"><span class="co" style="color: #5E5E5E;
+<span id="cb18-4"></span>
+<span id="cb18-5"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Navegación relativa</span></span>
-<span id="cb15-6"><span class="ex" style="color: null;
+<span id="cb18-6"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">gt</span>    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Siguiente</span></span>
-<span id="cb15-7"><span class="ex" style="color: null;
+<span id="cb18-7"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">gT</span>    <span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -1182,31 +1350,31 @@ font-style: inherit;"># Anterior</span></span></code></pre></div></div>
 </tbody>
 </table>
 <p><strong>Ejemplo de uso:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Estás en /home/usuario/documentos</span></span>
-<span id="cb16-2"><span class="ex" style="color: null;
+<span id="cb19-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ma</span>        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Crear marcador 'a'</span></span>
-<span id="cb16-3"></span>
-<span id="cb16-4"><span class="bu" style="color: null;
+<span id="cb19-3"></span>
+<span id="cb19-4"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">cd</span> /etc   <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Navega a otro lugar</span></span>
-<span id="cb16-5"></span>
-<span id="cb16-6"><span class="co" style="color: #5E5E5E;
+<span id="cb19-5"></span>
+<span id="cb19-6"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Volver rápido</span></span>
-<span id="cb16-7"><span class="st" style="color: #20794D;
+<span id="cb19-7"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'a        # Regresa a /home/usuario/documentos</span></span></code></pre></div></div>
 </section>
 <section id="ver-marcadores" class="level2">
 <h2 class="anchored" data-anchor-id="ver-marcadores">Ver Marcadores</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:marks</span>    <span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -1276,10 +1444,10 @@ font-style: inherit;"># Ver todos los marcadores</span></span></code></pre></div
 <h2 class="anchored" data-anchor-id="configurar-scope.sh">Configurar scope.sh</h2>
 <p>El archivo <code>~/.config/ranger/scope.sh</code> controla qué se previsualiza y cómo.</p>
 <p><strong>Ejemplo - Añadir tipo de archivo:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># En scope.sh, añadir nuevo caso</span></span>
-<span id="cb18-2"><span class="cf" style="color: #003B4F;
+<span id="cb21-2"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">case</span> <span class="st" style="color: #20794D;
@@ -1292,13 +1460,13 @@ font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span></span>
-<span id="cb18-3">    <span class="ss" style="color: #20794D;
+<span id="cb21-3">    <span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">application/json</span><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">)</span></span>
-<span id="cb18-4">        <span class="ex" style="color: null;
+<span id="cb21-4">        <span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">jq</span> . <span class="st" style="color: #20794D;
 background-color: null;
@@ -1312,7 +1480,7 @@ font-weight: bold;
 font-style: inherit;">&amp;&amp;</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">exit</span> 5</span>
-<span id="cb18-5">        <span class="fu" style="color: #4758AB;
+<span id="cb21-5">        <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">cat</span> <span class="st" style="color: #20794D;
 background-color: null;
@@ -1326,13 +1494,13 @@ font-weight: bold;
 font-style: inherit;">&amp;&amp;</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">exit</span> 5</span>
-<span id="cb18-6">        <span class="bu" style="color: null;
+<span id="cb21-6">        <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">exit</span> 1<span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">;;</span></span>
-<span id="cb18-7"><span class="cf" style="color: #003B4F;
+<span id="cb21-7"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">esac</span></span></code></pre></div></div>
@@ -1374,7 +1542,7 @@ font-style: inherit;">esac</span></span></code></pre></div></div>
 </section>
 <section id="navegación" class="level2">
 <h2 class="anchored" data-anchor-id="navegación">Navegación</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:cd</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1383,14 +1551,14 @@ background-color: null;
 font-style: inherit;">&gt;</span>           <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Cambiar directorio</span></span>
-<span id="cb19-2"><span class="ex" style="color: null;
+<span id="cb22-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:cd</span> <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">-</span>                      <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Directorio anterior</span></span>
-<span id="cb19-3"><span class="ex" style="color: null;
+<span id="cb22-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:cd</span> ~                      <span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -1398,7 +1566,7 @@ font-style: inherit;"># Ir a HOME</span></span></code></pre></div></div>
 </section>
 <section id="operaciones-de-archivos" class="level2">
 <h2 class="anchored" data-anchor-id="operaciones-de-archivos">Operaciones de Archivos</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:touch</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1407,7 +1575,7 @@ background-color: null;
 font-style: inherit;">&gt;</span>            <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Crear archivo</span></span>
-<span id="cb20-2"><span class="ex" style="color: null;
+<span id="cb23-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:mkdir</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1416,7 +1584,7 @@ background-color: null;
 font-style: inherit;">&gt;</span>            <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Crear directorio</span></span>
-<span id="cb20-3"><span class="ex" style="color: null;
+<span id="cb23-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:rename</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1425,12 +1593,12 @@ background-color: null;
 font-style: inherit;">&gt;</span>     <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Renombrar</span></span>
-<span id="cb20-4"><span class="ex" style="color: null;
+<span id="cb23-4"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:delete</span>                    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Eliminar con confirmación</span></span>
-<span id="cb20-5"><span class="ex" style="color: null;
+<span id="cb23-5"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:chmod</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1442,7 +1610,7 @@ font-style: inherit;"># Cambiar permisos</span></span></code></pre></div></div>
 </section>
 <section id="búsqueda-1" class="level2">
 <h2 class="anchored" data-anchor-id="búsqueda-1">Búsqueda</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:search</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1451,7 +1619,7 @@ background-color: null;
 font-style: inherit;">&gt;</span>           <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Buscar archivos</span></span>
-<span id="cb21-2"><span class="ex" style="color: null;
+<span id="cb24-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:search_inc</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1460,7 +1628,7 @@ background-color: null;
 font-style: inherit;">&gt;</span>       <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Búsqueda incremental</span></span>
-<span id="cb21-3"><span class="ex" style="color: null;
+<span id="cb24-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:filter</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1472,17 +1640,17 @@ font-style: inherit;"># Filtrar archivos mostrados</span></span></code></pre></d
 </section>
 <section id="pestañas-y-marcadores" class="level2">
 <h2 class="anchored" data-anchor-id="pestañas-y-marcadores">Pestañas y Marcadores</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:tab_new</span>                   <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Nueva pestaña</span></span>
-<span id="cb22-2"><span class="ex" style="color: null;
+<span id="cb25-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:tab_close</span>                 <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Cerrar pestaña</span></span>
-<span id="cb22-3"><span class="ex" style="color: null;
+<span id="cb25-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:tab_move</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1491,7 +1659,7 @@ background-color: null;
 font-style: inherit;">&gt;</span>              <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Mover a pestaña n</span></span>
-<span id="cb22-4"><span class="ex" style="color: null;
+<span id="cb25-4"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:mark</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1503,7 +1671,7 @@ font-style: inherit;"># Crear marcador</span></span></code></pre></div></div>
 </section>
 <section id="configuración" class="level2">
 <h2 class="anchored" data-anchor-id="configuración">Configuración</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:set</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1516,17 +1684,17 @@ background-color: null;
 font-style: inherit;">&gt;</span>      <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Establecer opción</span></span>
-<span id="cb23-2"><span class="ex" style="color: null;
+<span id="cb26-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:set</span> show_hidden true      <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Mostrar archivos ocultos</span></span>
-<span id="cb23-3"><span class="ex" style="color: null;
+<span id="cb26-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:set</span> column_ratios 1,3,4   <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Cambiar proporciones de columnas</span></span>
-<span id="cb23-4"><span class="ex" style="color: null;
+<span id="cb26-4"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:set</span> colorscheme <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1538,12 +1706,12 @@ font-style: inherit;"># Cambiar tema de colores</span></span></code></pre></div>
 </section>
 <section id="ayuda-y-sistema" class="level2">
 <h2 class="anchored" data-anchor-id="ayuda-y-sistema">Ayuda y Sistema</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:help</span>                      <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Abrir ayuda</span></span>
-<span id="cb24-2"><span class="ex" style="color: null;
+<span id="cb27-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:source</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1552,7 +1720,7 @@ background-color: null;
 font-style: inherit;">&gt;</span>          <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Cargar configuración</span></span>
-<span id="cb24-3"><span class="ex" style="color: null;
+<span id="cb27-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:shell</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1561,7 +1729,7 @@ background-color: null;
 font-style: inherit;">&gt;</span>           <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ejecutar comando shell</span></span>
-<span id="cb24-4"><span class="ex" style="color: null;
+<span id="cb27-4"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:quit</span>                      <span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -1569,35 +1737,35 @@ font-style: inherit;"># Salir</span></span></code></pre></div></div>
 </section>
 <section id="comandos-de-shell" class="level2">
 <h2 class="anchored" data-anchor-id="comandos-de-shell">Comandos de Shell</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ejecutar comando y ver output</span></span>
-<span id="cb25-2"><span class="ex" style="color: null;
+<span id="cb28-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">!ls</span> <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">-la</span></span>
-<span id="cb25-3"></span>
-<span id="cb25-4"><span class="co" style="color: #5E5E5E;
+<span id="cb28-3"></span>
+<span id="cb28-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ejecutar en segundo plano</span></span>
-<span id="cb25-5"><span class="ex" style="color: null;
+<span id="cb28-5"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">!make</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">&amp;</span></span>
-<span id="cb25-6"></span>
-<span id="cb25-7"><span class="co" style="color: #5E5E5E;
+<span id="cb28-6"></span>
+<span id="cb28-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ejecutar con privilegios</span></span>
-<span id="cb25-8"><span class="ex" style="color: null;
+<span id="cb28-8"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">S</span></span>
-<span id="cb25-9"><span class="co" style="color: #5E5E5E;
+<span id="cb28-9"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># O</span></span>
-<span id="cb25-10"><span class="ex" style="color: null;
+<span id="cb28-10"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">!sudo</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1621,136 +1789,139 @@ font-style: inherit;">&gt;</span></span></code></pre></div></div>
 </section>
 <section id="opciones-comunes" class="level2">
 <h2 class="anchored" data-anchor-id="opciones-comunes">Opciones Comunes</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Mostrar archivos ocultos</span></span>
-<span id="cb26-2"><span class="bu" style="color: null;
+<span id="cb29-2"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> show_hidden true</span>
-<span id="cb26-3"></span>
-<span id="cb26-4"><span class="co" style="color: #5E5E5E;
+<span id="cb29-3"></span>
+<span id="cb29-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Cambiar editor por defecto</span></span>
-<span id="cb26-5"><span class="bu" style="color: null;
+<span id="cb29-5"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> editor vim</span>
-<span id="cb26-6"><span class="co" style="color: #5E5E5E;
+<span id="cb29-6"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># set editor nano</span></span>
-<span id="cb26-7"><span class="co" style="color: #5E5E5E;
+<span id="cb29-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># set editor code</span></span>
-<span id="cb26-8"></span>
-<span id="cb26-9"><span class="co" style="color: #5E5E5E;
+<span id="cb29-8"></span>
+<span id="cb29-9"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Proporciones de columnas (padre:actual:previsualización)</span></span>
-<span id="cb26-10"><span class="bu" style="color: null;
+<span id="cb29-10"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> column_ratios 1,3,4</span>
-<span id="cb26-11"></span>
-<span id="cb26-12"><span class="co" style="color: #5E5E5E;
+<span id="cb29-11"></span>
+<span id="cb29-12"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Confirmación antes de eliminar</span></span>
-<span id="cb26-13"><span class="bu" style="color: null;
+<span id="cb29-13"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> confirm_on_delete multiple</span>
-<span id="cb26-14"></span>
-<span id="cb26-15"><span class="co" style="color: #5E5E5E;
+<span id="cb29-14"></span>
+<span id="cb29-15"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Mostrar números de línea</span></span>
-<span id="cb26-16"><span class="bu" style="color: null;
+<span id="cb29-16"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> line_numbers relative</span>
-<span id="cb26-17"><span class="co" style="color: #5E5E5E;
+<span id="cb29-17"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Opciones: false, absolute, relative</span></span>
-<span id="cb26-18"></span>
-<span id="cb26-19"><span class="co" style="color: #5E5E5E;
+<span id="cb29-18"></span>
+<span id="cb29-19"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Tema de colores</span></span>
-<span id="cb26-20"><span class="bu" style="color: null;
+<span id="cb29-20"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> colorscheme default</span>
-<span id="cb26-21"><span class="co" style="color: #5E5E5E;
+<span id="cb29-21"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Otros: jungle, snow, solarized</span></span>
-<span id="cb26-22"></span>
-<span id="cb26-23"><span class="co" style="color: #5E5E5E;
+<span id="cb29-22"></span>
+<span id="cb29-23"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Previsualización automática</span></span>
-<span id="cb26-24"><span class="bu" style="color: null;
+<span id="cb29-24"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> preview_files true</span>
-<span id="cb26-25"><span class="bu" style="color: null;
+<span id="cb29-25"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> preview_directories true</span>
-<span id="cb26-26"><span class="bu" style="color: null;
+<span id="cb29-26"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> preview_images true</span>
-<span id="cb26-27"></span>
-<span id="cb26-28"><span class="co" style="color: #5E5E5E;
+<span id="cb29-27"></span>
+<span id="cb29-28"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Método de previsualización de imágenes</span></span>
-<span id="cb26-29"><span class="bu" style="color: null;
+<span id="cb29-29"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> preview_images_method w3m</span>
-<span id="cb26-30"><span class="co" style="color: #5E5E5E;
+<span id="cb29-30"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Opciones: w3m, ueberzug, kitty, iterm2</span></span>
-<span id="cb26-31"></span>
-<span id="cb26-32"><span class="co" style="color: #5E5E5E;
+<span id="cb29-31"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">set</span> preview_images_method kitty</span>
+<span id="cb29-32"></span>
+<span id="cb29-33"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Guardar historial</span></span>
-<span id="cb26-33"><span class="bu" style="color: null;
+<span id="cb29-34"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> save_console_history true</span>
-<span id="cb26-34"></span>
-<span id="cb26-35"><span class="co" style="color: #5E5E5E;
+<span id="cb29-35"></span>
+<span id="cb29-36"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Tamaño máximo de previsualización</span></span>
-<span id="cb26-36"><span class="bu" style="color: null;
+<span id="cb29-37"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> preview_max_size 0  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 0 = sin límite</span></span>
-<span id="cb26-37"></span>
-<span id="cb26-38"><span class="co" style="color: #5E5E5E;
+<span id="cb29-38"></span>
+<span id="cb29-39"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Mostrar información VCS (git)</span></span>
-<span id="cb26-39"><span class="bu" style="color: null;
+<span id="cb29-40"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> vcs_aware true</span>
-<span id="cb26-40"></span>
-<span id="cb26-41"><span class="co" style="color: #5E5E5E;
+<span id="cb29-41"></span>
+<span id="cb29-42"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Comportamiento del mouse</span></span>
-<span id="cb26-42"><span class="bu" style="color: null;
+<span id="cb29-43"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> mouse_enabled true</span>
-<span id="cb26-43"></span>
-<span id="cb26-44"><span class="co" style="color: #5E5E5E;
+<span id="cb29-44"></span>
+<span id="cb29-45"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Scroll automático</span></span>
-<span id="cb26-45"><span class="bu" style="color: null;
+<span id="cb29-46"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> autosave_bookmarks true</span>
-<span id="cb26-46"><span class="bu" style="color: null;
+<span id="cb29-47"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> autoupdate_cumulative_size false</span>
-<span id="cb26-47"></span>
-<span id="cb26-48"><span class="co" style="color: #5E5E5E;
+<span id="cb29-48"></span>
+<span id="cb29-49"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Padding alrededor de la selección</span></span>
-<span id="cb26-49"><span class="bu" style="color: null;
+<span id="cb29-50"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> padding_right true</span></code></pre></div></div>
 </section>
 <section id="mapeos-de-teclado-personalizados" class="level2">
 <h2 class="anchored" data-anchor-id="mapeos-de-teclado-personalizados">Mapeos de Teclado Personalizados</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Mapear tecla a comando</span></span>
-<span id="cb27-2"><span class="ex" style="color: null;
+<span id="cb30-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1761,28 +1932,28 @@ background-color: null;
 font-style: inherit;">&lt;</span>comando<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span></span>
-<span id="cb27-3"></span>
-<span id="cb27-4"><span class="co" style="color: #5E5E5E;
+<span id="cb30-3"></span>
+<span id="cb30-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ejemplos:</span></span>
-<span id="cb27-5"><span class="ex" style="color: null;
+<span id="cb30-5"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> DD shell trash-put %s          <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Mover a papelera</span></span>
-<span id="cb27-6"><span class="ex" style="color: null;
+<span id="cb30-6"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> x shell chmod +x %s            <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Hacer ejecutable</span></span>
-<span id="cb27-7"><span class="ex" style="color: null;
+<span id="cb30-7"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> bg shell feh <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">--bg-scale</span> %s     <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Establecer fondo de pantalla</span></span>
-<span id="cb27-8"><span class="ex" style="color: null;
+<span id="cb30-8"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1794,7 +1965,7 @@ font-weight: bold;
 font-style: inherit;">&amp;</span>        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Abrir terminal</span></span>
-<span id="cb27-9"><span class="ex" style="color: null;
+<span id="cb30-9"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1803,12 +1974,12 @@ background-color: null;
 font-style: inherit;">&gt;</span> tab_move 1               <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ir a pestaña 1</span></span>
-<span id="cb27-10"><span class="ex" style="color: null;
+<span id="cb30-10"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> ee edit_file                   <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Editar archivo</span></span>
-<span id="cb27-11"><span class="ex" style="color: null;
+<span id="cb30-11"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> et shell alacritty <span class="at" style="color: #657422;
 background-color: null;
@@ -1818,11 +1989,11 @@ font-weight: bold;
 font-style: inherit;">&amp;</span> <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Editar en terminal nueva</span></span>
-<span id="cb27-12"></span>
-<span id="cb27-13"><span class="co" style="color: #5E5E5E;
+<span id="cb30-12"></span>
+<span id="cb30-13"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Desmap tecla</span></span>
-<span id="cb27-14"><span class="ex" style="color: null;
+<span id="cb30-14"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">unmap</span> dd  <span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -1830,10 +2001,10 @@ font-style: inherit;"># Quitar mapeo de dd</span></span></code></pre></div></div
 </section>
 <section id="comandos-de-shell-1" class="level2">
 <h2 class="anchored" data-anchor-id="comandos-de-shell-1">Comandos de Shell</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ejecutar comando con archivo actual</span></span>
-<span id="cb28-2"><span class="ex" style="color: null;
+<span id="cb31-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> X shell <span class="at" style="color: #657422;
 background-color: null;
@@ -1842,23 +2013,23 @@ background-color: null;
 font-style: inherit;">&lt;</span>comando<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span> %f</span>
-<span id="cb28-3"></span>
-<span id="cb28-4"><span class="co" style="color: #5E5E5E;
+<span id="cb31-3"></span>
+<span id="cb31-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Variables disponibles:</span></span>
-<span id="cb28-5"><span class="co" style="color: #5E5E5E;
+<span id="cb31-5"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># %f - archivo actual</span></span>
-<span id="cb28-6"><span class="co" style="color: #5E5E5E;
+<span id="cb31-6"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># %d - directorio actual</span></span>
-<span id="cb28-7"><span class="co" style="color: #5E5E5E;
+<span id="cb31-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># %s - archivos seleccionados</span></span>
-<span id="cb28-8"><span class="co" style="color: #5E5E5E;
+<span id="cb31-8"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># %t - archivos etiquetados (tagged)</span></span>
-<span id="cb28-9"><span class="co" style="color: #5E5E5E;
+<span id="cb31-9"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># %c - ruta completa del archivo actual</span></span></code></pre></div></div>
 </section>
@@ -1867,7 +2038,7 @@ font-style: inherit;"># %c - ruta completa del archivo actual</span></span></cod
 <p>Ubicación: <code>~/.config/ranger/rifle.conf</code></p>
 <p>Determina qué programa abre cada tipo de archivo.</p>
 <p><strong>Sintaxis:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;</span>condición<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1877,10 +2048,10 @@ font-style: inherit;">&lt;</span>comando<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span></span></code></pre></div></div>
 <p><strong>Ejemplos:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Texto plano</span></span>
-<span id="cb30-2"><span class="ex" style="color: null;
+<span id="cb33-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">mime</span> ^text, label editor = <span class="va" style="color: #111111;
 background-color: null;
@@ -1897,7 +2068,7 @@ background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-3"><span class="ex" style="color: null;
+<span id="cb33-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">mime</span> ^text, label pager  = <span class="st" style="color: #20794D;
 background-color: null;
@@ -1914,11 +2085,11 @@ background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-4"></span>
-<span id="cb30-5"><span class="co" style="color: #5E5E5E;
+<span id="cb33-4"></span>
+<span id="cb33-5"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># PDFs</span></span>
-<span id="cb30-6"><span class="ex" style="color: null;
+<span id="cb33-6"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> pdf, has evince,  X, flag f = evince <span class="at" style="color: #657422;
 background-color: null;
@@ -1929,7 +2100,7 @@ background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-7"><span class="ex" style="color: null;
+<span id="cb33-7"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> pdf, has zathura, X, flag f = zathura <span class="at" style="color: #657422;
 background-color: null;
@@ -1940,7 +2111,7 @@ background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-8"><span class="ex" style="color: null;
+<span id="cb33-8"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> pdf, has okular,  X, flag f = okular <span class="at" style="color: #657422;
 background-color: null;
@@ -1951,11 +2122,11 @@ background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-9"></span>
-<span id="cb30-10"><span class="co" style="color: #5E5E5E;
+<span id="cb33-9"></span>
+<span id="cb33-10"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Imágenes</span></span>
-<span id="cb30-11"><span class="ex" style="color: null;
+<span id="cb33-11"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">mime</span> ^image, has feh,       X, flag f = feh <span class="at" style="color: #657422;
 background-color: null;
@@ -1966,7 +2137,7 @@ background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-12"><span class="ex" style="color: null;
+<span id="cb33-12"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">mime</span> ^image, has gimp,      X, flag f = gimp <span class="at" style="color: #657422;
 background-color: null;
@@ -1977,7 +2148,7 @@ background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-13"><span class="ex" style="color: null;
+<span id="cb33-13"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">mime</span> ^image, has sxiv,      X, flag f = sxiv <span class="at" style="color: #657422;
 background-color: null;
@@ -1988,11 +2159,11 @@ background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-14"></span>
-<span id="cb30-15"><span class="co" style="color: #5E5E5E;
+<span id="cb33-14"></span>
+<span id="cb33-15"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Videos</span></span>
-<span id="cb30-16"><span class="ex" style="color: null;
+<span id="cb33-16"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">mime</span> ^video, has mpv,       X, flag f = mpv <span class="at" style="color: #657422;
 background-color: null;
@@ -2003,7 +2174,7 @@ background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-17"><span class="ex" style="color: null;
+<span id="cb33-17"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">mime</span> ^video, has vlc,       X, flag f = vlc <span class="at" style="color: #657422;
 background-color: null;
@@ -2014,11 +2185,11 @@ background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-18"></span>
-<span id="cb30-19"><span class="co" style="color: #5E5E5E;
+<span id="cb33-18"></span>
+<span id="cb33-19"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Audio</span></span>
-<span id="cb30-20"><span class="ex" style="color: null;
+<span id="cb33-20"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">mime</span> ^audio, has mpv,       X, flag f = mpv <span class="at" style="color: #657422;
 background-color: null;
@@ -2031,11 +2202,11 @@ background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-21"></span>
-<span id="cb30-22"><span class="co" style="color: #5E5E5E;
+<span id="cb33-21"></span>
+<span id="cb33-22"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Archivos comprimidos</span></span>
-<span id="cb30-23"><span class="ex" style="color: null;
+<span id="cb33-23"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> 7z<span class="kw" style="color: #003B4F;
 background-color: null;
@@ -2114,7 +2285,7 @@ background-color: null;
 font-style: inherit;">$PAGER</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-24"><span class="ex" style="color: null;
+<span id="cb33-24"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> iso<span class="kw" style="color: #003B4F;
 background-color: null;
@@ -2193,11 +2364,11 @@ background-color: null;
 font-style: inherit;">$PAGER</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-25"></span>
-<span id="cb30-26"><span class="co" style="color: #5E5E5E;
+<span id="cb33-25"></span>
+<span id="cb33-26"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Documentos Office</span></span>
-<span id="cb30-27"><span class="ex" style="color: null;
+<span id="cb33-27"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> docx<span class="pp" style="color: #AD0000;
 background-color: null;
@@ -2233,11 +2404,11 @@ background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-28"></span>
-<span id="cb30-29"><span class="co" style="color: #5E5E5E;
+<span id="cb33-28"></span>
+<span id="cb33-29"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># HTML</span></span>
-<span id="cb30-30"><span class="ex" style="color: null;
+<span id="cb33-30"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> html<span class="pp" style="color: #AD0000;
 background-color: null;
@@ -2250,7 +2421,7 @@ background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-31"><span class="ex" style="color: null;
+<span id="cb33-31"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> html<span class="pp" style="color: #AD0000;
 background-color: null;
@@ -2263,11 +2434,11 @@ background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-32"></span>
-<span id="cb30-33"><span class="co" style="color: #5E5E5E;
+<span id="cb33-32"></span>
+<span id="cb33-33"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Código fuente</span></span>
-<span id="cb30-34"><span class="ex" style="color: null;
+<span id="cb33-34"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> py,  has python  = python <span class="at" style="color: #657422;
 background-color: null;
@@ -2278,7 +2449,7 @@ background-color: null;
 font-style: inherit;">$1</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-35"><span class="ex" style="color: null;
+<span id="cb33-35"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> pl,  has perl    = perl <span class="at" style="color: #657422;
 background-color: null;
@@ -2289,7 +2460,7 @@ background-color: null;
 font-style: inherit;">$1</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-36"><span class="ex" style="color: null;
+<span id="cb33-36"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> rb,  has ruby    = ruby <span class="at" style="color: #657422;
 background-color: null;
@@ -2300,7 +2471,7 @@ background-color: null;
 font-style: inherit;">$1</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-37"><span class="ex" style="color: null;
+<span id="cb33-37"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> js,  has node    = node <span class="at" style="color: #657422;
 background-color: null;
@@ -2311,7 +2482,7 @@ background-color: null;
 font-style: inherit;">$1</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb30-38"><span class="ex" style="color: null;
+<span id="cb33-38"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> sh,  has sh      = sh <span class="at" style="color: #657422;
 background-color: null;
@@ -2338,39 +2509,39 @@ font-style: inherit;">"</span></span></code></pre></div></div>
 <p>Ubicación: <code>~/.config/ranger/commands.py</code></p>
 <p>Crear comandos Python personalizados.</p>
 <p><strong>Ejemplo - Comando para comprimir:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> ranger.api.commands <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> Command</span>
-<span id="cb31-2"></span>
-<span id="cb31-3"><span class="kw" style="color: #003B4F;
+<span id="cb34-2"></span>
+<span id="cb34-3"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">class</span> compress(Command):</span>
-<span id="cb31-4">    <span class="kw" style="color: #003B4F;
+<span id="cb34-4">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> execute(<span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>):</span>
-<span id="cb31-5">        <span class="co" style="color: #5E5E5E;
+<span id="cb34-5">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""Comprimir archivos seleccionados"""</span></span>
-<span id="cb31-6">        <span class="im" style="color: #00769E;
+<span id="cb34-6">        <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> os</span>
-<span id="cb31-7">        </span>
-<span id="cb31-8">        <span class="co" style="color: #5E5E5E;
+<span id="cb34-7">        </span>
+<span id="cb34-8">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Obtener archivos seleccionados</span></span>
-<span id="cb31-9">        <span class="cf" style="color: #003B4F;
+<span id="cb34-9">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.fm.thisdir.marked_items:</span>
-<span id="cb31-10">            files <span class="op" style="color: #5E5E5E;
+<span id="cb34-10">            files <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [f.basename <span class="cf" style="color: #003B4F;
 background-color: null;
@@ -2381,20 +2552,20 @@ font-weight: bold;
 font-style: inherit;">in</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.fm.thisdir.marked_items]</span>
-<span id="cb31-11">        <span class="cf" style="color: #003B4F;
+<span id="cb34-11">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">else</span>:</span>
-<span id="cb31-12">            files <span class="op" style="color: #5E5E5E;
+<span id="cb34-12">            files <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [<span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.fm.thisfile.basename]</span>
-<span id="cb31-13">        </span>
-<span id="cb31-14">        <span class="co" style="color: #5E5E5E;
+<span id="cb34-13">        </span>
+<span id="cb34-14">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Nombre del archivo comprimido</span></span>
-<span id="cb31-15">        archive_name <span class="op" style="color: #5E5E5E;
+<span id="cb34-15">        archive_name <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="va" style="color: #111111;
 background-color: null;
@@ -2413,11 +2584,11 @@ font-weight: bold;
 font-style: inherit;">else</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"archive.tar.gz"</span></span>
-<span id="cb31-16">        </span>
-<span id="cb31-17">        <span class="co" style="color: #5E5E5E;
+<span id="cb34-16">        </span>
+<span id="cb34-17">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Comprimir</span></span>
-<span id="cb31-18">        <span class="va" style="color: #111111;
+<span id="cb34-18">        <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.fm.execute_command(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -2438,7 +2609,7 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb31-19">        <span class="va" style="color: #111111;
+<span id="cb34-19">        <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.fm.notify(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -2449,21 +2620,21 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb31-20"></span>
-<span id="cb31-21"><span class="kw" style="color: #003B4F;
+<span id="cb34-20"></span>
+<span id="cb34-21"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">class</span> extract(Command):</span>
-<span id="cb31-22">    <span class="kw" style="color: #003B4F;
+<span id="cb34-22">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> execute(<span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>):</span>
-<span id="cb31-23">        <span class="co" style="color: #5E5E5E;
+<span id="cb34-23">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""Extraer archivo comprimido"""</span></span>
-<span id="cb31-24">        <span class="cf" style="color: #003B4F;
+<span id="cb34-24">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> <span class="va" style="color: #111111;
@@ -2482,7 +2653,7 @@ background-color: null;
 font-style: inherit;">'bz2'</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'xz'</span>]:</span>
-<span id="cb31-25">            <span class="va" style="color: #111111;
+<span id="cb34-25">            <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.fm.execute_command(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -2501,31 +2672,31 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb31-26">            <span class="va" style="color: #111111;
+<span id="cb34-26">            <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.fm.notify(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Archivo extraído"</span>)</span>
-<span id="cb31-27"></span>
-<span id="cb31-28"><span class="kw" style="color: #003B4F;
+<span id="cb34-27"></span>
+<span id="cb34-28"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">class</span> mkcd(Command):</span>
-<span id="cb31-29">    <span class="co" style="color: #5E5E5E;
+<span id="cb34-29">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""Crear directorio y entrar en él"""</span></span>
-<span id="cb31-30">    <span class="kw" style="color: #003B4F;
+<span id="cb34-30">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> execute(<span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>):</span>
-<span id="cb31-31">        <span class="im" style="color: #00769E;
+<span id="cb34-31">        <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> os.path <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> join, expanduser, lexists</span>
-<span id="cb31-32">        dirname <span class="op" style="color: #5E5E5E;
+<span id="cb34-32">        dirname <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> join(<span class="va" style="color: #111111;
 background-color: null;
@@ -2534,22 +2705,22 @@ background-color: null;
 font-style: inherit;">self</span>.rest(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>)))</span>
-<span id="cb31-33">        <span class="cf" style="color: #003B4F;
+<span id="cb34-33">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">not</span> lexists(dirname):</span>
-<span id="cb31-34">            os.makedirs(dirname)</span>
-<span id="cb31-35">            <span class="va" style="color: #111111;
+<span id="cb34-34">            os.makedirs(dirname)</span>
+<span id="cb34-35">            <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.fm.cd(dirname)</span>
-<span id="cb31-36">        <span class="cf" style="color: #003B4F;
+<span id="cb34-36">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">else</span>:</span>
-<span id="cb31-37">            <span class="va" style="color: #111111;
+<span id="cb34-37">            <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.fm.notify(<span class="st" style="color: #20794D;
 background-color: null;
@@ -2559,17 +2730,17 @@ font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">True</span>)</span></code></pre></div></div>
 <p><strong>Usar comandos personalizados:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:compress</span> archivo.tar.gz    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Comprimir selección</span></span>
-<span id="cb32-2"><span class="ex" style="color: null;
+<span id="cb35-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:extract</span>                    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Extraer archivo</span></span>
-<span id="cb32-3"><span class="ex" style="color: null;
+<span id="cb35-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:mkcd</span> nueva-carpeta         <span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -2584,26 +2755,26 @@ font-style: inherit;"># Crear y entrar</span></span></code></pre></div></div>
 </section>
 <section id="uso-básico" class="level2">
 <h2 class="anchored" data-anchor-id="uso-básico">Uso Básico</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Abrir archivo con rifle</span></span>
-<span id="cb33-2"><span class="ex" style="color: null;
+<span id="cb36-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">rifle</span> archivo.pdf</span>
-<span id="cb33-3"></span>
-<span id="cb33-4"><span class="co" style="color: #5E5E5E;
+<span id="cb36-3"></span>
+<span id="cb36-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Listar programas disponibles</span></span>
-<span id="cb33-5"><span class="ex" style="color: null;
+<span id="cb36-5"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">rifle</span> <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">-l</span> archivo.pdf</span>
-<span id="cb33-6"></span>
-<span id="cb33-7"><span class="co" style="color: #5E5E5E;
+<span id="cb36-6"></span>
+<span id="cb36-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Abrir con programa específico</span></span>
-<span id="cb33-8"><span class="ex" style="color: null;
+<span id="cb36-8"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">rifle</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -2636,10 +2807,10 @@ font-style: inherit;"># Usar opción 2 de la lista</span></span></code></pre></d
 <h2 class="anchored" data-anchor-id="configurar-rifle">Configurar Rifle</h2>
 <p>Editar <code>~/.config/ranger/rifle.conf</code></p>
 <p><strong>Prioridad:</strong> Primera coincidencia gana</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ejemplo: Abrir PDFs con zathura si está disponible</span></span>
-<span id="cb34-2"><span class="ex" style="color: null;
+<span id="cb37-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> pdf, has zathura, X, flag f = zathura <span class="at" style="color: #657422;
 background-color: null;
@@ -2650,11 +2821,11 @@ background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb34-3"></span>
-<span id="cb34-4"><span class="co" style="color: #5E5E5E;
+<span id="cb37-3"></span>
+<span id="cb37-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Si no, con evince</span></span>
-<span id="cb34-5"><span class="ex" style="color: null;
+<span id="cb37-5"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> pdf, has evince, X, flag f = evince <span class="at" style="color: #657422;
 background-color: null;
@@ -2665,11 +2836,11 @@ background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb34-6"></span>
-<span id="cb34-7"><span class="co" style="color: #5E5E5E;
+<span id="cb37-6"></span>
+<span id="cb37-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Si no, convertir a texto</span></span>
-<span id="cb34-8"><span class="ex" style="color: null;
+<span id="cb37-8"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> pdf, has pdftotext = pdftotext <span class="at" style="color: #657422;
 background-color: null;
@@ -2704,7 +2875,7 @@ font-style: inherit;">-</span></span></code></pre></div></div>
 <h1>Plugins y Extensiones</h1>
 <section id="ubicación-de-plugins" class="level2">
 <h2 class="anchored" data-anchor-id="ubicación-de-plugins">Ubicación de Plugins</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">~/.config/ranger/plugins/</span></span></code></pre></div></div>
 </section>
@@ -2714,18 +2885,18 @@ font-style: inherit;">~/.config/ranger/plugins/</span></span></code></pre></div>
 <section id="ranger_devicons" class="level2">
 <h2 class="anchored" data-anchor-id="ranger_devicons">1. ranger_devicons</h2>
 <p>Añade iconos a tipos de archivo.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">git</span> clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons</span></code></pre></div></div>
 <p><strong>Activar en rc.conf:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">default_linemode</span> devicons</span></code></pre></div></div>
 </section>
 <section id="ranger-archives" class="level2">
 <h2 class="anchored" data-anchor-id="ranger-archives">2. ranger-archives</h2>
 <p>Mejorar manejo de archivos comprimidos.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">git</span> clone https://github.com/maximtrp/ranger-archives.git ~/.config/ranger/plugins/ranger-archives</span></code></pre></div></div>
 </section>
@@ -2733,7 +2904,7 @@ font-style: inherit;">git</span> clone https://github.com/maximtrp/ranger-archiv
 <h2 class="anchored" data-anchor-id="fasd-integration">3. fasd Integration</h2>
 <p>Integración con fasd (autojump rápido).</p>
 <p><strong>En rc.conf:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> f shell fasd <span class="at" style="color: #657422;
 background-color: null;
@@ -2761,20 +2932,20 @@ font-style: inherit;">"{}"</span></span></code></pre></div></div>
 <h2 class="anchored" data-anchor-id="fzf-integration">4. fzf Integration</h2>
 <p>Búsqueda fuzzy con fzf.</p>
 <p><strong>En commands.py:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">class</span> fzf_select(Command):</span>
-<span id="cb40-2">    <span class="kw" style="color: #003B4F;
+<span id="cb43-2">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> execute(<span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>):</span>
-<span id="cb40-3">        <span class="im" style="color: #00769E;
+<span id="cb43-3">        <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> subprocess</span>
-<span id="cb40-4">        command <span class="op" style="color: #5E5E5E;
+<span id="cb43-4">        command <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
@@ -2783,17 +2954,17 @@ background-color: null;
 font-style: inherit;">\</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">.*' -prune -o -print 2&gt; /dev/null | fzf +m"</span></span>
-<span id="cb40-5">        fzf <span class="op" style="color: #5E5E5E;
+<span id="cb43-5">        fzf <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.fm.execute_command(command, stdout<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>subprocess.PIPE)</span>
-<span id="cb40-6">        stdout, stderr <span class="op" style="color: #5E5E5E;
+<span id="cb43-6">        stdout, stderr <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> fzf.communicate()</span>
-<span id="cb40-7">        <span class="cf" style="color: #003B4F;
+<span id="cb43-7">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> fzf.returncode <span class="op" style="color: #5E5E5E;
@@ -2801,7 +2972,7 @@ background-color: null;
 font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>:</span>
-<span id="cb40-8">            fzf_file <span class="op" style="color: #5E5E5E;
+<span id="cb43-8">            fzf_file <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> os.path.abspath(stdout.decode(<span class="st" style="color: #20794D;
 background-color: null;
@@ -2812,22 +2983,22 @@ background-color: null;
 font-style: inherit;">\n</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'</span>))</span>
-<span id="cb40-9">            <span class="cf" style="color: #003B4F;
+<span id="cb43-9">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> os.path.isdir(fzf_file):</span>
-<span id="cb40-10">                <span class="va" style="color: #111111;
+<span id="cb43-10">                <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.fm.cd(fzf_file)</span>
-<span id="cb40-11">            <span class="cf" style="color: #003B4F;
+<span id="cb43-11">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">else</span>:</span>
-<span id="cb40-12">                <span class="va" style="color: #111111;
+<span id="cb43-12">                <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.fm.select_file(fzf_file)</span></code></pre></div></div>
 <p><strong>Mapear en rc.conf:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2838,55 +3009,55 @@ font-style: inherit;">&gt;</span> fzf_select</span></code></pre></div></div>
 <section id="crear-plugin-propio" class="level2">
 <h2 class="anchored" data-anchor-id="crear-plugin-propio">Crear Plugin Propio</h2>
 <p><strong>Estructura básica:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># ~/.config/ranger/plugins/mi_plugin.py</span></span>
-<span id="cb42-2"><span class="im" style="color: #00769E;
+<span id="cb45-2"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> ranger.api</span>
-<span id="cb42-3"></span>
-<span id="cb42-4"><span class="kw" style="color: #003B4F;
+<span id="cb45-3"></span>
+<span id="cb45-4"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">class</span> CustomCommand(ranger.api.commands.Command):</span>
-<span id="cb42-5">    <span class="kw" style="color: #003B4F;
+<span id="cb45-5">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> execute(<span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>):</span>
-<span id="cb42-6">        <span class="co" style="color: #5E5E5E;
+<span id="cb45-6">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Tu código aquí</span></span>
-<span id="cb42-7">        <span class="va" style="color: #111111;
+<span id="cb45-7">        <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.fm.notify(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Hola desde mi plugin!"</span>)</span>
-<span id="cb42-8"></span>
-<span id="cb42-9"><span class="co" style="color: #5E5E5E;
+<span id="cb45-8"></span>
+<span id="cb45-9"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Hook para inicialización</span></span>
-<span id="cb42-10">old_hook_init <span class="op" style="color: #5E5E5E;
+<span id="cb45-10">old_hook_init <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> ranger.api.hook_init</span>
-<span id="cb42-11"></span>
-<span id="cb42-12"><span class="kw" style="color: #003B4F;
+<span id="cb45-11"></span>
+<span id="cb45-12"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> hook_init(fm):</span>
-<span id="cb42-13">    <span class="co" style="color: #5E5E5E;
+<span id="cb45-13">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Inicialización personalizada</span></span>
-<span id="cb42-14">    fm.notify(<span class="st" style="color: #20794D;
+<span id="cb45-14">    fm.notify(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Plugin cargado"</span>)</span>
-<span id="cb42-15">    <span class="cf" style="color: #003B4F;
+<span id="cb45-15">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> old_hook_init(fm)</span>
-<span id="cb42-16"></span>
-<span id="cb42-17">ranger.api.hook_init <span class="op" style="color: #5E5E5E;
+<span id="cb45-16"></span>
+<span id="cb45-17">ranger.api.hook_init <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> hook_init</span></code></pre></div></div>
 </section>
@@ -2900,7 +3071,7 @@ font-style: inherit;">=</span> hook_init</span></code></pre></div></div>
 <section id="bash" class="level2">
 <h2 class="anchored" data-anchor-id="bash">Bash</h2>
 <p>Añadir a <code>~/.bashrc</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">function</span><span class="fu" style="color: #4758AB;
@@ -2909,7 +3080,7 @@ font-style: inherit;"> ranger-cd</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">{</span></span>
-<span id="cb43-2">    <span class="va" style="color: #111111;
+<span id="cb46-2">    <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">tempfile</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2926,7 +3097,7 @@ background-color: null;
 font-style: inherit;">)</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb43-3">    <span class="ex" style="color: null;
+<span id="cb46-3">    <span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ranger</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -2953,7 +3124,7 @@ background-color: null;
 font-style: inherit;">)}</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb43-4">    <span class="bu" style="color: null;
+<span id="cb46-4">    <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">test</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -2967,7 +3138,7 @@ font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">&amp;&amp;</span></span>
-<span id="cb43-5">    <span class="cf" style="color: #003B4F;
+<span id="cb46-5">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> <span class="bu" style="color: null;
@@ -3021,7 +3192,7 @@ font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">then</span></span>
-<span id="cb43-6">        <span class="bu" style="color: null;
+<span id="cb46-6">        <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">cd</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -3042,11 +3213,11 @@ background-color: null;
 font-style: inherit;">)</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb43-7">    <span class="cf" style="color: #003B4F;
+<span id="cb46-7">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">fi</span>  </span>
-<span id="cb43-8">    <span class="fu" style="color: #4758AB;
+<span id="cb46-8">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">rm</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -3059,15 +3230,15 @@ background-color: null;
 font-style: inherit;">$tempfile</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb43-9"><span class="kw" style="color: #003B4F;
+<span id="cb46-9"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">}</span></span>
-<span id="cb43-10"></span>
-<span id="cb43-11"><span class="co" style="color: #5E5E5E;
+<span id="cb46-10"></span>
+<span id="cb46-11"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Alias para usar</span></span>
-<span id="cb43-12"><span class="bu" style="color: null;
+<span id="cb46-12"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">alias</span> rr=<span class="st" style="color: #20794D;
 background-color: null;
@@ -3076,7 +3247,7 @@ font-style: inherit;">'ranger-cd'</span></span></code></pre></div></div>
 <section id="zsh" class="level2">
 <h2 class="anchored" data-anchor-id="zsh">Zsh</h2>
 <p>Añadir a <code>~/.zshrc</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">function</span><span class="fu" style="color: #4758AB;
@@ -3085,7 +3256,7 @@ font-style: inherit;"> ranger-cd</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">{</span></span>
-<span id="cb44-2">    <span class="va" style="color: #111111;
+<span id="cb47-2">    <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">tempfile</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -3102,7 +3273,7 @@ background-color: null;
 font-style: inherit;">)</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb44-3">    <span class="ex" style="color: null;
+<span id="cb47-3">    <span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ranger</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -3129,7 +3300,7 @@ background-color: null;
 font-style: inherit;">)}</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb44-4">    <span class="bu" style="color: null;
+<span id="cb47-4">    <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">test</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -3143,7 +3314,7 @@ font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">&amp;&amp;</span></span>
-<span id="cb44-5">    <span class="cf" style="color: #003B4F;
+<span id="cb47-5">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> <span class="bu" style="color: null;
@@ -3197,7 +3368,7 @@ font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">then</span></span>
-<span id="cb44-6">        <span class="bu" style="color: null;
+<span id="cb47-6">        <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">cd</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -3218,11 +3389,11 @@ background-color: null;
 font-style: inherit;">)</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb44-7">    <span class="cf" style="color: #003B4F;
+<span id="cb47-7">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">fi</span>  </span>
-<span id="cb44-8">    <span class="fu" style="color: #4758AB;
+<span id="cb47-8">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">rm</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -3235,12 +3406,12 @@ background-color: null;
 font-style: inherit;">$tempfile</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb44-9"><span class="kw" style="color: #003B4F;
+<span id="cb47-9"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">}</span></span>
-<span id="cb44-10"></span>
-<span id="cb44-11"><span class="bu" style="color: null;
+<span id="cb47-10"></span>
+<span id="cb47-11"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">alias</span> rr=<span class="st" style="color: #20794D;
 background-color: null;
@@ -3249,30 +3420,30 @@ font-style: inherit;">'ranger-cd'</span></span></code></pre></div></div>
 <section id="fish" class="level2">
 <h2 class="anchored" data-anchor-id="fish">Fish</h2>
 <p>Añadir a <code>~/.config/fish/config.fish</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode numberSource fish number-lines code-with-copy"><code class="sourceCode"><span id="cb45-1">function ranger-cd</span>
-<span id="cb45-2">    set tempfile (mktemp -t tmp.XXXXXX)</span>
-<span id="cb45-3">    ranger --choosedir=$tempfile $argv</span>
-<span id="cb45-4">    if test -f $tempfile</span>
-<span id="cb45-5">        if test (cat $tempfile) != (pwd)</span>
-<span id="cb45-6">            cd (cat $tempfile)</span>
-<span id="cb45-7">        end</span>
-<span id="cb45-8">    end</span>
-<span id="cb45-9">    rm -f $tempfile</span>
-<span id="cb45-10">end</span>
-<span id="cb45-11"></span>
-<span id="cb45-12">alias rr='ranger-cd'</span></code></pre></div></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48" style="background: #f1f3f5;"><pre class="sourceCode numberSource fish number-lines code-with-copy"><code class="sourceCode"><span id="cb48-1">function ranger-cd</span>
+<span id="cb48-2">    set tempfile (mktemp -t tmp.XXXXXX)</span>
+<span id="cb48-3">    ranger --choosedir=$tempfile $argv</span>
+<span id="cb48-4">    if test -f $tempfile</span>
+<span id="cb48-5">        if test (cat $tempfile) != (pwd)</span>
+<span id="cb48-6">            cd (cat $tempfile)</span>
+<span id="cb48-7">        end</span>
+<span id="cb48-8">    end</span>
+<span id="cb48-9">    rm -f $tempfile</span>
+<span id="cb48-10">end</span>
+<span id="cb48-11"></span>
+<span id="cb48-12">alias rr='ranger-cd'</span></code></pre></div></div>
 </section>
 <section id="file-picker" class="level2">
 <h2 class="anchored" data-anchor-id="file-picker">File Picker</h2>
 <p>Usar ranger como selector de archivos.</p>
 <p><strong>Script:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/bin/bash</span></span>
-<span id="cb46-2"><span class="co" style="color: #5E5E5E;
+<span id="cb49-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># ranger-picker.sh</span></span>
-<span id="cb46-3"><span class="va" style="color: #111111;
+<span id="cb49-3"><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">tempfile</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -3289,7 +3460,7 @@ background-color: null;
 font-style: inherit;">)</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb46-4"><span class="ex" style="color: null;
+<span id="cb49-4"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ranger</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -3302,7 +3473,7 @@ background-color: null;
 font-style: inherit;">$tempfile</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb46-5"><span class="cf" style="color: #003B4F;
+<span id="cb49-5"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> <span class="bu" style="color: null;
@@ -3324,7 +3495,7 @@ font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">then</span></span>
-<span id="cb46-6">    <span class="fu" style="color: #4758AB;
+<span id="cb49-6">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">cat</span> <span class="st" style="color: #20794D;
 background-color: null;
@@ -3333,7 +3504,7 @@ background-color: null;
 font-style: inherit;">$tempfile</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb46-7">    <span class="fu" style="color: #4758AB;
+<span id="cb49-7">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">rm</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -3344,12 +3515,12 @@ background-color: null;
 font-style: inherit;">$tempfile</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb46-8"><span class="cf" style="color: #003B4F;
+<span id="cb49-8"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">fi</span></span></code></pre></div></div>
 <p><strong>Usar:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><span class="va" style="color: #111111;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">selected_file</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -3360,7 +3531,7 @@ background-color: null;
 font-style: inherit;">ranger-picker.sh</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">)</span></span>
-<span id="cb47-2"><span class="bu" style="color: null;
+<span id="cb50-2"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
 background-color: null;
@@ -3376,17 +3547,17 @@ font-style: inherit;">"</span></span></code></pre></div></div>
 <section id="preview-de-archivos-con-sintaxis" class="level2">
 <h2 class="anchored" data-anchor-id="preview-de-archivos-con-sintaxis">Preview de Archivos con Sintaxis</h2>
 <p>Instalar <code>highlight</code> o <code>bat</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sudo</span> apt-get install highlight</span>
-<span id="cb48-2"><span class="co" style="color: #5E5E5E;
+<span id="cb51-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># O</span></span>
-<span id="cb48-3"><span class="ex" style="color: null;
+<span id="cb51-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">cargo</span> install bat</span></code></pre></div></div>
 <p>Editar <code>scope.sh</code> para usar <code>bat</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><span class="cf" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">case</span> <span class="st" style="color: #20794D;
@@ -3399,7 +3570,7 @@ font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span></span>
-<span id="cb49-2">    <span class="ss" style="color: #20794D;
+<span id="cb52-2">    <span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">text/</span><span class="pp" style="color: #AD0000;
 background-color: null;
@@ -3414,7 +3585,7 @@ font-style: inherit;">/xml</span><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">)</span></span>
-<span id="cb49-3">        <span class="ex" style="color: null;
+<span id="cb52-3">        <span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">bat</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -3436,13 +3607,13 @@ font-weight: bold;
 font-style: inherit;">&amp;&amp;</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">exit</span> 5</span>
-<span id="cb49-4">        <span class="bu" style="color: null;
+<span id="cb52-4">        <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">exit</span> 2<span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">;;</span></span>
-<span id="cb49-5"><span class="cf" style="color: #003B4F;
+<span id="cb52-5"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">esac</span></span></code></pre></div></div>
@@ -3450,7 +3621,7 @@ font-style: inherit;">esac</span></span></code></pre></div></div>
 <section id="thumbnails-de-videos" class="level2">
 <h2 class="anchored" data-anchor-id="thumbnails-de-videos">Thumbnails de Videos</h2>
 <p>Instalar <code>ffmpegthumbnailer</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sudo</span> apt-get install ffmpegthumbnailer</span></code></pre></div></div>
 <p>Ya debería funcionar con <code>scope.sh</code> por defecto.</p>
@@ -3458,25 +3629,25 @@ font-style: inherit;">sudo</span> apt-get install ffmpegthumbnailer</span></code
 <section id="preview-de-imágenes-terminal-compatible" class="level2">
 <h2 class="anchored" data-anchor-id="preview-de-imágenes-terminal-compatible">Preview de Imágenes (Terminal Compatible)</h2>
 <p><strong>Con w3m:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sudo</span> apt-get install w3m w3m-img</span></code></pre></div></div>
 <p><strong>En rc.conf:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><span class="bu" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb55-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> preview_images true</span>
-<span id="cb52-2"><span class="bu" style="color: null;
+<span id="cb55-2"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> preview_images_method w3m</span></code></pre></div></div>
 <p><strong>Con kitty (mejor calidad):</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><span class="bu" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> preview_images_method kitty</span></code></pre></div></div>
 <p><strong>Con ueberzug (mejor compatibilidad):</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">pip</span> install ueberzug</span>
-<span id="cb54-2"><span class="bu" style="color: null;
+<span id="cb57-2"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> preview_images_method ueberzug</span></code></pre></div></div>
 </section>
@@ -3484,21 +3655,21 @@ font-style: inherit;">set</span> preview_images_method ueberzug</span></code></p
 <h2 class="anchored" data-anchor-id="búsqueda-con-fzf">Búsqueda con FZF</h2>
 <p>Integrar búsqueda fuzzy:</p>
 <p><strong>En commands.py:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> subprocess</span>
-<span id="cb55-2"></span>
-<span id="cb55-3"><span class="kw" style="color: #003B4F;
+<span id="cb58-2"></span>
+<span id="cb58-3"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">class</span> fzf(Command):</span>
-<span id="cb55-4">    <span class="kw" style="color: #003B4F;
+<span id="cb58-4">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> execute(<span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>):</span>
-<span id="cb55-5">        command<span class="op" style="color: #5E5E5E;
+<span id="cb58-5">        command<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -3515,17 +3686,17 @@ background-color: null;
 font-style: inherit;">\</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">) -prune -o -print 2&gt; /dev/null | sed 1d | cut -b3- | fzf +m"</span></span>
-<span id="cb55-6">        fzf <span class="op" style="color: #5E5E5E;
+<span id="cb58-6">        fzf <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.fm.execute_command(command, stdout<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>subprocess.PIPE)</span>
-<span id="cb55-7">        stdout, _ <span class="op" style="color: #5E5E5E;
+<span id="cb58-7">        stdout, _ <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> fzf.communicate()</span>
-<span id="cb55-8">        <span class="cf" style="color: #003B4F;
+<span id="cb58-8">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> fzf.returncode <span class="op" style="color: #5E5E5E;
@@ -3533,7 +3704,7 @@ background-color: null;
 font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>:</span>
-<span id="cb55-9">            fzf_file <span class="op" style="color: #5E5E5E;
+<span id="cb58-9">            fzf_file <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> os.path.abspath(stdout.decode(<span class="st" style="color: #20794D;
 background-color: null;
@@ -3544,22 +3715,22 @@ background-color: null;
 font-style: inherit;">\n</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'</span>))</span>
-<span id="cb55-10">            <span class="cf" style="color: #003B4F;
+<span id="cb58-10">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> os.path.isdir(fzf_file):</span>
-<span id="cb55-11">                <span class="va" style="color: #111111;
+<span id="cb58-11">                <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.fm.cd(fzf_file)</span>
-<span id="cb55-12">            <span class="cf" style="color: #003B4F;
+<span id="cb58-12">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">else</span>:</span>
-<span id="cb55-13">                <span class="va" style="color: #111111;
+<span id="cb58-13">                <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>.fm.select_file(fzf_file)</span></code></pre></div></div>
 <p><strong>Mapear:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -3571,10 +3742,10 @@ font-style: inherit;">&gt;</span> fzf</span></code></pre></div></div>
 <h2 class="anchored" data-anchor-id="integración-con-git">Integración con Git</h2>
 <p>Ver estado de Git:</p>
 <p><strong>En rc.conf:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><span class="bu" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> vcs_aware true</span>
-<span id="cb57-2"><span class="bu" style="color: null;
+<span id="cb60-2"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> vcs_backend_git enabled</span></code></pre></div></div>
 <p>Ranger mostrará información de Git en archivos/directorios.</p>
@@ -3583,15 +3754,15 @@ font-style: inherit;">set</span> vcs_backend_git enabled</span></code></pre></di
 <h2 class="anchored" data-anchor-id="archivos-grandes">Archivos Grandes</h2>
 <p>Evitar lag con archivos grandes:</p>
 <p><strong>En rc.conf:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb58-1"><span class="bu" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb61-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> preview_max_size 10485760  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 10MB</span></span>
-<span id="cb58-2"><span class="bu" style="color: null;
+<span id="cb61-2"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> max_history_size 20</span>
-<span id="cb58-3"><span class="bu" style="color: null;
+<span id="cb61-3"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> max_console_history_size 50</span></code></pre></div></div>
 </section>
@@ -3599,10 +3770,10 @@ font-style: inherit;">set</span> max_console_history_size 50</span></code></pre>
 <h2 class="anchored" data-anchor-id="abrir-en-programa-externo">Abrir en Programa Externo</h2>
 <p>Crear atajos para programas específicos:</p>
 <p><strong>En rc.conf:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Abrir en VS Code</span></span>
-<span id="cb59-2"><span class="ex" style="color: null;
+<span id="cb62-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> code shell code <span class="st" style="color: #20794D;
 background-color: null;
@@ -3611,21 +3782,21 @@ background-color: null;
 font-style: inherit;">$PWD</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb59-3"></span>
-<span id="cb59-4"><span class="co" style="color: #5E5E5E;
+<span id="cb62-3"></span>
+<span id="cb62-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Abrir terminal aquí</span></span>
-<span id="cb59-5"><span class="ex" style="color: null;
+<span id="cb62-5"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> tt shell alacritty <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">&amp;</span></span>
-<span id="cb59-6"></span>
-<span id="cb59-7"><span class="co" style="color: #5E5E5E;
+<span id="cb62-6"></span>
+<span id="cb62-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Abrir file manager GUI</span></span>
-<span id="cb59-8"><span class="ex" style="color: null;
+<span id="cb62-8"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> fm shell nautilus <span class="st" style="color: #20794D;
 background-color: null;
@@ -3637,11 +3808,11 @@ font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">&amp;</span></span>
-<span id="cb59-9"></span>
-<span id="cb59-10"><span class="co" style="color: #5E5E5E;
+<span id="cb62-9"></span>
+<span id="cb62-10"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ejecutar script</span></span>
-<span id="cb59-11"><span class="ex" style="color: null;
+<span id="cb62-11"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> ex shell chmod +x %s <span class="kw" style="color: #003B4F;
 background-color: null;
@@ -3652,51 +3823,51 @@ font-style: inherit;">./%s</span></span></code></pre></div></div>
 </section>
 <section id="sincronizar-con-dropboxdrive" class="level2">
 <h2 class="anchored" data-anchor-id="sincronizar-con-dropboxdrive">Sincronizar con Dropbox/Drive</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Crear marcador para cloud storage</span></span>
-<span id="cb60-2"><span class="ex" style="color: null;
+<span id="cb63-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> gdb cd ~/Dropbox</span>
-<span id="cb60-3"><span class="ex" style="color: null;
+<span id="cb63-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">map</span> gdv cd ~/Google\ Drive</span></code></pre></div></div>
 </section>
 <section id="operaciones-bulk" class="level2">
 <h2 class="anchored" data-anchor-id="operaciones-bulk">Operaciones Bulk</h2>
 <p>Renombrar múltiples archivos:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb61-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb64" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb64-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Seleccionar archivos con Space</span></span>
-<span id="cb61-2"><span class="co" style="color: #5E5E5E;
+<span id="cb64-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Ejecutar:</span></span>
-<span id="cb61-3"><span class="ex" style="color: null;
+<span id="cb64-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:bulkrename</span></span>
-<span id="cb61-4"></span>
-<span id="cb61-5"><span class="co" style="color: #5E5E5E;
+<span id="cb64-4"></span>
+<span id="cb64-5"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Se abre editor con lista</span></span>
-<span id="cb61-6"><span class="co" style="color: #5E5E5E;
+<span id="cb64-6"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Modificar nombres</span></span>
-<span id="cb61-7"><span class="co" style="color: #5E5E5E;
+<span id="cb64-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Guardar y cerrar</span></span></code></pre></div></div>
 </section>
 <section id="preview-de-archivos-jsonyaml" class="level2">
 <h2 class="anchored" data-anchor-id="preview-de-archivos-jsonyaml">Preview de Archivos JSON/YAML</h2>
 <p><strong>En scope.sh:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb65-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># JSON</span></span>
-<span id="cb62-2"><span class="ex" style="color: null;
+<span id="cb65-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">json</span><span class="er" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">)</span></span>
-<span id="cb62-3">    <span class="ex" style="color: null;
+<span id="cb65-3">    <span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">jq</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -3712,7 +3883,7 @@ font-weight: bold;
 font-style: inherit;">&amp;&amp;</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">exit</span> 5</span>
-<span id="cb62-4">    <span class="ex" style="color: null;
+<span id="cb65-4">    <span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">python</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -3730,20 +3901,20 @@ font-weight: bold;
 font-style: inherit;">&amp;&amp;</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">exit</span> 5</span>
-<span id="cb62-5">    <span class="kw" style="color: #003B4F;
+<span id="cb65-5">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">;;</span></span>
-<span id="cb62-6"></span>
-<span id="cb62-7"><span class="co" style="color: #5E5E5E;
+<span id="cb65-6"></span>
+<span id="cb65-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># YAML</span></span>
-<span id="cb62-8"><span class="ex" style="color: null;
+<span id="cb65-8"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">yaml</span><span class="er" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">)</span></span>
-<span id="cb62-9">    <span class="ex" style="color: null;
+<span id="cb65-9">    <span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">yq</span> eval <span class="at" style="color: #657422;
 background-color: null;
@@ -3761,7 +3932,7 @@ font-weight: bold;
 font-style: inherit;">&amp;&amp;</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">exit</span> 5</span>
-<span id="cb62-10">    <span class="kw" style="color: #003B4F;
+<span id="cb65-10">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">;;</span></span></code></pre></div></div>
@@ -3772,78 +3943,78 @@ font-style: inherit;">;;</span></span></code></pre></div></div>
 <section id="problema-imágenes-no-se-previsualizan" class="level2">
 <h2 class="anchored" data-anchor-id="problema-imágenes-no-se-previsualizan">Problema: Imágenes no se previsualizan</h2>
 <p><strong>Solución:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb66" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Verificar método configurado</span></span>
-<span id="cb63-2"><span class="ex" style="color: null;
+<span id="cb66-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:set</span> preview_images_method</span>
-<span id="cb63-3"></span>
-<span id="cb63-4"><span class="co" style="color: #5E5E5E;
+<span id="cb66-3"></span>
+<span id="cb66-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Cambiar método</span></span>
-<span id="cb63-5"><span class="ex" style="color: null;
+<span id="cb66-5"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">:set</span> preview_images_method w3m</span>
-<span id="cb63-6"><span class="co" style="color: #5E5E5E;
+<span id="cb66-6"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># O kitty, ueberzug, iterm2</span></span>
-<span id="cb63-7"></span>
-<span id="cb63-8"><span class="co" style="color: #5E5E5E;
+<span id="cb66-7"></span>
+<span id="cb66-8"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Verificar instalación</span></span>
-<span id="cb63-9"><span class="fu" style="color: #4758AB;
+<span id="cb66-9"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">which</span> w3mimgdisplay</span></code></pre></div></div>
 </section>
 <section id="problema-colores-incorrectos" class="level2">
 <h2 class="anchored" data-anchor-id="problema-colores-incorrectos">Problema: Colores incorrectos</h2>
 <p><strong>Solución:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb64" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb64-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb67" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb67-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Verificar TERM</span></span>
-<span id="cb64-2"><span class="bu" style="color: null;
+<span id="cb67-2"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">echo</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">$TERM</span></span>
-<span id="cb64-3"></span>
-<span id="cb64-4"><span class="co" style="color: #5E5E5E;
+<span id="cb67-3"></span>
+<span id="cb67-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Debería ser xterm-256color o similar</span></span>
-<span id="cb64-5"><span class="bu" style="color: null;
+<span id="cb67-5"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">export</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">TERM</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>xterm-256color</span>
-<span id="cb64-6"></span>
-<span id="cb64-7"><span class="co" style="color: #5E5E5E;
+<span id="cb67-6"></span>
+<span id="cb67-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># En rc.conf cambiar colorscheme</span></span>
-<span id="cb64-8"><span class="bu" style="color: null;
+<span id="cb67-8"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> colorscheme default</span></code></pre></div></div>
 </section>
 <section id="problema-resaltado-de-sintaxis-no-funciona" class="level2">
 <h2 class="anchored" data-anchor-id="problema-resaltado-de-sintaxis-no-funciona">Problema: Resaltado de sintaxis no funciona</h2>
 <p><strong>Solución:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb65-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb68" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb68-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Instalar highlight o pygments</span></span>
-<span id="cb65-2"><span class="fu" style="color: #4758AB;
+<span id="cb68-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sudo</span> apt-get install highlight</span>
-<span id="cb65-3"></span>
-<span id="cb65-4"><span class="co" style="color: #5E5E5E;
+<span id="cb68-3"></span>
+<span id="cb68-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># O</span></span>
-<span id="cb65-5"><span class="ex" style="color: null;
+<span id="cb68-5"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">pip</span> install pygments</span>
-<span id="cb65-6"></span>
-<span id="cb65-7"><span class="co" style="color: #5E5E5E;
+<span id="cb68-6"></span>
+<span id="cb68-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Verificar scope.sh está configurado correctamente</span></span></code></pre></div></div>
 </section>
@@ -3855,28 +4026,28 @@ font-style: inherit;"># Verificar scope.sh está configurado correctamente</span
 <li>Desactivar preview de imágenes en directorios grandes</li>
 <li>Reducir historial</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb66" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb69-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># En rc.conf</span></span>
-<span id="cb66-2"><span class="bu" style="color: null;
+<span id="cb69-2"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> preview_max_size 1048576  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 1MB</span></span>
-<span id="cb66-3"><span class="bu" style="color: null;
+<span id="cb69-3"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> preview_images false</span>
-<span id="cb66-4"><span class="bu" style="color: null;
+<span id="cb69-4"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> max_history_size 10</span></code></pre></div></div>
 </section>
 <section id="problema-no-cambia-directorio-del-shell" class="level2">
 <h2 class="anchored" data-anchor-id="problema-no-cambia-directorio-del-shell">Problema: No cambia directorio del shell</h2>
 <p>Verificar que usas la función wrapper:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb67" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb67-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb70" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb70-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Debe estar en ~/.bashrc o ~/.zshrc</span></span>
-<span id="cb67-2"><span class="kw" style="color: #003B4F;
+<span id="cb70-2"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">function</span><span class="fu" style="color: #4758AB;
@@ -3887,7 +4058,7 @@ font-weight: bold;
 font-style: inherit;">{</span> <span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">...</span> }</span>
-<span id="cb67-3"><span class="bu" style="color: null;
+<span id="cb70-3"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">alias</span> rr=<span class="st" style="color: #20794D;
 background-color: null;
@@ -3895,35 +4066,35 @@ font-style: inherit;">'ranger-cd'</span></span></code></pre></div></div>
 </section>
 <section id="problema-archivos-ocultos-no-se-muestran" class="level2">
 <h2 class="anchored" data-anchor-id="problema-archivos-ocultos-no-se-muestran">Problema: Archivos ocultos no se muestran</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb68" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb68-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb71" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb71-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Presionar</span></span>
-<span id="cb68-2"><span class="ex" style="color: null;
+<span id="cb71-2"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">zh</span></span>
-<span id="cb68-3"></span>
-<span id="cb68-4"><span class="co" style="color: #5E5E5E;
+<span id="cb71-3"></span>
+<span id="cb71-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># O en rc.conf</span></span>
-<span id="cb68-5"><span class="bu" style="color: null;
+<span id="cb71-5"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span> show_hidden true</span></code></pre></div></div>
 </section>
 <section id="problema-rifle-no-encuentra-programas" class="level2">
 <h2 class="anchored" data-anchor-id="problema-rifle-no-encuentra-programas">Problema: Rifle no encuentra programas</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb69-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb72" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb72-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Verificar PATH</span></span>
-<span id="cb69-2"><span class="bu" style="color: null;
+<span id="cb72-2"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">echo</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">$PATH</span></span>
-<span id="cb69-3"></span>
-<span id="cb69-4"><span class="co" style="color: #5E5E5E;
+<span id="cb72-3"></span>
+<span id="cb72-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Editar rifle.conf para usar rutas absolutas</span></span>
-<span id="cb69-5"><span class="ex" style="color: null;
+<span id="cb72-5"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ext</span> pdf = /usr/bin/zathura <span class="at" style="color: #657422;
 background-color: null;

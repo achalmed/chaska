@@ -456,44 +456,117 @@ Ranger es un gestor de archivos de consola con:
 
 \subsection{Dependencias Opcionales}\label{dependencias-opcionales}
 
-\textbf{Para funcionalidad completa:}
+Para habilitar todas las funcionalidades de previsualización y análisis
+de archivos en \texttt{ranger}, se recomienda instalar las siguientes
+dependencias según tu distribución.
+
+\subsubsection{Para Debian / Ubuntu /
+derivados}\label{para-debian-ubuntu-derivados}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Determinar tipos de archivo}
-\FunctionTok{sudo}\NormalTok{ apt{-}get install file}
+\CommentTok{\# Básico (casi imprescindible)}
+\FunctionTok{sudo}\NormalTok{ apt install file}
 
-\CommentTok{\# Detección mejorada de codificación}
-\ExtensionTok{pip}\NormalTok{ install chardet}
+\CommentTok{\# Resaltado de sintaxis (elige uno o varios)}
+\FunctionTok{sudo}\NormalTok{ apt install highlight}
+\FunctionTok{sudo}\NormalTok{ apt install bat}
+\CommentTok{\# pygments vía pip si prefieres la versión python:}
+\CommentTok{\# pip install {-}{-}user pygments}
 
-\CommentTok{\# Nombres bidireccionales (árabe, hebreo)}
-\ExtensionTok{pip}\NormalTok{ install python{-}bidi}
+\CommentTok{\# Imágenes (elige según tu terminal)}
+\FunctionTok{sudo}\NormalTok{ apt install w3m w3m{-}img           }\CommentTok{\# Método clásico}
+\FunctionTok{sudo}\NormalTok{ apt install caca{-}utils            }\CommentTok{\# Arte ASCII alternativo}
+\CommentTok{\# kitty / wezterm / alacritty → mejor con ueberzugpp}
 
-\CommentTok{\# Previsualización de imágenes}
-\FunctionTok{sudo}\NormalTok{ apt{-}get install caca{-}utils w3m{-}img}
+\CommentTok{\# Conversión y procesamiento de imágenes}
+\FunctionTok{sudo}\NormalTok{ apt install imagemagick}
 
-\CommentTok{\# Conversión de imágenes}
-\FunctionTok{sudo}\NormalTok{ apt{-}get install imagemagick}
+\CommentTok{\# Archivos comprimidos}
+\FunctionTok{sudo}\NormalTok{ apt install atool unrar p7zip{-}full}
 
-\CommentTok{\# Resaltado de sintaxis}
-\FunctionTok{sudo}\NormalTok{ apt{-}get install highlight}
-\CommentTok{\# O}
-\ExtensionTok{pip}\NormalTok{ install pygments}
+\CommentTok{\# PDFs}
+\FunctionTok{sudo}\NormalTok{ apt install poppler{-}utils}
 
-\CommentTok{\# Previsualización de archivos comprimidos}
-\FunctionTok{sudo}\NormalTok{ apt{-}get install atool unrar p7zip{-}full}
-
-\CommentTok{\# Previsualización de PDFs}
-\FunctionTok{sudo}\NormalTok{ apt{-}get install poppler{-}utils}
-
-\CommentTok{\# Previsualización de videos}
-\FunctionTok{sudo}\NormalTok{ apt{-}get install ffmpegthumbnailer}
+\CommentTok{\# Miniaturas de video}
+\FunctionTok{sudo}\NormalTok{ apt install ffmpegthumbnailer}
 
 \CommentTok{\# Información de medios}
-\FunctionTok{sudo}\NormalTok{ apt{-}get install mediainfo}
+\FunctionTok{sudo}\NormalTok{ apt install mediainfo}
+
+\CommentTok{\# Idiomas y codificación especial}
+\FunctionTok{sudo}\NormalTok{ apt install python3{-}chardet}
+\ExtensionTok{pip}\NormalTok{ install }\AttributeTok{{-}{-}user}\NormalTok{ python{-}bidi        }\CommentTok{\# Para árabe, hebreo, etc.}
 
 \CommentTok{\# Convertir SVG}
 \FunctionTok{sudo}\NormalTok{ apt{-}get install librsvg2{-}bin}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Para Arch Linux / Manjaro /
+derivados}\label{para-arch-linux-manjaro-derivados}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Básico (casi imprescindible)}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ file}
+
+\CommentTok{\# Resaltado de sintaxis (elige uno o varios)}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ highlight}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ bat}
+\CommentTok{\# pygments vía pip si prefieres:}
+\CommentTok{\# pip install {-}{-}user pygments}
+
+\CommentTok{\# Imágenes (elige según tu terminal)}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ w3m libcaca             }\CommentTok{\# Método clásico + ASCII}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ ueberzugpp              }\CommentTok{\# Muy recomendado (mejor que w3m)}
+\CommentTok{\# kitty / wezterm → soporte nativo excelente}
+
+\CommentTok{\# Conversión y procesamiento de imágenes}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ imagemagick}
+
+\CommentTok{\# Archivos comprimidos}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ atool unrar p7zip}
+
+\CommentTok{\# PDFs}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ poppler}
+
+\CommentTok{\# Miniaturas de video}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ ffmpegthumbnailer}
+
+\CommentTok{\# Información de medios}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ mediainfo}
+
+\CommentTok{\# Idiomas y codificación especial}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ python{-}chardet}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ python{-}bidi             }\CommentTok{\# Para textos RTL (árabe, hebreo...)}
+
+\CommentTok{\# Convertir SVG}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ librsvg}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Instalación recomendada mínima (elige según tu
+caso)}\label{instalaciuxf3n-recomendada-muxednima-elige-seguxfan-tu-caso}
+
+\textbf{Usuario de Arch + kitty/wezterm:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ file highlight bat imagemagick ffmpegthumbnailer }\DataTypeTok{\textbackslash{}}
+\NormalTok{poppler mediainfo ueberzugpp}
+\CommentTok{\# Opcional pero muy útil:}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ atool unrar p7zip python{-}bidi python{-}chardet}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Usuario de Ubuntu + terminal clásico:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ apt install file highlight imagemagick ffmpegthumbnailer }\DataTypeTok{\textbackslash{}}
+\NormalTok{poppler{-}utils mediainfo w3m w3m{-}img atool unrar p7zip{-}full python3{-}chardet}
+\CommentTok{\# Opcional: pip install {-}{-}user python{-}bidi}
 \end{Highlighting}
 \end{Shaded}
 
@@ -693,7 +766,7 @@ Tecla & Acción \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\texttt{gh} & Ir a HOME (\textasciitilde) \\
+\texttt{gh} & Ir a HOME \texttt{\textasciitilde{}} \\
 \texttt{ge} & Ir a /etc \\
 \texttt{gu} & Ir a /usr \\
 \texttt{gd} & Ir a /dev \\
@@ -1282,6 +1355,7 @@ Ubicación: \texttt{\textasciitilde{}/.config/ranger/rc.conf}
 \CommentTok{\# Método de previsualización de imágenes}
 \BuiltInTok{set}\NormalTok{ preview\_images\_method w3m}
 \CommentTok{\# Opciones: w3m, ueberzug, kitty, iterm2}
+\BuiltInTok{set}\NormalTok{ preview\_images\_method kitty}
 
 \CommentTok{\# Guardar historial}
 \BuiltInTok{set}\NormalTok{ save\_console\_history true}
