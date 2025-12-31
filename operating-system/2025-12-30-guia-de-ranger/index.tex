@@ -215,7 +215,7 @@ usuarios de terminal (especialmente aquellos familiarizados con
 Vim/Neovim). Dirigida tanto a usuarios noveles que buscan reemplazar
 gestores gráficos tradicionales, como a usuarios avanzados que desean
 optimizar y extender al máximo esta poderosa herramienta de gestión de
-archivos en entornos Unix-like. }
+archivos en entornos Linux. }
 
 \keywords{Vim, Ranger, File Manager}
 
@@ -335,10 +335,21 @@ Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@uns
 
 \textbf{¿Qué es Ranger?}
 
-Ranger es un gestor de archivos de consola con: - Atajos de teclado
-inspirados en Vim - Interfaz minimalista con curses - Vista de jerarquía
-de directorios (multi-columna) - Previsualización automática de archivos
-- Integración con rifle (lanzador de archivos inteligente)
+Ranger es un gestor de archivos de consola con:
+
+\begin{itemize}
+\tightlist
+\item
+  Atajos de teclado inspirados en Vim
+\item
+  Interfaz minimalista con curses
+\item
+  Vista de jerarquía de directorios (multi-columna)
+\item
+  Previsualización automática de archivos
+\item
+  Integración con rifle (lanzador de archivos inteligente)
+\end{itemize}
 
 \textbf{Filosofía de Diseño}
 
@@ -511,15 +522,17 @@ defecto:
 
 Los archivos de configuración se encuentran en:
 
-\begin{verbatim}
-~/.config/ranger/
-├── rc.conf           # Configuración principal y atajos
-├── rifle.conf        # Lanzador de archivos
-├── scope.sh          # Script de previsualización
-├── commands.py       # Comandos personalizados (Python)
-├── commands_full.py  # Comandos adicionales
-└── plugins/          # Directorio para plugins
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{\textasciitilde{}/.config/ranger/}
+\ExtensionTok{├──}\NormalTok{ rc.conf           }\CommentTok{\# Configuración principal y atajos}
+\ExtensionTok{├──}\NormalTok{ rifle.conf        }\CommentTok{\# Lanzador de archivos}
+\ExtensionTok{├──}\NormalTok{ scope.sh          }\CommentTok{\# Script de previsualización}
+\ExtensionTok{├──}\NormalTok{ commands.py       }\CommentTok{\# Comandos personalizados (Python)}
+\ExtensionTok{├──}\NormalTok{ commands\_full.py  }\CommentTok{\# Comandos adicionales}
+\ExtensionTok{└──}\NormalTok{ plugins/          }\CommentTok{\# Directorio para plugins}
+\end{Highlighting}
+\end{Shaded}
 
 \subsection{Primer Lanzamiento}\label{primer-lanzamiento}
 
@@ -538,7 +551,7 @@ Al iniciar ranger por primera vez:
 \item
   Muestra tres columnas: padre, actual, previsualización
 \item
-  Usa las flechas o hjkl para navegar
+  Usa las flechas o \texttt{hjkl} para navegar
 \end{itemize}
 
 \section{Interfaz y Navegación
@@ -546,21 +559,23 @@ Básica}\label{interfaz-y-navegaciuxf3n-buxe1sica}
 
 \subsection{Estructura de la Pantalla}\label{estructura-de-la-pantalla}
 
-\begin{verbatim}
-┌─────────────────────────────────────────────────────────┐
-│ Directorio Padre │ Directorio Actual │ Previsualización │
-│                  │                   │                  │
-│  parent/         │ > archivo1.txt    │ Contenido del    │
-│  current/        │   archivo2.py     │ archivo1.txt...  │
-│  sibling/        │   carpeta/        │                  │
-│                  │   imagen.png      │                  │
-│                  │                   │                  │
-├─────────────────────────────────────────────────────────┤
-│ Barra de Estado: PWD, permisos, tamaño, fecha           │
-└─────────────────────────────────────────────────────────┘
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{┌─────────────────────────────────────────────────────────┐}
+\ExtensionTok{│}\NormalTok{ Directorio Padre │ Directorio Actual │ Previsualización │}
+\ExtensionTok{│}\NormalTok{                  │                   │                  │}
+\ExtensionTok{│}\NormalTok{  parent/         │ }\OperatorTok{\textgreater{}}\NormalTok{ archivo1.txt    │ Contenido del    │}
+\ExtensionTok{│}\NormalTok{  current/        │   archivo2.py     │ archivo1.txt...  │}
+\ExtensionTok{│}\NormalTok{  sibling/        │   carpeta/        │                  │}
+\ExtensionTok{│}\NormalTok{                  │   imagen.png      │                  │}
+\ExtensionTok{│}\NormalTok{                  │                   │                  │}
+\ExtensionTok{├─────────────────────────────────────────────────────────┤}
+\ExtensionTok{│}\NormalTok{ Barra de Estado: PWD, permisos, tamaño, fecha           │}
+\ExtensionTok{└─────────────────────────────────────────────────────────┘}
+\end{Highlighting}
+\end{Shaded}
 
-\subsection{Columnas Explicadas}\label{columnas-explicadas}
+\subsection{Columnas}\label{columnas}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -708,9 +723,16 @@ con letra \\
 con letra (multi-match) \\
 \end{longtable}
 
-\textbf{Ejemplo:} - \texttt{ft} - Salta al primer archivo que empiece
-con `t' - \texttt{Ft} - Salta a archivos que empiecen con `t', presiona
-\texttt{;} para siguiente
+\textbf{Ejemplo:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{ft} - Salta al primer archivo que empiece con `t'
+\item
+  \texttt{Ft} - Salta a archivos que empiecen con `t', presiona
+  \texttt{;} para siguiente
+\end{itemize}
 
 \subsection{Ir a Directorio
 Específico}\label{ir-a-directorio-especuxedfico}
@@ -800,11 +822,13 @@ Tecla & Acción \\
 
 \textbf{Ejemplos:}
 
-\begin{verbatim}
-+x    # Añadir permiso de ejecución
--w    # Quitar permiso de escritura
-=755  # Establecer permisos exactos
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{+x}    \CommentTok{\# Añadir permiso de ejecución}
+\ExtensionTok{{-}w}    \CommentTok{\# Quitar permiso de escritura}
+\ExtensionTok{=755}  \CommentTok{\# Establecer permisos exactos}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Selección Múltiple}\label{selecciuxf3n-muxfaltiple}
 
@@ -999,8 +1023,9 @@ Marcador & Ubicación \\
 \begin{Highlighting}[]
 \CommentTok{\# Estás en /home/usuario/documentos}
 \ExtensionTok{ma}        \CommentTok{\# Crear marcador \textquotesingle{}a\textquotesingle{}}
-\CommentTok{\# Navega a otro lugar}
-\BuiltInTok{cd}\NormalTok{ /etc}
+
+\BuiltInTok{cd}\NormalTok{ /etc   }\CommentTok{\# Navega a otro lugar}
+
 \CommentTok{\# Volver rápido}
 \StringTok{\textquotesingle{}a        \# Regresa a /home/usuario/documentos}
 \end{Highlighting}
@@ -1456,7 +1481,7 @@ Crear comandos Python personalizados.
 \begin{Highlighting}[]
 \ExtensionTok{:compress}\NormalTok{ archivo.tar.gz    }\CommentTok{\# Comprimir selección}
 \ExtensionTok{:extract}                    \CommentTok{\# Extraer archivo}
-\ExtensionTok{:mkcd}\NormalTok{ nueva{-}carpeta        }\CommentTok{\# Crear y entrar}
+\ExtensionTok{:mkcd}\NormalTok{ nueva{-}carpeta         }\CommentTok{\# Crear y entrar}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1739,7 +1764,7 @@ Usar ranger como selector de archivos.
 
 \section{Trucos y Tips Avanzados}\label{trucos-y-tips-avanzados}
 
-\subsection{1. Preview de Archivos con
+\subsection{Preview de Archivos con
 Sintaxis}\label{preview-de-archivos-con-sintaxis}
 
 Instalar \texttt{highlight} o \texttt{bat}:
@@ -1764,7 +1789,7 @@ Editar \texttt{scope.sh} para usar \texttt{bat}:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{2. Thumbnails de Videos}\label{thumbnails-de-videos}
+\subsection{Thumbnails de Videos}\label{thumbnails-de-videos}
 
 Instalar \texttt{ffmpegthumbnailer}:
 
@@ -1776,7 +1801,7 @@ Instalar \texttt{ffmpegthumbnailer}:
 
 Ya debería funcionar con \texttt{scope.sh} por defecto.
 
-\subsection{3. Preview de Imágenes (Terminal
+\subsection{Preview de Imágenes (Terminal
 Compatible)}\label{preview-de-imuxe1genes-terminal-compatible}
 
 \textbf{Con w3m:}
@@ -1813,7 +1838,7 @@ Compatible)}\label{preview-de-imuxe1genes-terminal-compatible}
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{4. Búsqueda con FZF}\label{buxfasqueda-con-fzf}
+\subsection{Búsqueda con FZF}\label{buxfasqueda-con-fzf}
 
 Integrar búsqueda fuzzy:
 
@@ -1845,7 +1870,7 @@ Integrar búsqueda fuzzy:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{5. Integración con Git}\label{integraciuxf3n-con-git}
+\subsection{Integración con Git}\label{integraciuxf3n-con-git}
 
 Ver estado de Git:
 
@@ -1860,7 +1885,7 @@ Ver estado de Git:
 
 Ranger mostrará información de Git en archivos/directorios.
 
-\subsection{6. Archivos Grandes}\label{archivos-grandes}
+\subsection{Archivos Grandes}\label{archivos-grandes}
 
 Evitar lag con archivos grandes:
 
@@ -1874,8 +1899,7 @@ Evitar lag con archivos grandes:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{7. Abrir en Programa
-Externo}\label{abrir-en-programa-externo}
+\subsection{Abrir en Programa Externo}\label{abrir-en-programa-externo}
 
 Crear atajos para programas específicos:
 
@@ -1897,7 +1921,7 @@ Crear atajos para programas específicos:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{8. Sincronizar con
+\subsection{Sincronizar con
 Dropbox/Drive}\label{sincronizar-con-dropboxdrive}
 
 \begin{Shaded}
@@ -1908,7 +1932,7 @@ Dropbox/Drive}\label{sincronizar-con-dropboxdrive}
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{9. Operaciones Bulk}\label{operaciones-bulk}
+\subsection{Operaciones Bulk}\label{operaciones-bulk}
 
 Renombrar múltiples archivos:
 
@@ -1924,7 +1948,7 @@ Renombrar múltiples archivos:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{10. Preview de Archivos
+\subsection{Preview de Archivos
 JSON/YAML}\label{preview-de-archivos-jsonyaml}
 
 \textbf{En scope.sh:}
@@ -2002,8 +2026,18 @@ funciona}\label{problema-resaltado-de-sintaxis-no-funciona}
 
 \subsection{Problema: Ranger lento}\label{problema-ranger-lento}
 
-\textbf{Soluciones:} 1. Limitar tamaño de preview 2. Desactivar preview
-de imágenes en directorios grandes 3. Reducir historial
+\textbf{Soluciones:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Limitar tamaño de preview
+\item
+  Desactivar preview de imágenes en directorios grandes
+\item
+  Reducir historial
+\end{enumerate}
 
 \begin{Shaded}
 \begin{Highlighting}[]

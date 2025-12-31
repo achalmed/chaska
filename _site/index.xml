@@ -7920,7 +7920,14 @@ z-index: 0;
 
 
 <p><strong>¿Qué es Ranger?</strong></p>
-<p>Ranger es un gestor de archivos de consola con: - Atajos de teclado inspirados en Vim - Interfaz minimalista con curses - Vista de jerarquía de directorios (multi-columna) - Previsualización automática de archivos - Integración con rifle (lanzador de archivos inteligente)</p>
+<p>Ranger es un gestor de archivos de consola con:</p>
+<ul>
+<li>Atajos de teclado inspirados en Vim</li>
+<li>Interfaz minimalista con curses</li>
+<li>Vista de jerarquía de directorios (multi-columna)</li>
+<li>Previsualización automática de archivos</li>
+<li>Integración con rifle (lanzador de archivos inteligente)</li>
+</ul>
 <p><strong>Filosofía de Diseño</strong></p>
 <ul>
 <li><strong>Mantenible</strong>: Escrito en Python de alto nivel</li>
@@ -8152,13 +8159,39 @@ font-style: inherit;"># Comandos personalizados</span></span></code></pre></div>
 <section id="ubicación-de-archivos" class="level2">
 <h2 class="anchored" data-anchor-id="ubicación-de-archivos">Ubicación de Archivos</h2>
 <p>Los archivos de configuración se encuentran en:</p>
-<pre><code>~/.config/ranger/
-├── rc.conf           # Configuración principal y atajos
-├── rifle.conf        # Lanzador de archivos
-├── scope.sh          # Script de previsualización
-├── commands.py       # Comandos personalizados (Python)
-├── commands_full.py  # Comandos adicionales
-└── plugins/          # Directorio para plugins</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">~/.config/ranger/</span></span>
+<span id="cb10-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> rc.conf           <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Configuración principal y atajos</span></span>
+<span id="cb10-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> rifle.conf        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Lanzador de archivos</span></span>
+<span id="cb10-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> scope.sh          <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Script de previsualización</span></span>
+<span id="cb10-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> commands.py       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Comandos personalizados (Python)</span></span>
+<span id="cb10-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> commands_full.py  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Comandos adicionales</span></span>
+<span id="cb10-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">└──</span> plugins/          <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Directorio para plugins</span></span></code></pre></div></div>
 </section>
 <section id="primer-lanzamiento" class="level2">
 <h2 class="anchored" data-anchor-id="primer-lanzamiento">Primer Lanzamiento</h2>
@@ -8169,7 +8202,7 @@ font-style: inherit;">ranger</span></span></code></pre></div></div>
 <ul>
 <li>Se abre en el directorio actual</li>
 <li>Muestra tres columnas: padre, actual, previsualización</li>
-<li>Usa las flechas o hjkl para navegar</li>
+<li>Usa las flechas o <code>hjkl</code> para navegar</li>
 </ul>
 </section>
 </section>
@@ -8177,20 +8210,44 @@ font-style: inherit;">ranger</span></span></code></pre></div></div>
 <h1>Interfaz y Navegación Básica</h1>
 <section id="estructura-de-la-pantalla" class="level2">
 <h2 class="anchored" data-anchor-id="estructura-de-la-pantalla">Estructura de la Pantalla</h2>
-<pre><code>┌─────────────────────────────────────────────────────────┐
-│ Directorio Padre │ Directorio Actual │ Previsualización │
-│                  │                   │                  │
-│  parent/         │ &gt; archivo1.txt    │ Contenido del    │
-│  current/        │   archivo2.py     │ archivo1.txt...  │
-│  sibling/        │   carpeta/        │                  │
-│                  │   imagen.png      │                  │
-│                  │                   │                  │
-├─────────────────────────────────────────────────────────┤
-│ Barra de Estado: PWD, permisos, tamaño, fecha           │
-└─────────────────────────────────────────────────────────┘</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">┌─────────────────────────────────────────────────────────┐</span></span>
+<span id="cb12-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span> Directorio Padre │ Directorio Actual │ Previsualización │</span>
+<span id="cb12-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span>                  │                   │                  │</span>
+<span id="cb12-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span>  parent/         │ <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> archivo1.txt    │ Contenido del    │</span>
+<span id="cb12-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span>  current/        │   archivo2.py     │ archivo1.txt...  │</span>
+<span id="cb12-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span>  sibling/        │   carpeta/        │                  │</span>
+<span id="cb12-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span>                  │   imagen.png      │                  │</span>
+<span id="cb12-8"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span>                  │                   │                  │</span>
+<span id="cb12-9"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├─────────────────────────────────────────────────────────┤</span></span>
+<span id="cb12-10"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span> Barra de Estado: PWD, permisos, tamaño, fecha           │</span>
+<span id="cb12-11"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">└─────────────────────────────────────────────────────────┘</span></span></code></pre></div></div>
 </section>
-<section id="columnas-explicadas" class="level2">
-<h2 class="anchored" data-anchor-id="columnas-explicadas">Columnas Explicadas</h2>
+<section id="columnas" class="level2">
+<h2 class="anchored" data-anchor-id="columnas">Columnas</h2>
 <ol type="1">
 <li><strong>Columna Izquierda</strong>: Contenido del directorio padre</li>
 <li><strong>Columna Central</strong>: Directorio actual (principal)</li>
@@ -8455,7 +8512,11 @@ font-style: inherit;">ranger</span></span></code></pre></div></div>
 </tr>
 </tbody>
 </table>
-<p><strong>Ejemplo:</strong> - <code>ft</code> - Salta al primer archivo que empiece con ‘t’ - <code>Ft</code> - Salta a archivos que empiecen con ‘t’, presiona <code>;</code> para siguiente</p>
+<p><strong>Ejemplo:</strong></p>
+<ul>
+<li><code>ft</code> - Salta al primer archivo que empiece con ‘t’</li>
+<li><code>Ft</code> - Salta a archivos que empiecen con ‘t’, presiona <code>;</code> para siguiente</li>
+</ul>
 </section>
 <section id="ir-a-directorio-específico" class="level2">
 <h2 class="anchored" data-anchor-id="ir-a-directorio-específico">Ir a Directorio Específico</h2>
@@ -8629,9 +8690,21 @@ font-style: inherit;">ranger</span></span></code></pre></div></div>
 </tbody>
 </table>
 <p><strong>Ejemplos:</strong></p>
-<pre><code>+x    # Añadir permiso de ejecución
--w    # Quitar permiso de escritura
-=755  # Establecer permisos exactos</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">+x</span>    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Añadir permiso de ejecución</span></span>
+<span id="cb13-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">-w</span>    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Quitar permiso de escritura</span></span>
+<span id="cb13-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">=755</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Establecer permisos exactos</span></span></code></pre></div></div>
 </section>
 </section>
 <section id="selección-múltiple" class="level1">
@@ -8970,16 +9043,17 @@ background-color: null;
 font-style: inherit;">ma</span>        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Crear marcador 'a'</span></span>
-<span id="cb16-3"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Navega a otro lugar</span></span>
+<span id="cb16-3"></span>
 <span id="cb16-4"><span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">cd</span> /etc</span>
-<span id="cb16-5"><span class="co" style="color: #5E5E5E;
+font-style: inherit;">cd</span> /etc   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Navega a otro lugar</span></span>
+<span id="cb16-5"></span>
+<span id="cb16-6"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Volver rápido</span></span>
-<span id="cb16-6"><span class="st" style="color: #20794D;
+<span id="cb16-7"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'a        # Regresa a /home/usuario/documentos</span></span></code></pre></div></div>
 </section>
@@ -10350,7 +10424,7 @@ background-color: null;
 font-style: inherit;"># Extraer archivo</span></span>
 <span id="cb32-3"><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">:mkcd</span> nueva-carpeta        <span class="co" style="color: #5E5E5E;
+font-style: inherit;">:mkcd</span> nueva-carpeta         <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Crear y entrar</span></span></code></pre></div></div>
 </section>
@@ -11153,7 +11227,7 @@ font-style: inherit;">"</span></span></code></pre></div></div>
 <section id="trucos-y-tips-avanzados" class="level1">
 <h1>Trucos y Tips Avanzados</h1>
 <section id="preview-de-archivos-con-sintaxis" class="level2">
-<h2 class="anchored" data-anchor-id="preview-de-archivos-con-sintaxis">1. Preview de Archivos con Sintaxis</h2>
+<h2 class="anchored" data-anchor-id="preview-de-archivos-con-sintaxis">Preview de Archivos con Sintaxis</h2>
 <p>Instalar <code>highlight</code> o <code>bat</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -11227,7 +11301,7 @@ font-weight: bold;
 font-style: inherit;">esac</span></span></code></pre></div></div>
 </section>
 <section id="thumbnails-de-videos" class="level2">
-<h2 class="anchored" data-anchor-id="thumbnails-de-videos">2. Thumbnails de Videos</h2>
+<h2 class="anchored" data-anchor-id="thumbnails-de-videos">Thumbnails de Videos</h2>
 <p>Instalar <code>ffmpegthumbnailer</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -11235,7 +11309,7 @@ font-style: inherit;">sudo</span> apt-get install ffmpegthumbnailer</span></code
 <p>Ya debería funcionar con <code>scope.sh</code> por defecto.</p>
 </section>
 <section id="preview-de-imágenes-terminal-compatible" class="level2">
-<h2 class="anchored" data-anchor-id="preview-de-imágenes-terminal-compatible">3. Preview de Imágenes (Terminal Compatible)</h2>
+<h2 class="anchored" data-anchor-id="preview-de-imágenes-terminal-compatible">Preview de Imágenes (Terminal Compatible)</h2>
 <p><strong>Con w3m:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -11260,7 +11334,7 @@ background-color: null;
 font-style: inherit;">set</span> preview_images_method ueberzug</span></code></pre></div></div>
 </section>
 <section id="búsqueda-con-fzf" class="level2">
-<h2 class="anchored" data-anchor-id="búsqueda-con-fzf">4. Búsqueda con FZF</h2>
+<h2 class="anchored" data-anchor-id="búsqueda-con-fzf">Búsqueda con FZF</h2>
 <p>Integrar búsqueda fuzzy:</p>
 <p><strong>En commands.py:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><span class="im" style="color: #00769E;
@@ -11347,7 +11421,7 @@ background-color: null;
 font-style: inherit;">&gt;</span> fzf</span></code></pre></div></div>
 </section>
 <section id="integración-con-git" class="level2">
-<h2 class="anchored" data-anchor-id="integración-con-git">5. Integración con Git</h2>
+<h2 class="anchored" data-anchor-id="integración-con-git">Integración con Git</h2>
 <p>Ver estado de Git:</p>
 <p><strong>En rc.conf:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><span class="bu" style="color: null;
@@ -11359,7 +11433,7 @@ font-style: inherit;">set</span> vcs_backend_git enabled</span></code></pre></di
 <p>Ranger mostrará información de Git en archivos/directorios.</p>
 </section>
 <section id="archivos-grandes" class="level2">
-<h2 class="anchored" data-anchor-id="archivos-grandes">6. Archivos Grandes</h2>
+<h2 class="anchored" data-anchor-id="archivos-grandes">Archivos Grandes</h2>
 <p>Evitar lag con archivos grandes:</p>
 <p><strong>En rc.conf:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb58-1"><span class="bu" style="color: null;
@@ -11375,7 +11449,7 @@ background-color: null;
 font-style: inherit;">set</span> max_console_history_size 50</span></code></pre></div></div>
 </section>
 <section id="abrir-en-programa-externo" class="level2">
-<h2 class="anchored" data-anchor-id="abrir-en-programa-externo">7. Abrir en Programa Externo</h2>
+<h2 class="anchored" data-anchor-id="abrir-en-programa-externo">Abrir en Programa Externo</h2>
 <p>Crear atajos para programas específicos:</p>
 <p><strong>En rc.conf:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><span class="co" style="color: #5E5E5E;
@@ -11430,7 +11504,7 @@ background-color: null;
 font-style: inherit;">./%s</span></span></code></pre></div></div>
 </section>
 <section id="sincronizar-con-dropboxdrive" class="level2">
-<h2 class="anchored" data-anchor-id="sincronizar-con-dropboxdrive">8. Sincronizar con Dropbox/Drive</h2>
+<h2 class="anchored" data-anchor-id="sincronizar-con-dropboxdrive">Sincronizar con Dropbox/Drive</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Crear marcador para cloud storage</span></span>
@@ -11442,7 +11516,7 @@ background-color: null;
 font-style: inherit;">map</span> gdv cd ~/Google\ Drive</span></code></pre></div></div>
 </section>
 <section id="operaciones-bulk" class="level2">
-<h2 class="anchored" data-anchor-id="operaciones-bulk">9. Operaciones Bulk</h2>
+<h2 class="anchored" data-anchor-id="operaciones-bulk">Operaciones Bulk</h2>
 <p>Renombrar múltiples archivos:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb61-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -11465,7 +11539,7 @@ background-color: null;
 font-style: inherit;"># Guardar y cerrar</span></span></code></pre></div></div>
 </section>
 <section id="preview-de-archivos-jsonyaml" class="level2">
-<h2 class="anchored" data-anchor-id="preview-de-archivos-jsonyaml">10. Preview de Archivos JSON/YAML</h2>
+<h2 class="anchored" data-anchor-id="preview-de-archivos-jsonyaml">Preview de Archivos JSON/YAML</h2>
 <p><strong>En scope.sh:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -11628,7 +11702,12 @@ font-style: inherit;"># Verificar scope.sh está configurado correctamente</span
 </section>
 <section id="problema-ranger-lento" class="level2">
 <h2 class="anchored" data-anchor-id="problema-ranger-lento">Problema: Ranger lento</h2>
-<p><strong>Soluciones:</strong> 1. Limitar tamaño de preview 2. Desactivar preview de imágenes en directorios grandes 3. Reducir historial</p>
+<p><strong>Soluciones:</strong></p>
+<ol type="1">
+<li>Limitar tamaño de preview</li>
+<li>Desactivar preview de imágenes en directorios grandes</li>
+<li>Reducir historial</li>
+</ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb66" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># En rc.conf</span></span>

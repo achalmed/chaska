@@ -1327,7 +1327,7 @@
     "href": "operating-system/2025-12-30-guia-de-ranger/index.html",
     "title": "Guía Completa de Ranger",
     "section": "",
-    "text": "¿Qué es Ranger?\nRanger es un gestor de archivos de consola con: - Atajos de teclado inspirados en Vim - Interfaz minimalista con curses - Vista de jerarquía de directorios (multi-columna) - Previsualización automática de archivos - Integración con rifle (lanzador de archivos inteligente)\nFilosofía de Diseño\nCaracterísticas Principales"
+    "text": "¿Qué es Ranger?\nRanger es un gestor de archivos de consola con:\nFilosofía de Diseño\nCaracterísticas Principales"
   },
   {
     "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#desde-repositorios",
@@ -1446,7 +1446,7 @@
     "href": "operating-system/2025-12-30-guia-de-ranger/index.html#navegación-por-primera-letra",
     "title": "Guía Completa de Ranger",
     "section": "Navegación por Primera Letra",
-    "text": "Navegación por Primera Letra\n\n\n\nTecla\nAcción\n\n\n\n\nf&lt;letra&gt;\nBuscar archivo que empiece con letra\n\n\nF&lt;letra&gt;\nBuscar archivo que empiece con letra (multi-match)\n\n\n\nEjemplo: - ft - Salta al primer archivo que empiece con ‘t’ - Ft - Salta a archivos que empiecen con ‘t’, presiona ; para siguiente"
+    "text": "Navegación por Primera Letra\n\n\n\nTecla\nAcción\n\n\n\n\nf&lt;letra&gt;\nBuscar archivo que empiece con letra\n\n\nF&lt;letra&gt;\nBuscar archivo que empiece con letra (multi-match)\n\n\n\nEjemplo:\n\nft - Salta al primer archivo que empiece con ‘t’\nFt - Salta a archivos que empiecen con ‘t’, presiona ; para siguiente"
   },
   {
     "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#ir-a-directorio-específico",
@@ -1558,7 +1558,7 @@
     "href": "operating-system/2025-12-30-guia-de-ranger/index.html#marcadores-especiales",
     "title": "Guía Completa de Ranger",
     "section": "Marcadores Especiales",
-    "text": "Marcadores Especiales\n\n\n\nMarcador\nUbicación\n\n\n\n\n''\nPosición anterior\n\n\n ``\nPosición anterior (backtick)\n\n\n\nEjemplo de uso:\n# Estás en /home/usuario/documentos\nma        # Crear marcador 'a'\n# Navega a otro lugar\ncd /etc\n# Volver rápido\n'a        # Regresa a /home/usuario/documentos"
+    "text": "Marcadores Especiales\n\n\n\nMarcador\nUbicación\n\n\n\n\n''\nPosición anterior\n\n\n ``\nPosición anterior (backtick)\n\n\n\nEjemplo de uso:\n# Estás en /home/usuario/documentos\nma        # Crear marcador 'a'\n\ncd /etc   # Navega a otro lugar\n\n# Volver rápido\n'a        # Regresa a /home/usuario/documentos"
   },
   {
     "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#ver-marcadores",
@@ -1698,7 +1698,7 @@
     "href": "operating-system/2025-12-30-guia-de-ranger/index.html#commands.py---comandos-personalizados",
     "title": "Guía Completa de Ranger",
     "section": "commands.py - Comandos Personalizados",
-    "text": "commands.py - Comandos Personalizados\nUbicación: ~/.config/ranger/commands.py\nCrear comandos Python personalizados.\nEjemplo - Comando para comprimir:\nfrom ranger.api.commands import Command\n\nclass compress(Command):\n    def execute(self):\n        \"\"\"Comprimir archivos seleccionados\"\"\"\n        import os\n        \n        # Obtener archivos seleccionados\n        if self.fm.thisdir.marked_items:\n            files = [f.basename for f in self.fm.thisdir.marked_items]\n        else:\n            files = [self.fm.thisfile.basename]\n        \n        # Nombre del archivo comprimido\n        archive_name = self.rest(1) if self.rest(1) else \"archive.tar.gz\"\n        \n        # Comprimir\n        self.fm.execute_command(f\"tar czf {archive_name} {' '.join(files)}\")\n        self.fm.notify(f\"Comprimido como {archive_name}\")\n\nclass extract(Command):\n    def execute(self):\n        \"\"\"Extraer archivo comprimido\"\"\"\n        if self.fm.thisfile.extension in ['zip', 'tar', 'gz', 'bz2', 'xz']:\n            self.fm.execute_command(f\"atool -x {self.fm.thisfile.basename}\")\n            self.fm.notify(\"Archivo extraído\")\n\nclass mkcd(Command):\n    \"\"\"Crear directorio y entrar en él\"\"\"\n    def execute(self):\n        from os.path import join, expanduser, lexists\n        dirname = join(self.fm.thisdir.path, expanduser(self.rest(1)))\n        if not lexists(dirname):\n            os.makedirs(dirname)\n            self.fm.cd(dirname)\n        else:\n            self.fm.notify(\"Directorio ya existe\", bad=True)\nUsar comandos personalizados:\n:compress archivo.tar.gz    # Comprimir selección\n:extract                    # Extraer archivo\n:mkcd nueva-carpeta        # Crear y entrar"
+    "text": "commands.py - Comandos Personalizados\nUbicación: ~/.config/ranger/commands.py\nCrear comandos Python personalizados.\nEjemplo - Comando para comprimir:\nfrom ranger.api.commands import Command\n\nclass compress(Command):\n    def execute(self):\n        \"\"\"Comprimir archivos seleccionados\"\"\"\n        import os\n        \n        # Obtener archivos seleccionados\n        if self.fm.thisdir.marked_items:\n            files = [f.basename for f in self.fm.thisdir.marked_items]\n        else:\n            files = [self.fm.thisfile.basename]\n        \n        # Nombre del archivo comprimido\n        archive_name = self.rest(1) if self.rest(1) else \"archive.tar.gz\"\n        \n        # Comprimir\n        self.fm.execute_command(f\"tar czf {archive_name} {' '.join(files)}\")\n        self.fm.notify(f\"Comprimido como {archive_name}\")\n\nclass extract(Command):\n    def execute(self):\n        \"\"\"Extraer archivo comprimido\"\"\"\n        if self.fm.thisfile.extension in ['zip', 'tar', 'gz', 'bz2', 'xz']:\n            self.fm.execute_command(f\"atool -x {self.fm.thisfile.basename}\")\n            self.fm.notify(\"Archivo extraído\")\n\nclass mkcd(Command):\n    \"\"\"Crear directorio y entrar en él\"\"\"\n    def execute(self):\n        from os.path import join, expanduser, lexists\n        dirname = join(self.fm.thisdir.path, expanduser(self.rest(1)))\n        if not lexists(dirname):\n            os.makedirs(dirname)\n            self.fm.cd(dirname)\n        else:\n            self.fm.notify(\"Directorio ya existe\", bad=True)\nUsar comandos personalizados:\n:compress archivo.tar.gz    # Comprimir selección\n:extract                    # Extraer archivo\n:mkcd nueva-carpeta         # Crear y entrar"
   },
   {
     "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#qué-es-rifle",
@@ -1823,71 +1823,71 @@
     "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#preview-de-archivos-con-sintaxis",
     "href": "operating-system/2025-12-30-guia-de-ranger/index.html#preview-de-archivos-con-sintaxis",
     "title": "Guía Completa de Ranger",
-    "section": "1. Preview de Archivos con Sintaxis",
-    "text": "1. Preview de Archivos con Sintaxis\nInstalar highlight o bat:\nsudo apt-get install highlight\n# O\ncargo install bat\nEditar scope.sh para usar bat:\ncase \"$mimetype\" in\n    text/* | */xml)\n        bat --style=numbers --color=always \"$path\" && exit 5\n        exit 2;;\nesac"
+    "section": "Preview de Archivos con Sintaxis",
+    "text": "Preview de Archivos con Sintaxis\nInstalar highlight o bat:\nsudo apt-get install highlight\n# O\ncargo install bat\nEditar scope.sh para usar bat:\ncase \"$mimetype\" in\n    text/* | */xml)\n        bat --style=numbers --color=always \"$path\" && exit 5\n        exit 2;;\nesac"
   },
   {
     "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#thumbnails-de-videos",
     "href": "operating-system/2025-12-30-guia-de-ranger/index.html#thumbnails-de-videos",
     "title": "Guía Completa de Ranger",
-    "section": "2. Thumbnails de Videos",
-    "text": "2. Thumbnails de Videos\nInstalar ffmpegthumbnailer:\nsudo apt-get install ffmpegthumbnailer\nYa debería funcionar con scope.sh por defecto."
+    "section": "Thumbnails de Videos",
+    "text": "Thumbnails de Videos\nInstalar ffmpegthumbnailer:\nsudo apt-get install ffmpegthumbnailer\nYa debería funcionar con scope.sh por defecto."
   },
   {
     "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#preview-de-imágenes-terminal-compatible",
     "href": "operating-system/2025-12-30-guia-de-ranger/index.html#preview-de-imágenes-terminal-compatible",
     "title": "Guía Completa de Ranger",
-    "section": "3. Preview de Imágenes (Terminal Compatible)",
-    "text": "3. Preview de Imágenes (Terminal Compatible)\nCon w3m:\nsudo apt-get install w3m w3m-img\nEn rc.conf:\nset preview_images true\nset preview_images_method w3m\nCon kitty (mejor calidad):\nset preview_images_method kitty\nCon ueberzug (mejor compatibilidad):\npip install ueberzug\nset preview_images_method ueberzug"
+    "section": "Preview de Imágenes (Terminal Compatible)",
+    "text": "Preview de Imágenes (Terminal Compatible)\nCon w3m:\nsudo apt-get install w3m w3m-img\nEn rc.conf:\nset preview_images true\nset preview_images_method w3m\nCon kitty (mejor calidad):\nset preview_images_method kitty\nCon ueberzug (mejor compatibilidad):\npip install ueberzug\nset preview_images_method ueberzug"
   },
   {
     "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#búsqueda-con-fzf",
     "href": "operating-system/2025-12-30-guia-de-ranger/index.html#búsqueda-con-fzf",
     "title": "Guía Completa de Ranger",
-    "section": "4. Búsqueda con FZF",
-    "text": "4. Búsqueda con FZF\nIntegrar búsqueda fuzzy:\nEn commands.py:\nimport subprocess\n\nclass fzf(Command):\n    def execute(self):\n        command=\"find -L . \\( -path '*/\\.*' -o -fstype 'dev' -o -fstype 'proc' \\) -prune -o -print 2&gt; /dev/null | sed 1d | cut -b3- | fzf +m\"\n        fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)\n        stdout, _ = fzf.communicate()\n        if fzf.returncode == 0:\n            fzf_file = os.path.abspath(stdout.decode('utf-8').rstrip('\\n'))\n            if os.path.isdir(fzf_file):\n                self.fm.cd(fzf_file)\n            else:\n                self.fm.select_file(fzf_file)\nMapear:\nmap &lt;C-f&gt; fzf"
+    "section": "Búsqueda con FZF",
+    "text": "Búsqueda con FZF\nIntegrar búsqueda fuzzy:\nEn commands.py:\nimport subprocess\n\nclass fzf(Command):\n    def execute(self):\n        command=\"find -L . \\( -path '*/\\.*' -o -fstype 'dev' -o -fstype 'proc' \\) -prune -o -print 2&gt; /dev/null | sed 1d | cut -b3- | fzf +m\"\n        fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)\n        stdout, _ = fzf.communicate()\n        if fzf.returncode == 0:\n            fzf_file = os.path.abspath(stdout.decode('utf-8').rstrip('\\n'))\n            if os.path.isdir(fzf_file):\n                self.fm.cd(fzf_file)\n            else:\n                self.fm.select_file(fzf_file)\nMapear:\nmap &lt;C-f&gt; fzf"
   },
   {
     "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#integración-con-git",
     "href": "operating-system/2025-12-30-guia-de-ranger/index.html#integración-con-git",
     "title": "Guía Completa de Ranger",
-    "section": "5. Integración con Git",
-    "text": "5. Integración con Git\nVer estado de Git:\nEn rc.conf:\nset vcs_aware true\nset vcs_backend_git enabled\nRanger mostrará información de Git en archivos/directorios."
+    "section": "Integración con Git",
+    "text": "Integración con Git\nVer estado de Git:\nEn rc.conf:\nset vcs_aware true\nset vcs_backend_git enabled\nRanger mostrará información de Git en archivos/directorios."
   },
   {
     "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#archivos-grandes",
     "href": "operating-system/2025-12-30-guia-de-ranger/index.html#archivos-grandes",
     "title": "Guía Completa de Ranger",
-    "section": "6. Archivos Grandes",
-    "text": "6. Archivos Grandes\nEvitar lag con archivos grandes:\nEn rc.conf:\nset preview_max_size 10485760  # 10MB\nset max_history_size 20\nset max_console_history_size 50"
+    "section": "Archivos Grandes",
+    "text": "Archivos Grandes\nEvitar lag con archivos grandes:\nEn rc.conf:\nset preview_max_size 10485760  # 10MB\nset max_history_size 20\nset max_console_history_size 50"
   },
   {
     "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#abrir-en-programa-externo",
     "href": "operating-system/2025-12-30-guia-de-ranger/index.html#abrir-en-programa-externo",
     "title": "Guía Completa de Ranger",
-    "section": "7. Abrir en Programa Externo",
-    "text": "7. Abrir en Programa Externo\nCrear atajos para programas específicos:\nEn rc.conf:\n# Abrir en VS Code\nmap code shell code \"$PWD\"\n\n# Abrir terminal aquí\nmap tt shell alacritty &\n\n# Abrir file manager GUI\nmap fm shell nautilus \"$PWD\" &\n\n# Ejecutar script\nmap ex shell chmod +x %s && ./%s"
+    "section": "Abrir en Programa Externo",
+    "text": "Abrir en Programa Externo\nCrear atajos para programas específicos:\nEn rc.conf:\n# Abrir en VS Code\nmap code shell code \"$PWD\"\n\n# Abrir terminal aquí\nmap tt shell alacritty &\n\n# Abrir file manager GUI\nmap fm shell nautilus \"$PWD\" &\n\n# Ejecutar script\nmap ex shell chmod +x %s && ./%s"
   },
   {
     "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#sincronizar-con-dropboxdrive",
     "href": "operating-system/2025-12-30-guia-de-ranger/index.html#sincronizar-con-dropboxdrive",
     "title": "Guía Completa de Ranger",
-    "section": "8. Sincronizar con Dropbox/Drive",
-    "text": "8. Sincronizar con Dropbox/Drive\n# Crear marcador para cloud storage\nmap gdb cd ~/Dropbox\nmap gdv cd ~/Google\\ Drive"
+    "section": "Sincronizar con Dropbox/Drive",
+    "text": "Sincronizar con Dropbox/Drive\n# Crear marcador para cloud storage\nmap gdb cd ~/Dropbox\nmap gdv cd ~/Google\\ Drive"
   },
   {
     "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#operaciones-bulk",
     "href": "operating-system/2025-12-30-guia-de-ranger/index.html#operaciones-bulk",
     "title": "Guía Completa de Ranger",
-    "section": "9. Operaciones Bulk",
-    "text": "9. Operaciones Bulk\nRenombrar múltiples archivos:\n# Seleccionar archivos con Space\n# Ejecutar:\n:bulkrename\n\n# Se abre editor con lista\n# Modificar nombres\n# Guardar y cerrar"
+    "section": "Operaciones Bulk",
+    "text": "Operaciones Bulk\nRenombrar múltiples archivos:\n# Seleccionar archivos con Space\n# Ejecutar:\n:bulkrename\n\n# Se abre editor con lista\n# Modificar nombres\n# Guardar y cerrar"
   },
   {
     "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#preview-de-archivos-jsonyaml",
     "href": "operating-system/2025-12-30-guia-de-ranger/index.html#preview-de-archivos-jsonyaml",
     "title": "Guía Completa de Ranger",
-    "section": "10. Preview de Archivos JSON/YAML",
-    "text": "10. Preview de Archivos JSON/YAML\nEn scope.sh:\n# JSON\njson)\n    jq --color-output . \"${FILE_PATH}\" && exit 5\n    python -m json.tool -- \"${FILE_PATH}\" && exit 5\n    ;;\n\n# YAML\nyaml)\n    yq eval --colors -- \"${FILE_PATH}\" && exit 5\n    ;;"
+    "section": "Preview de Archivos JSON/YAML",
+    "text": "Preview de Archivos JSON/YAML\nEn scope.sh:\n# JSON\njson)\n    jq --color-output . \"${FILE_PATH}\" && exit 5\n    python -m json.tool -- \"${FILE_PATH}\" && exit 5\n    ;;\n\n# YAML\nyaml)\n    yq eval --colors -- \"${FILE_PATH}\" && exit 5\n    ;;"
   },
   {
     "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-imágenes-no-se-previsualizan",
@@ -1915,7 +1915,7 @@
     "href": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-ranger-lento",
     "title": "Guía Completa de Ranger",
     "section": "Problema: Ranger lento",
-    "text": "Problema: Ranger lento\nSoluciones: 1. Limitar tamaño de preview 2. Desactivar preview de imágenes en directorios grandes 3. Reducir historial\n# En rc.conf\nset preview_max_size 1048576  # 1MB\nset preview_images false\nset max_history_size 10"
+    "text": "Problema: Ranger lento\nSoluciones:\n\nLimitar tamaño de preview\nDesactivar preview de imágenes en directorios grandes\nReducir historial\n\n# En rc.conf\nset preview_max_size 1048576  # 1MB\nset preview_images false\nset max_history_size 10"
   },
   {
     "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#problema-no-cambia-directorio-del-shell",
@@ -2861,5 +2861,12 @@
     "title": "Guía Completa de Vim y Neovim",
     "section": "Tips Finales",
     "text": "Tips Finales\n\nPractica diariamente: 15-30 minutos al día\nAprende incrementalmente: No trates de aprender todo a la vez\nUsa vimtutor: El tutorial interactivo es excelente\nEvita plugins al inicio: Aprende Vim vanilla primero\nConfigura gradualmente: Añade opciones según las necesites\nUsa el help: :help {tema} es tu mejor amigo\nSé paciente: La curva de aprendizaje vale la pena"
+  },
+  {
+    "objectID": "operating-system/2025-12-30-guia-de-ranger/index.html#columnas",
+    "href": "operating-system/2025-12-30-guia-de-ranger/index.html#columnas",
+    "title": "Guía Completa de Ranger",
+    "section": "Columnas",
+    "text": "Columnas\n\nColumna Izquierda: Contenido del directorio padre\nColumna Central: Directorio actual (principal)\nColumna Derecha: Previsualización del archivo/directorio seleccionado"
   }
 ]

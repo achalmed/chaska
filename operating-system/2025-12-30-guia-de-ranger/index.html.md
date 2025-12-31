@@ -3,7 +3,7 @@ documentmode: doc
 copyrightnotice: 2025
 copyrightext: All rights reserved
 title: Guía Completa de Ranger
-abstract: Ranger es un gestor de archivos basado en consola altamente eficiente, diseñado con una fuerte inspiración en los atajos de teclado de Vim y una filosofía minimalista. Esta guía completa explora en detalle su instalación en diferentes sistemas operativos, configuración inicial y avanzada, estructura de archivos de configuración (rc.conf, rifle.conf, scope.sh, commands.py), así como la personalización profunda mediante mapeos de teclado, comandos personalizados en Python y plugins. Se detallan las características principales que lo distinguen; navegación multi-columna, previsualización automática de múltiples tipos de archivo (texto, código, imágenes, PDFs, videos, comprimidos), gestión inteligente de archivos mediante rifle, soporte de pestañas, marcadores, renombrado masivo, integración con el shell y capacidades de preview mejoradas mediante herramientas externas. La guía incluye referencias prácticas de atajos fundamentales y avanzados, ejemplos de configuración realistas, soluciones a problemas comunes, trucos de productividad y recomendaciones para integrar Ranger en flujos de trabajo diarios de usuarios de terminal (especialmente aquellos familiarizados con Vim/Neovim). Dirigida tanto a usuarios noveles que buscan reemplazar gestores gráficos tradicionales, como a usuarios avanzados que desean optimizar y extender al máximo esta poderosa herramienta de gestión de archivos en entornos Unix-like.
+abstract: Ranger es un gestor de archivos basado en consola altamente eficiente, diseñado con una fuerte inspiración en los atajos de teclado de Vim y una filosofía minimalista. Esta guía completa explora en detalle su instalación en diferentes sistemas operativos, configuración inicial y avanzada, estructura de archivos de configuración (rc.conf, rifle.conf, scope.sh, commands.py), así como la personalización profunda mediante mapeos de teclado, comandos personalizados en Python y plugins. Se detallan las características principales que lo distinguen; navegación multi-columna, previsualización automática de múltiples tipos de archivo (texto, código, imágenes, PDFs, videos, comprimidos), gestión inteligente de archivos mediante rifle, soporte de pestañas, marcadores, renombrado masivo, integración con el shell y capacidades de preview mejoradas mediante herramientas externas. La guía incluye referencias prácticas de atajos fundamentales y avanzados, ejemplos de configuración realistas, soluciones a problemas comunes, trucos de productividad y recomendaciones para integrar Ranger en flujos de trabajo diarios de usuarios de terminal (especialmente aquellos familiarizados con Vim/Neovim). Dirigida tanto a usuarios noveles que buscan reemplazar gestores gráficos tradicionales, como a usuarios avanzados que desean optimizar y extender al máximo esta poderosa herramienta de gestión de archivos en entornos Linux.
 keywords:
 - Vim
 - Ranger
@@ -43,6 +43,7 @@ image: ../featured.jpg
 **¿Qué es Ranger?**
 
 Ranger es un gestor de archivos de consola con:
+
 - Atajos de teclado inspirados en Vim
 - Interfaz minimalista con curses
 - Vista de jerarquía de directorios (multi-columna)
@@ -74,22 +75,26 @@ Ranger es un gestor de archivos de consola con:
 ## Desde Repositorios
 
 **Ubuntu/Debian:**
+
 ```bash
 sudo apt-get update
 sudo apt-get install ranger
 ```
 
 **Fedora:**
+
 ```bash
 sudo dnf install ranger
 ```
 
 **Arch Linux:**
+
 ```bash
 sudo pacman -S ranger
 ```
 
 **macOS (Homebrew):**
+
 ```bash
 brew install ranger
 ```
@@ -119,6 +124,7 @@ ranger --version
 ## Dependencias Opcionales
 
 **Para funcionalidad completa:**
+
 ```bash
 # Determinar tipos de archivo
 sudo apt-get install file
@@ -177,7 +183,7 @@ ranger --copy-config=commands    # Comandos personalizados
 
 Los archivos de configuración se encuentran en:
 
-```
+```bash
 ~/.config/ranger/
 ├── rc.conf           # Configuración principal y atajos
 ├── rifle.conf        # Lanzador de archivos
@@ -197,14 +203,13 @@ Al iniciar ranger por primera vez:
 
 - Se abre en el directorio actual
 - Muestra tres columnas: padre, actual, previsualización
-- Usa las flechas o hjkl para navegar
-
+- Usa las flechas o `hjkl` para navegar
 
 # Interfaz y Navegación Básica
 
 ## Estructura de la Pantalla
 
-```
+```bash
 ┌─────────────────────────────────────────────────────────┐
 │ Directorio Padre │ Directorio Actual │ Previsualización │
 │                  │                   │                  │
@@ -218,7 +223,7 @@ Al iniciar ranger por primera vez:
 └─────────────────────────────────────────────────────────┘
 ```
 
-## Columnas Explicadas
+## Columnas
 
 1. **Columna Izquierda**: Contenido del directorio padre
 2. **Columna Central**: Directorio actual (principal)
@@ -233,7 +238,6 @@ Muestra información del archivo seleccionado:
 - Tamaño del archivo
 - Fecha de modificación
 - Ruta completa del directorio actual
-
 
 # Atajos de Teclado Fundamentales
 
@@ -312,6 +316,7 @@ Muestra información del archivo seleccionado:
 | `F<letra>` | Buscar archivo que empiece con letra (multi-match) |
 
 **Ejemplo:**
+
 - `ft` - Salta al primer archivo que empiece con 't'
 - `Ft` - Salta a archivos que empiecen con 't', presiona `;` para siguiente
 
@@ -322,7 +327,6 @@ Muestra información del archivo seleccionado:
 | `cd` | Abrir prompt para cambiar directorio |
 | `:cd /ruta` | Ir a ruta específica |
 | `:cd -` | Ir al directorio anterior |
-
 
 # Operaciones con Archivos
 
@@ -371,12 +375,11 @@ Muestra información del archivo seleccionado:
 
 **Ejemplos:**
 
-```
+```bash
 +x    # Añadir permiso de ejecución
 -w    # Quitar permiso de escritura
 =755  # Establecer permisos exactos
 ```
-
 
 # Selección Múltiple
 
@@ -418,7 +421,6 @@ Una vez seleccionados:
 # Guarda y cierra
 # Ranger renombra los archivos automáticamente
 ```
-
 
 # Búsqueda y Filtrado
 
@@ -485,7 +487,6 @@ gt    # Siguiente
 gT    # Anterior
 ```
 
-
 # Marcadores (Bookmarks)
 
 ## Crear y Usar Marcadores
@@ -505,11 +506,13 @@ gT    # Anterior
 | `` `` `` | Posición anterior (backtick) |
 
 **Ejemplo de uso:**
+
 ```bash
 # Estás en /home/usuario/documentos
 ma        # Crear marcador 'a'
-# Navega a otro lugar
-cd /etc
+
+cd /etc   # Navega a otro lugar
+
 # Volver rápido
 'a        # Regresa a /home/usuario/documentos
 ```
@@ -574,7 +577,6 @@ case "$mimetype" in
         exit 1;;
 esac
 ```
-
 
 # Comandos de Consola
 
@@ -661,7 +663,6 @@ S
 
 - `Tab` - Autocompletar comando/ruta
 - `Shift+Tab` - Autocompletar hacia atrás
-
 
 # Configuración Avanzada
 
@@ -769,6 +770,7 @@ Determina qué programa abre cada tipo de archivo.
 ```
 
 **Ejemplos:**
+
 ```bash
 # Texto plano
 mime ^text, label editor = ${VISUAL:-$EDITOR} -- "$@"
@@ -827,6 +829,7 @@ Ubicación: `~/.config/ranger/commands.py`
 Crear comandos Python personalizados.
 
 **Ejemplo - Comando para comprimir:**
+
 ```python
 from ranger.api.commands import Command
 
@@ -872,7 +875,7 @@ class mkcd(Command):
 ```bash
 :compress archivo.tar.gz    # Comprimir selección
 :extract                    # Extraer archivo
-:mkcd nueva-carpeta        # Crear y entrar
+:mkcd nueva-carpeta         # Crear y entrar
 ```
 
 # Rifle - El Lanzador de Archivos
@@ -946,6 +949,7 @@ git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger
 ```
 
 **Activar en rc.conf:**
+
 ```bash
 default_linemode devicons
 ```
@@ -972,6 +976,7 @@ map f shell fasd -d | fzf --no-sort | xargs -I{} ranger --selectfile "{}"
 Búsqueda fuzzy con fzf.
 
 **En commands.py:**
+
 ```python
 class fzf_select(Command):
     def execute(self):
@@ -988,6 +993,7 @@ class fzf_select(Command):
 ```
 
 **Mapear en rc.conf:**
+
 ```bash
 map <C-f> fzf_select
 ```
@@ -995,6 +1001,7 @@ map <C-f> fzf_select
 ## Crear Plugin Propio
 
 **Estructura básica:**
+
 ```python
 # ~/.config/ranger/plugins/mi_plugin.py
 import ranger.api
@@ -1014,7 +1021,6 @@ def hook_init(fm):
 
 ranger.api.hook_init = hook_init
 ```
-
 
 # Integración con Shell
 
@@ -1101,10 +1107,9 @@ selected_file=$(ranger-picker.sh)
 echo "Archivo seleccionado: $selected_file"
 ```
 
-
 # Trucos y Tips Avanzados
 
-## 1. Preview de Archivos con Sintaxis
+## Preview de Archivos con Sintaxis
 
 Instalar `highlight` o `bat`:
 
@@ -1124,7 +1129,7 @@ case "$mimetype" in
 esac
 ```
 
-## 2. Thumbnails de Videos
+## Thumbnails de Videos
 
 Instalar `ffmpegthumbnailer`:
 
@@ -1134,7 +1139,7 @@ sudo apt-get install ffmpegthumbnailer
 
 Ya debería funcionar con `scope.sh` por defecto.
 
-## 3. Preview de Imágenes (Terminal Compatible)
+## Preview de Imágenes (Terminal Compatible)
 
 **Con w3m:**
 
@@ -1162,7 +1167,7 @@ pip install ueberzug
 set preview_images_method ueberzug
 ```
 
-## 4. Búsqueda con FZF
+## Búsqueda con FZF
 
 Integrar búsqueda fuzzy:
 
@@ -1190,7 +1195,7 @@ class fzf(Command):
 map <C-f> fzf
 ```
 
-## 5. Integración con Git
+## Integración con Git
 
 Ver estado de Git:
 
@@ -1203,7 +1208,7 @@ set vcs_backend_git enabled
 
 Ranger mostrará información de Git en archivos/directorios.
 
-## 6. Archivos Grandes
+## Archivos Grandes
 
 Evitar lag con archivos grandes:
 
@@ -1215,7 +1220,7 @@ set max_history_size 20
 set max_console_history_size 50
 ```
 
-## 7. Abrir en Programa Externo
+## Abrir en Programa Externo
 
 Crear atajos para programas específicos:
 
@@ -1235,7 +1240,7 @@ map fm shell nautilus "$PWD" &
 map ex shell chmod +x %s && ./%s
 ```
 
-## 8. Sincronizar con Dropbox/Drive
+## Sincronizar con Dropbox/Drive
 
 ```bash
 # Crear marcador para cloud storage
@@ -1243,7 +1248,7 @@ map gdb cd ~/Dropbox
 map gdv cd ~/Google\ Drive
 ```
 
-## 9. Operaciones Bulk
+## Operaciones Bulk
 
 Renombrar múltiples archivos:
 
@@ -1257,7 +1262,7 @@ Renombrar múltiples archivos:
 # Guardar y cerrar
 ```
 
-## 10. Preview de Archivos JSON/YAML
+## Preview de Archivos JSON/YAML
 
 **En scope.sh:**
 
@@ -1273,7 +1278,6 @@ yaml)
     yq eval --colors -- "${FILE_PATH}" && exit 5
     ;;
 ```
-
 
 # Solución de Problemas
 
@@ -1325,6 +1329,7 @@ pip install pygments
 ## Problema: Ranger lento
 
 **Soluciones:**
+
 1. Limitar tamaño de preview
 2. Desactivar preview de imágenes en directorios grandes
 3. Reducir historial
