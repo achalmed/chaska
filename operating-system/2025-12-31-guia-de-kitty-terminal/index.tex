@@ -1,0 +1,3815 @@
+\documentclass[
+  doc,
+  floatsintext,
+  longtable,
+  a4paper,
+  nolmodern,
+  notxfonts,
+  notimes,
+  12pt,
+  colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{apa7}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\geometry{inner=1in, outer=1in}
+\fancyhfoffset[LE,RO]{0cm}
+
+
+\usepackage[bidi=default]{babel}
+\babelprovide[main,import]{spanish}
+
+
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+\RequirePackage{longtable}
+\RequirePackage{threeparttablex}
+
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+	{0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+	{-.5em}%
+	{\normalfont\normalsize\bfseries\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{0.5em}%
+	{0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+	{-\z@\relax}%
+	{\normalfont\normalsize\bfseries\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+
+
+
+\usepackage{longtable, booktabs, multirow, multicol, colortbl, hhline, caption, array, float, xpatch}
+\usepackage{subcaption}
+
+
+\renewcommand\thesubfigure{\Alph{subfigure}}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.7}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{listings,theorems, breakable, skins}
+\usepackage{fontawesome5}
+
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{ACACAC}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582EC}
+\definecolor{quarto-callout-important-color-frame}{HTML}{D9534F}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{F0AD4E}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02B875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{FD7E14}
+
+%\newlength\Oldarrayrulewidth
+%\newlength\Oldtabcolsep
+
+
+\usepackage{hyperref}
+
+
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+
+
+\usepackage{newtx}
+
+\defaultfontfeatures{Scale=MatchLowercase}
+\defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+
+
+
+
+
+\title{Guía Completa de Kitty Terminal}
+
+
+\shorttitle{Guía Completa de Kitty Terminal}
+
+
+\usepackage{etoolbox}
+
+
+
+\ccoppy{\textcopyright~2025}
+
+
+
+\author{Edison Achalma}
+
+
+
+\affiliation{
+{Escuela Profesional de Economía, Universidad Nacional de San Cristóbal
+de Huamanga}}
+
+
+
+
+\leftheader{Achalma}
+
+\date{2025-12-30}
+
+
+\abstract{Ranger es un gestor de archivos basado en consola altamente
+eficiente, diseñado con una fuerte inspiración en los atajos de teclado
+de Vim y una filosofía minimalista. Esta guía completa explora en
+detalle su instalación en diferentes sistemas operativos, configuración
+inicial y avanzada, estructura de archivos de configuración (rc.conf,
+rifle.conf, scope.sh, commands.py), así como la personalización profunda
+mediante mapeos de teclado, comandos personalizados en Python y plugins.
+Se detallan las características principales que lo distinguen;
+navegación multi-columna, previsualización automática de múltiples tipos
+de archivo (texto, código, imágenes, PDFs, videos, comprimidos), gestión
+inteligente de archivos mediante rifle, soporte de pestañas, marcadores,
+renombrado masivo, integración con el shell y capacidades de preview
+mejoradas mediante herramientas externas. La guía incluye referencias
+prácticas de atajos fundamentales y avanzados, ejemplos de configuración
+realistas, soluciones a problemas comunes, trucos de productividad y
+recomendaciones para integrar Ranger en flujos de trabajo diarios de
+usuarios de terminal (especialmente aquellos familiarizados con
+Vim/Neovim). Dirigida tanto a usuarios noveles que buscan reemplazar
+gestores gráficos tradicionales, como a usuarios avanzados que desean
+optimizar y extender al máximo esta poderosa herramienta de gestión de
+archivos en entornos Linux. }
+
+\keywords{Vim, Ranger, File Manager}
+
+\authornote{\par{\addORCIDlink{Edison Achalma}{0000-0001-6996-3364}} 
+\par{ }
+\par{   El autor no tiene conflictos de interés que revelar.    Los
+roles de autor se clasificaron utilizando la taxonomía de roles de
+colaborador (CRediT; https://credit.niso.org/) de la siguiente
+manera:  Edison Achalma:   conceptualización, redacción}
+\par{La correspondencia relativa a este artículo debe dirigirse a Edison
+Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@unsch.edu.pe}}
+}
+
+\makeatletter
+\let\endoldlt\endlongtable
+\def\endlongtable{
+\hline
+\endoldlt
+}
+\makeatother
+
+\urlstyle{same}
+
+
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Tabla de contenidos}
+\else
+  \newcommand\contentsname{Tabla de contenidos}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Lista de Figuras}
+\else
+  \newcommand\listfigurename{Lista de Figuras}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Lista de Tablas}
+\else
+  \newcommand\listtablename{Lista de Tablas}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabla}
+\else
+  \newcommand\tablename{Tabla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{Lista de Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\makeatother
+
+% From https://tex.stackexchange.com/a/645996/211326
+%%% apa7 doesn't want to add appendix section titles in the toc
+%%% let's make it do it
+\makeatletter
+\xpatchcmd{\appendix}
+  {\par}
+  {\addcontentsline{toc}{section}{\@currentlabelname}\par}
+  {}{}
+\makeatother
+
+%% Disable longtable counter
+%% https://tex.stackexchange.com/a/248395/211326
+
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\LT@caption}
+  {\bgroup}
+  {\bgroup\global\LTpatch@captiontrue}
+  {}{}
+\patchcmd{\longtable}
+  {\par}
+  {\par\global\LTpatch@captionfalse}
+  {}{}
+\apptocmd{\endlongtable}
+  {\ifLTpatch@caption\else\addtocounter{table}{-1}\fi}
+  {}{}
+\newif\ifLTpatch@caption
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+
+\hypertarget{toc}{}
+\tableofcontents
+\newpage
+\section[Introduction]{Guía Completa de Kitty Terminal}
+
+\setcounter{secnumdepth}{3}
+
+\setlength\LTleft{0pt}
+
+
+
+
+\textbf{¿Qué es Kitty?}
+
+Kitty es un emulador de terminal moderno, rápido y rico en
+características, diseñado desde cero para aprovechar las GPUs modernas.
+Creado por Kovid Goyal, es conocido por:
+
+\textbf{Características Principales:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Renderizado GPU acelerado}: Extremadamente rápido
+\item
+  \textbf{Soporte Unicode completo}: Incluyendo emojis y ligaduras
+\item
+  \textbf{True color}: 24-bit RGB
+\item
+  \textbf{Ligaduras de fuentes}: Soporte nativo
+\item
+  \textbf{Imágenes en terminal}: Protocolo propio de alta calidad
+\item
+  \textbf{Multiplexación}: Tabs y splits nativos
+\item
+  \textbf{Extensible}: Sistema de kittens (plugins)
+\item
+  \textbf{Control remoto}: API completa
+\item
+  \textbf{Configuración simple}: Archivo único y legible
+\end{itemize}
+
+\textbf{Por Qué Usar Kitty}
+
+\textbf{Ventajas sobre otros terminales:}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule\noalign{}
+Característica & Kitty & Alacritty & iTerm2 & Gnome Terminal \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+GPU Rendering & ✅ & ✅ & ✅ & ❌ \\
+Tabs nativos & ✅ & ❌ & ✅ & ✅ \\
+Splits nativos & ✅ & ❌ & ✅ & ❌ \\
+Imágenes & ✅ & ❌ & ✅ & ❌ \\
+Ligaduras & ✅ & ✅ & ✅ & ✅ \\
+Extensiones & ✅ (kittens) & ❌ & ✅ & ❌ \\
+Control remoto & ✅ & ❌ & ✅ & ❌ \\
+Multiplataforma & ✅ & ✅ & ❌ (solo macOS) & ❌ (solo Linux) \\
+\end{longtable}
+
+\section{Instalación}\label{instalaciuxf3n}
+
+\subsection{Requisitos del Sistema}\label{requisitos-del-sistema}
+
+\textbf{Mínimos:}
+
+\begin{itemize}
+\tightlist
+\item
+  OpenGL 3.3+
+\item
+  Linux, macOS, o Windows (WSL)
+\item
+  Python 3.6+
+\end{itemize}
+
+\textbf{Recomendados:}
+
+\begin{itemize}
+\tightlist
+\item
+  GPU moderna con drivers actualizados
+\item
+  Monitor de alta resolución (4K/Retina)
+\item
+  Fuente con ligaduras (FiraCode, JetBrains Mono)
+\end{itemize}
+
+\subsection{Linux}\label{linux}
+
+\textbf{Ubuntu/Debian:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ apt install kitty}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Arch Linux:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ kitty}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Fedora:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ dnf install kitty}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Desde binario oficial (recomendado):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{curl} \AttributeTok{{-}L}\NormalTok{ https://sw.kovidgoyal.net/kitty/installer.sh }\KeywordTok{|} \FunctionTok{sh}\NormalTok{ /dev/stdin}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{macOS}\label{macos}
+
+\textbf{Homebrew:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{brew}\NormalTok{ install }\AttributeTok{{-}{-}cask}\NormalTok{ kitty}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Desde DMG:}
+
+Descargar desde: https://github.com/kovidgoyal/kitty/releases
+
+\subsection{Windows (WSL)}\label{windows-wsl}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{curl} \AttributeTok{{-}L}\NormalTok{ https://sw.kovidgoyal.net/kitty/installer.sh }\KeywordTok{|} \FunctionTok{sh}\NormalTok{ /dev/stdin}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Verificar Instalación}\label{verificar-instalaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{kitty} \AttributeTok{{-}{-}version}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Instalación de Dependencias
+Opcionales}\label{instalaciuxf3n-de-dependencias-opcionales}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Herramientas útiles para kittens}
+\FunctionTok{sudo}\NormalTok{ apt install imagemagick          }\CommentTok{\# Procesamiento de imágenes}
+\FunctionTok{sudo}\NormalTok{ apt install bat                  }\CommentTok{\# Mejor syntax highlighting}
+\FunctionTok{sudo}\NormalTok{ apt install fzf                  }\CommentTok{\# Fuzzy finder}
+\FunctionTok{sudo}\NormalTok{ apt install ripgrep              }\CommentTok{\# Búsqueda rápida}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Filosofía y Diseño}\label{filosofuxeda-y-diseuxf1o}
+
+\subsection{Principios de Diseño}\label{principios-de-diseuxf1o}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Velocidad}: GPU rendering para máximo rendimiento
+\item
+  \textbf{Simplicidad}: Configuración en un solo archivo
+\item
+  \textbf{Extensibilidad}: Kittens para añadir funcionalidad
+\item
+  \textbf{Estándares}: Soporte completo de especificaciones modernas
+\item
+  \textbf{Teclado primero}: Control total desde teclado
+\end{enumerate}
+
+\subsection{Arquitectura}\label{arquitectura}
+
+\textbf{Componentes principales:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Core (C)}: Renderizado GPU, performance crítico
+\item
+  \textbf{UI (Python)}: Interfaz, configuración, extensibilidad
+\item
+  \textbf{Kittens (Python/Go)}: Programas auxiliares
+\end{itemize}
+
+\textbf{Stack tecnológico:}
+
+\begin{itemize}
+\tightlist
+\item
+  OpenGL para renderizado
+\item
+  HarfBuzz para text shaping
+\item
+  FontConfig para gestión de fuentes
+\item
+  libunistring para Unicode
+\end{itemize}
+
+\section{Conceptos Básicos}\label{conceptos-buxe1sicos}
+
+\subsection{Jerarquía: OS Windows \textgreater{} Tabs \textgreater{}
+Windows}\label{jerarquuxeda-os-windows-tabs-windows}
+
+\begin{verbatim}
+┌─────────────────────────────────────┐
+│ OS Window (ventana del sistema)     │
+│ ┌───────────────────────────────┐   │
+│ │ Tab 1    Tab 2    Tab 3       │   │
+│ ├───────────────────────────────┤   │
+│ │ ┌──────────┬──────────┐       │   │
+│ │ │ Window 1 │ Window 2 │       │   │
+│ │ │          │          │       │   │
+│ │ └──────────┴──────────┘       │   │
+│ └───────────────────────────────┘   │
+└─────────────────────────────────────┘
+\end{verbatim}
+
+\textbf{OS Window}: Ventana del sistema operativo \textbf{Tab}: Pestaña
+dentro de un OS Window \textbf{Window}: Panel dentro de un Tab (como
+splits en tmux)
+
+\subsection{Primer Uso}\label{primer-uso}
+
+\textbf{Al abrir Kitty por primera vez:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Abrir Kitty}
+\ExtensionTok{kitty}
+
+\CommentTok{\# Ver ayuda}
+\ExtensionTok{Ctrl+Shift+F1}
+
+\CommentTok{\# Editar configuración}
+\ExtensionTok{Ctrl+Shift+F2}
+
+\CommentTok{\# Recargar configuración}
+\ExtensionTok{Ctrl+Shift+F5}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Configuración (kitty.conf)}\label{configuraciuxf3n-kitty.conf}
+
+\subsection{Ubicación del Archivo}\label{ubicaciuxf3n-del-archivo}
+
+\begin{verbatim}
+Linux/macOS: ~/.config/kitty/kitty.conf
+Windows: %LOCALAPPDATA%\kitty\kitty.conf
+\end{verbatim}
+
+\subsection{Generar Configuración Por
+Defecto}\label{generar-configuraciuxf3n-por-defecto}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Generar con comentarios}
+\ExtensionTok{kitty}\NormalTok{ +runpy }\StringTok{\textquotesingle{}from kitty.config import *; print(commented\_out\_default\_config())\textquotesingle{}}
+
+\CommentTok{\# O abrir para editar}
+\ExtensionTok{Ctrl+Shift+F2}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Estructura de
+Configuración}\label{estructura-de-configuraciuxf3n}
+
+\textbf{Secciones principales:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Fuentes
+\item
+  Cursor
+\item
+  Scrollback
+\item
+  Mouse
+\item
+  Terminal bell
+\item
+  Window layout
+\item
+  Tab bar
+\item
+  Color scheme
+\item
+  Advanced
+\item
+  OS tweaks
+\item
+  Keyboard shortcuts
+\end{enumerate}
+
+\subsection{Configuración Básica
+Recomendada}\label{configuraciuxf3n-buxe1sica-recomendada}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ==========================================}
+\CommentTok{\# CONFIGURACIÓN BÁSICA DE KITTY}
+\CommentTok{\# ==========================================}
+
+\CommentTok{\# Fuentes}
+\DataTypeTok{font\_family}      \DataTypeTok{JetBrains} \DataTypeTok{Mono}
+\DataTypeTok{bold\_font}        \DataTypeTok{auto}
+\DataTypeTok{italic\_font}      \DataTypeTok{auto}
+\DataTypeTok{bold\_italic\_font} \DataTypeTok{auto}
+\DataTypeTok{font\_size}        \DataTypeTok{12.0}
+
+\CommentTok{\# Cursor}
+\DataTypeTok{cursor\_shape} \DataTypeTok{block}
+\DataTypeTok{cursor\_blink\_interval} \DataTypeTok{0}
+\DataTypeTok{cursor\_stop\_blinking\_after} \DataTypeTok{15.0}
+
+\CommentTok{\# Scrollback}
+\DataTypeTok{scrollback\_lines} \DataTypeTok{10000}
+\DataTypeTok{scrollback\_pager} \DataTypeTok{less} \DataTypeTok{{-}{-}chop{-}long{-}lines} \DataTypeTok{{-}{-}RAW{-}CONTROL{-}CHARS} \ErrorTok{+}\DataTypeTok{INPUT\_LINE\_NUMBER}
+
+\CommentTok{\# Mouse}
+\DataTypeTok{mouse\_hide\_wait} \DataTypeTok{3.0}
+\DataTypeTok{url\_color} \CommentTok{\#0087bd}
+\DataTypeTok{url\_style} \DataTypeTok{curly}
+\DataTypeTok{open\_url\_with} \DataTypeTok{default}
+\DataTypeTok{detect\_urls} \DataTypeTok{yes}
+\DataTypeTok{copy\_on\_select} \DataTypeTok{no}
+
+\CommentTok{\# Ventanas}
+\DataTypeTok{remember\_window\_size}  \DataTypeTok{yes}
+\DataTypeTok{initial\_window\_width}  \DataTypeTok{640}
+\DataTypeTok{initial\_window\_height} \DataTypeTok{400}
+\DataTypeTok{window\_border\_width} \DataTypeTok{0.5pt}
+\DataTypeTok{window\_margin\_width} \DataTypeTok{0}
+\DataTypeTok{window\_padding\_width} \DataTypeTok{0}
+\DataTypeTok{active\_border\_color} \CommentTok{\#00ff00}
+\DataTypeTok{inactive\_border\_color} \CommentTok{\#cccccc}
+
+\CommentTok{\# Pestañas}
+\DataTypeTok{tab\_bar\_edge} \DataTypeTok{bottom}
+\DataTypeTok{tab\_bar\_style} \DataTypeTok{fade}
+\DataTypeTok{tab\_bar\_min\_tabs} \DataTypeTok{2}
+\DataTypeTok{tab\_title\_template} \DataTypeTok{"\{index\}: \{title\}"}
+
+\CommentTok{\# Colores (Dracula theme)}
+\DataTypeTok{foreground} \CommentTok{\#f8f8f2}
+\DataTypeTok{background} \CommentTok{\#282a36}
+\DataTypeTok{selection\_foreground} \CommentTok{\#ffffff}
+\DataTypeTok{selection\_background} \CommentTok{\#44475a}
+
+\CommentTok{\# Negro}
+\DataTypeTok{color0}  \CommentTok{\#21222c}
+\DataTypeTok{color8}  \CommentTok{\#6272a4}
+
+\CommentTok{\# Rojo}
+\DataTypeTok{color1}  \CommentTok{\#ff5555}
+\DataTypeTok{color9}  \CommentTok{\#ff6e6e}
+
+\CommentTok{\# Verde}
+\DataTypeTok{color2}  \CommentTok{\#50fa7b}
+\DataTypeTok{color10} \CommentTok{\#69ff94}
+
+\CommentTok{\# Amarillo}
+\DataTypeTok{color3}  \CommentTok{\#f1fa8c}
+\DataTypeTok{color11} \CommentTok{\#ffffa5}
+
+\CommentTok{\# Azul}
+\DataTypeTok{color4}  \CommentTok{\#bd93f9}
+\DataTypeTok{color12} \CommentTok{\#d6acff}
+
+\CommentTok{\# Magenta}
+\DataTypeTok{color5}  \CommentTok{\#ff79c6}
+\DataTypeTok{color13} \CommentTok{\#ff92df}
+
+\CommentTok{\# Cyan}
+\DataTypeTok{color6}  \CommentTok{\#8be9fd}
+\DataTypeTok{color14} \CommentTok{\#a4ffff}
+
+\CommentTok{\# Blanco}
+\DataTypeTok{color7}  \CommentTok{\#f8f8f2}
+\DataTypeTok{color15} \CommentTok{\#ffffff}
+
+\CommentTok{\# Rendimiento}
+\DataTypeTok{repaint\_delay} \DataTypeTok{10}
+\DataTypeTok{input\_delay} \DataTypeTok{3}
+\DataTypeTok{sync\_to\_monitor} \DataTypeTok{yes}
+
+\CommentTok{\# Bell}
+\DataTypeTok{enable\_audio\_bell} \DataTypeTok{no}
+\DataTypeTok{visual\_bell\_duration} \DataTypeTok{0.0}
+\DataTypeTok{window\_alert\_on\_bell} \DataTypeTok{yes}
+\DataTypeTok{bell\_on\_tab} \DataTypeTok{"🔔 "}
+
+\CommentTok{\# Advanced}
+\DataTypeTok{shell} \DataTypeTok{.}
+\DataTypeTok{editor} \DataTypeTok{.}
+\DataTypeTok{allow\_remote\_control} \DataTypeTok{yes}
+\DataTypeTok{listen\_on} \DataTypeTok{unix}\ErrorTok{:/}\DataTypeTok{tmp}\ErrorTok{/}\DataTypeTok{kitty}
+\DataTypeTok{clipboard\_control} \DataTypeTok{write{-}clipboard} \DataTypeTok{write{-}primary} \DataTypeTok{read{-}clipboard{-}ask} \DataTypeTok{read{-}primary{-}ask}
+
+\CommentTok{\# OS Específico (macOS)}
+\DataTypeTok{macos\_titlebar\_color} \DataTypeTok{system}
+\DataTypeTok{macos\_option\_as\_alt} \DataTypeTok{no}
+\DataTypeTok{macos\_hide\_from\_tasks} \DataTypeTok{no}
+\DataTypeTok{macos\_quit\_when\_last\_window\_closed} \DataTypeTok{no}
+
+\CommentTok{\# Layouts habilitados}
+\DataTypeTok{enabled\_layouts} \DataTypeTok{tall}\ErrorTok{:}\DataTypeTok{bias}\OperatorTok{=}\DecValTok{50}\ErrorTok{;}\DataTypeTok{full\_size}\OperatorTok{=}\DecValTok{1}\ErrorTok{,}\DataTypeTok{stack}\ErrorTok{,}\DataTypeTok{fat}\ErrorTok{:}\DataTypeTok{bias}\OperatorTok{=}\DecValTok{50}\ErrorTok{;}\DataTypeTok{full\_size}\OperatorTok{=}\DecValTok{1}\ErrorTok{,}\DataTypeTok{grid}\ErrorTok{,}\DataTypeTok{splits}
+
+\CommentTok{\# ==========================================}
+\CommentTok{\# MAPEOS DE TECLADO}
+\CommentTok{\# ==========================================}
+
+\CommentTok{\# Modificador principal}
+\DataTypeTok{kitty\_mod} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}
+
+\CommentTok{\# Clipboard}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{c} \DataTypeTok{copy\_to\_clipboard}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{v} \DataTypeTok{paste\_from\_clipboard}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{s} \DataTypeTok{paste\_from\_selection}
+
+\CommentTok{\# Scrolling}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{up} \DataTypeTok{scroll\_line\_up}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{down} \DataTypeTok{scroll\_line\_down}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{page\_up} \DataTypeTok{scroll\_page\_up}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{page\_down} \DataTypeTok{scroll\_page\_down}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{home} \DataTypeTok{scroll\_home}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{end} \DataTypeTok{scroll\_end}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{h} \DataTypeTok{show\_scrollback}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{g} \DataTypeTok{show\_last\_command\_output}
+
+\CommentTok{\# Ventanas}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{enter} \DataTypeTok{new\_window}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{n} \DataTypeTok{new\_os\_window}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{w} \DataTypeTok{close\_window}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+]} \DataTypeTok{next\_window}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\KeywordTok{[} \KeywordTok{previous\_window}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{f} \DataTypeTok{move\_window\_forward}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{b} \DataTypeTok{move\_window\_backward}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+\textasciigrave{}} \DataTypeTok{move\_window\_to\_top}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{r} \DataTypeTok{start\_resizing\_window}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{1} \DataTypeTok{first\_window}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{2} \DataTypeTok{second\_window}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{3} \DataTypeTok{third\_window}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{4} \DataTypeTok{fourth\_window}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{5} \DataTypeTok{fifth\_window}
+
+\CommentTok{\# Tabs}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{t} \DataTypeTok{new\_tab}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{q} \DataTypeTok{close\_tab}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{right} \DataTypeTok{next\_tab}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{left} \DataTypeTok{previous\_tab}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{.} \DataTypeTok{move\_tab\_forward}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+,} \DataTypeTok{move\_tab\_backward}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{alt}\ErrorTok{+}\DataTypeTok{t} \DataTypeTok{set\_tab\_title}
+
+\CommentTok{\# Layouts}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{l} \DataTypeTok{next\_layout}
+
+\CommentTok{\# Fuentes}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{equal} \DataTypeTok{change\_font\_size} \DataTypeTok{all} \ErrorTok{+}\DataTypeTok{2.0}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{minus} \DataTypeTok{change\_font\_size} \DataTypeTok{all} \DataTypeTok{{-}2.0}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{backspace} \DataTypeTok{change\_font\_size} \DataTypeTok{all} \DataTypeTok{0}
+
+\CommentTok{\# Misc}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{f1} \DataTypeTok{show\_kitty\_doc} \DataTypeTok{overview}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{f2} \DataTypeTok{edit\_config\_file}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{f5} \DataTypeTok{load\_config\_file}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{f6} \DataTypeTok{debug\_config}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{f11} \DataTypeTok{toggle\_fullscreen}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{f10} \DataTypeTok{toggle\_maximized}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{u} \DataTypeTok{kitten} \DataTypeTok{unicode\_input}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{e} \DataTypeTok{open\_url\_with\_hints}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{escape} \DataTypeTok{kitty\_shell} \DataTypeTok{window}
+
+\CommentTok{\# Opacidad de fondo}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{a}\ErrorTok{\textgreater{}}\DataTypeTok{m} \DataTypeTok{set\_background\_opacity} \ErrorTok{+}\DataTypeTok{0.1}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{a}\ErrorTok{\textgreater{}}\DataTypeTok{l} \DataTypeTok{set\_background\_opacity} \DataTypeTok{{-}0.1}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{a}\ErrorTok{\textgreater{}}\DataTypeTok{1} \DataTypeTok{set\_background\_opacity} \DataTypeTok{1}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{a}\ErrorTok{\textgreater{}}\DataTypeTok{d} \DataTypeTok{set\_background\_opacity} \DataTypeTok{default}
+
+\CommentTok{\# Reset terminal}
+\DataTypeTok{map} \DataTypeTok{kitty\_mod}\ErrorTok{+}\DataTypeTok{delete} \DataTypeTok{clear\_terminal} \DataTypeTok{reset} \DataTypeTok{active}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Configuración Avanzada}\label{configuraciuxf3n-avanzada}
+
+\textbf{Fuentes con fallbacks:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{font\_family}      \DataTypeTok{JetBrains} \DataTypeTok{Mono}
+\CommentTok{\# Símbolos especiales}
+\DataTypeTok{symbol\_map} \DataTypeTok{U}\ErrorTok{+}\DataTypeTok{E0A0{-}U}\ErrorTok{+}\DataTypeTok{E0A3}\ErrorTok{,}\DataTypeTok{U}\ErrorTok{+}\DataTypeTok{E0C0{-}U}\ErrorTok{+}\DataTypeTok{E0C7} \DataTypeTok{PowerlineSymbols}
+\CommentTok{\# Emojis}
+\DataTypeTok{symbol\_map} \DataTypeTok{U}\ErrorTok{+}\DataTypeTok{1F300{-}U}\ErrorTok{+}\DataTypeTok{1F9FF} \DataTypeTok{Noto} \DataTypeTok{Color} \DataTypeTok{Emoji}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Ligaduras:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Habilitar ligaduras}
+\DataTypeTok{disable\_ligatures} \DataTypeTok{never}
+\CommentTok{\# O solo cuando el cursor no está sobre ellas}
+\CommentTok{\# disable\_ligatures cursor}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Modificar fuentes:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ajustar posición del underline}
+\DataTypeTok{modify\_font} \DataTypeTok{underline\_position} \DataTypeTok{2}
+\DataTypeTok{modify\_font} \DataTypeTok{underline\_thickness} \DataTypeTok{150}\ErrorTok{\%}
+\CommentTok{\# Ajustar tamaño de celda}
+\DataTypeTok{modify\_font} \DataTypeTok{cell\_width} \DataTypeTok{100}\ErrorTok{\%}
+\DataTypeTok{modify\_font} \DataTypeTok{cell\_height} \DataTypeTok{100}\ErrorTok{\%}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Atajos de Teclado}\label{atajos-de-teclado}
+
+\subsection{Modificador Principal}\label{modificador-principal}
+
+Por defecto \texttt{kitty\_mod} = \texttt{Ctrl+Shift}
+
+En macOS algunos también usan \texttt{Cmd} (\texttt{⌘})
+
+\subsection{Scrolling}\label{scrolling}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Atajo & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+Shift+Up} & Scroll línea arriba \\
+\texttt{Ctrl+Shift+Down} & Scroll línea abajo \\
+\texttt{Ctrl+Shift+Page\ Up} & Scroll página arriba \\
+\texttt{Ctrl+Shift+Page\ Down} & Scroll página abajo \\
+\texttt{Ctrl+Shift+Home} & Ir al inicio \\
+\texttt{Ctrl+Shift+End} & Ir al final \\
+\texttt{Ctrl+Shift+Z} & Prompt anterior (shell integration) \\
+\texttt{Ctrl+Shift+X} & Prompt siguiente (shell integration) \\
+\texttt{Ctrl+Shift+H} & Ver scrollback en pager \\
+\texttt{Ctrl+Shift+G} & Ver último comando (shell integration) \\
+\texttt{Ctrl+Shift+/} & Buscar en scrollback \\
+\end{longtable}
+
+\subsection{Tabs}\label{tabs}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Atajo & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+Shift+T} & Nueva tab \\
+\texttt{Ctrl+Shift+Q} & Cerrar tab \\
+\texttt{Ctrl+Shift+Right} & Tab siguiente \\
+\texttt{Ctrl+Shift+Left} & Tab anterior \\
+\texttt{Ctrl+Shift+.} & Mover tab adelante \\
+\texttt{Ctrl+Shift+,} & Mover tab atrás \\
+\texttt{Ctrl+Shift+Alt+T} & Renombrar tab \\
+\texttt{Ctrl+Alt+1...9} & Ir a tab N \\
+\end{longtable}
+
+\subsection{Windows (Ventanas dentro de
+Tabs)}\label{windows-ventanas-dentro-de-tabs}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Atajo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Acción
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+Shift+Enter} & Nueva window \\
+\texttt{Ctrl+Shift+N} & Nueva OS window \\
+\texttt{Ctrl+Shift+W} & Cerrar window \\
+\texttt{Ctrl+Shift+{]}} & Window siguiente \\
+\texttt{Ctrl+Shift+{[}} & Window anterior \\
+\texttt{Ctrl+Shift+F} & Mover window adelante \\
+\texttt{Ctrl+Shift+B} & Mover window atrás \\
+\texttt{Ctrl+Shift+\textasciigrave{}\textasciigrave{}}
+`\texttt{\textbar{}\ Mover\ window\ al\ top\ \textbar{}\ \textbar{}}Ctrl+Shift+R\texttt{\textbar{}\ Redimensionar\ window\ \textbar{}\ \textbar{}}Ctrl+Shift+F7\texttt{\textbar{}\ Selección\ visual\ de\ window\ \textbar{}\ \textbar{}}Ctrl+Shift+F8\texttt{\textbar{}\ Swap\ visual\ de\ window\ \textbar{}\ \textbar{}}Ctrl+Shift+1\ldots0`
+& Ir a window N \\
+\end{longtable}
+
+\subsection{Navegación Direccional}\label{navegaciuxf3n-direccional}
+
+\textbf{Configurar manualmente:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Navegar entre windows}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{left} \DataTypeTok{neighboring\_window} \DataTypeTok{left}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{right} \DataTypeTok{neighboring\_window} \DataTypeTok{right}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{up} \DataTypeTok{neighboring\_window} \DataTypeTok{up}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{down} \DataTypeTok{neighboring\_window} \DataTypeTok{down}
+
+\CommentTok{\# Mover windows}
+\DataTypeTok{map} \DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{left} \DataTypeTok{move\_window} \DataTypeTok{right}
+\DataTypeTok{map} \DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{right} \DataTypeTok{move\_window} \DataTypeTok{left}
+\DataTypeTok{map} \DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{up} \DataTypeTok{move\_window} \DataTypeTok{down}
+\DataTypeTok{map} \DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{down} \DataTypeTok{move\_window} \DataTypeTok{up}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Layouts}\label{layouts}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Atajo & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+Shift+L} & Siguiente layout \\
+\end{longtable}
+
+\subsection{Clipboard}\label{clipboard}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Atajo & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+Shift+C} & Copiar \\
+\texttt{Ctrl+Shift+V} & Pegar \\
+\texttt{Ctrl+Shift+S} & Pegar de selección \\
+\texttt{Ctrl+Shift+O} & Pasar selección a programa \\
+\end{longtable}
+
+\subsection{Fuentes}\label{fuentes}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Atajo & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+Shift+Equal} & Aumentar tamaño \\
+\texttt{Ctrl+Shift+Minus} & Disminuir tamaño \\
+\texttt{Ctrl+Shift+Backspace} & Reset tamaño \\
+\end{longtable}
+
+\subsection{Miscelánea}\label{misceluxe1nea}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Atajo & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+Shift+F1} & Mostrar ayuda \\
+\texttt{Ctrl+Shift+F2} & Editar config \\
+\texttt{Ctrl+Shift+F5} & Recargar config \\
+\texttt{Ctrl+Shift+F6} & Debug config \\
+\texttt{Ctrl+Shift+F11} & Toggle fullscreen \\
+\texttt{Ctrl+Shift+F10} & Toggle maximized \\
+\texttt{Ctrl+Shift+U} & Input Unicode \\
+\texttt{Ctrl+Shift+E} & Open URL hints \\
+\texttt{Ctrl+Shift+Escape} & Kitty shell \\
+\texttt{Ctrl+Shift+Delete} & Reset terminal \\
+\end{longtable}
+
+\subsection{Atajos en macOS}\label{atajos-en-macos}
+
+Reemplazan algunos con \texttt{Cmd} (⌘):
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Windows/Linux & macOS \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+Shift+T} & \texttt{Cmd+T} \\
+\texttt{Ctrl+Shift+W} & \texttt{Cmd+W} \\
+\texttt{Ctrl+Shift+C} & \texttt{Cmd+C} \\
+\texttt{Ctrl+Shift+V} & \texttt{Cmd+V} \\
+\texttt{Ctrl+Shift+N} & \texttt{Cmd+N} \\
+\texttt{Ctrl+Shift+F2} & \texttt{Cmd+,} \\
+\texttt{Ctrl+Shift+F11} & \texttt{Ctrl+Cmd+F} \\
+\end{longtable}
+
+\section{Ventanas y Pestañas}\label{ventanas-y-pestauxf1as}
+
+\subsection{Concepto de
+Multiplexación}\label{concepto-de-multiplexaciuxf3n}
+
+Kitty tiene multiplexación nativa (sin necesidad de tmux):
+
+\textbf{Jerarquía:}
+
+\begin{verbatim}
+OS Window (kitty instance)
+  └── Tab 1
+      ├── Window 1
+      ├── Window 2
+      └── Window 3
+  └── Tab 2
+      └── Window 1
+\end{verbatim}
+
+\subsection{Crear Ventanas y Tabs}\label{crear-ventanas-y-tabs}
+
+\textbf{Nueva window:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Atajo}
+\ExtensionTok{Ctrl+Shift+Enter}
+
+\CommentTok{\# Comando}
+\ExtensionTok{kitty}\NormalTok{ @ launch }\AttributeTok{{-}{-}type}\OperatorTok{=}\NormalTok{window}
+
+\CommentTok{\# Con directorio específico}
+\ExtensionTok{map}\NormalTok{ f1 launch }\AttributeTok{{-}{-}cwd}\OperatorTok{=}\NormalTok{current}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Nueva tab:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Atajo}
+\ExtensionTok{Ctrl+Shift+T}
+
+\CommentTok{\# Con programa}
+\ExtensionTok{map}\NormalTok{ f1 new\_tab\_with\_cwd}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Nueva OS window:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Ctrl+Shift+N}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Navegación}\label{navegaciuxf3n}
+
+\textbf{Entre windows:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Direccional}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{left} \DataTypeTok{neighboring\_window} \DataTypeTok{left}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{right} \DataTypeTok{neighboring\_window} \DataTypeTok{right}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{up} \DataTypeTok{neighboring\_window} \DataTypeTok{up}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{down} \DataTypeTok{neighboring\_window} \DataTypeTok{down}
+
+\CommentTok{\# Numérica}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{1} \DataTypeTok{first\_window}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{2} \DataTypeTok{second\_window}
+\CommentTok{\# ...}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Entre tabs:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{right} \DataTypeTok{next\_tab}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{left} \DataTypeTok{previous\_tab}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{alt}\ErrorTok{+}\DataTypeTok{1} \DataTypeTok{goto\_tab} \DataTypeTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Mover Windows y Tabs}\label{mover-windows-y-tabs}
+
+\textbf{Mover windows:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{f} \DataTypeTok{move\_window\_forward}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{b} \DataTypeTok{move\_window\_backward}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+\textasciigrave{}} \DataTypeTok{move\_window\_to\_top}
+
+\CommentTok{\# Direccional}
+\DataTypeTok{map} \DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{up} \DataTypeTok{move\_window} \DataTypeTok{up}
+\DataTypeTok{map} \DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{down} \DataTypeTok{move\_window} \DataTypeTok{down}
+\DataTypeTok{map} \DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{left} \DataTypeTok{move\_window} \DataTypeTok{left}
+\DataTypeTok{map} \DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{right} \DataTypeTok{move\_window} \DataTypeTok{right}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Mover tabs:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{.} \DataTypeTok{move\_tab\_forward}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+,} \DataTypeTok{move\_tab\_backward}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Detach (Separar)}\label{detach-separar}
+
+\textbf{Detach window:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# A nueva OS window}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{f2} \DataTypeTok{detach\_window}
+
+\CommentTok{\# A nueva tab}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{f3} \DataTypeTok{detach\_window} \DataTypeTok{new{-}tab}
+
+\CommentTok{\# A tab anterior}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{f3} \DataTypeTok{detach\_window} \DataTypeTok{tab{-}prev}
+
+\CommentTok{\# Preguntar destino}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{f4} \DataTypeTok{detach\_window} \DataTypeTok{ask}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Detach tab:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# A nueva OS window}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{f2} \DataTypeTok{detach\_tab}
+
+\CommentTok{\# Preguntar destino}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{f4} \DataTypeTok{detach\_tab} \DataTypeTok{ask}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Títulos Personalizados}\label{tuxedtulos-personalizados}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Renombrar tab}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{alt}\ErrorTok{+}\DataTypeTok{t} \DataTypeTok{set\_tab\_title}
+
+\CommentTok{\# Renombrar window}
+\DataTypeTok{map} \DataTypeTok{f1} \DataTypeTok{set\_window\_title}
+
+\CommentTok{\# Template de título}
+\DataTypeTok{tab\_title\_template} \DataTypeTok{"\{index\}: \{title\}"}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Layouts (Diseños)}\label{layouts-diseuxf1os}
+
+\subsection{Layouts Disponibles}\label{layouts-disponibles}
+
+Kitty tiene 7 layouts built-in:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Stack}: Una window a la vez (maximizada)
+\item
+  \textbf{Tall}: Una o más windows full-height a la izquierda
+\item
+  \textbf{Fat}: Una o más windows full-width arriba
+\item
+  \textbf{Grid}: Grid balanceado
+\item
+  \textbf{Splits}: Arreglo arbitrario (como tmux)
+\item
+  \textbf{Horizontal}: Todas las windows lado a lado
+\item
+  \textbf{Vertical}: Todas las windows una debajo de otra
+\end{enumerate}
+
+\subsection{Stack Layout}\label{stack-layout}
+
+\begin{verbatim}
+┌────────────────────────────┐
+│                            │
+│                            │
+│       Window Actual        │
+│       (maximizada)         │
+│                            │
+│                            │
+└────────────────────────────┘
+\end{verbatim}
+
+\textbf{Configuración:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{enabled\_layouts} \DataTypeTok{stack}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Tall Layout}\label{tall-layout}
+
+\begin{verbatim}
+┌──────────┬─────────────────┐
+│          │                 │
+│          │                 │
+│          ├─────────────────┤
+│  Full    │                 │
+│  Height  │                 │
+│          ├─────────────────┤
+│          │                 │
+│          │                 │
+└──────────┴─────────────────┘
+\end{verbatim}
+
+\textbf{Configuración:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{enabled\_layouts} \DataTypeTok{tall}\ErrorTok{:}\DataTypeTok{bias}\OperatorTok{=}\DecValTok{50}\ErrorTok{;}\DataTypeTok{full\_size}\OperatorTok{=}\DecValTok{1}\ErrorTok{;}\DataTypeTok{mirrored}\OperatorTok{=}\ConstantTok{false}
+
+\CommentTok{\# Opciones:}
+\CommentTok{\# bias: 10{-}90 (split horizontal)}
+\CommentTok{\# full\_size: número de windows full{-}height}
+\CommentTok{\# mirrored: true/false (full{-}height a la derecha)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Acciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Aumentar/disminuir windows full{-}height}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\KeywordTok{[} \KeywordTok{layout\_action} \KeywordTok{decrease\_num\_full\_size\_windows}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+]} \DataTypeTok{layout\_action} \DataTypeTok{increase\_num\_full\_size\_windows}
+
+\CommentTok{\# Toggle mirror}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+/} \DataTypeTok{layout\_action} \DataTypeTok{mirror} \DataTypeTok{toggle}
+
+\CommentTok{\# Cambiar bias}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{.} \DataTypeTok{layout\_action} \DataTypeTok{bias} \DataTypeTok{50} \DataTypeTok{62} \DataTypeTok{70}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Fat Layout}\label{fat-layout}
+
+\begin{verbatim}
+┌────────────────────────────┐
+│                            │
+│      Full Width            │
+│                            │
+├─────────┬─────────┬────────┤
+│         │         │        │
+│         │         │        │
+└─────────┴─────────┴────────┘
+\end{verbatim}
+
+\textbf{Configuración:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{enabled\_layouts} \DataTypeTok{fat}\ErrorTok{:}\DataTypeTok{bias}\OperatorTok{=}\DecValTok{50}\ErrorTok{;}\DataTypeTok{full\_size}\OperatorTok{=}\DecValTok{1}\ErrorTok{;}\DataTypeTok{mirrored}\OperatorTok{=}\ConstantTok{false}
+\end{Highlighting}
+\end{Shaded}
+
+Mismas acciones que Tall layout.
+
+\subsection{Grid Layout}\label{grid-layout}
+
+\begin{verbatim}
+┌────────┬────────┬────────┐
+│        │        │        │
+│        │        │        │
+├────────┼────────┼────────┤
+│        │        │        │
+│        │        │        │
+└────────┴────────┴────────┘
+\end{verbatim}
+
+\textbf{Configuración:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{enabled\_layouts} \DataTypeTok{grid}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Splits Layout}\label{splits-layout}
+
+El más flexible - como tmux/vim splits.
+
+\begin{verbatim}
+┌──────────┬─────────────────┐
+│          │                 │
+│          │                 │
+│          ├────────┬────────┤
+│          │        │        │
+│          │        │        │
+│          ├────────┴────────┤
+│          │                 │
+│          │                 │
+└──────────┴─────────────────┘
+\end{verbatim}
+
+\textbf{Configuración:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{enabled\_layouts} \DataTypeTok{splits}\ErrorTok{:}\DataTypeTok{split\_axis}\OperatorTok{=}\DataTypeTok{horizontal}
+\CommentTok{\# split\_axis: horizontal, vertical, auto}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Crear splits:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Split horizontal}
+\DataTypeTok{map} \DataTypeTok{f5} \DataTypeTok{launch} \DataTypeTok{{-}{-}location}\OperatorTok{=}\DataTypeTok{hsplit}
+
+\CommentTok{\# Split vertical}
+\DataTypeTok{map} \DataTypeTok{f6} \DataTypeTok{launch} \DataTypeTok{{-}{-}location}\OperatorTok{=}\DataTypeTok{vsplit}
+
+\CommentTok{\# Split auto (horizontal si ancho, vertical si alto)}
+\DataTypeTok{map} \DataTypeTok{f4} \DataTypeTok{launch} \DataTypeTok{{-}{-}location}\OperatorTok{=}\DataTypeTok{split}
+
+\CommentTok{\# Rotar split (horizontal \textless{}{-}\textgreater{} vertical)}
+\DataTypeTok{map} \DataTypeTok{f7} \DataTypeTok{layout\_action} \DataTypeTok{rotate}
+
+\CommentTok{\# Mover window}
+\DataTypeTok{map} \DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{up} \DataTypeTok{move\_window} \DataTypeTok{up}
+\DataTypeTok{map} \DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{down} \DataTypeTok{move\_window} \DataTypeTok{down}
+\DataTypeTok{map} \DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{left} \DataTypeTok{move\_window} \DataTypeTok{left}
+\DataTypeTok{map} \DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{right} \DataTypeTok{move\_window} \DataTypeTok{right}
+
+\CommentTok{\# Mover window al borde}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{up} \DataTypeTok{layout\_action} \DataTypeTok{move\_to\_screen\_edge} \DataTypeTok{top}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{down} \DataTypeTok{layout\_action} \DataTypeTok{move\_to\_screen\_edge} \DataTypeTok{bottom}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{left} \DataTypeTok{layout\_action} \DataTypeTok{move\_to\_screen\_edge} \DataTypeTok{left}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{right} \DataTypeTok{layout\_action} \DataTypeTok{move\_to\_screen\_edge} \DataTypeTok{right}
+
+\CommentTok{\# Bias del split}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{.} \DataTypeTok{layout\_action} \DataTypeTok{bias} \DataTypeTok{80}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Horizontal y Vertical
+Layouts}\label{horizontal-y-vertical-layouts}
+
+\textbf{Horizontal (lado a lado):}
+
+\begin{verbatim}
+┌────────┬────────┬────────┐
+│        │        │        │
+│        │        │        │
+│        │        │        │
+│        │        │        │
+└────────┴────────┴────────┘
+\end{verbatim}
+
+\textbf{Vertical (uno debajo del otro):}
+
+\begin{verbatim}
+┌────────────────────────────┐
+│                            │
+├────────────────────────────┤
+│                            │
+├────────────────────────────┤
+│                            │
+└────────────────────────────┘
+\end{verbatim}
+
+\textbf{Configuración:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{enabled\_layouts} \DataTypeTok{horizontal}\ErrorTok{,}\DataTypeTok{vertical}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Cambiar Entre Layouts}\label{cambiar-entre-layouts}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Siguiente layout}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{l} \DataTypeTok{next\_layout}
+
+\CommentTok{\# Ir a layout específico}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{alt}\ErrorTok{+}\DataTypeTok{t} \DataTypeTok{goto\_layout} \DataTypeTok{tall}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{alt}\ErrorTok{+}\DataTypeTok{s} \DataTypeTok{goto\_layout} \DataTypeTok{stack}
+
+\CommentTok{\# Toggle layout}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{alt}\ErrorTok{+}\DataTypeTok{z} \DataTypeTok{toggle\_layout} \DataTypeTok{stack}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Redimensionar Windows}\label{redimensionar-windows}
+
+\textbf{Modo interactivo:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Ctrl+Shift+R}
+\CommentTok{\# Seguir instrucciones en pantalla}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Atajos directos:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{left} \DataTypeTok{resize\_window} \DataTypeTok{narrower}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{right} \DataTypeTok{resize\_window} \DataTypeTok{wider}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{up} \DataTypeTok{resize\_window} \DataTypeTok{taller}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{down} \DataTypeTok{resize\_window} \DataTypeTok{shorter} \DataTypeTok{3}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{home} \DataTypeTok{resize\_window} \DataTypeTok{reset}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Fuentes}\label{fuentes-1}
+
+\subsection{Configuración Básica}\label{configuraciuxf3n-buxe1sica}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{font\_family}      \DataTypeTok{JetBrains} \DataTypeTok{Mono}
+\DataTypeTok{bold\_font}        \DataTypeTok{auto}
+\DataTypeTok{italic\_font}      \DataTypeTok{auto}
+\DataTypeTok{bold\_italic\_font} \DataTypeTok{auto}
+\DataTypeTok{font\_size}        \DataTypeTok{12.0}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Fuentes Recomendadas}\label{fuentes-recomendadas}
+
+\textbf{Con ligaduras:}
+
+\begin{itemize}
+\tightlist
+\item
+  JetBrains Mono
+\item
+  Fira Code
+\item
+  Cascadia Code
+\item
+  Victor Mono
+\item
+  Iosevka
+\end{itemize}
+
+\textbf{Mono clásicas:}
+
+\begin{itemize}
+\tightlist
+\item
+  IBM Plex Mono
+\item
+  Source Code Pro
+\item
+  Ubuntu Mono
+\item
+  Inconsolata
+\end{itemize}
+
+\subsection{Fuentes con Powerline}\label{fuentes-con-powerline}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Método 1: Usar font con powerline incluido}
+\DataTypeTok{font\_family} \DataTypeTok{JetBrains} \DataTypeTok{Mono} \DataTypeTok{Nerd} \DataTypeTok{Font}
+
+\CommentTok{\# Método 2: Symbol map}
+\DataTypeTok{font\_family} \DataTypeTok{JetBrains} \DataTypeTok{Mono}
+\DataTypeTok{symbol\_map} \DataTypeTok{U}\ErrorTok{+}\DataTypeTok{E0A0{-}U}\ErrorTok{+}\DataTypeTok{E0A3}\ErrorTok{,}\DataTypeTok{U}\ErrorTok{+}\DataTypeTok{E0C0{-}U}\ErrorTok{+}\DataTypeTok{E0C7} \DataTypeTok{PowerlineSymbols}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Symbol Maps}\label{symbol-maps}
+
+Mapear rangos Unicode a fuentes específicas:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Powerline}
+\DataTypeTok{symbol\_map} \DataTypeTok{U}\ErrorTok{+}\DataTypeTok{E0A0{-}U}\ErrorTok{+}\DataTypeTok{E0A3}\ErrorTok{,}\DataTypeTok{U}\ErrorTok{+}\DataTypeTok{E0C0{-}U}\ErrorTok{+}\DataTypeTok{E0C7} \DataTypeTok{PowerlineSymbols}
+
+\CommentTok{\# Emojis}
+\DataTypeTok{symbol\_map} \DataTypeTok{U}\ErrorTok{+}\DataTypeTok{1F300{-}U}\ErrorTok{+}\DataTypeTok{1F64F}\ErrorTok{,}\DataTypeTok{U}\ErrorTok{+}\DataTypeTok{1F680{-}U}\ErrorTok{+}\DataTypeTok{1F6FF} \DataTypeTok{Noto} \DataTypeTok{Color} \DataTypeTok{Emoji}
+
+\CommentTok{\# Math}
+\DataTypeTok{symbol\_map} \DataTypeTok{U}\ErrorTok{+}\DataTypeTok{2200{-}U}\ErrorTok{+}\DataTypeTok{22FF} \DataTypeTok{STIX} \DataTypeTok{Two} \DataTypeTok{Math}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Ligaduras}\label{ligaduras}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Siempre habilitadas}
+\DataTypeTok{disable\_ligatures} \DataTypeTok{never}
+
+\CommentTok{\# Deshabilitadas cuando cursor está sobre ellas}
+\DataTypeTok{disable\_ligatures} \DataTypeTok{cursor}
+
+\CommentTok{\# Siempre deshabilitadas}
+\DataTypeTok{disable\_ligatures} \DataTypeTok{always}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Controlar por window:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{map} \DataTypeTok{alt}\ErrorTok{+}\DataTypeTok{1} \DataTypeTok{disable\_ligatures\_in} \DataTypeTok{active} \DataTypeTok{always}
+\DataTypeTok{map} \DataTypeTok{alt}\ErrorTok{+}\DataTypeTok{2} \DataTypeTok{disable\_ligatures\_in} \DataTypeTok{all} \DataTypeTok{never}
+\DataTypeTok{map} \DataTypeTok{alt}\ErrorTok{+}\DataTypeTok{3} \DataTypeTok{disable\_ligatures\_in} \DataTypeTok{tab} \DataTypeTok{cursor}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Font Features}\label{font-features}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Habilitar features específicas}
+\CommentTok{\# Ejemplo con Fira Code:}
+\DataTypeTok{font\_features} \DataTypeTok{FiraCode{-}Regular} \ErrorTok{+}\DataTypeTok{zero} \ErrorTok{+}\DataTypeTok{onum} \ErrorTok{+}\DataTypeTok{ss01} \ErrorTok{+}\DataTypeTok{ss02}
+
+\CommentTok{\# Deshabilitar ligatures pero mantener calt}
+\DataTypeTok{font\_features} \DataTypeTok{FiraCode{-}Regular} \DataTypeTok{{-}liga} \ErrorTok{+}\DataTypeTok{calt}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Modificar Fuentes}\label{modificar-fuentes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ajustar underline}
+\DataTypeTok{modify\_font} \DataTypeTok{underline\_position} \DataTypeTok{{-}2}
+\DataTypeTok{modify\_font} \DataTypeTok{underline\_thickness} \DataTypeTok{150}\ErrorTok{\%}
+
+\CommentTok{\# Ajustar strikethrough}
+\DataTypeTok{modify\_font} \DataTypeTok{strikethrough\_position} \DataTypeTok{2px}
+
+\CommentTok{\# Ajustar tamaño de celda}
+\DataTypeTok{modify\_font} \DataTypeTok{cell\_width} \DataTypeTok{80}\ErrorTok{\%}
+\DataTypeTok{modify\_font} \DataTypeTok{cell\_height} \DataTypeTok{{-}2px}
+
+\CommentTok{\# Ajustar baseline}
+\DataTypeTok{modify\_font} \DataTypeTok{baseline} \DataTypeTok{3}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Kitten para Elegir
+Fuentes}\label{kitten-para-elegir-fuentes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# UI interactiva para elegir fuentes}
+\ExtensionTok{kitten}\NormalTok{ choose{-}fonts}
+
+\CommentTok{\# Previsualizar todas las fuentes}
+\ExtensionTok{kitten}\NormalTok{ choose{-}fonts }\AttributeTok{{-}{-}preview}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Colores y Temas}\label{colores-y-temas}
+
+\subsection{Estructura de Colores}\label{estructura-de-colores}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Colores básicos}
+\DataTypeTok{foreground} \CommentTok{\#foreground\_color}
+\DataTypeTok{background} \CommentTok{\#background\_color}
+
+\CommentTok{\# Selección}
+\DataTypeTok{selection\_foreground} \CommentTok{\#color}
+\DataTypeTok{selection\_background} \CommentTok{\#color}
+
+\CommentTok{\# Cursor}
+\DataTypeTok{cursor} \CommentTok{\#color}
+\DataTypeTok{cursor\_text\_color} \CommentTok{\#color}
+
+\CommentTok{\# Tabla de colores (16 básicos)}
+\CommentTok{\# Negro}
+\DataTypeTok{color0}  \CommentTok{\#color}
+\DataTypeTok{color8}  \CommentTok{\#color}
+
+\CommentTok{\# Rojo}
+\DataTypeTok{color1}  \CommentTok{\#color}
+\DataTypeTok{color9}  \CommentTok{\#color}
+
+\CommentTok{\# Verde}
+\DataTypeTok{color2}  \CommentTok{\#color}
+\DataTypeTok{color10} \CommentTok{\#color}
+
+\CommentTok{\# Amarillo}
+\DataTypeTok{color3}  \CommentTok{\#color}
+\DataTypeTok{color11} \CommentTok{\#color}
+
+\CommentTok{\# Azul}
+\DataTypeTok{color4}  \CommentTok{\#color}
+\DataTypeTok{color12} \CommentTok{\#color}
+
+\CommentTok{\# Magenta}
+\DataTypeTok{color5}  \CommentTok{\#color}
+\DataTypeTok{color13} \CommentTok{\#color}
+
+\CommentTok{\# Cyan}
+\DataTypeTok{color6}  \CommentTok{\#color}
+\DataTypeTok{color14} \CommentTok{\#color}
+
+\CommentTok{\# Blanco}
+\DataTypeTok{color7}  \CommentTok{\#color}
+\DataTypeTok{color15} \CommentTok{\#color}
+
+\CommentTok{\# Colores extendidos (256 colores)}
+\DataTypeTok{color16} \CommentTok{\#color}
+\DataTypeTok{color17} \CommentTok{\#color}
+\CommentTok{\# ... hasta color255}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Temas Populares}\label{temas-populares}
+
+\textbf{Dracula:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{foreground} \CommentTok{\#f8f8f2}
+\DataTypeTok{background} \CommentTok{\#282a36}
+\DataTypeTok{selection\_foreground} \CommentTok{\#ffffff}
+\DataTypeTok{selection\_background} \CommentTok{\#44475a}
+
+\DataTypeTok{color0}  \CommentTok{\#21222c}
+\DataTypeTok{color8}  \CommentTok{\#6272a4}
+\DataTypeTok{color1}  \CommentTok{\#ff5555}
+\DataTypeTok{color9}  \CommentTok{\#ff6e6e}
+\DataTypeTok{color2}  \CommentTok{\#50fa7b}
+\DataTypeTok{color10} \CommentTok{\#69ff94}
+\DataTypeTok{color3}  \CommentTok{\#f1fa8c}
+\DataTypeTok{color11} \CommentTok{\#ffffa5}
+\DataTypeTok{color4}  \CommentTok{\#bd93f9}
+\DataTypeTok{color12} \CommentTok{\#d6acff}
+\DataTypeTok{color5}  \CommentTok{\#ff79c6}
+\DataTypeTok{color13} \CommentTok{\#ff92df}
+\DataTypeTok{color6}  \CommentTok{\#8be9fd}
+\DataTypeTok{color14} \CommentTok{\#a4ffff}
+\DataTypeTok{color7}  \CommentTok{\#f8f8f2}
+\DataTypeTok{color15} \CommentTok{\#ffffff}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Nord:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{foreground} \CommentTok{\#d8dee9}
+\DataTypeTok{background} \CommentTok{\#2e3440}
+
+\DataTypeTok{color0}  \CommentTok{\#3b4252}
+\DataTypeTok{color8}  \CommentTok{\#4c566a}
+\DataTypeTok{color1}  \CommentTok{\#bf616a}
+\DataTypeTok{color9}  \CommentTok{\#bf616a}
+\DataTypeTok{color2}  \CommentTok{\#a3be8c}
+\DataTypeTok{color10} \CommentTok{\#a3be8c}
+\DataTypeTok{color3}  \CommentTok{\#ebcb8b}
+\DataTypeTok{color11} \CommentTok{\#ebcb8b}
+\DataTypeTok{color4}  \CommentTok{\#81a1c1}
+\DataTypeTok{color12} \CommentTok{\#81a1c1}
+\DataTypeTok{color5}  \CommentTok{\#b48ead}
+\DataTypeTok{color13} \CommentTok{\#b48ead}
+\DataTypeTok{color6}  \CommentTok{\#88c0d0}
+\DataTypeTok{color14} \CommentTok{\#8fbcbb}
+\DataTypeTok{color7}  \CommentTok{\#e5e9f0}
+\DataTypeTok{color15} \CommentTok{\#eceff4}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Gruvbox Dark:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{foreground} \CommentTok{\#ebdbb2}
+\DataTypeTok{background} \CommentTok{\#282828}
+
+\DataTypeTok{color0}  \CommentTok{\#282828}
+\DataTypeTok{color8}  \CommentTok{\#928374}
+\DataTypeTok{color1}  \CommentTok{\#cc241d}
+\DataTypeTok{color9}  \CommentTok{\#fb4934}
+\DataTypeTok{color2}  \CommentTok{\#98971a}
+\DataTypeTok{color10} \CommentTok{\#b8bb26}
+\DataTypeTok{color3}  \CommentTok{\#d79921}
+\DataTypeTok{color11} \CommentTok{\#fabd2f}
+\DataTypeTok{color4}  \CommentTok{\#458588}
+\DataTypeTok{color12} \CommentTok{\#83a598}
+\DataTypeTok{color5}  \CommentTok{\#b16286}
+\DataTypeTok{color13} \CommentTok{\#d3869b}
+\DataTypeTok{color6}  \CommentTok{\#689d6a}
+\DataTypeTok{color14} \CommentTok{\#8ec07c}
+\DataTypeTok{color7}  \CommentTok{\#a89984}
+\DataTypeTok{color15} \CommentTok{\#ebdbb2}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Kitten Themes}\label{kitten-themes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Browser de temas interactivo}
+\ExtensionTok{kitten}\NormalTok{ themes}
+
+\CommentTok{\# Listar temas disponibles}
+\ExtensionTok{kitten}\NormalTok{ themes }\AttributeTok{{-}{-}list}
+
+\CommentTok{\# Aplicar tema específico}
+\ExtensionTok{kitten}\NormalTok{ themes }\AttributeTok{{-}{-}reload{-}in}\OperatorTok{=}\NormalTok{all Dracula}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Opacidad y Blur}\label{opacidad-y-blur}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Opacidad del background}
+\DataTypeTok{background\_opacity} \DataTypeTok{0.9}
+
+\CommentTok{\# Background blur (macOS y KDE)}
+\DataTypeTok{background\_blur} \DataTypeTok{20}
+
+\CommentTok{\# Dynamic opacity (permite cambiar con atajos)}
+\DataTypeTok{dynamic\_background\_opacity} \DataTypeTok{yes}
+
+\CommentTok{\# Cambiar opacidad con atajos}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{a}\ErrorTok{\textgreater{}}\DataTypeTok{m} \DataTypeTok{set\_background\_opacity} \ErrorTok{+}\DataTypeTok{0.1}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{a}\ErrorTok{\textgreater{}}\DataTypeTok{l} \DataTypeTok{set\_background\_opacity} \DataTypeTok{{-}0.1}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{a}\ErrorTok{\textgreater{}}\DataTypeTok{1} \DataTypeTok{set\_background\_opacity} \DataTypeTok{1}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{a}\ErrorTok{\textgreater{}}\DataTypeTok{d} \DataTypeTok{set\_background\_opacity} \DataTypeTok{default}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Background Image}\label{background-image}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{background\_image} \ErrorTok{/}\DataTypeTok{path}\ErrorTok{/}\DataTypeTok{to}\ErrorTok{/}\DataTypeTok{image.png}
+\DataTypeTok{background\_image\_layout} \DataTypeTok{tiled}
+\CommentTok{\# Opciones: tiled, mirror{-}tiled, scaled, clamped, centered, cscaled}
+\DataTypeTok{background\_image\_linear} \DataTypeTok{no}
+\DataTypeTok{background\_tint} \DataTypeTok{0.5}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Dim Text}\label{dim-text}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Atenuar texto con atributo DIM}
+\DataTypeTok{dim\_opacity} \DataTypeTok{0.4}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Cursor y Scrollback}\label{cursor-y-scrollback}
+
+\subsection{Cursor}\label{cursor}
+
+\textbf{Forma:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{cursor\_shape} \DataTypeTok{block}
+\CommentTok{\# Opciones: block, beam, underline}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Forma cuando no enfocado:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{cursor\_shape\_unfocused} \DataTypeTok{hollow}
+\CommentTok{\# Opciones: block, beam, underline, hollow, unchanged}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Grosor:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{cursor\_beam\_thickness} \DataTypeTok{1.5}
+\DataTypeTok{cursor\_underline\_thickness} \DataTypeTok{2.0}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Blink:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Intervalo de blink (segundos)}
+\DataTypeTok{cursor\_blink\_interval} \DataTypeTok{{-}1}
+\CommentTok{\# {-}1 = usar default del sistema}
+\CommentTok{\# 0 = deshabilitado}
+\CommentTok{\# \textgreater{}0 = intervalo personalizado}
+
+\CommentTok{\# Parar blink después de inactividad}
+\DataTypeTok{cursor\_stop\_blinking\_after} \DataTypeTok{15.0}
+
+\CommentTok{\# Animación de blink}
+\DataTypeTok{cursor\_blink\_interval} \DataTypeTok{0.5} \DataTypeTok{ease{-}in{-}out}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Color:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{cursor} \CommentTok{\#cccccc}
+\DataTypeTok{cursor\_text\_color} \CommentTok{\#111111}
+\CommentTok{\# O usar: cursor\_text\_color background}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Cursor Trail:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Animación de "estela" del cursor}
+\DataTypeTok{cursor\_trail} \DataTypeTok{5}
+\DataTypeTok{cursor\_trail\_decay} \DataTypeTok{0.1} \DataTypeTok{0.4}
+\DataTypeTok{cursor\_trail\_start\_threshold} \DataTypeTok{2}
+\DataTypeTok{cursor\_trail\_color} \CommentTok{\#ff0000}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Scrollback}\label{scrollback}
+
+\textbf{Líneas de historial:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{scrollback\_lines} \DataTypeTok{10000}
+\CommentTok{\# {-}1 = infinito (no recomendado)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Pager:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{scrollback\_pager} \DataTypeTok{less} \DataTypeTok{{-}{-}chop{-}long{-}lines} \DataTypeTok{{-}{-}RAW{-}CONTROL{-}CHARS} \ErrorTok{+}\DataTypeTok{INPUT\_LINE\_NUMBER}
+
+\CommentTok{\# Con neovim}
+\DataTypeTok{scrollback\_pager} \DataTypeTok{nvim} \DataTypeTok{{-}{-}cmd} \DataTypeTok{\textquotesingle{}set eventignore=FileType\textquotesingle{}} \ErrorTok{+}\DataTypeTok{\textquotesingle{}nnoremap q ZQ\textquotesingle{}} \ErrorTok{+}\DataTypeTok{\textquotesingle{}call nvim\_open\_term(0, \{\})\textquotesingle{}} \ErrorTok{+}\DataTypeTok{\textquotesingle{}set nomodified nolist\textquotesingle{}} \ErrorTok{+}\DataTypeTok{\textquotesingle{}$\textquotesingle{}} \DataTypeTok{{-}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Scrollback Pager History:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Scrollback separado para pager (MB)}
+\DataTypeTok{scrollback\_pager\_history\_size} \DataTypeTok{10}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Fill Window:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Llenar con scrollback al agrandar window}
+\DataTypeTok{scrollback\_fill\_enlarged\_window} \DataTypeTok{no}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Scroll Multiplier:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mouse wheel}
+\DataTypeTok{wheel\_scroll\_multiplier} \DataTypeTok{5.0}
+\DataTypeTok{wheel\_scroll\_min\_lines} \DataTypeTok{1}
+
+\CommentTok{\# Touch}
+\DataTypeTok{touch\_scroll\_multiplier} \DataTypeTok{1.0}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Scrollbar}\label{scrollbar}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Cuándo mostrar scrollbar}
+\DataTypeTok{scrollbar} \DataTypeTok{scrolled}
+\CommentTok{\# Opciones: scrolled, hovered, scrolled{-}and{-}hovered, always, never}
+
+\CommentTok{\# Interactivo}
+\DataTypeTok{scrollbar\_interactive} \DataTypeTok{yes}
+
+\CommentTok{\# Jump on click}
+\DataTypeTok{scrollbar\_jump\_on\_click} \DataTypeTok{yes}
+
+\CommentTok{\# Ancho}
+\DataTypeTok{scrollbar\_width} \DataTypeTok{0.5}
+\DataTypeTok{scrollbar\_hover\_width} \DataTypeTok{1}
+
+\CommentTok{\# Opacidad}
+\DataTypeTok{scrollbar\_handle\_opacity} \DataTypeTok{0.5}
+\DataTypeTok{scrollbar\_track\_opacity} \DataTypeTok{0}
+
+\CommentTok{\# Colores}
+\DataTypeTok{scrollbar\_handle\_color} \DataTypeTok{foreground}
+\DataTypeTok{scrollbar\_track\_color} \DataTypeTok{foreground}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Mouse}\label{mouse}
+
+\subsection{Comportamiento Básico}\label{comportamiento-buxe1sico}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ocultar cursor después de inactividad}
+\DataTypeTok{mouse\_hide\_wait} \DataTypeTok{3.0}
+\CommentTok{\# 0 = nunca}
+\CommentTok{\# \textless{}0 = ocultar inmediatamente al escribir}
+
+\CommentTok{\# Focus follows mouse}
+\DataTypeTok{focus\_follows\_mouse} \DataTypeTok{no}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{URLs}\label{urls}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Color y estilo de URLs}
+\DataTypeTok{url\_color} \CommentTok{\#0087bd}
+\DataTypeTok{url\_style} \DataTypeTok{curly}
+\CommentTok{\# Opciones: none, straight, double, curly, dotted, dashed}
+
+\CommentTok{\# Programa para abrir URLs}
+\DataTypeTok{open\_url\_with} \DataTypeTok{default}
+
+\CommentTok{\# Prefijos detectados}
+\DataTypeTok{url\_prefixes} \DataTypeTok{file} \DataTypeTok{ftp} \DataTypeTok{ftps} \DataTypeTok{gemini} \DataTypeTok{git} \DataTypeTok{gopher} \DataTypeTok{http} \DataTypeTok{https} \DataTypeTok{irc} \DataTypeTok{ircs} \DataTypeTok{kitty} \DataTypeTok{mailto} \DataTypeTok{news} \DataTypeTok{sftp} \DataTypeTok{ssh}
+
+\CommentTok{\# Detectar URLs}
+\DataTypeTok{detect\_urls} \DataTypeTok{yes}
+
+\CommentTok{\# Mostrar target de hyperlinks}
+\DataTypeTok{show\_hyperlink\_targets} \DataTypeTok{no}
+
+\CommentTok{\# Underline de hyperlinks}
+\DataTypeTok{underline\_hyperlinks} \DataTypeTok{hover}
+\CommentTok{\# Opciones: hover, always, never}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Selección}\label{selecciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Copiar al seleccionar}
+\DataTypeTok{copy\_on\_select} \DataTypeTok{no}
+\CommentTok{\# Opciones: no, clipboard, a1 (buffer personalizado)}
+
+\CommentTok{\# Limpiar selección al perder clipboard}
+\DataTypeTok{clear\_selection\_on\_clipboard\_loss} \DataTypeTok{no}
+
+\CommentTok{\# Caracteres de palabra}
+\DataTypeTok{select\_by\_word\_characters} \ErrorTok{@}\DataTypeTok{{-}.}\ErrorTok{/}\DataTypeTok{\_}\ErrorTok{\textasciitilde{}?\&}\OperatorTok{=}\ErrorTok{\%+}\CommentTok{\#}
+
+\CommentTok{\# Intervalo de clicks}
+\DataTypeTok{click\_interval} \DataTypeTok{{-}1.0}
+\CommentTok{\# {-}1 = usar default del sistema}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Pointer Shape}\label{pointer-shape}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Forma del cursor cuando programa agarra mouse}
+\DataTypeTok{pointer\_shape\_when\_grabbed} \DataTypeTok{arrow}
+
+\CommentTok{\# Forma default}
+\DataTypeTok{default\_pointer\_shape} \DataTypeTok{beam}
+
+\CommentTok{\# Forma al arrastrar}
+\DataTypeTok{pointer\_shape\_when\_dragging} \DataTypeTok{beam} \DataTypeTok{crosshair}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Mouse Actions}\label{mouse-actions}
+
+\textbf{Sintaxis:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{mouse\_map} \DataTypeTok{button{-}name} \DataTypeTok{event{-}type} \DataTypeTok{modes} \DataTypeTok{action}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Ejemplos:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Click en URL}
+\DataTypeTok{mouse\_map} \DataTypeTok{left} \DataTypeTok{click} \DataTypeTok{ungrabbed} \DataTypeTok{mouse\_handle\_click} \DataTypeTok{selection} \DataTypeTok{link} \DataTypeTok{prompt}
+
+\CommentTok{\# Pegar con middle click}
+\DataTypeTok{mouse\_map} \DataTypeTok{middle} \DataTypeTok{release} \DataTypeTok{ungrabbed} \DataTypeTok{paste\_from\_selection}
+
+\CommentTok{\# Seleccionar con left press}
+\DataTypeTok{mouse\_map} \DataTypeTok{left} \DataTypeTok{press} \DataTypeTok{ungrabbed} \DataTypeTok{mouse\_selection} \DataTypeTok{normal}
+
+\CommentTok{\# Selección rectangular con Ctrl+Alt}
+\DataTypeTok{mouse\_map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{alt}\ErrorTok{+}\DataTypeTok{left} \DataTypeTok{press} \DataTypeTok{ungrabbed} \DataTypeTok{mouse\_selection} \DataTypeTok{rectangle}
+
+\CommentTok{\# Seleccionar palabra con double click}
+\DataTypeTok{mouse\_map} \DataTypeTok{left} \DataTypeTok{doublepress} \DataTypeTok{ungrabbed} \DataTypeTok{mouse\_selection} \DataTypeTok{word}
+
+\CommentTok{\# Seleccionar línea con triple click}
+\DataTypeTok{mouse\_map} \DataTypeTok{left} \DataTypeTok{triplepress} \DataTypeTok{ungrabbed} \DataTypeTok{mouse\_selection} \DataTypeTok{line}
+
+\CommentTok{\# Extender selección con right press}
+\DataTypeTok{mouse\_map} \DataTypeTok{right} \DataTypeTok{press} \DataTypeTok{ungrabbed} \DataTypeTok{mouse\_selection} \DataTypeTok{extend}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Clearar todos los mouse actions:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{clear\_all\_mouse\_actions} \DataTypeTok{yes}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Kittens (Extensiones)}\label{kittens-extensiones}
+
+\subsection{¿Qué son los Kittens?}\label{quuxe9-son-los-kittens}
+
+Programas auxiliares que extienden funcionalidad de kitty.
+
+\subsection{Kittens Built-in}\label{kittens-built-in}
+
+\subsection{1. icat - Imágenes en
+Terminal}\label{icat---imuxe1genes-en-terminal}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mostrar imagen}
+\ExtensionTok{kitten}\NormalTok{ icat imagen.png}
+
+\CommentTok{\# Con opciones}
+\ExtensionTok{kitten}\NormalTok{ icat }\AttributeTok{{-}{-}align}\NormalTok{ left imagen.png}
+\ExtensionTok{kitten}\NormalTok{ icat }\AttributeTok{{-}{-}place}\NormalTok{ 40x40@10x10 imagen.png}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{En kitty.conf:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{map} \DataTypeTok{f1} \DataTypeTok{launch} \DataTypeTok{{-}{-}stdin{-}source}\OperatorTok{=}\ErrorTok{@}\DataTypeTok{screen\_scrollback} \DataTypeTok{kitten} \DataTypeTok{icat}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{2. diff - Diff con
+Imágenes}\label{diff---diff-con-imuxe1genes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Diff de archivos}
+\ExtensionTok{kitten}\NormalTok{ diff archivo1.txt archivo2.txt}
+
+\CommentTok{\# Con imágenes}
+\ExtensionTok{kitten}\NormalTok{ diff imagen1.png imagen2.png}
+
+\CommentTok{\# Diff de directorios}
+\ExtensionTok{kitten}\NormalTok{ diff dir1/ dir2/}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Configurar como git difftool:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ config }\AttributeTok{{-}{-}global}\NormalTok{ diff.tool kitty}
+\FunctionTok{git}\NormalTok{ config }\AttributeTok{{-}{-}global}\NormalTok{ difftool.kitty.cmd }\StringTok{\textquotesingle{}kitten diff $LOCAL $REMOTE\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{3. unicode\_input - Input
+Unicode}\label{unicode_input---input-unicode}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Abrir selector Unicode}
+\ExtensionTok{Ctrl+Shift+U}
+
+\CommentTok{\# O}
+\ExtensionTok{kitten}\NormalTok{ unicode\_input}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{4. themes - Cambiar Temas}\label{themes---cambiar-temas}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Browser de temas}
+\ExtensionTok{kitten}\NormalTok{ themes}
+
+\CommentTok{\# Listar temas}
+\ExtensionTok{kitten}\NormalTok{ themes }\AttributeTok{{-}{-}list}
+
+\CommentTok{\# Cambiar tema}
+\ExtensionTok{kitten}\NormalTok{ themes }\AttributeTok{{-}{-}reload{-}in}\OperatorTok{=}\NormalTok{all Dracula}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{5. choose-fonts - Elegir
+Fuentes}\label{choose-fonts---elegir-fuentes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# UI para elegir fuentes}
+\ExtensionTok{kitten}\NormalTok{ choose{-}fonts}
+
+\CommentTok{\# Con preview}
+\ExtensionTok{kitten}\NormalTok{ choose{-}fonts }\AttributeTok{{-}{-}preview}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{6. hints - Selección
+Rápida}\label{hints---selecciuxf3n-ruxe1pida}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Abrir URLs}
+\ExtensionTok{Ctrl+Shift+E}
+
+\CommentTok{\# O personalizado:}
+\CommentTok{\# URLs}
+\ExtensionTok{kitten}\NormalTok{ hints}
+
+\CommentTok{\# Paths}
+\ExtensionTok{kitten}\NormalTok{ hints }\AttributeTok{{-}{-}type}\NormalTok{ path}
+
+\CommentTok{\# Líneas}
+\ExtensionTok{kitten}\NormalTok{ hints }\AttributeTok{{-}{-}type}\NormalTok{ line}
+
+\CommentTok{\# Palabras}
+\ExtensionTok{kitten}\NormalTok{ hints }\AttributeTok{{-}{-}type}\NormalTok{ word}
+
+\CommentTok{\# Hashes (git)}
+\ExtensionTok{kitten}\NormalTok{ hints }\AttributeTok{{-}{-}type}\NormalTok{ hash}
+
+\CommentTok{\# Números de línea}
+\ExtensionTok{kitten}\NormalTok{ hints }\AttributeTok{{-}{-}type}\NormalTok{ linenum}
+
+\CommentTok{\# Hyperlinks}
+\ExtensionTok{kitten}\NormalTok{ hints }\AttributeTok{{-}{-}type}\NormalTok{ hyperlink}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Configuración:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Abrir URL}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{e} \DataTypeTok{open\_url\_with\_hints}
+
+\CommentTok{\# Insertar path}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{p}\ErrorTok{\textgreater{}}\DataTypeTok{f} \DataTypeTok{kitten} \DataTypeTok{hints} \DataTypeTok{{-}{-}type} \DataTypeTok{path} \DataTypeTok{{-}{-}program} \DataTypeTok{{-}}
+
+\CommentTok{\# Abrir path}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{p}\ErrorTok{\textgreater{}}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{f} \DataTypeTok{kitten} \DataTypeTok{hints} \DataTypeTok{{-}{-}type} \DataTypeTok{path}
+
+\CommentTok{\# Insertar archivo (con chooser)}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{p}\ErrorTok{\textgreater{}}\DataTypeTok{c} \DataTypeTok{kitten} \DataTypeTok{choose{-}files}
+
+\CommentTok{\# Insertar directorio}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{p}\ErrorTok{\textgreater{}}\DataTypeTok{d} \DataTypeTok{kitten} \DataTypeTok{choose{-}files} \DataTypeTok{{-}{-}mode}\OperatorTok{=}\DataTypeTok{dir}
+
+\CommentTok{\# Insertar línea}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{p}\ErrorTok{\textgreater{}}\DataTypeTok{l} \DataTypeTok{kitten} \DataTypeTok{hints} \DataTypeTok{{-}{-}type} \DataTypeTok{line} \DataTypeTok{{-}{-}program} \DataTypeTok{{-}}
+
+\CommentTok{\# Insertar palabra}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{p}\ErrorTok{\textgreater{}}\DataTypeTok{w} \DataTypeTok{kitten} \DataTypeTok{hints} \DataTypeTok{{-}{-}type} \DataTypeTok{word} \DataTypeTok{{-}{-}program} \DataTypeTok{{-}}
+
+\CommentTok{\# Insertar hash}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{p}\ErrorTok{\textgreater{}}\DataTypeTok{h} \DataTypeTok{kitten} \DataTypeTok{hints} \DataTypeTok{{-}{-}type} \DataTypeTok{hash} \DataTypeTok{{-}{-}program} \DataTypeTok{{-}}
+
+\CommentTok{\# Abrir en editor}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{p}\ErrorTok{\textgreater{}}\DataTypeTok{n} \DataTypeTok{kitten} \DataTypeTok{hints} \DataTypeTok{{-}{-}type} \DataTypeTok{linenum}
+
+\CommentTok{\# Abrir hyperlink}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{p}\ErrorTok{\textgreater{}}\DataTypeTok{y} \DataTypeTok{kitten} \DataTypeTok{hints} \DataTypeTok{{-}{-}type} \DataTypeTok{hyperlink}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{7. ssh - SSH Mejorado}\label{ssh---ssh-mejorado}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# SSH con shell integration}
+\ExtensionTok{kitten}\NormalTok{ ssh usuario@servidor}
+
+\CommentTok{\# Con forwarding}
+\ExtensionTok{kitten}\NormalTok{ ssh }\AttributeTok{{-}R}\NormalTok{ 52698:localhost:52698 servidor}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Ventajas:} - Shell integration automática - Re-uso de conexiones
+- Clonación de config local - Transferencia de terminfo
+
+\subsection{8. transfer - Transferencia de
+Archivos}\label{transfer---transferencia-de-archivos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Upload archivo}
+\ExtensionTok{kitten}\NormalTok{ transfer archivo.txt servidor:/ruta/}
+
+\CommentTok{\# Download archivo}
+\ExtensionTok{kitten}\NormalTok{ transfer servidor:/ruta/archivo.txt ./}
+
+\CommentTok{\# Directorio completo}
+\ExtensionTok{kitten}\NormalTok{ transfer }\AttributeTok{{-}{-}recursive}\NormalTok{ directorio/ servidor:/ruta/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{9. clipboard - Clipboard en
+SSH}\label{clipboard---clipboard-en-ssh}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Copiar a clipboard}
+\BuiltInTok{echo} \StringTok{"texto"} \KeywordTok{|} \ExtensionTok{kitten}\NormalTok{ clipboard}
+
+\CommentTok{\# Pegar desde clipboard}
+\ExtensionTok{kitten}\NormalTok{ clipboard }\AttributeTok{{-}{-}get{-}clipboard}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{10. broadcast - Broadcast
+Input}\label{broadcast---broadcast-input}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Escribir en múltiples windows}
+\ExtensionTok{kitten}\NormalTok{ broadcast}
+
+\CommentTok{\# A windows específicas}
+\ExtensionTok{kitten}\NormalTok{ broadcast }\AttributeTok{{-}{-}match{-}tab} \StringTok{"title:server*"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{11. notify - Notificaciones}\label{notify---notificaciones}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enviar notificación}
+\ExtensionTok{kitten}\NormalTok{ notify }\StringTok{"Título"} \StringTok{"Mensaje"}
+
+\CommentTok{\# Con icono}
+\ExtensionTok{kitten}\NormalTok{ notify }\AttributeTok{{-}{-}icon}\NormalTok{ /path/icon.png }\StringTok{"Título"} \StringTok{"Mensaje"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{12. panel - Panel Desktop}\label{panel---panel-desktop}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear panel}
+\ExtensionTok{kitten}\NormalTok{ panel sh }\AttributeTok{{-}c} \StringTok{\textquotesingle{}while true; do date; sleep 1; done\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{13. @ (Remote Control)}\label{remote-control}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ver todos los comandos}
+\ExtensionTok{kitten}\NormalTok{ @ }\AttributeTok{{-}{-}help}
+
+\CommentTok{\# Listar windows}
+\ExtensionTok{kitten}\NormalTok{ @ ls}
+
+\CommentTok{\# Cambiar colores}
+\ExtensionTok{kitten}\NormalTok{ @ set{-}colors foreground=\#ffffff}
+
+\CommentTok{\# Ejecutar comando en window}
+\ExtensionTok{kitten}\NormalTok{ @ send{-}text }\AttributeTok{{-}{-}match} \StringTok{"title:vim"} \StringTok{":wq\textbackslash{}n"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Crear Kittens
+Personalizados}\label{crear-kittens-personalizados}
+
+\textbf{Estructura básica:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/usr/bin/env python3}
+\CommentTok{\# mi\_kitten.py}
+
+\ImportTok{from}\NormalTok{ kittens.tui.handler }\ImportTok{import}\NormalTok{ Handler}
+\ImportTok{from}\NormalTok{ kitty.key\_encoding }\ImportTok{import}\NormalTok{ KeyEvent}
+
+\KeywordTok{class}\NormalTok{ MyHandler(Handler):}
+    \KeywordTok{def}\NormalTok{ initialize(}\VariableTok{self}\NormalTok{):}
+        \VariableTok{self}\NormalTok{.}\BuiltInTok{print}\NormalTok{(}\StringTok{"¡Hola desde mi kitten!"}\NormalTok{)}
+    
+    \KeywordTok{def}\NormalTok{ on\_key(}\VariableTok{self}\NormalTok{, key\_event: KeyEvent):}
+        \ControlFlowTok{if}\NormalTok{ key\_event.key }\OperatorTok{==} \StringTok{\textquotesingle{}q\textquotesingle{}}\NormalTok{:}
+            \VariableTok{self}\NormalTok{.quit\_loop(}\DecValTok{0}\NormalTok{)}
+        \ControlFlowTok{return} \VariableTok{True}
+
+\KeywordTok{def}\NormalTok{ main(args):}
+\NormalTok{    handler }\OperatorTok{=}\NormalTok{ MyHandler()}
+\NormalTok{    handler.run()}
+
+\ControlFlowTok{if} \VariableTok{\_\_name\_\_} \OperatorTok{==} \StringTok{\textquotesingle{}\_\_main\_\_\textquotesingle{}}\NormalTok{:}
+    \ImportTok{import}\NormalTok{ sys}
+\NormalTok{    main(sys.argv[}\DecValTok{1}\NormalTok{:])}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Usar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{kitten}\NormalTok{ @ run{-}kitten /path/to/mi\_kitten.py}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Control Remoto}\label{control-remoto}
+
+\subsection{Habilitar Remote Control}\label{habilitar-remote-control}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# En kitty.conf}
+\DataTypeTok{allow\_remote\_control} \DataTypeTok{yes}
+
+\CommentTok{\# Socket Unix}
+\DataTypeTok{listen\_on} \DataTypeTok{unix}\ErrorTok{:/}\DataTypeTok{tmp}\ErrorTok{/}\DataTypeTok{kitty}
+
+\CommentTok{\# O TCP}
+\DataTypeTok{listen\_on} \DataTypeTok{tcp}\ErrorTok{:}\DataTypeTok{localhost}\ErrorTok{:}\DataTypeTok{12345}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Uso Básico}\label{uso-buxe1sico}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Listar windows}
+\ExtensionTok{kitty}\NormalTok{ @ ls}
+
+\CommentTok{\# Crear nueva window}
+\ExtensionTok{kitty}\NormalTok{ @ launch}
+
+\CommentTok{\# Cerrar window}
+\ExtensionTok{kitty}\NormalTok{ @ close{-}window}
+
+\CommentTok{\# Cambiar título}
+\ExtensionTok{kitty}\NormalTok{ @ set{-}window{-}title }\StringTok{"Nuevo Título"}
+
+\CommentTok{\# Enviar texto}
+\ExtensionTok{kitty}\NormalTok{ @ send{-}text }\StringTok{"echo hello\textbackslash{}n"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Comandos Principales}\label{comandos-principales}
+
+\textbf{Información:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{kitty}\NormalTok{ @ ls                    }\CommentTok{\# Listar todo}
+\ExtensionTok{kitty}\NormalTok{ @ get{-}colors            }\CommentTok{\# Ver colores actuales}
+\ExtensionTok{kitty}\NormalTok{ @ get{-}text              }\CommentTok{\# Obtener texto de window}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Crear/Cerrar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{kitty}\NormalTok{ @ launch                }\CommentTok{\# Nueva window}
+\ExtensionTok{kitty}\NormalTok{ @ launch }\AttributeTok{{-}{-}type}\OperatorTok{=}\NormalTok{tab     }\CommentTok{\# Nueva tab}
+\ExtensionTok{kitty}\NormalTok{ @ launch }\AttributeTok{{-}{-}type}\OperatorTok{=}\NormalTok{os{-}window  }\CommentTok{\# Nueva OS window}
+\ExtensionTok{kitty}\NormalTok{ @ close{-}window}
+\ExtensionTok{kitty}\NormalTok{ @ close{-}tab}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Modificar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{kitty}\NormalTok{ @ set{-}colors foreground=\#ff0000}
+\ExtensionTok{kitty}\NormalTok{ @ set{-}window{-}title }\StringTok{"Título"}
+\ExtensionTok{kitty}\NormalTok{ @ set{-}tab{-}title }\StringTok{"Tab"}
+\ExtensionTok{kitty}\NormalTok{ @ resize{-}window }\AttributeTok{{-}{-}increment}\NormalTok{ 10}
+\ExtensionTok{kitty}\NormalTok{ @ goto{-}layout tall}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Enviar Input:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{kitty}\NormalTok{ @ send{-}text }\StringTok{"texto"}
+\ExtensionTok{kitty}\NormalTok{ @ send{-}text }\AttributeTok{{-}{-}match} \StringTok{"title:vim"} \StringTok{":wq\textbackslash{}n"}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Focus:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{kitty}\NormalTok{ @ focus{-}window }\AttributeTok{{-}{-}match} \StringTok{"title:editor"}
+\ExtensionTok{kitty}\NormalTok{ @ focus{-}tab }\AttributeTok{{-}{-}match} \StringTok{"index:2"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Matching}\label{matching}
+
+Usar \texttt{-\/-match} para seleccionar windows/tabs:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Por título}
+\ExtensionTok{{-}{-}match} \StringTok{"title:editor"}
+
+\CommentTok{\# Por ID}
+\ExtensionTok{{-}{-}match} \StringTok{"id:42"}
+
+\CommentTok{\# Por estado}
+\ExtensionTok{{-}{-}match} \StringTok{"state:focused"}
+
+\CommentTok{\# Múltiples condiciones}
+\ExtensionTok{{-}{-}match} \StringTok{"title:vim and state:focused"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Remote Control desde
+Mapeos}\label{remote-control-desde-mapeos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear window con comando específico}
+\DataTypeTok{map} \DataTypeTok{f1} \DataTypeTok{remote\_control} \DataTypeTok{launch} \DataTypeTok{{-}{-}type}\OperatorTok{=}\DataTypeTok{tab} \DataTypeTok{vim}
+
+\CommentTok{\# Cambiar colores}
+\DataTypeTok{map} \DataTypeTok{f2} \DataTypeTok{remote\_control} \DataTypeTok{set{-}colors} \DataTypeTok{{-}{-}configured} \ErrorTok{\textasciitilde{}/}\DataTypeTok{colors.conf}
+
+\CommentTok{\# Broadcast}
+\DataTypeTok{map} \DataTypeTok{f3} \DataTypeTok{remote\_control} \DataTypeTok{send{-}text} \DataTypeTok{{-}{-}all} \DataTypeTok{"clear}\SpecialCharTok{\textbackslash{}n}\DataTypeTok{"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Remote Control via SSH}\label{remote-control-via-ssh}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Desde máquina remota}
+\BuiltInTok{export} \VariableTok{KITTY\_REMOTE\_CONTROL\_PASSWORD}\OperatorTok{=}\StringTok{"mi\_password"}
+\ExtensionTok{kitty}\NormalTok{ @ }\AttributeTok{{-}{-}password}\OperatorTok{=}\VariableTok{$KITTY\_REMOTE\_CONTROL\_PASSWORD}\NormalTok{ ls}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Con kitten ssh:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Automáticamente habilita remote control}
+\ExtensionTok{kitten}\NormalTok{ ssh servidor}
+
+\CommentTok{\# Desde el servidor}
+\ExtensionTok{kitty}\NormalTok{ @ ls  }\CommentTok{\# ¡Funciona!}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Sesiones}\label{sesiones}
+
+\subsection{¿Qué son las Sesiones?}\label{quuxe9-son-las-sesiones}
+
+Archivos que definen:
+
+\begin{itemize}
+\tightlist
+\item
+  Layout de tabs y windows
+\item
+  Directorio de trabajo
+\item
+  Comandos a ejecutar
+\item
+  Configuración específica
+\end{itemize}
+
+\subsection{Crear Sesión}\label{crear-sesiuxf3n}
+
+\textbf{Archivo de sesión:}
+
+\begin{verbatim}
+# mi_sesion.kitty
+
+# Nueva ventana
+new_window
+cd ~/proyectos/app
+launch vim
+
+# Nueva ventana
+new_window
+cd ~/proyectos/app
+launch
+
+# Nueva tab
+new_tab editor
+cd ~/proyectos/app
+layout tall
+launch vim src/main.py
+launch
+
+# Nueva tab con split
+new_tab servers
+launch ssh server1
+launch --location=hsplit ssh server2
+\end{verbatim}
+
+\subsection{Usar Sesión}\label{usar-sesiuxf3n}
+
+\textbf{Al iniciar kitty:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{kitty} \AttributeTok{{-}{-}session}\NormalTok{ mi\_sesion.kitty}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Desde configuración:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{startup\_session} \DataTypeTok{mi\_sesion.kitty}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Desde atajo:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{map} \DataTypeTok{f1} \DataTypeTok{launch} \DataTypeTok{{-}{-}type}\OperatorTok{=}\DataTypeTok{os{-}window} \DataTypeTok{{-}{-}session}\OperatorTok{=}\DataTypeTok{mi\_sesion.kitty}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Comandos de Sesión}\label{comandos-de-sesiuxf3n}
+
+\textbf{new\_tab:}
+
+\begin{verbatim}
+new_tab [nombre]
+cd /directorio
+layout tall
+launch comando
+\end{verbatim}
+
+\textbf{new\_window:}
+
+\begin{verbatim}
+new_window
+cd /directorio
+launch comando
+\end{verbatim}
+
+\textbf{launch:}
+
+\begin{verbatim}
+launch [--location=split] comando
+\end{verbatim}
+
+\textbf{cd:}
+
+\begin{verbatim}
+cd /ruta/absoluta
+cd ~/relativa
+\end{verbatim}
+
+\textbf{layout:}
+
+\begin{verbatim}
+layout tall
+layout stack
+layout splits
+\end{verbatim}
+
+\textbf{focus:}
+
+\begin{verbatim}
+focus
+\end{verbatim}
+
+\textbf{enabled\_layouts:}
+
+\begin{verbatim}
+enabled_layouts tall,stack,grid
+\end{verbatim}
+
+\subsection{Ejemplo Completo}\label{ejemplo-completo}
+
+\begin{verbatim}
+# Sesión de desarrollo web
+# ~/proyectos/web_dev.kitty
+
+# Tab principal - Editor
+new_tab Editor
+cd ~/proyectos/webapp
+layout tall:bias=70;full_size=1
+launch nvim .
+
+# Tab de servidores
+new_tab Servers
+cd ~/proyectos/webapp
+layout splits
+launch npm run dev
+launch --location=hsplit npm run tailwind
+
+# Tab de terminal
+new_tab Terminal
+cd ~/proyectos/webapp
+launch
+
+# Tab de git
+new_tab Git
+cd ~/proyectos/webapp
+launch lazygit
+
+# Focus en primera tab
+focus_tab 1
+\end{verbatim}
+
+\subsection{Guardar Sesión Actual}\label{guardar-sesiuxf3n-actual}
+
+Kitty no tiene comando built-in para guardar, pero puedes usar remote
+control:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Script para guardar sesión}
+\ExtensionTok{kitty}\NormalTok{ @ ls }\KeywordTok{|} \ExtensionTok{python3}\NormalTok{ crear\_sesion.py }\OperatorTok{\textgreater{}}\NormalTok{ sesion\_actual.kitty}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Switching Sessions}\label{switching-sessions}
+
+\textbf{Con goto\_session:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear/cambiar a sesión}
+\DataTypeTok{map} \DataTypeTok{f1} \DataTypeTok{goto\_session} \DataTypeTok{dev}
+\DataTypeTok{map} \DataTypeTok{f2} \DataTypeTok{goto\_session} \DataTypeTok{personal}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Cerrar sesión:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Cerrar todas las windows de una sesión}
+\DataTypeTok{map} \DataTypeTok{f3} \DataTypeTok{close\_session} \DataTypeTok{dev}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Integración con Shell}\label{integraciuxf3n-con-shell}
+
+\subsection{Shell Integration}\label{shell-integration}
+
+Kitty puede integrarse con bash, zsh y fish para:
+
+\begin{itemize}
+\tightlist
+\item
+  Saltar a prompts anteriores
+\item
+  Ver output de comandos
+\item
+  Tracking de directorios
+\item
+  Indicadores visuales
+\end{itemize}
+
+\subsection{Habilitar}\label{habilitar}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{shell\_integration} \DataTypeTok{enabled}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Deshabilitar características específicas:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Deshabilitar cursor shape en prompt}
+\DataTypeTok{shell\_integration} \DataTypeTok{no{-}cursor}
+
+\CommentTok{\# Deshabilitar título automático}
+\DataTypeTok{shell\_integration} \DataTypeTok{no{-}title}
+
+\CommentTok{\# Deshabilitar tracking de cwd}
+\DataTypeTok{shell\_integration} \DataTypeTok{no{-}cwd}
+
+\CommentTok{\# Deshabilitar prompt marks}
+\DataTypeTok{shell\_integration} \DataTypeTok{no{-}prompt{-}mark}
+
+\CommentTok{\# Deshabilitar completion}
+\DataTypeTok{shell\_integration} \DataTypeTok{no{-}complete}
+
+\CommentTok{\# Deshabilitar sudo}
+\DataTypeTok{shell\_integration} \DataTypeTok{no{-}sudo}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Configuración Manual}\label{configuraciuxf3n-manual}
+
+Si la integración automática no funciona:
+
+\textbf{Bash (\textasciitilde/.bashrc):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if} \KeywordTok{[[} \OtherTok{{-}n} \StringTok{"}\VariableTok{$KITTY\_INSTALLATION\_DIR}\StringTok{"} \KeywordTok{]];} \ControlFlowTok{then}
+    \BuiltInTok{export} \VariableTok{KITTY\_SHELL\_INTEGRATION}\OperatorTok{=}\StringTok{"enabled"}
+    \BuiltInTok{source} \StringTok{"}\VariableTok{$KITTY\_INSTALLATION\_DIR}\StringTok{/shell{-}integration/bash/kitty.bash"}
+\ControlFlowTok{fi}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Zsh (\textasciitilde/.zshrc):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if} \KeywordTok{[[} \OtherTok{{-}n} \StringTok{"}\VariableTok{$KITTY\_INSTALLATION\_DIR}\StringTok{"} \KeywordTok{]];} \ControlFlowTok{then}
+    \BuiltInTok{export} \VariableTok{KITTY\_SHELL\_INTEGRATION}\OperatorTok{=}\StringTok{"enabled"}
+    \BuiltInTok{source} \StringTok{"}\VariableTok{$KITTY\_INSTALLATION\_DIR}\StringTok{/shell{-}integration/zsh/kitty.zsh"}
+\ControlFlowTok{fi}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Fish (\textasciitilde/.config/fish/config.fish):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{if set {-}q KITTY\_INSTALLATION\_DIR}
+\NormalTok{    set {-}{-}global KITTY\_SHELL\_INTEGRATION enabled}
+\NormalTok{    source "$KITTY\_INSTALLATION\_DIR/shell{-}integration/fish/vendor\_conf.d/kitty{-}shell{-}integration.fish"}
+\NormalTok{    set {-}{-}prepend fish\_complete\_path "$KITTY\_INSTALLATION\_DIR/shell{-}integration/fish/vendor\_completions.d"}
+\NormalTok{end}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Características con Shell
+Integration}\label{caracteruxedsticas-con-shell-integration}
+
+\textbf{Saltar a prompts:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Ctrl+Shift+Z}  \CommentTok{\# Prompt anterior}
+\ExtensionTok{Ctrl+Shift+X}  \CommentTok{\# Prompt siguiente}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Ver output de comandos:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Ctrl+Shift+G}  \CommentTok{\# Ver último comando en pager}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Mouse:}
+
+\begin{itemize}
+\tightlist
+\item
+  Click en prompt para mover cursor
+\item
+  Right-click en comando para ver output
+\item
+  Click en error para copiar
+\end{itemize}
+
+\textbf{Indicadores visuales:}
+
+\begin{itemize}
+\tightlist
+\item
+  Marca en prompt
+\item
+  Color diferente para comandos exitosos/fallidos
+\end{itemize}
+
+\section{Marcas (Marks)}\label{marcas-marks}
+
+\subsection{¿Qué son las Marcas?}\label{quuxe9-son-las-marcas}
+
+Sistema para resaltar texto basado en regex.
+
+\subsection{Tipos de Marcas}\label{tipos-de-marcas}
+
+Hay 3 tipos (cada uno con color diferente):
+
+\begin{itemize}
+\tightlist
+\item
+  mark1 (light steel blue)
+\item
+  mark2 (beige)
+\item
+  mark3 (violet)
+\end{itemize}
+
+\subsection{Configurar Colores}\label{configurar-colores}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mark tipo 1}
+\DataTypeTok{mark1\_foreground} \DataTypeTok{black}
+\DataTypeTok{mark1\_background} \CommentTok{\#98d3cb}
+
+\CommentTok{\# Mark tipo 2}
+\DataTypeTok{mark2\_foreground} \DataTypeTok{black}
+\DataTypeTok{mark2\_background} \CommentTok{\#f2dcd3}
+
+\CommentTok{\# Mark tipo 3}
+\DataTypeTok{mark3\_foreground} \DataTypeTok{black}
+\DataTypeTok{mark3\_background} \CommentTok{\#f274bc}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Crear Marcas}\label{crear-marcas}
+
+\textbf{Con regex:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Marcar URLs}
+\DataTypeTok{map} \DataTypeTok{f1} \DataTypeTok{create\_marker} \DataTypeTok{text} \DataTypeTok{1} \DataTypeTok{https}\ErrorTok{?://}\KeywordTok{[}\ErrorTok{\^{}\textbackslash{}}\DataTypeTok{s}\ErrorTok{]+}
+
+\CommentTok{\# Marcar errores}
+\DataTypeTok{map} \DataTypeTok{f2} \DataTypeTok{create\_marker} \DataTypeTok{text} \DataTypeTok{1} \DataTypeTok{ERROR}\ErrorTok{|}\DataTypeTok{FATAL}
+
+\CommentTok{\# Marcar }\AlertTok{TODO}
+\DataTypeTok{map} \DataTypeTok{f3} \DataTypeTok{create\_marker} \DataTypeTok{text} \DataTypeTok{2} \DataTypeTok{TODO}\ErrorTok{|}\DataTypeTok{FIXME}\ErrorTok{|}\DataTypeTok{XXX}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Desde línea de comando:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Marcar palabra}
+\ExtensionTok{kitty}\NormalTok{ @ create{-}marker text 1 }\StringTok{"error"}
+
+\CommentTok{\# Marcar líneas que contengan}
+\ExtensionTok{kitty}\NormalTok{ @ create{-}marker iregex 1 }\StringTok{"\^{}error.*"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Usar Marcas}\label{usar-marcas}
+
+\textbf{Toggle:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{map} \DataTypeTok{f1} \DataTypeTok{toggle\_marker} \DataTypeTok{text} \DataTypeTok{1} \DataTypeTok{error}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Saltar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Siguiente marca}
+\DataTypeTok{map} \DataTypeTok{f2} \DataTypeTok{scroll\_to\_mark} \DataTypeTok{next} \DataTypeTok{1}
+
+\CommentTok{\# Anterior marca}
+\DataTypeTok{map} \DataTypeTok{f3} \DataTypeTok{scroll\_to\_mark} \DataTypeTok{prev} \DataTypeTok{1}
+
+\CommentTok{\# Cualquier tipo}
+\DataTypeTok{map} \DataTypeTok{f4} \DataTypeTok{scroll\_to\_mark} \DataTypeTok{next} \DataTypeTok{0}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Eliminar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{map} \DataTypeTok{f5} \DataTypeTok{remove\_marker}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Ejemplo Completo}\label{ejemplo-completo-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Marcar diferentes niveles de log}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{1} \DataTypeTok{create\_marker} \DataTypeTok{iregex} \DataTypeTok{1} \DataTypeTok{"\^{}.*ERROR.*$"}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{2} \DataTypeTok{create\_marker} \DataTypeTok{iregex} \DataTypeTok{2} \DataTypeTok{"\^{}.*WARNING.*$"}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{3} \DataTypeTok{create\_marker} \DataTypeTok{iregex} \DataTypeTok{3} \DataTypeTok{"\^{}.*INFO.*$"}
+
+\CommentTok{\# Navegar entre marcas}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{n} \DataTypeTok{scroll\_to\_mark} \DataTypeTok{next}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{p} \DataTypeTok{scroll\_to\_mark} \DataTypeTok{prev}
+
+\CommentTok{\# Toggle marcas}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{m} \DataTypeTok{toggle\_marker} \DataTypeTok{iregex} \DataTypeTok{1} \DataTypeTok{"\^{}.*ERROR.*$"}
+
+\CommentTok{\# Limpiar todas las marcas}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{c} \DataTypeTok{remove\_marker}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Características Avanzadas}\label{caracteruxedsticas-avanzadas}
+
+\subsection{Multiple Copy/Paste
+Buffers}\label{multiple-copypaste-buffers}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Definir buffer \textquotesingle{}a\textquotesingle{}}
+\DataTypeTok{map} \DataTypeTok{f1} \DataTypeTok{copy\_to\_buffer} \DataTypeTok{a}
+\DataTypeTok{map} \DataTypeTok{f2} \DataTypeTok{paste\_from\_buffer} \DataTypeTok{a}
+
+\CommentTok{\# Definir buffer \textquotesingle{}b\textquotesingle{}}
+\DataTypeTok{map} \DataTypeTok{f3} \DataTypeTok{copy\_to\_buffer} \DataTypeTok{b}
+\DataTypeTok{map} \DataTypeTok{f4} \DataTypeTok{paste\_from\_buffer} \DataTypeTok{b}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Keyboard Modes}\label{keyboard-modes}
+
+Modos de teclado para mapeos contextuales:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear modo}
+\DataTypeTok{map} \DataTypeTok{f1} \DataTypeTok{push\_keyboard\_mode} \DataTypeTok{resize}
+
+\CommentTok{\# En modo resize}
+\DataTypeTok{map} \DataTypeTok{{-}{-}mode} \DataTypeTok{resize} \DataTypeTok{h} \DataTypeTok{resize\_window} \DataTypeTok{narrower}
+\DataTypeTok{map} \DataTypeTok{{-}{-}mode} \DataTypeTok{resize} \DataTypeTok{l} \DataTypeTok{resize\_window} \DataTypeTok{wider}
+\DataTypeTok{map} \DataTypeTok{{-}{-}mode} \DataTypeTok{resize} \DataTypeTok{k} \DataTypeTok{resize\_window} \DataTypeTok{taller}
+\DataTypeTok{map} \DataTypeTok{{-}{-}mode} \DataTypeTok{resize} \DataTypeTok{j} \DataTypeTok{resize\_window} \DataTypeTok{shorter}
+\DataTypeTok{map} \DataTypeTok{{-}{-}mode} \DataTypeTok{resize} \DataTypeTok{esc} \DataTypeTok{pop\_keyboard\_mode}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Per-Application Mappings}\label{per-application-mappings}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Solo para vim}
+\DataTypeTok{map} \DataTypeTok{{-}{-}when{-}focus{-}on} \DataTypeTok{vim} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{j} \DataTypeTok{send\_text} \ErrorTok{\textbackslash{}}\DataTypeTok{x0a}
+
+\CommentTok{\# Solo para less}
+\DataTypeTok{map} \DataTypeTok{{-}{-}when{-}focus{-}on} \DataTypeTok{less} \DataTypeTok{j} \DataTypeTok{send\_text} \DataTypeTok{j}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Environment Variables}\label{environment-variables}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Establecer variables}
+\DataTypeTok{env} \DataTypeTok{VAR}\OperatorTok{=}\DataTypeTok{value}
+\DataTypeTok{env} \DataTypeTok{PATH}\OperatorTok{=}\ErrorTok{/}\DataTypeTok{custom}\ErrorTok{/}\DataTypeTok{path}\ErrorTok{:$\{}\DataTypeTok{PATH}\ErrorTok{\}}
+
+\CommentTok{\# Leer de shell}
+\DataTypeTok{env} \DataTypeTok{read\_from\_shell}\OperatorTok{=}\DataTypeTok{PATH} \DataTypeTok{LANG} \DataTypeTok{LC\_}\ErrorTok{*} \DataTypeTok{XDG\_}\ErrorTok{*}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Watchers}\label{watchers}
+
+Scripts Python que reaccionan a eventos:
+
+\textbf{\textasciitilde/.config/kitty/watchers.py:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ kitty.boss }\ImportTok{import}\NormalTok{ Boss}
+
+\KeywordTok{def}\NormalTok{ on\_focus\_change(boss: Boss, window, data):}
+    \ControlFlowTok{if}\NormalTok{ data[}\StringTok{\textquotesingle{}focused\textquotesingle{}}\NormalTok{]:}
+        \CommentTok{\# Window ganó focus}
+        \ControlFlowTok{pass}
+    \ControlFlowTok{else}\NormalTok{:}
+        \CommentTok{\# Window perdió focus}
+        \ControlFlowTok{pass}
+
+\KeywordTok{def}\NormalTok{ on\_close(boss: Boss, window, data):}
+    \CommentTok{\# Window está cerrándose}
+    \ControlFlowTok{pass}
+
+\KeywordTok{def}\NormalTok{ on\_resize(boss: Boss, window, data):}
+    \CommentTok{\# Window fue redimensionada}
+    \ControlFlowTok{pass}
+
+\KeywordTok{def}\NormalTok{ on\_title\_change(boss: Boss, window, data):}
+\NormalTok{    new\_title }\OperatorTok{=}\NormalTok{ data[}\StringTok{\textquotesingle{}title\textquotesingle{}}\NormalTok{]}
+    \CommentTok{\# Hacer algo con nuevo título}
+    \ControlFlowTok{pass}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Habilitar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{watcher} \ErrorTok{\textasciitilde{}/}\DataTypeTok{.config}\ErrorTok{/}\DataTypeTok{kitty}\ErrorTok{/}\DataTypeTok{watchers.py}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Filtros de Notificación}\label{filtros-de-notificaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Filtrar notificaciones por campo}
+\DataTypeTok{filter\_notification} \DataTypeTok{title}\ErrorTok{:}\DataTypeTok{hello} \DataTypeTok{or} \DataTypeTok{body}\ErrorTok{:}\DataTypeTok{"abc.*def"}
+\DataTypeTok{filter\_notification} \DataTypeTok{app}\ErrorTok{:}\DataTypeTok{"[ng]?vim"} \DataTypeTok{and} \DataTypeTok{not} \DataTypeTok{body}\ErrorTok{:}\DataTypeTok{"(?i)update"}
+
+\CommentTok{\# Filtrar todas}
+\DataTypeTok{filter\_notification} \DataTypeTok{all}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Allow Cloning}\label{allow-cloning}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Permitir clone{-}in{-}kitty}
+\DataTypeTok{allow\_cloning} \DataTypeTok{ask}
+\CommentTok{\# Opciones: yes, no, ask}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Notificaciones de Comando}\label{notificaciones-de-comando}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Notificar cuando comando termina}
+\DataTypeTok{notify\_on\_cmd\_finish} \DataTypeTok{unfocused} \DataTypeTok{10.0}
+
+\CommentTok{\# Con bell}
+\DataTypeTok{notify\_on\_cmd\_finish} \DataTypeTok{invisible} \DataTypeTok{10.0} \DataTypeTok{bell}
+
+\CommentTok{\# Con comando personalizado}
+\DataTypeTok{notify\_on\_cmd\_finish} \DataTypeTok{invisible} \DataTypeTok{10.0} \DataTypeTok{command} \DataTypeTok{notify{-}send} \DataTypeTok{"Done"} \DataTypeTok{"\%c"}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Optimización de
+Rendimiento}\label{optimizaciuxf3n-de-rendimiento}
+
+\subsection{Repaint Delay}\label{repaint-delay}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Delay entre actualizaciones (ms)}
+\DataTypeTok{repaint\_delay} \DataTypeTok{10}
+\CommentTok{\# Menor = más FPS pero más CPU}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Input Delay}\label{input-delay}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Delay antes de procesar input (ms)}
+\DataTypeTok{input\_delay} \DataTypeTok{3}
+\CommentTok{\# Menor = más responsive pero más CPU}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Sync to Monitor}\label{sync-to-monitor}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Sincronizar con refresh rate}
+\DataTypeTok{sync\_to\_monitor} \DataTypeTok{yes}
+\CommentTok{\# no = más FPS pero posible tearing}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Scrollback}\label{scrollback-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# No mantener scrollback enorme}
+\DataTypeTok{scrollback\_lines} \DataTypeTok{10000}
+
+\CommentTok{\# Usar scrollback\_pager\_history\_size}
+\DataTypeTok{scrollback\_pager\_history\_size} \DataTypeTok{10}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Text Composition}\label{text-composition}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Estrategia de composición}
+\DataTypeTok{text\_composition\_strategy} \DataTypeTok{platform}
+\CommentTok{\# platform, legacy, o números para ajuste fino}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{OpenGL}\label{opengl}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Verificar que usa GPU}
+\ExtensionTok{glxinfo} \KeywordTok{|} \FunctionTok{grep} \StringTok{"OpenGL renderer"}
+
+\CommentTok{\# Actualizar drivers GPU}
+\FunctionTok{sudo}\NormalTok{ apt update }\KeywordTok{\&\&} \FunctionTok{sudo}\NormalTok{ apt upgrade}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Trucos y Tips}\label{trucos-y-tips}
+
+\subsection{Cambiar Directorio del Shell al
+Salir}\label{cambiar-directorio-del-shell-al-salir}
+
+\textbf{Bash/Zsh:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Añadir a \textasciitilde{}/.bashrc o \textasciitilde{}/.zshrc}
+\BuiltInTok{alias}\NormalTok{ icat=}\StringTok{"kitten icat"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Previsualizar Imágenes}\label{previsualizar-imuxe1genes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# En ranger}
+\BuiltInTok{set}\NormalTok{ preview\_images true}
+\BuiltInTok{set}\NormalTok{ preview\_images\_method kitty}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Integración con Neovim}\label{integraciuxf3n-con-neovim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{{-}{-} En init.lua}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{opt}\OperatorTok{.}\VariableTok{termguicolors} \OperatorTok{=} \KeywordTok{true}
+
+\CommentTok{{-}{-} Copiar a clipboard de kitty}
+\VariableTok{vim}\OperatorTok{.}\VariableTok{keymap}\OperatorTok{.}\NormalTok{set}\OperatorTok{(}\StringTok{\textquotesingle{}v\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}\textless{}C{-}c\textgreater{}\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}"+y\textquotesingle{}}\OperatorTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{SSH con Túneles}\label{ssh-con-tuxfaneles}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Túnel reverso para remote control}
+\FunctionTok{ssh} \AttributeTok{{-}R}\NormalTok{ 52698:localhost:52698 servidor}
+
+\CommentTok{\# O con kitten ssh (automático)}
+\ExtensionTok{kitten}\NormalTok{ ssh servidor}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Diff de Directorios}\label{diff-de-directorios}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{kitten}\NormalTok{ diff dir1/ dir2/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Broadcast Input}\label{broadcast-input}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Escribir en múltiples servers}
+\ExtensionTok{kitten}\NormalTok{ broadcast }\AttributeTok{{-}{-}match{-}tab} \StringTok{"title:server*"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Quick Terminal
+(Quake-style)}\label{quick-terminal-quake-style}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear script kitty{-}quake.sh}
+\CommentTok{\#!/bin/bash}
+\DataTypeTok{kitty} \DataTypeTok{{-}{-}class}\OperatorTok{=}\DataTypeTok{kitty{-}quake} \DataTypeTok{{-}{-}name} \DataTypeTok{quake} \ErrorTok{\textbackslash{}}
+  \DataTypeTok{{-}o} \DataTypeTok{initial\_window\_width}\OperatorTok{=}\DecValTok{100}\DataTypeTok{c} \ErrorTok{\textbackslash{}}
+  \DataTypeTok{{-}o} \DataTypeTok{initial\_window\_height}\OperatorTok{=}\DecValTok{30}\DataTypeTok{c} \ErrorTok{\textbackslash{}}
+  \DataTypeTok{{-}o} \DataTypeTok{remember\_window\_size}\OperatorTok{=}\DataTypeTok{no}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Configurar en i3/sway:}
+
+\begin{verbatim}
+for_window [class="kitty-quake"] floating enable, move position center
+bindsym $mod+grave exec ~/.local/bin/kitty-quake.sh
+\end{verbatim}
+
+\subsection{8. URLs Personalizadas}\label{urls-personalizadas}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Abrir issues de GitHub}
+\DataTypeTok{map} \DataTypeTok{ctrl}\ErrorTok{+}\DataTypeTok{shift}\ErrorTok{+}\DataTypeTok{o} \DataTypeTok{kitten} \DataTypeTok{hints} \DataTypeTok{{-}{-}type}\OperatorTok{=}\DataTypeTok{url} \DataTypeTok{{-}{-}regex} \DataTypeTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\DataTypeTok{b[A{-}Z]+{-}}\SpecialCharTok{\textbackslash{}\textbackslash{}}\DataTypeTok{d+"} \DataTypeTok{{-}{-}program} \ErrorTok{@}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Layouts Personalizados}\label{layouts-personalizados}
+
+Crear \texttt{\textasciitilde{}/.config/kitty/layouts/my\_layout.py}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ kitty.layout }\ImportTok{import}\NormalTok{ Layout}
+
+\KeywordTok{class}\NormalTok{ MyLayout(Layout):}
+\NormalTok{    name }\OperatorTok{=} \StringTok{"my\_layout"}
+    
+    \KeywordTok{def}\NormalTok{ do\_layout(}\VariableTok{self}\NormalTok{, windows, active\_window\_idx):}
+        \CommentTok{\# Tu código de layout}
+        \ControlFlowTok{pass}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Themevar para Colores
+Dinámicos}\label{themevar-para-colores-dinuxe1micos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Variables de color}
+\DataTypeTok{env} \DataTypeTok{KITTY\_FG}\OperatorTok{=}\CommentTok{\#ffffff}
+\DataTypeTok{env} \DataTypeTok{KITTY\_BG}\OperatorTok{=}\CommentTok{\#000000}
+
+\CommentTok{\# Usar en config}
+\DataTypeTok{foreground} \ErrorTok{$\{}\DataTypeTok{KITTY\_FG}\ErrorTok{\}}
+\DataTypeTok{background} \ErrorTok{$\{}\DataTypeTok{KITTY\_BG}\ErrorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Solución de Problemas}\label{soluciuxf3n-de-problemas}
+
+\subsection{Problemas Comunes}\label{problemas-comunes}
+
+\subsection{Ligaduras No Funcionan}\label{ligaduras-no-funcionan}
+
+\textbf{Verificar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ver features de fuente}
+\ExtensionTok{fc{-}list}\NormalTok{ : family fontformat }\KeywordTok{|} \FunctionTok{grep} \AttributeTok{{-}i} \StringTok{"fira code"}
+
+\CommentTok{\# Verificar soporte}
+\ExtensionTok{kitty}\NormalTok{ +list{-}fonts }\AttributeTok{{-}{-}psnames} \KeywordTok{|} \FunctionTok{grep} \AttributeTok{{-}i} \StringTok{"fira"}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Solución:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Habilitar explícitamente}
+\DataTypeTok{disable\_ligatures} \DataTypeTok{never}
+
+\CommentTok{\# O instalar fuente con ligaduras}
+\DataTypeTok{sudo} \DataTypeTok{apt} \DataTypeTok{install} \DataTypeTok{fonts{-}firacode}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Colores Incorrectos}\label{colores-incorrectos}
+
+\textbf{Verificar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Verificar TERM}
+\BuiltInTok{echo} \VariableTok{$TERM}  \CommentTok{\# Debe ser xterm{-}kitty}
+
+\CommentTok{\# Test de colores}
+\ExtensionTok{kitty}\NormalTok{ +kitten themes}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Solución:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Forzar TERM}
+\DataTypeTok{term} \DataTypeTok{xterm{-}kitty}
+
+\CommentTok{\# O reinstalar terminfo}
+\DataTypeTok{kitty} \ErrorTok{+}\DataTypeTok{kitten} \DataTypeTok{terminfo}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Imágenes No se Muestran}\label{imuxe1genes-no-se-muestran}
+
+\textbf{Verificar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Test básico}
+\ExtensionTok{kitten}\NormalTok{ icat /path/to/image.png}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Solución:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Verificar OpenGL}
+\ExtensionTok{glxinfo} \KeywordTok{|} \FunctionTok{grep} \StringTok{"OpenGL"}
+
+\CommentTok{\# Actualizar drivers}
+\FunctionTok{sudo}\NormalTok{ apt update }\KeywordTok{\&\&} \FunctionTok{sudo}\NormalTok{ apt upgrade}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Performance Lento}\label{performance-lento}
+
+\textbf{Diagnóstico:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ver stats de rendimiento}
+\ExtensionTok{kitty} \AttributeTok{{-}{-}debug{-}rendering}
+
+\CommentTok{\# Ver FPS}
+\ExtensionTok{kitty} \AttributeTok{{-}{-}debug{-}gl}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Solución:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ajustar delays}
+\DataTypeTok{repaint\_delay} \DataTypeTok{10}
+\DataTypeTok{input\_delay} \DataTypeTok{3}
+
+\CommentTok{\# Reducir scrollback}
+\DataTypeTok{scrollback\_lines} \DataTypeTok{5000}
+
+\CommentTok{\# Deshabilitar features pesadas}
+\DataTypeTok{cursor\_blink\_interval} \DataTypeTok{0}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Remote Control No
+Funciona}\label{remote-control-no-funciona}
+
+\textbf{Verificar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ver si está escuchando}
+\FunctionTok{netstat} \AttributeTok{{-}an} \KeywordTok{|} \FunctionTok{grep}\NormalTok{ kitty}
+
+\CommentTok{\# O}
+\ExtensionTok{lsof} \AttributeTok{{-}i}\NormalTok{ :12345}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Solución:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Habilitar}
+\DataTypeTok{allow\_remote\_control} \DataTypeTok{yes}
+\DataTypeTok{listen\_on} \DataTypeTok{unix}\ErrorTok{:/}\DataTypeTok{tmp}\ErrorTok{/}\DataTypeTok{kitty}
+
+\CommentTok{\# Verificar permisos}
+\DataTypeTok{chmod} \DataTypeTok{600} \ErrorTok{/}\DataTypeTok{tmp}\ErrorTok{/}\DataTypeTok{kitty}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Fuentes Borrosas}\label{fuentes-borrosas}
+
+\textbf{Solución:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ajustar composition}
+\DataTypeTok{text\_composition\_strategy} \DataTypeTok{1.0} \DataTypeTok{0}
+
+\CommentTok{\# O en macOS}
+\DataTypeTok{text\_composition\_strategy} \DataTypeTok{1.7} \DataTypeTok{30}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Clipboard No Funciona}\label{clipboard-no-funciona}
+
+\textbf{Verificar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ver proveedores de clipboard}
+\ExtensionTok{xclip} \AttributeTok{{-}selection}\NormalTok{ clipboard }\AttributeTok{{-}o}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Solución:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Instalar xclip}
+\FunctionTok{sudo}\NormalTok{ apt install xclip}
+
+\CommentTok{\# O wl{-}clipboard para Wayland}
+\FunctionTok{sudo}\NormalTok{ apt install wl{-}clipboard}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Debugging}\label{debugging}
+
+\textbf{Modo verbose:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{kitty} \AttributeTok{{-}{-}debug{-}config}
+\ExtensionTok{kitty} \AttributeTok{{-}{-}debug{-}rendering}
+\ExtensionTok{kitty} \AttributeTok{{-}{-}debug{-}gl}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Ver logs:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Linux}
+\ExtensionTok{\textasciitilde{}/.local/state/kitty/log}
+
+\CommentTok{\# macOS}
+\ExtensionTok{\textasciitilde{}/Library/Logs/kitty}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Referencia Completa}\label{referencia-completa}
+
+\subsection{Archivos de
+Configuración}\label{archivos-de-configuraciuxf3n}
+
+\begin{verbatim}
+~/.config/kitty/
+├── kitty.conf              # Configuración principal
+├── current-theme.conf      # Tema actual (generado)
+├── diff.conf               # Config para kitty diff
+├── sessions/               # Archivos de sesión
+│   ├── dev.kitty
+│   └── personal.kitty
+├── layouts/                # Layouts personalizados
+│   └── my_layout.py
+└── watchers.py            # Watchers de eventos
+\end{verbatim}
+
+\subsection{Variables de Entorno}\label{variables-de-entorno}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{KITTY\_CONFIG\_DIRECTORY}    \CommentTok{\# Dir de config}
+\ExtensionTok{KITTY\_INSTALLATION\_DIR}    \CommentTok{\# Dir de instalación}
+\ExtensionTok{KITTY\_PID}                 \CommentTok{\# PID de kitty}
+\ExtensionTok{KITTY\_WINDOW\_ID}          \CommentTok{\# ID de window actual}
+\ExtensionTok{KITTY\_LISTEN\_ON}          \CommentTok{\# Socket de remote control}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Códigos de Escape
+Útiles}\label{cuxf3digos-de-escape-uxfatiles}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Cambiar título de window}
+\BuiltInTok{echo} \AttributeTok{{-}e} \StringTok{"\textbackslash{}033]2;Nuevo Título\textbackslash{}007"}
+
+\CommentTok{\# Cambiar color}
+\BuiltInTok{echo} \AttributeTok{{-}e} \StringTok{"\textbackslash{}033]11;\#ff0000\textbackslash{}007"}
+
+\CommentTok{\# Mostrar imagen}
+\BuiltInTok{echo} \AttributeTok{{-}e} \StringTok{"\textbackslash{}033]1337;File=inline=1:}\VariableTok{$(}\FunctionTok{base64}\NormalTok{ imagen.png}\VariableTok{)}\StringTok{\textbackslash{}007"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{API de Remote Control}\label{api-de-remote-control}
+
+\textbf{Endpoints principales:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{ls} - Listar windows/tabs
+\item
+  \texttt{launch} - Crear window/tab
+\item
+  \texttt{close-window} - Cerrar window
+\item
+  \texttt{close-tab} - Cerrar tab
+\item
+  \texttt{focus-window} - Enfocar window
+\item
+  \texttt{focus-tab} - Enfocar tab
+\item
+  \texttt{get-colors} - Obtener colores
+\item
+  \texttt{set-colors} - Cambiar colores
+\item
+  \texttt{get-text} - Obtener texto
+\item
+  \texttt{send-text} - Enviar texto
+\item
+  \texttt{resize-window} - Redimensionar
+\item
+  \texttt{set-window-title} - Cambiar título
+\item
+  \texttt{goto-layout} - Cambiar layout
+\end{itemize}
+
+\subsection{Comparison Chart}\label{comparison-chart}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule\noalign{}
+Característica & Kitty & Alacritty & iTerm2 & Wezterm \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+GPU Rendering & ✅ & ✅ & ✅ & ✅ \\
+Tabs & ✅ & ❌ & ✅ & ✅ \\
+Splits & ✅ & ❌ & ✅ & ✅ \\
+Imágenes & ✅ & ❌ & ✅ & ✅ \\
+Ligaduras & ✅ & ✅ & ✅ & ✅ \\
+Remote Control & ✅ & ❌ & ✅ & ✅ \\
+Extensiones & ✅ (kittens) & ❌ & ✅ & ✅ (lua) \\
+Cross-platform & ✅ & ✅ & ❌ & ✅ \\
+Config Language & conf & toml & GUI & lua \\
+Shell Integration & ✅ & ❌ & ✅ & ✅ \\
+\end{longtable}
+
+\section{Conclusión}\label{conclusiuxf3n}
+
+\subsection{Roadmap de Aprendizaje}\label{roadmap-de-aprendizaje}
+
+\textbf{Semana 1 - Básicos:}
+
+\begin{itemize}
+\tightlist
+\item
+  Instalar y configurar
+\item
+  Aprender atajos principales
+\item
+  Configurar fuentes y colores
+\end{itemize}
+
+\textbf{Semana 2 - Intermedio:}
+
+\begin{itemize}
+\tightlist
+\item
+  Dominar tabs y windows
+\item
+  Experimentar con layouts
+\item
+  Configurar shell integration
+\end{itemize}
+
+\textbf{Mes 1 - Avanzado:}
+
+\begin{itemize}
+\tightlist
+\item
+  Usar kittens
+\item
+  Remote control básico
+\item
+  Crear sesiones
+\end{itemize}
+
+\textbf{Mes 2+ - Experto:}
+
+\begin{itemize}
+\tightlist
+\item
+  Crear kittens propios
+\item
+  Watchers
+\item
+  Automatización completa
+\end{itemize}
+
+\subsection{Recursos}\label{recursos}
+
+\textbf{Documentación Oficial:}
+
+\begin{itemize}
+\tightlist
+\item
+  https://sw.kovidgoyal.net/kitty/
+\item
+  https://sw.kovidgoyal.net/kitty/conf/
+\end{itemize}
+
+\textbf{Comunidad:}
+
+\begin{itemize}
+\tightlist
+\item
+  GitHub: https://github.com/kovidgoyal/kitty
+\item
+  Discussions: https://github.com/kovidgoyal/kitty/discussions
+\item
+  Reddit: r/KittyTerminal
+\end{itemize}
+
+\textbf{Temas:}
+
+\begin{itemize}
+\tightlist
+\item
+  https://github.com/dexpota/kitty-themes
+\item
+  https://github.com/kdrag0n/base16-kitty
+\end{itemize}
+
+\textbf{Configs de Ejemplo:}
+
+\begin{itemize}
+\tightlist
+\item
+  https://github.com/search?q=kitty.conf
+\end{itemize}
+
+\subsection{Tips Finales}\label{tips-finales}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Empieza simple}: No copies configs complejas al inicio
+\item
+  \textbf{Experimenta}: Prueba diferentes layouts y kittens
+\item
+  \textbf{Lee la docs}: La documentación de kitty es excelente
+\item
+  \textbf{Usa kitten themes}: Para encontrar tu tema perfecto
+\item
+  \textbf{Aprovecha shell integration}: Hace la diferencia
+\item
+  \textbf{Explora kittens}: Son muy potentes
+\item
+  \textbf{Practica atajos}: La eficiencia viene de no usar el mouse
+\item
+  \textbf{Contribuye}: Reporta bugs, sugestiones, o crea kittens
+\end{enumerate}
+
+\section{Publicaciones Similares}\label{publicaciones-similares}
+
+Si te interesó este artículo, te recomendamos que explores otros blogs y
+recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo
+algunas sugerencias:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows}{Comandos
+  De Informacion Windows}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2019-06-19-adb/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2019-06-19-adb}{Adb}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc}{Limpieza
+  Y Optimizacion De Pc}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11}{Usando
+  Apk En Windown 11}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu}{Gestionar
+  Versiones De Jdk En Kubuntu}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser}{Instalar
+  Tor Browser}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux}{Crear
+  Enlaces Duros O Hard Link En Linux}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2022-09-27-comandos-vim/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2022-09-27-comandos-vim}{Comandos
+  Vim}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github}{Guia
+  De Git Y Github}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-05-02-00-primeros-pasos-en-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-05-02-00-primeros-pasos-en-linux}{00
+  Primeros Pasos En Linux}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-17-01-introduccion-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-17-01-introduccion-linux}{01
+  Introduccion Linux}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-18-02-distribuciones-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-18-02-distribuciones-linux}{02
+  Distribuciones Linux}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-19-03-instalacion-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-19-03-instalacion-linux}{03
+  Instalacion Linux}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-20-04-administracion-particiones-volumenes/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-20-04-administracion-particiones-volumenes}{04
+  Administracion Particiones Volumenes}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim}{Atajos
+  De Teclado Y Comandos Para Usar Vim}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify}{Instalando
+  Specitify}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow}{Gestiona
+  Tus Dotfiles Con Gnu Stow}
+\end{enumerate}
+
+Esperamos que encuentres estas publicaciones igualmente interesantes y
+útiles. ¡Disfruta de la lectura!
+
+
+
+
+
+
+\end{document}

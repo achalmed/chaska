@@ -2868,5 +2868,1874 @@
     "title": "Guía Completa de Ranger",
     "section": "Columnas",
     "text": "Columnas\n\nColumna Izquierda: Contenido del directorio padre\nColumna Central: Directorio actual (principal)\nColumna Derecha: Previsualización del archivo/directorio seleccionado"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "",
+    "text": "¿Qué es Kitty?\nKitty es un emulador de terminal moderno, rápido y rico en características, diseñado desde cero para aprovechar las GPUs modernas. Creado por Kovid Goyal, es conocido por:\nCaracterísticas Principales:\nPor Qué Usar Kitty\nVentajas sobre otros terminales:"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#requisitos-del-sistema",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#requisitos-del-sistema",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Requisitos del Sistema",
+    "text": "Requisitos del Sistema\nMínimos:\n\nOpenGL 3.3+\nLinux, macOS, o Windows (WSL)\nPython 3.6+\n\nRecomendados:\n\nGPU moderna con drivers actualizados\nMonitor de alta resolución (4K/Retina)\nFuente con ligaduras (FiraCode, JetBrains Mono)"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#linux",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#linux",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Linux",
+    "text": "Linux\nUbuntu/Debian:\nsudo apt install kitty\nArch Linux:\nsudo pacman -S kitty\nFedora:\nsudo dnf install kitty\nDesde binario oficial (recomendado):\ncurl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#macos",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#macos",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "macOS",
+    "text": "macOS\nHomebrew:\nbrew install --cask kitty\nDesde DMG:\nDescargar desde: https://github.com/kovidgoyal/kitty/releases"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#windows-wsl",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#windows-wsl",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Windows (WSL)",
+    "text": "Windows (WSL)\ncurl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#verificar-instalación",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#verificar-instalación",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Verificar Instalación",
+    "text": "Verificar Instalación\nkitty --version"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#instalación-de-dependencias-opcionales",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#instalación-de-dependencias-opcionales",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Instalación de Dependencias Opcionales",
+    "text": "Instalación de Dependencias Opcionales\n# Herramientas útiles para kittens\nsudo apt install imagemagick          # Procesamiento de imágenes\nsudo apt install bat                  # Mejor syntax highlighting\nsudo apt install fzf                  # Fuzzy finder\nsudo apt install ripgrep              # Búsqueda rápida"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#principios-de-diseño",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#principios-de-diseño",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Principios de Diseño",
+    "text": "Principios de Diseño\n\nVelocidad: GPU rendering para máximo rendimiento\nSimplicidad: Configuración en un solo archivo\nExtensibilidad: Kittens para añadir funcionalidad\nEstándares: Soporte completo de especificaciones modernas\nTeclado primero: Control total desde teclado"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#arquitectura",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#arquitectura",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Arquitectura",
+    "text": "Arquitectura\nComponentes principales:\n\nCore (C): Renderizado GPU, performance crítico\nUI (Python): Interfaz, configuración, extensibilidad\nKittens (Python/Go): Programas auxiliares\n\nStack tecnológico:\n\nOpenGL para renderizado\nHarfBuzz para text shaping\nFontConfig para gestión de fuentes\nlibunistring para Unicode"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#jerarquía-os-windows-tabs-windows",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#jerarquía-os-windows-tabs-windows",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Jerarquía: OS Windows > Tabs > Windows",
+    "text": "Jerarquía: OS Windows &gt; Tabs &gt; Windows\n┌─────────────────────────────────────┐\n│ OS Window (ventana del sistema)     │\n│ ┌───────────────────────────────┐   │\n│ │ Tab 1    Tab 2    Tab 3       │   │\n│ ├───────────────────────────────┤   │\n│ │ ┌──────────┬──────────┐       │   │\n│ │ │ Window 1 │ Window 2 │       │   │\n│ │ │          │          │       │   │\n│ │ └──────────┴──────────┘       │   │\n│ └───────────────────────────────┘   │\n└─────────────────────────────────────┘\nOS Window: Ventana del sistema operativo Tab: Pestaña dentro de un OS Window Window: Panel dentro de un Tab (como splits en tmux)"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#primer-uso",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#primer-uso",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Primer Uso",
+    "text": "Primer Uso\nAl abrir Kitty por primera vez:\n# Abrir Kitty\nkitty\n\n# Ver ayuda\nCtrl+Shift+F1\n\n# Editar configuración\nCtrl+Shift+F2\n\n# Recargar configuración\nCtrl+Shift+F5"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#ubicación-del-archivo",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#ubicación-del-archivo",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Ubicación del Archivo",
+    "text": "Ubicación del Archivo\nLinux/macOS: ~/.config/kitty/kitty.conf\nWindows: %LOCALAPPDATA%\\kitty\\kitty.conf"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#generar-configuración-por-defecto",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#generar-configuración-por-defecto",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Generar Configuración Por Defecto",
+    "text": "Generar Configuración Por Defecto\n# Generar con comentarios\nkitty +runpy 'from kitty.config import *; print(commented_out_default_config())'\n\n# O abrir para editar\nCtrl+Shift+F2"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#estructura-de-configuración",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#estructura-de-configuración",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Estructura de Configuración",
+    "text": "Estructura de Configuración\nSecciones principales:\n\nFuentes\nCursor\nScrollback\nMouse\nTerminal bell\nWindow layout\nTab bar\nColor scheme\nAdvanced\nOS tweaks\nKeyboard shortcuts"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#configuración-básica-recomendada",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#configuración-básica-recomendada",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Configuración Básica Recomendada",
+    "text": "Configuración Básica Recomendada\n# ==========================================\n# CONFIGURACIÓN BÁSICA DE KITTY\n# ==========================================\n\n# Fuentes\nfont_family      JetBrains Mono\nbold_font        auto\nitalic_font      auto\nbold_italic_font auto\nfont_size        12.0\n\n# Cursor\ncursor_shape block\ncursor_blink_interval 0\ncursor_stop_blinking_after 15.0\n\n# Scrollback\nscrollback_lines 10000\nscrollback_pager less --chop-long-lines --RAW-CONTROL-CHARS +INPUT_LINE_NUMBER\n\n# Mouse\nmouse_hide_wait 3.0\nurl_color #0087bd\nurl_style curly\nopen_url_with default\ndetect_urls yes\ncopy_on_select no\n\n# Ventanas\nremember_window_size  yes\ninitial_window_width  640\ninitial_window_height 400\nwindow_border_width 0.5pt\nwindow_margin_width 0\nwindow_padding_width 0\nactive_border_color #00ff00\ninactive_border_color #cccccc\n\n# Pestañas\ntab_bar_edge bottom\ntab_bar_style fade\ntab_bar_min_tabs 2\ntab_title_template \"{index}: {title}\"\n\n# Colores (Dracula theme)\nforeground #f8f8f2\nbackground #282a36\nselection_foreground #ffffff\nselection_background #44475a\n\n# Negro\ncolor0  #21222c\ncolor8  #6272a4\n\n# Rojo\ncolor1  #ff5555\ncolor9  #ff6e6e\n\n# Verde\ncolor2  #50fa7b\ncolor10 #69ff94\n\n# Amarillo\ncolor3  #f1fa8c\ncolor11 #ffffa5\n\n# Azul\ncolor4  #bd93f9\ncolor12 #d6acff\n\n# Magenta\ncolor5  #ff79c6\ncolor13 #ff92df\n\n# Cyan\ncolor6  #8be9fd\ncolor14 #a4ffff\n\n# Blanco\ncolor7  #f8f8f2\ncolor15 #ffffff\n\n# Rendimiento\nrepaint_delay 10\ninput_delay 3\nsync_to_monitor yes\n\n# Bell\nenable_audio_bell no\nvisual_bell_duration 0.0\nwindow_alert_on_bell yes\nbell_on_tab \"🔔 \"\n\n# Advanced\nshell .\neditor .\nallow_remote_control yes\nlisten_on unix:/tmp/kitty\nclipboard_control write-clipboard write-primary read-clipboard-ask read-primary-ask\n\n# OS Específico (macOS)\nmacos_titlebar_color system\nmacos_option_as_alt no\nmacos_hide_from_tasks no\nmacos_quit_when_last_window_closed no\n\n# Layouts habilitados\nenabled_layouts tall:bias=50;full_size=1,stack,fat:bias=50;full_size=1,grid,splits\n\n# ==========================================\n# MAPEOS DE TECLADO\n# ==========================================\n\n# Modificador principal\nkitty_mod ctrl+shift\n\n# Clipboard\nmap kitty_mod+c copy_to_clipboard\nmap kitty_mod+v paste_from_clipboard\nmap kitty_mod+s paste_from_selection\n\n# Scrolling\nmap kitty_mod+up scroll_line_up\nmap kitty_mod+down scroll_line_down\nmap kitty_mod+page_up scroll_page_up\nmap kitty_mod+page_down scroll_page_down\nmap kitty_mod+home scroll_home\nmap kitty_mod+end scroll_end\nmap kitty_mod+h show_scrollback\nmap kitty_mod+g show_last_command_output\n\n# Ventanas\nmap kitty_mod+enter new_window\nmap kitty_mod+n new_os_window\nmap kitty_mod+w close_window\nmap kitty_mod+] next_window\nmap kitty_mod+[ previous_window\nmap kitty_mod+f move_window_forward\nmap kitty_mod+b move_window_backward\nmap kitty_mod+` move_window_to_top\nmap kitty_mod+r start_resizing_window\nmap kitty_mod+1 first_window\nmap kitty_mod+2 second_window\nmap kitty_mod+3 third_window\nmap kitty_mod+4 fourth_window\nmap kitty_mod+5 fifth_window\n\n# Tabs\nmap kitty_mod+t new_tab\nmap kitty_mod+q close_tab\nmap kitty_mod+right next_tab\nmap kitty_mod+left previous_tab\nmap kitty_mod+. move_tab_forward\nmap kitty_mod+, move_tab_backward\nmap kitty_mod+alt+t set_tab_title\n\n# Layouts\nmap kitty_mod+l next_layout\n\n# Fuentes\nmap kitty_mod+equal change_font_size all +2.0\nmap kitty_mod+minus change_font_size all -2.0\nmap kitty_mod+backspace change_font_size all 0\n\n# Misc\nmap kitty_mod+f1 show_kitty_doc overview\nmap kitty_mod+f2 edit_config_file\nmap kitty_mod+f5 load_config_file\nmap kitty_mod+f6 debug_config\nmap kitty_mod+f11 toggle_fullscreen\nmap kitty_mod+f10 toggle_maximized\nmap kitty_mod+u kitten unicode_input\nmap kitty_mod+e open_url_with_hints\nmap kitty_mod+escape kitty_shell window\n\n# Opacidad de fondo\nmap kitty_mod+a&gt;m set_background_opacity +0.1\nmap kitty_mod+a&gt;l set_background_opacity -0.1\nmap kitty_mod+a&gt;1 set_background_opacity 1\nmap kitty_mod+a&gt;d set_background_opacity default\n\n# Reset terminal\nmap kitty_mod+delete clear_terminal reset active"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#configuración-avanzada",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#configuración-avanzada",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Configuración Avanzada",
+    "text": "Configuración Avanzada\nFuentes con fallbacks:\nfont_family      JetBrains Mono\n# Símbolos especiales\nsymbol_map U+E0A0-U+E0A3,U+E0C0-U+E0C7 PowerlineSymbols\n# Emojis\nsymbol_map U+1F300-U+1F9FF Noto Color Emoji\nLigaduras:\n# Habilitar ligaduras\ndisable_ligatures never\n# O solo cuando el cursor no está sobre ellas\n# disable_ligatures cursor\nModificar fuentes:\n# Ajustar posición del underline\nmodify_font underline_position 2\nmodify_font underline_thickness 150%\n# Ajustar tamaño de celda\nmodify_font cell_width 100%\nmodify_font cell_height 100%"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#modificador-principal",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#modificador-principal",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Modificador Principal",
+    "text": "Modificador Principal\nPor defecto kitty_mod = Ctrl+Shift\nEn macOS algunos también usan Cmd (⌘)"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#scrolling",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#scrolling",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Scrolling",
+    "text": "Scrolling\n\n\n\nAtajo\nAcción\n\n\n\n\nCtrl+Shift+Up\nScroll línea arriba\n\n\nCtrl+Shift+Down\nScroll línea abajo\n\n\nCtrl+Shift+Page Up\nScroll página arriba\n\n\nCtrl+Shift+Page Down\nScroll página abajo\n\n\nCtrl+Shift+Home\nIr al inicio\n\n\nCtrl+Shift+End\nIr al final\n\n\nCtrl+Shift+Z\nPrompt anterior (shell integration)\n\n\nCtrl+Shift+X\nPrompt siguiente (shell integration)\n\n\nCtrl+Shift+H\nVer scrollback en pager\n\n\nCtrl+Shift+G\nVer último comando (shell integration)\n\n\nCtrl+Shift+/\nBuscar en scrollback"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#tabs",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#tabs",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Tabs",
+    "text": "Tabs\n\n\n\nAtajo\nAcción\n\n\n\n\nCtrl+Shift+T\nNueva tab\n\n\nCtrl+Shift+Q\nCerrar tab\n\n\nCtrl+Shift+Right\nTab siguiente\n\n\nCtrl+Shift+Left\nTab anterior\n\n\nCtrl+Shift+.\nMover tab adelante\n\n\nCtrl+Shift+,\nMover tab atrás\n\n\nCtrl+Shift+Alt+T\nRenombrar tab\n\n\nCtrl+Alt+1...9\nIr a tab N"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#windows-ventanas-dentro-de-tabs",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#windows-ventanas-dentro-de-tabs",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Windows (Ventanas dentro de Tabs)",
+    "text": "Windows (Ventanas dentro de Tabs)\n\n\n\n\n\n\n\nAtajo\nAcción\n\n\n\n\nCtrl+Shift+Enter\nNueva window\n\n\nCtrl+Shift+N\nNueva OS window\n\n\nCtrl+Shift+W\nCerrar window\n\n\nCtrl+Shift+]\nWindow siguiente\n\n\nCtrl+Shift+[\nWindow anterior\n\n\nCtrl+Shift+F\nMover window adelante\n\n\nCtrl+Shift+B\nMover window atrás\n\n\nCtrl+Shift+`` `| Mover window al top | |Ctrl+Shift+R| Redimensionar window | |Ctrl+Shift+F7| Selección visual de window | |Ctrl+Shift+F8| Swap visual de window | |Ctrl+Shift+1…0`\nIr a window N"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#navegación-direccional",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#navegación-direccional",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Navegación Direccional",
+    "text": "Navegación Direccional\nConfigurar manualmente:\n# Navegar entre windows\nmap ctrl+left neighboring_window left\nmap ctrl+right neighboring_window right\nmap ctrl+up neighboring_window up\nmap ctrl+down neighboring_window down\n\n# Mover windows\nmap shift+left move_window right\nmap shift+right move_window left\nmap shift+up move_window down\nmap shift+down move_window up"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#layouts",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#layouts",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Layouts",
+    "text": "Layouts\n\n\n\nAtajo\nAcción\n\n\n\n\nCtrl+Shift+L\nSiguiente layout"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#clipboard",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#clipboard",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Clipboard",
+    "text": "Clipboard\n\n\n\nAtajo\nAcción\n\n\n\n\nCtrl+Shift+C\nCopiar\n\n\nCtrl+Shift+V\nPegar\n\n\nCtrl+Shift+S\nPegar de selección\n\n\nCtrl+Shift+O\nPasar selección a programa"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#fuentes",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#fuentes",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Fuentes",
+    "text": "Fuentes\n\n\n\nAtajo\nAcción\n\n\n\n\nCtrl+Shift+Equal\nAumentar tamaño\n\n\nCtrl+Shift+Minus\nDisminuir tamaño\n\n\nCtrl+Shift+Backspace\nReset tamaño"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#miscelánea",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#miscelánea",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Miscelánea",
+    "text": "Miscelánea\n\n\n\nAtajo\nAcción\n\n\n\n\nCtrl+Shift+F1\nMostrar ayuda\n\n\nCtrl+Shift+F2\nEditar config\n\n\nCtrl+Shift+F5\nRecargar config\n\n\nCtrl+Shift+F6\nDebug config\n\n\nCtrl+Shift+F11\nToggle fullscreen\n\n\nCtrl+Shift+F10\nToggle maximized\n\n\nCtrl+Shift+U\nInput Unicode\n\n\nCtrl+Shift+E\nOpen URL hints\n\n\nCtrl+Shift+Escape\nKitty shell\n\n\nCtrl+Shift+Delete\nReset terminal"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#atajos-en-macos",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#atajos-en-macos",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Atajos en macOS",
+    "text": "Atajos en macOS\nReemplazan algunos con Cmd (⌘):\n\n\n\nWindows/Linux\nmacOS\n\n\n\n\nCtrl+Shift+T\nCmd+T\n\n\nCtrl+Shift+W\nCmd+W\n\n\nCtrl+Shift+C\nCmd+C\n\n\nCtrl+Shift+V\nCmd+V\n\n\nCtrl+Shift+N\nCmd+N\n\n\nCtrl+Shift+F2\nCmd+,\n\n\nCtrl+Shift+F11\nCtrl+Cmd+F"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#concepto-de-multiplexación",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#concepto-de-multiplexación",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Concepto de Multiplexación",
+    "text": "Concepto de Multiplexación\nKitty tiene multiplexación nativa (sin necesidad de tmux):\nJerarquía:\nOS Window (kitty instance)\n  └── Tab 1\n      ├── Window 1\n      ├── Window 2\n      └── Window 3\n  └── Tab 2\n      └── Window 1"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#crear-ventanas-y-tabs",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#crear-ventanas-y-tabs",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Crear Ventanas y Tabs",
+    "text": "Crear Ventanas y Tabs\nNueva window:\n# Atajo\nCtrl+Shift+Enter\n\n# Comando\nkitty @ launch --type=window\n\n# Con directorio específico\nmap f1 launch --cwd=current\nNueva tab:\n# Atajo\nCtrl+Shift+T\n\n# Con programa\nmap f1 new_tab_with_cwd\nNueva OS window:\nCtrl+Shift+N"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#navegación",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#navegación",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Navegación",
+    "text": "Navegación\nEntre windows:\n# Direccional\nmap ctrl+left neighboring_window left\nmap ctrl+right neighboring_window right\nmap ctrl+up neighboring_window up\nmap ctrl+down neighboring_window down\n\n# Numérica\nmap ctrl+shift+1 first_window\nmap ctrl+shift+2 second_window\n# ...\nEntre tabs:\nmap ctrl+shift+right next_tab\nmap ctrl+shift+left previous_tab\nmap ctrl+alt+1 goto_tab 1"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#mover-windows-y-tabs",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#mover-windows-y-tabs",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Mover Windows y Tabs",
+    "text": "Mover Windows y Tabs\nMover windows:\nmap ctrl+shift+f move_window_forward\nmap ctrl+shift+b move_window_backward\nmap ctrl+shift+` move_window_to_top\n\n# Direccional\nmap shift+up move_window up\nmap shift+down move_window down\nmap shift+left move_window left\nmap shift+right move_window right\nMover tabs:\nmap ctrl+shift+. move_tab_forward\nmap ctrl+shift+, move_tab_backward"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#detach-separar",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#detach-separar",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Detach (Separar)",
+    "text": "Detach (Separar)\nDetach window:\n# A nueva OS window\nmap ctrl+f2 detach_window\n\n# A nueva tab\nmap ctrl+f3 detach_window new-tab\n\n# A tab anterior\nmap ctrl+f3 detach_window tab-prev\n\n# Preguntar destino\nmap ctrl+f4 detach_window ask\nDetach tab:\n# A nueva OS window\nmap ctrl+f2 detach_tab\n\n# Preguntar destino\nmap ctrl+f4 detach_tab ask"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#títulos-personalizados",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#títulos-personalizados",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Títulos Personalizados",
+    "text": "Títulos Personalizados\n# Renombrar tab\nmap ctrl+shift+alt+t set_tab_title\n\n# Renombrar window\nmap f1 set_window_title\n\n# Template de título\ntab_title_template \"{index}: {title}\""
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#layouts-disponibles",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#layouts-disponibles",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Layouts Disponibles",
+    "text": "Layouts Disponibles\nKitty tiene 7 layouts built-in:\n\nStack: Una window a la vez (maximizada)\nTall: Una o más windows full-height a la izquierda\nFat: Una o más windows full-width arriba\nGrid: Grid balanceado\nSplits: Arreglo arbitrario (como tmux)\nHorizontal: Todas las windows lado a lado\nVertical: Todas las windows una debajo de otra"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#stack-layout",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#stack-layout",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Stack Layout",
+    "text": "Stack Layout\n┌────────────────────────────┐\n│                            │\n│                            │\n│       Window Actual        │\n│       (maximizada)         │\n│                            │\n│                            │\n└────────────────────────────┘\nConfiguración:\nenabled_layouts stack"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#tall-layout",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#tall-layout",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Tall Layout",
+    "text": "Tall Layout\n┌──────────┬─────────────────┐\n│          │                 │\n│          │                 │\n│          ├─────────────────┤\n│  Full    │                 │\n│  Height  │                 │\n│          ├─────────────────┤\n│          │                 │\n│          │                 │\n└──────────┴─────────────────┘\nConfiguración:\nenabled_layouts tall:bias=50;full_size=1;mirrored=false\n\n# Opciones:\n# bias: 10-90 (split horizontal)\n# full_size: número de windows full-height\n# mirrored: true/false (full-height a la derecha)\nAcciones:\n# Aumentar/disminuir windows full-height\nmap ctrl+[ layout_action decrease_num_full_size_windows\nmap ctrl+] layout_action increase_num_full_size_windows\n\n# Toggle mirror\nmap ctrl+/ layout_action mirror toggle\n\n# Cambiar bias\nmap ctrl+. layout_action bias 50 62 70"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#fat-layout",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#fat-layout",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Fat Layout",
+    "text": "Fat Layout\n┌────────────────────────────┐\n│                            │\n│      Full Width            │\n│                            │\n├─────────┬─────────┬────────┤\n│         │         │        │\n│         │         │        │\n└─────────┴─────────┴────────┘\nConfiguración:\nenabled_layouts fat:bias=50;full_size=1;mirrored=false\nMismas acciones que Tall layout."
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#grid-layout",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#grid-layout",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Grid Layout",
+    "text": "Grid Layout\n┌────────┬────────┬────────┐\n│        │        │        │\n│        │        │        │\n├────────┼────────┼────────┤\n│        │        │        │\n│        │        │        │\n└────────┴────────┴────────┘\nConfiguración:\nenabled_layouts grid"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#splits-layout",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#splits-layout",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Splits Layout",
+    "text": "Splits Layout\nEl más flexible - como tmux/vim splits.\n┌──────────┬─────────────────┐\n│          │                 │\n│          │                 │\n│          ├────────┬────────┤\n│          │        │        │\n│          │        │        │\n│          ├────────┴────────┤\n│          │                 │\n│          │                 │\n└──────────┴─────────────────┘\nConfiguración:\nenabled_layouts splits:split_axis=horizontal\n# split_axis: horizontal, vertical, auto\nCrear splits:\n# Split horizontal\nmap f5 launch --location=hsplit\n\n# Split vertical\nmap f6 launch --location=vsplit\n\n# Split auto (horizontal si ancho, vertical si alto)\nmap f4 launch --location=split\n\n# Rotar split (horizontal &lt;-&gt; vertical)\nmap f7 layout_action rotate\n\n# Mover window\nmap shift+up move_window up\nmap shift+down move_window down\nmap shift+left move_window left\nmap shift+right move_window right\n\n# Mover window al borde\nmap ctrl+shift+up layout_action move_to_screen_edge top\nmap ctrl+shift+down layout_action move_to_screen_edge bottom\nmap ctrl+shift+left layout_action move_to_screen_edge left\nmap ctrl+shift+right layout_action move_to_screen_edge right\n\n# Bias del split\nmap ctrl+. layout_action bias 80"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#horizontal-y-vertical-layouts",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#horizontal-y-vertical-layouts",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Horizontal y Vertical Layouts",
+    "text": "Horizontal y Vertical Layouts\nHorizontal (lado a lado):\n┌────────┬────────┬────────┐\n│        │        │        │\n│        │        │        │\n│        │        │        │\n│        │        │        │\n└────────┴────────┴────────┘\nVertical (uno debajo del otro):\n┌────────────────────────────┐\n│                            │\n├────────────────────────────┤\n│                            │\n├────────────────────────────┤\n│                            │\n└────────────────────────────┘\nConfiguración:\nenabled_layouts horizontal,vertical"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#cambiar-entre-layouts",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#cambiar-entre-layouts",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Cambiar Entre Layouts",
+    "text": "Cambiar Entre Layouts\n# Siguiente layout\nmap ctrl+shift+l next_layout\n\n# Ir a layout específico\nmap ctrl+alt+t goto_layout tall\nmap ctrl+alt+s goto_layout stack\n\n# Toggle layout\nmap ctrl+alt+z toggle_layout stack"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#redimensionar-windows",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#redimensionar-windows",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Redimensionar Windows",
+    "text": "Redimensionar Windows\nModo interactivo:\nCtrl+Shift+R\n# Seguir instrucciones en pantalla\nAtajos directos:\nmap ctrl+left resize_window narrower\nmap ctrl+right resize_window wider\nmap ctrl+up resize_window taller\nmap ctrl+down resize_window shorter 3\nmap ctrl+home resize_window reset"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#configuración-básica",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#configuración-básica",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Configuración Básica",
+    "text": "Configuración Básica\nfont_family      JetBrains Mono\nbold_font        auto\nitalic_font      auto\nbold_italic_font auto\nfont_size        12.0"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#fuentes-recomendadas",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#fuentes-recomendadas",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Fuentes Recomendadas",
+    "text": "Fuentes Recomendadas\nCon ligaduras:\n\nJetBrains Mono\nFira Code\nCascadia Code\nVictor Mono\nIosevka\n\nMono clásicas:\n\nIBM Plex Mono\nSource Code Pro\nUbuntu Mono\nInconsolata"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#fuentes-con-powerline",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#fuentes-con-powerline",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Fuentes con Powerline",
+    "text": "Fuentes con Powerline\n# Método 1: Usar font con powerline incluido\nfont_family JetBrains Mono Nerd Font\n\n# Método 2: Symbol map\nfont_family JetBrains Mono\nsymbol_map U+E0A0-U+E0A3,U+E0C0-U+E0C7 PowerlineSymbols"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#symbol-maps",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#symbol-maps",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Symbol Maps",
+    "text": "Symbol Maps\nMapear rangos Unicode a fuentes específicas:\n# Powerline\nsymbol_map U+E0A0-U+E0A3,U+E0C0-U+E0C7 PowerlineSymbols\n\n# Emojis\nsymbol_map U+1F300-U+1F64F,U+1F680-U+1F6FF Noto Color Emoji\n\n# Math\nsymbol_map U+2200-U+22FF STIX Two Math"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#ligaduras",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#ligaduras",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Ligaduras",
+    "text": "Ligaduras\n# Siempre habilitadas\ndisable_ligatures never\n\n# Deshabilitadas cuando cursor está sobre ellas\ndisable_ligatures cursor\n\n# Siempre deshabilitadas\ndisable_ligatures always\nControlar por window:\nmap alt+1 disable_ligatures_in active always\nmap alt+2 disable_ligatures_in all never\nmap alt+3 disable_ligatures_in tab cursor"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#font-features",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#font-features",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Font Features",
+    "text": "Font Features\n# Habilitar features específicas\n# Ejemplo con Fira Code:\nfont_features FiraCode-Regular +zero +onum +ss01 +ss02\n\n# Deshabilitar ligatures pero mantener calt\nfont_features FiraCode-Regular -liga +calt"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#modificar-fuentes",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#modificar-fuentes",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Modificar Fuentes",
+    "text": "Modificar Fuentes\n# Ajustar underline\nmodify_font underline_position -2\nmodify_font underline_thickness 150%\n\n# Ajustar strikethrough\nmodify_font strikethrough_position 2px\n\n# Ajustar tamaño de celda\nmodify_font cell_width 80%\nmodify_font cell_height -2px\n\n# Ajustar baseline\nmodify_font baseline 3"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#kitten-para-elegir-fuentes",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#kitten-para-elegir-fuentes",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Kitten para Elegir Fuentes",
+    "text": "Kitten para Elegir Fuentes\n# UI interactiva para elegir fuentes\nkitten choose-fonts\n\n# Previsualizar todas las fuentes\nkitten choose-fonts --preview"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#estructura-de-colores",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#estructura-de-colores",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Estructura de Colores",
+    "text": "Estructura de Colores\n# Colores básicos\nforeground #foreground_color\nbackground #background_color\n\n# Selección\nselection_foreground #color\nselection_background #color\n\n# Cursor\ncursor #color\ncursor_text_color #color\n\n# Tabla de colores (16 básicos)\n# Negro\ncolor0  #color\ncolor8  #color\n\n# Rojo\ncolor1  #color\ncolor9  #color\n\n# Verde\ncolor2  #color\ncolor10 #color\n\n# Amarillo\ncolor3  #color\ncolor11 #color\n\n# Azul\ncolor4  #color\ncolor12 #color\n\n# Magenta\ncolor5  #color\ncolor13 #color\n\n# Cyan\ncolor6  #color\ncolor14 #color\n\n# Blanco\ncolor7  #color\ncolor15 #color\n\n# Colores extendidos (256 colores)\ncolor16 #color\ncolor17 #color\n# ... hasta color255"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#temas-populares",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#temas-populares",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Temas Populares",
+    "text": "Temas Populares\nDracula:\nforeground #f8f8f2\nbackground #282a36\nselection_foreground #ffffff\nselection_background #44475a\n\ncolor0  #21222c\ncolor8  #6272a4\ncolor1  #ff5555\ncolor9  #ff6e6e\ncolor2  #50fa7b\ncolor10 #69ff94\ncolor3  #f1fa8c\ncolor11 #ffffa5\ncolor4  #bd93f9\ncolor12 #d6acff\ncolor5  #ff79c6\ncolor13 #ff92df\ncolor6  #8be9fd\ncolor14 #a4ffff\ncolor7  #f8f8f2\ncolor15 #ffffff\nNord:\nforeground #d8dee9\nbackground #2e3440\n\ncolor0  #3b4252\ncolor8  #4c566a\ncolor1  #bf616a\ncolor9  #bf616a\ncolor2  #a3be8c\ncolor10 #a3be8c\ncolor3  #ebcb8b\ncolor11 #ebcb8b\ncolor4  #81a1c1\ncolor12 #81a1c1\ncolor5  #b48ead\ncolor13 #b48ead\ncolor6  #88c0d0\ncolor14 #8fbcbb\ncolor7  #e5e9f0\ncolor15 #eceff4\nGruvbox Dark:\nforeground #ebdbb2\nbackground #282828\n\ncolor0  #282828\ncolor8  #928374\ncolor1  #cc241d\ncolor9  #fb4934\ncolor2  #98971a\ncolor10 #b8bb26\ncolor3  #d79921\ncolor11 #fabd2f\ncolor4  #458588\ncolor12 #83a598\ncolor5  #b16286\ncolor13 #d3869b\ncolor6  #689d6a\ncolor14 #8ec07c\ncolor7  #a89984\ncolor15 #ebdbb2"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#kitten-themes",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#kitten-themes",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Kitten Themes",
+    "text": "Kitten Themes\n# Browser de temas interactivo\nkitten themes\n\n# Listar temas disponibles\nkitten themes --list\n\n# Aplicar tema específico\nkitten themes --reload-in=all Dracula"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#opacidad-y-blur",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#opacidad-y-blur",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Opacidad y Blur",
+    "text": "Opacidad y Blur\n# Opacidad del background\nbackground_opacity 0.9\n\n# Background blur (macOS y KDE)\nbackground_blur 20\n\n# Dynamic opacity (permite cambiar con atajos)\ndynamic_background_opacity yes\n\n# Cambiar opacidad con atajos\nmap ctrl+shift+a&gt;m set_background_opacity +0.1\nmap ctrl+shift+a&gt;l set_background_opacity -0.1\nmap ctrl+shift+a&gt;1 set_background_opacity 1\nmap ctrl+shift+a&gt;d set_background_opacity default"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#background-image",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#background-image",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Background Image",
+    "text": "Background Image\nbackground_image /path/to/image.png\nbackground_image_layout tiled\n# Opciones: tiled, mirror-tiled, scaled, clamped, centered, cscaled\nbackground_image_linear no\nbackground_tint 0.5"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#dim-text",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#dim-text",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Dim Text",
+    "text": "Dim Text\n# Atenuar texto con atributo DIM\ndim_opacity 0.4"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#cursor",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#cursor",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Cursor",
+    "text": "Cursor\nForma:\ncursor_shape block\n# Opciones: block, beam, underline\nForma cuando no enfocado:\ncursor_shape_unfocused hollow\n# Opciones: block, beam, underline, hollow, unchanged\nGrosor:\ncursor_beam_thickness 1.5\ncursor_underline_thickness 2.0\nBlink:\n# Intervalo de blink (segundos)\ncursor_blink_interval -1\n# -1 = usar default del sistema\n# 0 = deshabilitado\n# &gt;0 = intervalo personalizado\n\n# Parar blink después de inactividad\ncursor_stop_blinking_after 15.0\n\n# Animación de blink\ncursor_blink_interval 0.5 ease-in-out\nColor:\ncursor #cccccc\ncursor_text_color #111111\n# O usar: cursor_text_color background\nCursor Trail:\n# Animación de \"estela\" del cursor\ncursor_trail 5\ncursor_trail_decay 0.1 0.4\ncursor_trail_start_threshold 2\ncursor_trail_color #ff0000"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#scrollback",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#scrollback",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Scrollback",
+    "text": "Scrollback\nLíneas de historial:\nscrollback_lines 10000\n# -1 = infinito (no recomendado)\nPager:\nscrollback_pager less --chop-long-lines --RAW-CONTROL-CHARS +INPUT_LINE_NUMBER\n\n# Con neovim\nscrollback_pager nvim --cmd 'set eventignore=FileType' +'nnoremap q ZQ' +'call nvim_open_term(0, {})' +'set nomodified nolist' +'$' -\nScrollback Pager History:\n# Scrollback separado para pager (MB)\nscrollback_pager_history_size 10\nFill Window:\n# Llenar con scrollback al agrandar window\nscrollback_fill_enlarged_window no\nScroll Multiplier:\n# Mouse wheel\nwheel_scroll_multiplier 5.0\nwheel_scroll_min_lines 1\n\n# Touch\ntouch_scroll_multiplier 1.0"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#scrollbar",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#scrollbar",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Scrollbar",
+    "text": "Scrollbar\n# Cuándo mostrar scrollbar\nscrollbar scrolled\n# Opciones: scrolled, hovered, scrolled-and-hovered, always, never\n\n# Interactivo\nscrollbar_interactive yes\n\n# Jump on click\nscrollbar_jump_on_click yes\n\n# Ancho\nscrollbar_width 0.5\nscrollbar_hover_width 1\n\n# Opacidad\nscrollbar_handle_opacity 0.5\nscrollbar_track_opacity 0\n\n# Colores\nscrollbar_handle_color foreground\nscrollbar_track_color foreground"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#comportamiento-básico",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#comportamiento-básico",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Comportamiento Básico",
+    "text": "Comportamiento Básico\n# Ocultar cursor después de inactividad\nmouse_hide_wait 3.0\n# 0 = nunca\n# &lt;0 = ocultar inmediatamente al escribir\n\n# Focus follows mouse\nfocus_follows_mouse no"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#urls",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#urls",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "URLs",
+    "text": "URLs\n# Color y estilo de URLs\nurl_color #0087bd\nurl_style curly\n# Opciones: none, straight, double, curly, dotted, dashed\n\n# Programa para abrir URLs\nopen_url_with default\n\n# Prefijos detectados\nurl_prefixes file ftp ftps gemini git gopher http https irc ircs kitty mailto news sftp ssh\n\n# Detectar URLs\ndetect_urls yes\n\n# Mostrar target de hyperlinks\nshow_hyperlink_targets no\n\n# Underline de hyperlinks\nunderline_hyperlinks hover\n# Opciones: hover, always, never"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#selección",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#selección",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Selección",
+    "text": "Selección\n# Copiar al seleccionar\ncopy_on_select no\n# Opciones: no, clipboard, a1 (buffer personalizado)\n\n# Limpiar selección al perder clipboard\nclear_selection_on_clipboard_loss no\n\n# Caracteres de palabra\nselect_by_word_characters @-./_~?&=%+#\n\n# Intervalo de clicks\nclick_interval -1.0\n# -1 = usar default del sistema"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#pointer-shape",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#pointer-shape",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Pointer Shape",
+    "text": "Pointer Shape\n# Forma del cursor cuando programa agarra mouse\npointer_shape_when_grabbed arrow\n\n# Forma default\ndefault_pointer_shape beam\n\n# Forma al arrastrar\npointer_shape_when_dragging beam crosshair"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#mouse-actions",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#mouse-actions",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Mouse Actions",
+    "text": "Mouse Actions\nSintaxis:\nmouse_map button-name event-type modes action\nEjemplos:\n# Click en URL\nmouse_map left click ungrabbed mouse_handle_click selection link prompt\n\n# Pegar con middle click\nmouse_map middle release ungrabbed paste_from_selection\n\n# Seleccionar con left press\nmouse_map left press ungrabbed mouse_selection normal\n\n# Selección rectangular con Ctrl+Alt\nmouse_map ctrl+alt+left press ungrabbed mouse_selection rectangle\n\n# Seleccionar palabra con double click\nmouse_map left doublepress ungrabbed mouse_selection word\n\n# Seleccionar línea con triple click\nmouse_map left triplepress ungrabbed mouse_selection line\n\n# Extender selección con right press\nmouse_map right press ungrabbed mouse_selection extend\nClearar todos los mouse actions:\nclear_all_mouse_actions yes"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#qué-son-los-kittens",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#qué-son-los-kittens",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "¿Qué son los Kittens?",
+    "text": "¿Qué son los Kittens?\nProgramas auxiliares que extienden funcionalidad de kitty."
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#kittens-built-in",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#kittens-built-in",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Kittens Built-in",
+    "text": "Kittens Built-in"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#icat---imágenes-en-terminal",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#icat---imágenes-en-terminal",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "1. icat - Imágenes en Terminal",
+    "text": "1. icat - Imágenes en Terminal\n# Mostrar imagen\nkitten icat imagen.png\n\n# Con opciones\nkitten icat --align left imagen.png\nkitten icat --place 40x40@10x10 imagen.png\nEn kitty.conf:\nmap f1 launch --stdin-source=@screen_scrollback kitten icat"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#diff---diff-con-imágenes",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#diff---diff-con-imágenes",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "2. diff - Diff con Imágenes",
+    "text": "2. diff - Diff con Imágenes\n# Diff de archivos\nkitten diff archivo1.txt archivo2.txt\n\n# Con imágenes\nkitten diff imagen1.png imagen2.png\n\n# Diff de directorios\nkitten diff dir1/ dir2/\nConfigurar como git difftool:\ngit config --global diff.tool kitty\ngit config --global difftool.kitty.cmd 'kitten diff $LOCAL $REMOTE'"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#unicode_input---input-unicode",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#unicode_input---input-unicode",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "3. unicode_input - Input Unicode",
+    "text": "3. unicode_input - Input Unicode\n# Abrir selector Unicode\nCtrl+Shift+U\n\n# O\nkitten unicode_input"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#themes---cambiar-temas",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#themes---cambiar-temas",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "4. themes - Cambiar Temas",
+    "text": "4. themes - Cambiar Temas\n# Browser de temas\nkitten themes\n\n# Listar temas\nkitten themes --list\n\n# Cambiar tema\nkitten themes --reload-in=all Dracula"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#choose-fonts---elegir-fuentes",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#choose-fonts---elegir-fuentes",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "5. choose-fonts - Elegir Fuentes",
+    "text": "5. choose-fonts - Elegir Fuentes\n# UI para elegir fuentes\nkitten choose-fonts\n\n# Con preview\nkitten choose-fonts --preview"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#hints---selección-rápida",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#hints---selección-rápida",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "6. hints - Selección Rápida",
+    "text": "6. hints - Selección Rápida\n# Abrir URLs\nCtrl+Shift+E\n\n# O personalizado:\n# URLs\nkitten hints\n\n# Paths\nkitten hints --type path\n\n# Líneas\nkitten hints --type line\n\n# Palabras\nkitten hints --type word\n\n# Hashes (git)\nkitten hints --type hash\n\n# Números de línea\nkitten hints --type linenum\n\n# Hyperlinks\nkitten hints --type hyperlink\nConfiguración:\n# Abrir URL\nmap ctrl+shift+e open_url_with_hints\n\n# Insertar path\nmap ctrl+shift+p&gt;f kitten hints --type path --program -\n\n# Abrir path\nmap ctrl+shift+p&gt;shift+f kitten hints --type path\n\n# Insertar archivo (con chooser)\nmap ctrl+shift+p&gt;c kitten choose-files\n\n# Insertar directorio\nmap ctrl+shift+p&gt;d kitten choose-files --mode=dir\n\n# Insertar línea\nmap ctrl+shift+p&gt;l kitten hints --type line --program -\n\n# Insertar palabra\nmap ctrl+shift+p&gt;w kitten hints --type word --program -\n\n# Insertar hash\nmap ctrl+shift+p&gt;h kitten hints --type hash --program -\n\n# Abrir en editor\nmap ctrl+shift+p&gt;n kitten hints --type linenum\n\n# Abrir hyperlink\nmap ctrl+shift+p&gt;y kitten hints --type hyperlink"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#ssh---ssh-mejorado",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#ssh---ssh-mejorado",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "7. ssh - SSH Mejorado",
+    "text": "7. ssh - SSH Mejorado\n# SSH con shell integration\nkitten ssh usuario@servidor\n\n# Con forwarding\nkitten ssh -R 52698:localhost:52698 servidor\nVentajas: - Shell integration automática - Re-uso de conexiones - Clonación de config local - Transferencia de terminfo"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#transfer---transferencia-de-archivos",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#transfer---transferencia-de-archivos",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "8. transfer - Transferencia de Archivos",
+    "text": "8. transfer - Transferencia de Archivos\n# Upload archivo\nkitten transfer archivo.txt servidor:/ruta/\n\n# Download archivo\nkitten transfer servidor:/ruta/archivo.txt ./\n\n# Directorio completo\nkitten transfer --recursive directorio/ servidor:/ruta/"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#clipboard---clipboard-en-ssh",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#clipboard---clipboard-en-ssh",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "9. clipboard - Clipboard en SSH",
+    "text": "9. clipboard - Clipboard en SSH\n# Copiar a clipboard\necho \"texto\" | kitten clipboard\n\n# Pegar desde clipboard\nkitten clipboard --get-clipboard"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#broadcast---broadcast-input",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#broadcast---broadcast-input",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "10. broadcast - Broadcast Input",
+    "text": "10. broadcast - Broadcast Input\n# Escribir en múltiples windows\nkitten broadcast\n\n# A windows específicas\nkitten broadcast --match-tab \"title:server*\""
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#notify---notificaciones",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#notify---notificaciones",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "11. notify - Notificaciones",
+    "text": "11. notify - Notificaciones\n# Enviar notificación\nkitten notify \"Título\" \"Mensaje\"\n\n# Con icono\nkitten notify --icon /path/icon.png \"Título\" \"Mensaje\""
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#panel---panel-desktop",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#panel---panel-desktop",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "12. panel - Panel Desktop",
+    "text": "12. panel - Panel Desktop\n# Crear panel\nkitten panel sh -c 'while true; do date; sleep 1; done'"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#remote-control",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#remote-control",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "13. @ (Remote Control)",
+    "text": "13. @ (Remote Control)\n# Ver todos los comandos\nkitten @ --help\n\n# Listar windows\nkitten @ ls\n\n# Cambiar colores\nkitten @ set-colors foreground=#ffffff\n\n# Ejecutar comando en window\nkitten @ send-text --match \"title:vim\" \":wq\\n\""
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#crear-kittens-personalizados",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#crear-kittens-personalizados",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Crear Kittens Personalizados",
+    "text": "Crear Kittens Personalizados\nEstructura básica:\n#!/usr/bin/env python3\n# mi_kitten.py\n\nfrom kittens.tui.handler import Handler\nfrom kitty.key_encoding import KeyEvent\n\nclass MyHandler(Handler):\n    def initialize(self):\n        self.print(\"¡Hola desde mi kitten!\")\n    \n    def on_key(self, key_event: KeyEvent):\n        if key_event.key == 'q':\n            self.quit_loop(0)\n        return True\n\ndef main(args):\n    handler = MyHandler()\n    handler.run()\n\nif __name__ == '__main__':\n    import sys\n    main(sys.argv[1:])\nUsar:\nkitten @ run-kitten /path/to/mi_kitten.py"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#habilitar-remote-control",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#habilitar-remote-control",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Habilitar Remote Control",
+    "text": "Habilitar Remote Control\n# En kitty.conf\nallow_remote_control yes\n\n# Socket Unix\nlisten_on unix:/tmp/kitty\n\n# O TCP\nlisten_on tcp:localhost:12345"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#uso-básico",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#uso-básico",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Uso Básico",
+    "text": "Uso Básico\n# Listar windows\nkitty @ ls\n\n# Crear nueva window\nkitty @ launch\n\n# Cerrar window\nkitty @ close-window\n\n# Cambiar título\nkitty @ set-window-title \"Nuevo Título\"\n\n# Enviar texto\nkitty @ send-text \"echo hello\\n\""
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#comandos-principales",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#comandos-principales",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Comandos Principales",
+    "text": "Comandos Principales\nInformación:\nkitty @ ls                    # Listar todo\nkitty @ get-colors            # Ver colores actuales\nkitty @ get-text              # Obtener texto de window\nCrear/Cerrar:\nkitty @ launch                # Nueva window\nkitty @ launch --type=tab     # Nueva tab\nkitty @ launch --type=os-window  # Nueva OS window\nkitty @ close-window\nkitty @ close-tab\nModificar:\nkitty @ set-colors foreground=#ff0000\nkitty @ set-window-title \"Título\"\nkitty @ set-tab-title \"Tab\"\nkitty @ resize-window --increment 10\nkitty @ goto-layout tall\nEnviar Input:\nkitty @ send-text \"texto\"\nkitty @ send-text --match \"title:vim\" \":wq\\n\"\nFocus:\nkitty @ focus-window --match \"title:editor\"\nkitty @ focus-tab --match \"index:2\""
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#matching",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#matching",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Matching",
+    "text": "Matching\nUsar --match para seleccionar windows/tabs:\n# Por título\n--match \"title:editor\"\n\n# Por ID\n--match \"id:42\"\n\n# Por estado\n--match \"state:focused\"\n\n# Múltiples condiciones\n--match \"title:vim and state:focused\""
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#remote-control-desde-mapeos",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#remote-control-desde-mapeos",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Remote Control desde Mapeos",
+    "text": "Remote Control desde Mapeos\n# Crear window con comando específico\nmap f1 remote_control launch --type=tab vim\n\n# Cambiar colores\nmap f2 remote_control set-colors --configured ~/colors.conf\n\n# Broadcast\nmap f3 remote_control send-text --all \"clear\\n\""
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#remote-control-via-ssh",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#remote-control-via-ssh",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Remote Control via SSH",
+    "text": "Remote Control via SSH\n# Desde máquina remota\nexport KITTY_REMOTE_CONTROL_PASSWORD=\"mi_password\"\nkitty @ --password=$KITTY_REMOTE_CONTROL_PASSWORD ls\nCon kitten ssh:\n# Automáticamente habilita remote control\nkitten ssh servidor\n\n# Desde el servidor\nkitty @ ls  # ¡Funciona!"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#qué-son-las-sesiones",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#qué-son-las-sesiones",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "¿Qué son las Sesiones?",
+    "text": "¿Qué son las Sesiones?\nArchivos que definen:\n\nLayout de tabs y windows\nDirectorio de trabajo\nComandos a ejecutar\nConfiguración específica"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#crear-sesión",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#crear-sesión",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Crear Sesión",
+    "text": "Crear Sesión\nArchivo de sesión:\n# mi_sesion.kitty\n\n# Nueva ventana\nnew_window\ncd ~/proyectos/app\nlaunch vim\n\n# Nueva ventana\nnew_window\ncd ~/proyectos/app\nlaunch\n\n# Nueva tab\nnew_tab editor\ncd ~/proyectos/app\nlayout tall\nlaunch vim src/main.py\nlaunch\n\n# Nueva tab con split\nnew_tab servers\nlaunch ssh server1\nlaunch --location=hsplit ssh server2"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#usar-sesión",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#usar-sesión",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Usar Sesión",
+    "text": "Usar Sesión\nAl iniciar kitty:\nkitty --session mi_sesion.kitty\nDesde configuración:\nstartup_session mi_sesion.kitty\nDesde atajo:\nmap f1 launch --type=os-window --session=mi_sesion.kitty"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#comandos-de-sesión",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#comandos-de-sesión",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Comandos de Sesión",
+    "text": "Comandos de Sesión\nnew_tab:\nnew_tab [nombre]\ncd /directorio\nlayout tall\nlaunch comando\nnew_window:\nnew_window\ncd /directorio\nlaunch comando\nlaunch:\nlaunch [--location=split] comando\ncd:\ncd /ruta/absoluta\ncd ~/relativa\nlayout:\nlayout tall\nlayout stack\nlayout splits\nfocus:\nfocus\nenabled_layouts:\nenabled_layouts tall,stack,grid"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#ejemplo-completo",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#ejemplo-completo",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Ejemplo Completo",
+    "text": "Ejemplo Completo\n# Sesión de desarrollo web\n# ~/proyectos/web_dev.kitty\n\n# Tab principal - Editor\nnew_tab Editor\ncd ~/proyectos/webapp\nlayout tall:bias=70;full_size=1\nlaunch nvim .\n\n# Tab de servidores\nnew_tab Servers\ncd ~/proyectos/webapp\nlayout splits\nlaunch npm run dev\nlaunch --location=hsplit npm run tailwind\n\n# Tab de terminal\nnew_tab Terminal\ncd ~/proyectos/webapp\nlaunch\n\n# Tab de git\nnew_tab Git\ncd ~/proyectos/webapp\nlaunch lazygit\n\n# Focus en primera tab\nfocus_tab 1"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#guardar-sesión-actual",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#guardar-sesión-actual",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Guardar Sesión Actual",
+    "text": "Guardar Sesión Actual\nKitty no tiene comando built-in para guardar, pero puedes usar remote control:\n# Script para guardar sesión\nkitty @ ls | python3 crear_sesion.py &gt; sesion_actual.kitty"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#switching-sessions",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#switching-sessions",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Switching Sessions",
+    "text": "Switching Sessions\nCon goto_session:\n# Crear/cambiar a sesión\nmap f1 goto_session dev\nmap f2 goto_session personal\nCerrar sesión:\n# Cerrar todas las windows de una sesión\nmap f3 close_session dev"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#shell-integration",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#shell-integration",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Shell Integration",
+    "text": "Shell Integration\nKitty puede integrarse con bash, zsh y fish para:\n\nSaltar a prompts anteriores\nVer output de comandos\nTracking de directorios\nIndicadores visuales"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#habilitar",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#habilitar",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Habilitar",
+    "text": "Habilitar\nshell_integration enabled\nDeshabilitar características específicas:\n# Deshabilitar cursor shape en prompt\nshell_integration no-cursor\n\n# Deshabilitar título automático\nshell_integration no-title\n\n# Deshabilitar tracking de cwd\nshell_integration no-cwd\n\n# Deshabilitar prompt marks\nshell_integration no-prompt-mark\n\n# Deshabilitar completion\nshell_integration no-complete\n\n# Deshabilitar sudo\nshell_integration no-sudo"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#configuración-manual",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#configuración-manual",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Configuración Manual",
+    "text": "Configuración Manual\nSi la integración automática no funciona:\nBash (~/.bashrc):\nif [[ -n \"$KITTY_INSTALLATION_DIR\" ]]; then\n    export KITTY_SHELL_INTEGRATION=\"enabled\"\n    source \"$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash\"\nfi\nZsh (~/.zshrc):\nif [[ -n \"$KITTY_INSTALLATION_DIR\" ]]; then\n    export KITTY_SHELL_INTEGRATION=\"enabled\"\n    source \"$KITTY_INSTALLATION_DIR/shell-integration/zsh/kitty.zsh\"\nfi\nFish (~/.config/fish/config.fish):\nif set -q KITTY_INSTALLATION_DIR\n    set --global KITTY_SHELL_INTEGRATION enabled\n    source \"$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish\"\n    set --prepend fish_complete_path \"$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d\"\nend"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#características-con-shell-integration",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#características-con-shell-integration",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Características con Shell Integration",
+    "text": "Características con Shell Integration\nSaltar a prompts:\nCtrl+Shift+Z  # Prompt anterior\nCtrl+Shift+X  # Prompt siguiente\nVer output de comandos:\nCtrl+Shift+G  # Ver último comando en pager\nMouse:\n\nClick en prompt para mover cursor\nRight-click en comando para ver output\nClick en error para copiar\n\nIndicadores visuales:\n\nMarca en prompt\nColor diferente para comandos exitosos/fallidos"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#qué-son-las-marcas",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#qué-son-las-marcas",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "¿Qué son las Marcas?",
+    "text": "¿Qué son las Marcas?\nSistema para resaltar texto basado en regex."
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#tipos-de-marcas",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#tipos-de-marcas",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Tipos de Marcas",
+    "text": "Tipos de Marcas\nHay 3 tipos (cada uno con color diferente):\n\nmark1 (light steel blue)\nmark2 (beige)\nmark3 (violet)"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#configurar-colores",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#configurar-colores",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Configurar Colores",
+    "text": "Configurar Colores\n# Mark tipo 1\nmark1_foreground black\nmark1_background #98d3cb\n\n# Mark tipo 2\nmark2_foreground black\nmark2_background #f2dcd3\n\n# Mark tipo 3\nmark3_foreground black\nmark3_background #f274bc"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#crear-marcas",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#crear-marcas",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Crear Marcas",
+    "text": "Crear Marcas\nCon regex:\n# Marcar URLs\nmap f1 create_marker text 1 https?://[^\\s]+\n\n# Marcar errores\nmap f2 create_marker text 1 ERROR|FATAL\n\n# Marcar TODO\nmap f3 create_marker text 2 TODO|FIXME|XXX\nDesde línea de comando:\n# Marcar palabra\nkitty @ create-marker text 1 \"error\"\n\n# Marcar líneas que contengan\nkitty @ create-marker iregex 1 \"^error.*\""
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#usar-marcas",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#usar-marcas",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Usar Marcas",
+    "text": "Usar Marcas\nToggle:\nmap f1 toggle_marker text 1 error\nSaltar:\n# Siguiente marca\nmap f2 scroll_to_mark next 1\n\n# Anterior marca\nmap f3 scroll_to_mark prev 1\n\n# Cualquier tipo\nmap f4 scroll_to_mark next 0\nEliminar:\nmap f5 remove_marker"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#ejemplo-completo-1",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#ejemplo-completo-1",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Ejemplo Completo",
+    "text": "Ejemplo Completo\n# Marcar diferentes niveles de log\nmap ctrl+shift+1 create_marker iregex 1 \"^.*ERROR.*$\"\nmap ctrl+shift+2 create_marker iregex 2 \"^.*WARNING.*$\"\nmap ctrl+shift+3 create_marker iregex 3 \"^.*INFO.*$\"\n\n# Navegar entre marcas\nmap ctrl+shift+n scroll_to_mark next\nmap ctrl+shift+p scroll_to_mark prev\n\n# Toggle marcas\nmap ctrl+shift+m toggle_marker iregex 1 \"^.*ERROR.*$\"\n\n# Limpiar todas las marcas\nmap ctrl+shift+c remove_marker"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#multiple-copypaste-buffers",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#multiple-copypaste-buffers",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Multiple Copy/Paste Buffers",
+    "text": "Multiple Copy/Paste Buffers\n# Definir buffer 'a'\nmap f1 copy_to_buffer a\nmap f2 paste_from_buffer a\n\n# Definir buffer 'b'\nmap f3 copy_to_buffer b\nmap f4 paste_from_buffer b"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#keyboard-modes",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#keyboard-modes",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Keyboard Modes",
+    "text": "Keyboard Modes\nModos de teclado para mapeos contextuales:\n# Crear modo\nmap f1 push_keyboard_mode resize\n\n# En modo resize\nmap --mode resize h resize_window narrower\nmap --mode resize l resize_window wider\nmap --mode resize k resize_window taller\nmap --mode resize j resize_window shorter\nmap --mode resize esc pop_keyboard_mode"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#per-application-mappings",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#per-application-mappings",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Per-Application Mappings",
+    "text": "Per-Application Mappings\n# Solo para vim\nmap --when-focus-on vim ctrl+j send_text \\x0a\n\n# Solo para less\nmap --when-focus-on less j send_text j"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#environment-variables",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#environment-variables",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Environment Variables",
+    "text": "Environment Variables\n# Establecer variables\nenv VAR=value\nenv PATH=/custom/path:${PATH}\n\n# Leer de shell\nenv read_from_shell=PATH LANG LC_* XDG_*"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#watchers",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#watchers",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Watchers",
+    "text": "Watchers\nScripts Python que reaccionan a eventos:\n~/.config/kitty/watchers.py:\nfrom kitty.boss import Boss\n\ndef on_focus_change(boss: Boss, window, data):\n    if data['focused']:\n        # Window ganó focus\n        pass\n    else:\n        # Window perdió focus\n        pass\n\ndef on_close(boss: Boss, window, data):\n    # Window está cerrándose\n    pass\n\ndef on_resize(boss: Boss, window, data):\n    # Window fue redimensionada\n    pass\n\ndef on_title_change(boss: Boss, window, data):\n    new_title = data['title']\n    # Hacer algo con nuevo título\n    pass\nHabilitar:\nwatcher ~/.config/kitty/watchers.py"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#filtros-de-notificación",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#filtros-de-notificación",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Filtros de Notificación",
+    "text": "Filtros de Notificación\n# Filtrar notificaciones por campo\nfilter_notification title:hello or body:\"abc.*def\"\nfilter_notification app:\"[ng]?vim\" and not body:\"(?i)update\"\n\n# Filtrar todas\nfilter_notification all"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#allow-cloning",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#allow-cloning",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Allow Cloning",
+    "text": "Allow Cloning\n# Permitir clone-in-kitty\nallow_cloning ask\n# Opciones: yes, no, ask"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#notificaciones-de-comando",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#notificaciones-de-comando",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Notificaciones de Comando",
+    "text": "Notificaciones de Comando\n# Notificar cuando comando termina\nnotify_on_cmd_finish unfocused 10.0\n\n# Con bell\nnotify_on_cmd_finish invisible 10.0 bell\n\n# Con comando personalizado\nnotify_on_cmd_finish invisible 10.0 command notify-send \"Done\" \"%c\""
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#repaint-delay",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#repaint-delay",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Repaint Delay",
+    "text": "Repaint Delay\n# Delay entre actualizaciones (ms)\nrepaint_delay 10\n# Menor = más FPS pero más CPU"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#input-delay",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#input-delay",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Input Delay",
+    "text": "Input Delay\n# Delay antes de procesar input (ms)\ninput_delay 3\n# Menor = más responsive pero más CPU"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#sync-to-monitor",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#sync-to-monitor",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Sync to Monitor",
+    "text": "Sync to Monitor\n# Sincronizar con refresh rate\nsync_to_monitor yes\n# no = más FPS pero posible tearing"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#scrollback-1",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#scrollback-1",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Scrollback",
+    "text": "Scrollback\n# No mantener scrollback enorme\nscrollback_lines 10000\n\n# Usar scrollback_pager_history_size\nscrollback_pager_history_size 10"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#text-composition",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#text-composition",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Text Composition",
+    "text": "Text Composition\n# Estrategia de composición\ntext_composition_strategy platform\n# platform, legacy, o números para ajuste fino"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#opengl",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#opengl",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "OpenGL",
+    "text": "OpenGL\n# Verificar que usa GPU\nglxinfo | grep \"OpenGL renderer\"\n\n# Actualizar drivers GPU\nsudo apt update && sudo apt upgrade"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#cambiar-directorio-del-shell-al-salir",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#cambiar-directorio-del-shell-al-salir",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Cambiar Directorio del Shell al Salir",
+    "text": "Cambiar Directorio del Shell al Salir\nBash/Zsh:\n# Añadir a ~/.bashrc o ~/.zshrc\nalias icat=\"kitten icat\""
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#previsualizar-imágenes",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#previsualizar-imágenes",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Previsualizar Imágenes",
+    "text": "Previsualizar Imágenes\n# En ranger\nset preview_images true\nset preview_images_method kitty"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#integración-con-neovim",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#integración-con-neovim",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Integración con Neovim",
+    "text": "Integración con Neovim\n-- En init.lua\nvim.opt.termguicolors = true\n\n-- Copiar a clipboard de kitty\nvim.keymap.set('v', '&lt;C-c&gt;', '\"+y')"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#ssh-con-túneles",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#ssh-con-túneles",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "SSH con Túneles",
+    "text": "SSH con Túneles\n# Túnel reverso para remote control\nssh -R 52698:localhost:52698 servidor\n\n# O con kitten ssh (automático)\nkitten ssh servidor"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#diff-de-directorios",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#diff-de-directorios",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Diff de Directorios",
+    "text": "Diff de Directorios\nkitten diff dir1/ dir2/"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#broadcast-input",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#broadcast-input",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Broadcast Input",
+    "text": "Broadcast Input\n# Escribir en múltiples servers\nkitten broadcast --match-tab \"title:server*\""
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#quick-terminal-quake-style",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#quick-terminal-quake-style",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Quick Terminal (Quake-style)",
+    "text": "Quick Terminal (Quake-style)\n# Crear script kitty-quake.sh\n#!/bin/bash\nkitty --class=kitty-quake --name quake \\\n  -o initial_window_width=100c \\\n  -o initial_window_height=30c \\\n  -o remember_window_size=no\nConfigurar en i3/sway:\nfor_window [class=\"kitty-quake\"] floating enable, move position center\nbindsym $mod+grave exec ~/.local/bin/kitty-quake.sh"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#urls-personalizadas",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#urls-personalizadas",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "8. URLs Personalizadas",
+    "text": "8. URLs Personalizadas\n# Abrir issues de GitHub\nmap ctrl+shift+o kitten hints --type=url --regex \"\\\\b[A-Z]+-\\\\d+\" --program @"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#layouts-personalizados",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#layouts-personalizados",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Layouts Personalizados",
+    "text": "Layouts Personalizados\nCrear ~/.config/kitty/layouts/my_layout.py:\nfrom kitty.layout import Layout\n\nclass MyLayout(Layout):\n    name = \"my_layout\"\n    \n    def do_layout(self, windows, active_window_idx):\n        # Tu código de layout\n        pass"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#themevar-para-colores-dinámicos",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#themevar-para-colores-dinámicos",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Themevar para Colores Dinámicos",
+    "text": "Themevar para Colores Dinámicos\n# Variables de color\nenv KITTY_FG=#ffffff\nenv KITTY_BG=#000000\n\n# Usar en config\nforeground ${KITTY_FG}\nbackground ${KITTY_BG}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#problemas-comunes",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#problemas-comunes",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Problemas Comunes",
+    "text": "Problemas Comunes"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#ligaduras-no-funcionan",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#ligaduras-no-funcionan",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Ligaduras No Funcionan",
+    "text": "Ligaduras No Funcionan\nVerificar:\n# Ver features de fuente\nfc-list : family fontformat | grep -i \"fira code\"\n\n# Verificar soporte\nkitty +list-fonts --psnames | grep -i \"fira\"\nSolución:\n# Habilitar explícitamente\ndisable_ligatures never\n\n# O instalar fuente con ligaduras\nsudo apt install fonts-firacode"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#colores-incorrectos",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#colores-incorrectos",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Colores Incorrectos",
+    "text": "Colores Incorrectos\nVerificar:\n# Verificar TERM\necho $TERM  # Debe ser xterm-kitty\n\n# Test de colores\nkitty +kitten themes\nSolución:\n# Forzar TERM\nterm xterm-kitty\n\n# O reinstalar terminfo\nkitty +kitten terminfo"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#imágenes-no-se-muestran",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#imágenes-no-se-muestran",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Imágenes No se Muestran",
+    "text": "Imágenes No se Muestran\nVerificar:\n# Test básico\nkitten icat /path/to/image.png\nSolución:\n# Verificar OpenGL\nglxinfo | grep \"OpenGL\"\n\n# Actualizar drivers\nsudo apt update && sudo apt upgrade"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#performance-lento",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#performance-lento",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Performance Lento",
+    "text": "Performance Lento\nDiagnóstico:\n# Ver stats de rendimiento\nkitty --debug-rendering\n\n# Ver FPS\nkitty --debug-gl\nSolución:\n# Ajustar delays\nrepaint_delay 10\ninput_delay 3\n\n# Reducir scrollback\nscrollback_lines 5000\n\n# Deshabilitar features pesadas\ncursor_blink_interval 0"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#remote-control-no-funciona",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#remote-control-no-funciona",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Remote Control No Funciona",
+    "text": "Remote Control No Funciona\nVerificar:\n# Ver si está escuchando\nnetstat -an | grep kitty\n\n# O\nlsof -i :12345\nSolución:\n# Habilitar\nallow_remote_control yes\nlisten_on unix:/tmp/kitty\n\n# Verificar permisos\nchmod 600 /tmp/kitty"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#fuentes-borrosas",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#fuentes-borrosas",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Fuentes Borrosas",
+    "text": "Fuentes Borrosas\nSolución:\n# Ajustar composition\ntext_composition_strategy 1.0 0\n\n# O en macOS\ntext_composition_strategy 1.7 30"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#clipboard-no-funciona",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#clipboard-no-funciona",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Clipboard No Funciona",
+    "text": "Clipboard No Funciona\nVerificar:\n# Ver proveedores de clipboard\nxclip -selection clipboard -o\nSolución:\n# Instalar xclip\nsudo apt install xclip\n\n# O wl-clipboard para Wayland\nsudo apt install wl-clipboard"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#debugging",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#debugging",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Debugging",
+    "text": "Debugging\nModo verbose:\nkitty --debug-config\nkitty --debug-rendering\nkitty --debug-gl\nVer logs:\n# Linux\n~/.local/state/kitty/log\n\n# macOS\n~/Library/Logs/kitty"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#archivos-de-configuración",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#archivos-de-configuración",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Archivos de Configuración",
+    "text": "Archivos de Configuración\n~/.config/kitty/\n├── kitty.conf              # Configuración principal\n├── current-theme.conf      # Tema actual (generado)\n├── diff.conf               # Config para kitty diff\n├── sessions/               # Archivos de sesión\n│   ├── dev.kitty\n│   └── personal.kitty\n├── layouts/                # Layouts personalizados\n│   └── my_layout.py\n└── watchers.py            # Watchers de eventos"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#variables-de-entorno",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#variables-de-entorno",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Variables de Entorno",
+    "text": "Variables de Entorno\nKITTY_CONFIG_DIRECTORY    # Dir de config\nKITTY_INSTALLATION_DIR    # Dir de instalación\nKITTY_PID                 # PID de kitty\nKITTY_WINDOW_ID          # ID de window actual\nKITTY_LISTEN_ON          # Socket de remote control"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#códigos-de-escape-útiles",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#códigos-de-escape-útiles",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Códigos de Escape Útiles",
+    "text": "Códigos de Escape Útiles\n# Cambiar título de window\necho -e \"\\033]2;Nuevo Título\\007\"\n\n# Cambiar color\necho -e \"\\033]11;#ff0000\\007\"\n\n# Mostrar imagen\necho -e \"\\033]1337;File=inline=1:$(base64 imagen.png)\\007\""
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#api-de-remote-control",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#api-de-remote-control",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "API de Remote Control",
+    "text": "API de Remote Control\nEndpoints principales:\n\nls - Listar windows/tabs\nlaunch - Crear window/tab\nclose-window - Cerrar window\nclose-tab - Cerrar tab\nfocus-window - Enfocar window\nfocus-tab - Enfocar tab\nget-colors - Obtener colores\nset-colors - Cambiar colores\nget-text - Obtener texto\nsend-text - Enviar texto\nresize-window - Redimensionar\nset-window-title - Cambiar título\ngoto-layout - Cambiar layout"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#comparison-chart",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#comparison-chart",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Comparison Chart",
+    "text": "Comparison Chart\n\n\n\nCaracterística\nKitty\nAlacritty\niTerm2\nWezterm\n\n\n\n\nGPU Rendering\n✅\n✅\n✅\n✅\n\n\nTabs\n✅\n❌\n✅\n✅\n\n\nSplits\n✅\n❌\n✅\n✅\n\n\nImágenes\n✅\n❌\n✅\n✅\n\n\nLigaduras\n✅\n✅\n✅\n✅\n\n\nRemote Control\n✅\n❌\n✅\n✅\n\n\nExtensiones\n✅ (kittens)\n❌\n✅\n✅ (lua)\n\n\nCross-platform\n✅\n✅\n❌\n✅\n\n\nConfig Language\nconf\ntoml\nGUI\nlua\n\n\nShell Integration\n✅\n❌\n✅\n✅"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#roadmap-de-aprendizaje",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#roadmap-de-aprendizaje",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Roadmap de Aprendizaje",
+    "text": "Roadmap de Aprendizaje\nSemana 1 - Básicos:\n\nInstalar y configurar\nAprender atajos principales\nConfigurar fuentes y colores\n\nSemana 2 - Intermedio:\n\nDominar tabs y windows\nExperimentar con layouts\nConfigurar shell integration\n\nMes 1 - Avanzado:\n\nUsar kittens\nRemote control básico\nCrear sesiones\n\nMes 2+ - Experto:\n\nCrear kittens propios\nWatchers\nAutomatización completa"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#recursos",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#recursos",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Recursos",
+    "text": "Recursos\nDocumentación Oficial:\n\nhttps://sw.kovidgoyal.net/kitty/\nhttps://sw.kovidgoyal.net/kitty/conf/\n\nComunidad:\n\nGitHub: https://github.com/kovidgoyal/kitty\nDiscussions: https://github.com/kovidgoyal/kitty/discussions\nReddit: r/KittyTerminal\n\nTemas:\n\nhttps://github.com/dexpota/kitty-themes\nhttps://github.com/kdrag0n/base16-kitty\n\nConfigs de Ejemplo:\n\nhttps://github.com/search?q=kitty.conf"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#tips-finales",
+    "href": "operating-system/2025-12-31-guia-de-kitty-terminal/index.html#tips-finales",
+    "title": "Guía Completa de Kitty Terminal",
+    "section": "Tips Finales",
+    "text": "Tips Finales\n\nEmpieza simple: No copies configs complejas al inicio\nExperimenta: Prueba diferentes layouts y kittens\nLee la docs: La documentación de kitty es excelente\nUsa kitten themes: Para encontrar tu tema perfecto\nAprovecha shell integration: Hace la diferencia\nExplora kittens: Son muy potentes\nPractica atajos: La eficiencia viene de no usar el mouse\nContribuye: Reporta bugs, sugestiones, o crea kittens"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html",
+    "title": "Guía Completa de Positron IDE",
+    "section": "",
+    "text": "¿Qué es Positron?\nPositron es un IDE moderno y extensible para ciencia de datos construido sobre Code OSS (el núcleo open-source de VS Code). Desarrollado por Posit Software (anteriormente RStudio), está diseñado específicamente para flujos de trabajo de ciencia de datos.\nCaracterísticas Principales:\nPositron vs VS Code vs RStudio"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#requisitos-del-sistema",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#requisitos-del-sistema",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Requisitos del Sistema",
+    "text": "Requisitos del Sistema\nMínimos:\n\nSistema Operativo: Linux, macOS, Windows\nEspacio en disco: 500 MB\nRAM: 2 GB (4 GB recomendado)"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#linux-ubuntudebian",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#linux-ubuntudebian",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Linux (Ubuntu/Debian)",
+    "text": "Linux (Ubuntu/Debian)\n# Descargar desde el sitio oficial\n# https://github.com/posit-dev/positron/releases\n\n# O instalar desde .deb\nsudo dpkg -i positron_*.deb\nsudo apt-get install -f  # Instalar dependencias"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#macos",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#macos",
+    "title": "Guía Completa de Positron IDE",
+    "section": "macOS",
+    "text": "macOS\n# Descargar .dmg desde:\n# https://github.com/posit-dev/positron/releases\n\n# O con Homebrew\nbrew install --cask positron"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#windows",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#windows",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Windows",
+    "text": "Windows\n# Descargar instalador desde:\n# https://github.com/posit-dev/positron/releases\n\n# Ejecutar positron-setup.exe"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#verificar-instalación",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#verificar-instalación",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Verificar Instalación",
+    "text": "Verificar Instalación\n# Abrir Positron\npositron\n\n# O desde línea de comandos\npositron --version"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configurar-comando-en-terminal",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configurar-comando-en-terminal",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Configurar Comando en Terminal",
+    "text": "Configurar Comando en Terminal\nLinux/macOS:\n# Añadir a ~/.bashrc o ~/.zshrc\nexport PATH=\"$PATH:/path/to/positron/bin\"\n\n# O crear symlink\nsudo ln -s /path/to/positron/bin/positron /usr/local/bin/positron"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#importar-configuración",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#importar-configuración",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Importar Configuración",
+    "text": "Importar Configuración\nAutomáticamente al primer inicio:\n\nPositron te preguntará si quieres importar settings de VS Code\nClick en “Yes” para importar\nRevisa los settings importados\nGuarda los cambios\n\nManualmente:\nCommand Palette (Ctrl+Shift+P) → Preferences: Import Settings..."
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#diferencias-clave",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#diferencias-clave",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Diferencias Clave",
+    "text": "Diferencias Clave\nExtensiones:\n\nPositron usa Open VSX en lugar de VS Marketplace\nAlgunas extensiones pueden no estar disponibles\nPython y R son nativos (no necesitas ms-python.python)\n\nFeatures Nuevas:\n\nConsole: Reemplaza el terminal para código interactivo\nVariables Pane: Inspección de datos en vivo\nData Explorer: Visualización de dataframes\nPlots Pane: Gráficos integrados\nHelp Pane: Documentación contextual"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#extensiones-a-reemplazar",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#extensiones-a-reemplazar",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Extensiones a Reemplazar",
+    "text": "Extensiones a Reemplazar\n\n\n\nVS Code\nPositron\n\n\n\n\nms-python.python\nBuilt-in (nativo)\n\n\nREditorSupport.r\nBuilt-in (posit.air-vscode)\n\n\nJupyter\nBuilt-in\n\n\nGitLens\nInstalar desde Open VSX\n\n\nPrettier\nInstalar desde Open VSX"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#ubicación-de-archivos",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#ubicación-de-archivos",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Ubicación de Archivos",
+    "text": "Ubicación de Archivos\nLinux: ~/.config/Positron/User/settings.json\nmacOS: ~/Library/Application Support/Positron/User/settings.json\nWindows: %APPDATA%\\Positron\\User\\settings.json"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#abrir-settings",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#abrir-settings",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Abrir Settings",
+    "text": "Abrir Settings\nGUI:\nFile → Preferences → Settings (Ctrl+,)\nJSON:\nCommand Palette → Preferences: Open User Settings (JSON)"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configuración-básica-recomendada",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configuración-básica-recomendada",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Configuración Básica Recomendada",
+    "text": "Configuración Básica Recomendada\n{\n    // Editor\n    \"editor.fontSize\": 14,\n    \"editor.fontFamily\": \"'JetBrains Mono', 'Fira Code', 'Hack Nerd Font', monospace\",\n    \"editor.fontLigatures\": true,\n    \"editor.lineNumbers\": \"on\",\n    \"editor.minimap.enabled\": false,\n    \"editor.formatOnSave\": true,\n    \"editor.formatOnPaste\": true,\n    \"editor.cursorBlinking\": \"smooth\",\n    \"editor.cursorSmoothCaretAnimation\": \"on\",\n    \n    // Tema\n    \"workbench.colorTheme\": \"Default Positron Dark\",\n    \"workbench.iconTheme\": \"material-icon-theme\",\n    \n    // Terminal\n    \"terminal.integrated.fontFamily\": \"'Hack Nerd Font', monospace\",\n    \"terminal.integrated.fontSize\": 13,\n    \"terminal.integrated.defaultProfile.linux\": \"bash\",\n    \"terminal.integrated.copyOnSelection\": true,\n    \"terminal.integrated.cursorBlinking\": true,\n    \"terminal.integrated.inheritEnv\": false,\n    \n    // Git\n    \"git.enableSmartCommit\": true,\n    \"git.autofetch\": true,\n    \"git.confirmSync\": false,\n    \n    // Files\n    \"files.autoSave\": \"onFocusChange\",\n    \"files.associations\": {\n        \"*.qmd\": \"quarto\",\n        \"*.Rmd\": \"rmarkdown\",\n        \"renv.lock\": \"json\"\n    },\n    \n    // Quarto\n    \"quarto.visualEditor.spellingDictionary\": \"es_ES\",\n    \n    // Positron-specific\n    \"positron.assistant.enable\": true,\n    \"positron.assistant.showTokenUsage.enable\": true\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#layout-principal",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#layout-principal",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Layout Principal",
+    "text": "Layout Principal\n┌─────────────────────────────────────────────────────┐\n│ Title Bar                                           │\n├──────────────────┬──────────────────────────────────┤\n│                  │                                  │\n│  Activity Bar    │                                  │\n│  (left/bottom)   │       Editor Area                │\n│                  │                                  │\n│  - Explorer      │                                  │\n│  - Search        ├──────────────────────────────────┤\n│  - Source Ctrl   │                                  │\n│  - Run/Debug     │       Console / Terminal         │\n│  - Extensions    │                                  │\n│                  │                                  │\n├──────────────────┴──────────────────────────────────┤\n│  Status Bar                                         │\n└─────────────────────────────────────────────────────┘"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#panes-exclusivos-de-positron",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#panes-exclusivos-de-positron",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Panes Exclusivos de Positron",
+    "text": "Panes Exclusivos de Positron\nVariables Pane:\nMuestra todas las variables en el entorno actual\n- Nombre\n- Tipo\n- Valor/Tamaño\n- Preview\nData Explorer:\nVisualización interactiva de dataframes\n- Filtrado\n- Ordenamiento\n- Búsqueda\n- Exportación\nPlots Pane:\nVisualización de gráficos generados\n- Historial de plots\n- Zoom\n- Exportar\nHelp Pane:\nDocumentación contextual\n- Búsqueda integrada\n- Ejemplos\n- Argumentos de funciones\nConsole:\nShell interactivo para Python/R\n- Completado de código\n- Syntax highlighting\n- Integración con Variables/Plots"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#personalizar-layout",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#personalizar-layout",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Personalizar Layout",
+    "text": "Personalizar Layout\nActivity Bar Position:\n\"workbench.activityBar.location\": \"bottom\" // o \"top\", \"left\"\nSide Bar Position:\n\"workbench.sideBar.location\": \"right\" // o \"left\"\nCommand Palette Position:\nArrastrarlo a la posición deseada"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#atajos-específicos-de-positron",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#atajos-específicos-de-positron",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Atajos Específicos de Positron",
+    "text": "Atajos Específicos de Positron\n\n\n\nAtajo\nAcción\n\n\n\n\nCtrl+Enter\nEjecutar línea/selección en Console\n\n\nCtrl+Alt+Home\nEjecutar desde inicio hasta línea actual\n\n\nCtrl+Alt+End\nEjecutar desde línea actual hasta fin\n\n\nCtrl+Shift+0\nReiniciar intérprete\n\n\nCtrl+Shift+P\nEjecutar archivo completo en Console\n\n\nF1\nAyuda contextual\n\n\nCtrl+K, Ctrl+R\nAyuda contextual (alternativo)\n\n\nCtrl+K, F\nEnfocar Console\n\n\nCtrl+K, V\nEnfocar Variables pane\n\n\nCtrl+L\nLimpiar Console"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#atajos-generales-heredados-de-vs-code",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#atajos-generales-heredados-de-vs-code",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Atajos Generales (heredados de VS Code)",
+    "text": "Atajos Generales (heredados de VS Code)\nEditor:\n\n\n\nAtajo\nAcción\n\n\n\n\nCtrl+P\nQuick Open (buscar archivo)\n\n\nCtrl+Shift+P\nCommand Palette\n\n\nCtrl+,\nSettings\n\n\nCtrl+B\nToggle Sidebar\n\n\nCtrl+J\nToggle Panel\n\n\nCtrl+Shift+E\nExplorer\n\n\nCtrl+Shift+F\nSearch\n\n\nCtrl+Shift+G\nSource Control\n\n\nCtrl+Shift+D\nRun & Debug\n\n\nCtrl+Shift+X\nExtensions\n\n\n\nEdición:\n\n\n\nAtajo\nAcción\n\n\n\n\nCtrl+Space\nTrigger suggestions\n\n\nCtrl+Shift+K\nDelete line\n\n\nAlt+Up/Down\nMove line up/down\n\n\nShift+Alt+Up/Down\nCopy line up/down\n\n\nCtrl+/\nToggle comment\n\n\nCtrl+Shift+[\nFold region\n\n\nCtrl+Shift+]\nUnfold region\n\n\nCtrl+K Ctrl+0\nFold all\n\n\nCtrl+K Ctrl+J\nUnfold all\n\n\n\nNavegación:\n\n\n\nAtajo\nAcción\n\n\n\n\nCtrl+G\nGo to line\n\n\nCtrl+Shift+O\nGo to symbol\n\n\nCtrl+T\nShow all symbols\n\n\nF12\nGo to definition\n\n\nAlt+F12\nPeek definition\n\n\nShift+F12\nShow references\n\n\nCtrl+K F12\nOpen definition to side\n\n\n\nTerminal:\n\n\n\nAtajo\nAcción\n\n\n\n\nCtrl+`\nToggle terminal\n\n\nCtrl+Shift+`\nNew terminal\n\n\nCtrl+Shift+C\nCopy\n\n\nCtrl+Shift+V\nPaste"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#personalizar-atajos",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#personalizar-atajos",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Personalizar Atajos",
+    "text": "Personalizar Atajos\nAbrir configuración:\nCommand Palette → Preferences: Open Keyboard Shortcuts\nArchivo JSON:\nCommand Palette → Preferences: Open Keyboard Shortcuts (JSON)\nEjemplo de customización:\n[\n    {\n        \"key\": \"ctrl+shift+r\",\n        \"command\": \"workbench.action.executeCode.console\",\n        \"when\": \"editorTextFocus\",\n        \"args\": {\n            \"langId\": \"r\",\n            \"code\": \"reprex::reprex_selection()\",\n            \"focus\": true\n        }\n    },\n    {\n        \"key\": \"ctrl+alt+f\",\n        \"command\": \"workbench.action.formatDocument\"\n    },\n    {\n        \"key\": \"f2\",\n        \"command\": \"positron.dataExplorer.openDataExplorer\"\n    }\n]"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#settings.json-completo-base",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#settings.json-completo-base",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Settings.json Completo (Base)",
+    "text": "Settings.json Completo (Base)\n{\n    // ==========================================\n    // EDITOR\n    // ==========================================\n    \"editor.fontSize\": 13,\n    \"editor.fontFamily\": \"'JetBrains Mono', 'Fira Code', 'Hack Nerd Font', monospace\",\n    \"editor.fontLigatures\": true,\n    \"editor.lineNumbers\": \"on\",\n    \"editor.rulers\": [80, 120],\n    \"editor.wordWrap\": \"off\",\n    \"editor.minimap.enabled\": false,\n    \"editor.scrollbar.vertical\": \"auto\",\n    \"editor.scrollbar.horizontal\": \"hidden\",\n    \"editor.cursorBlinking\": \"smooth\",\n    \"editor.cursorSmoothCaretAnimation\": \"on\",\n    \"editor.cursorStyle\": \"line\",\n    \"editor.formatOnSave\": true,\n    \"editor.formatOnPaste\": true,\n    \"editor.formatOnType\": false,\n    \"editor.tabSize\": 4,\n    \"editor.insertSpaces\": true,\n    \"editor.detectIndentation\": true,\n    \"editor.renderWhitespace\": \"selection\",\n    \"editor.bracketPairColorization.enabled\": true,\n    \"editor.guides.bracketPairs\": true,\n    \"editor.linkedEditing\": true,\n    \"editor.suggest.preview\": true,\n    \"editor.inlineSuggest.enabled\": true,\n    \"editor.quickSuggestions\": {\n        \"other\": true,\n        \"comments\": false,\n        \"strings\": false\n    },\n    \n    // ==========================================\n    // WORKBENCH\n    // ==========================================\n    \"workbench.colorTheme\": \"Default Positron Dark\",\n    \"workbench.iconTheme\": \"material-icon-theme\",\n    \"workbench.productIconTheme\": \"Default\",\n    \"workbench.activityBar.location\": \"bottom\",\n    \"workbench.sideBar.location\": \"left\",\n    \"workbench.panel.defaultLocation\": \"bottom\",\n    \"workbench.statusBar.visible\": true,\n    \"workbench.editor.showTabs\": \"multiple\",\n    \"workbench.editor.tabSizing\": \"fit\",\n    \"workbench.editor.highlightModifiedTabs\": true,\n    \"workbench.editor.labelFormat\": \"short\",\n    \"workbench.editor.limit.enabled\": true,\n    \"workbench.editor.limit.value\": 10,\n    \"workbench.editor.empty.hint\": \"hidden\",\n    \"workbench.startupEditor\": \"none\",\n    \n    // ==========================================\n    // TERMINAL\n    // ==========================================\n    \"terminal.integrated.fontFamily\": \"'Hack Nerd Font', 'FiraCode Nerd Font', monospace\",\n    \"terminal.integrated.fontSize\": 12,\n    \"terminal.integrated.fontWeight\": \"normal\",\n    \"terminal.integrated.lineHeight\": 1.2,\n    \"terminal.integrated.cursorBlinking\": true,\n    \"terminal.integrated.cursorStyle\": \"line\",\n    \"terminal.integrated.defaultProfile.linux\": \"bash\",\n    \"terminal.integrated.copyOnSelection\": true,\n    \"terminal.integrated.inheritEnv\": false,\n    \"terminal.integrated.enablePersistentSessions\": false,\n    \"terminal.integrated.scrollback\": 10000,\n    \n    // ==========================================\n    // FILES\n    // ==========================================\n    \"files.autoSave\": \"onFocusChange\",\n    \"files.trimTrailingWhitespace\": true,\n    \"files.insertFinalNewline\": true,\n    \"files.trimFinalNewlines\": true,\n    \"files.associations\": {\n        \"*.qmd\": \"quarto\",\n        \"*.Rmd\": \"rmarkdown\",\n        \"*.renv.lock\": \"json\",\n        \"renv.lock\": \"json\",\n        \"*.ipynb\": \"jupyter-notebook\"\n    },\n    \"files.exclude\": {\n        \"**/.git\": true,\n        \"**/.DS_Store\": true,\n        \"**/__pycache__\": true,\n        \"**/.Rproj.user\": true,\n        \"**/.ipynb_checkpoints\": true,\n        \"**/node_modules\": true\n    },\n    \n    // ==========================================\n    // GIT\n    // ==========================================\n    \"git.enableSmartCommit\": true,\n    \"git.autofetch\": true,\n    \"git.confirmSync\": false,\n    \"git.openRepositoryInParentFolders\": \"always\",\n    \"git.suggestSmartCommit\": false,\n    \n    // ==========================================\n    // SEARCH\n    // ==========================================\n    \"search.exclude\": {\n        \"**/node_modules\": true,\n        \"**/bower_components\": true,\n        \"**/.git\": true,\n        \"**/__pycache__\": true,\n        \"**/.Rproj.user\": true,\n        \"**/.ipynb_checkpoints\": true\n    },\n    \n    // ==========================================\n    // DIFF EDITOR\n    // ==========================================\n    \"diffEditor.ignoreTrimWhitespace\": false,\n    \"diffEditor.renderSideBySide\": true,\n    \"diffEditor.wordWrap\": \"off\",\n    \"diffEditor.maxComputationTime\": 0,\n    \n    // ==========================================\n    // LANGUAGE-SPECIFIC\n    // ==========================================\n    \"[python]\": {\n        \"editor.defaultFormatter\": \"charliermarsh.ruff\",\n        \"editor.formatOnSave\": true,\n        \"editor.codeActionsOnSave\": {\n            \"source.organizeImports\": \"explicit\"\n        },\n        \"diffEditor.ignoreTrimWhitespace\": false\n    },\n    \"[r]\": {\n        \"editor.tabSize\": 2,\n        \"editor.insertSpaces\": true\n    },\n    \"[quarto]\": {\n        \"editor.defaultFormatter\": \"quarto.quarto\",\n        \"editor.wordWrap\": \"on\"\n    },\n    \"[markdown]\": {\n        \"editor.defaultFormatter\": \"esbenp.prettier-vscode\",\n        \"editor.wordWrap\": \"on\"\n    },\n    \"[yaml]\": {\n        \"editor.defaultFormatter\": \"quarto.quarto\",\n        \"editor.tabSize\": 2\n    },\n    \"[json]\": {\n        \"editor.defaultFormatter\": \"vscode.json-language-features\"\n    },\n    \n    // ==========================================\n    // QUARTO\n    // ==========================================\n    \"quarto.visualEditor.spellingDictionary\": \"es_ES\",\n    \"quarto.render.previewType\": \"internal\",\n    \n    // ==========================================\n    // POSITRON-SPECIFIC\n    // ==========================================\n    \"positron.assistant.enable\": true,\n    \"positron.assistant.alwaysEnableApplyInEditorAction\": true,\n    \"positron.assistant.alwaysIncludeCopilotTools\": true,\n    \"positron.assistant.showTokenUsage.enable\": true\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#prerequisitos",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#prerequisitos",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Prerequisitos",
+    "text": "Prerequisitos\nVersiones soportadas: Python 3.9 - 3.13\nGestores recomendados:\n\nuv (recomendado)\npyenv\nconda/mamba\nvenv"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#instalar-python",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#instalar-python",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Instalar Python",
+    "text": "Instalar Python\nCon uv (recomendado):\n# Instalar uv\ncurl -LsSf https://astral.sh/uv/install.sh | sh\n\n# Instalar Python\nuv python install 3.12\n\n# Ver versiones instaladas\nuv python list\nCon pyenv:\n# Instalar pyenv\ncurl https://pyenv.run | bash\n\n# Instalar Python\npyenv install 3.12.0\npyenv global 3.12.0\nCon conda:\n# Crear entorno\nconda create -n myenv python=3.12\nconda activate myenv"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configurar-python-en-positron",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configurar-python-en-positron",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Configurar Python en Positron",
+    "text": "Configurar Python en Positron\nSettings para Anaconda (tu caso):\n{\n    \"python.defaultInterpreterPath\": \"/home/achalmaedison/anaconda3/bin/python\",\n    \"python.condaPath\": \"/home/achalmaedison/anaconda3/bin/conda\",\n    \"python.terminal.activateEnvironment\": true,\n    \"python.terminal.activateEnvInCurrentTerminal\": true\n}\nIPython Kernel:\n{\n    // Usar IPython kernel empaquetado (recomendado)\n    \"python.useBundledIpykernel\": true,\n    \n    // O instalar manualmente\n    // python.useBundledIpykernel\": false\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#seleccionar-intérprete",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#seleccionar-intérprete",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Seleccionar Intérprete",
+    "text": "Seleccionar Intérprete\nCommand Palette:\nPython: Select Interpreter\nDesde Console: Click en el selector de intérprete en la esquina superior derecha"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#características-python",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#características-python",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Características Python",
+    "text": "Características Python\nCode Completion:\n\nIntelliSense (Jedi)\nType hints\nImport suggestions\n\nType Checking:\n\nPyright integrado\nConfiguración en pyrightconfig.json\n\nFormatting:\n\nRuff (recomendado)\nBlack\nautopep8\n\nLinting:\n\nRuff\nPylint\nFlake8"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configuración-python-avanzada",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configuración-python-avanzada",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Configuración Python Avanzada",
+    "text": "Configuración Python Avanzada\n{\n    // Intérprete\n    \"python.defaultInterpreterPath\": \"/path/to/python\",\n    \n    // IPython\n    \"python.useBundledIpykernel\": true,\n    \"python.enableAutoReload\": true,\n    \n    // Formatting\n    \"python.formatting.provider\": \"none\",\n    \"[python]\": {\n        \"editor.defaultFormatter\": \"charliermarsh.ruff\",\n        \"editor.formatOnSave\": true,\n        \"editor.codeActionsOnSave\": {\n            \"source.organizeImports\": \"explicit\",\n            \"source.fixAll\": \"explicit\"\n        }\n    },\n    \n    // Linting\n    \"python.linting.enabled\": true,\n    \"python.linting.ruffEnabled\": true,\n    \n    // Terminal\n    \"python.terminal.activateEnvironment\": true,\n    \"python.terminal.activateEnvInCurrentTerminal\": true\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#paquetes-esenciales",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#paquetes-esenciales",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Paquetes Esenciales",
+    "text": "Paquetes Esenciales\n# Data Science\npip install numpy pandas matplotlib seaborn scikit-learn\n\n# Jupyter\npip install ipykernel jupyter\n\n# Development\npip install ruff black isort mypy pytest\n\n# Para Positron Console\npip install ipython"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#prerequisitos-1",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#prerequisitos-1",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Prerequisitos",
+    "text": "Prerequisitos\nVersión requerida: R 4.2 o superior"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#instalar-r",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#instalar-r",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Instalar R",
+    "text": "Instalar R\nLinux:\n# Ubuntu/Debian\nsudo apt install r-base r-base-dev\n\n# O desde CRAN\n# https://cloud.r-project.org/\nmacOS:\n# Con Homebrew\nbrew install r\n\n# O descargar desde CRAN\n# https://cloud.r-project.org/\nCon rig (múltiples versiones):\n# Instalar rig\ncurl -Ls https://github.com/r-lib/rig/releases/latest/download/rig-linux-latest.tar.gz | sudo tar xz -C /usr/local\n\n# Instalar R\nrig add release\nrig add devel\n\n# Cambiar versión\nrig default 4.3"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#paquetes-r-esenciales-para-positron",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#paquetes-r-esenciales-para-positron",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Paquetes R Esenciales para Positron",
+    "text": "Paquetes R Esenciales para Positron\n# Paquetes core\ninstall.packages(c(\n    \"usethis\", \n    \"cli\", \n    \"crayon\", \n    \"rlang\", \n    \"roxygen2\", \n    \"pkgload\"\n))\n\n# Con pak (recomendado)\npak::pak(c(\n    \"usethis\", \n    \"cli\", \n    \"crayon\", \n    \"rlang\", \n    \"roxygen2\", \n    \"pkgload\"\n))\n\n# Tidyverse\ninstall.packages(\"tidyverse\")\n\n# Desarrollo\ninstall.packages(c(\n    \"devtools\",\n    \"testthat\",\n    \"lintr\",\n    \"styler\"\n))"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configurar-r-en-positron",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configurar-r-en-positron",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Configurar R en Positron",
+    "text": "Configurar R en Positron\nSeleccionar intérprete R:\nCommand Palette → R: Select Interpreter\nSettings:\n{\n    \"r.alwaysUseActiveTerminal\": true,\n    \"r.bracketedPaste\": true,\n    \"r.plot.useHttpgd\": true\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#irkernel",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#irkernel",
+    "title": "Guía Completa de Positron IDE",
+    "section": "IRKernel",
+    "text": "IRKernel\nPositron maneja IRKernel automáticamente. Si necesitas configurarlo manualmente:\n# Instalar IRKernel\ninstall.packages('IRkernel')\n\n# Registrar con Jupyter\nIRkernel::installspec(user = TRUE)"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#características-r",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#características-r",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Características R",
+    "text": "Características R\nCode Completion:\n\nFunciones\nPaquetes\nVariables\nArchivos\n\nHelp:\n\nDocumentación integrada\nEjemplos\nVignettes\n\nDebugging:\n\nBreakpoints\nStep through\nInspect variables"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#rtools-windows",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#rtools-windows",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Rtools (Windows)",
+    "text": "Rtools (Windows)\nSi usas Windows y desarrollas paquetes:\n# Con rig\nrig system rtools add\n\n# O manual desde CRAN\n# https://cran.r-project.org/bin/windows/Rtools/"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#open-vsx-vs-vs-marketplace",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#open-vsx-vs-vs-marketplace",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Open VSX vs VS Marketplace",
+    "text": "Open VSX vs VS Marketplace\nPositron usa Open VSX por razones de licencia. La mayoría de extensiones populares están disponibles, pero algunas pueden faltar."
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#acceder-a-extensiones",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#acceder-a-extensiones",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Acceder a Extensiones",
+    "text": "Acceder a Extensiones\nView → Extensions (Ctrl+Shift+X)"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#extensiones-pre-instaladas",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#extensiones-pre-instaladas",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Extensiones Pre-instaladas",
+    "text": "Extensiones Pre-instaladas\nBuilt-in (core):\n\nPython backend (posit.positron-python)\nR backend (posit.air-vscode)\n\nBootstrapped (auto-instaladas):\n\ncharliermarsh.ruff: Linter Python\nmeta.pyrefly: Python language server\nposit.shiny: Soporte Shiny\nposit.publisher: Publishing tool\nquarto.quarto: Soporte Quarto"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#extensiones-recomendadas",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#extensiones-recomendadas",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Extensiones Recomendadas",
+    "text": "Extensiones Recomendadas\nTemas:\n- material-icon-theme (iconos)\n- One Dark Pro\n- GitHub Theme\n- Dracula\n- Nord\nProductividad:\n- GitLens (si disponible)\n- Better Comments\n- Bookmarks\n- Todo Tree\nFormateo:\n- Prettier (esbenp.prettier-vscode)\n- EditorConfig\nMarkdown/Docs:\n- Markdown All in One\n- Markdown Preview Enhanced\nLaTeX:\n- LaTeX Workshop (James-Yu.latex-workshop)"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#instalar-extensión",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#instalar-extensión",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Instalar Extensión",
+    "text": "Instalar Extensión\nDesde GUI:\n\nAbrir Extensions (Ctrl+Shift+X)\nBuscar extensión\nClick en Install\n\nDesde VSIX:\nCommand Palette → Extensions: Install from VSIX"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#gestionar-extensiones-bootstrapped",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#gestionar-extensiones-bootstrapped",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Gestionar Extensiones Bootstrapped",
+    "text": "Gestionar Extensiones Bootstrapped\nSi quieres deshabilitar una extensión bootstrapped:\n{\n    \"extensions.allowed\": {\n        \"posit.air-vscode\": false,  // Deshabilitar R si solo usas Python\n        \"*\": true\n    }\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#extensiones-no-compatibles",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#extensiones-no-compatibles",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Extensiones No Compatibles",
+    "text": "Extensiones No Compatibles\nNO usar:\n\nms-python.python (Positron tiene soporte Python nativo)\nREditorSupport.r (conflicto con posit.air-vscode)"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#temas-de-color",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#temas-de-color",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Temas de Color",
+    "text": "Temas de Color\nCambiar tema:\nCommand Palette → Preferences: Color Theme (Ctrl+K Ctrl+T)\nTemas incluidos:\n\nDefault Positron Dark\nDefault Positron Light\nDark+ (heredado de VS Code)\nLight+ (heredado de VS Code)\n\nInstalar más temas:\nExtensions → Buscar \"theme\"\nTemas populares:\n\nOne Dark Pro\nMaterial Theme\nGitHub Theme\nDracula\nNord\nGruvbox\n\nEn settings.json:\n{\n    \"workbench.colorTheme\": \"One Dark Pro Mix\"\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#temas-de-iconos",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#temas-de-iconos",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Temas de Iconos",
+    "text": "Temas de Iconos\nCommand Palette → Preferences: File Icon Theme\nRecomendados:\n\nMaterial Icon Theme (recomendado)\nSeti\nMinimal\n\n{\n    \"workbench.iconTheme\": \"material-icon-theme\"\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#customizar-colores",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#customizar-colores",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Customizar Colores",
+    "text": "Customizar Colores\n{\n    \"workbench.colorCustomizations\": {\n        \"[Default Positron Dark]\": {\n            \"editor.background\": \"#1a1a1a\",\n            \"sideBar.background\": \"#1e1e1e\",\n            \"activityBar.background\": \"#252525\"\n        }\n    },\n    \"editor.tokenColorCustomizations\": {\n        \"[Default Positron Dark]\": {\n            \"comments\": \"#6A9955\",\n            \"strings\": \"#CE9178\"\n        }\n    }\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#fuentes",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#fuentes",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Fuentes",
+    "text": "Fuentes\nFuentes recomendadas con ligaduras:\n\nJetBrains Mono\nFira Code\nCascadia Code\nHack Nerd Font\nVictor Mono\n\nConfigurar:\n{\n    \"editor.fontFamily\": \"'JetBrains Mono', 'Fira Code', monospace\",\n    \"editor.fontLigatures\": true,\n    \"editor.fontSize\": 13,\n    \"terminal.integrated.fontFamily\": \"'Hack Nerd Font', monospace\",\n    \"terminal.integrated.fontSize\": 12\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#terminal-vs-console",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#terminal-vs-console",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Terminal vs Console",
+    "text": "Terminal vs Console\nTerminal:\n\nShell del sistema (bash, zsh, fish, etc.)\nComandos del sistema\nInstalación de paquetes\nOperaciones de archivos\n\nConsole:\n\nIntérprete interactivo (IPython/IRKernel)\nEjecución de código Python/R\nInspección de variables\nIntegración con Variables/Plots panes"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configurar-terminal",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configurar-terminal",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Configurar Terminal",
+    "text": "Configurar Terminal\n{\n    // Perfil por defecto\n    \"terminal.integrated.defaultProfile.linux\": \"bash\",\n    \n    // Fuente\n    \"terminal.integrated.fontFamily\": \"'Hack Nerd Font', monospace\",\n    \"terminal.integrated.fontSize\": 12,\n    \n    // Comportamiento\n    \"terminal.integrated.copyOnSelection\": true,\n    \"terminal.integrated.cursorBlinking\": true,\n    \"terminal.integrated.cursorStyle\": \"line\",\n    \"terminal.integrated.scrollback\": 10000,\n    \n    // Entorno\n    \"terminal.integrated.inheritEnv\": false\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#perfiles-de-terminal",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#perfiles-de-terminal",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Perfiles de Terminal",
+    "text": "Perfiles de Terminal\n{\n    \"terminal.integrated.profiles.linux\": {\n        \"bash\": {\n            \"path\": \"/bin/bash\",\n            \"icon\": \"terminal-bash\"\n        },\n        \"zsh\": {\n            \"path\": \"/usr/bin/zsh\",\n            \"icon\": \"terminal\"\n        },\n        \"fish\": {\n            \"path\": \"/usr/bin/fish\",\n            \"icon\": \"terminal\"\n        }\n    }\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#atajos-de-terminal",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#atajos-de-terminal",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Atajos de Terminal",
+    "text": "Atajos de Terminal\n\n\n\nAtajo\nAcción\n\n\n\n\nCtrl+`\nToggle terminal\n\n\nCtrl+Shift+`\nNew terminal\n\n\nCtrl+Shift+C\nCopy\n\n\nCtrl+Shift+V\nPaste\n\n\nCtrl+Shift+5\nSplit terminal"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#qué-es-el-console",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#qué-es-el-console",
+    "title": "Guía Completa de Positron IDE",
+    "section": "¿Qué es el Console?",
+    "text": "¿Qué es el Console?\nEl Console es una shell interactiva para Python (IPython) o R (IRKernel) integrada directamente en Positron.\nCaracterísticas:\n\nEjecución interactiva de código\nCode completion\nSyntax highlighting\nIntegración con Variables pane\nIntegración con Plots pane\nHistorial persistente"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#ejecutar-código-en-console",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#ejecutar-código-en-console",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Ejecutar Código en Console",
+    "text": "Ejecutar Código en Console\nDesde Editor:\n\nCtrl+Enter: Ejecutar línea/selección\nCtrl+Alt+Home: Ejecutar desde inicio hasta cursor\nCtrl+Alt+End: Ejecutar desde cursor hasta fin\nCtrl+Shift+P: Ejecutar archivo completo\n\nDirectamente en Console:\n\nEscribir código y presionar Enter"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#console-settings",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#console-settings",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Console Settings",
+    "text": "Console Settings\n{\n    // Python\n    \"python.useBundledIpykernel\": true,\n    \"python.enableAutoReload\": true,\n    \n    // R\n    \"r.alwaysUseActiveTerminal\": true\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#atajos-console",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#atajos-console",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Atajos Console",
+    "text": "Atajos Console\n\n\n\nAtajo\nAcción\n\n\n\n\nCtrl+K, F\nEnfocar Console\n\n\nCtrl+L\nLimpiar Console\n\n\nCtrl+Shift+0\nReiniciar intérprete\n\n\nCtrl+Up/Down\nNavegar historial"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#qué-es-variables-pane",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#qué-es-variables-pane",
+    "title": "Guía Completa de Positron IDE",
+    "section": "¿Qué es Variables Pane?",
+    "text": "¿Qué es Variables Pane?\nPanel que muestra todas las variables en el entorno actual.\nInformación mostrada:\n\nNombre\nTipo\nValor (para primitivos)\nTamaño (para colecciones)\nDimensiones (para dataframes)"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#usar-variables-pane",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#usar-variables-pane",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Usar Variables Pane",
+    "text": "Usar Variables Pane\nAbrir:\nView → Variables (Ctrl+K, V)\nOperaciones:\n\nClick en variable para expandir\nDouble-click para abrir en Data Explorer (si es dataframe)\nRight-click para opciones (copy, delete, etc.)"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#filtrar-variables",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#filtrar-variables",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Filtrar Variables",
+    "text": "Filtrar Variables\nUsa la barra de búsqueda en el panel para filtrar variables por nombre."
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#qué-es-data-explorer",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#qué-es-data-explorer",
+    "title": "Guía Completa de Positron IDE",
+    "section": "¿Qué es Data Explorer?",
+    "text": "¿Qué es Data Explorer?\nVisualizador interactivo de dataframes (pandas, tibble, data.frame).\nCaracterísticas:\n\nVista tabular de datos\nOrdenamiento por columnas\nFiltrado\nBúsqueda\nEstadísticas de columnas\nExportar a CSV/Excel"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#abrir-data-explorer",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#abrir-data-explorer",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Abrir Data Explorer",
+    "text": "Abrir Data Explorer\nDesde Variables Pane: Double-click en un dataframe\nDesde Console:\n# Python\nimport pandas as pd\ndf = pd.read_csv('data.csv')\n# Double-click en 'df' en Variables pane\n# R\ndf &lt;- read.csv('data.csv')\nView(df)\nCommand Palette:\nData Explorer: Open Data Explorer"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#usar-data-explorer",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#usar-data-explorer",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Usar Data Explorer",
+    "text": "Usar Data Explorer\nOrdenar: Click en header de columna\nFiltrar: Click en icono de filtro en header\nBuscar: Ctrl+F en Data Explorer\nExportar: Right-click → Export"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#qué-es-plots-pane",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#qué-es-plots-pane",
+    "title": "Guía Completa de Positron IDE",
+    "section": "¿Qué es Plots Pane?",
+    "text": "¿Qué es Plots Pane?\nPanel para visualización de gráficos generados en Python o R.\nCaracterísticas:\n\nHistorial de plots\nZoom\nPan\nExportar (PNG, SVG, PDF)\nTamaño ajustable"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#generar-plots",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#generar-plots",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Generar Plots",
+    "text": "Generar Plots\nPython (matplotlib):\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nx = np.linspace(0, 10, 100)\ny = np.sin(x)\n\nplt.plot(x, y)\nplt.title('Sin Wave')\nplt.show()\nPython (seaborn):\nimport seaborn as sns\nimport pandas as pd\n\ndf = pd.read_csv('data.csv')\nsns.scatterplot(data=df, x='x', y='y', hue='category')\nplt.show()\nR (ggplot2):\nlibrary(ggplot2)\n\nggplot(mtcars, aes(x = mpg, y = hp)) +\n  geom_point() +\n  theme_minimal()"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#exportar-plots",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#exportar-plots",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Exportar Plots",
+    "text": "Exportar Plots\nDesde Plots Pane:\n\nHover sobre el plot\nClick en icono de exportar\nElegir formato (PNG, SVG, PDF)\nEspecificar ubicación\n\nDesde código:\n# Python\nplt.savefig('plot.png', dpi=300)\n# R\nggsave('plot.png', width = 8, height = 6, dpi = 300)"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#qué-es-help-pane",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#qué-es-help-pane",
+    "title": "Guía Completa de Positron IDE",
+    "section": "¿Qué es Help Pane?",
+    "text": "¿Qué es Help Pane?\nPanel de documentación contextual integrado.\nCaracterísticas:\n\nDocumentación de funciones\nArgumentos\nEjemplos\nLinks a vignettes/tutorials\nBúsqueda"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#obtener-ayuda",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#obtener-ayuda",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Obtener Ayuda",
+    "text": "Obtener Ayuda\nAtajo F1: Coloca cursor sobre función y presiona F1\nDesde Console:\n# Python\nhelp(print)\n?print\n# R\n?mean\nhelp(mean)\nCommand Palette:\nHelp: Show Help for Symbol Under Cursor"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#qué-es-quarto",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#qué-es-quarto",
+    "title": "Guía Completa de Positron IDE",
+    "section": "¿Qué es Quarto?",
+    "text": "¿Qué es Quarto?\nSistema de publicación científica y técnica de código abierto.\nFormatos de salida:\n\nHTML\nPDF\nWord\nReveal.js (presentations)\nDashboards\nWebsites\nBooks"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configurar-quarto",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configurar-quarto",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Configurar Quarto",
+    "text": "Configurar Quarto\nInstalar Quarto:\n# Linux\nsudo curl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb\nsudo dpkg -i quarto-linux-amd64.deb\n\n# macOS\nbrew install quarto\n\n# Verificar\nquarto --version\nSettings:\n{\n    \"quarto.visualEditor.spellingDictionary\": \"es_ES\",\n    \"quarto.render.previewType\": \"internal\",\n    \"[quarto]\": {\n        \"editor.defaultFormatter\": \"quarto.quarto\",\n        \"editor.wordWrap\": \"on\"\n    }\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#crear-documento-quarto",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#crear-documento-quarto",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Crear Documento Quarto",
+    "text": "Crear Documento Quarto\nNuevo archivo:\nFile → New File → Quarto Document\nEstructura básica (.qmd):\n---\ntitle: \"Mi Documento\"\nauthor: \"Tu Nombre\"\nformat: html\nexecute:\n  echo: true\n---\n\n# Introducción\n\nEste es un documento Quarto.\n\n::: {#b274ad9e .cell}\n``` {.python .cell-code}\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ndf = pd.read_csv('data.csv')\ndf.head()\n:::"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#preview",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#preview",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Preview",
+    "text": "Preview\nLive preview:\nQuarto: Preview"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#características-quarto-en-positron",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#características-quarto-en-positron",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Características Quarto en Positron",
+    "text": "Características Quarto en Positron\n\nSyntax highlighting\nCode execution inline\nPreview live\nAutocompletado YAML\nSnippets"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#soporte-jupyter",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#soporte-jupyter",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Soporte Jupyter",
+    "text": "Soporte Jupyter\nPositron tiene soporte nativo para Jupyter notebooks (.ipynb).\nCaracterísticas:\n\nEjecución de celdas\nOutput inline\nPlots inline\nVariables en Variables pane\nCode completion"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#crear-notebook",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#crear-notebook",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Crear Notebook",
+    "text": "Crear Notebook\nFile → New File → Jupyter Notebook"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#seleccionar-kernel",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#seleccionar-kernel",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Seleccionar Kernel",
+    "text": "Seleccionar Kernel\nClick en “Select Kernel” en la esquina superior derecha"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#ejecutar-celdas",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#ejecutar-celdas",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Ejecutar Celdas",
+    "text": "Ejecutar Celdas\nAtajos:\n\nShift+Enter: Ejecutar celda y avanzar\nCtrl+Enter: Ejecutar celda\nAlt+Enter: Ejecutar celda e insertar abajo"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#convertir-entre-quarto-y-jupyter",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#convertir-entre-quarto-y-jupyter",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Convertir entre Quarto y Jupyter",
+    "text": "Convertir entre Quarto y Jupyter\nQuarto → Jupyter:\nquarto convert document.qmd\nJupyter → Quarto:\nquarto convert notebook.ipynb"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configurar-git",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configurar-git",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Configurar Git",
+    "text": "Configurar Git\nPrimera vez:\ngit config --global user.name \"Tu Nombre\"\ngit config --global user.email \"tu@email.com\"\nSettings Positron:\n{\n    \"git.enableSmartCommit\": true,\n    \"git.autofetch\": true,\n    \"git.confirmSync\": false,\n    \"git.openRepositoryInParentFolders\": \"always\"\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#source-control-panel",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#source-control-panel",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Source Control Panel",
+    "text": "Source Control Panel\nAbrir:\nView → Source Control (Ctrl+Shift+G)\nOperaciones:\n\nVer cambios\nStage/Unstage\nCommit\nPush/Pull\nVer historial\nCrear branches\nMerge"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#workflow-git",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#workflow-git",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Workflow Git",
+    "text": "Workflow Git\n1. Hacer cambios en archivos\n2. Ver cambios en Source Control panel\n3. Stage cambios (click en +)\n4. Escribir mensaje de commit\n5. Click en ✓ (commit)\n6. Sync changes (push/pull)"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#gitlens-si-disponible",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#gitlens-si-disponible",
+    "title": "Guía Completa de Positron IDE",
+    "section": "GitLens (si disponible)",
+    "text": "GitLens (si disponible)\nInstalar desde Extensions si está disponible en Open VSX."
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#positron-assistant",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#positron-assistant",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Positron Assistant",
+    "text": "Positron Assistant\nAsistente AI integrado para ayudar con código.\nHabilitar:\n{\n    \"positron.assistant.enable\": true,\n    \"positron.assistant.alwaysEnableApplyInEditorAction\": true,\n    \"positron.assistant.showTokenUsage.enable\": true\n}\nUsar:\nCommand Palette → Positron: Open Assistant\nCaracterísticas:\n\nGenerar código\nExplicar código\nRefactorizar\nDocumentar\nDebuggear"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#databot",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#databot",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Databot",
+    "text": "Databot\nAsistente especializado para análisis de datos.\nUsar:\nCommand Palette → Positron: Open Databot\nEjemplos de prompts:\n\"Crear un gráfico de dispersión de x vs y\"\n\"Agrupar por categoría y calcular media\"\n\"Filtrar datos donde columna &gt; 100\"\n\"Crear modelo lineal de y ~ x\""
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#objetivos",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#objetivos",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Objetivos",
+    "text": "Objetivos\n\nUI limpia\nSin distracciones\nFoco en código\nPerformance óptima"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#settings-minimalistas",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#settings-minimalistas",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Settings Minimalistas",
+    "text": "Settings Minimalistas\n{\n    // ==========================================\n    // MINIMALISTA\n    // ==========================================\n    \n    // Editor limpio\n    \"editor.minimap.enabled\": false,\n    \"editor.scrollbar.vertical\": \"hidden\",\n    \"editor.scrollbar.horizontal\": \"hidden\",\n    \"editor.lineNumbers\": \"off\",  // o \"relative\"\n    \"editor.glyphMargin\": false,\n    \"editor.folding\": false,\n    \"editor.guides.indentation\": false,\n    \"editor.renderWhitespace\": \"none\",\n    \"editor.renderLineHighlight\": \"none\",\n    \"editor.overviewRulerBorder\": false,\n    \n    // Workbench limpio\n    \"workbench.statusBar.visible\": false,\n    \"workbench.activityBar.location\": \"hidden\",  // o \"bottom\"\n    \"workbench.editor.showTabs\": \"single\",\n    \"workbench.editor.tabSizing\": \"shrink\",\n    \"breadcrumbs.enabled\": false,\n    \"workbench.sideBar.location\": \"right\",\n    \n    // Terminal limpio\n    \"terminal.integrated.tabs.enabled\": false,\n    \n    // Tema minimalista\n    \"workbench.colorTheme\": \"Default Positron Dark\",\n    \"workbench.iconTheme\": \"minimal\",\n    \n    // Zen Mode (Ctrl+K Z)\n    \"zenMode.centerLayout\": true,\n    \"zenMode.fullScreen\": false,\n    \"zenMode.hideLineNumbers\": false,\n    \"zenMode.hideTabs\": true,\n    \"zenMode.hideStatusBar\": true,\n    \n    // Resto de settings esenciales\n    \"editor.fontSize\": 14,\n    \"editor.fontFamily\": \"'JetBrains Mono', monospace\",\n    \"editor.fontLigatures\": true,\n    \"editor.formatOnSave\": true,\n    \"files.autoSave\": \"onFocusChange\"\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#zen-mode",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#zen-mode",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Zen Mode",
+    "text": "Zen Mode\nActivar:\nCommand Palette → View: Toggle Zen Mode (Ctrl+K Z)\nO personalizar:\n{\n    \"zenMode.centerLayout\": true,\n    \"zenMode.fullScreen\": false,\n    \"zenMode.hideLineNumbers\": false,\n    \"zenMode.hideTabs\": true,\n    \"zenMode.hideStatusBar\": true,\n    \"zenMode.hideActivityBar\": true,\n    \"zenMode.restore\": true\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#migrar-tu-config-de-vs-code-a-positron",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#migrar-tu-config-de-vs-code-a-positron",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Migrar tu Config de VS Code a Positron",
+    "text": "Migrar tu Config de VS Code a Positron\nAquí está tu configuración de VS Code adaptada para Positron:\n{\n    // ==========================================\n    // PYTHON (ANACONDA)\n    // ==========================================\n    \"python.defaultInterpreterPath\": \"/home/achalmaedison/anaconda3/bin/python\",\n    \"python.condaPath\": \"/home/achalmaedison/anaconda3/bin/conda\",\n    \"python.terminal.activateEnvironment\": true,\n    \"python.terminal.activateEnvInCurrentTerminal\": true,\n    \"python.useBundledIpykernel\": true,\n    \"python.enableAutoReload\": true,\n    \n    // ==========================================\n    // TERMINAL\n    // ==========================================\n    \"terminal.integrated.inheritEnv\": false,\n    \"terminal.integrated.fontSize\": 12,\n    \"terminal.integrated.fontFamily\": \"Hack Nerd Font\",\n    \"terminal.integrated.copyOnSelection\": true,\n    \"terminal.integrated.cursorBlinking\": true,\n    \"terminal.integrated.cursorStyle\": \"underline\",\n    \"terminal.integrated.cursorStyleInactive\": \"line\",\n    \"terminal.integrated.defaultProfile.linux\": \"fish\",  // Cambiado de zsh a fish\n    \"terminal.integrated.enablePersistentSessions\": false,\n    \"terminal.integrated.suggest.enabled\": true,\n    \"terminal.integrated.accessibleViewFocusOnCommandExecution\": true,\n    \n    // ==========================================\n    // EDITOR\n    // ==========================================\n    \"editor.fontSize\": 13,\n    \"editor.fontFamily\": \"'Hack Nerd Font', 'JetBrains Mono', monospace\",\n    \"editor.fontLigatures\": true,\n    \"editor.minimap.enabled\": false,\n    \"editor.minimap.autohide\": true,\n    \"editor.scrollbar.horizontal\": \"hidden\",\n    \"editor.scrollbar.vertical\": \"hidden\",\n    \"editor.overviewRulerBorder\": false,\n    \"editor.formatOnSave\": true,\n    \"editor.formatOnPaste\": true,\n    \"editor.formatOnType\": true,\n    \"editor.glyphMargin\": false,\n    \"editor.linkedEditing\": true,\n    \"editor.cursorBlinking\": \"expand\",\n    \"editor.cursorSmoothCaretAnimation\": \"on\",\n    \"editor.guides.indentation\": false,\n    \"editor.matchBrackets\": \"never\",\n    \"editor.suggest.preview\": true,\n    \"editor.inlineSuggest.syntaxHighlightingEnabled\": true,\n    \n    // ==========================================\n    // WORKBENCH\n    // ==========================================\n    \"workbench.colorTheme\": \"One Dark Pro Mix\",  // Tu tema favorito\n    \"workbench.iconTheme\": \"material-icon-theme\",\n    \"workbench.productIconTheme\": \"fluent-icons\",\n    \"workbench.activityBar.location\": \"bottom\",  // Mantener en bottom\n    \"workbench.sideBar.location\": \"right\",\n    \"workbench.statusBar.visible\": false,  // Oculto para minimalista\n    \"workbench.editor.showTabs\": \"single\",\n    \"workbench.editor.tabSizing\": \"fixed\",\n    \"workbench.editor.highlightModifiedTabs\": true,\n    \"workbench.editor.limit.enabled\": true,\n    \"workbench.editor.empty.hint\": \"hidden\",\n    \"workbench.editor.wrapTabs\": true,\n    \"workbench.editor.centeredLayoutFixedWidth\": true,\n    \"window.customTitleBarVisibility\": \"auto\",\n    \"breadcrumbs.enabled\": false,\n    \n    // ==========================================\n    // FILES\n    // ==========================================\n    \"files.autoSave\": \"onFocusChange\",\n    \"files.associations\": {\n        \"renv.lock\": \"json\",\n        \"*.qmd\": \"quarto\",\n        \"*.Rmd\": \"rmarkdown\"\n    },\n    \n    // ==========================================\n    // GIT\n    // ==========================================\n    \"git.enableSmartCommit\": true,\n    \"git.autofetch\": true,\n    \"git.confirmSync\": false,\n    \"git.openRepositoryInParentFolders\": \"always\",\n    \n    // ==========================================\n    // DIFF EDITOR\n    // ==========================================\n    \"diffEditor.ignoreTrimWhitespace\": false,\n    \"diffEditor.maxComputationTime\": 0,\n    \"diffEditor.codeLens\": true,\n    \"diffEditor.wordWrap\": \"off\",\n    \n    // ==========================================\n    // LANGUAGE-SPECIFIC\n    // ==========================================\n    \"[python]\": {\n        \"editor.defaultFormatter\": \"charliermarsh.ruff\",\n        \"diffEditor.ignoreTrimWhitespace\": false\n    },\n    \"[quarto]\": {\n        \"editor.defaultFormatter\": \"quarto.quarto\"\n    },\n    \"[markdown]\": {\n        \"editor.defaultFormatter\": \"esbenp.prettier-vscode\"\n    },\n    \"[yaml]\": {\n        \"editor.defaultFormatter\": \"quarto.quarto\"\n    },\n    \"[latex]\": {\n        \"editor.defaultFormatter\": \"James-Yu.latex-workshop\"\n    },\n    \n    // ==========================================\n    // QUARTO\n    // ==========================================\n    \"quarto.visualEditor.spellingDictionary\": \"es_ES\",\n    \n    // ==========================================\n    // NOTEBOOKS\n    // ==========================================\n    \"notebook.output.wordWrap\": true,\n    \"jupyter.interactiveWindow.textEditor.executeSelection\": true,\n    \n    // ==========================================\n    // MISC\n    // ==========================================\n    \"debug.console.wordWrap\": false,\n    \"chat.editor.wordWrap\": \"on\",\n    \"yaml.schemas\": {\n        \"https://quarto.org/schemas/quarto.yaml\": \"*.qmd\"\n    },\n    \n    // ==========================================\n    // POSITRON-SPECIFIC\n    // ==========================================\n    \"positron.assistant.enable\": true,\n    \"positron.assistant.alwaysEnableApplyInEditorAction\": true,\n    \"positron.assistant.alwaysIncludeCopilotTools\": true,\n    \"positron.assistant.showTokenUsage.enable\": true,\n    \n    // ==========================================\n    // ACCESSIBILITY (ocultar para minimalista)\n    // ==========================================\n    \"accessibility.verbosity.terminal\": false,\n    \"accessibility.hideAccessibleView\": true,\n    \n    // ==========================================\n    // EXTENSIONES (si las instalas)\n    // ==========================================\n    // GitLens (si disponible)\n    \"gitlens.graph.minimap.additionalTypes\": [\n        \"localBranches\",\n        \"stashes\",\n        \"remoteBranches\",\n        \"pullRequests\",\n        \"tags\"\n    ],\n    \n    // CodeSnap (si disponible)\n    \"codesnap.transparentBackground\": true,\n    \"codesnap.showWindowTitle\": true,\n    \"codesnap.containerPadding\": \"0em\",\n    \"codesnap.roundedCorners\": false,\n    \n    // LaTeX Workshop (si usas LaTeX)\n    \"latex-workshop.formatting.latex\": \"latexindent\",\n    \"latex-workshop.latex.option.maxPrintLine.enabled\": false,\n    \n    // Indenticator (si lo instalas)\n    \"indenticator.width\": 0.5,\n    \"indenticator.color.dark\": \"rgba(255,255,255,0.1)\"\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#extensiones-a-instalar-desde-open-vsx",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#extensiones-a-instalar-desde-open-vsx",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Extensiones a Instalar (desde Open VSX)",
+    "text": "Extensiones a Instalar (desde Open VSX)\nPara replicar el setup de VS Code, se instala:\n\nMaterial Icon Theme\nOne Dark Pro (tema)\nPrettier (formateo Markdown)\nLaTeX Workshop (si usas LaTeX)\nGitLens (si disponible)\nBetter Comments (opcional)\nCode Spell Checker (opcional, español)"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#notas-sobre-extensiones-no-disponibles",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#notas-sobre-extensiones-no-disponibles",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Notas sobre Extensiones No Disponibles",
+    "text": "Notas sobre Extensiones No Disponibles\nNo disponibles/innecesarias en Positron:\n\nanimations (vscode-animations): No compatible\nglassit: No compatible (transparencia)\napc.imports: No compatible\nPython extension: Ya incluida nativamente\nGitHub Copilot: Usa Positron Assistant en su lugar"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#command-palette-es-tu-amigo",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#command-palette-es-tu-amigo",
+    "title": "Guía Completa de Positron IDE",
+    "section": "1. Command Palette es tu Amigo",
+    "text": "1. Command Palette es tu Amigo\nCtrl+Shift+P\nTodo está en el Command Palette. No recuerdas un atajo? Búscalo aquí."
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#quick-open",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#quick-open",
+    "title": "Guía Completa de Positron IDE",
+    "section": "2. Quick Open",
+    "text": "2. Quick Open\nCtrl+P\nAbre archivos rápidamente sin usar el Explorer."
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#multi-cursor",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#multi-cursor",
+    "title": "Guía Completa de Positron IDE",
+    "section": "3. Multi-Cursor",
+    "text": "3. Multi-Cursor\nAlt+Click: Añadir cursor\nCtrl+Alt+Up/Down: Añadir cursor arriba/abajo\nCtrl+D: Seleccionar siguiente ocurrencia\nCtrl+Shift+L: Seleccionar todas las ocurrencias"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#snippets",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#snippets",
+    "title": "Guía Completa de Positron IDE",
+    "section": "4. Snippets",
+    "text": "4. Snippets\nCrea tus propios snippets en:\nFile → Preferences → Configure User Snippets\nEjemplo Python:\n{\n    \"Import pandas\": {\n        \"prefix\": \"imp\",\n        \"body\": [\n            \"import pandas as pd\",\n            \"import numpy as np\",\n            \"import matplotlib.pyplot as plt\"\n        ]\n    }\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#integrated-terminal-profiles",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#integrated-terminal-profiles",
+    "title": "Guía Completa de Positron IDE",
+    "section": "5. Integrated Terminal Profiles",
+    "text": "5. Integrated Terminal Profiles\nConfigura perfiles para diferentes shells o entornos virtuales."
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#workspace-settings",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#workspace-settings",
+    "title": "Guía Completa de Positron IDE",
+    "section": "6. Workspace Settings",
+    "text": "6. Workspace Settings\nPara proyectos específicos, usa workspace settings:\n.vscode/settings.json"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#foldunfold-code",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#foldunfold-code",
+    "title": "Guía Completa de Positron IDE",
+    "section": "7. Fold/Unfold Code",
+    "text": "7. Fold/Unfold Code\nCtrl+Shift+[: Fold\nCtrl+Shift+]: Unfold\nCtrl+K Ctrl+0: Fold all\nCtrl+K Ctrl+J: Unfold all"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#breadcrumbs",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#breadcrumbs",
+    "title": "Guía Completa de Positron IDE",
+    "section": "8. Breadcrumbs",
+    "text": "8. Breadcrumbs\nSi los necesitas:\n{\n    \"breadcrumbs.enabled\": true\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#integrated-git-diff",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#integrated-git-diff",
+    "title": "Guía Completa de Positron IDE",
+    "section": "9. Integrated Git Diff",
+    "text": "9. Integrated Git Diff\nClick en archivo modificado en Source Control"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#sync-settings",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#sync-settings",
+    "title": "Guía Completa de Positron IDE",
+    "section": "10. Sync Settings",
+    "text": "10. Sync Settings\nPositron puede sincronizar settings entre máquinas (similar a VS Code Settings Sync)."
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-python-interpreter-no-detectado",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-python-interpreter-no-detectado",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Problema: Python interpreter no detectado",
+    "text": "Problema: Python interpreter no detectado\nSolución:\nCommand Palette → Python: Select Interpreter\nO especificar manualmente:\n{\n    \"python.defaultInterpreterPath\": \"/path/to/python\"\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-r-no-funciona",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-r-no-funciona",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Problema: R no funciona",
+    "text": "Problema: R no funciona\nVerificar instalación:\nwhich R\nR --version\nInstalar paquetes necesarios:\npak::pak(c(\"usethis\", \"cli\", \"crayon\", \"rlang\"))"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-console-no-inicia",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-console-no-inicia",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Problema: Console no inicia",
+    "text": "Problema: Console no inicia\nReiniciar intérprete:\nCtrl+Shift+0\nVerificar IPython:\npip install ipython"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-extensiones-no-aparecen",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-extensiones-no-aparecen",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Problema: Extensiones no aparecen",
+    "text": "Problema: Extensiones no aparecen\nRecordar: Positron usa Open VSX, no VS Marketplace. Algunas extensiones pueden no estar disponibles.\nAlternativa: Instalar .vsix manualmente desde GitHub de la extensión."
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-terminal-no-hereda-path",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-terminal-no-hereda-path",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Problema: Terminal no hereda PATH",
+    "text": "Problema: Terminal no hereda PATH\n{\n    \"terminal.integrated.inheritEnv\": false\n}\nO agregar al shell config (~/.bashrc, ~/.zshrc, etc.):\nexport PATH=\"/path/to/anaconda3/bin:$PATH\""
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-plots-no-aparecen",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-plots-no-aparecen",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Problema: Plots no aparecen",
+    "text": "Problema: Plots no aparecen\nPython:\nimport matplotlib.pyplot as plt\nplt.ion()  # Interactive mode\nR:\noptions(device = \"quartz\")  # macOS\n# o\noptions(device = \"x11\")  # Linux"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-quarto-no-renderiza",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-quarto-no-renderiza",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Problema: Quarto no renderiza",
+    "text": "Problema: Quarto no renderiza\nVerificar instalación:\nquarto check\nReinstalar extensión:\nExtensions → Quarto → Reload"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-settings-no-se-guardan",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-settings-no-se-guardan",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Problema: Settings no se guardan",
+    "text": "Problema: Settings no se guardan\nUbicación correcta:\n~/.config/Positron/User/settings.json\nPermisos:\nchmod 644 ~/.config/Positron/User/settings.json"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-performance-lenta",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-performance-lenta",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Problema: Performance lenta",
+    "text": "Problema: Performance lenta\nDeshabilitar extensiones innecesarias\nReducir history:\n{\n    \"terminal.integrated.scrollback\": 1000\n}\nDeshabilitar features:\n{\n    \"editor.minimap.enabled\": false,\n    \"editor.suggest.preview\": false\n}"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#resumen-de-cambios-de-vs-code-a-positron",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#resumen-de-cambios-de-vs-code-a-positron",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Resumen de Cambios de VS Code a Positron",
+    "text": "Resumen de Cambios de VS Code a Positron\nLo Mismo:\n\nEditor de código\nAtajos de teclado (95%)\nTerminal\nExtensions system\nGit integration\nSettings system\n\nLo Nuevo:\n\nConsole (IPython/IRKernel)\nVariables Pane\nData Explorer\nPlots Pane\nHelp Pane\nConnections Pane\nSoporte Python/R nativo\nAI Assistant (Positron Assistant, Databot)\n\nLo Diferente:\n\nOpen VSX en lugar de VS Marketplace\nAlgunas extensiones no disponibles\nMejor integración para data science"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#próximos-pasos",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#próximos-pasos",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Próximos Pasos",
+    "text": "Próximos Pasos\n\nInstalar Positron\nImportar settings de VS Code\nConfigurar Python/R\nInstalar extensiones esenciales\nPersonalizar tema y layout\nExplorar Console y panes\nCrear tu primer documento Quarto"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#recursos",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#recursos",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Recursos",
+    "text": "Recursos\nDocumentación:\n\nhttps://positron.posit.co/\nhttps://github.com/posit-dev/positron\n\nComunidad:\n\nGitHub Discussions: https://github.com/posit-dev/positron/discussions\nPosit Community: https://community.posit.co/\n\nAprendizaje:\n\nQuarto: https://quarto.org/\nPython: https://docs.python.org/\nR: https://www.r-project.org/"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#definición-de-dotfiles-y-su-rol",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#definición-de-dotfiles-y-su-rol",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Definición de Dotfiles y su Rol",
+    "text": "Definición de Dotfiles y su Rol\nLos dotfiles son archivos ocultos en sistemas Unix-like (Linux, macOS) que empiezan con un punto (ej., .zshrc, .gitconfig, .config/nvim). Almacenan configuraciones personalizadas para tu terminal, editor de código o gestor de ventanas. Por ejemplo, .bashrc define alias y variables de entorno, mientras que .vimrc ajusta tu editor Vim. Estos archivos son el corazón de tu flujo de trabajo, ya que personalizan tus herramientas favoritas."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#impacto-en-la-productividad-del-usuario",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#impacto-en-la-productividad-del-usuario",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Impacto en la Productividad del Usuario",
+    "text": "Impacto en la Productividad del Usuario\nTener dotfiles bien organizados te ahorra horas al replicar tu entorno en nuevas máquinas. Imagina configurar tu shell o editor desde cero tras reinstalar tu sistema: ¡es tedioso! Con una gestión adecuada, puedes clonar tus configuraciones y tener todo listo rápidamente. Esto es clave para desarrolladores que trabajan en múltiples dispositivos o entornos como servidores y laptops."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problemas-de-la-gestión-manual",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problemas-de-la-gestión-manual",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Problemas de la Gestión Manual",
+    "text": "Problemas de la Gestión Manual\nCopiar dotfiles manualmente o usar scripts caseros es lento y arriesgado. Puedes sobrescribir archivos, olvidar configuraciones o perderlas en una reinstalación. Por ejemplo, mover .zshrc a otra máquina sin un sistema organizado puede causar errores si las versiones del software difieren. GNU Stow soluciona esto al centralizar tus archivos y crear enlaces simbólicos automáticamente, manteniendo todo sincronizado."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#introducción-a-gnu-stow-gestión-de-symlinks",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#introducción-a-gnu-stow-gestión-de-symlinks",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Introducción a GNU Stow: Gestión de Symlinks",
+    "text": "Introducción a GNU Stow: Gestión de Symlinks\nGNU Stow es una herramienta que crea y gestiona enlaces simbólicos (symlinks) para tus dotfiles. En lugar de copiar archivos como .bashrc a tu directorio home (~), Stow los mantiene en un repositorio central (ej., ~/dotfiles) y crea enlaces a las ubicaciones correctas. Esto asegura que tus aplicaciones usen las configuraciones sin duplicar archivos, y los cambios se reflejan en el repositorio."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#concepto-de-paquetes-en-stow",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#concepto-de-paquetes-en-stow",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Concepto de Paquetes en Stow",
+    "text": "Concepto de Paquetes en Stow\nStow organiza tus dotfiles en paquetes, que son subdirectorios en ~/dotfiles (ej., zsh, git, nvim). Cada paquete replica la estructura del sistema. Por ejemplo, para .zshrc, creas ~/dotfiles/zsh/.zshrc. Al ejecutar stow zsh, Stow enlaza ~/dotfiles/zsh/.zshrc a ~/.zshrc. Esta modularidad te permite instalar solo las configuraciones que necesitas en cada máquina.\nEjemplo de Estructura de Repositorio de Dotfiles con Stow:\nImagina que tu directorio principal de dotfiles se llama ~/dotfiles/. Dentro de él, tendrías subdirectorios para cada “paquete”:\n~/dotfiles/\n├── git/\n│   └── .gitconfig\n│   └── .gitignore_global\n├── zsh/\n│   └── .zshrc\n│   └── .p10k.zsh\n└── nvim/\n│   └── .config/\n│       └── nvim/\n│           ├── init.lua\n│           └── lua/\n│               └── plugins.lua\n│\n├── .gitignore\n└── install.sh"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#beneficios-de-usar-stow-para-dotfiles",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#beneficios-de-usar-stow-para-dotfiles",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Beneficios de Usar Stow para Dotfiles",
+    "text": "Beneficios de Usar Stow para Dotfiles\n\nCentralización: Todos tus dotfiles viven en un solo lugar, fáciles de versionar con Git.\nModularidad: Instala configuraciones específicas (ej., solo git) sin tocar otras.\nSincronización: Combina Stow con Git para clonar y desplegar configuraciones en cualquier sistema.\nSimplicidad: Comandos como stow zsh hacen el trabajo pesado por ti.\nPortabilidad: Funciona en Linux, macOS y WSL, ideal para entornos mixtos."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-instala-gnu-stow-en-tu-sistema",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-instala-gnu-stow-en-tu-sistema",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 1: Instala GNU Stow en tu Sistema",
+    "text": "Paso 1: Instala GNU Stow en tu Sistema\nPrimero, instala GNU Stow en tu sistema. Usa el gestor de paquetes de tu distribución:\n\nDebian/Ubuntu:\nsudo apt update\nsudo apt install stow\nFedora:\nsudo dnf install stow\nArch Linux:\nsudo pacman -S stow\nmacOS (con Homebrew):\nbrew install stow\nWindows (WSL): Usa los comandos de Ubuntu dentro de WSL.\n\nVerifica la instalación:\nstow --version\nSi ves la versión (ej., stow 2.3.1), estás listo."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-crea-y-organiza-tu-repositorio-de-dotfiles",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-crea-y-organiza-tu-repositorio-de-dotfiles",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 2: Crea y Organiza tu Repositorio de Dotfiles",
+    "text": "Paso 2: Crea y Organiza tu Repositorio de Dotfiles\n\nCrea el directorio de dotfiles:\nmkdir ~/dotfiles\ncd ~/dotfiles\nInicializa un repositorio Git (para versionado y sincronización):\ngit init\nCrea paquetes para tus configuraciones. Por ejemplo, para .gitconfig, .zshrc y .config/nvim:\nmkdir -p git zsh nvim/.config/nvim\nMueve tus dotfiles existentes a los paquetes. Ejemplo:\nmv ~/.gitconfig ~/dotfiles/git/\nmv ~/.zshrc ~/dotfiles/zsh/\nmv ~/.config/nvim/* ~/dotfiles/nvim/.config/nvim/\nCrea un .gitignore para evitar subir archivos sensibles o temporales:\n*.bak\n*.swp\n.DS_Store\nnvim/.local/share/nvim/\nCommitea los cambios:\ngit add .\ngit commit -m \"Inicializar dotfiles\"\ngit remote add origin https://github.com/tu-usuario/dotfiles.git\ngit push -u origin main\n\nTu repositorio ahora está organizado y listo para Stow."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-usa-stow-para-enlazar-configuraciones",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-usa-stow-para-enlazar-configuraciones",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 3: Usa Stow para Enlazar Configuraciones",
+    "text": "Paso 3: Usa Stow para Enlazar Configuraciones\n\nNavega a ~/dotfiles:\ncd ~/dotfiles\nEnlaza un paquete específico:\nstow git\nEsto crea un enlace simbólico: ~/.gitconfig -&gt; ~/dotfiles/git/.gitconfig.\nEnlaza múltiples paquetes:\nstow git zsh nvim\nVerifica los enlaces:\nls -l ~/.gitconfig ~/.zshrc ~/.config/nvim\nDeberías ver algo como:\nlrwxrwxrwx 1 usuario usuario 36 Jul 11 2025 /home/usuario/.gitconfig -&gt; dotfiles/git/.gitconfig\nlrwxrwxrwx 1 usuario usuario 34 Jul 11 2025 /home/usuario/.zshrc -&gt; dotfiles/zsh/.zshrc\nPrueba en otra máquina:\n\nClona el repositorio:\ngit clone https://github.com/tu-usuario/dotfiles.git ~/dotfiles\nInstala Stow y ejecuta:\ncd ~/dotfiles\nstow git zsh nvim"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-automatiza-con-un-script-de-instalación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-automatiza-con-un-script-de-instalación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 4: Automatiza con un Script de Instalación",
+    "text": "Paso 4: Automatiza con un Script de Instalación\nCrea un script install.sh para automatizar la instalación:\n\nCrea el script:\nnano ~/dotfiles/install.sh\nAñade este contenido:\n#!/bin/bash\n\nDOTFILES_DIR=\"$HOME/dotfiles\"\n\n# Verifica si Stow está instalado\nif ! command -v stow &&gt; /dev/null; then\n    echo \"Error: GNU Stow no está instalado. Instálalo con: sudo apt install stow\"\n    exit 1\nfi\n\n# Enlaza todos los paquetes\ncd \"$DOTFILES_DIR\" || exit\nstow -v git zsh nvim\necho \"Dotfiles instalados correctamente!\"\nHazlo ejecutable:\nchmod +x ~/dotfiles/install.sh\nEjecuta el script:\n./install.sh\nCommitea el script:\ngit add install.sh\ngit commit -m \"Añadir script de instalación\"\ngit push\n\nEste script simplifica el despliegue en cualquier máquina."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#manejo-de-conflictos-con-adopt",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#manejo-de-conflictos-con-adopt",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Manejo de Conflictos con –adopt",
+    "text": "Manejo de Conflictos con –adopt\nSi un archivo como ~/.zshrc ya existe, Stow mostrará un error. Usa --adopt para mover el archivo al repositorio y enlazarlo:\n\nEjecuta con --adopt:\ncd ~/dotfiles\nstow --adopt zsh\nCommitea los cambios:\ngit add zsh/.zshrc\ngit commit -m \"Adoptar zshrc existente\"\ngit push\n\nPrecaución: Haz un respaldo antes (ej., cp ~/.zshrc ~/.zshrc.bak)."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#desvinculación-de-paquetes-con--d",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#desvinculación-de-paquetes-con--d",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Desvinculación de Paquetes con -D",
+    "text": "Desvinculación de Paquetes con -D\nPara eliminar enlaces simbólicos sin borrar los archivos en ~/dotfiles:\n\nDesvincula un paquete:\ncd ~/dotfiles\nstow -D zsh\nVerifica:\nls -l ~/.zshrc\nEl enlace debería haber desaparecido, pero ~/dotfiles/zsh/.zshrc permanece."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#compatibilidad-multiplataforma-y-portabilidad",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#compatibilidad-multiplataforma-y-portabilidad",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Compatibilidad Multiplataforma y Portabilidad",
+    "text": "Compatibilidad Multiplataforma y Portabilidad\nStow funciona en Linux, macOS y WSL. Para configuraciones específicas:\n\nCrea paquetes por sistema. Ejemplo: kde para Linux, zsh-macos para macOS.\nUsa ramas en Git:\ngit checkout -b macos\ngit add zsh-macos\ngit commit -m \"Configuraciones para macOS\"\ngit push origin macos\nInstala selectivamente:\nstow zsh-macos\n\nEsto asegura que solo uses configuraciones relevantes por máquina."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#repositorios-git-bare-simplicidad-y-riesgos",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#repositorios-git-bare-simplicidad-y-riesgos",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Repositorios Git Bare: Simplicidad y Riesgos",
+    "text": "Repositorios Git Bare: Simplicidad y Riesgos\nUn repositorio Git “bare” usa $HOME como área de trabajo:\ngit init --bare ~/.dotfiles\nalias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'\nconfig add .zshrc\nconfig commit -m \"Añadir zshrc\"\nVentajas: Simple, no requiere herramientas adicionales. Riesgos: Puedes subir archivos sensibles si no configuras .gitignore."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#chezmoi-y-yadm-herramientas-modernas",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#chezmoi-y-yadm-herramientas-modernas",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Chezmoi y YADM: Herramientas Modernas",
+    "text": "Chezmoi y YADM: Herramientas Modernas\n\nChezmoi: Gestiona dotfiles con plantillas y cifrado. Ideal para múltiples sistemas.\nchezmoi init\nchezmoi add ~/.zshrc\nYADM: Wrapper de Git con funciones como alternates.\nyadm init\nyadm add ~/.zshrc\nVentajas: Más funciones que Stow, como gestión de secretos. Desventajas: Mayor curva de aprendizaje."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#home-manager-configuración-declarativa",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#home-manager-configuración-declarativa",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Home Manager: Configuración Declarativa",
+    "text": "Home Manager: Configuración Declarativa\nHome Manager (para NixOS) define dotfiles y paquetes declarativamente:\nhome-manager switch\nVentajas: Configuración completa del sistema. Desventajas: Complejo, requiere aprender Nix."
   }
 ]

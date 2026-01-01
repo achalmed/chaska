@@ -53,27 +53,27 @@ image: ../featured.jpg
 
 Con Stow, tus **configuraciones personalizadas** estarán siempre a un comando de distancia. Aprenderás a centralizar archivos como `.zshrc` o `.config/nvim`, integrarlos con Git y desplegarlos en Linux, macOS o WSL sin complicaciones. ¿Listo para optimizar tu flujo de trabajo? Sigue leyendo y descubre cómo **GNU Stow** transforma la gestión de dotfiles en algo simple y poderoso.
 
-## ¿Qué son los Dotfiles y Por Qué Importan?
+# ¿Qué son los Dotfiles y Por Qué Importan?
 
-### Definición de Dotfiles y su Rol
+## Definición de Dotfiles y su Rol
 
 Los **dotfiles** son archivos ocultos en sistemas Unix-like (Linux, macOS) que empiezan con un punto (ej., `.zshrc`, `.gitconfig`, `.config/nvim`). Almacenan configuraciones personalizadas para tu terminal, editor de código o gestor de ventanas. Por ejemplo, `.bashrc` define alias y variables de entorno, mientras que `.vimrc` ajusta tu editor Vim. Estos archivos son el corazón de tu flujo de trabajo, ya que personalizan tus herramientas favoritas.
 
-### Impacto en la Productividad del Usuario
+## Impacto en la Productividad del Usuario
 
 Tener **dotfiles** bien organizados te ahorra horas al replicar tu entorno en nuevas máquinas. Imagina configurar tu shell o editor desde cero tras reinstalar tu sistema: ¡es tedioso! Con una gestión adecuada, puedes clonar tus configuraciones y tener todo listo rápidamente. Esto es clave para desarrolladores que trabajan en múltiples dispositivos o entornos como servidores y laptops.
 
-### Problemas de la Gestión Manual
+## Problemas de la Gestión Manual
 
 Copiar **dotfiles** manualmente o usar scripts caseros es lento y arriesgado. Puedes sobrescribir archivos, olvidar configuraciones o perderlas en una reinstalación. Por ejemplo, mover `.zshrc` a otra máquina sin un sistema organizado puede causar errores si las versiones del software difieren. **GNU Stow** soluciona esto al centralizar tus archivos y crear **enlaces simbólicos** automáticamente, manteniendo todo sincronizado.
 
-## ¿Qué es GNU Stow y Cómo Funciona?
+# ¿Qué es GNU Stow y Cómo Funciona?
 
-### Introducción a GNU Stow: Gestión de Symlinks
+## Introducción a GNU Stow: Gestión de Symlinks
 
 **GNU Stow** es una herramienta que crea y gestiona **enlaces simbólicos** (symlinks) para tus **dotfiles**. En lugar de copiar archivos como `.bashrc` a tu directorio home (`~`), Stow los mantiene en un repositorio central (ej., `~/dotfiles`) y crea enlaces a las ubicaciones correctas. Esto asegura que tus aplicaciones usen las configuraciones sin duplicar archivos, y los cambios se reflejan en el repositorio.
 
-### Concepto de Paquetes en Stow
+## Concepto de Paquetes en Stow
 
 Stow organiza tus **dotfiles** en **paquetes**, que son subdirectorios en `~/dotfiles` (ej., `zsh`, `git`, `nvim`). Cada paquete replica la estructura del sistema. Por ejemplo, para `.zshrc`, creas `~/dotfiles/zsh/.zshrc`. Al ejecutar `stow zsh`, Stow enlaza `~/dotfiles/zsh/.zshrc` a `~/.zshrc`. Esta modularidad te permite instalar solo las configuraciones que necesitas en cada máquina.
 
@@ -100,7 +100,7 @@ Imagina que tu directorio principal de dotfiles se llama `~/dotfiles/`. Dentro d
 └── install.sh
 ```
 
-### Beneficios de Usar Stow para Dotfiles
+## Beneficios de Usar Stow para Dotfiles
 
 - **Centralización**: Todos tus **dotfiles** viven en un solo lugar, fáciles de versionar con Git.
 - **Modularidad**: Instala configuraciones específicas (ej., solo `git`) sin tocar otras.
@@ -108,9 +108,9 @@ Imagina que tu directorio principal de dotfiles se llama `~/dotfiles/`. Dentro d
 - **Simplicidad**: Comandos como `stow zsh` hacen el trabajo pesado por ti.
 - **Portabilidad**: Funciona en Linux, macOS y WSL, ideal para entornos mixtos.
 
-## Guía Práctica: Configura tus Dotfiles con Stow
+# Guía Práctica: Configura tus Dotfiles con Stow
 
-### Paso 1: Instala GNU Stow en tu Sistema
+## Paso 1: Instala GNU Stow en tu Sistema
 
 Primero, instala **GNU Stow** en tu sistema. Usa el gestor de paquetes de tu distribución:
 
@@ -149,7 +149,7 @@ stow --version
 
 Si ves la versión (ej., `stow 2.3.1`), estás listo.
 
-### Paso 2: Crea y Organiza tu Repositorio de Dotfiles
+## Paso 2: Crea y Organiza tu Repositorio de Dotfiles
 
 1. **Crea el directorio de dotfiles**:
 
@@ -197,7 +197,7 @@ Si ves la versión (ej., `stow 2.3.1`), estás listo.
 
 Tu repositorio ahora está organizado y listo para Stow.
 
-### Paso 3: Usa Stow para Enlazar Configuraciones
+## Paso 3: Usa Stow para Enlazar Configuraciones
 
 1. **Navega a `~/dotfiles`**:
 
@@ -243,7 +243,7 @@ Tu repositorio ahora está organizado y listo para Stow.
      stow git zsh nvim
      ```
 
-### Paso 4: Automatiza con un Script de Instalación
+## Paso 4: Automatiza con un Script de Instalación
 
 Crea un script `install.sh` para automatizar la instalación:
 
@@ -293,9 +293,9 @@ Crea un script `install.sh` para automatizar la instalación:
 
 Este script simplifica el despliegue en cualquier máquina.
 
-## Consejos Avanzados para Optimizar Stow
+# Consejos Avanzados para Optimizar Stow
 
-### Manejo de Conflictos con --adopt
+## Manejo de Conflictos con --adopt
 
 Si un archivo como `~/.zshrc` ya existe, Stow mostrará un error. Usa `--adopt` para mover el archivo al repositorio y enlazarlo:
 
@@ -315,7 +315,7 @@ Si un archivo como `~/.zshrc` ya existe, Stow mostrará un error. Usa `--adopt` 
 
 **Precaución**: Haz un respaldo antes (ej., `cp ~/.zshrc ~/.zshrc.bak`).
 
-### Desvinculación de Paquetes con -D
+## Desvinculación de Paquetes con -D
 
 Para eliminar enlaces simbólicos sin borrar los archivos en `~/dotfiles`:
 
@@ -332,7 +332,7 @@ Para eliminar enlaces simbólicos sin borrar los archivos en `~/dotfiles`:
    ```
    El enlace debería haber desaparecido, pero `~/dotfiles/zsh/.zshrc` permanece.
 
-### Compatibilidad Multiplataforma y Portabilidad
+## Compatibilidad Multiplataforma y Portabilidad
 
 Stow funciona en Linux, macOS y WSL. Para configuraciones específicas:
 
@@ -353,9 +353,9 @@ Stow funciona en Linux, macOS y WSL. Para configuraciones específicas:
 
 Esto asegura que solo uses configuraciones relevantes por máquina.
 
-## Alternativas a GNU Stow: ¿Qué Opciones Existen?
+# Alternativas a GNU Stow: ¿Qué Opciones Existen?
 
-### Repositorios Git Bare: Simplicidad y Riesgos
+## Repositorios Git Bare: Simplicidad y Riesgos
 
 Un repositorio Git “bare” usa `$HOME` como área de trabajo:
 
@@ -369,7 +369,7 @@ config commit -m "Añadir zshrc"
 **Ventajas**: Simple, no requiere herramientas adicionales.
 **Riesgos**: Puedes subir archivos sensibles si no configuras `.gitignore`.
 
-### Chezmoi y YADM: Herramientas Modernas
+## Chezmoi y YADM: Herramientas Modernas
 
 - **Chezmoi**: Gestiona dotfiles con plantillas y cifrado. Ideal para múltiples sistemas.
   ```bash
@@ -384,7 +384,7 @@ config commit -m "Añadir zshrc"
   **Ventajas**: Más funciones que Stow, como gestión de secretos.
   **Desventajas**: Mayor curva de aprendizaje.
 
-### Home Manager: Configuración Declarativa
+## Home Manager: Configuración Declarativa
 
 **Home Manager** (para NixOS) define dotfiles y paquetes declarativamente:
 
@@ -395,7 +395,7 @@ home-manager switch
 **Ventajas**: Configuración completa del sistema.
 **Desventajas**: Complejo, requiere aprender Nix.
 
-## Conclusión: Controla tu Entorno Digital
+# Conclusión
 
 **GNU Stow** y Git transforman la gestión de **dotfiles** en un proceso simple y eficiente. Con Stow, centralizas tus configuraciones, las enlazas con comandos rápidos y las sincronizas con Git. Ya sea que uses Linux, macOS o WSL, este enfoque te ahorra tiempo y mantiene tu entorno consistente. ¡Clona tu repositorio, ejecuta `stow` y personaliza tu flujo de trabajo hoy! Comparte tus trucos o configuraciones favoritas en los comentarios.
 

@@ -373,10 +373,10 @@ desplegarlos en Linux, macOS o WSL sin complicaciones. ¿Listo para
 optimizar tu flujo de trabajo? Sigue leyendo y descubre cómo \textbf{GNU
 Stow} transforma la gestión de dotfiles en algo simple y poderoso.
 
-\subsection{¿Qué son los Dotfiles y Por Qué
+\section{¿Qué son los Dotfiles y Por Qué
 Importan?}\label{quuxe9-son-los-dotfiles-y-por-quuxe9-importan}
 
-\subsubsection{Definición de Dotfiles y su
+\subsection{Definición de Dotfiles y su
 Rol}\label{definiciuxf3n-de-dotfiles-y-su-rol}
 
 Los \textbf{dotfiles} son archivos ocultos en sistemas Unix-like (Linux,
@@ -388,7 +388,7 @@ mientras que \texttt{.vimrc} ajusta tu editor Vim. Estos archivos son el
 corazón de tu flujo de trabajo, ya que personalizan tus herramientas
 favoritas.
 
-\subsubsection{Impacto en la Productividad del
+\subsection{Impacto en la Productividad del
 Usuario}\label{impacto-en-la-productividad-del-usuario}
 
 Tener \textbf{dotfiles} bien organizados te ahorra horas al replicar tu
@@ -398,7 +398,7 @@ puedes clonar tus configuraciones y tener todo listo rápidamente. Esto
 es clave para desarrolladores que trabajan en múltiples dispositivos o
 entornos como servidores y laptops.
 
-\subsubsection{Problemas de la Gestión
+\subsection{Problemas de la Gestión
 Manual}\label{problemas-de-la-gestiuxf3n-manual}
 
 Copiar \textbf{dotfiles} manualmente o usar scripts caseros es lento y
@@ -409,10 +409,10 @@ versiones del software difieren. \textbf{GNU Stow} soluciona esto al
 centralizar tus archivos y crear \textbf{enlaces simbólicos}
 automáticamente, manteniendo todo sincronizado.
 
-\subsection{¿Qué es GNU Stow y Cómo
+\section{¿Qué es GNU Stow y Cómo
 Funciona?}\label{quuxe9-es-gnu-stow-y-cuxf3mo-funciona}
 
-\subsubsection{Introducción a GNU Stow: Gestión de
+\subsection{Introducción a GNU Stow: Gestión de
 Symlinks}\label{introducciuxf3n-a-gnu-stow-gestiuxf3n-de-symlinks}
 
 \textbf{GNU Stow} es una herramienta que crea y gestiona \textbf{enlaces
@@ -424,7 +424,7 @@ ubicaciones correctas. Esto asegura que tus aplicaciones usen las
 configuraciones sin duplicar archivos, y los cambios se reflejan en el
 repositorio.
 
-\subsubsection{Concepto de Paquetes en
+\subsection{Concepto de Paquetes en
 Stow}\label{concepto-de-paquetes-en-stow}
 
 Stow organiza tus \textbf{dotfiles} en \textbf{paquetes}, que son
@@ -462,7 +462,7 @@ subdirectorios para cada ``paquete'':
 └── install.sh
 \end{verbatim}
 
-\subsubsection{Beneficios de Usar Stow para
+\subsection{Beneficios de Usar Stow para
 Dotfiles}\label{beneficios-de-usar-stow-para-dotfiles}
 
 \begin{itemize}
@@ -484,10 +484,10 @@ Dotfiles}\label{beneficios-de-usar-stow-para-dotfiles}
   entornos mixtos.
 \end{itemize}
 
-\subsection{Guía Práctica: Configura tus Dotfiles con
+\section{Guía Práctica: Configura tus Dotfiles con
 Stow}\label{guuxeda-pruxe1ctica-configura-tus-dotfiles-con-stow}
 
-\subsubsection{Paso 1: Instala GNU Stow en tu
+\subsection{Paso 1: Instala GNU Stow en tu
 Sistema}\label{paso-1-instala-gnu-stow-en-tu-sistema}
 
 Primero, instala \textbf{GNU Stow} en tu sistema. Usa el gestor de
@@ -541,7 +541,7 @@ Verifica la instalación:
 
 Si ves la versión (ej., \texttt{stow\ 2.3.1}), estás listo.
 
-\subsubsection{Paso 2: Crea y Organiza tu Repositorio de
+\subsection{Paso 2: Crea y Organiza tu Repositorio de
 Dotfiles}\label{paso-2-crea-y-organiza-tu-repositorio-de-dotfiles}
 
 \begin{enumerate}
@@ -610,7 +610,7 @@ Dotfiles}\label{paso-2-crea-y-organiza-tu-repositorio-de-dotfiles}
 
 Tu repositorio ahora está organizado y listo para Stow.
 
-\subsubsection{Paso 3: Usa Stow para Enlazar
+\subsection{Paso 3: Usa Stow para Enlazar
 Configuraciones}\label{paso-3-usa-stow-para-enlazar-configuraciones}
 
 \begin{enumerate}
@@ -683,7 +683,7 @@ Configuraciones}\label{paso-3-usa-stow-para-enlazar-configuraciones}
   \end{itemize}
 \end{enumerate}
 
-\subsubsection{Paso 4: Automatiza con un Script de
+\subsection{Paso 4: Automatiza con un Script de
 Instalación}\label{paso-4-automatiza-con-un-script-de-instalaciuxf3n}
 
 Crea un script \texttt{install.sh} para automatizar la instalación:
@@ -749,10 +749,10 @@ Crea un script \texttt{install.sh} para automatizar la instalación:
 
 Este script simplifica el despliegue en cualquier máquina.
 
-\subsection{Consejos Avanzados para Optimizar
+\section{Consejos Avanzados para Optimizar
 Stow}\label{consejos-avanzados-para-optimizar-stow}
 
-\subsubsection{Manejo de Conflictos con
+\subsection{Manejo de Conflictos con
 --adopt}\label{manejo-de-conflictos-con-adopt}
 
 Si un archivo como \texttt{\textasciitilde{}/.zshrc} ya existe, Stow
@@ -785,7 +785,7 @@ repositorio y enlazarlo:
 \textbf{Precaución}: Haz un respaldo antes (ej.,
 \texttt{cp\ \textasciitilde{}/.zshrc\ \textasciitilde{}/.zshrc.bak}).
 
-\subsubsection{Desvinculación de Paquetes con
+\subsection{Desvinculación de Paquetes con
 -D}\label{desvinculaciuxf3n-de-paquetes-con--d}
 
 Para eliminar enlaces simbólicos sin borrar los archivos en
@@ -815,7 +815,7 @@ Para eliminar enlaces simbólicos sin borrar los archivos en
   \texttt{\textasciitilde{}/dotfiles/zsh/.zshrc} permanece.
 \end{enumerate}
 
-\subsubsection{Compatibilidad Multiplataforma y
+\subsection{Compatibilidad Multiplataforma y
 Portabilidad}\label{compatibilidad-multiplataforma-y-portabilidad}
 
 Stow funciona en Linux, macOS y WSL. Para configuraciones específicas:
@@ -848,10 +848,10 @@ Stow funciona en Linux, macOS y WSL. Para configuraciones específicas:
 
 Esto asegura que solo uses configuraciones relevantes por máquina.
 
-\subsection{Alternativas a GNU Stow: ¿Qué Opciones
+\section{Alternativas a GNU Stow: ¿Qué Opciones
 Existen?}\label{alternativas-a-gnu-stow-quuxe9-opciones-existen}
 
-\subsubsection{Repositorios Git Bare: Simplicidad y
+\subsection{Repositorios Git Bare: Simplicidad y
 Riesgos}\label{repositorios-git-bare-simplicidad-y-riesgos}
 
 Un repositorio Git ``bare'' usa \texttt{\$HOME} como área de trabajo:
@@ -869,7 +869,7 @@ Un repositorio Git ``bare'' usa \texttt{\$HOME} como área de trabajo:
 \textbf{Riesgos}: Puedes subir archivos sensibles si no configuras
 \texttt{.gitignore}.
 
-\subsubsection{Chezmoi y YADM: Herramientas
+\subsection{Chezmoi y YADM: Herramientas
 Modernas}\label{chezmoi-y-yadm-herramientas-modernas}
 
 \begin{itemize}
@@ -897,7 +897,7 @@ Modernas}\label{chezmoi-y-yadm-herramientas-modernas}
   \textbf{Desventajas}: Mayor curva de aprendizaje.
 \end{itemize}
 
-\subsubsection{Home Manager: Configuración
+\subsection{Home Manager: Configuración
 Declarativa}\label{home-manager-configuraciuxf3n-declarativa}
 
 \textbf{Home Manager} (para NixOS) define dotfiles y paquetes
@@ -912,8 +912,7 @@ declarativamente:
 \textbf{Ventajas}: Configuración completa del sistema.
 \textbf{Desventajas}: Complejo, requiere aprender Nix.
 
-\subsection{Conclusión: Controla tu Entorno
-Digital}\label{conclusiuxf3n-controla-tu-entorno-digital}
+\section{Conclusión}\label{conclusiuxf3n}
 
 \textbf{GNU Stow} y Git transforman la gestión de \textbf{dotfiles} en
 un proceso simple y eficiente. Con Stow, centralizas tus

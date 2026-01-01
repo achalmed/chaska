@@ -1,0 +1,3236 @@
+\documentclass[
+  doc,
+  floatsintext,
+  longtable,
+  a4paper,
+  nolmodern,
+  notxfonts,
+  notimes,
+  12pt,
+  colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{apa7}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\geometry{inner=1in, outer=1in}
+\fancyhfoffset[LE,RO]{0cm}
+
+
+\usepackage[bidi=default]{babel}
+\babelprovide[main,import]{spanish}
+
+
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+\RequirePackage{longtable}
+\RequirePackage{threeparttablex}
+
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+	{0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+	{-.5em}%
+	{\normalfont\normalsize\bfseries\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{0.5em}%
+	{0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+	{-\z@\relax}%
+	{\normalfont\normalsize\bfseries\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+
+
+
+\usepackage{longtable, booktabs, multirow, multicol, colortbl, hhline, caption, array, float, xpatch}
+\usepackage{subcaption}
+
+
+\renewcommand\thesubfigure{\Alph{subfigure}}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.7}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{listings,theorems, breakable, skins}
+\usepackage{fontawesome5}
+
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{ACACAC}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582EC}
+\definecolor{quarto-callout-important-color-frame}{HTML}{D9534F}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{F0AD4E}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02B875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{FD7E14}
+
+%\newlength\Oldarrayrulewidth
+%\newlength\Oldtabcolsep
+
+
+\usepackage{hyperref}
+
+
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+
+
+\usepackage{newtx}
+
+\defaultfontfeatures{Scale=MatchLowercase}
+\defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+
+
+
+
+
+\title{Guía Completa de Positron IDE}
+
+
+\shorttitle{Guía Completa de Positron IDE}
+
+
+\usepackage{etoolbox}
+
+
+
+\ccoppy{\textcopyright~2025}
+
+
+
+\author{Edison Achalma}
+
+
+
+\affiliation{
+{Escuela Profesional de Economía, Universidad Nacional de San Cristóbal
+de Huamanga}}
+
+
+
+
+\leftheader{Achalma}
+
+\date{2025-12-31}
+
+
+\abstract{Positron es un IDE moderno y especializado en ciencia de
+datos, construido sobre el núcleo open-source de VS Code (Code OSS) y
+desarrollado por Posit Software. Ofrece soporte nativo para Python y R,
+consola interactiva avanzada, paneles especializados (Variables, Data
+Explorer, Plots, Help), integración completa con Quarto y herramientas
+de asistencia IA. Esta guía completa cubre desde la instalación
+multiplataforma hasta la configuración avanzada, migración desde VS
+Code, personalización profunda y mejores prácticas para flujos de
+trabajo intensivos en análisis de datos, programación estadística y
+publicación científica reproducible. }
+
+\keywords{Positron IDE, Ciencia de datos, Python, R, Quarto}
+
+\authornote{\par{\addORCIDlink{Edison Achalma}{0000-0001-6996-3364}} 
+\par{ }
+\par{   El autor no tiene conflictos de interés que revelar.    Los
+roles de autor se clasificaron utilizando la taxonomía de roles de
+colaborador (CRediT; https://credit.niso.org/) de la siguiente
+manera:  Edison Achalma:   conceptualización, redacción}
+\par{La correspondencia relativa a este artículo debe dirigirse a Edison
+Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@unsch.edu.pe}}
+}
+
+\makeatletter
+\let\endoldlt\endlongtable
+\def\endlongtable{
+\hline
+\endoldlt
+}
+\makeatother
+
+\urlstyle{same}
+
+
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Tabla de contenidos}
+\else
+  \newcommand\contentsname{Tabla de contenidos}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Lista de Figuras}
+\else
+  \newcommand\listfigurename{Lista de Figuras}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Lista de Tablas}
+\else
+  \newcommand\listtablename{Lista de Tablas}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabla}
+\else
+  \newcommand\tablename{Tabla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{Lista de Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\makeatother
+
+% From https://tex.stackexchange.com/a/645996/211326
+%%% apa7 doesn't want to add appendix section titles in the toc
+%%% let's make it do it
+\makeatletter
+\xpatchcmd{\appendix}
+  {\par}
+  {\addcontentsline{toc}{section}{\@currentlabelname}\par}
+  {}{}
+\makeatother
+
+%% Disable longtable counter
+%% https://tex.stackexchange.com/a/248395/211326
+
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\LT@caption}
+  {\bgroup}
+  {\bgroup\global\LTpatch@captiontrue}
+  {}{}
+\patchcmd{\longtable}
+  {\par}
+  {\par\global\LTpatch@captionfalse}
+  {}{}
+\apptocmd{\endlongtable}
+  {\ifLTpatch@caption\else\addtocounter{table}{-1}\fi}
+  {}{}
+\newif\ifLTpatch@caption
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+
+\hypertarget{toc}{}
+\tableofcontents
+\newpage
+\section[Introduction]{Guía Completa de Positron IDE}
+
+\setcounter{secnumdepth}{3}
+
+\setlength\LTleft{0pt}
+
+
+
+
+\textbf{¿Qué es Positron?}
+
+Positron es un IDE moderno y extensible para ciencia de datos construido
+sobre \textbf{Code OSS} (el núcleo open-source de VS Code). Desarrollado
+por \textbf{Posit Software} (anteriormente RStudio), está diseñado
+específicamente para flujos de trabajo de ciencia de datos.
+
+\textbf{Características Principales:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Basado en Code OSS}: Toda la potencia de VS Code
+\item
+  \textbf{Soporte nativo Python y R}: Sin necesidad de extensiones
+  externas
+\item
+  \textbf{Console interactiva}: IPython/IRKernel integrada
+\item
+  \textbf{Data Explorer}: Visualización de dataframes en vivo
+\item
+  \textbf{Variables Pane}: Inspección de variables
+\item
+  \textbf{Plots Pane}: Visualización de gráficos
+\item
+  \textbf{Help Pane}: Documentación integrada
+\item
+  \textbf{Connections Pane}: Gestión de bases de datos
+\item
+  \textbf{Quarto integrado}: Documentos dinámicos
+\item
+  \textbf{AI Assistant}: Positron Assistant y Databot
+\item
+  \textbf{Open VSX}: Marketplace de extensiones open-source
+\end{itemize}
+
+\textbf{Positron vs VS Code vs RStudio}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Característica & Positron & VS Code & RStudio \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Base & Code OSS & Propietario & Propietario \\
+Python nativo & ✅ & ❌ (extensión) & ❌ \\
+R nativo & ✅ & ❌ (extensión) & ✅ \\
+Console interactiva & ✅ & ❌ & ✅ \\
+Data Explorer & ✅ & ❌ & ✅ \\
+Variables Pane & ✅ & ❌ & ✅ \\
+Plots Pane & ✅ & ❌ & ✅ \\
+Quarto & ✅ & ✅ (extensión) & ✅ \\
+Extensiones & Open VSX & VS Marketplace & Limitadas \\
+AI Assistant & ✅ & ❌ (Copilot) & ❌ \\
+Multilenguaje & ✅ & ✅ & Limitado \\
+\end{longtable}
+
+\section{Instalación}\label{instalaciuxf3n}
+
+\subsection{Requisitos del Sistema}\label{requisitos-del-sistema}
+
+\textbf{Mínimos:}
+
+\begin{itemize}
+\tightlist
+\item
+  Sistema Operativo: Linux, macOS, Windows
+\item
+  Espacio en disco: 500 MB
+\item
+  RAM: 2 GB (4 GB recomendado)
+\end{itemize}
+
+\subsection{Linux (Ubuntu/Debian)}\label{linux-ubuntudebian}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Descargar desde el sitio oficial}
+\CommentTok{\# https://github.com/posit{-}dev/positron/releases}
+
+\CommentTok{\# O instalar desde .deb}
+\FunctionTok{sudo}\NormalTok{ dpkg }\AttributeTok{{-}i}\NormalTok{ positron\_}\PreprocessorTok{*}\NormalTok{.deb}
+\FunctionTok{sudo}\NormalTok{ apt{-}get install }\AttributeTok{{-}f}  \CommentTok{\# Instalar dependencias}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{macOS}\label{macos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Descargar .dmg desde:}
+\CommentTok{\# https://github.com/posit{-}dev/positron/releases}
+
+\CommentTok{\# O con Homebrew}
+\ExtensionTok{brew}\NormalTok{ install }\AttributeTok{{-}{-}cask}\NormalTok{ positron}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Windows}\label{windows}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Descargar instalador desde:}
+\CommentTok{\# https://github.com/posit{-}dev/positron/releases}
+
+\CommentTok{\# Ejecutar positron{-}setup.exe}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Verificar Instalación}\label{verificar-instalaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Abrir Positron}
+\ExtensionTok{positron}
+
+\CommentTok{\# O desde línea de comandos}
+\ExtensionTok{positron} \AttributeTok{{-}{-}version}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Configurar Comando en
+Terminal}\label{configurar-comando-en-terminal}
+
+\textbf{Linux/macOS:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Añadir a \textasciitilde{}/.bashrc o \textasciitilde{}/.zshrc}
+\BuiltInTok{export} \VariableTok{PATH}\OperatorTok{=}\StringTok{"}\VariableTok{$PATH}\StringTok{:/path/to/positron/bin"}
+
+\CommentTok{\# O crear symlink}
+\FunctionTok{sudo}\NormalTok{ ln }\AttributeTok{{-}s}\NormalTok{ /path/to/positron/bin/positron /usr/local/bin/positron}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Migración desde VS Code}\label{migraciuxf3n-desde-vs-code}
+
+\subsection{Importar Configuración}\label{importar-configuraciuxf3n}
+
+\textbf{Automáticamente al primer inicio:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Positron te preguntará si quieres importar settings de VS Code
+\item
+  Click en ``Yes'' para importar
+\item
+  Revisa los settings importados
+\item
+  Guarda los cambios
+\end{enumerate}
+
+\textbf{Manualmente:}
+
+\begin{verbatim}
+Command Palette (Ctrl+Shift+P) → Preferences: Import Settings...
+\end{verbatim}
+
+\subsection{Diferencias Clave}\label{diferencias-clave}
+
+\textbf{Extensiones:}
+
+\begin{itemize}
+\tightlist
+\item
+  Positron usa \textbf{Open VSX} en lugar de VS Marketplace
+\item
+  Algunas extensiones pueden no estar disponibles
+\item
+  Python y R son nativos (no necesitas ms-python.python)
+\end{itemize}
+
+\textbf{Features Nuevas:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Console}: Reemplaza el terminal para código interactivo
+\item
+  \textbf{Variables Pane}: Inspección de datos en vivo
+\item
+  \textbf{Data Explorer}: Visualización de dataframes
+\item
+  \textbf{Plots Pane}: Gráficos integrados
+\item
+  \textbf{Help Pane}: Documentación contextual
+\end{itemize}
+
+\subsection{Extensiones a Reemplazar}\label{extensiones-a-reemplazar}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+VS Code & Positron \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+ms-python.python & Built-in (nativo) \\
+REditorSupport.r & Built-in (posit.air-vscode) \\
+Jupyter & Built-in \\
+GitLens & Instalar desde Open VSX \\
+Prettier & Instalar desde Open VSX \\
+\end{longtable}
+
+\section{Configuración Inicial}\label{configuraciuxf3n-inicial}
+
+\subsection{Ubicación de Archivos}\label{ubicaciuxf3n-de-archivos}
+
+\begin{verbatim}
+Linux: ~/.config/Positron/User/settings.json
+macOS: ~/Library/Application Support/Positron/User/settings.json
+Windows: %APPDATA%\Positron\User\settings.json
+\end{verbatim}
+
+\subsection{Abrir Settings}\label{abrir-settings}
+
+\textbf{GUI:}
+
+\begin{verbatim}
+File → Preferences → Settings (Ctrl+,)
+\end{verbatim}
+
+\textbf{JSON:}
+
+\begin{verbatim}
+Command Palette → Preferences: Open User Settings (JSON)
+\end{verbatim}
+
+\subsection{Configuración Básica
+Recomendada}\label{configuraciuxf3n-buxe1sica-recomendada}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \ErrorTok{//} \ErrorTok{Editor}
+    \DataTypeTok{"editor.fontSize"}\FunctionTok{:} \DecValTok{14}\FunctionTok{,}
+    \DataTypeTok{"editor.fontFamily"}\FunctionTok{:} \StringTok{"\textquotesingle{}JetBrains Mono\textquotesingle{}, \textquotesingle{}Fira Code\textquotesingle{}, \textquotesingle{}Hack Nerd Font\textquotesingle{}, monospace"}\FunctionTok{,}
+    \DataTypeTok{"editor.fontLigatures"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.lineNumbers"}\FunctionTok{:} \StringTok{"on"}\FunctionTok{,}
+    \DataTypeTok{"editor.minimap.enabled"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"editor.formatOnSave"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.formatOnPaste"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.cursorBlinking"}\FunctionTok{:} \StringTok{"smooth"}\FunctionTok{,}
+    \DataTypeTok{"editor.cursorSmoothCaretAnimation"}\FunctionTok{:} \StringTok{"on"}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{Tema}
+    \DataTypeTok{"workbench.colorTheme"}\FunctionTok{:} \StringTok{"Default Positron Dark"}\FunctionTok{,}
+    \DataTypeTok{"workbench.iconTheme"}\FunctionTok{:} \StringTok{"material{-}icon{-}theme"}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{Terminal}
+    \DataTypeTok{"terminal.integrated.fontFamily"}\FunctionTok{:} \StringTok{"\textquotesingle{}Hack Nerd Font\textquotesingle{}, monospace"}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.fontSize"}\FunctionTok{:} \DecValTok{13}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.defaultProfile.linux"}\FunctionTok{:} \StringTok{"bash"}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.copyOnSelection"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.cursorBlinking"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.inheritEnv"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{Git}
+    \DataTypeTok{"git.enableSmartCommit"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"git.autofetch"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"git.confirmSync"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{Files}
+    \DataTypeTok{"files.autoSave"}\FunctionTok{:} \StringTok{"onFocusChange"}\FunctionTok{,}
+    \DataTypeTok{"files.associations"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"*.qmd"}\FunctionTok{:} \StringTok{"quarto"}\FunctionTok{,}
+        \DataTypeTok{"*.Rmd"}\FunctionTok{:} \StringTok{"rmarkdown"}\FunctionTok{,}
+        \DataTypeTok{"renv.lock"}\FunctionTok{:} \StringTok{"json"}
+    \FunctionTok{\},}
+    
+    \ErrorTok{//} \ErrorTok{Quarto}
+    \DataTypeTok{"quarto.visualEditor.spellingDictionary"}\FunctionTok{:} \StringTok{"es\_ES"}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{Positron{-}specific}
+    \DataTypeTok{"positron.assistant.enable"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"positron.assistant.showTokenUsage.enable"}\FunctionTok{:} \KeywordTok{true}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Interfaz de Usuario}\label{interfaz-de-usuario}
+
+\subsection{Layout Principal}\label{layout-principal}
+
+\begin{verbatim}
+┌─────────────────────────────────────────────────────┐
+│ Title Bar                                           │
+├──────────────────┬──────────────────────────────────┤
+│                  │                                  │
+│  Activity Bar    │                                  │
+│  (left/bottom)   │       Editor Area                │
+│                  │                                  │
+│  - Explorer      │                                  │
+│  - Search        ├──────────────────────────────────┤
+│  - Source Ctrl   │                                  │
+│  - Run/Debug     │       Console / Terminal         │
+│  - Extensions    │                                  │
+│                  │                                  │
+├──────────────────┴──────────────────────────────────┤
+│  Status Bar                                         │
+└─────────────────────────────────────────────────────┘
+\end{verbatim}
+
+\subsection{Panes Exclusivos de
+Positron}\label{panes-exclusivos-de-positron}
+
+\textbf{Variables Pane:}
+
+\begin{verbatim}
+Muestra todas las variables en el entorno actual
+- Nombre
+- Tipo
+- Valor/Tamaño
+- Preview
+\end{verbatim}
+
+\textbf{Data Explorer:}
+
+\begin{verbatim}
+Visualización interactiva de dataframes
+- Filtrado
+- Ordenamiento
+- Búsqueda
+- Exportación
+\end{verbatim}
+
+\textbf{Plots Pane:}
+
+\begin{verbatim}
+Visualización de gráficos generados
+- Historial de plots
+- Zoom
+- Exportar
+\end{verbatim}
+
+\textbf{Help Pane:}
+
+\begin{verbatim}
+Documentación contextual
+- Búsqueda integrada
+- Ejemplos
+- Argumentos de funciones
+\end{verbatim}
+
+\textbf{Console:}
+
+\begin{verbatim}
+Shell interactivo para Python/R
+- Completado de código
+- Syntax highlighting
+- Integración con Variables/Plots
+\end{verbatim}
+
+\subsection{Personalizar Layout}\label{personalizar-layout}
+
+\textbf{Activity Bar Position:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ErrorTok{"workbench.activityBar.location":} \ErrorTok{"bottom"} \ErrorTok{//} \ErrorTok{o} \ErrorTok{"top",} \ErrorTok{"left"}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Side Bar Position:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ErrorTok{"workbench.sideBar.location":} \ErrorTok{"right"} \ErrorTok{//} \ErrorTok{o} \ErrorTok{"left"}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Command Palette Position:}
+
+\begin{verbatim}
+Arrastrarlo a la posición deseada
+\end{verbatim}
+
+\section{Atajos de Teclado}\label{atajos-de-teclado}
+
+\subsection{Atajos Específicos de
+Positron}\label{atajos-especuxedficos-de-positron}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Atajo & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+Enter} & Ejecutar línea/selección en Console \\
+\texttt{Ctrl+Alt+Home} & Ejecutar desde inicio hasta línea actual \\
+\texttt{Ctrl+Alt+End} & Ejecutar desde línea actual hasta fin \\
+\texttt{Ctrl+Shift+0} & Reiniciar intérprete \\
+\texttt{Ctrl+Shift+P} & Ejecutar archivo completo en Console \\
+\texttt{F1} & Ayuda contextual \\
+\texttt{Ctrl+K,\ Ctrl+R} & Ayuda contextual (alternativo) \\
+\texttt{Ctrl+K,\ F} & Enfocar Console \\
+\texttt{Ctrl+K,\ V} & Enfocar Variables pane \\
+\texttt{Ctrl+L} & Limpiar Console \\
+\end{longtable}
+
+\subsection{Atajos Generales (heredados de VS
+Code)}\label{atajos-generales-heredados-de-vs-code}
+
+\textbf{Editor:}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Atajo & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+P} & Quick Open (buscar archivo) \\
+\texttt{Ctrl+Shift+P} & Command Palette \\
+\texttt{Ctrl+,} & Settings \\
+\texttt{Ctrl+B} & Toggle Sidebar \\
+\texttt{Ctrl+J} & Toggle Panel \\
+\texttt{Ctrl+Shift+E} & Explorer \\
+\texttt{Ctrl+Shift+F} & Search \\
+\texttt{Ctrl+Shift+G} & Source Control \\
+\texttt{Ctrl+Shift+D} & Run \& Debug \\
+\texttt{Ctrl+Shift+X} & Extensions \\
+\end{longtable}
+
+\textbf{Edición:}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Atajo & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+Space} & Trigger suggestions \\
+\texttt{Ctrl+Shift+K} & Delete line \\
+\texttt{Alt+Up/Down} & Move line up/down \\
+\texttt{Shift+Alt+Up/Down} & Copy line up/down \\
+\texttt{Ctrl+/} & Toggle comment \\
+\texttt{Ctrl+Shift+{[}} & Fold region \\
+\texttt{Ctrl+Shift+{]}} & Unfold region \\
+\texttt{Ctrl+K\ Ctrl+0} & Fold all \\
+\texttt{Ctrl+K\ Ctrl+J} & Unfold all \\
+\end{longtable}
+
+\textbf{Navegación:}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Atajo & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+G} & Go to line \\
+\texttt{Ctrl+Shift+O} & Go to symbol \\
+\texttt{Ctrl+T} & Show all symbols \\
+\texttt{F12} & Go to definition \\
+\texttt{Alt+F12} & Peek definition \\
+\texttt{Shift+F12} & Show references \\
+\texttt{Ctrl+K\ F12} & Open definition to side \\
+\end{longtable}
+
+\textbf{Terminal:}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Atajo & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+\textasciigrave{}} & Toggle terminal \\
+\texttt{Ctrl+Shift+\textasciigrave{}} & New terminal \\
+\texttt{Ctrl+Shift+C} & Copy \\
+\texttt{Ctrl+Shift+V} & Paste \\
+\end{longtable}
+
+\subsection{Personalizar Atajos}\label{personalizar-atajos}
+
+\textbf{Abrir configuración:}
+
+\begin{verbatim}
+Command Palette → Preferences: Open Keyboard Shortcuts
+\end{verbatim}
+
+\textbf{Archivo JSON:}
+
+\begin{verbatim}
+Command Palette → Preferences: Open Keyboard Shortcuts (JSON)
+\end{verbatim}
+
+\textbf{Ejemplo de customización:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OtherTok{[}
+    \FunctionTok{\{}
+        \DataTypeTok{"key"}\FunctionTok{:} \StringTok{"ctrl+shift+r"}\FunctionTok{,}
+        \DataTypeTok{"command"}\FunctionTok{:} \StringTok{"workbench.action.executeCode.console"}\FunctionTok{,}
+        \DataTypeTok{"when"}\FunctionTok{:} \StringTok{"editorTextFocus"}\FunctionTok{,}
+        \DataTypeTok{"args"}\FunctionTok{:} \FunctionTok{\{}
+            \DataTypeTok{"langId"}\FunctionTok{:} \StringTok{"r"}\FunctionTok{,}
+            \DataTypeTok{"code"}\FunctionTok{:} \StringTok{"reprex::reprex\_selection()"}\FunctionTok{,}
+            \DataTypeTok{"focus"}\FunctionTok{:} \KeywordTok{true}
+        \FunctionTok{\}}
+    \FunctionTok{\}}\OtherTok{,}
+    \FunctionTok{\{}
+        \DataTypeTok{"key"}\FunctionTok{:} \StringTok{"ctrl+alt+f"}\FunctionTok{,}
+        \DataTypeTok{"command"}\FunctionTok{:} \StringTok{"workbench.action.formatDocument"}
+    \FunctionTok{\}}\OtherTok{,}
+    \FunctionTok{\{}
+        \DataTypeTok{"key"}\FunctionTok{:} \StringTok{"f2"}\FunctionTok{,}
+        \DataTypeTok{"command"}\FunctionTok{:} \StringTok{"positron.dataExplorer.openDataExplorer"}
+    \FunctionTok{\}}
+\OtherTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Configuración Avanzada}\label{configuraciuxf3n-avanzada}
+
+\subsection{Settings.json Completo
+(Base)}\label{settings.json-completo-base}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{EDITOR}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"editor.fontSize"}\FunctionTok{:} \DecValTok{13}\FunctionTok{,}
+    \DataTypeTok{"editor.fontFamily"}\FunctionTok{:} \StringTok{"\textquotesingle{}JetBrains Mono\textquotesingle{}, \textquotesingle{}Fira Code\textquotesingle{}, \textquotesingle{}Hack Nerd Font\textquotesingle{}, monospace"}\FunctionTok{,}
+    \DataTypeTok{"editor.fontLigatures"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.lineNumbers"}\FunctionTok{:} \StringTok{"on"}\FunctionTok{,}
+    \DataTypeTok{"editor.rulers"}\FunctionTok{:} \OtherTok{[}\DecValTok{80}\OtherTok{,} \DecValTok{120}\OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"editor.wordWrap"}\FunctionTok{:} \StringTok{"off"}\FunctionTok{,}
+    \DataTypeTok{"editor.minimap.enabled"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"editor.scrollbar.vertical"}\FunctionTok{:} \StringTok{"auto"}\FunctionTok{,}
+    \DataTypeTok{"editor.scrollbar.horizontal"}\FunctionTok{:} \StringTok{"hidden"}\FunctionTok{,}
+    \DataTypeTok{"editor.cursorBlinking"}\FunctionTok{:} \StringTok{"smooth"}\FunctionTok{,}
+    \DataTypeTok{"editor.cursorSmoothCaretAnimation"}\FunctionTok{:} \StringTok{"on"}\FunctionTok{,}
+    \DataTypeTok{"editor.cursorStyle"}\FunctionTok{:} \StringTok{"line"}\FunctionTok{,}
+    \DataTypeTok{"editor.formatOnSave"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.formatOnPaste"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.formatOnType"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"editor.tabSize"}\FunctionTok{:} \DecValTok{4}\FunctionTok{,}
+    \DataTypeTok{"editor.insertSpaces"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.detectIndentation"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.renderWhitespace"}\FunctionTok{:} \StringTok{"selection"}\FunctionTok{,}
+    \DataTypeTok{"editor.bracketPairColorization.enabled"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.guides.bracketPairs"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.linkedEditing"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.suggest.preview"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.inlineSuggest.enabled"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.quickSuggestions"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"other"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+        \DataTypeTok{"comments"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+        \DataTypeTok{"strings"}\FunctionTok{:} \KeywordTok{false}
+    \FunctionTok{\},}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{WORKBENCH}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"workbench.colorTheme"}\FunctionTok{:} \StringTok{"Default Positron Dark"}\FunctionTok{,}
+    \DataTypeTok{"workbench.iconTheme"}\FunctionTok{:} \StringTok{"material{-}icon{-}theme"}\FunctionTok{,}
+    \DataTypeTok{"workbench.productIconTheme"}\FunctionTok{:} \StringTok{"Default"}\FunctionTok{,}
+    \DataTypeTok{"workbench.activityBar.location"}\FunctionTok{:} \StringTok{"bottom"}\FunctionTok{,}
+    \DataTypeTok{"workbench.sideBar.location"}\FunctionTok{:} \StringTok{"left"}\FunctionTok{,}
+    \DataTypeTok{"workbench.panel.defaultLocation"}\FunctionTok{:} \StringTok{"bottom"}\FunctionTok{,}
+    \DataTypeTok{"workbench.statusBar.visible"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"workbench.editor.showTabs"}\FunctionTok{:} \StringTok{"multiple"}\FunctionTok{,}
+    \DataTypeTok{"workbench.editor.tabSizing"}\FunctionTok{:} \StringTok{"fit"}\FunctionTok{,}
+    \DataTypeTok{"workbench.editor.highlightModifiedTabs"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"workbench.editor.labelFormat"}\FunctionTok{:} \StringTok{"short"}\FunctionTok{,}
+    \DataTypeTok{"workbench.editor.limit.enabled"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"workbench.editor.limit.value"}\FunctionTok{:} \DecValTok{10}\FunctionTok{,}
+    \DataTypeTok{"workbench.editor.empty.hint"}\FunctionTok{:} \StringTok{"hidden"}\FunctionTok{,}
+    \DataTypeTok{"workbench.startupEditor"}\FunctionTok{:} \StringTok{"none"}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{TERMINAL}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"terminal.integrated.fontFamily"}\FunctionTok{:} \StringTok{"\textquotesingle{}Hack Nerd Font\textquotesingle{}, \textquotesingle{}FiraCode Nerd Font\textquotesingle{}, monospace"}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.fontSize"}\FunctionTok{:} \DecValTok{12}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.fontWeight"}\FunctionTok{:} \StringTok{"normal"}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.lineHeight"}\FunctionTok{:} \FloatTok{1.2}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.cursorBlinking"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.cursorStyle"}\FunctionTok{:} \StringTok{"line"}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.defaultProfile.linux"}\FunctionTok{:} \StringTok{"bash"}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.copyOnSelection"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.inheritEnv"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.enablePersistentSessions"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.scrollback"}\FunctionTok{:} \DecValTok{10000}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{FILES}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"files.autoSave"}\FunctionTok{:} \StringTok{"onFocusChange"}\FunctionTok{,}
+    \DataTypeTok{"files.trimTrailingWhitespace"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"files.insertFinalNewline"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"files.trimFinalNewlines"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"files.associations"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"*.qmd"}\FunctionTok{:} \StringTok{"quarto"}\FunctionTok{,}
+        \DataTypeTok{"*.Rmd"}\FunctionTok{:} \StringTok{"rmarkdown"}\FunctionTok{,}
+        \DataTypeTok{"*.renv.lock"}\FunctionTok{:} \StringTok{"json"}\FunctionTok{,}
+        \DataTypeTok{"renv.lock"}\FunctionTok{:} \StringTok{"json"}\FunctionTok{,}
+        \DataTypeTok{"*.ipynb"}\FunctionTok{:} \StringTok{"jupyter{-}notebook"}
+    \FunctionTok{\},}
+    \DataTypeTok{"files.exclude"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"**/.git"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+        \DataTypeTok{"**/.DS\_Store"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+        \DataTypeTok{"**/\_\_pycache\_\_"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+        \DataTypeTok{"**/.Rproj.user"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+        \DataTypeTok{"**/.ipynb\_checkpoints"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+        \DataTypeTok{"**/node\_modules"}\FunctionTok{:} \KeywordTok{true}
+    \FunctionTok{\},}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{GIT}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"git.enableSmartCommit"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"git.autofetch"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"git.confirmSync"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"git.openRepositoryInParentFolders"}\FunctionTok{:} \StringTok{"always"}\FunctionTok{,}
+    \DataTypeTok{"git.suggestSmartCommit"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{SEARCH}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"search.exclude"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"**/node\_modules"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+        \DataTypeTok{"**/bower\_components"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+        \DataTypeTok{"**/.git"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+        \DataTypeTok{"**/\_\_pycache\_\_"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+        \DataTypeTok{"**/.Rproj.user"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+        \DataTypeTok{"**/.ipynb\_checkpoints"}\FunctionTok{:} \KeywordTok{true}
+    \FunctionTok{\},}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{DIFF} \ErrorTok{EDITOR}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"diffEditor.ignoreTrimWhitespace"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"diffEditor.renderSideBySide"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"diffEditor.wordWrap"}\FunctionTok{:} \StringTok{"off"}\FunctionTok{,}
+    \DataTypeTok{"diffEditor.maxComputationTime"}\FunctionTok{:} \DecValTok{0}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{LANGUAGE{-}SPECIFIC}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"[python]"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"editor.defaultFormatter"}\FunctionTok{:} \StringTok{"charliermarsh.ruff"}\FunctionTok{,}
+        \DataTypeTok{"editor.formatOnSave"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+        \DataTypeTok{"editor.codeActionsOnSave"}\FunctionTok{:} \FunctionTok{\{}
+            \DataTypeTok{"source.organizeImports"}\FunctionTok{:} \StringTok{"explicit"}
+        \FunctionTok{\},}
+        \DataTypeTok{"diffEditor.ignoreTrimWhitespace"}\FunctionTok{:} \KeywordTok{false}
+    \FunctionTok{\},}
+    \DataTypeTok{"[r]"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"editor.tabSize"}\FunctionTok{:} \DecValTok{2}\FunctionTok{,}
+        \DataTypeTok{"editor.insertSpaces"}\FunctionTok{:} \KeywordTok{true}
+    \FunctionTok{\},}
+    \DataTypeTok{"[quarto]"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"editor.defaultFormatter"}\FunctionTok{:} \StringTok{"quarto.quarto"}\FunctionTok{,}
+        \DataTypeTok{"editor.wordWrap"}\FunctionTok{:} \StringTok{"on"}
+    \FunctionTok{\},}
+    \DataTypeTok{"[markdown]"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"editor.defaultFormatter"}\FunctionTok{:} \StringTok{"esbenp.prettier{-}vscode"}\FunctionTok{,}
+        \DataTypeTok{"editor.wordWrap"}\FunctionTok{:} \StringTok{"on"}
+    \FunctionTok{\},}
+    \DataTypeTok{"[yaml]"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"editor.defaultFormatter"}\FunctionTok{:} \StringTok{"quarto.quarto"}\FunctionTok{,}
+        \DataTypeTok{"editor.tabSize"}\FunctionTok{:} \DecValTok{2}
+    \FunctionTok{\},}
+    \DataTypeTok{"[json]"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"editor.defaultFormatter"}\FunctionTok{:} \StringTok{"vscode.json{-}language{-}features"}
+    \FunctionTok{\},}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{QUARTO}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"quarto.visualEditor.spellingDictionary"}\FunctionTok{:} \StringTok{"es\_ES"}\FunctionTok{,}
+    \DataTypeTok{"quarto.render.previewType"}\FunctionTok{:} \StringTok{"internal"}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{POSITRON{-}SPECIFIC}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"positron.assistant.enable"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"positron.assistant.alwaysEnableApplyInEditorAction"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"positron.assistant.alwaysIncludeCopilotTools"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"positron.assistant.showTokenUsage.enable"}\FunctionTok{:} \KeywordTok{true}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Python en Positron}\label{python-en-positron}
+
+\subsection{Prerequisitos}\label{prerequisitos}
+
+\textbf{Versiones soportadas:} Python 3.9 - 3.13
+
+\textbf{Gestores recomendados:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{uv} (recomendado)
+\item
+  \texttt{pyenv}
+\item
+  \texttt{conda}/\texttt{mamba}
+\item
+  \texttt{venv}
+\end{itemize}
+
+\subsection{Instalar Python}\label{instalar-python}
+
+\textbf{Con uv (recomendado):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Instalar uv}
+\ExtensionTok{curl} \AttributeTok{{-}LsSf}\NormalTok{ https://astral.sh/uv/install.sh }\KeywordTok{|} \FunctionTok{sh}
+
+\CommentTok{\# Instalar Python}
+\ExtensionTok{uv}\NormalTok{ python install 3.12}
+
+\CommentTok{\# Ver versiones instaladas}
+\ExtensionTok{uv}\NormalTok{ python list}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Con pyenv:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Instalar pyenv}
+\ExtensionTok{curl}\NormalTok{ https://pyenv.run }\KeywordTok{|} \FunctionTok{bash}
+
+\CommentTok{\# Instalar Python}
+\ExtensionTok{pyenv}\NormalTok{ install 3.12.0}
+\ExtensionTok{pyenv}\NormalTok{ global 3.12.0}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Con conda:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear entorno}
+\ExtensionTok{conda}\NormalTok{ create }\AttributeTok{{-}n}\NormalTok{ myenv python=3.12}
+\ExtensionTok{conda}\NormalTok{ activate myenv}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Configurar Python en
+Positron}\label{configurar-python-en-positron}
+
+\textbf{Settings para Anaconda (tu caso):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"python.defaultInterpreterPath"}\FunctionTok{:} \StringTok{"/home/achalmaedison/anaconda3/bin/python"}\FunctionTok{,}
+    \DataTypeTok{"python.condaPath"}\FunctionTok{:} \StringTok{"/home/achalmaedison/anaconda3/bin/conda"}\FunctionTok{,}
+    \DataTypeTok{"python.terminal.activateEnvironment"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"python.terminal.activateEnvInCurrentTerminal"}\FunctionTok{:} \KeywordTok{true}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{IPython Kernel:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \ErrorTok{//} \ErrorTok{Usar} \ErrorTok{IPython} \ErrorTok{kernel} \ErrorTok{empaquetado} \ErrorTok{(recomendado)}
+    \DataTypeTok{"python.useBundledIpykernel"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{O} \ErrorTok{instalar} \ErrorTok{manualmente}
+    \ErrorTok{//} \ErrorTok{python.useBundledIpykernel}\DataTypeTok{": false}
+\DataTypeTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Seleccionar Intérprete}\label{seleccionar-intuxe9rprete}
+
+\textbf{Command Palette:}
+
+\begin{verbatim}
+Python: Select Interpreter
+\end{verbatim}
+
+\textbf{Desde Console:} Click en el selector de intérprete en la esquina
+superior derecha
+
+\subsection{Características Python}\label{caracteruxedsticas-python}
+
+\textbf{Code Completion:}
+
+\begin{itemize}
+\tightlist
+\item
+  IntelliSense (Jedi)
+\item
+  Type hints
+\item
+  Import suggestions
+\end{itemize}
+
+\textbf{Type Checking:}
+
+\begin{itemize}
+\tightlist
+\item
+  Pyright integrado
+\item
+  Configuración en \texttt{pyrightconfig.json}
+\end{itemize}
+
+\textbf{Formatting:}
+
+\begin{itemize}
+\tightlist
+\item
+  Ruff (recomendado)
+\item
+  Black
+\item
+  autopep8
+\end{itemize}
+
+\textbf{Linting:}
+
+\begin{itemize}
+\tightlist
+\item
+  Ruff
+\item
+  Pylint
+\item
+  Flake8
+\end{itemize}
+
+\subsection{Configuración Python
+Avanzada}\label{configuraciuxf3n-python-avanzada}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \ErrorTok{//} \ErrorTok{Intérprete}
+    \DataTypeTok{"python.defaultInterpreterPath"}\FunctionTok{:} \StringTok{"/path/to/python"}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{IPython}
+    \DataTypeTok{"python.useBundledIpykernel"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"python.enableAutoReload"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{Formatting}
+    \DataTypeTok{"python.formatting.provider"}\FunctionTok{:} \StringTok{"none"}\FunctionTok{,}
+    \DataTypeTok{"[python]"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"editor.defaultFormatter"}\FunctionTok{:} \StringTok{"charliermarsh.ruff"}\FunctionTok{,}
+        \DataTypeTok{"editor.formatOnSave"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+        \DataTypeTok{"editor.codeActionsOnSave"}\FunctionTok{:} \FunctionTok{\{}
+            \DataTypeTok{"source.organizeImports"}\FunctionTok{:} \StringTok{"explicit"}\FunctionTok{,}
+            \DataTypeTok{"source.fixAll"}\FunctionTok{:} \StringTok{"explicit"}
+        \FunctionTok{\}}
+    \FunctionTok{\},}
+    
+    \ErrorTok{//} \ErrorTok{Linting}
+    \DataTypeTok{"python.linting.enabled"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"python.linting.ruffEnabled"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{Terminal}
+    \DataTypeTok{"python.terminal.activateEnvironment"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"python.terminal.activateEnvInCurrentTerminal"}\FunctionTok{:} \KeywordTok{true}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Paquetes Esenciales}\label{paquetes-esenciales}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Data Science}
+\ExtensionTok{pip}\NormalTok{ install numpy pandas matplotlib seaborn scikit{-}learn}
+
+\CommentTok{\# Jupyter}
+\ExtensionTok{pip}\NormalTok{ install ipykernel jupyter}
+
+\CommentTok{\# Development}
+\ExtensionTok{pip}\NormalTok{ install ruff black isort mypy pytest}
+
+\CommentTok{\# Para Positron Console}
+\ExtensionTok{pip}\NormalTok{ install ipython}
+\end{Highlighting}
+\end{Shaded}
+
+\section{R en Positron}\label{r-en-positron}
+
+\subsection{Prerequisitos}\label{prerequisitos-1}
+
+\textbf{Versión requerida:} R 4.2 o superior
+
+\subsection{Instalar R}\label{instalar-r}
+
+\textbf{Linux:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ubuntu/Debian}
+\FunctionTok{sudo}\NormalTok{ apt install r{-}base r{-}base{-}dev}
+
+\CommentTok{\# O desde CRAN}
+\CommentTok{\# https://cloud.r{-}project.org/}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{macOS:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Con Homebrew}
+\ExtensionTok{brew}\NormalTok{ install r}
+
+\CommentTok{\# O descargar desde CRAN}
+\CommentTok{\# https://cloud.r{-}project.org/}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Con rig (múltiples versiones):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Instalar rig}
+\ExtensionTok{curl} \AttributeTok{{-}Ls}\NormalTok{ https://github.com/r{-}lib/rig/releases/latest/download/rig{-}linux{-}latest.tar.gz }\KeywordTok{|} \FunctionTok{sudo}\NormalTok{ tar xz }\AttributeTok{{-}C}\NormalTok{ /usr/local}
+
+\CommentTok{\# Instalar R}
+\ExtensionTok{rig}\NormalTok{ add release}
+\ExtensionTok{rig}\NormalTok{ add devel}
+
+\CommentTok{\# Cambiar versión}
+\ExtensionTok{rig}\NormalTok{ default 4.3}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Paquetes R Esenciales para
+Positron}\label{paquetes-r-esenciales-para-positron}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Paquetes core}
+\FunctionTok{install.packages}\NormalTok{(}\FunctionTok{c}\NormalTok{(}
+    \StringTok{"usethis"}\NormalTok{, }
+    \StringTok{"cli"}\NormalTok{, }
+    \StringTok{"crayon"}\NormalTok{, }
+    \StringTok{"rlang"}\NormalTok{, }
+    \StringTok{"roxygen2"}\NormalTok{, }
+    \StringTok{"pkgload"}
+\NormalTok{))}
+
+\CommentTok{\# Con pak (recomendado)}
+\NormalTok{pak}\SpecialCharTok{::}\FunctionTok{pak}\NormalTok{(}\FunctionTok{c}\NormalTok{(}
+    \StringTok{"usethis"}\NormalTok{, }
+    \StringTok{"cli"}\NormalTok{, }
+    \StringTok{"crayon"}\NormalTok{, }
+    \StringTok{"rlang"}\NormalTok{, }
+    \StringTok{"roxygen2"}\NormalTok{, }
+    \StringTok{"pkgload"}
+\NormalTok{))}
+
+\CommentTok{\# Tidyverse}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+
+\CommentTok{\# Desarrollo}
+\FunctionTok{install.packages}\NormalTok{(}\FunctionTok{c}\NormalTok{(}
+    \StringTok{"devtools"}\NormalTok{,}
+    \StringTok{"testthat"}\NormalTok{,}
+    \StringTok{"lintr"}\NormalTok{,}
+    \StringTok{"styler"}
+\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Configurar R en Positron}\label{configurar-r-en-positron}
+
+\textbf{Seleccionar intérprete R:}
+
+\begin{verbatim}
+Command Palette → R: Select Interpreter
+\end{verbatim}
+
+\textbf{Settings:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"r.alwaysUseActiveTerminal"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"r.bracketedPaste"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"r.plot.useHttpgd"}\FunctionTok{:} \KeywordTok{true}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{IRKernel}\label{irkernel}
+
+Positron maneja IRKernel automáticamente. Si necesitas configurarlo
+manualmente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Instalar IRKernel}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{\textquotesingle{}IRkernel\textquotesingle{}}\NormalTok{)}
+
+\CommentTok{\# Registrar con Jupyter}
+\NormalTok{IRkernel}\SpecialCharTok{::}\FunctionTok{installspec}\NormalTok{(}\AttributeTok{user =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Características R}\label{caracteruxedsticas-r}
+
+\textbf{Code Completion:}
+
+\begin{itemize}
+\tightlist
+\item
+  Funciones
+\item
+  Paquetes
+\item
+  Variables
+\item
+  Archivos
+\end{itemize}
+
+\textbf{Help:}
+
+\begin{itemize}
+\tightlist
+\item
+  Documentación integrada
+\item
+  Ejemplos
+\item
+  Vignettes
+\end{itemize}
+
+\textbf{Debugging:}
+
+\begin{itemize}
+\tightlist
+\item
+  Breakpoints
+\item
+  Step through
+\item
+  Inspect variables
+\end{itemize}
+
+\subsection{Rtools (Windows)}\label{rtools-windows}
+
+Si usas Windows y desarrollas paquetes:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Con rig}
+\ExtensionTok{rig}\NormalTok{ system rtools add}
+
+\CommentTok{\# O manual desde CRAN}
+\CommentTok{\# https://cran.r{-}project.org/bin/windows/Rtools/}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Extensiones}\label{extensiones}
+
+\subsection{Open VSX vs VS
+Marketplace}\label{open-vsx-vs-vs-marketplace}
+
+Positron usa \textbf{Open VSX} por razones de licencia. La mayoría de
+extensiones populares están disponibles, pero algunas pueden faltar.
+
+\subsection{Acceder a Extensiones}\label{acceder-a-extensiones}
+
+\begin{verbatim}
+View → Extensions (Ctrl+Shift+X)
+\end{verbatim}
+
+\subsection{Extensiones
+Pre-instaladas}\label{extensiones-pre-instaladas}
+
+\textbf{Built-in (core):}
+
+\begin{itemize}
+\tightlist
+\item
+  Python backend (posit.positron-python)
+\item
+  R backend (posit.air-vscode)
+\end{itemize}
+
+\textbf{Bootstrapped (auto-instaladas):}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{charliermarsh.ruff}: Linter Python
+\item
+  \texttt{meta.pyrefly}: Python language server
+\item
+  \texttt{posit.shiny}: Soporte Shiny
+\item
+  \texttt{posit.publisher}: Publishing tool
+\item
+  \texttt{quarto.quarto}: Soporte Quarto
+\end{itemize}
+
+\subsection{Extensiones Recomendadas}\label{extensiones-recomendadas}
+
+\textbf{Temas:}
+
+\begin{verbatim}
+- material-icon-theme (iconos)
+- One Dark Pro
+- GitHub Theme
+- Dracula
+- Nord
+\end{verbatim}
+
+\textbf{Productividad:}
+
+\begin{verbatim}
+- GitLens (si disponible)
+- Better Comments
+- Bookmarks
+- Todo Tree
+\end{verbatim}
+
+\textbf{Formateo:}
+
+\begin{verbatim}
+- Prettier (esbenp.prettier-vscode)
+- EditorConfig
+\end{verbatim}
+
+\textbf{Markdown/Docs:}
+
+\begin{verbatim}
+- Markdown All in One
+- Markdown Preview Enhanced
+\end{verbatim}
+
+\textbf{LaTeX:}
+
+\begin{verbatim}
+- LaTeX Workshop (James-Yu.latex-workshop)
+\end{verbatim}
+
+\subsection{Instalar Extensión}\label{instalar-extensiuxf3n}
+
+\textbf{Desde GUI:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Abrir Extensions (Ctrl+Shift+X)
+\item
+  Buscar extensión
+\item
+  Click en Install
+\end{enumerate}
+
+\textbf{Desde VSIX:}
+
+\begin{verbatim}
+Command Palette → Extensions: Install from VSIX
+\end{verbatim}
+
+\subsection{Gestionar Extensiones
+Bootstrapped}\label{gestionar-extensiones-bootstrapped}
+
+Si quieres deshabilitar una extensión bootstrapped:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"extensions.allowed"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"posit.air{-}vscode"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}  \ErrorTok{//} \ErrorTok{Deshabilitar} \ErrorTok{R} \ErrorTok{si} \ErrorTok{solo} \ErrorTok{usas} \ErrorTok{Python}
+        \DataTypeTok{"*"}\FunctionTok{:} \KeywordTok{true}
+    \FunctionTok{\}}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Extensiones No
+Compatibles}\label{extensiones-no-compatibles}
+
+\textbf{NO usar:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{ms-python.python} (Positron tiene soporte Python nativo)
+\item
+  \texttt{REditorSupport.r} (conflicto con posit.air-vscode)
+\end{itemize}
+
+\section{Temas y Personalización
+Visual}\label{temas-y-personalizaciuxf3n-visual}
+
+\subsection{Temas de Color}\label{temas-de-color}
+
+\textbf{Cambiar tema:}
+
+\begin{verbatim}
+Command Palette → Preferences: Color Theme (Ctrl+K Ctrl+T)
+\end{verbatim}
+
+\textbf{Temas incluidos:}
+
+\begin{itemize}
+\tightlist
+\item
+  Default Positron Dark
+\item
+  Default Positron Light
+\item
+  Dark+ (heredado de VS Code)
+\item
+  Light+ (heredado de VS Code)
+\end{itemize}
+
+\textbf{Instalar más temas:}
+
+\begin{verbatim}
+Extensions → Buscar "theme"
+\end{verbatim}
+
+\textbf{Temas populares:}
+
+\begin{itemize}
+\tightlist
+\item
+  One Dark Pro
+\item
+  Material Theme
+\item
+  GitHub Theme
+\item
+  Dracula
+\item
+  Nord
+\item
+  Gruvbox
+\end{itemize}
+
+\textbf{En settings.json:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"workbench.colorTheme"}\FunctionTok{:} \StringTok{"One Dark Pro Mix"}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Temas de Iconos}\label{temas-de-iconos}
+
+\begin{verbatim}
+Command Palette → Preferences: File Icon Theme
+\end{verbatim}
+
+\textbf{Recomendados:}
+
+\begin{itemize}
+\tightlist
+\item
+  Material Icon Theme (recomendado)
+\item
+  Seti
+\item
+  Minimal
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"workbench.iconTheme"}\FunctionTok{:} \StringTok{"material{-}icon{-}theme"}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Customizar Colores}\label{customizar-colores}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"workbench.colorCustomizations"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"[Default Positron Dark]"}\FunctionTok{:} \FunctionTok{\{}
+            \DataTypeTok{"editor.background"}\FunctionTok{:} \StringTok{"\#1a1a1a"}\FunctionTok{,}
+            \DataTypeTok{"sideBar.background"}\FunctionTok{:} \StringTok{"\#1e1e1e"}\FunctionTok{,}
+            \DataTypeTok{"activityBar.background"}\FunctionTok{:} \StringTok{"\#252525"}
+        \FunctionTok{\}}
+    \FunctionTok{\},}
+    \DataTypeTok{"editor.tokenColorCustomizations"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"[Default Positron Dark]"}\FunctionTok{:} \FunctionTok{\{}
+            \DataTypeTok{"comments"}\FunctionTok{:} \StringTok{"\#6A9955"}\FunctionTok{,}
+            \DataTypeTok{"strings"}\FunctionTok{:} \StringTok{"\#CE9178"}
+        \FunctionTok{\}}
+    \FunctionTok{\}}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Fuentes}\label{fuentes}
+
+\textbf{Fuentes recomendadas con ligaduras:}
+
+\begin{itemize}
+\tightlist
+\item
+  JetBrains Mono
+\item
+  Fira Code
+\item
+  Cascadia Code
+\item
+  Hack Nerd Font
+\item
+  Victor Mono
+\end{itemize}
+
+\textbf{Configurar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"editor.fontFamily"}\FunctionTok{:} \StringTok{"\textquotesingle{}JetBrains Mono\textquotesingle{}, \textquotesingle{}Fira Code\textquotesingle{}, monospace"}\FunctionTok{,}
+    \DataTypeTok{"editor.fontLigatures"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.fontSize"}\FunctionTok{:} \DecValTok{13}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.fontFamily"}\FunctionTok{:} \StringTok{"\textquotesingle{}Hack Nerd Font\textquotesingle{}, monospace"}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.fontSize"}\FunctionTok{:} \DecValTok{12}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Terminal}\label{terminal}
+
+\subsection{Terminal vs Console}\label{terminal-vs-console}
+
+\textbf{Terminal:}
+
+\begin{itemize}
+\tightlist
+\item
+  Shell del sistema (bash, zsh, fish, etc.)
+\item
+  Comandos del sistema
+\item
+  Instalación de paquetes
+\item
+  Operaciones de archivos
+\end{itemize}
+
+\textbf{Console:}
+
+\begin{itemize}
+\tightlist
+\item
+  Intérprete interactivo (IPython/IRKernel)
+\item
+  Ejecución de código Python/R
+\item
+  Inspección de variables
+\item
+  Integración con Variables/Plots panes
+\end{itemize}
+
+\subsection{Configurar Terminal}\label{configurar-terminal}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \ErrorTok{//} \ErrorTok{Perfil} \ErrorTok{por} \ErrorTok{defecto}
+    \DataTypeTok{"terminal.integrated.defaultProfile.linux"}\FunctionTok{:} \StringTok{"bash"}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{Fuente}
+    \DataTypeTok{"terminal.integrated.fontFamily"}\FunctionTok{:} \StringTok{"\textquotesingle{}Hack Nerd Font\textquotesingle{}, monospace"}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.fontSize"}\FunctionTok{:} \DecValTok{12}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{Comportamiento}
+    \DataTypeTok{"terminal.integrated.copyOnSelection"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.cursorBlinking"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.cursorStyle"}\FunctionTok{:} \StringTok{"line"}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.scrollback"}\FunctionTok{:} \DecValTok{10000}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{Entorno}
+    \DataTypeTok{"terminal.integrated.inheritEnv"}\FunctionTok{:} \KeywordTok{false}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Perfiles de Terminal}\label{perfiles-de-terminal}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"terminal.integrated.profiles.linux"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"bash"}\FunctionTok{:} \FunctionTok{\{}
+            \DataTypeTok{"path"}\FunctionTok{:} \StringTok{"/bin/bash"}\FunctionTok{,}
+            \DataTypeTok{"icon"}\FunctionTok{:} \StringTok{"terminal{-}bash"}
+        \FunctionTok{\},}
+        \DataTypeTok{"zsh"}\FunctionTok{:} \FunctionTok{\{}
+            \DataTypeTok{"path"}\FunctionTok{:} \StringTok{"/usr/bin/zsh"}\FunctionTok{,}
+            \DataTypeTok{"icon"}\FunctionTok{:} \StringTok{"terminal"}
+        \FunctionTok{\},}
+        \DataTypeTok{"fish"}\FunctionTok{:} \FunctionTok{\{}
+            \DataTypeTok{"path"}\FunctionTok{:} \StringTok{"/usr/bin/fish"}\FunctionTok{,}
+            \DataTypeTok{"icon"}\FunctionTok{:} \StringTok{"terminal"}
+        \FunctionTok{\}}
+    \FunctionTok{\}}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Atajos de Terminal}\label{atajos-de-terminal}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Atajo & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+\textasciigrave{}} & Toggle terminal \\
+\texttt{Ctrl+Shift+\textasciigrave{}} & New terminal \\
+\texttt{Ctrl+Shift+C} & Copy \\
+\texttt{Ctrl+Shift+V} & Paste \\
+\texttt{Ctrl+Shift+5} & Split terminal \\
+\end{longtable}
+
+\section{Console}\label{console}
+
+\subsection{¿Qué es el Console?}\label{quuxe9-es-el-console}
+
+El Console es una shell interactiva para Python (IPython) o R (IRKernel)
+integrada directamente en Positron.
+
+\textbf{Características:}
+
+\begin{itemize}
+\tightlist
+\item
+  Ejecución interactiva de código
+\item
+  Code completion
+\item
+  Syntax highlighting
+\item
+  Integración con Variables pane
+\item
+  Integración con Plots pane
+\item
+  Historial persistente
+\end{itemize}
+
+\subsection{Ejecutar Código en
+Console}\label{ejecutar-cuxf3digo-en-console}
+
+\textbf{Desde Editor:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Ctrl+Enter}: Ejecutar línea/selección
+\item
+  \texttt{Ctrl+Alt+Home}: Ejecutar desde inicio hasta cursor
+\item
+  \texttt{Ctrl+Alt+End}: Ejecutar desde cursor hasta fin
+\item
+  \texttt{Ctrl+Shift+P}: Ejecutar archivo completo
+\end{itemize}
+
+\textbf{Directamente en Console:}
+
+\begin{itemize}
+\tightlist
+\item
+  Escribir código y presionar Enter
+\end{itemize}
+
+\subsection{Console Settings}\label{console-settings}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \ErrorTok{//} \ErrorTok{Python}
+    \DataTypeTok{"python.useBundledIpykernel"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"python.enableAutoReload"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{R}
+    \DataTypeTok{"r.alwaysUseActiveTerminal"}\FunctionTok{:} \KeywordTok{true}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Atajos Console}\label{atajos-console}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Atajo & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+K,\ F} & Enfocar Console \\
+\texttt{Ctrl+L} & Limpiar Console \\
+\texttt{Ctrl+Shift+0} & Reiniciar intérprete \\
+\texttt{Ctrl+Up/Down} & Navegar historial \\
+\end{longtable}
+
+\section{Variables Pane}\label{variables-pane}
+
+\subsection{¿Qué es Variables Pane?}\label{quuxe9-es-variables-pane}
+
+Panel que muestra todas las variables en el entorno actual.
+
+\textbf{Información mostrada:}
+
+\begin{itemize}
+\tightlist
+\item
+  Nombre
+\item
+  Tipo
+\item
+  Valor (para primitivos)
+\item
+  Tamaño (para colecciones)
+\item
+  Dimensiones (para dataframes)
+\end{itemize}
+
+\subsection{Usar Variables Pane}\label{usar-variables-pane}
+
+\textbf{Abrir:}
+
+\begin{verbatim}
+View → Variables (Ctrl+K, V)
+\end{verbatim}
+
+\textbf{Operaciones:}
+
+\begin{itemize}
+\tightlist
+\item
+  Click en variable para expandir
+\item
+  Double-click para abrir en Data Explorer (si es dataframe)
+\item
+  Right-click para opciones (copy, delete, etc.)
+\end{itemize}
+
+\subsection{Filtrar Variables}\label{filtrar-variables}
+
+Usa la barra de búsqueda en el panel para filtrar variables por nombre.
+
+\section{Data Explorer}\label{data-explorer}
+
+\subsection{¿Qué es Data Explorer?}\label{quuxe9-es-data-explorer}
+
+Visualizador interactivo de dataframes (pandas, tibble, data.frame).
+
+\textbf{Características:}
+
+\begin{itemize}
+\tightlist
+\item
+  Vista tabular de datos
+\item
+  Ordenamiento por columnas
+\item
+  Filtrado
+\item
+  Búsqueda
+\item
+  Estadísticas de columnas
+\item
+  Exportar a CSV/Excel
+\end{itemize}
+
+\subsection{Abrir Data Explorer}\label{abrir-data-explorer}
+
+\textbf{Desde Variables Pane:} Double-click en un dataframe
+
+\textbf{Desde Console:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Python}
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+\NormalTok{df }\OperatorTok{=}\NormalTok{ pd.read\_csv(}\StringTok{\textquotesingle{}data.csv\textquotesingle{}}\NormalTok{)}
+\CommentTok{\# Double{-}click en \textquotesingle{}df\textquotesingle{} en Variables pane}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# R}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{\textquotesingle{}data.csv\textquotesingle{}}\NormalTok{)}
+\FunctionTok{View}\NormalTok{(df)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Command Palette:}
+
+\begin{verbatim}
+Data Explorer: Open Data Explorer
+\end{verbatim}
+
+\subsection{Usar Data Explorer}\label{usar-data-explorer}
+
+\textbf{Ordenar:} Click en header de columna
+
+\textbf{Filtrar:} Click en icono de filtro en header
+
+\textbf{Buscar:} Ctrl+F en Data Explorer
+
+\textbf{Exportar:} Right-click → Export
+
+\section{Plots Pane}\label{plots-pane}
+
+\subsection{¿Qué es Plots Pane?}\label{quuxe9-es-plots-pane}
+
+Panel para visualización de gráficos generados en Python o R.
+
+\textbf{Características:}
+
+\begin{itemize}
+\tightlist
+\item
+  Historial de plots
+\item
+  Zoom
+\item
+  Pan
+\item
+  Exportar (PNG, SVG, PDF)
+\item
+  Tamaño ajustable
+\end{itemize}
+
+\subsection{Generar Plots}\label{generar-plots}
+
+\textbf{Python (matplotlib):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+
+\NormalTok{x }\OperatorTok{=}\NormalTok{ np.linspace(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{100}\NormalTok{)}
+\NormalTok{y }\OperatorTok{=}\NormalTok{ np.sin(x)}
+
+\NormalTok{plt.plot(x, y)}
+\NormalTok{plt.title(}\StringTok{\textquotesingle{}Sin Wave\textquotesingle{}}\NormalTok{)}
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Python (seaborn):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ seaborn }\ImportTok{as}\NormalTok{ sns}
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+
+\NormalTok{df }\OperatorTok{=}\NormalTok{ pd.read\_csv(}\StringTok{\textquotesingle{}data.csv\textquotesingle{}}\NormalTok{)}
+\NormalTok{sns.scatterplot(data}\OperatorTok{=}\NormalTok{df, x}\OperatorTok{=}\StringTok{\textquotesingle{}x\textquotesingle{}}\NormalTok{, y}\OperatorTok{=}\StringTok{\textquotesingle{}y\textquotesingle{}}\NormalTok{, hue}\OperatorTok{=}\StringTok{\textquotesingle{}category\textquotesingle{}}\NormalTok{)}
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{R (ggplot2):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\FunctionTok{ggplot}\NormalTok{(mtcars, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ mpg, }\AttributeTok{y =}\NormalTok{ hp)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Exportar Plots}\label{exportar-plots}
+
+\textbf{Desde Plots Pane:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Hover sobre el plot
+\item
+  Click en icono de exportar
+\item
+  Elegir formato (PNG, SVG, PDF)
+\item
+  Especificar ubicación
+\end{enumerate}
+
+\textbf{Desde código:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Python}
+\NormalTok{plt.savefig(}\StringTok{\textquotesingle{}plot.png\textquotesingle{}}\NormalTok{, dpi}\OperatorTok{=}\DecValTok{300}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# R}
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{\textquotesingle{}plot.png\textquotesingle{}}\NormalTok{, }\AttributeTok{width =} \DecValTok{8}\NormalTok{, }\AttributeTok{height =} \DecValTok{6}\NormalTok{, }\AttributeTok{dpi =} \DecValTok{300}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Help Pane}\label{help-pane}
+
+\subsection{¿Qué es Help Pane?}\label{quuxe9-es-help-pane}
+
+Panel de documentación contextual integrado.
+
+\textbf{Características:}
+
+\begin{itemize}
+\tightlist
+\item
+  Documentación de funciones
+\item
+  Argumentos
+\item
+  Ejemplos
+\item
+  Links a vignettes/tutorials
+\item
+  Búsqueda
+\end{itemize}
+
+\subsection{Obtener Ayuda}\label{obtener-ayuda}
+
+\textbf{Atajo F1:} Coloca cursor sobre función y presiona F1
+
+\textbf{Desde Console:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Python}
+\BuiltInTok{help}\NormalTok{(}\BuiltInTok{print}\NormalTok{)}
+\NormalTok{?}\BuiltInTok{print}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# R}
+\NormalTok{?mean}
+\FunctionTok{help}\NormalTok{(mean)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Command Palette:}
+
+\begin{verbatim}
+Help: Show Help for Symbol Under Cursor
+\end{verbatim}
+
+\section{Quarto}\label{quarto}
+
+\subsection{¿Qué es Quarto?}\label{quuxe9-es-quarto}
+
+Sistema de publicación científica y técnica de código abierto.
+
+\textbf{Formatos de salida:}
+
+\begin{itemize}
+\tightlist
+\item
+  HTML
+\item
+  PDF
+\item
+  Word
+\item
+  Reveal.js (presentations)
+\item
+  Dashboards
+\item
+  Websites
+\item
+  Books
+\end{itemize}
+
+\subsection{Configurar Quarto}\label{configurar-quarto}
+
+\textbf{Instalar Quarto:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Linux}
+\FunctionTok{sudo}\NormalTok{ curl }\AttributeTok{{-}LO}\NormalTok{ https://quarto.org/download/latest/quarto{-}linux{-}amd64.deb}
+\FunctionTok{sudo}\NormalTok{ dpkg }\AttributeTok{{-}i}\NormalTok{ quarto{-}linux{-}amd64.deb}
+
+\CommentTok{\# macOS}
+\ExtensionTok{brew}\NormalTok{ install quarto}
+
+\CommentTok{\# Verificar}
+\ExtensionTok{quarto} \AttributeTok{{-}{-}version}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Settings:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"quarto.visualEditor.spellingDictionary"}\FunctionTok{:} \StringTok{"es\_ES"}\FunctionTok{,}
+    \DataTypeTok{"quarto.render.previewType"}\FunctionTok{:} \StringTok{"internal"}\FunctionTok{,}
+    \DataTypeTok{"[quarto]"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"editor.defaultFormatter"}\FunctionTok{:} \StringTok{"quarto.quarto"}\FunctionTok{,}
+        \DataTypeTok{"editor.wordWrap"}\FunctionTok{:} \StringTok{"on"}
+    \FunctionTok{\}}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Crear Documento Quarto}\label{crear-documento-quarto}
+
+\textbf{Nuevo archivo:}
+
+\begin{verbatim}
+File → New File → Quarto Document
+\end{verbatim}
+
+\textbf{Estructura básica (.qmd):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{{-}{-}{-}}
+\FunctionTok{title}\KeywordTok{:}\AttributeTok{ }\StringTok{"Mi Documento"}
+\FunctionTok{author}\KeywordTok{:}\AttributeTok{ }\StringTok{"Tu Nombre"}
+\FunctionTok{format}\KeywordTok{:}\AttributeTok{ html}
+\FunctionTok{execute}\KeywordTok{:}
+\AttributeTok{  }\FunctionTok{echo}\KeywordTok{:}\AttributeTok{ }\CharTok{true}
+\PreprocessorTok{{-}{-}{-}}
+
+\CommentTok{\# Introducción}
+
+\AttributeTok{Este es un documento Quarto.}
+
+\AttributeTok{:}\FunctionTok{:}\KeywordTok{:}\AttributeTok{ }\KeywordTok{\{}\AttributeTok{.cell}\KeywordTok{\}}
+\AttributeTok{\textasciigrave{}\textasciigrave{}\textasciigrave{} \{.python .cell{-}code\}}
+\AttributeTok{import pandas as pd}
+\AttributeTok{import matplotlib.pyplot as plt}
+
+\AttributeTok{df = pd.read\_csv(\textquotesingle{}data.csv\textquotesingle{})}
+\AttributeTok{df.head()}
+\end{Highlighting}
+\end{Shaded}
+
+:::
+
+\section{Análisis}\label{anuxe1lisis}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plt.plot(df[}\StringTok{\textquotesingle{}x\textquotesingle{}}\NormalTok{], df[}\StringTok{\textquotesingle{}y\textquotesingle{}}\NormalTok{])}
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+## Renderizar
+
+**Command Palette:**
+\end{verbatim}
+
+Quarto: Render Document
+
+\begin{verbatim}
+
+**Atajo:**
+\end{verbatim}
+
+Ctrl+Shift+K
+
+\begin{verbatim}
+
+**Terminal:**
+
+```bash
+quarto render document.qmd
+quarto render document.qmd --to pdf
+\end{verbatim}
+
+\subsection{Preview}\label{preview}
+
+\textbf{Live preview:}
+
+\begin{verbatim}
+Quarto: Preview
+\end{verbatim}
+
+\subsection{Características Quarto en
+Positron}\label{caracteruxedsticas-quarto-en-positron}
+
+\begin{itemize}
+\tightlist
+\item
+  Syntax highlighting
+\item
+  Code execution inline
+\item
+  Preview live
+\item
+  Autocompletado YAML
+\item
+  Snippets
+\end{itemize}
+
+\section{Jupyter Notebooks}\label{jupyter-notebooks}
+
+\subsection{Soporte Jupyter}\label{soporte-jupyter}
+
+Positron tiene soporte nativo para Jupyter notebooks (.ipynb).
+
+\textbf{Características:}
+
+\begin{itemize}
+\tightlist
+\item
+  Ejecución de celdas
+\item
+  Output inline
+\item
+  Plots inline
+\item
+  Variables en Variables pane
+\item
+  Code completion
+\end{itemize}
+
+\subsection{Crear Notebook}\label{crear-notebook}
+
+\begin{verbatim}
+File → New File → Jupyter Notebook
+\end{verbatim}
+
+\subsection{Seleccionar Kernel}\label{seleccionar-kernel}
+
+Click en ``Select Kernel'' en la esquina superior derecha
+
+\subsection{Ejecutar Celdas}\label{ejecutar-celdas}
+
+\textbf{Atajos:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Shift+Enter}: Ejecutar celda y avanzar
+\item
+  \texttt{Ctrl+Enter}: Ejecutar celda
+\item
+  \texttt{Alt+Enter}: Ejecutar celda e insertar abajo
+\end{itemize}
+
+\subsection{Convertir entre Quarto y
+Jupyter}\label{convertir-entre-quarto-y-jupyter}
+
+\textbf{Quarto → Jupyter:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{quarto}\NormalTok{ convert document.qmd}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Jupyter → Quarto:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{quarto}\NormalTok{ convert notebook.ipynb}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Git y Control de Versiones}\label{git-y-control-de-versiones}
+
+\subsection{Configurar Git}\label{configurar-git}
+
+\textbf{Primera vez:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ config }\AttributeTok{{-}{-}global}\NormalTok{ user.name }\StringTok{"Tu Nombre"}
+\FunctionTok{git}\NormalTok{ config }\AttributeTok{{-}{-}global}\NormalTok{ user.email }\StringTok{"tu@email.com"}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Settings Positron:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"git.enableSmartCommit"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"git.autofetch"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"git.confirmSync"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"git.openRepositoryInParentFolders"}\FunctionTok{:} \StringTok{"always"}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Source Control Panel}\label{source-control-panel}
+
+\textbf{Abrir:}
+
+\begin{verbatim}
+View → Source Control (Ctrl+Shift+G)
+\end{verbatim}
+
+\textbf{Operaciones:}
+
+\begin{itemize}
+\tightlist
+\item
+  Ver cambios
+\item
+  Stage/Unstage
+\item
+  Commit
+\item
+  Push/Pull
+\item
+  Ver historial
+\item
+  Crear branches
+\item
+  Merge
+\end{itemize}
+
+\subsection{Workflow Git}\label{workflow-git}
+
+\begin{verbatim}
+1. Hacer cambios en archivos
+2. Ver cambios en Source Control panel
+3. Stage cambios (click en +)
+4. Escribir mensaje de commit
+5. Click en ✓ (commit)
+6. Sync changes (push/pull)
+\end{verbatim}
+
+\subsection{GitLens (si disponible)}\label{gitlens-si-disponible}
+
+Instalar desde Extensions si está disponible en Open VSX.
+
+\section{AI Tools}\label{ai-tools}
+
+\subsection{Positron Assistant}\label{positron-assistant}
+
+Asistente AI integrado para ayudar con código.
+
+\textbf{Habilitar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"positron.assistant.enable"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"positron.assistant.alwaysEnableApplyInEditorAction"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"positron.assistant.showTokenUsage.enable"}\FunctionTok{:} \KeywordTok{true}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Usar:}
+
+\begin{verbatim}
+Command Palette → Positron: Open Assistant
+\end{verbatim}
+
+\textbf{Características:}
+
+\begin{itemize}
+\tightlist
+\item
+  Generar código
+\item
+  Explicar código
+\item
+  Refactorizar
+\item
+  Documentar
+\item
+  Debuggear
+\end{itemize}
+
+\subsection{Databot}\label{databot}
+
+Asistente especializado para análisis de datos.
+
+\textbf{Usar:}
+
+\begin{verbatim}
+Command Palette → Positron: Open Databot
+\end{verbatim}
+
+\textbf{Ejemplos de prompts:}
+
+\begin{verbatim}
+"Crear un gráfico de dispersión de x vs y"
+"Agrupar por categoría y calcular media"
+"Filtrar datos donde columna > 100"
+"Crear modelo lineal de y ~ x"
+\end{verbatim}
+
+\section{Configuración Minimalista}\label{configuraciuxf3n-minimalista}
+
+\subsection{Objetivos}\label{objetivos}
+
+\begin{itemize}
+\tightlist
+\item
+  UI limpia
+\item
+  Sin distracciones
+\item
+  Foco en código
+\item
+  Performance óptima
+\end{itemize}
+
+\subsection{Settings Minimalistas}\label{settings-minimalistas}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{MINIMALISTA}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    
+    \ErrorTok{//} \ErrorTok{Editor} \ErrorTok{limpio}
+    \DataTypeTok{"editor.minimap.enabled"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"editor.scrollbar.vertical"}\FunctionTok{:} \StringTok{"hidden"}\FunctionTok{,}
+    \DataTypeTok{"editor.scrollbar.horizontal"}\FunctionTok{:} \StringTok{"hidden"}\FunctionTok{,}
+    \DataTypeTok{"editor.lineNumbers"}\FunctionTok{:} \StringTok{"off"}\FunctionTok{,}  \ErrorTok{//} \ErrorTok{o} \DataTypeTok{"relative"}
+    \DataTypeTok{"editor.glyphMargin"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"editor.folding"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"editor.guides.indentation"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"editor.renderWhitespace"}\FunctionTok{:} \StringTok{"none"}\FunctionTok{,}
+    \DataTypeTok{"editor.renderLineHighlight"}\FunctionTok{:} \StringTok{"none"}\FunctionTok{,}
+    \DataTypeTok{"editor.overviewRulerBorder"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{Workbench} \ErrorTok{limpio}
+    \DataTypeTok{"workbench.statusBar.visible"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"workbench.activityBar.location"}\FunctionTok{:} \StringTok{"hidden"}\FunctionTok{,}  \ErrorTok{//} \ErrorTok{o} \DataTypeTok{"bottom"}
+    \DataTypeTok{"workbench.editor.showTabs"}\FunctionTok{:} \StringTok{"single"}\FunctionTok{,}
+    \DataTypeTok{"workbench.editor.tabSizing"}\FunctionTok{:} \StringTok{"shrink"}\FunctionTok{,}
+    \DataTypeTok{"breadcrumbs.enabled"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"workbench.sideBar.location"}\FunctionTok{:} \StringTok{"right"}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{Terminal} \ErrorTok{limpio}
+    \DataTypeTok{"terminal.integrated.tabs.enabled"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{Tema} \ErrorTok{minimalista}
+    \DataTypeTok{"workbench.colorTheme"}\FunctionTok{:} \StringTok{"Default Positron Dark"}\FunctionTok{,}
+    \DataTypeTok{"workbench.iconTheme"}\FunctionTok{:} \StringTok{"minimal"}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{Zen} \ErrorTok{Mode} \ErrorTok{(Ctrl+K} \ErrorTok{Z)}
+    \DataTypeTok{"zenMode.centerLayout"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"zenMode.fullScreen"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"zenMode.hideLineNumbers"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"zenMode.hideTabs"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"zenMode.hideStatusBar"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{Resto} \ErrorTok{de} \ErrorTok{settings} \ErrorTok{esenciales}
+    \DataTypeTok{"editor.fontSize"}\FunctionTok{:} \DecValTok{14}\FunctionTok{,}
+    \DataTypeTok{"editor.fontFamily"}\FunctionTok{:} \StringTok{"\textquotesingle{}JetBrains Mono\textquotesingle{}, monospace"}\FunctionTok{,}
+    \DataTypeTok{"editor.fontLigatures"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.formatOnSave"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"files.autoSave"}\FunctionTok{:} \StringTok{"onFocusChange"}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Zen Mode}\label{zen-mode}
+
+\textbf{Activar:}
+
+\begin{verbatim}
+Command Palette → View: Toggle Zen Mode (Ctrl+K Z)
+\end{verbatim}
+
+\textbf{O personalizar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"zenMode.centerLayout"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"zenMode.fullScreen"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"zenMode.hideLineNumbers"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"zenMode.hideTabs"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"zenMode.hideStatusBar"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"zenMode.hideActivityBar"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"zenMode.restore"}\FunctionTok{:} \KeywordTok{true}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Mi Configuración
+Específica}\label{mi-configuraciuxf3n-especuxedfica}
+
+Esta es mi configuración de VS Code adaptada para Positron:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{PYTHON} \ErrorTok{(ANACONDA)}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"python.defaultInterpreterPath"}\FunctionTok{:} \StringTok{"/home/achalmaedison/anaconda3/bin/python"}\FunctionTok{,}
+    \DataTypeTok{"python.condaPath"}\FunctionTok{:} \StringTok{"/home/achalmaedison/anaconda3/bin/conda"}\FunctionTok{,}
+    \DataTypeTok{"python.terminal.activateEnvironment"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"python.terminal.activateEnvInCurrentTerminal"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"python.useBundledIpykernel"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"python.enableAutoReload"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{TERMINAL}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"terminal.integrated.inheritEnv"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.fontSize"}\FunctionTok{:} \DecValTok{12}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.fontFamily"}\FunctionTok{:} \StringTok{"Hack Nerd Font"}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.copyOnSelection"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.cursorBlinking"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.cursorStyle"}\FunctionTok{:} \StringTok{"underline"}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.cursorStyleInactive"}\FunctionTok{:} \StringTok{"line"}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.defaultProfile.linux"}\FunctionTok{:} \StringTok{"fish"}\FunctionTok{,}  \ErrorTok{//} \ErrorTok{Cambiado} \ErrorTok{de} \ErrorTok{zsh} \ErrorTok{a} \ErrorTok{fish}
+    \DataTypeTok{"terminal.integrated.enablePersistentSessions"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.suggest.enabled"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"terminal.integrated.accessibleViewFocusOnCommandExecution"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{EDITOR}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"editor.fontSize"}\FunctionTok{:} \DecValTok{13}\FunctionTok{,}
+    \DataTypeTok{"editor.fontFamily"}\FunctionTok{:} \StringTok{"\textquotesingle{}Hack Nerd Font\textquotesingle{}, \textquotesingle{}JetBrains Mono\textquotesingle{}, monospace"}\FunctionTok{,}
+    \DataTypeTok{"editor.fontLigatures"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.minimap.enabled"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"editor.minimap.autohide"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.scrollbar.horizontal"}\FunctionTok{:} \StringTok{"hidden"}\FunctionTok{,}
+    \DataTypeTok{"editor.scrollbar.vertical"}\FunctionTok{:} \StringTok{"hidden"}\FunctionTok{,}
+    \DataTypeTok{"editor.overviewRulerBorder"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"editor.formatOnSave"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.formatOnPaste"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.formatOnType"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.glyphMargin"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"editor.linkedEditing"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.cursorBlinking"}\FunctionTok{:} \StringTok{"expand"}\FunctionTok{,}
+    \DataTypeTok{"editor.cursorSmoothCaretAnimation"}\FunctionTok{:} \StringTok{"on"}\FunctionTok{,}
+    \DataTypeTok{"editor.guides.indentation"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"editor.matchBrackets"}\FunctionTok{:} \StringTok{"never"}\FunctionTok{,}
+    \DataTypeTok{"editor.suggest.preview"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"editor.inlineSuggest.syntaxHighlightingEnabled"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{WORKBENCH}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"workbench.colorTheme"}\FunctionTok{:} \StringTok{"One Dark Pro Mix"}\FunctionTok{,}  \ErrorTok{//} \ErrorTok{Tu} \ErrorTok{tema} \ErrorTok{favorito}
+    \DataTypeTok{"workbench.iconTheme"}\FunctionTok{:} \StringTok{"material{-}icon{-}theme"}\FunctionTok{,}
+    \DataTypeTok{"workbench.productIconTheme"}\FunctionTok{:} \StringTok{"fluent{-}icons"}\FunctionTok{,}
+    \DataTypeTok{"workbench.activityBar.location"}\FunctionTok{:} \StringTok{"bottom"}\FunctionTok{,}  \ErrorTok{//} \ErrorTok{Mantener} \ErrorTok{en} \ErrorTok{bottom}
+    \DataTypeTok{"workbench.sideBar.location"}\FunctionTok{:} \StringTok{"right"}\FunctionTok{,}
+    \DataTypeTok{"workbench.statusBar.visible"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}  \ErrorTok{//} \ErrorTok{Oculto} \ErrorTok{para} \ErrorTok{minimalista}
+    \DataTypeTok{"workbench.editor.showTabs"}\FunctionTok{:} \StringTok{"single"}\FunctionTok{,}
+    \DataTypeTok{"workbench.editor.tabSizing"}\FunctionTok{:} \StringTok{"fixed"}\FunctionTok{,}
+    \DataTypeTok{"workbench.editor.highlightModifiedTabs"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"workbench.editor.limit.enabled"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"workbench.editor.empty.hint"}\FunctionTok{:} \StringTok{"hidden"}\FunctionTok{,}
+    \DataTypeTok{"workbench.editor.wrapTabs"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"workbench.editor.centeredLayoutFixedWidth"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"window.customTitleBarVisibility"}\FunctionTok{:} \StringTok{"auto"}\FunctionTok{,}
+    \DataTypeTok{"breadcrumbs.enabled"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{FILES}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"files.autoSave"}\FunctionTok{:} \StringTok{"onFocusChange"}\FunctionTok{,}
+    \DataTypeTok{"files.associations"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"renv.lock"}\FunctionTok{:} \StringTok{"json"}\FunctionTok{,}
+        \DataTypeTok{"*.qmd"}\FunctionTok{:} \StringTok{"quarto"}\FunctionTok{,}
+        \DataTypeTok{"*.Rmd"}\FunctionTok{:} \StringTok{"rmarkdown"}
+    \FunctionTok{\},}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{GIT}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"git.enableSmartCommit"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"git.autofetch"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"git.confirmSync"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"git.openRepositoryInParentFolders"}\FunctionTok{:} \StringTok{"always"}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{DIFF} \ErrorTok{EDITOR}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"diffEditor.ignoreTrimWhitespace"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"diffEditor.maxComputationTime"}\FunctionTok{:} \DecValTok{0}\FunctionTok{,}
+    \DataTypeTok{"diffEditor.codeLens"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"diffEditor.wordWrap"}\FunctionTok{:} \StringTok{"off"}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{LANGUAGE{-}SPECIFIC}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"[python]"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"editor.defaultFormatter"}\FunctionTok{:} \StringTok{"charliermarsh.ruff"}\FunctionTok{,}
+        \DataTypeTok{"diffEditor.ignoreTrimWhitespace"}\FunctionTok{:} \KeywordTok{false}
+    \FunctionTok{\},}
+    \DataTypeTok{"[quarto]"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"editor.defaultFormatter"}\FunctionTok{:} \StringTok{"quarto.quarto"}
+    \FunctionTok{\},}
+    \DataTypeTok{"[markdown]"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"editor.defaultFormatter"}\FunctionTok{:} \StringTok{"esbenp.prettier{-}vscode"}
+    \FunctionTok{\},}
+    \DataTypeTok{"[yaml]"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"editor.defaultFormatter"}\FunctionTok{:} \StringTok{"quarto.quarto"}
+    \FunctionTok{\},}
+    \DataTypeTok{"[latex]"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"editor.defaultFormatter"}\FunctionTok{:} \StringTok{"James{-}Yu.latex{-}workshop"}
+    \FunctionTok{\},}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{QUARTO}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"quarto.visualEditor.spellingDictionary"}\FunctionTok{:} \StringTok{"es\_ES"}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{NOTEBOOKS}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"notebook.output.wordWrap"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"jupyter.interactiveWindow.textEditor.executeSelection"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{MISC}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"debug.console.wordWrap"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"chat.editor.wordWrap"}\FunctionTok{:} \StringTok{"on"}\FunctionTok{,}
+    \DataTypeTok{"yaml.schemas"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"https://quarto.org/schemas/quarto.yaml"}\FunctionTok{:} \StringTok{"*.qmd"}
+    \FunctionTok{\},}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{POSITRON{-}SPECIFIC}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"positron.assistant.enable"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"positron.assistant.alwaysEnableApplyInEditorAction"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"positron.assistant.alwaysIncludeCopilotTools"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"positron.assistant.showTokenUsage.enable"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{ACCESSIBILITY} \ErrorTok{(ocultar} \ErrorTok{para} \ErrorTok{minimalista)}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \DataTypeTok{"accessibility.verbosity.terminal"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"accessibility.hideAccessibleView"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{EXTENSIONES} \ErrorTok{(si} \ErrorTok{las} \ErrorTok{instalas)}
+    \ErrorTok{//} \ErrorTok{==========================================}
+    \ErrorTok{//} \ErrorTok{GitLens} \ErrorTok{(si} \ErrorTok{disponible)}
+    \DataTypeTok{"gitlens.graph.minimap.additionalTypes"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"localBranches"}\OtherTok{,}
+        \StringTok{"stashes"}\OtherTok{,}
+        \StringTok{"remoteBranches"}\OtherTok{,}
+        \StringTok{"pullRequests"}\OtherTok{,}
+        \StringTok{"tags"}
+    \OtherTok{]}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{CodeSnap} \ErrorTok{(si} \ErrorTok{disponible)}
+    \DataTypeTok{"codesnap.transparentBackground"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"codesnap.showWindowTitle"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"codesnap.containerPadding"}\FunctionTok{:} \StringTok{"0em"}\FunctionTok{,}
+    \DataTypeTok{"codesnap.roundedCorners"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{LaTeX} \ErrorTok{Workshop} \ErrorTok{(si} \ErrorTok{usas} \ErrorTok{LaTeX)}
+    \DataTypeTok{"latex{-}workshop.formatting.latex"}\FunctionTok{:} \StringTok{"latexindent"}\FunctionTok{,}
+    \DataTypeTok{"latex{-}workshop.latex.option.maxPrintLine.enabled"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    
+    \ErrorTok{//} \ErrorTok{Indenticator} \ErrorTok{(si} \ErrorTok{lo} \ErrorTok{instalas)}
+    \DataTypeTok{"indenticator.width"}\FunctionTok{:} \FloatTok{0.5}\FunctionTok{,}
+    \DataTypeTok{"indenticator.color.dark"}\FunctionTok{:} \StringTok{"rgba(255,255,255,0.1)"}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Extensiones a Instalar (desde Open
+VSX)}\label{extensiones-a-instalar-desde-open-vsx}
+
+Para replicar el setup de VS Code, se instala:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Material Icon Theme}
+\item
+  \textbf{One Dark Pro} (tema)
+\item
+  \textbf{Prettier} (formateo Markdown)
+\item
+  \textbf{LaTeX Workshop} (si usas LaTeX)
+\item
+  \textbf{GitLens} (si disponible)
+\item
+  \textbf{Better Comments} (opcional)
+\item
+  \textbf{Code Spell Checker} (opcional, español)
+\end{enumerate}
+
+\subsection{Notas sobre Extensiones No
+Disponibles}\label{notas-sobre-extensiones-no-disponibles}
+
+\textbf{No disponibles/innecesarias en Positron:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{animations} (vscode-animations): No compatible
+\item
+  \texttt{glassit}: No compatible (transparencia)
+\item
+  \texttt{apc.imports}: No compatible
+\item
+  Python extension: Ya incluida nativamente
+\item
+  GitHub Copilot: Usa Positron Assistant en su lugar
+\end{itemize}
+
+\section{Trucos y Tips}\label{trucos-y-tips}
+
+\subsection{1. Command Palette es tu
+Amigo}\label{command-palette-es-tu-amigo}
+
+\begin{verbatim}
+Ctrl+Shift+P
+\end{verbatim}
+
+Todo está en el Command Palette. No recuerdas un atajo? Búscalo aquí.
+
+\subsection{2. Quick Open}\label{quick-open}
+
+\begin{verbatim}
+Ctrl+P
+\end{verbatim}
+
+Abre archivos rápidamente sin usar el Explorer.
+
+\subsection{3. Multi-Cursor}\label{multi-cursor}
+
+\begin{verbatim}
+Alt+Click: Añadir cursor
+Ctrl+Alt+Up/Down: Añadir cursor arriba/abajo
+Ctrl+D: Seleccionar siguiente ocurrencia
+Ctrl+Shift+L: Seleccionar todas las ocurrencias
+\end{verbatim}
+
+\subsection{4. Snippets}\label{snippets}
+
+Crea tus propios snippets en:
+
+\begin{verbatim}
+File → Preferences → Configure User Snippets
+\end{verbatim}
+
+\textbf{Ejemplo Python:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"Import pandas"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"prefix"}\FunctionTok{:} \StringTok{"imp"}\FunctionTok{,}
+        \DataTypeTok{"body"}\FunctionTok{:} \OtherTok{[}
+            \StringTok{"import pandas as pd"}\OtherTok{,}
+            \StringTok{"import numpy as np"}\OtherTok{,}
+            \StringTok{"import matplotlib.pyplot as plt"}
+        \OtherTok{]}
+    \FunctionTok{\}}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{5. Integrated Terminal
+Profiles}\label{integrated-terminal-profiles}
+
+Configura perfiles para diferentes shells o entornos virtuales.
+
+\subsection{6. Workspace Settings}\label{workspace-settings}
+
+Para proyectos específicos, usa workspace settings:
+
+\begin{verbatim}
+.vscode/settings.json
+\end{verbatim}
+
+\subsection{7. Fold/Unfold Code}\label{foldunfold-code}
+
+\begin{verbatim}
+Ctrl+Shift+[: Fold
+Ctrl+Shift+]: Unfold
+Ctrl+K Ctrl+0: Fold all
+Ctrl+K Ctrl+J: Unfold all
+\end{verbatim}
+
+\subsection{8. Breadcrumbs}\label{breadcrumbs}
+
+Si los necesitas:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"breadcrumbs.enabled"}\FunctionTok{:} \KeywordTok{true}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{9. Integrated Git Diff}\label{integrated-git-diff}
+
+\begin{verbatim}
+Click en archivo modificado en Source Control
+\end{verbatim}
+
+\subsection{10. Sync Settings}\label{sync-settings}
+
+Positron puede sincronizar settings entre máquinas (similar a VS Code
+Settings Sync).
+
+\section{Solución de Problemas}\label{soluciuxf3n-de-problemas}
+
+\subsection{Problema: Python interpreter no
+detectado}\label{problema-python-interpreter-no-detectado}
+
+\textbf{Solución:}
+
+\begin{verbatim}
+Command Palette → Python: Select Interpreter
+\end{verbatim}
+
+O especificar manualmente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"python.defaultInterpreterPath"}\FunctionTok{:} \StringTok{"/path/to/python"}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema: R no funciona}\label{problema-r-no-funciona}
+
+\textbf{Verificar instalación:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{which}\NormalTok{ R}
+\ExtensionTok{R} \AttributeTok{{-}{-}version}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Instalar paquetes necesarios:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pak}\SpecialCharTok{::}\FunctionTok{pak}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"usethis"}\NormalTok{, }\StringTok{"cli"}\NormalTok{, }\StringTok{"crayon"}\NormalTok{, }\StringTok{"rlang"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema: Console no
+inicia}\label{problema-console-no-inicia}
+
+\textbf{Reiniciar intérprete:}
+
+\begin{verbatim}
+Ctrl+Shift+0
+\end{verbatim}
+
+\textbf{Verificar IPython:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{pip}\NormalTok{ install ipython}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema: Extensiones no
+aparecen}\label{problema-extensiones-no-aparecen}
+
+\textbf{Recordar:} Positron usa Open VSX, no VS Marketplace. Algunas
+extensiones pueden no estar disponibles.
+
+\textbf{Alternativa:} Instalar .vsix manualmente desde GitHub de la
+extensión.
+
+\subsection{Problema: Terminal no hereda
+PATH}\label{problema-terminal-no-hereda-path}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"terminal.integrated.inheritEnv"}\FunctionTok{:} \KeywordTok{false}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+O agregar al shell config (\textasciitilde/.bashrc,
+\textasciitilde/.zshrc, etc.):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{export} \VariableTok{PATH}\OperatorTok{=}\StringTok{"/path/to/anaconda3/bin:}\VariableTok{$PATH}\StringTok{"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema: Plots no
+aparecen}\label{problema-plots-no-aparecen}
+
+\textbf{Python:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+\NormalTok{plt.ion()  }\CommentTok{\# Interactive mode}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{R:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{options}\NormalTok{(}\AttributeTok{device =} \StringTok{"quartz"}\NormalTok{)  }\CommentTok{\# macOS}
+\CommentTok{\# o}
+\FunctionTok{options}\NormalTok{(}\AttributeTok{device =} \StringTok{"x11"}\NormalTok{)  }\CommentTok{\# Linux}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema: Quarto no
+renderiza}\label{problema-quarto-no-renderiza}
+
+\textbf{Verificar instalación:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{quarto}\NormalTok{ check}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Reinstalar extensión:}
+
+\begin{verbatim}
+Extensions → Quarto → Reload
+\end{verbatim}
+
+\subsection{Problema: Settings no se
+guardan}\label{problema-settings-no-se-guardan}
+
+\textbf{Ubicación correcta:}
+
+\begin{verbatim}
+~/.config/Positron/User/settings.json
+\end{verbatim}
+
+\textbf{Permisos:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{chmod}\NormalTok{ 644 \textasciitilde{}/.config/Positron/User/settings.json}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema: Performance
+lenta}\label{problema-performance-lenta}
+
+\textbf{Deshabilitar extensiones innecesarias}
+
+\textbf{Reducir history:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"terminal.integrated.scrollback"}\FunctionTok{:} \DecValTok{1000}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Deshabilitar features:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"editor.minimap.enabled"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"editor.suggest.preview"}\FunctionTok{:} \KeywordTok{false}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Conclusión}\label{conclusiuxf3n}
+
+\subsection{Resumen de Cambios de VS Code a
+Positron}\label{resumen-de-cambios-de-vs-code-a-positron}
+
+\textbf{Lo Mismo:}
+
+\begin{itemize}
+\tightlist
+\item
+  Editor de código
+\item
+  Atajos de teclado (95\%)
+\item
+  Terminal
+\item
+  Extensions system
+\item
+  Git integration
+\item
+  Settings system
+\end{itemize}
+
+\textbf{Lo Nuevo:}
+
+\begin{itemize}
+\tightlist
+\item
+  Console (IPython/IRKernel)
+\item
+  Variables Pane
+\item
+  Data Explorer
+\item
+  Plots Pane
+\item
+  Help Pane
+\item
+  Connections Pane
+\item
+  Soporte Python/R nativo
+\item
+  AI Assistant (Positron Assistant, Databot)
+\end{itemize}
+
+\textbf{Lo Diferente:}
+
+\begin{itemize}
+\tightlist
+\item
+  Open VSX en lugar de VS Marketplace
+\item
+  Algunas extensiones no disponibles
+\item
+  Mejor integración para data science
+\end{itemize}
+
+\subsection{Próximos Pasos}\label{pruxf3ximos-pasos}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Instalar Positron}
+\item
+  \textbf{Importar settings de VS Code}
+\item
+  \textbf{Configurar Python/R}
+\item
+  \textbf{Instalar extensiones esenciales}
+\item
+  \textbf{Personalizar tema y layout}
+\item
+  \textbf{Explorar Console y panes}
+\item
+  \textbf{Crear tu primer documento Quarto}
+\end{enumerate}
+
+\subsection{Recursos}\label{recursos}
+
+\textbf{Documentación:}
+
+\begin{itemize}
+\tightlist
+\item
+  https://positron.posit.co/
+\item
+  https://github.com/posit-dev/positron
+\end{itemize}
+
+\textbf{Comunidad:}
+
+\begin{itemize}
+\tightlist
+\item
+  GitHub Discussions: https://github.com/posit-dev/positron/discussions
+\item
+  Posit Community: https://community.posit.co/
+\end{itemize}
+
+\textbf{Aprendizaje:}
+
+\begin{itemize}
+\tightlist
+\item
+  Quarto: https://quarto.org/
+\item
+  Python: https://docs.python.org/
+\item
+  R: https://www.r-project.org/
+\end{itemize}
+
+\section{Publicaciones Similares}\label{publicaciones-similares}
+
+Si te interesó este artículo, te recomendamos que explores otros blogs y
+recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo
+algunas sugerencias:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows}{Comandos
+  De Informacion Windows}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2019-06-19-adb/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2019-06-19-adb}{Adb}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc}{Limpieza
+  Y Optimizacion De Pc}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11}{Usando
+  Apk En Windown 11}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu}{Gestionar
+  Versiones De Jdk En Kubuntu}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser}{Instalar
+  Tor Browser}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux}{Crear
+  Enlaces Duros O Hard Link En Linux}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2022-09-27-comandos-vim/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2022-09-27-comandos-vim}{Comandos
+  Vim}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github}{Guia
+  De Git Y Github}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-05-02-00-primeros-pasos-en-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-05-02-00-primeros-pasos-en-linux}{00
+  Primeros Pasos En Linux}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-17-01-introduccion-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-17-01-introduccion-linux}{01
+  Introduccion Linux}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-18-02-distribuciones-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-18-02-distribuciones-linux}{02
+  Distribuciones Linux}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-19-03-instalacion-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-19-03-instalacion-linux}{03
+  Instalacion Linux}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-20-04-administracion-particiones-volumenes/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-20-04-administracion-particiones-volumenes}{04
+  Administracion Particiones Volumenes}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim}{Atajos
+  De Teclado Y Comandos Para Usar Vim}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify}{Instalando
+  Specitify}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow}{Gestiona
+  Tus Dotfiles Con Gnu Stow}
+\end{enumerate}
+
+Esperamos que encuentres estas publicaciones igualmente interesantes y
+útiles. ¡Disfruta de la lectura!
+
+
+
+
+
+
+\end{document}
