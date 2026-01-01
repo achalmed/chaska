@@ -10376,7 +10376,7 @@ Windows: %APPDATA%\Positron\User\settings.json</code></pre>
 </section>
 <section id="configurar-python-en-positron" class="level2">
 <h2 class="anchored" data-anchor-id="configurar-python-en-positron">Configurar Python en Positron</h2>
-<p><strong>Settings para Anaconda (tu caso):</strong></p>
+<p><strong>Settings para Anaconda:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">{</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a>    <span class="dt">&quot;python.defaultInterpreterPath&quot;</span><span class="fu">:</span> <span class="st">&quot;/home/achalmaedison/anaconda3/bin/python&quot;</span><span class="fu">,</span></span>
 <span id="cb27-3"><a href="#cb27-3"></a>    <span class="dt">&quot;python.condaPath&quot;</span><span class="fu">:</span> <span class="st">&quot;/home/achalmaedison/anaconda3/bin/conda&quot;</span><span class="fu">,</span></span>
@@ -11111,7 +11111,7 @@ Windows: %APPDATA%\Positron\User\settings.json</code></pre>
 <span id="cb73-10"><a href="#cb73-10"></a></span>
 <span id="cb73-11"><a href="#cb73-11"></a><span class="at">Este es un documento Quarto.</span></span>
 <span id="cb73-12"><a href="#cb73-12"></a></span>
-<span id="cb73-13"><a href="#cb73-13"></a><span class="at">:</span><span class="fu">:</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="co">#b274ad9e .cell}</span></span>
+<span id="cb73-13"><a href="#cb73-13"></a><span class="at">:</span><span class="fu">:</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="co">#a2b5ec42 .cell}</span></span>
 <span id="cb73-14"><a href="#cb73-14"></a><span class="at">``` {.python .cell-code</span><span class="kw">}</span></span>
 <span id="cb73-15"><a href="#cb73-15"></a><span class="at">import pandas as pd</span></span>
 <span id="cb73-16"><a href="#cb73-16"></a><span class="at">import matplotlib.pyplot as plt</span></span>
@@ -11123,29 +11123,23 @@ Windows: %APPDATA%\Positron\User\settings.json</code></pre>
 </section>
 <section id="análisis" class="level1">
 <h1>Análisis</h1>
-<div id="dcd68afc" class="cell">
+<div id="ca7d40f8" class="cell">
 <details class="code-fold">
 <summary>Mostrar el código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>plt.plot(df[<span class="st">&#39;x&#39;</span>], df[<span class="st">&#39;y&#39;</span>])</span>
 <span id="cb74-2"><a href="#cb74-2"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<pre><code>
-## Renderizar
-
-**Command Palette:**
-</code></pre>
-<p>Quarto: Render Document</p>
-<pre><code>
-**Atajo:**
-</code></pre>
-<p>Ctrl+Shift+K</p>
-<pre><code>
-**Terminal:**
-
-```bash
-quarto render document.qmd
-quarto render document.qmd --to pdf</code></pre>
+<section id="renderizar" class="level2">
+<h2 class="anchored" data-anchor-id="renderizar">Renderizar</h2>
+<p><strong>Command Palette:</strong></p>
+<pre><code>Quarto: Render Document</code></pre>
+<p><strong>Atajo:</strong></p>
+<pre><code>Ctrl+Shift+K</code></pre>
+<p><strong>Terminal:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb77"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb77-1"><a href="#cb77-1"></a><span class="ex">quarto</span> render document.qmd</span>
+<span id="cb77-2"><a href="#cb77-2"></a><span class="ex">quarto</span> render document.qmd <span class="at">--to</span> pdf</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
 <section id="preview" class="level2">
 <h2 class="anchored" data-anchor-id="preview">Preview</h2>
 <p><strong>Live preview:</strong></p>
@@ -11559,25 +11553,25 @@ quarto render document.qmd --to pdf</code></pre>
 </section>
 <section id="trucos-y-tips" class="level1">
 <h1>Trucos y Tips</h1>
-<section id="command-palette-es-tu-amigo" class="level2">
-<h2 class="anchored" data-anchor-id="command-palette-es-tu-amigo">1. Command Palette es tu Amigo</h2>
+<section id="command-palette" class="level2">
+<h2 class="anchored" data-anchor-id="command-palette">Command Palette</h2>
 <pre><code>Ctrl+Shift+P</code></pre>
 <p>Todo está en el Command Palette. No recuerdas un atajo? Búscalo aquí.</p>
 </section>
 <section id="quick-open" class="level2">
-<h2 class="anchored" data-anchor-id="quick-open">2. Quick Open</h2>
+<h2 class="anchored" data-anchor-id="quick-open">Quick Open</h2>
 <pre><code>Ctrl+P</code></pre>
 <p>Abre archivos rápidamente sin usar el Explorer.</p>
 </section>
 <section id="multi-cursor" class="level2">
-<h2 class="anchored" data-anchor-id="multi-cursor">3. Multi-Cursor</h2>
+<h2 class="anchored" data-anchor-id="multi-cursor">Multi-Cursor</h2>
 <pre><code>Alt+Click: Añadir cursor
 Ctrl+Alt+Up/Down: Añadir cursor arriba/abajo
 Ctrl+D: Seleccionar siguiente ocurrencia
 Ctrl+Shift+L: Seleccionar todas las ocurrencias</code></pre>
 </section>
 <section id="snippets" class="level2">
-<h2 class="anchored" data-anchor-id="snippets">4. Snippets</h2>
+<h2 class="anchored" data-anchor-id="snippets">Snippets</h2>
 <p>Crea tus propios snippets en:</p>
 <pre><code>File → Preferences → Configure User Snippets</code></pre>
 <p><strong>Ejemplo Python:</strong></p>
@@ -11593,35 +11587,117 @@ Ctrl+Shift+L: Seleccionar todas las ocurrencias</code></pre>
 <span id="cb98-10"><a href="#cb98-10"></a><span class="fu">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="integrated-terminal-profiles" class="level2">
-<h2 class="anchored" data-anchor-id="integrated-terminal-profiles">5. Integrated Terminal Profiles</h2>
+<h2 class="anchored" data-anchor-id="integrated-terminal-profiles">Integrated Terminal Profiles</h2>
 <p>Configura perfiles para diferentes shells o entornos virtuales.</p>
 </section>
 <section id="workspace-settings" class="level2">
-<h2 class="anchored" data-anchor-id="workspace-settings">6. Workspace Settings</h2>
+<h2 class="anchored" data-anchor-id="workspace-settings">Workspace Settings</h2>
 <p>Para proyectos específicos, usa workspace settings:</p>
 <pre><code>.vscode/settings.json</code></pre>
 </section>
 <section id="foldunfold-code" class="level2">
-<h2 class="anchored" data-anchor-id="foldunfold-code">7. Fold/Unfold Code</h2>
+<h2 class="anchored" data-anchor-id="foldunfold-code">Fold/Unfold Code</h2>
 <pre><code>Ctrl+Shift+[: Fold
 Ctrl+Shift+]: Unfold
 Ctrl+K Ctrl+0: Fold all
 Ctrl+K Ctrl+J: Unfold all</code></pre>
 </section>
 <section id="breadcrumbs" class="level2">
-<h2 class="anchored" data-anchor-id="breadcrumbs">8. Breadcrumbs</h2>
+<h2 class="anchored" data-anchor-id="breadcrumbs">Breadcrumbs</h2>
 <p>Si los necesitas:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb101"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb101-1"><a href="#cb101-1"></a><span class="fu">{</span></span>
 <span id="cb101-2"><a href="#cb101-2"></a>    <span class="dt">&quot;breadcrumbs.enabled&quot;</span><span class="fu">:</span> <span class="kw">true</span></span>
 <span id="cb101-3"><a href="#cb101-3"></a><span class="fu">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="integrated-git-diff" class="level2">
-<h2 class="anchored" data-anchor-id="integrated-git-diff">9. Integrated Git Diff</h2>
+<h2 class="anchored" data-anchor-id="integrated-git-diff">Integrated Git Diff</h2>
 <pre><code>Click en archivo modificado en Source Control</code></pre>
 </section>
 <section id="sync-settings" class="level2">
-<h2 class="anchored" data-anchor-id="sync-settings">10. Sync Settings</h2>
+<h2 class="anchored" data-anchor-id="sync-settings">Sync Settings</h2>
 <p>Positron puede sincronizar settings entre máquinas (similar a VS Code Settings Sync).</p>
+</section>
+<section id="trucos-prácticos-que-uso-día-a-día" class="level2">
+<h2 class="anchored" data-anchor-id="trucos-prácticos-que-uso-día-a-día">Trucos prácticos que uso día a día</h2>
+<p><strong>1. Ejecutar código selectivamente sin salir del editor</strong></p>
+<ul>
+<li><code>Ctrl + Enter</code> → Ejecuta la línea actual o selección</li>
+<li><code>Ctrl + Alt + Home</code> → Ejecuta <strong>todo desde el inicio del archivo hasta la línea actual</strong> (ideal para setups y carga de datos)</li>
+<li><code>Ctrl + Alt + End</code> → Ejecuta <strong>desde la línea actual hasta el final</strong> (muy útil para pruebas rápidas al final del script)</li>
+<li><code>Ctrl + Shift + P</code> (o <code>Cmd</code> en macOS) → Ejecuta <strong>archivo completo</strong> en la consola</li>
+</ul>
+<p><strong>Truco pro</strong>: Combina <code>Ctrl + Alt + Home</code> + <code>Ctrl + Enter</code> para rehacer rápidamente todo el análisis desde cero sin tocar el ratón.</p>
+<p><strong>2. Navegación ultrarrápida entre editor y consola</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb103"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb103-1"><a href="#cb103-1"></a>Ctrl + K → F     → Enfocar consola (muy rápido para escribir rápido)</span>
+<span id="cb103-2"><a href="#cb103-2"></a>Ctrl + K → V     → Enfocar panel de Variables</span>
+<span id="cb103-3"><a href="#cb103-3"></a>Ctrl + K → R     → Enfocar panel de Help (documentación)</span>
+<span id="cb103-4"><a href="#cb103-4"></a>Ctrl + L         → Limpiar la consola (equivalente al clásico Ctrl + L de RStudio)</span>
+<span id="cb103-5"><a href="#cb103-5"></a>Ctrl + Shift + 0 → Reiniciar el intérprete (cuando todo se pone loco)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Truco diario</strong>: Crea un flujo mental “editor → consola → variables” y usa estos tres atajos en secuencia rapidísima.</p>
+<p><strong>3. El workflow más rápido para explorar dataframes (mi favorito)</strong></p>
+<ol type="1">
+<li><p>Cargas datos en consola o script:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb104"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb104-2"><a href="#cb104-2"></a>df <span class="op">=</span> pd.read_csv(<span class="st">&quot;datos_grandes.csv&quot;</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>o</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;datos_grandes.csv&quot;</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Opciones rápidas de exploración:</p>
+<ul>
+<li><p>Doble clic en <code>df</code> en el <strong>Variables Pane</strong> → abre <strong>Data Explorer</strong> completo (filtrar, ordenar, buscar, estadísticas)</p></li>
+<li><p><code>View(df)</code> (R) o <code>df.head(20)</code> (Python) → vista rápida en consola</p></li>
+<li><p>Clic derecho en variable → “View in Data Explorer”</p></li>
+<li><p>Atajo personalizado recomendado (agrega a keybindings.json):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb106"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb106-1"><a href="#cb106-1"></a><span class="fu">{</span></span>
+<span id="cb106-2"><a href="#cb106-2"></a>    <span class="dt">&quot;key&quot;</span><span class="fu">:</span> <span class="st">&quot;f2&quot;</span><span class="fu">,</span></span>
+<span id="cb106-3"><a href="#cb106-3"></a>    <span class="dt">&quot;command&quot;</span><span class="fu">:</span> <span class="st">&quot;positron.dataExplorer.openDataExplorer&quot;</span><span class="fu">,</span></span>
+<span id="cb106-4"><a href="#cb106-4"></a>    <span class="dt">&quot;when&quot;</span><span class="fu">:</span> <span class="st">&quot;positronVariablesFocus&quot;</span></span>
+<span id="cb106-5"><a href="#cb106-5"></a><span class="fu">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ul></li>
+</ol>
+<p><strong>4. Trucos rápidos de transformación de texto</strong></p>
+<p>Positron hereda estas joyas de Code OSS:</p>
+<ul>
+<li><strong>Mayúsculas / minúsculas / título / oración</strong>:
+<ol type="1">
+<li>Selecciona texto</li>
+<li><code>Ctrl + Shift + P</code> → escribe “Transform to”</li>
+<li>Elige: Upper Case / Lower Case / Title Case / Sentence Case</li>
+</ol></li>
+<li><strong>Multi-cursor express</strong> (imprescindible para renombrar columnas):
+<ul>
+<li><code>Ctrl + D</code> → selecciona siguiente ocurrencia</li>
+<li><code>Ctrl + Shift + L</code> → selecciona <strong>todas</strong> las ocurrencias en el archivo</li>
+<li><code>Alt + Click</code> → múltiples cursores manuales</li>
+</ul></li>
+<li><strong>Truco ultra-rápido</strong>: <code>Ctrl + Shift + P</code> → “Join Lines” (une líneas seleccionadas en una) → genial para convertir listas largas en una sola línea de código.</li>
+</ul>
+<p><strong>5. Cambio rápido entre Python y R en el mismo proyecto</strong></p>
+<ul>
+<li>Usa el selector de intérprete en la <strong>barra superior</strong> (junto al nombre del archivo)</li>
+<li>Puedes tener <strong>dos sesiones simultáneas</strong>: una Python y otra R</li>
+<li>Truco práctico:
+<ol type="1">
+<li>Cargas datos en Python (pandas)</li>
+<li>Cambias a sesión R</li>
+<li>Usas <code>reticulate::py$df</code> para traer el dataframe de Python a R</li>
+<li>Sigues limpiando con tidyverse</li>
+</ol></li>
+</ul>
+<p><strong>6. Trucos con Plots Pane que ahorran mucho tiempo</strong></p>
+<ul>
+<li>Historial automático de gráficos → flechas arriba/abajo para navegar</li>
+<li>Clic derecho en plot → Exportar (PNG/SVG/PDF) rápido</li>
+<li>Truco: <code>plt.show()</code> (Python) o <code>print()</code> (ggplot2) → aparece automáticamente</li>
+<li>Usa <code>plt.ion()</code> (modo interactivo matplotlib) para actualizar gráficos en vivo sin repetir <code>show()</code></li>
+</ul>
+<p><strong>7. Bonus: Mini-flujo de análisis exprés</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb107"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb107-1"><a href="#cb107-1"></a>1. Ctrl + N → nuevo script</span>
+<span id="cb107-2"><a href="#cb107-2"></a>2. Pega/pega datos o carga rápida</span>
+<span id="cb107-3"><a href="#cb107-3"></a>3. Ctrl + Alt + Home → ejecuta todo hasta cursor</span>
+<span id="cb107-4"><a href="#cb107-4"></a>4. Doble clic variable → Data Explorer</span>
+<span id="cb107-5"><a href="#cb107-5"></a>5. F1 sobre función → Help pane</span>
+<span id="cb107-6"><a href="#cb107-6"></a>6. Selecciona gráfico → Plots pane</span>
+<span id="cb107-7"><a href="#cb107-7"></a>7. Ctrl + Shift + K → renderiza Quarto (si estás en .qmd)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="solución-de-problemas" class="level1">
@@ -11631,24 +11707,24 @@ Ctrl+K Ctrl+J: Unfold all</code></pre>
 <p><strong>Solución:</strong></p>
 <pre><code>Command Palette → Python: Select Interpreter</code></pre>
 <p>O especificar manualmente:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb104"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb104-1"><a href="#cb104-1"></a><span class="fu">{</span></span>
-<span id="cb104-2"><a href="#cb104-2"></a>    <span class="dt">&quot;python.defaultInterpreterPath&quot;</span><span class="fu">:</span> <span class="st">&quot;/path/to/python&quot;</span></span>
-<span id="cb104-3"><a href="#cb104-3"></a><span class="fu">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb109"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb109-1"><a href="#cb109-1"></a><span class="fu">{</span></span>
+<span id="cb109-2"><a href="#cb109-2"></a>    <span class="dt">&quot;python.defaultInterpreterPath&quot;</span><span class="fu">:</span> <span class="st">&quot;/path/to/python&quot;</span></span>
+<span id="cb109-3"><a href="#cb109-3"></a><span class="fu">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="problema-r-no-funciona" class="level2">
 <h2 class="anchored" data-anchor-id="problema-r-no-funciona">Problema: R no funciona</h2>
 <p><strong>Verificar instalación:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb105"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb105-1"><a href="#cb105-1"></a><span class="fu">which</span> R</span>
-<span id="cb105-2"><a href="#cb105-2"></a><span class="ex">R</span> <span class="at">--version</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb110"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb110-1"><a href="#cb110-1"></a><span class="fu">which</span> R</span>
+<span id="cb110-2"><a href="#cb110-2"></a><span class="ex">R</span> <span class="at">--version</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Instalar paquetes necesarios:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="fu">c</span>(<span class="st">&quot;usethis&quot;</span>, <span class="st">&quot;cli&quot;</span>, <span class="st">&quot;crayon&quot;</span>, <span class="st">&quot;rlang&quot;</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="fu">c</span>(<span class="st">&quot;usethis&quot;</span>, <span class="st">&quot;cli&quot;</span>, <span class="st">&quot;crayon&quot;</span>, <span class="st">&quot;rlang&quot;</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="problema-console-no-inicia" class="level2">
 <h2 class="anchored" data-anchor-id="problema-console-no-inicia">Problema: Console no inicia</h2>
 <p><strong>Reiniciar intérprete:</strong></p>
 <pre><code>Ctrl+Shift+0</code></pre>
 <p><strong>Verificar IPython:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb108"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb108-1"><a href="#cb108-1"></a><span class="ex">pip</span> install ipython</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb113"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb113-1"><a href="#cb113-1"></a><span class="ex">pip</span> install ipython</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="problema-extensiones-no-aparecen" class="level2">
 <h2 class="anchored" data-anchor-id="problema-extensiones-no-aparecen">Problema: Extensiones no aparecen</h2>
@@ -11657,26 +11733,26 @@ Ctrl+K Ctrl+J: Unfold all</code></pre>
 </section>
 <section id="problema-terminal-no-hereda-path" class="level2">
 <h2 class="anchored" data-anchor-id="problema-terminal-no-hereda-path">Problema: Terminal no hereda PATH</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb109"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb109-1"><a href="#cb109-1"></a><span class="fu">{</span></span>
-<span id="cb109-2"><a href="#cb109-2"></a>    <span class="dt">&quot;terminal.integrated.inheritEnv&quot;</span><span class="fu">:</span> <span class="kw">false</span></span>
-<span id="cb109-3"><a href="#cb109-3"></a><span class="fu">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb114"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb114-1"><a href="#cb114-1"></a><span class="fu">{</span></span>
+<span id="cb114-2"><a href="#cb114-2"></a>    <span class="dt">&quot;terminal.integrated.inheritEnv&quot;</span><span class="fu">:</span> <span class="kw">false</span></span>
+<span id="cb114-3"><a href="#cb114-3"></a><span class="fu">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>O agregar al shell config (~/.bashrc, ~/.zshrc, etc.):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb110"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb110-1"><a href="#cb110-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">&quot;/path/to/anaconda3/bin:</span><span class="va">$PATH</span><span class="st">&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb115"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb115-1"><a href="#cb115-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">&quot;/path/to/anaconda3/bin:</span><span class="va">$PATH</span><span class="st">&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="problema-plots-no-aparecen" class="level2">
 <h2 class="anchored" data-anchor-id="problema-plots-no-aparecen">Problema: Plots no aparecen</h2>
 <p><strong>Python:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb111-2"><a href="#cb111-2"></a>plt.ion()  <span class="co"># Interactive mode</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb116"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb116-2"><a href="#cb116-2"></a>plt.ion()  <span class="co"># Interactive mode</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>R:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1"></a><span class="fu">options</span>(<span class="at">device =</span> <span class="st">&quot;quartz&quot;</span>)  <span class="co"># macOS</span></span>
-<span id="cb112-2"><a href="#cb112-2"></a><span class="co"># o</span></span>
-<span id="cb112-3"><a href="#cb112-3"></a><span class="fu">options</span>(<span class="at">device =</span> <span class="st">&quot;x11&quot;</span>)  <span class="co"># Linux</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1"></a><span class="fu">options</span>(<span class="at">device =</span> <span class="st">&quot;quartz&quot;</span>)  <span class="co"># macOS</span></span>
+<span id="cb117-2"><a href="#cb117-2"></a><span class="co"># o</span></span>
+<span id="cb117-3"><a href="#cb117-3"></a><span class="fu">options</span>(<span class="at">device =</span> <span class="st">&quot;x11&quot;</span>)  <span class="co"># Linux</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="problema-quarto-no-renderiza" class="level2">
 <h2 class="anchored" data-anchor-id="problema-quarto-no-renderiza">Problema: Quarto no renderiza</h2>
 <p><strong>Verificar instalación:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb113"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb113-1"><a href="#cb113-1"></a><span class="ex">quarto</span> check</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb118"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb118-1"><a href="#cb118-1"></a><span class="ex">quarto</span> check</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Reinstalar extensión:</strong></p>
 <pre><code>Extensions → Quarto → Reload</code></pre>
 </section>
@@ -11685,20 +11761,20 @@ Ctrl+K Ctrl+J: Unfold all</code></pre>
 <p><strong>Ubicación correcta:</strong></p>
 <pre><code>~/.config/Positron/User/settings.json</code></pre>
 <p><strong>Permisos:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb116"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb116-1"><a href="#cb116-1"></a><span class="fu">chmod</span> 644 ~/.config/Positron/User/settings.json</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb121"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb121-1"><a href="#cb121-1"></a><span class="fu">chmod</span> 644 ~/.config/Positron/User/settings.json</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="problema-performance-lenta" class="level2">
 <h2 class="anchored" data-anchor-id="problema-performance-lenta">Problema: Performance lenta</h2>
 <p><strong>Deshabilitar extensiones innecesarias</strong></p>
 <p><strong>Reducir history:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb117"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb117-1"><a href="#cb117-1"></a><span class="fu">{</span></span>
-<span id="cb117-2"><a href="#cb117-2"></a>    <span class="dt">&quot;terminal.integrated.scrollback&quot;</span><span class="fu">:</span> <span class="dv">1000</span></span>
-<span id="cb117-3"><a href="#cb117-3"></a><span class="fu">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb122"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb122-1"><a href="#cb122-1"></a><span class="fu">{</span></span>
+<span id="cb122-2"><a href="#cb122-2"></a>    <span class="dt">&quot;terminal.integrated.scrollback&quot;</span><span class="fu">:</span> <span class="dv">1000</span></span>
+<span id="cb122-3"><a href="#cb122-3"></a><span class="fu">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Deshabilitar features:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb118"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb118-1"><a href="#cb118-1"></a><span class="fu">{</span></span>
-<span id="cb118-2"><a href="#cb118-2"></a>    <span class="dt">&quot;editor.minimap.enabled&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
-<span id="cb118-3"><a href="#cb118-3"></a>    <span class="dt">&quot;editor.suggest.preview&quot;</span><span class="fu">:</span> <span class="kw">false</span></span>
-<span id="cb118-4"><a href="#cb118-4"></a><span class="fu">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb123"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb123-1"><a href="#cb123-1"></a><span class="fu">{</span></span>
+<span id="cb123-2"><a href="#cb123-2"></a>    <span class="dt">&quot;editor.minimap.enabled&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb123-3"><a href="#cb123-3"></a>    <span class="dt">&quot;editor.suggest.preview&quot;</span><span class="fu">:</span> <span class="kw">false</span></span>
+<span id="cb123-4"><a href="#cb123-4"></a><span class="fu">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="conclusión" class="level1">

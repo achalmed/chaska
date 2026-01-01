@@ -4029,7 +4029,7 @@
     "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#configurar-python-en-positron",
     "title": "Guía Completa de Positron IDE",
     "section": "Configurar Python en Positron",
-    "text": "Configurar Python en Positron\nSettings para Anaconda (tu caso):\n{\n    \"python.defaultInterpreterPath\": \"/home/achalmaedison/anaconda3/bin/python\",\n    \"python.condaPath\": \"/home/achalmaedison/anaconda3/bin/conda\",\n    \"python.terminal.activateEnvironment\": true,\n    \"python.terminal.activateEnvInCurrentTerminal\": true\n}\nIPython Kernel:\n{\n    // Usar IPython kernel empaquetado (recomendado)\n    \"python.useBundledIpykernel\": true,\n    \n    // O instalar manualmente\n    // python.useBundledIpykernel\": false\n}"
+    "text": "Configurar Python en Positron\nSettings para Anaconda:\n{\n    \"python.defaultInterpreterPath\": \"/home/achalmaedison/anaconda3/bin/python\",\n    \"python.condaPath\": \"/home/achalmaedison/anaconda3/bin/conda\",\n    \"python.terminal.activateEnvironment\": true,\n    \"python.terminal.activateEnvInCurrentTerminal\": true\n}\nIPython Kernel:\n{\n    // Usar IPython kernel empaquetado (recomendado)\n    \"python.useBundledIpykernel\": true,\n    \n    // O instalar manualmente\n    // python.useBundledIpykernel\": false\n}"
   },
   {
     "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#seleccionar-intérprete",
@@ -4337,7 +4337,7 @@
     "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#crear-documento-quarto",
     "title": "Guía Completa de Positron IDE",
     "section": "Crear Documento Quarto",
-    "text": "Crear Documento Quarto\nNuevo archivo:\nFile → New File → Quarto Document\nEstructura básica (.qmd):\n---\ntitle: \"Mi Documento\"\nauthor: \"Tu Nombre\"\nformat: html\nexecute:\n  echo: true\n---\n\n# Introducción\n\nEste es un documento Quarto.\n\n::: {#b274ad9e .cell}\n``` {.python .cell-code}\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ndf = pd.read_csv('data.csv')\ndf.head()\n:::"
+    "text": "Crear Documento Quarto\nNuevo archivo:\nFile → New File → Quarto Document\nEstructura básica (.qmd):\n---\ntitle: \"Mi Documento\"\nauthor: \"Tu Nombre\"\nformat: html\nexecute:\n  echo: true\n---\n\n# Introducción\n\nEste es un documento Quarto.\n\n::: {#a2b5ec42 .cell}\n``` {.python .cell-code}\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ndf = pd.read_csv('data.csv')\ndf.head()\n:::"
   },
   {
     "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#preview",
@@ -4483,64 +4483,64 @@
     "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#quick-open",
     "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#quick-open",
     "title": "Guía Completa de Positron IDE",
-    "section": "2. Quick Open",
-    "text": "2. Quick Open\nCtrl+P\nAbre archivos rápidamente sin usar el Explorer."
+    "section": "Quick Open",
+    "text": "Quick Open\nCtrl+P\nAbre archivos rápidamente sin usar el Explorer."
   },
   {
     "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#multi-cursor",
     "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#multi-cursor",
     "title": "Guía Completa de Positron IDE",
-    "section": "3. Multi-Cursor",
-    "text": "3. Multi-Cursor\nAlt+Click: Añadir cursor\nCtrl+Alt+Up/Down: Añadir cursor arriba/abajo\nCtrl+D: Seleccionar siguiente ocurrencia\nCtrl+Shift+L: Seleccionar todas las ocurrencias"
+    "section": "Multi-Cursor",
+    "text": "Multi-Cursor\nAlt+Click: Añadir cursor\nCtrl+Alt+Up/Down: Añadir cursor arriba/abajo\nCtrl+D: Seleccionar siguiente ocurrencia\nCtrl+Shift+L: Seleccionar todas las ocurrencias"
   },
   {
     "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#snippets",
     "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#snippets",
     "title": "Guía Completa de Positron IDE",
-    "section": "4. Snippets",
-    "text": "4. Snippets\nCrea tus propios snippets en:\nFile → Preferences → Configure User Snippets\nEjemplo Python:\n{\n    \"Import pandas\": {\n        \"prefix\": \"imp\",\n        \"body\": [\n            \"import pandas as pd\",\n            \"import numpy as np\",\n            \"import matplotlib.pyplot as plt\"\n        ]\n    }\n}"
+    "section": "Snippets",
+    "text": "Snippets\nCrea tus propios snippets en:\nFile → Preferences → Configure User Snippets\nEjemplo Python:\n{\n    \"Import pandas\": {\n        \"prefix\": \"imp\",\n        \"body\": [\n            \"import pandas as pd\",\n            \"import numpy as np\",\n            \"import matplotlib.pyplot as plt\"\n        ]\n    }\n}"
   },
   {
     "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#integrated-terminal-profiles",
     "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#integrated-terminal-profiles",
     "title": "Guía Completa de Positron IDE",
-    "section": "5. Integrated Terminal Profiles",
-    "text": "5. Integrated Terminal Profiles\nConfigura perfiles para diferentes shells o entornos virtuales."
+    "section": "Integrated Terminal Profiles",
+    "text": "Integrated Terminal Profiles\nConfigura perfiles para diferentes shells o entornos virtuales."
   },
   {
     "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#workspace-settings",
     "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#workspace-settings",
     "title": "Guía Completa de Positron IDE",
-    "section": "6. Workspace Settings",
-    "text": "6. Workspace Settings\nPara proyectos específicos, usa workspace settings:\n.vscode/settings.json"
+    "section": "Workspace Settings",
+    "text": "Workspace Settings\nPara proyectos específicos, usa workspace settings:\n.vscode/settings.json"
   },
   {
     "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#foldunfold-code",
     "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#foldunfold-code",
     "title": "Guía Completa de Positron IDE",
-    "section": "7. Fold/Unfold Code",
-    "text": "7. Fold/Unfold Code\nCtrl+Shift+[: Fold\nCtrl+Shift+]: Unfold\nCtrl+K Ctrl+0: Fold all\nCtrl+K Ctrl+J: Unfold all"
+    "section": "Fold/Unfold Code",
+    "text": "Fold/Unfold Code\nCtrl+Shift+[: Fold\nCtrl+Shift+]: Unfold\nCtrl+K Ctrl+0: Fold all\nCtrl+K Ctrl+J: Unfold all"
   },
   {
     "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#breadcrumbs",
     "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#breadcrumbs",
     "title": "Guía Completa de Positron IDE",
-    "section": "8. Breadcrumbs",
-    "text": "8. Breadcrumbs\nSi los necesitas:\n{\n    \"breadcrumbs.enabled\": true\n}"
+    "section": "Breadcrumbs",
+    "text": "Breadcrumbs\nSi los necesitas:\n{\n    \"breadcrumbs.enabled\": true\n}"
   },
   {
     "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#integrated-git-diff",
     "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#integrated-git-diff",
     "title": "Guía Completa de Positron IDE",
-    "section": "9. Integrated Git Diff",
-    "text": "9. Integrated Git Diff\nClick en archivo modificado en Source Control"
+    "section": "Integrated Git Diff",
+    "text": "Integrated Git Diff\nClick en archivo modificado en Source Control"
   },
   {
     "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#sync-settings",
     "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#sync-settings",
     "title": "Guía Completa de Positron IDE",
-    "section": "10. Sync Settings",
-    "text": "10. Sync Settings\nPositron puede sincronizar settings entre máquinas (similar a VS Code Settings Sync)."
+    "section": "Sync Settings",
+    "text": "Sync Settings\nPositron puede sincronizar settings entre máquinas (similar a VS Code Settings Sync)."
   },
   {
     "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#problema-python-interpreter-no-detectado",
@@ -4737,5 +4737,26 @@
     "title": "Gestiona dotfiles fácilmente con GNU Stow",
     "section": "Home Manager: Configuración Declarativa",
     "text": "Home Manager: Configuración Declarativa\nHome Manager (para NixOS) define dotfiles y paquetes declarativamente:\nhome-manager switch\nVentajas: Configuración completa del sistema. Desventajas: Complejo, requiere aprender Nix."
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#renderizar",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#renderizar",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Renderizar",
+    "text": "Renderizar\nCommand Palette:\nQuarto: Render Document\nAtajo:\nCtrl+Shift+K\nTerminal:\nquarto render document.qmd\nquarto render document.qmd --to pdf"
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#command-palette",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#command-palette",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Command Palette",
+    "text": "Command Palette\nCtrl+Shift+P\nTodo está en el Command Palette. No recuerdas un atajo? Búscalo aquí."
+  },
+  {
+    "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#trucos-prácticos-que-uso-día-a-día",
+    "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#trucos-prácticos-que-uso-día-a-día",
+    "title": "Guía Completa de Positron IDE",
+    "section": "Trucos prácticos que uso día a día",
+    "text": "Trucos prácticos que uso día a día\n1. Ejecutar código selectivamente sin salir del editor\n\nCtrl + Enter → Ejecuta la línea actual o selección\nCtrl + Alt + Home → Ejecuta todo desde el inicio del archivo hasta la línea actual (ideal para setups y carga de datos)\nCtrl + Alt + End → Ejecuta desde la línea actual hasta el final (muy útil para pruebas rápidas al final del script)\nCtrl + Shift + P (o Cmd en macOS) → Ejecuta archivo completo en la consola\n\nTruco pro: Combina Ctrl + Alt + Home + Ctrl + Enter para rehacer rápidamente todo el análisis desde cero sin tocar el ratón.\n2. Navegación ultrarrápida entre editor y consola\nCtrl + K → F     → Enfocar consola (muy rápido para escribir rápido)\nCtrl + K → V     → Enfocar panel de Variables\nCtrl + K → R     → Enfocar panel de Help (documentación)\nCtrl + L         → Limpiar la consola (equivalente al clásico Ctrl + L de RStudio)\nCtrl + Shift + 0 → Reiniciar el intérprete (cuando todo se pone loco)\nTruco diario: Crea un flujo mental “editor → consola → variables” y usa estos tres atajos en secuencia rapidísima.\n3. El workflow más rápido para explorar dataframes (mi favorito)\n\nCargas datos en consola o script:\nimport pandas as pd\ndf = pd.read_csv(\"datos_grandes.csv\")\no\ndf &lt;- read_csv(\"datos_grandes.csv\")\nOpciones rápidas de exploración:\n\nDoble clic en df en el Variables Pane → abre Data Explorer completo (filtrar, ordenar, buscar, estadísticas)\nView(df) (R) o df.head(20) (Python) → vista rápida en consola\nClic derecho en variable → “View in Data Explorer”\nAtajo personalizado recomendado (agrega a keybindings.json):\n{\n    \"key\": \"f2\",\n    \"command\": \"positron.dataExplorer.openDataExplorer\",\n    \"when\": \"positronVariablesFocus\"\n}\n\n\n4. Trucos rápidos de transformación de texto\nPositron hereda estas joyas de Code OSS:\n\nMayúsculas / minúsculas / título / oración:\n\nSelecciona texto\nCtrl + Shift + P → escribe “Transform to”\nElige: Upper Case / Lower Case / Title Case / Sentence Case\n\nMulti-cursor express (imprescindible para renombrar columnas):\n\nCtrl + D → selecciona siguiente ocurrencia\nCtrl + Shift + L → selecciona todas las ocurrencias en el archivo\nAlt + Click → múltiples cursores manuales\n\nTruco ultra-rápido: Ctrl + Shift + P → “Join Lines” (une líneas seleccionadas en una) → genial para convertir listas largas en una sola línea de código.\n\n5. Cambio rápido entre Python y R en el mismo proyecto\n\nUsa el selector de intérprete en la barra superior (junto al nombre del archivo)\nPuedes tener dos sesiones simultáneas: una Python y otra R\nTruco práctico:\n\nCargas datos en Python (pandas)\nCambias a sesión R\nUsas reticulate::py$df para traer el dataframe de Python a R\nSigues limpiando con tidyverse\n\n\n6. Trucos con Plots Pane que ahorran mucho tiempo\n\nHistorial automático de gráficos → flechas arriba/abajo para navegar\nClic derecho en plot → Exportar (PNG/SVG/PDF) rápido\nTruco: plt.show() (Python) o print() (ggplot2) → aparece automáticamente\nUsa plt.ion() (modo interactivo matplotlib) para actualizar gráficos en vivo sin repetir show()\n\n7. Bonus: Mini-flujo de análisis exprés\n1. Ctrl + N → nuevo script\n2. Pega/pega datos o carga rápida\n3. Ctrl + Alt + Home → ejecuta todo hasta cursor\n4. Doble clic variable → Data Explorer\n5. F1 sobre función → Help pane\n6. Selecciona gráfico → Plots pane\n7. Ctrl + Shift + K → renderiza Quarto (si estás en .qmd)"
   }
 ]

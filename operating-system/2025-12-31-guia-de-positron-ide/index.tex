@@ -1083,7 +1083,7 @@ Command Palette → Preferences: Open Keyboard Shortcuts (JSON)
 \subsection{Configurar Python en
 Positron}\label{configurar-python-en-positron}
 
-\textbf{Settings para Anaconda (tu caso):}
+\textbf{Settings para Anaconda:}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2206,30 +2206,28 @@ File → New File → Quarto Document
 \end{Highlighting}
 \end{Shaded}
 
+\subsection{Renderizar}\label{renderizar}
+
+\textbf{Command Palette:}
+
 \begin{verbatim}
-
-## Renderizar
-
-**Command Palette:**
-\end{verbatim}
-
 Quarto: Render Document
-
-\begin{verbatim}
-
-**Atajo:**
 \end{verbatim}
 
+\textbf{Atajo:}
+
+\begin{verbatim}
 Ctrl+Shift+K
-
-\begin{verbatim}
-
-**Terminal:**
-
-```bash
-quarto render document.qmd
-quarto render document.qmd --to pdf
 \end{verbatim}
+
+\textbf{Terminal:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{quarto}\NormalTok{ render document.qmd}
+\ExtensionTok{quarto}\NormalTok{ render document.qmd }\AttributeTok{{-}{-}to}\NormalTok{ pdf}
+\end{Highlighting}
+\end{Shaded}
 
 \subsection{Preview}\label{preview}
 
@@ -2771,8 +2769,7 @@ Disponibles}\label{notas-sobre-extensiones-no-disponibles}
 
 \section{Trucos y Tips}\label{trucos-y-tips}
 
-\subsection{1. Command Palette es tu
-Amigo}\label{command-palette-es-tu-amigo}
+\subsection{Command Palette}\label{command-palette}
 
 \begin{verbatim}
 Ctrl+Shift+P
@@ -2780,7 +2777,7 @@ Ctrl+Shift+P
 
 Todo está en el Command Palette. No recuerdas un atajo? Búscalo aquí.
 
-\subsection{2. Quick Open}\label{quick-open}
+\subsection{Quick Open}\label{quick-open}
 
 \begin{verbatim}
 Ctrl+P
@@ -2788,7 +2785,7 @@ Ctrl+P
 
 Abre archivos rápidamente sin usar el Explorer.
 
-\subsection{3. Multi-Cursor}\label{multi-cursor}
+\subsection{Multi-Cursor}\label{multi-cursor}
 
 \begin{verbatim}
 Alt+Click: Añadir cursor
@@ -2797,7 +2794,7 @@ Ctrl+D: Seleccionar siguiente ocurrencia
 Ctrl+Shift+L: Seleccionar todas las ocurrencias
 \end{verbatim}
 
-\subsection{4. Snippets}\label{snippets}
+\subsection{Snippets}\label{snippets}
 
 Crea tus propios snippets en:
 
@@ -2822,12 +2819,12 @@ File → Preferences → Configure User Snippets
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{5. Integrated Terminal
+\subsection{Integrated Terminal
 Profiles}\label{integrated-terminal-profiles}
 
 Configura perfiles para diferentes shells o entornos virtuales.
 
-\subsection{6. Workspace Settings}\label{workspace-settings}
+\subsection{Workspace Settings}\label{workspace-settings}
 
 Para proyectos específicos, usa workspace settings:
 
@@ -2835,7 +2832,7 @@ Para proyectos específicos, usa workspace settings:
 .vscode/settings.json
 \end{verbatim}
 
-\subsection{7. Fold/Unfold Code}\label{foldunfold-code}
+\subsection{Fold/Unfold Code}\label{foldunfold-code}
 
 \begin{verbatim}
 Ctrl+Shift+[: Fold
@@ -2844,7 +2841,7 @@ Ctrl+K Ctrl+0: Fold all
 Ctrl+K Ctrl+J: Unfold all
 \end{verbatim}
 
-\subsection{8. Breadcrumbs}\label{breadcrumbs}
+\subsection{Breadcrumbs}\label{breadcrumbs}
 
 Si los necesitas:
 
@@ -2856,16 +2853,202 @@ Si los necesitas:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{9. Integrated Git Diff}\label{integrated-git-diff}
+\subsection{Integrated Git Diff}\label{integrated-git-diff}
 
 \begin{verbatim}
 Click en archivo modificado en Source Control
 \end{verbatim}
 
-\subsection{10. Sync Settings}\label{sync-settings}
+\subsection{Sync Settings}\label{sync-settings}
 
 Positron puede sincronizar settings entre máquinas (similar a VS Code
 Settings Sync).
+
+\subsection{Trucos prácticos que uso día a
+día}\label{trucos-pruxe1cticos-que-uso-duxeda-a-duxeda}
+
+\textbf{1. Ejecutar código selectivamente sin salir del editor}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Ctrl\ +\ Enter} → Ejecuta la línea actual o selección
+\item
+  \texttt{Ctrl\ +\ Alt\ +\ Home} → Ejecuta \textbf{todo desde el inicio
+  del archivo hasta la línea actual} (ideal para setups y carga de
+  datos)
+\item
+  \texttt{Ctrl\ +\ Alt\ +\ End} → Ejecuta \textbf{desde la línea actual
+  hasta el final} (muy útil para pruebas rápidas al final del script)
+\item
+  \texttt{Ctrl\ +\ Shift\ +\ P} (o \texttt{Cmd} en macOS) → Ejecuta
+  \textbf{archivo completo} en la consola
+\end{itemize}
+
+\textbf{Truco pro}: Combina \texttt{Ctrl\ +\ Alt\ +\ Home} +
+\texttt{Ctrl\ +\ Enter} para rehacer rápidamente todo el análisis desde
+cero sin tocar el ratón.
+
+\textbf{2. Navegación ultrarrápida entre editor y consola}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Ctrl + K → F     → Enfocar consola (muy rápido para escribir rápido)}
+\NormalTok{Ctrl + K → V     → Enfocar panel de Variables}
+\NormalTok{Ctrl + K → R     → Enfocar panel de Help (documentación)}
+\NormalTok{Ctrl + L         → Limpiar la consola (equivalente al clásico Ctrl + L de RStudio)}
+\NormalTok{Ctrl + Shift + 0 → Reiniciar el intérprete (cuando todo se pone loco)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Truco diario}: Crea un flujo mental ``editor → consola →
+variables'' y usa estos tres atajos en secuencia rapidísima.
+
+\textbf{3. El workflow más rápido para explorar dataframes (mi
+favorito)}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Cargas datos en consola o script:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+\NormalTok{df }\OperatorTok{=}\NormalTok{ pd.read\_csv(}\StringTok{"datos\_grandes.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  o
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"datos\_grandes.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Opciones rápidas de exploración:
+
+  \begin{itemize}
+  \item
+    Doble clic en \texttt{df} en el \textbf{Variables Pane} → abre
+    \textbf{Data Explorer} completo (filtrar, ordenar, buscar,
+    estadísticas)
+  \item
+    \texttt{View(df)} (R) o \texttt{df.head(20)} (Python) → vista rápida
+    en consola
+  \item
+    Clic derecho en variable → ``View in Data Explorer''
+  \item
+    Atajo personalizado recomendado (agrega a keybindings.json):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"key"}\FunctionTok{:} \StringTok{"f2"}\FunctionTok{,}
+    \DataTypeTok{"command"}\FunctionTok{:} \StringTok{"positron.dataExplorer.openDataExplorer"}\FunctionTok{,}
+    \DataTypeTok{"when"}\FunctionTok{:} \StringTok{"positronVariablesFocus"}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+  \end{itemize}
+\end{enumerate}
+
+\textbf{4. Trucos rápidos de transformación de texto}
+
+Positron hereda estas joyas de Code OSS:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Mayúsculas / minúsculas / título / oración}:
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Selecciona texto
+  \item
+    \texttt{Ctrl\ +\ Shift\ +\ P} → escribe ``Transform to''
+  \item
+    Elige: Upper Case / Lower Case / Title Case / Sentence Case
+  \end{enumerate}
+\item
+  \textbf{Multi-cursor express} (imprescindible para renombrar
+  columnas):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{Ctrl\ +\ D} → selecciona siguiente ocurrencia
+  \item
+    \texttt{Ctrl\ +\ Shift\ +\ L} → selecciona \textbf{todas} las
+    ocurrencias en el archivo
+  \item
+    \texttt{Alt\ +\ Click} → múltiples cursores manuales
+  \end{itemize}
+\item
+  \textbf{Truco ultra-rápido}: \texttt{Ctrl\ +\ Shift\ +\ P} → ``Join
+  Lines'' (une líneas seleccionadas en una) → genial para convertir
+  listas largas en una sola línea de código.
+\end{itemize}
+
+\textbf{5. Cambio rápido entre Python y R en el mismo proyecto}
+
+\begin{itemize}
+\tightlist
+\item
+  Usa el selector de intérprete en la \textbf{barra superior} (junto al
+  nombre del archivo)
+\item
+  Puedes tener \textbf{dos sesiones simultáneas}: una Python y otra R
+\item
+  Truco práctico:
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Cargas datos en Python (pandas)
+  \item
+    Cambias a sesión R
+  \item
+    Usas \texttt{reticulate::py\$df} para traer el dataframe de Python a
+    R
+  \item
+    Sigues limpiando con tidyverse
+  \end{enumerate}
+\end{itemize}
+
+\textbf{6. Trucos con Plots Pane que ahorran mucho tiempo}
+
+\begin{itemize}
+\tightlist
+\item
+  Historial automático de gráficos → flechas arriba/abajo para navegar
+\item
+  Clic derecho en plot → Exportar (PNG/SVG/PDF) rápido
+\item
+  Truco: \texttt{plt.show()} (Python) o \texttt{print()} (ggplot2) →
+  aparece automáticamente
+\item
+  Usa \texttt{plt.ion()} (modo interactivo matplotlib) para actualizar
+  gráficos en vivo sin repetir \texttt{show()}
+\end{itemize}
+
+\textbf{7. Bonus: Mini-flujo de análisis exprés}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{1. Ctrl + N → nuevo script}
+\NormalTok{2. Pega/pega datos o carga rápida}
+\NormalTok{3. Ctrl + Alt + Home → ejecuta todo hasta cursor}
+\NormalTok{4. Doble clic variable → Data Explorer}
+\NormalTok{5. F1 sobre función → Help pane}
+\NormalTok{6. Selecciona gráfico → Plots pane}
+\NormalTok{7. Ctrl + Shift + K → renderiza Quarto (si estás en .qmd)}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Solución de Problemas}\label{soluciuxf3n-de-problemas}
 

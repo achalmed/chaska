@@ -19,6 +19,7 @@ tags:
 - python
 - r 
 - quarto
+- visualcode
 author-note:
   status-changes:
     affiliation-change: null
@@ -257,7 +258,6 @@ Command Palette → Preferences: Open User Settings (JSON)
     "positron.assistant.showTokenUsage.enable": true
 }
 ```
-
 
 # Interfaz de Usuario
 
@@ -680,7 +680,7 @@ conda activate myenv
 
 ## Configurar Python en Positron
 
-**Settings para Anaconda (tu caso):**
+**Settings para Anaconda:**
 
 ```json
 {
@@ -1516,7 +1516,7 @@ execute:
 
 Este es un documento Quarto.
 
-::: {#b274ad9e .cell}
+::: {#a2b5ec42 .cell}
 ``` {.python .cell-code}
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -1529,15 +1529,13 @@ df.head()
 
 # Análisis
 
-::: {#dcd68afc .cell}
+::: {#ca7d40f8 .cell}
 ``` {.python .cell-code}
 plt.plot(df['x'], df['y'])
 plt.show()
 ```
 :::
 
-
-```
 
 ## Renderizar
 
@@ -2013,21 +2011,21 @@ Para replicar el setup de VS Code, se instala:
 
 # Trucos y Tips
 
-## 1. Command Palette es tu Amigo
+## Command Palette
 
 ```
 Ctrl+Shift+P
 ```
 Todo está en el Command Palette. No recuerdas un atajo? Búscalo aquí.
 
-## 2. Quick Open
+## Quick Open
 
 ```
 Ctrl+P
 ```
 Abre archivos rápidamente sin usar el Explorer.
 
-## 3. Multi-Cursor
+## Multi-Cursor
 
 ```
 Alt+Click: Añadir cursor
@@ -2036,7 +2034,7 @@ Ctrl+D: Seleccionar siguiente ocurrencia
 Ctrl+Shift+L: Seleccionar todas las ocurrencias
 ```
 
-## 4. Snippets
+## Snippets
 
 Crea tus propios snippets en:
 
@@ -2059,18 +2057,19 @@ File → Preferences → Configure User Snippets
 }
 ```
 
-## 5. Integrated Terminal Profiles
+## Integrated Terminal Profiles
 
 Configura perfiles para diferentes shells o entornos virtuales.
 
-## 6. Workspace Settings
+## Workspace Settings
 
 Para proyectos específicos, usa workspace settings:
+
 ```
 .vscode/settings.json
 ```
 
-## 7. Fold/Unfold Code
+## Fold/Unfold Code
 
 ```
 Ctrl+Shift+[: Fold
@@ -2079,24 +2078,120 @@ Ctrl+K Ctrl+0: Fold all
 Ctrl+K Ctrl+J: Unfold all
 ```
 
-## 8. Breadcrumbs
+## Breadcrumbs
 
 Si los necesitas:
+
 ```json
 {
     "breadcrumbs.enabled": true
 }
 ```
 
-## 9. Integrated Git Diff
+## Integrated Git Diff
 
 ```
 Click en archivo modificado en Source Control
 ```
 
-## 10. Sync Settings
+## Sync Settings
 
 Positron puede sincronizar settings entre máquinas (similar a VS Code Settings Sync).
+
+
+## Trucos prácticos que uso día a día
+
+**1. Ejecutar código selectivamente sin salir del editor**
+
+- `Ctrl + Enter` → Ejecuta la línea actual o selección
+- `Ctrl + Alt + Home` → Ejecuta **todo desde el inicio del archivo hasta la línea actual** (ideal para setups y carga de datos)
+- `Ctrl + Alt + End` → Ejecuta **desde la línea actual hasta el final** (muy útil para pruebas rápidas al final del script)
+- `Ctrl + Shift + P` (o `Cmd` en macOS) → Ejecuta **archivo completo** en la consola
+
+**Truco pro**: Combina `Ctrl + Alt + Home` + `Ctrl + Enter` para rehacer rápidamente todo el análisis desde cero sin tocar el ratón.
+
+**2. Navegación ultrarrápida entre editor y consola**
+
+```text
+Ctrl + K → F     → Enfocar consola (muy rápido para escribir rápido)
+Ctrl + K → V     → Enfocar panel de Variables
+Ctrl + K → R     → Enfocar panel de Help (documentación)
+Ctrl + L         → Limpiar la consola (equivalente al clásico Ctrl + L de RStudio)
+Ctrl + Shift + 0 → Reiniciar el intérprete (cuando todo se pone loco)
+```
+
+**Truco diario**: Crea un flujo mental "editor → consola → variables" y usa estos tres atajos en secuencia rapidísima.
+
+**3. El workflow más rápido para explorar dataframes (mi favorito)**
+
+1. Cargas datos en consola o script:
+   ```python
+   import pandas as pd
+   df = pd.read_csv("datos_grandes.csv")
+   ```
+   o
+   ```r
+   df <- read_csv("datos_grandes.csv")
+   ```
+
+2. Opciones rápidas de exploración:
+
+   - Doble clic en `df` en el **Variables Pane** → abre **Data Explorer** completo (filtrar, ordenar, buscar, estadísticas)
+   - `View(df)` (R) o `df.head(20)` (Python) → vista rápida en consola
+   - Clic derecho en variable → "View in Data Explorer"
+   - Atajo personalizado recomendado (agrega a keybindings.json):
+     ```json
+     {
+         "key": "f2",
+         "command": "positron.dataExplorer.openDataExplorer",
+         "when": "positronVariablesFocus"
+     }
+     ```
+
+**4. Trucos rápidos de transformación de texto**
+
+Positron hereda estas joyas de Code OSS:
+
+- **Mayúsculas / minúsculas / título / oración**:
+  1. Selecciona texto
+  2. `Ctrl + Shift + P` → escribe "Transform to"
+  3. Elige: Upper Case / Lower Case / Title Case / Sentence Case
+
+- **Multi-cursor express** (imprescindible para renombrar columnas):
+  - `Ctrl + D` → selecciona siguiente ocurrencia
+  - `Ctrl + Shift + L` → selecciona **todas** las ocurrencias en el archivo
+  - `Alt + Click` → múltiples cursores manuales
+
+- **Truco ultra-rápido**: `Ctrl + Shift + P` → "Join Lines" (une líneas seleccionadas en una) → genial para convertir listas largas en una sola línea de código.
+
+**5. Cambio rápido entre Python y R en el mismo proyecto**
+
+- Usa el selector de intérprete en la **barra superior** (junto al nombre del archivo)
+- Puedes tener **dos sesiones simultáneas**: una Python y otra R
+- Truco práctico:
+  1. Cargas datos en Python (pandas)
+  2. Cambias a sesión R
+  3. Usas `reticulate::py$df` para traer el dataframe de Python a R
+  4. Sigues limpiando con tidyverse
+
+**6. Trucos con Plots Pane que ahorran mucho tiempo**
+
+- Historial automático de gráficos → flechas arriba/abajo para navegar
+- Clic derecho en plot → Exportar (PNG/SVG/PDF) rápido
+- Truco: `plt.show()` (Python) o `print()` (ggplot2) → aparece automáticamente
+- Usa `plt.ion()` (modo interactivo matplotlib) para actualizar gráficos en vivo sin repetir `show()`
+
+**7. Bonus: Mini-flujo de análisis exprés**
+
+```text
+1. Ctrl + N → nuevo script
+2. Pega/pega datos o carga rápida
+3. Ctrl + Alt + Home → ejecuta todo hasta cursor
+4. Doble clic variable → Data Explorer
+5. F1 sobre función → Help pane
+6. Selecciona gráfico → Plots pane
+7. Ctrl + Shift + K → renderiza Quarto (si estás en .qmd)
+```
 
 # Solución de Problemas
 
@@ -2159,6 +2254,7 @@ pip install ipython
 ```
 
 O agregar al shell config (~/.bashrc, ~/.zshrc, etc.):
+
 ```bash
 export PATH="/path/to/anaconda3/bin:$PATH"
 ```
