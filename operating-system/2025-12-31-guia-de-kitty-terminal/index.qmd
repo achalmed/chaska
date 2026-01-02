@@ -58,17 +58,16 @@ Kitty es un emulador de terminal moderno, rápido y rico en características, di
 
 **Ventajas sobre otros terminales:**
 
-| Característica | Kitty | Alacritty | iTerm2 | Gnome Terminal |
-|----------------|-------|-----------|--------|----------------|
-| GPU Rendering | ✅ | ✅ | ✅ | ❌ |
-| Tabs nativos | ✅ | ❌ | ✅ | ✅ |
-| Splits nativos | ✅ | ❌ | ✅ | ❌ |
-| Imágenes | ✅ | ❌ | ✅ | ❌ |
-| Ligaduras | ✅ | ✅ | ✅ | ✅ |
-| Extensiones | ✅ (kittens) | ❌ | ✅ | ❌ |
-| Control remoto | ✅ | ❌ | ✅ | ❌ |
-| Multiplataforma | ✅ | ✅ | ❌ (solo macOS) | ❌ (solo Linux) |
-
+| Característica          | Kitty          | Alacritty      | iTerm2         | GNOME Terminal |
+|-------------------------|----------------|----------------|----------------|----------------|
+| Renderizado por GPU     | Sí             | Sí             | Sí             | No             |
+| Pestañas nativas        | Sí             | No             | Sí             | Sí             |
+| División de paneles     | Sí             | No             | Sí             | No             |
+| Soporte para imágenes   | Sí             | No             | Sí             | No             |
+| Ligaduras (ligatures)   | Sí             | Sí             | Sí             | Sí             |
+| Sistema de extensiones  | Sí (kittens)   | No             | Sí             | No             |
+| Control remoto (SSH)    | Sí             | No             | Sí             | No             |
+| Multiplataforma         | Sí (Linux/macOS/Windows) | Sí (Linux/macOS/Windows) | No (solo macOS) | No (solo Linux) |
 
 # Instalación
 

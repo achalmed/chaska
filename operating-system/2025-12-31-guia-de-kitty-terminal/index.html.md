@@ -3,19 +3,17 @@ documentmode: doc
 copyrightnotice: 2025
 copyrightext: All rights reserved
 title: Guía Completa de Kitty Terminal
-abstract: Ranger es un gestor de archivos basado en consola altamente eficiente, diseñado con una fuerte inspiración en los atajos de teclado de Vim y una filosofía minimalista. Esta guía completa explora en detalle su instalación en diferentes sistemas operativos, configuración inicial y avanzada, estructura de archivos de configuración (rc.conf, rifle.conf, scope.sh, commands.py), así como la personalización profunda mediante mapeos de teclado, comandos personalizados en Python y plugins. Se detallan las características principales que lo distinguen; navegación multi-columna, previsualización automática de múltiples tipos de archivo (texto, código, imágenes, PDFs, videos, comprimidos), gestión inteligente de archivos mediante rifle, soporte de pestañas, marcadores, renombrado masivo, integración con el shell y capacidades de preview mejoradas mediante herramientas externas. La guía incluye referencias prácticas de atajos fundamentales y avanzados, ejemplos de configuración realistas, soluciones a problemas comunes, trucos de productividad y recomendaciones para integrar Ranger en flujos de trabajo diarios de usuarios de terminal (especialmente aquellos familiarizados con Vim/Neovim). Dirigida tanto a usuarios noveles que buscan reemplazar gestores gráficos tradicionales, como a usuarios avanzados que desean optimizar y extender al máximo esta poderosa herramienta de gestión de archivos en entornos Linux.
+abstract: Kitty es un emulador de terminal moderno, rápido y altamente personalizable que aprovecha la aceleración por GPU para ofrecer un rendimiento excepcional. Esta guía completa aborda desde la instalación en diferentes sistemas operativos hasta la configuración avanzada y optimización profunda de Kitty. Se exploran en detalle; arquitectura y principios de diseño, jerarquía de ventanas/pestañas, configuración de kitty.conf, manejo de fuentes con ligaduras, gestión avanzada de colores y temas, layouts nativos (tall, fat, grid, splits, stack), kittens (extensiones), control remoto, integración con shell, marcas, sesiones, optimización de rendimiento y solución de problemas frecuentes. Dirigida tanto a usuarios que buscan reemplazar terminales tradicionales por una opción más veloz y moderna, como a usuarios avanzados que desean exprimir al máximo las capacidades de personalización y automatización que ofrece Kitty en entornos de desarrollo y administración de sistemas.
 keywords:
-- Vim
-- Ranger
-- File Manager
+- Kitty Terminal
+- Linux
+- Linea de comandos
 categories:
 - Operating System
 tags:
 - operating_system
-- vim
-- ranger
-- file_manager
-- rifle
+- kitty_terminal
+- linux
 author-note:
   status-changes:
     affiliation-change: null
@@ -28,14 +26,14 @@ author-note:
     financial-support: null
     gratitude: null
     authorship-agreements: null
-description: El gestor de archivos de consola inspirado en Vim.
+description: Cubre instalación multiplataforma, configuración básica y avanzada, fuentes con ligaduras, temas, layouts nativos, multiplexación sin tmux, kittens, control remoto, sesiones, shell integration y numerosos trucos de productividad para usuarios de terminal, especialmente aquellos que trabajan con Vim/Neovim y flujos de trabajo intensivos en consola.
 eval: false
 citation:
   type: article-journal
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github/index.pdf
-date: 12/30/2025
+date: 12/31/2025
 draft: false
 image: ../featured.jpg
 ---
@@ -60,17 +58,16 @@ Kitty es un emulador de terminal moderno, rápido y rico en características, di
 
 **Ventajas sobre otros terminales:**
 
-| Característica | Kitty | Alacritty | iTerm2 | Gnome Terminal |
-|----------------|-------|-----------|--------|----------------|
-| GPU Rendering | ✅ | ✅ | ✅ | ❌ |
-| Tabs nativos | ✅ | ❌ | ✅ | ✅ |
-| Splits nativos | ✅ | ❌ | ✅ | ❌ |
-| Imágenes | ✅ | ❌ | ✅ | ❌ |
-| Ligaduras | ✅ | ✅ | ✅ | ✅ |
-| Extensiones | ✅ (kittens) | ❌ | ✅ | ❌ |
-| Control remoto | ✅ | ❌ | ✅ | ❌ |
-| Multiplataforma | ✅ | ✅ | ❌ (solo macOS) | ❌ (solo Linux) |
-
+| Característica          | Kitty          | Alacritty      | iTerm2         | GNOME Terminal |
+|-------------------------|----------------|----------------|----------------|----------------|
+| Renderizado por GPU     | Sí             | Sí             | Sí             | No             |
+| Pestañas nativas        | Sí             | No             | Sí             | Sí             |
+| División de paneles     | Sí             | No             | Sí             | No             |
+| Soporte para imágenes   | Sí             | No             | Sí             | No             |
+| Ligaduras (ligatures)   | Sí             | Sí             | Sí             | Sí             |
+| Sistema de extensiones  | Sí (kittens)   | No             | Sí             | No             |
+| Control remoto (SSH)    | Sí             | No             | Sí             | No             |
+| Multiplataforma         | Sí (Linux/macOS/Windows) | Sí (Linux/macOS/Windows) | No (solo macOS) | No (solo Linux) |
 
 # Instalación
 

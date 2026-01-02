@@ -2082,764 +2082,6 @@ Puedes tener múltiples stow directories para diferentes propósitos.
 \textbf{.stow file:} Indica que un directorio es stow directory,
 protegiéndolo de operaciones de unstow.
 
-\section{Casos de Uso Prácticos}\label{casos-de-uso-pruxe1cticos}
-
-\subsection{Caso 1: Setup en Nueva
-Máquina}\label{caso-1-setup-en-nueva-muxe1quina}
-
-\textbf{Objetivo:} Instalar dotfiles en computadora nueva.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# 1. Clonar repositorio}
-\BuiltInTok{cd}\NormalTok{ \textasciitilde{}}
-\FunctionTok{git}\NormalTok{ clone https://github.com/user/dotfiles.git}
-
-\CommentTok{\# 2. Instalar dependencias (si hay)}
-\BuiltInTok{cd}\NormalTok{ dotfiles}
-\ExtensionTok{./scripts/install{-}deps.sh}  \CommentTok{\# Opcional}
-
-\CommentTok{\# 3. Hacer backup de existentes (precaución)}
-\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ \textasciitilde{}/backup{-}dotfiles}
-\FunctionTok{cp}\NormalTok{ \textasciitilde{}/.zshrc \textasciitilde{}/backup{-}dotfiles/  }\CommentTok{\# etc}
-
-\CommentTok{\# 4. Stow paquetes deseados}
-\ExtensionTok{stow}\NormalTok{ zsh nvim git kitty tmux}
-
-\CommentTok{\# 5. Verificar}
-\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.zshrc}
-\CommentTok{\# \textasciitilde{}/.zshrc {-}\textgreater{} dotfiles/zsh/.zshrc}
-
-\CommentTok{\# 6. Restart shell o source}
-\BuiltInTok{source}\NormalTok{ \textasciitilde{}/.zshrc}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{Script automatizado:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#!/bin/bash}
-\CommentTok{\# install.sh}
-
-\BuiltInTok{set} \AttributeTok{{-}e}
-
-\VariableTok{DOTFILES}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/dotfiles"}
-\VariableTok{BACKUP}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/dotfiles{-}backup{-}}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d}\VariableTok{)}\StringTok{"}
-
-\CommentTok{\# Backup existentes}
-\ControlFlowTok{if} \BuiltInTok{[} \OtherTok{{-}f}\NormalTok{ \textasciitilde{}/.zshrc }\BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
-    \FunctionTok{mkdir} \AttributeTok{{-}p} \StringTok{"}\VariableTok{$BACKUP}\StringTok{"}
-    \FunctionTok{cp}\NormalTok{ \textasciitilde{}/.zshrc }\StringTok{"}\VariableTok{$BACKUP}\StringTok{/"}
-    \BuiltInTok{echo} \StringTok{"Backed up existing .zshrc"}
-\ControlFlowTok{fi}
-
-\CommentTok{\# Stow}
-\BuiltInTok{cd} \StringTok{"}\VariableTok{$DOTFILES}\StringTok{"}
-\ExtensionTok{stow}\NormalTok{ zsh nvim git tmux kitty}
-
-\BuiltInTok{echo} \StringTok{"Dotfiles installed!"}
-\BuiltInTok{echo} \StringTok{"Backup location: }\VariableTok{$BACKUP}\StringTok{"}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{Caso 2: Actualizar
-Configuraciones}\label{caso-2-actualizar-configuraciones}
-
-\textbf{Objetivo:} Actualizar configs en máquina existente.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# 1. Pull latest changes}
-\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
-\FunctionTok{git}\NormalTok{ pull origin main}
-
-\CommentTok{\# 2. Restow para actualizar symlinks}
-\ExtensionTok{stow} \AttributeTok{{-}R}\NormalTok{ nvim zsh}
-
-\CommentTok{\# 3. Si estructura cambió mucho:}
-\ExtensionTok{stow} \AttributeTok{{-}D}\NormalTok{ nvim  }\CommentTok{\# Remover viejo}
-\ExtensionTok{stow}\NormalTok{ nvim     }\CommentTok{\# Instalar nuevo}
-
-\CommentTok{\# 4. Verificar cambios}
-\ExtensionTok{nvim}\NormalTok{ \textasciitilde{}/.config/nvim/init.lua}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{Caso 3: Probar Nueva
-Configuración}\label{caso-3-probar-nueva-configuraciuxf3n}
-
-\textbf{Objetivo:} Probar configuración sin afectar la actual.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# 1. Crear branch en Git}
-\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
-\FunctionTok{git}\NormalTok{ checkout }\AttributeTok{{-}b}\NormalTok{ test{-}new{-}config}
-
-\CommentTok{\# 2. Modificar paquete}
-\ExtensionTok{nvim}\NormalTok{ nvim/.config/nvim/init.lua}
-
-\CommentTok{\# 3. Restow}
-\ExtensionTok{stow} \AttributeTok{{-}R}\NormalTok{ nvim}
-
-\CommentTok{\# 4. Probar}
-\ExtensionTok{nvim}
-
-\CommentTok{\# 5a. Si funciona bien:}
-\FunctionTok{git}\NormalTok{ checkout main}
-\FunctionTok{git}\NormalTok{ merge test{-}new{-}config}
-\FunctionTok{git}\NormalTok{ push}
-
-\CommentTok{\# 5b. Si no funciona:}
-\FunctionTok{git}\NormalTok{ checkout main}
-\ExtensionTok{stow} \AttributeTok{{-}R}\NormalTok{ nvim  }\CommentTok{\# Vuelve a config anterior}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{Caso 4: Compartir Configuración entre
-Usuarios}\label{caso-4-compartir-configuraciuxf3n-entre-usuarios}
-
-\textbf{Objetivo:} Múltiples usuarios con dotfiles compartidos.
-
-\textbf{Setup:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Ubicación compartida}
-\FunctionTok{sudo}\NormalTok{ mkdir }\AttributeTok{{-}p}\NormalTok{ /opt/shared{-}dotfiles}
-\FunctionTok{sudo}\NormalTok{ chown :developers /opt/shared{-}dotfiles}
-\FunctionTok{sudo}\NormalTok{ chmod g+w /opt/shared{-}dotfiles}
-
-\CommentTok{\# User A: Setup inicial}
-\BuiltInTok{cd}\NormalTok{ /opt/shared{-}dotfiles}
-\FunctionTok{git}\NormalTok{ init}
-\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ common/git common/tmux}
-\CommentTok{\# ... agregar configs ...}
-\FunctionTok{git}\NormalTok{ add .}
-\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"Initial shared configs"}
-
-\CommentTok{\# User B: Usar configs}
-\BuiltInTok{cd}\NormalTok{ /opt/shared{-}dotfiles}
-\FunctionTok{git}\NormalTok{ pull}
-\ExtensionTok{stow} \AttributeTok{{-}d}\NormalTok{ /opt/shared{-}dotfiles }\AttributeTok{{-}t}\NormalTok{ \textasciitilde{} common/git common/tmux}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{Caso 5: Configuración Por
-Entorno}\label{caso-5-configuraciuxf3n-por-entorno}
-
-\textbf{Objetivo:} Diferentes configs para diferentes entornos.
-
-\textbf{Estructura:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{\textasciitilde{}/dotfiles/}
-\ExtensionTok{├──}\NormalTok{ common/        }\CommentTok{\# Común a todos}
-\ExtensionTok{│}\NormalTok{   ├── git/}
-\ExtensionTok{│}\NormalTok{   └── tmux/}
-\ExtensionTok{├──}\NormalTok{ dev/           }\CommentTok{\# Desarrollo}
-\ExtensionTok{│}\NormalTok{   └── nvim/}
-\ExtensionTok{├──}\NormalTok{ prod/          }\CommentTok{\# Producción}
-\ExtensionTok{│}\NormalTok{   └── nvim/}
-\ExtensionTok{└──}\NormalTok{ install{-}env.sh}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{Script:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#!/bin/bash}
-\CommentTok{\# install{-}env.sh}
-
-\VariableTok{ENV}\OperatorTok{=}\StringTok{"}\VariableTok{$\{1}\OperatorTok{:{-}}\NormalTok{dev}\VariableTok{\}}\StringTok{"}  \CommentTok{\# default: dev}
-
-\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
-
-\CommentTok{\# Instalar común}
-\ExtensionTok{stow} \AttributeTok{{-}d}\NormalTok{ common }\AttributeTok{{-}t}\NormalTok{ \textasciitilde{} }\PreprocessorTok{*}\NormalTok{/}
-
-\CommentTok{\# Instalar específico del entorno}
-\ExtensionTok{stow} \AttributeTok{{-}d} \StringTok{"}\VariableTok{$ENV}\StringTok{"} \AttributeTok{{-}t}\NormalTok{ \textasciitilde{} }\PreprocessorTok{*}\NormalTok{/}
-
-\BuiltInTok{echo} \StringTok{"Environment: }\VariableTok{$ENV}\StringTok{ installed"}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{Uso:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Desarrollo}
-\ExtensionTok{./install{-}env.sh}\NormalTok{ dev}
-
-\CommentTok{\# Producción}
-\ExtensionTok{./install{-}env.sh}\NormalTok{ prod}
-\end{Highlighting}
-\end{Shaded}
-
-\section{Tu Repositorio .dotfiles}\label{tu-repositorio-.dotfiles}
-
-Voy a analizar tu repositorio y dar recomendaciones específicas.
-
-\subsection{Análisis de tu Estructura
-Actual}\label{anuxe1lisis-de-tu-estructura-actual}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{\textasciitilde{}/dotfiles/}
-\ExtensionTok{├──}\NormalTok{ git/}
-\ExtensionTok{│}\NormalTok{   └── .gitconfig}
-\ExtensionTok{├──}\NormalTok{ kde/}
-\ExtensionTok{│}\NormalTok{   └── .config/}
-\ExtensionTok{│}\NormalTok{       ├── kdeglobals}
-\ExtensionTok{│}\NormalTok{       ├── dolphinrc}
-\ExtensionTok{│}\NormalTok{       └── ...}
-\ExtensionTok{├──}\NormalTok{ shell/}
-\ExtensionTok{│}\NormalTok{   ├── .zshrc}
-\ExtensionTok{│}\NormalTok{   └── starship.toml}
-\ExtensionTok{├──}\NormalTok{ terminal/}
-\ExtensionTok{│}\NormalTok{   └── .config/}
-\ExtensionTok{│}\NormalTok{       └── konsolerc}
-\ExtensionTok{├──}\NormalTok{ vscode/}
-\ExtensionTok{│}\NormalTok{   └── .config/}
-\ExtensionTok{│}\NormalTok{       ├── settings.json}
-\ExtensionTok{│}\NormalTok{       └── keybindings.json}
-\ExtensionTok{├──}\NormalTok{ zotero/}
-\ExtensionTok{│}\NormalTok{   └── .zotero/...}
-\ExtensionTok{├──}\NormalTok{ obsidian/}
-\ExtensionTok{│}\NormalTok{   └── Documents/thoughts/.obsidian/}
-\ExtensionTok{└──}\NormalTok{ ... }\ErrorTok{(}\ExtensionTok{más}\NormalTok{ paquetes}\KeywordTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{Implementación de Stow en tu
-Repo}\label{implementaciuxf3n-de-stow-en-tu-repo}
-
-\subsection{1. Script install.sh
-Mejorado}\label{script-install.sh-mejorado}
-
-Tu \texttt{install.sh} actual debe usar Stow. Aquí está mi versión
-mejorada:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#!/bin/bash}
-\CommentTok{\# \textasciitilde{}/dotfiles/install.sh}
-
-\BuiltInTok{set} \AttributeTok{{-}e}
-
-\VariableTok{DOTFILES}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/dotfiles"}
-\VariableTok{BACKUP\_DIR}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/dotfiles{-}backup{-}}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d{-}\%H\%M\%S}\VariableTok{)}\StringTok{"}
-
-\CommentTok{\# Colores}
-\VariableTok{RED}\OperatorTok{=}\StringTok{\textquotesingle{}\textbackslash{}033[0;31m\textquotesingle{}}
-\VariableTok{GREEN}\OperatorTok{=}\StringTok{\textquotesingle{}\textbackslash{}033[0;32m\textquotesingle{}}
-\VariableTok{YELLOW}\OperatorTok{=}\StringTok{\textquotesingle{}\textbackslash{}033[1;33m\textquotesingle{}}
-\VariableTok{NC}\OperatorTok{=}\StringTok{\textquotesingle{}\textbackslash{}033[0m\textquotesingle{}} \CommentTok{\# No Color}
-
-\CommentTok{\# Funciones}
-\FunctionTok{log\_info()} \KeywordTok{\{}
-    \BuiltInTok{echo} \AttributeTok{{-}e} \StringTok{"}\VariableTok{$\{GREEN\}}\StringTok{[INFO]}\VariableTok{$\{NC\}}\StringTok{ }\VariableTok{$1}\StringTok{"}
-\KeywordTok{\}}
-
-\FunctionTok{log\_warn()} \KeywordTok{\{}
-    \BuiltInTok{echo} \AttributeTok{{-}e} \StringTok{"}\VariableTok{$\{YELLOW\}}\StringTok{[WARN]}\VariableTok{$\{NC\}}\StringTok{ }\VariableTok{$1}\StringTok{"}
-\KeywordTok{\}}
-
-\FunctionTok{log\_error()} \KeywordTok{\{}
-    \BuiltInTok{echo} \AttributeTok{{-}e} \StringTok{"}\VariableTok{$\{RED\}}\StringTok{[ERROR]}\VariableTok{$\{NC\}}\StringTok{ }\VariableTok{$1}\StringTok{"}
-\KeywordTok{\}}
-
-\CommentTok{\# Verificar que Stow está instalado}
-\ControlFlowTok{if} \OtherTok{! }\BuiltInTok{command} \AttributeTok{{-}v}\NormalTok{ stow }\OperatorTok{\&\textgreater{}}\NormalTok{ /dev/null}\KeywordTok{;} \ControlFlowTok{then}
-    \ExtensionTok{log\_error} \StringTok{"Stow no está instalado"}
-    \ExtensionTok{log\_info} \StringTok{"Instalando stow..."}
-    \FunctionTok{sudo}\NormalTok{ apt update }\KeywordTok{\&\&} \FunctionTok{sudo}\NormalTok{ apt install }\AttributeTok{{-}y}\NormalTok{ stow}
-\ControlFlowTok{fi}
-
-\CommentTok{\# Función para hacer backup}
-\FunctionTok{backup\_if\_exists()} \KeywordTok{\{}
-    \BuiltInTok{local} \VariableTok{file}\OperatorTok{=}\StringTok{"}\VariableTok{$1}\StringTok{"}
-    \ControlFlowTok{if} \BuiltInTok{[} \OtherTok{{-}e} \StringTok{"}\VariableTok{$file}\StringTok{"} \BuiltInTok{]} \KeywordTok{\&\&} \BuiltInTok{[} \OtherTok{!} \OtherTok{{-}L} \StringTok{"}\VariableTok{$file}\StringTok{"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
-        \FunctionTok{mkdir} \AttributeTok{{-}p} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{"}
-        \FunctionTok{cp} \AttributeTok{{-}r} \StringTok{"}\VariableTok{$file}\StringTok{"} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/"}
-        \ExtensionTok{log\_warn} \StringTok{"Backup: }\VariableTok{$file}\StringTok{ {-}\textgreater{} }\VariableTok{$BACKUP\_DIR}\StringTok{/"}
-    \ControlFlowTok{fi}
-\KeywordTok{\}}
-
-\CommentTok{\# Función para stow paquete}
-\FunctionTok{stow\_package()} \KeywordTok{\{}
-    \BuiltInTok{local} \VariableTok{package}\OperatorTok{=}\StringTok{"}\VariableTok{$1}\StringTok{"}
-    
-    \ExtensionTok{log\_info} \StringTok{"Stowing }\VariableTok{$package}\StringTok{..."}
-    
-    \CommentTok{\# Dry run primero}
-    \ControlFlowTok{if} \ExtensionTok{stow} \AttributeTok{{-}nv} \StringTok{"}\VariableTok{$package}\StringTok{"} \DecValTok{2}\OperatorTok{\textgreater{}\&}\DecValTok{1} \KeywordTok{|} \FunctionTok{grep} \AttributeTok{{-}q} \StringTok{"WARNING"}\KeywordTok{;} \ControlFlowTok{then}
-        \ExtensionTok{log\_warn} \StringTok{"Conflicto detectado para }\VariableTok{$package}\StringTok{"}
-        \BuiltInTok{read} \AttributeTok{{-}p} \StringTok{"¿Hacer backup y continuar? [y/N] "} \AttributeTok{{-}n}\NormalTok{ 1 }\AttributeTok{{-}r}
-        \BuiltInTok{echo}
-        \ControlFlowTok{if} \KeywordTok{[[} \VariableTok{$REPLY} \OtherTok{=\textasciitilde{}} \PreprocessorTok{\^{}}\OperatorTok{[}\SpecialStringTok{Yy}\OperatorTok{]$} \KeywordTok{]];} \ControlFlowTok{then}
-            \CommentTok{\# Hacer backup de archivos conflictivos}
-            \CommentTok{\# (aquí necesitarías lógica más sofisticada)}
-            \ExtensionTok{stow} \StringTok{"}\VariableTok{$package}\StringTok{"}
-        \ControlFlowTok{else}
-            \ExtensionTok{log\_error} \StringTok{"Saltando }\VariableTok{$package}\StringTok{"}
-            \ControlFlowTok{return} \DecValTok{1}
-        \ControlFlowTok{fi}
-    \ControlFlowTok{else}
-        \ExtensionTok{stow} \StringTok{"}\VariableTok{$package}\StringTok{"}
-        \ExtensionTok{log\_info} \StringTok{"✓ }\VariableTok{$package}\StringTok{ instalado"}
-    \ControlFlowTok{fi}
-\KeywordTok{\}}
-
-\CommentTok{\# Cambiar a dotfiles directory}
-\BuiltInTok{cd} \StringTok{"}\VariableTok{$DOTFILES}\StringTok{"} \KeywordTok{||} \BuiltInTok{exit}\NormalTok{ 1}
-
-\CommentTok{\# Lista de paquetes a instalar}
-\VariableTok{PACKAGES}\OperatorTok{=}\VariableTok{(}
-    \StringTok{"git"}
-    \StringTok{"shell"}
-    \StringTok{"terminal"}
-    \StringTok{"kde"}
-    \StringTok{"vscode"}
-    \StringTok{"nvim"}
-    \StringTok{"kitty"}
-    \CommentTok{\# ... más paquetes}
-\VariableTok{)}
-
-\CommentTok{\# Opción para instalar todo o selectivo}
-\ControlFlowTok{if} \BuiltInTok{[} \StringTok{"}\VariableTok{$1}\StringTok{"} \OtherTok{==} \StringTok{"all"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
-    \VariableTok{PACKAGES}\OperatorTok{=}\VariableTok{($(}\FunctionTok{ls} \AttributeTok{{-}d} \PreprocessorTok{*}\NormalTok{/ }\KeywordTok{|} \FunctionTok{sed} \StringTok{\textquotesingle{}s\#/\#\textquotesingle{}}\VariableTok{))}
-    \ExtensionTok{log\_info} \StringTok{"Instalando TODOS los paquetes"}
-\ControlFlowTok{elif} \BuiltInTok{[} \VariableTok{$\#} \OtherTok{{-}gt}\NormalTok{ 0 }\BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
-    \VariableTok{PACKAGES}\OperatorTok{=}\VariableTok{(}\StringTok{"}\VariableTok{$@}\StringTok{"}\VariableTok{)}
-    \ExtensionTok{log\_info} \StringTok{"Instalando paquetes especificados: }\VariableTok{$\{PACKAGES}\OperatorTok{[*]}\VariableTok{\}}\StringTok{"}
-\ControlFlowTok{fi}
-
-\CommentTok{\# Instalar paquetes}
-\ControlFlowTok{for}\NormalTok{ package }\KeywordTok{in} \StringTok{"}\VariableTok{$\{PACKAGES}\OperatorTok{[@]}\VariableTok{\}}\StringTok{"}\KeywordTok{;} \ControlFlowTok{do}
-    \ExtensionTok{stow\_package} \StringTok{"}\VariableTok{$package}\StringTok{"} \KeywordTok{||} \FunctionTok{true}
-\ControlFlowTok{done}
-
-\ExtensionTok{log\_info} \StringTok{"Instalación completa!"}
-\ControlFlowTok{if} \BuiltInTok{[} \OtherTok{{-}d} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
-    \ExtensionTok{log\_info} \StringTok{"Backups guardados en: }\VariableTok{$BACKUP\_DIR}\StringTok{"}
-\ControlFlowTok{fi}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{Uso:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Instalar paquetes específicos}
-\ExtensionTok{./install.sh}\NormalTok{ git shell terminal}
-
-\CommentTok{\# Instalar todo}
-\ExtensionTok{./install.sh}\NormalTok{ all}
-
-\CommentTok{\# Ver qué haría sin hacer cambios}
-\CommentTok{\# (modificar script para agregar {-}n flag)}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{2. Script para Desinstalar}\label{script-para-desinstalar}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#!/bin/bash}
-\CommentTok{\# \textasciitilde{}/dotfiles/uninstall.sh}
-
-\VariableTok{DOTFILES}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/dotfiles"}
-
-\BuiltInTok{cd} \StringTok{"}\VariableTok{$DOTFILES}\StringTok{"} \KeywordTok{||} \BuiltInTok{exit}\NormalTok{ 1}
-
-\ControlFlowTok{if} \BuiltInTok{[} \VariableTok{$\#} \OtherTok{{-}eq}\NormalTok{ 0 }\BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
-    \BuiltInTok{echo} \StringTok{"Uso: }\VariableTok{$0}\StringTok{ \textless{}paquete1\textgreater{} [paquete2] ..."}
-    \BuiltInTok{echo} \StringTok{"O: }\VariableTok{$0}\StringTok{ all"}
-    \BuiltInTok{exit}\NormalTok{ 1}
-\ControlFlowTok{fi}
-
-\ControlFlowTok{if} \BuiltInTok{[} \StringTok{"}\VariableTok{$1}\StringTok{"} \OtherTok{==} \StringTok{"all"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
-    \VariableTok{PACKAGES}\OperatorTok{=}\VariableTok{($(}\FunctionTok{ls} \AttributeTok{{-}d} \PreprocessorTok{*}\NormalTok{/ }\KeywordTok{|} \FunctionTok{sed} \StringTok{\textquotesingle{}s\#/\#\textquotesingle{}}\VariableTok{))}
-\ControlFlowTok{else}
-    \VariableTok{PACKAGES}\OperatorTok{=}\VariableTok{(}\StringTok{"}\VariableTok{$@}\StringTok{"}\VariableTok{)}
-\ControlFlowTok{fi}
-
-\ControlFlowTok{for}\NormalTok{ package }\KeywordTok{in} \StringTok{"}\VariableTok{$\{PACKAGES}\OperatorTok{[@]}\VariableTok{\}}\StringTok{"}\KeywordTok{;} \ControlFlowTok{do}
-    \BuiltInTok{echo} \StringTok{"Unstowing }\VariableTok{$package}\StringTok{..."}
-    \ExtensionTok{stow} \AttributeTok{{-}D} \StringTok{"}\VariableTok{$package}\StringTok{"}
-    \BuiltInTok{echo} \StringTok{"✓ }\VariableTok{$package}\StringTok{ desinstalado"}
-\ControlFlowTok{done}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{3. Reorganizar Paquetes
-Problemáticos}\label{reorganizar-paquetes-problemuxe1ticos}
-
-\textbf{Zotero:} Ubicación no estándar
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Actual:}
-\ExtensionTok{zotero/}
-  \ExtensionTok{└──}\NormalTok{ .zotero/zotero/25vfdnq5.default/}
-      \ExtensionTok{└──}\NormalTok{ prefs.js}
-
-\CommentTok{\# Problema: .zotero está en HOME pero tiene subdirectorios profundos}
-
-\CommentTok{\# Solución 1: Usar como está (funciona)}
-\ExtensionTok{stow}\NormalTok{ zotero}
-\CommentTok{\# Resultado: \textasciitilde{}/.zotero/... → dotfiles/zotero/.zotero/...}
-
-\CommentTok{\# Solución 2: Si solo quieres prefs.js, simplificar:}
-\ExtensionTok{zotero/}
-  \ExtensionTok{└──}\NormalTok{ .zotero/}
-      \ExtensionTok{└──}\NormalTok{ zotero/}
-          \ExtensionTok{└──}\NormalTok{ 25vfdnq5.default/}
-              \ExtensionTok{└──}\NormalTok{ prefs.js}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{Obsidian:} Ruta específica
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Actual:}
-\ExtensionTok{obsidian/}
-  \ExtensionTok{└──}\NormalTok{ Documents/thoughts/.obsidian/}
-
-\CommentTok{\# Problema: No está en .config sino en Documents}
-
-\CommentTok{\# Solución: Está bien así, Stow lo maneja}
-\ExtensionTok{stow}\NormalTok{ obsidian}
-\CommentTok{\# Resultado: \textasciitilde{}/Documents/thoughts/.obsidian → ...}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{4. .stowrc para tu Repo}\label{stowrc-para-tu-repo}
-
-Crear \texttt{\textasciitilde{}/dotfiles/.stowrc}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# \textasciitilde{}/dotfiles/.stowrc}
-
-\CommentTok{\# Target es siempre HOME}
-\ExtensionTok{{-}{-}target=}\VariableTok{$HOME}
-
-\CommentTok{\# Ignorar archivos comunes}
-\ExtensionTok{{-}{-}ignore=}\StringTok{\textquotesingle{}.git\textquotesingle{}}
-\ExtensionTok{{-}{-}ignore=}\StringTok{\textquotesingle{}README.*\textquotesingle{}}
-\ExtensionTok{{-}{-}ignore=}\StringTok{\textquotesingle{}LICENSE.*\textquotesingle{}}
-\ExtensionTok{{-}{-}ignore=}\StringTok{\textquotesingle{}.*.swp\textquotesingle{}}
-\ExtensionTok{{-}{-}ignore=}\StringTok{\textquotesingle{}.*\textasciitilde{}\textquotesingle{}}
-\ExtensionTok{{-}{-}ignore=}\StringTok{\textquotesingle{}install.sh\textquotesingle{}}
-\ExtensionTok{{-}{-}ignore=}\StringTok{\textquotesingle{}uninstall.sh\textquotesingle{}}
-\ExtensionTok{{-}{-}ignore=}\StringTok{\textquotesingle{}.stowrc\textquotesingle{}}
-\end{Highlighting}
-\end{Shaded}
-
-Con esto, no necesitas especificar \texttt{-t\ \textasciitilde{}} cada
-vez.
-
-\subsection{5. .stow-local-ignore por
-Paquete}\label{stow-local-ignore-por-paquete}
-
-\textbf{Para vscode:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# \textasciitilde{}/dotfiles/vscode/.stow{-}local{-}ignore}
-
-\CommentTok{\# No stow extensiones (solo configuración)}
-\ExtensionTok{\^{}/\textbackslash{}.config/Code/CachedData/}
-\ExtensionTok{\^{}/\textbackslash{}.config/Code/logs/}
-\ExtensionTok{\^{}/\textbackslash{}.config/Code/User/workspaceStorage/}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{Para kde:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# \textasciitilde{}/dotfiles/kde/.stow{-}local{-}ignore}
-
-\CommentTok{\# Archivos de sesión y cache}
-\ExtensionTok{\^{}/\textbackslash{}.config/session/}
-\ExtensionTok{\^{}/\textbackslash{}.cache/}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{Para shell:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# \textasciitilde{}/dotfiles/shell/.stow{-}local{-}ignore}
-
-\CommentTok{\# Historia de shells (puede tener info sensible)}
-\ExtensionTok{\^{}/\textbackslash{}.zsh\_history}
-\ExtensionTok{\^{}/\textbackslash{}.bash\_history}
-
-\CommentTok{\# Archivos compilados}
-\ExtensionTok{\textbackslash{}.zcompdump}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{6. Script de Verificación}\label{script-de-verificaciuxf3n}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#!/bin/bash}
-\CommentTok{\# \textasciitilde{}/dotfiles/check{-}stow.sh}
-
-\CommentTok{\# Verificar qué está stowed}
-
-\VariableTok{DOTFILES}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/dotfiles"}
-
-\BuiltInTok{echo} \StringTok{"Paquetes stowed:"}
-\BuiltInTok{echo} \StringTok{"================"}
-
-\BuiltInTok{cd} \StringTok{"}\VariableTok{$DOTFILES}\StringTok{"} \KeywordTok{||} \BuiltInTok{exit}\NormalTok{ 1}
-
-\ControlFlowTok{for}\NormalTok{ package }\KeywordTok{in} \PreprocessorTok{*}\NormalTok{/}\KeywordTok{;} \ControlFlowTok{do}
-    \VariableTok{package}\OperatorTok{=}\VariableTok{$\{package}\OperatorTok{\%}\NormalTok{/}\VariableTok{\}}
-    
-    \CommentTok{\# Encontrar primer archivo del paquete}
-    \VariableTok{first\_file}\OperatorTok{=}\VariableTok{$(}\FunctionTok{find} \StringTok{"}\VariableTok{$package}\StringTok{"} \AttributeTok{{-}type}\NormalTok{ f }\KeywordTok{|} \FunctionTok{head} \AttributeTok{{-}1}\VariableTok{)}
-    
-    \ControlFlowTok{if} \BuiltInTok{[} \OtherTok{{-}z} \StringTok{"}\VariableTok{$first\_file}\StringTok{"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
-        \ControlFlowTok{continue}
-    \ControlFlowTok{fi}
-    
-    \CommentTok{\# Convertir a path en HOME}
-    \VariableTok{home\_path}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/}\VariableTok{$\{first\_file}\OperatorTok{\#}\VariableTok{$package}\NormalTok{/}\VariableTok{\}}\StringTok{"}
-    
-    \ControlFlowTok{if} \BuiltInTok{[} \OtherTok{{-}L} \StringTok{"}\VariableTok{$home\_path}\StringTok{"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
-        \VariableTok{target}\OperatorTok{=}\VariableTok{$(}\FunctionTok{readlink} \StringTok{"}\VariableTok{$home\_path}\StringTok{"}\VariableTok{)}
-        \ControlFlowTok{if} \KeywordTok{[[} \StringTok{"}\VariableTok{$target}\StringTok{"} \OtherTok{==} \PreprocessorTok{*}\StringTok{"}\VariableTok{$DOTFILES}\StringTok{/}\VariableTok{$package}\StringTok{"}\PreprocessorTok{*} \KeywordTok{]];} \ControlFlowTok{then}
-            \BuiltInTok{echo} \StringTok{"✓ }\VariableTok{$package}\StringTok{"}
-        \ControlFlowTok{else}
-            \BuiltInTok{echo} \StringTok{"✗ }\VariableTok{$package}\StringTok{ (symlink apunta a otro lugar)"}
-        \ControlFlowTok{fi}
-    \ControlFlowTok{else}
-        \BuiltInTok{echo} \StringTok{"✗ }\VariableTok{$package}\StringTok{ (no stowed)"}
-    \ControlFlowTok{fi}
-\ControlFlowTok{done}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{7. Actualizar .gitignore}\label{actualizar-.gitignore}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# \textasciitilde{}/dotfiles/.gitignore}
-
-\CommentTok{\# Backups}
-\ExtensionTok{*\textasciitilde{}}
-\ExtensionTok{*.bak}
-\ExtensionTok{*.old}
-\ExtensionTok{*.orig}
-\BuiltInTok{.}\PreprocessorTok{*}\NormalTok{.swp}
-
-\CommentTok{\# Datos sensibles}
-\ExtensionTok{shell/.zsh\_history}
-\ExtensionTok{shell/.bash\_history}
-\ExtensionTok{.netrc}
-\ExtensionTok{.authinfo}
-
-\CommentTok{\# Cache y temporales}
-\ExtensionTok{**/.cache/}
-\ExtensionTok{**/\_\_pycache\_\_/}
-\ExtensionTok{**/node\_modules/}
-
-\CommentTok{\# Logs}
-\ExtensionTok{**/*.log}
-
-\CommentTok{\# Sistema}
-\ExtensionTok{.DS\_Store}
-\ExtensionTok{Thumbs.db}
-
-\CommentTok{\# Archivos de Stow}
-\ExtensionTok{.stow}
-
-\CommentTok{\# Zotero database (demasiado grande)}
-\ExtensionTok{zotero/.zotero/zotero/*/zotero.sqlite*}
-
-\CommentTok{\# VSCode workspace storage}
-\ExtensionTok{vscode/.config/Code/User/workspaceStorage/}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{8. Comandos Útiles para tu
-Repo}\label{comandos-uxfatiles-para-tu-repo}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Navegar a dotfiles}
-\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
-
-\CommentTok{\# Instalar todo (primera vez)}
-\ExtensionTok{./install.sh}\NormalTok{ all}
-
-\CommentTok{\# Instalar paquetes esenciales}
-\ExtensionTok{./install.sh}\NormalTok{ git shell terminal kde}
-
-\CommentTok{\# Verificar qué está instalado}
-\ExtensionTok{./check{-}stow.sh}
-
-\CommentTok{\# Actualizar después de pull}
-\FunctionTok{git}\NormalTok{ pull}
-\ExtensionTok{stow} \AttributeTok{{-}R} \PreprocessorTok{*}\NormalTok{/  }\CommentTok{\# Restow todo}
-
-\CommentTok{\# Desinstalar temporalmente para pruebas}
-\ExtensionTok{stow} \AttributeTok{{-}D}\NormalTok{ vscode}
-\CommentTok{\# hacer pruebas...}
-\ExtensionTok{stow}\NormalTok{ vscode  }\CommentTok{\# Reinstalar}
-
-\CommentTok{\# Agregar nuevo paquete}
-\FunctionTok{mkdir}\NormalTok{ new{-}app}
-\CommentTok{\# crear estructura...}
-\ExtensionTok{stow}\NormalTok{ new{-}app}
-\FunctionTok{git}\NormalTok{ add new{-}app/}
-\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"Add new{-}app"}
-\end{Highlighting}
-\end{Shaded}
-
-\section{Workflows Completos}\label{workflows-completos}
-
-\subsection{Workflow 1: Configuración
-Inicial}\label{workflow-1-configuraciuxf3n-inicial}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Paso 1: Crear estructura}
-\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ \textasciitilde{}/dotfiles}
-\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
-\FunctionTok{git}\NormalTok{ init}
-
-\CommentTok{\# Paso 2: Crear paquetes}
-\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ zsh nvim git}
-
-\CommentTok{\# Paso 3: Mover configs existentes}
-\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.zshrc zsh/}
-\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.config/nvim nvim/.config/}
-\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.gitconfig git/}
-
-\CommentTok{\# Paso 4: Stow}
-\ExtensionTok{stow}\NormalTok{ zsh nvim git}
-
-\CommentTok{\# Paso 5: Verificar}
-\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.zshrc  }\CommentTok{\# debe ser symlink}
-
-\CommentTok{\# Paso 6: Git}
-\FunctionTok{git}\NormalTok{ add .}
-\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"Initial dotfiles"}
-\FunctionTok{git}\NormalTok{ remote add origin git@github.com:user/dotfiles.git}
-\FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}u}\NormalTok{ origin main}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{Workflow 2: Día a Día}\label{workflow-2-duxeda-a-duxeda}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Editar configuración (desde cualquier lugar)}
-\ExtensionTok{nvim}\NormalTok{ \textasciitilde{}/.config/nvim/init.lua  }\CommentTok{\# Edita a través del symlink}
-
-\CommentTok{\# Commit cambios}
-\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
-\FunctionTok{git}\NormalTok{ add nvim/}
-\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"Update nvim config: add new plugin"}
-\FunctionTok{git}\NormalTok{ push}
-
-\CommentTok{\# En otra máquina}
-\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
-\FunctionTok{git}\NormalTok{ pull}
-\CommentTok{\# Los cambios se reflejan automáticamente (symlinks)}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{Workflow 3: Nueva
-Máquina}\label{workflow-3-nueva-muxe1quina}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Clonar}
-\FunctionTok{git}\NormalTok{ clone https://github.com/user/dotfiles.git \textasciitilde{}/dotfiles}
-
-\CommentTok{\# Instalar Stow}
-\FunctionTok{sudo}\NormalTok{ apt install stow}
-
-\CommentTok{\# Backup existentes (precaución)}
-\FunctionTok{mkdir}\NormalTok{ \textasciitilde{}/backup}
-\FunctionTok{cp}\NormalTok{ \textasciitilde{}/.zshrc \textasciitilde{}/backup/ }\DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{||} \FunctionTok{true}
-
-\CommentTok{\# Stow}
-\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
-\ExtensionTok{stow} \PreprocessorTok{*}\NormalTok{/}
-
-\CommentTok{\# Verificar}
-\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/ }\KeywordTok{|} \FunctionTok{grep} \StringTok{\textquotesingle{}\textbackslash{}{-}\textgreater{}\textquotesingle{}}
-
-\CommentTok{\# Instalar dependencias de apps}
-\CommentTok{\# (nvim plugins, zsh plugins, etc)}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{Workflow 4: Experimentar}\label{workflow-4-experimentar}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Crear branch de experimento}
-\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
-\FunctionTok{git}\NormalTok{ checkout }\AttributeTok{{-}b}\NormalTok{ experiment{-}new{-}nvim}
-
-\CommentTok{\# Modificar libremente}
-\ExtensionTok{nvim}\NormalTok{ nvim/.config/nvim/init.lua}
-
-\CommentTok{\# Restow para aplicar}
-\ExtensionTok{stow} \AttributeTok{{-}R}\NormalTok{ nvim}
-
-\CommentTok{\# Probar...}
-
-\CommentTok{\# Si funciona:}
-\FunctionTok{git}\NormalTok{ checkout main}
-\FunctionTok{git}\NormalTok{ merge experiment{-}new{-}nvim}
-
-\CommentTok{\# Si no funciona:}
-\FunctionTok{git}\NormalTok{ checkout main}
-\ExtensionTok{stow} \AttributeTok{{-}R}\NormalTok{ nvim  }\CommentTok{\# Vuelve a main automáticamente}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{Workflow 5: Actualización
-Limpia}\label{workflow-5-actualizaciuxf3n-limpia}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Pull cambios}
-\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
-\FunctionTok{git}\NormalTok{ pull origin main}
-
-\CommentTok{\# Verificar qué cambió}
-\FunctionTok{git}\NormalTok{ log }\AttributeTok{{-}p} \AttributeTok{{-}{-}since}\OperatorTok{=}\StringTok{"1 week ago"}
-
-\CommentTok{\# Desinstalar y reinstalar (limpia symlinks obsoletos)}
-\ExtensionTok{stow} \AttributeTok{{-}D}\NormalTok{ nvim}
-\ExtensionTok{stow}\NormalTok{ nvim}
-
-\CommentTok{\# O usar restow}
-\ExtensionTok{stow} \AttributeTok{{-}R}\NormalTok{ nvim}
-
-\CommentTok{\# Verificar que funciona}
-\ExtensionTok{nvim} \AttributeTok{{-}{-}version}
-\end{Highlighting}
-\end{Shaded}
-
 \section{Integración con Git}\label{integraciuxf3n-con-git}
 
 \subsection{Estructura de Repositorio}\label{estructura-de-repositorio}
@@ -3754,6 +2996,3093 @@ Ya proporcioné un ejemplo arriba. Aquí una versión más robusta:
 \end{Highlighting}
 \end{Shaded}
 
+\section{Casos de Uso Prácticos}\label{casos-de-uso-pruxe1cticos}
+
+\subsection{Caso 1: Crear Dotfiles desde Cero (Primera
+Vez)}\label{caso-1-crear-dotfiles-desde-cero-primera-vez}
+
+\textbf{Escenario:} Nunca has usado Stow, quieres empezar desde cero
+organizando tus configuraciones.
+
+\textbf{Objetivo:} Crear estructura de dotfiles, migrar configs
+existentes, versionar con Git.
+
+\subsubsection{Paso 1: Preparación}\label{paso-1-preparaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1.1 Instalar herramientas necesarias}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ stow git zsh starship  }\CommentTok{\# Arch/Archcraft}
+\CommentTok{\# o}
+\FunctionTok{sudo}\NormalTok{ apt install stow git zsh        }\CommentTok{\# Kubuntu/Debian}
+
+\CommentTok{\# 1.2 Verificar instalación}
+\ExtensionTok{stow} \AttributeTok{{-}{-}version}
+\FunctionTok{git} \AttributeTok{{-}{-}version}
+
+\CommentTok{\# 1.3 Crear directorio para dotfiles}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ \textasciitilde{}/dotfiles}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# 1.4 Inicializar Git}
+\FunctionTok{git}\NormalTok{ init}
+\FunctionTok{git}\NormalTok{ branch }\AttributeTok{{-}M}\NormalTok{ main}
+
+\CommentTok{\# 1.5 Configurar Git (si no está configurado)}
+\FunctionTok{git}\NormalTok{ config user.name }\StringTok{"Edison Achalma"}
+\FunctionTok{git}\NormalTok{ config user.email }\StringTok{"achalmaedison@gmail.com"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 2: Crear Estructura de
+Paquetes}\label{paso-2-crear-estructura-de-paquetes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear paquetes para cada aplicación}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# Git}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ git}
+\CommentTok{\# Shell (Zsh)}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ shell}
+\CommentTok{\# Terminal (Konsole)}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ terminal}
+\CommentTok{\# Editor (VSCode)}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ vscode}
+\CommentTok{\# KDE}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ kde}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 3: Migrar Configuraciones
+Existentes}\label{paso-3-migrar-configuraciones-existentes}
+
+\textbf{3.1 Git (.gitconfig):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Verificar que existe}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.gitconfig}
+
+\CommentTok{\# Mover al paquete}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.gitconfig git/}
+
+\CommentTok{\# Verificar}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ git/.gitconfig}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{3.2 Shell (Zsh):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear estructura}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ shell}
+
+\CommentTok{\# Mover archivos}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.zshrc shell/}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.zshenv shell/ }\DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{||} \FunctionTok{true}  \CommentTok{\# Si existe}
+
+\CommentTok{\# Si tienes starship}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.config/starship.toml shell/ }\DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{||} \FunctionTok{true}
+
+\CommentTok{\# Verificar}
+\ExtensionTok{tree}\NormalTok{ shell/}
+\CommentTok{\# shell/}
+\CommentTok{\# ├── .zshrc}
+\CommentTok{\# └── .zshenv}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{3.3 Terminal (Konsole):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear estructura que replica HOME}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ terminal/.config}
+
+\CommentTok{\# Mover config de Konsole}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.config/konsolerc terminal/.config/}
+
+\CommentTok{\# Si tienes perfiles personalizados}
+\FunctionTok{cp} \AttributeTok{{-}r}\NormalTok{ \textasciitilde{}/.local/share/konsole terminal/.local/share/ }\DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{||} \FunctionTok{true}
+
+\CommentTok{\# Verificar}
+\ExtensionTok{tree}\NormalTok{ terminal/}
+\CommentTok{\# terminal/}
+\CommentTok{\# └── .config/}
+\CommentTok{\#     └── konsolerc}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{3.4 VSCode:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear estructura}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ vscode/.config/Code/User}
+
+\CommentTok{\# Mover settings}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.config/Code/User/settings.json vscode/.config/Code/User/}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.config/Code/User/keybindings.json vscode/.config/Code/User/}
+
+\CommentTok{\# Snippets}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.config/Code/User/snippets vscode/.config/Code/User/ }\DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{||} \FunctionTok{true}
+
+\CommentTok{\# Verificar}
+\ExtensionTok{tree}\NormalTok{ vscode/.config/Code/User/}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{3.5 KDE Plasma:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear estructura}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ kde/.config}
+
+\CommentTok{\# Mover configuraciones principales}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.config/kdeglobals kde/.config/}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.config/dolphinrc kde/.config/}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.config/kwinrc kde/.config/}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.config/plasmarc kde/.config/}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.config/plasma{-}org.kde.plasma.desktop{-}appletsrc kde/.config/}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.config/mimeapps.list kde/.config/}
+
+\CommentTok{\# Verificar}
+\FunctionTok{ls}\NormalTok{ kde/.config/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 4: Crear Ignore
+Lists}\label{paso-4-crear-ignore-lists}
+
+\textbf{4.1 Global ignore:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ \textasciitilde{}/.stow{-}global{-}ignore }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\# Backups}
+\StringTok{.*\textasciitilde{}}
+\StringTok{.*\textbackslash{}.bak}
+\StringTok{.*\textbackslash{}.old}
+\StringTok{.*\textbackslash{}.orig}
+\StringTok{.*\textbackslash{}.swp}
+
+\StringTok{\# Historia}
+\StringTok{\textbackslash{}.zsh\_history}
+\StringTok{\textbackslash{}.bash\_history}
+
+\StringTok{\# Cache}
+\StringTok{\textbackslash{}.cache}
+\StringTok{\_\_pycache\_\_}
+
+\StringTok{\# Sistema}
+\StringTok{\textbackslash{}.DS\_Store}
+\StringTok{Thumbs\textbackslash{}.db}
+
+\StringTok{\# Git}
+\StringTok{\textbackslash{}.git}
+\StringTok{\textbackslash{}.gitignore}
+
+\StringTok{\# Documentación}
+\StringTok{\^{}/README.*}
+\StringTok{\^{}/LICENSE.*}
+\OperatorTok{EOF}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{4.2 Ignore por paquete (shell):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ shell/.stow{-}local{-}ignore }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\# Historia (datos sensibles)}
+\StringTok{\^{}/\textbackslash{}.zsh\_history}
+\StringTok{\^{}/\textbackslash{}.bash\_history}
+
+\StringTok{\# Cache compilado}
+\StringTok{\textbackslash{}.zcompdump}
+\OperatorTok{EOF}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{4.3 Ignore para VSCode:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ vscode/.stow{-}local{-}ignore }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\# Cache y logs}
+\StringTok{\^{}/\textbackslash{}.config/Code/CachedData/}
+\StringTok{\^{}/\textbackslash{}.config/Code/logs/}
+\StringTok{\^{}/\textbackslash{}.config/Code/User/workspaceStorage/}
+
+\StringTok{\# Backups automáticos}
+\StringTok{\^{}/\textbackslash{}.config/Code/Backups/}
+\OperatorTok{EOF}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 5: Crear .gitignore}\label{paso-5-crear-.gitignore}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ .gitignore }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\# ========================================}
+\StringTok{\# BACKUPS}
+\StringTok{\# ========================================}
+\StringTok{*\textasciitilde{}}
+\StringTok{*.bak}
+\StringTok{*.old}
+\StringTok{*.orig}
+\StringTok{*.swp}
+\StringTok{*.swo}
+
+\StringTok{\# ========================================}
+\StringTok{\# DATOS SENSIBLES}
+\StringTok{\# ========================================}
+\StringTok{\# Historia de shells}
+\StringTok{**/.zsh\_history}
+\StringTok{**/.bash\_history}
+
+\StringTok{\# SSH keys}
+\StringTok{**/.ssh/id\_*}
+\StringTok{**/.ssh/*.pem}
+
+\StringTok{\# Credenciales}
+\StringTok{.netrc}
+\StringTok{.authinfo}
+
+\StringTok{\# ========================================}
+\StringTok{\# CACHE Y TEMPORALES}
+\StringTok{\# ========================================}
+\StringTok{**/.cache/}
+\StringTok{**/\_\_pycache\_\_/}
+\StringTok{*.pyc}
+\StringTok{.zcompdump*}
+
+\StringTok{\# ========================================}
+\StringTok{\# STOW}
+\StringTok{\# ========================================}
+\StringTok{.stow}
+
+\StringTok{\# ========================================}
+\StringTok{\# LOGS}
+\StringTok{\# ========================================}
+\StringTok{**/*.log}
+\StringTok{*.log}
+
+\StringTok{\# ========================================}
+\StringTok{\# SISTEMA}
+\StringTok{\# ========================================}
+\StringTok{.DS\_Store}
+\StringTok{Thumbs.db}
+\StringTok{desktop.ini}
+\OperatorTok{EOF}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 6: Crear .stowrc}\label{paso-6-crear-.stowrc}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ .stowrc }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\# Target es siempre HOME}
+\StringTok{{-}{-}target=$HOME}
+
+\StringTok{\# Ignorar archivos comunes}
+\StringTok{{-}{-}ignore=\textquotesingle{}\^{}\textbackslash{}.git\textquotesingle{}}
+\StringTok{{-}{-}ignore=\textquotesingle{}\^{}README.*\textquotesingle{}}
+\StringTok{{-}{-}ignore=\textquotesingle{}\^{}LICENSE.*\textquotesingle{}}
+\StringTok{{-}{-}ignore=\textquotesingle{}\textbackslash{}.gitignore$\textquotesingle{}}
+\StringTok{{-}{-}ignore=\textquotesingle{}.*\textbackslash{}.swp$\textquotesingle{}}
+\StringTok{{-}{-}ignore=\textquotesingle{}.*\textasciitilde{}$\textquotesingle{}}
+\StringTok{{-}{-}ignore=\textquotesingle{}\^{}install\textbackslash{}.sh$\textquotesingle{}}
+\StringTok{{-}{-}ignore=\textquotesingle{}\^{}\textbackslash{}.stowrc$\textquotesingle{}}
+\OperatorTok{EOF}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 7: Instalar con Stow (Primera
+Vez)}\label{paso-7-instalar-con-stow-primera-vez}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Navegar a dotfiles}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# Dry run primero para cada paquete}
+\ExtensionTok{stow} \AttributeTok{{-}nv}\NormalTok{ git}
+\ExtensionTok{stow} \AttributeTok{{-}nv}\NormalTok{ shell}
+\ExtensionTok{stow} \AttributeTok{{-}nv}\NormalTok{ terminal}
+\ExtensionTok{stow} \AttributeTok{{-}nv}\NormalTok{ vscode}
+\ExtensionTok{stow} \AttributeTok{{-}nv}\NormalTok{ kde}
+
+\CommentTok{\# Si todo OK, instalar realmente}
+\ExtensionTok{stow}\NormalTok{ git shell terminal vscode kde}
+
+\CommentTok{\# Verificar symlinks}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.gitconfig}
+\CommentTok{\# lrwxrwxrwx ... .gitconfig {-}\textgreater{} dotfiles/git/.gitconfig}
+
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.zshrc}
+\CommentTok{\# lrwxrwxrwx ... .zshrc {-}\textgreater{} dotfiles/shell/.zshrc}
+
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.config/konsolerc}
+\CommentTok{\# lrwxrwxrwx ... konsolerc {-}\textgreater{} ../dotfiles/terminal/.config/konsolerc}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 8: Verificar que Todo
+Funciona}\label{paso-8-verificar-que-todo-funciona}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 8.1 Verificar Git}
+\FunctionTok{git}\NormalTok{ config }\AttributeTok{{-}{-}list} \KeywordTok{|} \FunctionTok{head} \AttributeTok{{-}5}
+
+\CommentTok{\# 8.2 Verificar Zsh}
+\FunctionTok{cat}\NormalTok{ \textasciitilde{}/.zshrc }\KeywordTok{|} \FunctionTok{head} \AttributeTok{{-}10}
+
+\CommentTok{\# 8.3 Verificar VSCode}
+\FunctionTok{cat}\NormalTok{ \textasciitilde{}/.config/Code/User/settings.json }\KeywordTok{|} \FunctionTok{head} \AttributeTok{{-}10}
+
+\CommentTok{\# 8.4 Abrir aplicaciones para probar}
+\ExtensionTok{code}  \CommentTok{\# VSCode debe cargar tu config}
+\ExtensionTok{konsole}  \CommentTok{\# Konsole debe tener tu configuración}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 9: Crear Scripts de
+Ayuda}\label{paso-9-crear-scripts-de-ayuda}
+
+\textbf{9.1 Script de instalación:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ install.sh }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\#!/bin/bash}
+\StringTok{set {-}e}
+
+\StringTok{DOTFILES="$HOME/dotfiles"}
+
+\StringTok{echo "🚀 Instalando dotfiles..."}
+
+\StringTok{cd "$DOTFILES"}
+
+\StringTok{\# Lista de paquetes}
+\StringTok{PACKAGES=(}
+\StringTok{    "git"}
+\StringTok{    "shell"}
+\StringTok{    "terminal"}
+\StringTok{    "vscode"}
+\StringTok{    "kde"}
+\StringTok{)}
+
+\StringTok{\# Instalar cada paquete}
+\StringTok{for pkg in "$\{PACKAGES[@]\}"; do}
+\StringTok{    echo "📦 Instalando $pkg..."}
+\StringTok{    stow "$pkg"}
+\StringTok{done}
+
+\StringTok{echo "✅ ¡Instalación completa!"}
+\OperatorTok{EOF}
+
+\FunctionTok{chmod}\NormalTok{ +x install.sh}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{9.2 Script de verificación:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ check.sh }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\#!/bin/bash}
+
+\StringTok{DOTFILES="$HOME/dotfiles"}
+
+\StringTok{echo "📋 Verificando dotfiles..."}
+\StringTok{echo ""}
+
+\StringTok{cd "$DOTFILES"}
+
+\StringTok{for pkg in */; do}
+\StringTok{    pkg=$\{pkg\%/\}}
+\StringTok{    }
+\StringTok{    \# Buscar primer archivo}
+\StringTok{    first\_file=$(find "$pkg" {-}type f | head {-}1)}
+\StringTok{    }
+\StringTok{    if [ {-}z "$first\_file" ]; then}
+\StringTok{        continue}
+\StringTok{    fi}
+\StringTok{    }
+\StringTok{    \# Path en HOME}
+\StringTok{    home\_path="$HOME/$\{first\_file\#$pkg/\}"}
+\StringTok{    }
+\StringTok{    if [ {-}L "$home\_path" ]; then}
+\StringTok{        echo "✅ $pkg"}
+\StringTok{    else}
+\StringTok{        echo "❌ $pkg (no instalado)"}
+\StringTok{    fi}
+\StringTok{done}
+\OperatorTok{EOF}
+
+\FunctionTok{chmod}\NormalTok{ +x check.sh}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 10: Crear Repositorio en
+GitHub}\label{paso-10-crear-repositorio-en-github}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 10.1 Agregar todo a Git}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{git}\NormalTok{ add .}
+
+\CommentTok{\# 10.2 Commit inicial}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"Initial commit: Estructura básica de dotfiles}
+
+\StringTok{{-} Git configuration}
+\StringTok{{-} Zsh/Starship setup}
+\StringTok{{-} Konsole terminal config}
+\StringTok{{-} VSCode settings}
+\StringTok{{-} KDE Plasma configuration"}
+
+\CommentTok{\# 10.3 Crear repo en GitHub (vía navegador o gh CLI)}
+\CommentTok{\# Opción A: Navegador}
+\CommentTok{\# Ve a https://github.com/new}
+\CommentTok{\# Nombre: .dotfiles}
+\CommentTok{\# Descripción: "Dotfiles para Archcraft/Kubuntu con Stow"}
+\CommentTok{\# Público o Privado}
+\CommentTok{\# NO inicializar con README (ya lo tienes)}
+
+\CommentTok{\# Opción B: GitHub CLI}
+\ExtensionTok{gh}\NormalTok{ repo create .dotfiles }\AttributeTok{{-}{-}public} \AttributeTok{{-}{-}source}\OperatorTok{=}\NormalTok{. }\AttributeTok{{-}{-}remote}\OperatorTok{=}\NormalTok{origin}
+
+\CommentTok{\# 10.4 Agregar remote y push}
+\FunctionTok{git}\NormalTok{ remote add origin https://github.com/achalmaedison/.dotfiles.git}
+\FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}u}\NormalTok{ origin main}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 11: Crear README.md}\label{paso-11-crear-readme.md}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ README.md }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\# Dotfiles}
+
+\StringTok{Configuraciones personales para Archcraft/Kubuntu gestionadas con GNU Stow.}
+
+\StringTok{\# Estructura}
+\end{Highlighting}
+\end{Shaded}
+
+\textasciitilde/dotfiles/ ├── git/ \# Git config ├── shell/ \# Zsh +
+Starship ├── terminal/ \# Konsole ├── vscode/ \# Visual Studio Code └──
+kde/ \# KDE Plasma
+
+\begin{verbatim}
+
+# Instalación
+
+```bash
+# Clonar
+git clone https://github.com/achalmaedison/.dotfiles.git ~/dotfiles
+
+# Instalar Stow
+sudo pacman -S stow  # Arch
+# o
+sudo apt install stow  # Debian/Ubuntu
+
+# Instalar todo
+cd ~/dotfiles
+./install.sh
+
+# O instalar selectivo
+stow git shell terminal
+\end{verbatim}
+
+\subsubsection{Actualizar}\label{actualizar}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{git}\NormalTok{ pull}
+\ExtensionTok{stow} \AttributeTok{{-}R} \PreprocessorTok{*}\NormalTok{/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Requisitos}\label{requisitos}
+
+\begin{itemize}
+\tightlist
+\item
+  stow
+\item
+  git
+\item
+  zsh
+\item
+  starship (opcional)
+\item
+  VSCode (opcional)
+\item
+  KDE Plasma (opcional)
+\end{itemize}
+
+\begin{verbatim}
+EOF
+
+git add README.md
+git commit -m "docs: Add README"
+git push
+\end{verbatim}
+
+\subsection{Caso 2: Replicar Dotfiles en Laptop
+Nueva}\label{caso-2-replicar-dotfiles-en-laptop-nueva}
+
+\textbf{Escenario:} Acabas de comprar/instalar una laptop nueva con
+Archcraft y quieres replicar tu setup completo.
+
+\textbf{Objetivo:} Clonar tu repo de dotfiles e instalar todo en la
+nueva máquina.
+
+\subsubsection{Paso 1: Preparar Nueva
+Máquina}\label{paso-1-preparar-nueva-muxe1quina}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1.1 Actualizar sistema (Archcraft/Arch)}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}Syu}
+
+\CommentTok{\# 1.2 Instalar herramientas base}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ git stow zsh base{-}devel}
+
+\CommentTok{\# 1.3 Verificar HOME vacío (opcional)}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/ }\KeywordTok{|} \FunctionTok{grep} \StringTok{"\^{}\textbackslash{}."} \KeywordTok{|} \FunctionTok{wc} \AttributeTok{{-}l}
+\CommentTok{\# Deberías ver solo archivos básicos del sistema}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 2: Backup de Configs Existentes
+(Precaución)}\label{paso-2-backup-de-configs-existentes-precauciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 2.1 Crear directorio de backup}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ \textasciitilde{}/dotfiles{-}backup{-}}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d}\VariableTok{)}
+\VariableTok{BACKUP\_DIR}\OperatorTok{=}\NormalTok{\textasciitilde{}/dotfiles{-}backup{-}}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d}\VariableTok{)}
+
+\CommentTok{\# 2.2 Backup de archivos que podrían existir}
+\FunctionTok{cp}\NormalTok{ \textasciitilde{}/.zshrc }\StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/"} \DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{||} \FunctionTok{true}
+\FunctionTok{cp}\NormalTok{ \textasciitilde{}/.gitconfig }\StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/"} \DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{||} \FunctionTok{true}
+\FunctionTok{cp} \AttributeTok{{-}r}\NormalTok{ \textasciitilde{}/.config/Code }\StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/"} \DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{||} \FunctionTok{true}
+
+\BuiltInTok{echo} \StringTok{"Backup guardado en: }\VariableTok{$BACKUP\_DIR}\StringTok{"}
+\FunctionTok{ls} \AttributeTok{{-}la} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 3: Clonar
+Repositorio}\label{paso-3-clonar-repositorio}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 3.1 Clonar tu repo}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}}
+\FunctionTok{git}\NormalTok{ clone https://github.com/achalmaedison/.dotfiles.git dotfiles}
+
+\CommentTok{\# 3.2 Verificar contenido}
+\BuiltInTok{cd}\NormalTok{ dotfiles}
+\FunctionTok{ls} \AttributeTok{{-}la}
+
+\CommentTok{\# Deberías ver:}
+\CommentTok{\# git/}
+\CommentTok{\# shell/}
+\CommentTok{\# terminal/}
+\CommentTok{\# vscode/}
+\CommentTok{\# kde/}
+\CommentTok{\# install.sh}
+\CommentTok{\# .gitignore}
+\CommentTok{\# README.md}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 4: Revisar y Ajustar (Si
+Necesario)}\label{paso-4-revisar-y-ajustar-si-necesario}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 4.1 Ver qué paquetes hay}
+\FunctionTok{ls} \AttributeTok{{-}d} \PreprocessorTok{*}\NormalTok{/}
+\CommentTok{\# git/  kde/  shell/  terminal/  vscode/}
+
+\CommentTok{\# 4.2 Ver estructura de un paquete}
+\ExtensionTok{tree}\NormalTok{ shell/}
+\CommentTok{\# shell/}
+\CommentTok{\# ├── .zshrc}
+\CommentTok{\# └── .zshenv}
+
+\CommentTok{\# 4.3 (Opcional) Editar configs antes de instalar}
+\CommentTok{\# Por ejemplo, cambiar username en git}
+\FunctionTok{nano}\NormalTok{ git/.gitconfig}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 5: Instalar
+Dependencias}\label{paso-5-instalar-dependencias}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 5.1 Aplicaciones de tu setup}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S} \DataTypeTok{\textbackslash{}}
+\NormalTok{    zsh }\DataTypeTok{\textbackslash{}}
+\NormalTok{    starship }\DataTypeTok{\textbackslash{}}
+\NormalTok{    konsole }\DataTypeTok{\textbackslash{}}
+\NormalTok{    code }\DataTypeTok{\textbackslash{} } \CommentTok{\# VSCode (si está en repos)}
+    \ExtensionTok{plasma{-}desktop} \DataTypeTok{\textbackslash{}}
+\NormalTok{    dolphin }\DataTypeTok{\textbackslash{}}
+\NormalTok{    kate }\DataTypeTok{\textbackslash{}}
+\NormalTok{    okular}
+
+\CommentTok{\# 5.2 Si usas AUR (yay/paru)}
+\CommentTok{\# VSCode desde AUR}
+\ExtensionTok{yay} \AttributeTok{{-}S}\NormalTok{ visual{-}studio{-}code{-}bin}
+
+\CommentTok{\# Starship (si no está en repos oficiales)}
+\ExtensionTok{yay} \AttributeTok{{-}S}\NormalTok{ starship{-}bin}
+
+\CommentTok{\# 5.3 Verificar instalaciones}
+\FunctionTok{which}\NormalTok{ zsh}
+\FunctionTok{which}\NormalTok{ starship}
+\FunctionTok{which}\NormalTok{ code}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 6: Dry Run
+(Simulación)}\label{paso-6-dry-run-simulaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Navegar a dotfiles}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# Simular instalación para ver qué pasaría}
+\ExtensionTok{stow} \AttributeTok{{-}nv}\NormalTok{ git}
+\ExtensionTok{stow} \AttributeTok{{-}nv}\NormalTok{ shell}
+\ExtensionTok{stow} \AttributeTok{{-}nv}\NormalTok{ terminal}
+\ExtensionTok{stow} \AttributeTok{{-}nv}\NormalTok{ vscode}
+\ExtensionTok{stow} \AttributeTok{{-}nv}\NormalTok{ kde}
+
+\CommentTok{\# Verificar que no hay errores}
+\CommentTok{\# Si hay conflictos, verás warnings}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 7: Resolver Conflictos (Si
+Existen)}\label{paso-7-resolver-conflictos-si-existen}
+
+\textbf{Si ves algo como:}
+
+\begin{verbatim}
+WARNING! stowing shell would cause conflicts:
+  * existing target is neither a link nor a directory: .zshrc
+\end{verbatim}
+
+\textbf{Resolver:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Opción A: Eliminar archivo existente}
+\FunctionTok{rm}\NormalTok{ \textasciitilde{}/.zshrc}
+
+\CommentTok{\# Opción B: Mover a backup (más seguro)}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.zshrc \textasciitilde{}/dotfiles{-}backup{-}}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d}\VariableTok{)}\NormalTok{/}
+
+\CommentTok{\# Luego intentar stow nuevamente}
+\ExtensionTok{stow} \AttributeTok{{-}nv}\NormalTok{ shell}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 8: Instalar Todo}\label{paso-8-instalar-todo}
+
+\textbf{Opción A: Con script (recomendado):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\ExtensionTok{./install.sh}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Opción B: Manual:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# Instalar uno por uno}
+\ExtensionTok{stow}\NormalTok{ git}
+\BuiltInTok{echo} \StringTok{"✅ Git instalado"}
+
+\ExtensionTok{stow}\NormalTok{ shell}
+\BuiltInTok{echo} \StringTok{"✅ Shell instalado"}
+
+\ExtensionTok{stow}\NormalTok{ terminal}
+\BuiltInTok{echo} \StringTok{"✅ Terminal instalado"}
+
+\ExtensionTok{stow}\NormalTok{ vscode}
+\BuiltInTok{echo} \StringTok{"✅ VSCode instalado"}
+
+\ExtensionTok{stow}\NormalTok{ kde}
+\BuiltInTok{echo} \StringTok{"✅ KDE instalado"}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Opción C: Todo de una vez:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\ExtensionTok{stow}\NormalTok{ git shell terminal vscode kde}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 9: Verificar
+Instalación}\label{paso-9-verificar-instalaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 9.1 Verificar symlinks creados}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.gitconfig}
+\CommentTok{\# lrwxrwxrwx ... .gitconfig {-}\textgreater{} dotfiles/git/.gitconfig}
+
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.zshrc}
+\CommentTok{\# lrwxrwxrwx ... .zshrc {-}\textgreater{} dotfiles/shell/.zshrc}
+
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.config/Code/User/settings.json}
+\CommentTok{\# lrwxrwxrwx ... settings.json {-}\textgreater{} ../../../../dotfiles/vscode/.config/Code/User/settings.json}
+
+\CommentTok{\# 9.2 Usar script de verificación}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\ExtensionTok{./check.sh}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 10: Configurar
+Shell}\label{paso-10-configurar-shell}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 10.1 Cambiar shell a Zsh (si no lo es)}
+\FunctionTok{chsh} \AttributeTok{{-}s}\NormalTok{ /bin/zsh}
+
+\CommentTok{\# 10.2 Logout y login para aplicar}
+\CommentTok{\# O simplemente:}
+\BuiltInTok{exec}\NormalTok{ zsh}
+
+\CommentTok{\# 10.3 Verificar que Zsh cargó tu config}
+\BuiltInTok{echo} \VariableTok{$SHELL}
+\CommentTok{\# /bin/zsh}
+
+\CommentTok{\# Ver prompt (si usas starship)}
+\ExtensionTok{starship} \AttributeTok{{-}{-}version}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 11: Instalar Dependencias
+Específicas}\label{paso-11-instalar-dependencias-especuxedficas}
+
+\textbf{11.1 Extensiones de VSCode:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Si guardaste lista de extensiones}
+\CommentTok{\# (Opción: guardar en dotfiles)}
+\ExtensionTok{code} \AttributeTok{{-}{-}list{-}extensions} \OperatorTok{\textgreater{}}\NormalTok{ \textasciitilde{}/dotfiles/vscode/extensions.txt}
+
+\CommentTok{\# En nueva máquina:}
+\ControlFlowTok{while} \BuiltInTok{read} \AttributeTok{{-}r} \VariableTok{ext}\KeywordTok{;} \ControlFlowTok{do}
+    \ExtensionTok{code} \AttributeTok{{-}{-}install{-}extension} \StringTok{"}\VariableTok{$ext}\StringTok{"}
+\ControlFlowTok{done} \OperatorTok{\textless{}}\NormalTok{ \textasciitilde{}/dotfiles/vscode/extensions.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{11.2 Plugins de Zsh (si usas):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Oh{-}My{-}Zsh}
+\FunctionTok{sh} \AttributeTok{{-}c} \StringTok{"}\VariableTok{$(}\ExtensionTok{curl} \AttributeTok{{-}fsSL}\NormalTok{ https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh}\VariableTok{)}\StringTok{"}
+
+\CommentTok{\# Zsh plugins (ejemplo: zsh{-}autosuggestions)}
+\FunctionTok{git}\NormalTok{ clone https://github.com/zsh{-}users/zsh{-}autosuggestions }\DataTypeTok{\textbackslash{}}
+\NormalTok{    \textasciitilde{}/.oh{-}my{-}zsh/custom/plugins/zsh{-}autosuggestions}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{11.3 Temas de KDE (si los tienes):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Si tienes temas personalizados en dotfiles}
+\CommentTok{\# Instalarlos desde System Settings}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 12: Probar Todo}\label{paso-12-probar-todo}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 12.1 Git}
+\FunctionTok{git}\NormalTok{ config }\AttributeTok{{-}{-}list} \KeywordTok{|} \FunctionTok{grep}\NormalTok{ user}
+\CommentTok{\# user.name=Edison Achalma}
+\CommentTok{\# user.email=achalmaedison@gmail.com}
+
+\CommentTok{\# 12.2 Zsh}
+\FunctionTok{cat}\NormalTok{ \textasciitilde{}/.zshrc }\KeywordTok{|} \FunctionTok{head} \AttributeTok{{-}5}
+
+\CommentTok{\# 12.3 VSCode}
+\ExtensionTok{code}
+\CommentTok{\# Debería cargar con tu configuración}
+
+\CommentTok{\# 12.4 Konsole}
+\ExtensionTok{konsole}
+\CommentTok{\# Debería usar tu configuración}
+
+\CommentTok{\# 12.5 KDE}
+\CommentTok{\# Logout/login para ver cambios en KDE}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 13: Ajustes Finales}\label{paso-13-ajustes-finales}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Si algo no funciona, hacer debug:}
+
+\CommentTok{\# Ver qué apunta cada symlink}
+\FunctionTok{find}\NormalTok{ \textasciitilde{} }\AttributeTok{{-}maxdepth}\NormalTok{ 2 }\AttributeTok{{-}type}\NormalTok{ l }\AttributeTok{{-}ls} \KeywordTok{|} \FunctionTok{grep}\NormalTok{ dotfiles}
+
+\CommentTok{\# Si un symlink está roto:}
+\ExtensionTok{stow} \AttributeTok{{-}D}\NormalTok{ paquete{-}con{-}problema}
+\ExtensionTok{stow}\NormalTok{ paquete{-}con{-}problema}
+
+\CommentTok{\# Verificar logs}
+\ExtensionTok{journalctl} \AttributeTok{{-}{-}user} \AttributeTok{{-}xe} \KeywordTok{|} \FunctionTok{grep} \AttributeTok{{-}i}\NormalTok{ error}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 3: Actualizar Configs y
+Sincronizar}\label{caso-3-actualizar-configs-y-sincronizar}
+
+\textbf{Escenario:} Has estado usando tus dotfiles y has hecho cambios
+en tu máquina principal. Quieres sincronizar con GitHub y otras
+máquinas.
+
+\subsubsection{Paso 1: Identificar
+Cambios}\label{paso-1-identificar-cambios}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1.1 Ver qué archivos cambiaron}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{git}\NormalTok{ status}
+
+\CommentTok{\# Ejemplo de output:}
+\CommentTok{\# modified:   shell/.zshrc}
+\CommentTok{\# modified:   vscode/.config/Code/User/settings.json}
+
+\CommentTok{\# 1.2 Ver diferencias específicas}
+\FunctionTok{git}\NormalTok{ diff shell/.zshrc}
+\FunctionTok{git}\NormalTok{ diff vscode/.config/Code/User/settings.json}
+
+\CommentTok{\# 1.3 Ver todos los cambios}
+\FunctionTok{git}\NormalTok{ diff}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 2: Probar Cambios
+Localmente}\label{paso-2-probar-cambios-localmente}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Si editaste configs directamente en HOME (a través de symlinks),}
+\CommentTok{\# los cambios ya están en \textasciitilde{}/dotfiles/}
+
+\CommentTok{\# 2.1 Verificar que todo funciona}
+\BuiltInTok{source}\NormalTok{ \textasciitilde{}/.zshrc  }\CommentTok{\# Para shell}
+\ExtensionTok{code}  \CommentTok{\# Abrir VSCode para verificar settings}
+
+\CommentTok{\# 2.2 Si hay problemas, revertir temporalmente}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{git}\NormalTok{ checkout }\AttributeTok{{-}{-}}\NormalTok{ shell/.zshrc  }\CommentTok{\# Revertir cambios}
+\CommentTok{\# Probar de nuevo}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 3: Commit Cambios}\label{paso-3-commit-cambios}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# 3.1 Agregar archivos modificados}
+\FunctionTok{git}\NormalTok{ add shell/.zshrc}
+\FunctionTok{git}\NormalTok{ add vscode/.config/Code/User/settings.json}
+
+\CommentTok{\# O agregar todo:}
+\FunctionTok{git}\NormalTok{ add }\AttributeTok{{-}A}
+
+\CommentTok{\# 3.2 Ver qué se va a commitear}
+\FunctionTok{git}\NormalTok{ status}
+
+\CommentTok{\# 3.3 Commit con mensaje descriptivo}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"chore(shell): Update Zsh aliases and PATH}
+
+\StringTok{{-} Add alias for git status}
+\StringTok{{-} Update PATH to include \textasciitilde{}/.local/bin}
+\StringTok{{-} Remove deprecated exports"}
+
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"feat(vscode): Enable format on save}
+
+\StringTok{{-} Set editor.formatOnSave to true}
+\StringTok{{-} Add Python formatting rules}
+\StringTok{{-} Update keybindings for terminal"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 4: Push a GitHub}\label{paso-4-push-a-github}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 4.1 Push cambios}
+\FunctionTok{git}\NormalTok{ push origin main}
+
+\CommentTok{\# 4.2 Verificar en GitHub}
+\CommentTok{\# Ir a https://github.com/achalmaedison/.dotfiles}
+\CommentTok{\# Deberías ver tus commits recientes}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 5: Actualizar Otras
+Máquinas}\label{paso-5-actualizar-otras-muxe1quinas}
+
+\textbf{En laptop/otra máquina:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 5.1 Pull cambios}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{git}\NormalTok{ pull origin main}
+
+\CommentTok{\# 5.2 Los symlinks reflejan cambios automáticamente!}
+\FunctionTok{cat}\NormalTok{ \textasciitilde{}/.zshrc  }\CommentTok{\# Ya tiene los cambios}
+
+\CommentTok{\# 5.3 Recargar configs}
+\BuiltInTok{source}\NormalTok{ \textasciitilde{}/.zshrc  }\CommentTok{\# Shell}
+\CommentTok{\# VSCode se recarga automáticamente}
+
+\CommentTok{\# 5.4 Si hay cambios en estructura (archivos nuevos/eliminados):}
+\ExtensionTok{stow} \AttributeTok{{-}R}\NormalTok{ shell  }\CommentTok{\# Restow para actualizar symlinks}
+\ExtensionTok{stow} \AttributeTok{{-}R}\NormalTok{ vscode}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 6: Manejar Conflictos (Si
+Existen)}\label{paso-6-manejar-conflictos-si-existen}
+
+\textbf{Si modificaste el mismo archivo en dos máquinas:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{git}\NormalTok{ pull origin main}
+
+\CommentTok{\# Si hay conflicto:}
+\CommentTok{\# CONFLICT (content): Merge conflict in shell/.zshrc}
+
+\CommentTok{\# 6.1 Ver conflicto}
+\FunctionTok{git}\NormalTok{ status}
+\CommentTok{\# both modified:   shell/.zshrc}
+
+\CommentTok{\# 6.2 Editar archivo}
+\FunctionTok{nano}\NormalTok{ shell/.zshrc}
+
+\CommentTok{\# Verás marcadores:}
+\CommentTok{\# \textless{}\textless{}\textless{}\textless{}\textless{}\textless{}\textless{} HEAD}
+\CommentTok{\# (tu cambio local)}
+\CommentTok{\# =======}
+\CommentTok{\# (cambio de GitHub)}
+\CommentTok{\# \textgreater{}\textgreater{}\textgreater{}\textgreater{}\textgreater{}\textgreater{}\textgreater{} origin/main}
+
+\CommentTok{\# 6.3 Resolver manualmente, eliminar marcadores}
+
+\CommentTok{\# 6.4 Marcar como resuelto}
+\FunctionTok{git}\NormalTok{ add shell/.zshrc}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"merge: Resolve conflict in .zshrc"}
+\FunctionTok{git}\NormalTok{ push}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 4: Agregar Nueva Aplicación (Kate
+Editor)}\label{caso-4-agregar-nueva-aplicaciuxf3n-kate-editor}
+
+\textbf{Escenario:} Instalaste Kate y quieres agregar su configuración a
+tus dotfiles.
+
+\subsubsection{Paso 1: Usar Kate y
+Configurar}\label{paso-1-usar-kate-y-configurar}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1.1 Instalar Kate}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ kate}
+
+\CommentTok{\# 1.2 Abrir y configurar}
+\ExtensionTok{kate}
+
+\CommentTok{\# Configurar:}
+\CommentTok{\# {-} Settings → Configure Kate}
+\CommentTok{\# {-} Cambiar tema, shortcuts, plugins, etc.}
+\CommentTok{\# {-} Cerrar Kate (configs se guardan automáticamente)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 2: Localizar Archivos de
+Config}\label{paso-2-localizar-archivos-de-config}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 2.1 Archivos de configuración están en \textasciitilde{}/.config/}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.config/ }\KeywordTok{|} \FunctionTok{grep}\NormalTok{ kate}
+\CommentTok{\# drwxr{-}xr{-}x  {-} achalmaedison kate/}
+
+\CommentTok{\# 2.2 Ver qué hay dentro}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.config/kate/}
+\CommentTok{\# katerc}
+\CommentTok{\# externaltools/}
+\CommentTok{\# formatting/}
+\CommentTok{\# lspclient/}
+
+\CommentTok{\# 2.3 También puede haber datos en \textasciitilde{}/.local/share/}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.local/share/ }\KeywordTok{|} \FunctionTok{grep}\NormalTok{ kate}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 3: Crear Paquete
+Kate}\label{paso-3-crear-paquete-kate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 3.1 Crear estructura que replica HOME}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ kate/.config}
+
+\CommentTok{\# 3.2 Copiar configs (NO mover todavía)}
+\FunctionTok{cp} \AttributeTok{{-}r}\NormalTok{ \textasciitilde{}/.config/kate kate/.config/}
+
+\CommentTok{\# 3.3 También copiar datos locales si existen}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ kate/.local/share}
+\FunctionTok{cp} \AttributeTok{{-}r}\NormalTok{ \textasciitilde{}/.local/share/kate kate/.local/share/ }\DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{||} \FunctionTok{true}
+
+\CommentTok{\# 3.4 Verificar estructura}
+\ExtensionTok{tree}\NormalTok{ kate/}
+\CommentTok{\# kate/}
+\CommentTok{\# ├── .config/}
+\CommentTok{\# │   └── kate/}
+\CommentTok{\# │       ├── katerc}
+\CommentTok{\# │       ├── externaltools/}
+\CommentTok{\# │       ├── formatting/}
+\CommentTok{\# │       └── lspclient/}
+\CommentTok{\# └── .local/}
+\CommentTok{\#     └── share/}
+\CommentTok{\#         └── kate/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 4: Crear Ignore List para
+Kate}\label{paso-4-crear-ignore-list-para-kate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear ignore para archivos que no queremos versionar}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ kate/.stow{-}local{-}ignore }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\# Sesiones y cache}
+\StringTok{\^{}/\textbackslash{}.config/kate/sessions/}
+\StringTok{\^{}/\textbackslash{}.local/share/kate/.*\textbackslash{}.cache}
+
+\StringTok{\# Logs}
+\StringTok{\^{}/\textbackslash{}.config/kate/.*\textbackslash{}.log}
+
+\StringTok{\# Archivos temporales}
+\StringTok{\^{}/\textbackslash{}.config/kate/.*\textbackslash{}.tmp}
+\StringTok{\^{}/\textbackslash{}.config/kate/.*\textbackslash{}.swp}
+\OperatorTok{EOF}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 5: Test Stow (Dry
+Run)}\label{paso-5-test-stow-dry-run}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# 5.1 Ver qué haría stow}
+\ExtensionTok{stow} \AttributeTok{{-}nv}\NormalTok{ kate}
+
+\CommentTok{\# Deberías ver algo como:}
+\CommentTok{\# LINK: .config/kate =\textgreater{} dotfiles/kate/.config/kate}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 6: Hacer Backup y Eliminar
+Original}\label{paso-6-hacer-backup-y-eliminar-original}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 6.1 Backup por seguridad}
+\FunctionTok{cp} \AttributeTok{{-}r}\NormalTok{ \textasciitilde{}/.config/kate \textasciitilde{}/backup{-}kate{-}}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d}\VariableTok{)}
+
+\CommentTok{\# 6.2 Eliminar original}
+\FunctionTok{rm} \AttributeTok{{-}rf}\NormalTok{ \textasciitilde{}/.config/kate}
+\FunctionTok{rm} \AttributeTok{{-}rf}\NormalTok{ \textasciitilde{}/.local/share/kate  }\CommentTok{\# Si copiaste esto también}
+
+\CommentTok{\# 6.3 Verificar que se eliminó}
+\FunctionTok{ls}\NormalTok{ \textasciitilde{}/.config/ }\KeywordTok{|} \FunctionTok{grep}\NormalTok{ kate}
+\CommentTok{\# (no debería aparecer nada)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 7: Stow Kate}\label{paso-7-stow-kate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# 7.1 Instalar con stow}
+\ExtensionTok{stow}\NormalTok{ kate}
+
+\CommentTok{\# 7.2 Verificar symlinks}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.config/ }\KeywordTok{|} \FunctionTok{grep}\NormalTok{ kate}
+\CommentTok{\# lrwxrwxrwx  {-} achalmaedison kate {-}\textgreater{} ../dotfiles/kate/.config/kate}
+
+\CommentTok{\# 7.3 Verificar que Kate funciona}
+\ExtensionTok{kate}
+\CommentTok{\# Debería abrir con tu configuración}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 8: Versionar con
+Git}\label{paso-8-versionar-con-git}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# 8.1 Agregar al staging}
+\FunctionTok{git}\NormalTok{ add kate/}
+
+\CommentTok{\# 8.2 Commit}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"feat(kate): Add Kate editor configuration}
+
+\StringTok{{-} Custom keybindings}
+\StringTok{{-} LSP configuration}
+\StringTok{{-} Theme and appearance settings}
+\StringTok{{-} External tools setup"}
+
+\CommentTok{\# 8.3 Push}
+\FunctionTok{git}\NormalTok{ push origin main}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 9: Actualizar
+README}\label{paso-9-actualizar-readme}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# Agregar Kate a la lista de paquetes}
+\FunctionTok{nano}\NormalTok{ README.md}
+
+\CommentTok{\# Agregar:}
+\CommentTok{\# {-} kate/          \# Kate editor}
+
+\CommentTok{\# Commit cambio}
+\FunctionTok{git}\NormalTok{ add README.md}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"docs: Add Kate to README"}
+\FunctionTok{git}\NormalTok{ push}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 10: Actualizar Script de
+Instalación}\label{paso-10-actualizar-script-de-instalaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Si tienes install.sh, agregar kate}
+\FunctionTok{nano}\NormalTok{ install.sh}
+
+\CommentTok{\# Agregar "kate" a la lista de PACKAGES:}
+\CommentTok{\# PACKAGES=(}
+\CommentTok{\#     "git"}
+\CommentTok{\#     "shell"}
+\CommentTok{\#     "terminal"}
+\CommentTok{\#     "vscode"}
+\CommentTok{\#     "kde"}
+\CommentTok{\#     "kate"        \# \textless{}{-}{-} Agregar esto}
+\CommentTok{\# )}
+
+\FunctionTok{git}\NormalTok{ add install.sh}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"chore(scripts): Add kate to install script"}
+\FunctionTok{git}\NormalTok{ push}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 5: Migrar de Kubuntu a
+Archcraft}\label{caso-5-migrar-de-kubuntu-a-archcraft}
+
+\textbf{Escenario:} Usabas Kubuntu, ahora instalaste Archcraft. Quieres
+migrar tus dotfiles pero adaptándolos.
+
+\subsubsection{Paso 1: Evaluar
+Diferencias}\label{paso-1-evaluar-diferencias}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1.1 En tu Kubuntu original, ver qué tienes}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{ls} \AttributeTok{{-}d} \PreprocessorTok{*}\NormalTok{/}
+
+\CommentTok{\# Ejemplo:}
+\CommentTok{\# git/ shell/ terminal/ vscode/ kde/ digikam/ okular/ ...}
+
+\CommentTok{\# 1.2 Identificar qué es compatible con Archcraft}
+\CommentTok{\# ✅ Compatible: git, shell, vscode}
+\CommentTok{\# ⚠️  Adaptar: kde (Archcraft puede usar i3/bspwm)}
+\CommentTok{\# ❌ No necesario: apps específicas de Kubuntu}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 2: En Archcraft
+Nueva}\label{paso-2-en-archcraft-nueva}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 2.1 Instalar Stow}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ stow git}
+
+\CommentTok{\# 2.2 Clonar dotfiles}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}}
+\FunctionTok{git}\NormalTok{ clone https://github.com/achalmaedison/.dotfiles.git dotfiles}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 3: Crear Branch para
+Archcraft}\label{paso-3-crear-branch-para-archcraft}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# 3.1 Crear branch específica}
+\FunctionTok{git}\NormalTok{ checkout }\AttributeTok{{-}b}\NormalTok{ archcraft{-}setup}
+
+\CommentTok{\# 3.2 Ver qué paquetes hay}
+\FunctionTok{ls} \AttributeTok{{-}d} \PreprocessorTok{*}\NormalTok{/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 4: Instalar Paquetes
+Universales}\label{paso-4-instalar-paquetes-universales}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# 4.1 Paquetes que funcionan en cualquier distro}
+\ExtensionTok{stow}\NormalTok{ git}
+\ExtensionTok{stow}\NormalTok{ shell}
+\ExtensionTok{stow}\NormalTok{ terminal  }\CommentTok{\# Si Archcraft usa Konsole, sino adaptar}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 5: Adaptar o Crear Nuevos
+Paquetes}\label{paso-5-adaptar-o-crear-nuevos-paquetes}
+
+\textbf{5.1 Window Manager (Si Archcraft usa i3/bspwm):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear nuevo paquete para i3 (ejemplo)}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ i3/.config/i3}
+
+\CommentTok{\# Configurar i3}
+\ExtensionTok{i3{-}config{-}wizard}
+\CommentTok{\# O copiar config existente}
+
+\CommentTok{\# Mover config al paquete}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.config/i3/config i3/.config/i3/}
+
+\CommentTok{\# Stow}
+\ExtensionTok{stow}\NormalTok{ i3}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{5.2 Terminal (Si Archcraft usa otro terminal):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Supongamos que Archcraft usa Alacritty en vez de Konsole}
+
+\CommentTok{\# Crear paquete}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ alacritty/.config/alacritty}
+
+\CommentTok{\# Config de Alacritty}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ alacritty/.config/alacritty/alacritty.yml }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\# Alacritty configuration}
+\StringTok{font:}
+\StringTok{  size: 11.0}
+\StringTok{  normal:}
+\StringTok{    family: JetBrains Mono}
+\StringTok{    }
+\StringTok{window:}
+\StringTok{  opacity: 0.95}
+\StringTok{  }
+\StringTok{colors:}
+\StringTok{  \# Tu esquema de colores...}
+\OperatorTok{EOF}
+
+\CommentTok{\# Stow}
+\ExtensionTok{stow}\NormalTok{ alacritty}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{5.3 Polybar (Si Archcraft lo usa):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ polybar/.config/polybar}
+
+\CommentTok{\# Copiar config de Archcraft default}
+\FunctionTok{cp}\NormalTok{ /etc/polybar/config polybar/.config/polybar/}
+
+\CommentTok{\# Personalizar}
+\FunctionTok{nano}\NormalTok{ polybar/.config/polybar/config}
+
+\CommentTok{\# Stow}
+\ExtensionTok{stow}\NormalTok{ polybar}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 6: No Instalar Paquetes
+Incompatibles}\label{paso-6-no-instalar-paquetes-incompatibles}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# NO hacer stow de paquetes específicos de Kubuntu/KDE:}
+\CommentTok{\# {-} kde/}
+\CommentTok{\# {-} plasma{-}org.kde.plasma.desktop{-}appletsrc}
+\CommentTok{\# {-} etc.}
+
+\CommentTok{\# Estos causarían errores en Archcraft}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 7: Commit Cambios}\label{paso-7-commit-cambios}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# Agregar nuevos paquetes}
+\FunctionTok{git}\NormalTok{ add i3/ alacritty/ polybar/}
+
+\CommentTok{\# Commit en branch archcraft}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"feat(archcraft): Add i3, Alacritty, Polybar configs}
+
+\StringTok{{-} i3 window manager configuration}
+\StringTok{{-} Alacritty terminal setup}
+\StringTok{{-} Polybar panel configuration"}
+
+\CommentTok{\# Push branch}
+\FunctionTok{git}\NormalTok{ push origin archcraft{-}setup}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 8: Estrategia de
+Branches}\label{paso-8-estrategia-de-branches}
+
+\textbf{Opción A: Mantener branches separadas:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Branch main: Para Kubuntu}
+\CommentTok{\# Branch archcraft{-}setup: Para Archcraft}
+
+\CommentTok{\# Puedes hacer cherry{-}pick de commits específicos:}
+\FunctionTok{git}\NormalTok{ checkout main}
+\FunctionTok{git}\NormalTok{ cherry{-}pick }\OperatorTok{\textless{}}\NormalTok{commit{-}hash}\OperatorTok{\textgreater{}}  \CommentTok{\# Traer cambio específico de otra branch}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Opción B: Usar estructura de directorios:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Reorganizar dotfiles:}
+\ExtensionTok{\textasciitilde{}/dotfiles/}
+\ExtensionTok{├──}\NormalTok{ common/          }\CommentTok{\# Configs universales}
+\ExtensionTok{│}\NormalTok{   ├── git/}
+\ExtensionTok{│}\NormalTok{   ├── shell/}
+\ExtensionTok{│}\NormalTok{   └── vscode/}
+\ExtensionTok{├──}\NormalTok{ kubuntu/         }\CommentTok{\# Específicos de Kubuntu}
+\ExtensionTok{│}\NormalTok{   ├── kde/}
+\ExtensionTok{│}\NormalTok{   └── konsole/}
+\ExtensionTok{└──}\NormalTok{ archcraft/       }\CommentTok{\# Específicos de Archcraft}
+    \ExtensionTok{├──}\NormalTok{ i3/}
+    \ExtensionTok{├──}\NormalTok{ alacritty/}
+    \ExtensionTok{└──}\NormalTok{ polybar/}
+
+\CommentTok{\# Instalar según distro:}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles/common }\KeywordTok{\&\&} \ExtensionTok{stow} \PreprocessorTok{*}\NormalTok{/}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles/archcraft }\KeywordTok{\&\&} \ExtensionTok{stow} \PreprocessorTok{*}\NormalTok{/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 9: Script de Instalación por
+Distro}\label{paso-9-script-de-instalaciuxf3n-por-distro}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ install{-}arch.sh }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\#!/bin/bash}
+\StringTok{\# Install script para Archcraft}
+
+\StringTok{DOTFILES="$HOME/dotfiles"}
+
+\StringTok{echo "🚀 Instalando dotfiles para Archcraft..."}
+
+\StringTok{\# Common packages}
+\StringTok{cd "$DOTFILES/common"}
+\StringTok{stow git shell vscode}
+
+\StringTok{\# Archcraft{-}specific}
+\StringTok{cd "$DOTFILES/archcraft"}
+\StringTok{stow i3 alacritty polybar rofi}
+
+\StringTok{echo "✅ ¡Instalación completa!"}
+\OperatorTok{EOF}
+
+\FunctionTok{chmod}\NormalTok{ +x install{-}arch.sh}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 10: Mantener Ambos
+Sistemas}\label{paso-10-mantener-ambos-sistemas}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Cuando hagas cambios en configs comunes (git, shell, vscode):}
+
+\CommentTok{\# 1. Hacer cambio en cualquier máquina}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{nano}\NormalTok{ common/shell/.zshrc}
+
+\CommentTok{\# 2. Commit}
+\FunctionTok{git}\NormalTok{ add common/shell/.zshrc}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"chore(shell): Update aliases"}
+
+\CommentTok{\# 3. Push}
+\FunctionTok{git}\NormalTok{ push origin main}
+
+\CommentTok{\# 4. En otra máquina (Kubuntu o Archcraft):}
+\FunctionTok{git}\NormalTok{ pull origin main}
+\CommentTok{\# Los symlinks se actualizan automáticamente}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 6: Probar Nueva Configuración Sin
+Romper}\label{caso-6-probar-nueva-configuraciuxf3n-sin-romper}
+
+\textbf{Escenario:} Quieres probar una nueva configuración de Neovim sin
+afectar tu setup actual.
+
+\subsubsection{Paso 1: Crear Branch
+Experimental}\label{paso-1-crear-branch-experimental}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# 1.1 Crear branch}
+\FunctionTok{git}\NormalTok{ checkout }\AttributeTok{{-}b}\NormalTok{ experiment/nvim{-}lazyvim}
+
+\CommentTok{\# 1.2 Verificar que estás en la branch}
+\FunctionTok{git}\NormalTok{ branch}
+\CommentTok{\# * experiment/nvim{-}lazyvim}
+\CommentTok{\#   main}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 2: Crear Paquete
+Alternativo}\label{paso-2-crear-paquete-alternativo}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 2.1 Crear nuevo paquete con nombre distinto}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ nvim{-}lazy/.config}
+
+\CommentTok{\# 2.2 Instalar LazyVim (ejemplo)}
+\FunctionTok{git}\NormalTok{ clone https://github.com/LazyVim/starter nvim{-}lazy/.config/nvim}
+
+\CommentTok{\# 2.3 Estructura}
+\ExtensionTok{tree}\NormalTok{ nvim{-}lazy/.config/nvim/ }\AttributeTok{{-}L}\NormalTok{ 1}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 3: Desinstalar Neovim
+Actual}\label{paso-3-desinstalar-neovim-actual}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 3.1 Unstow config actual (si existe)}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\ExtensionTok{stow} \AttributeTok{{-}D}\NormalTok{ nvim }\DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{||} \FunctionTok{true}
+
+\CommentTok{\# 3.2 Verificar que se eliminó symlink}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.config/ }\KeywordTok{|} \FunctionTok{grep}\NormalTok{ nvim}
+\CommentTok{\# No debería aparecer nada}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 4: Instalar Nueva
+Config}\label{paso-4-instalar-nueva-config}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 4.1 Stow nueva config}
+\ExtensionTok{stow}\NormalTok{ nvim{-}lazy}
+
+\CommentTok{\# 4.2 Verificar symlink}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.config/nvim}
+\CommentTok{\# lrwxrwxrwx  {-} achalmaedison nvim {-}\textgreater{} ../../dotfiles/nvim{-}lazy/.config/nvim}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 5: Probar}\label{paso-5-probar}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 5.1 Abrir Neovim}
+\ExtensionTok{nvim}
+
+\CommentTok{\# LazyVim se instalará automáticamente}
+\CommentTok{\# Probar todas las features}
+
+\CommentTok{\# 5.2 Usar por varios días}
+\CommentTok{\# Evaluar si te gusta}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 6: Decidir Qué
+Hacer}\label{paso-6-decidir-quuxe9-hacer}
+
+\textbf{Opción A: Mantener nueva config (si te gustó):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# 1. Eliminar config vieja}
+\FunctionTok{rm} \AttributeTok{{-}rf}\NormalTok{ nvim/  }\CommentTok{\# O hacer backup}
+
+\CommentTok{\# 2. Renombrar nueva}
+\FunctionTok{mv}\NormalTok{ nvim{-}lazy nvim}
+
+\CommentTok{\# 3. Restow}
+\ExtensionTok{stow} \AttributeTok{{-}R}\NormalTok{ nvim}
+
+\CommentTok{\# 4. Commit}
+\FunctionTok{git}\NormalTok{ add .}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"refactor(nvim): Switch to LazyVim configuration"}
+
+\CommentTok{\# 5. Merge a main}
+\FunctionTok{git}\NormalTok{ checkout main}
+\FunctionTok{git}\NormalTok{ merge experiment/nvim{-}lazyvim}
+
+\CommentTok{\# 6. Push}
+\FunctionTok{git}\NormalTok{ push origin main}
+
+\CommentTok{\# 7. Eliminar branch experimental}
+\FunctionTok{git}\NormalTok{ branch }\AttributeTok{{-}d}\NormalTok{ experiment/nvim{-}lazyvim}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Opción B: Volver a config anterior (si no te gustó):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# 1. Checkout a main}
+\FunctionTok{git}\NormalTok{ checkout main}
+
+\CommentTok{\# 2. Unstow experimental}
+\ExtensionTok{stow} \AttributeTok{{-}D}\NormalTok{ nvim{-}lazy}
+
+\CommentTok{\# 3. Restow original}
+\ExtensionTok{stow}\NormalTok{ nvim}
+
+\CommentTok{\# 4. Eliminar paquete experimental}
+\FunctionTok{rm} \AttributeTok{{-}rf}\NormalTok{ nvim{-}lazy/}
+
+\CommentTok{\# 5. Eliminar branch}
+\FunctionTok{git}\NormalTok{ branch }\AttributeTok{{-}D}\NormalTok{ experiment/nvim{-}lazyvim}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Opción C: Mantener ambas (para casos específicos):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Tener dos configs de Neovim:}
+\ExtensionTok{\textasciitilde{}/dotfiles/}
+\ExtensionTok{├──}\NormalTok{ nvim/          }\CommentTok{\# Config principal}
+\ExtensionTok{└──}\NormalTok{ nvim{-}lazy/     }\CommentTok{\# Config alternativa}
+
+\CommentTok{\# Alias en shell para cambiar:}
+\BuiltInTok{alias}\NormalTok{ nvim{-}main=}\StringTok{\textquotesingle{}stow {-}D nvim{-}lazy \&\& stow nvim \&\& nvim\textquotesingle{}}
+\BuiltInTok{alias}\NormalTok{ nvim{-}lazy=}\StringTok{\textquotesingle{}stow {-}D nvim \&\& stow nvim{-}lazy \&\& nvim\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 7: Sincronizar Múltiples Máquinas en Tiempo
+Real}\label{caso-7-sincronizar-muxfaltiples-muxe1quinas-en-tiempo-real}
+
+\textbf{Escenario:} Trabajas en 3 máquinas (desktop, laptop, servidor) y
+quieres mantener dotfiles sincronizados.
+
+\subsubsection{Configuración Inicial (Una
+Vez)}\label{configuraciuxf3n-inicial-una-vez}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# En cada máquina:}
+
+\CommentTok{\# 1. Clonar dotfiles}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}}
+\FunctionTok{git}\NormalTok{ clone https://github.com/achalmaedison/.dotfiles.git dotfiles}
+
+\CommentTok{\# 2. Instalar}
+\BuiltInTok{cd}\NormalTok{ dotfiles}
+\ExtensionTok{./install.sh}
+
+\CommentTok{\# 3. Configurar Git con pull automático (opcional)}
+\FunctionTok{git}\NormalTok{ config pull.rebase true  }\CommentTok{\# Rebase en lugar de merge}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Workflow Diario}\label{workflow-diario-1}
+
+\textbf{Máquina A (Desktop) - Hacer Cambios:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. Editar configs normalmente}
+\FunctionTok{nano}\NormalTok{ \textasciitilde{}/.zshrc  }\CommentTok{\# Edita a través del symlink}
+
+\CommentTok{\# 2. Commit y push}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{git}\NormalTok{ add shell/.zshrc}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"chore(shell): Add new alias for docker"}
+\FunctionTok{git}\NormalTok{ push origin main}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Máquina B (Laptop) - Recibir Cambios:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. Pull cambios}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{git}\NormalTok{ pull origin main}
+
+\CommentTok{\# 2. Los symlinks se actualizan automáticamente!}
+\FunctionTok{cat}\NormalTok{ \textasciitilde{}/.zshrc  }\CommentTok{\# Ya tiene el cambio}
+
+\CommentTok{\# 3. Recargar shell}
+\BuiltInTok{source}\NormalTok{ \textasciitilde{}/.zshrc}
+\CommentTok{\# O}
+\BuiltInTok{exec}\NormalTok{ zsh}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Máquina C (Servidor) - Recibir Cambios:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mismo proceso}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{git}\NormalTok{ pull origin main}
+\BuiltInTok{source}\NormalTok{ \textasciitilde{}/.zshrc}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Automatizar con Cron
+(Opcional)}\label{automatizar-con-cron-opcional}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear script de sync}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ \textasciitilde{}/dotfiles/sync.sh }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\#!/bin/bash}
+\StringTok{cd "$HOME/dotfiles"}
+
+\StringTok{\# Pull cambios silenciosamente}
+\StringTok{git pull origin main {-}{-}quiet}
+
+\StringTok{\# Log}
+\StringTok{echo "$(date): Dotfiles sincronizados" \textgreater{}\textgreater{} \textasciitilde{}/dotfiles/sync.log}
+\OperatorTok{EOF}
+
+\FunctionTok{chmod}\NormalTok{ +x \textasciitilde{}/dotfiles/sync.sh}
+
+\CommentTok{\# Agregar a crontab (sync cada hora)}
+\FunctionTok{crontab} \AttributeTok{{-}e}
+
+\CommentTok{\# Agregar línea:}
+\ExtensionTok{0} \PreprocessorTok{*} \PreprocessorTok{*} \PreprocessorTok{*} \PreprocessorTok{*} \VariableTok{$HOME}\NormalTok{/dotfiles/sync.sh}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Manejar Conflictos
+Automáticamente}\label{manejar-conflictos-automuxe1ticamente}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Script más robusto}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ \textasciitilde{}/dotfiles/sync.sh }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\#!/bin/bash}
+\StringTok{cd "$HOME/dotfiles"}
+
+\StringTok{\# Stash cambios locales si existen}
+\StringTok{git stash}
+
+\StringTok{\# Pull}
+\StringTok{git pull origin main {-}{-}quiet}
+
+\StringTok{\# Reapply stash}
+\StringTok{git stash pop}
+
+\StringTok{\# Si hay conflictos, notificar}
+\StringTok{if [ $? {-}ne 0 ]; then}
+\StringTok{    notify{-}send "Dotfiles" "Conflicto detectado, revisar manualmente"}
+\StringTok{fi}
+\OperatorTok{EOF}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Usar Git Hooks (Avanzado)}\label{usar-git-hooks-avanzado}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Pre{-}commit hook para validar antes de commit}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ \textasciitilde{}/dotfiles/.git/hooks/pre{-}commit }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\#!/bin/bash}
+
+\StringTok{\# Verificar que no hay datos sensibles}
+\StringTok{if git diff {-}{-}cached | grep {-}i "password\textbackslash{}|secret\textbackslash{}|token"; then}
+\StringTok{    echo "ERROR: Posible dato sensible detectado!"}
+\StringTok{    exit 1}
+\StringTok{fi}
+
+\StringTok{exit 0}
+\OperatorTok{EOF}
+
+\FunctionTok{chmod}\NormalTok{ +x \textasciitilde{}/dotfiles/.git/hooks/pre{-}commit}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 8: Compartir Dotfiles con
+Equipo/Lab}\label{caso-8-compartir-dotfiles-con-equipolab}
+
+\textbf{Escenario:} Trabajas en un lab con múltiples usuarios y quieren
+compartir configuraciones base.
+
+\subsubsection{Paso 1: Crear Repo de
+Equipo}\label{paso-1-crear-repo-de-equipo}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# En GitHub, crear repo:}
+\CommentTok{\# Nombre: lab{-}dotfiles}
+\CommentTok{\# Acceso: Privado/Público según necesidad}
+
+\CommentTok{\# Clonar}
+\FunctionTok{git}\NormalTok{ clone https://github.com/lab/.lab{-}dotfiles.git \textasciitilde{}/lab{-}dotfiles}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 2: Estructura
+Multi-Usuario}\label{paso-2-estructura-multi-usuario}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/lab{-}dotfiles}
+
+\CommentTok{\# Crear estructura}
+\FunctionTok{mkdir} \AttributeTok{{-}p} \DataTypeTok{\{common}\OperatorTok{,}\DataTypeTok{users\}}
+
+\CommentTok{\# Common: Configs compartidas}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ common/}\DataTypeTok{\{git}\OperatorTok{,}\DataTypeTok{shell}\OperatorTok{,}\DataTypeTok{terminal\}}
+
+\CommentTok{\# Users: Configs personales}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ users/}\DataTypeTok{\{alice}\OperatorTok{,}\DataTypeTok{bob}\OperatorTok{,}\DataTypeTok{carlos\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 3: Setup Común}\label{paso-3-setup-comuxfan}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Git config compartido (sin user.name/email)}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ common/git/.gitconfig }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{[core]}
+\StringTok{    editor = nano}
+\StringTok{    autocrlf = input}
+
+\StringTok{[alias]}
+\StringTok{    st = status}
+\StringTok{    co = checkout}
+\StringTok{    br = branch}
+\StringTok{    }
+\StringTok{[push]}
+\StringTok{    default = simple}
+\OperatorTok{EOF}
+
+\CommentTok{\# Shell común}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ common/shell/.zshrc }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\# Shared Zsh configuration for Lab}
+
+\StringTok{\# Common aliases}
+\StringTok{alias ll=\textquotesingle{}ls {-}lah\textquotesingle{}}
+\StringTok{alias ..=\textquotesingle{}cd ..\textquotesingle{}}
+
+\StringTok{\# Lab{-}specific paths}
+\StringTok{export LAB\_DATA="/data/lab"}
+\StringTok{export LAB\_TOOLS="/opt/lab{-}tools"}
+
+\StringTok{\# Source user{-}specific config if exists}
+\StringTok{[ {-}f \textasciitilde{}/.zshrc.local ] \&\& source \textasciitilde{}/.zshrc.local}
+\OperatorTok{EOF}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 4: Configs
+Personales}\label{paso-4-configs-personales}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Usuario Alice}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ users/alice/.zshrc.local }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\# Alice\textquotesingle{}s personal config}
+
+\StringTok{export EDITOR=nvim}
+
+\StringTok{alias mydata=\textquotesingle{}cd /data/lab/alice\textquotesingle{}}
+\OperatorTok{EOF}
+
+\CommentTok{\# Usuario Bob}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ users/bob/.zshrc.local }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\# Bob\textquotesingle{}s personal config}
+
+\StringTok{export EDITOR=vim}
+
+\StringTok{alias mydata=\textquotesingle{}cd /data/lab/bob\textquotesingle{}}
+\OperatorTok{EOF}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 5: Script de
+Instalación}\label{paso-5-script-de-instalaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ install{-}lab.sh }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\#!/bin/bash}
+
+\StringTok{USERNAME="$1"}
+
+\StringTok{if [ {-}z "$USERNAME" ]; then}
+\StringTok{    echo "Uso: $0 \textless{}username\textgreater{}"}
+\StringTok{    echo "Ejemplo: $0 alice"}
+\StringTok{    exit 1}
+\StringTok{fi}
+
+\StringTok{DOTFILES="$HOME/lab{-}dotfiles"}
+
+\StringTok{\# Instalar común}
+\StringTok{cd "$DOTFILES/common"}
+\StringTok{stow git shell terminal}
+
+\StringTok{\# Instalar personal del usuario}
+\StringTok{if [ {-}d "$DOTFILES/users/$USERNAME" ]; then}
+\StringTok{    cd "$DOTFILES/users/$USERNAME"}
+\StringTok{    stow .}
+\StringTok{    echo "✅ Configs de $USERNAME instaladas"}
+\StringTok{else}
+\StringTok{    echo "⚠️  No hay configs personales para $USERNAME"}
+\StringTok{fi}
+
+\StringTok{echo "✅ Instalación completa para $USERNAME"}
+\OperatorTok{EOF}
+
+\FunctionTok{chmod}\NormalTok{ +x install{-}lab.sh}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 6: Cada Usuario
+Instala}\label{paso-6-cada-usuario-instala}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Usuario Alice:}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/lab{-}dotfiles}
+\ExtensionTok{./install{-}lab.sh}\NormalTok{ alice}
+
+\CommentTok{\# Usuario Bob:}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/lab{-}dotfiles}
+\ExtensionTok{./install{-}lab.sh}\NormalTok{ bob}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 7: Actualizar Configs
+Compartidas}\label{paso-7-actualizar-configs-compartidas}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Cualquier usuario puede actualizar common/}
+
+\CommentTok{\# 1. Modificar}
+\FunctionTok{nano}\NormalTok{ \textasciitilde{}/lab{-}dotfiles/common/shell/.zshrc}
+
+\CommentTok{\# 2. Commit}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/lab{-}dotfiles}
+\FunctionTok{git}\NormalTok{ add common/shell/.zshrc}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"feat(shell): Add lab{-}wide utility function"}
+
+\CommentTok{\# 3. Push}
+\FunctionTok{git}\NormalTok{ push origin main}
+
+\CommentTok{\# 4. Otros usuarios pull}
+\FunctionTok{git}\NormalTok{ pull origin main}
+\CommentTok{\# Cambios se aplican automáticamente via symlinks}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 8: Usuarios Agregan Sus
+Configs}\label{paso-8-usuarios-agregan-sus-configs}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Bob quiere agregar su config de Neovim}
+
+\CommentTok{\# 1. Crear su directorio personal}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ \textasciitilde{}/lab{-}dotfiles/users/bob/.config}
+
+\CommentTok{\# 2. Copiar config}
+\FunctionTok{cp} \AttributeTok{{-}r}\NormalTok{ \textasciitilde{}/.config/nvim \textasciitilde{}/lab{-}dotfiles/users/bob/.config/}
+
+\CommentTok{\# 3. Commit (solo su carpeta)}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/lab{-}dotfiles}
+\FunctionTok{git}\NormalTok{ add users/bob/.config/nvim}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"feat(bob): Add Neovim configuration"}
+\FunctionTok{git}\NormalTok{ push}
+
+\CommentTok{\# Otros usuarios no se afectan}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 9: Migrar de Sistema Manual a
+Stow}\label{caso-9-migrar-de-sistema-manual-a-stow}
+
+\textbf{Escenario:} Tienes dotfiles en GitHub pero SIN Stow (todos en
+raíz del repo). Quieres migrar a Stow.
+
+\subsubsection{Estado Inicial}\label{estado-inicial}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Tu repo actual (sin Stow):}
+\ExtensionTok{\textasciitilde{}/dotfiles/}
+\ExtensionTok{├──}\NormalTok{ .gitconfig}
+\ExtensionTok{├──}\NormalTok{ .zshrc}
+\ExtensionTok{├──}\NormalTok{ .zshenv}
+\ExtensionTok{├──}\NormalTok{ nvim/}
+\ExtensionTok{│}\NormalTok{   └── init.lua}
+\ExtensionTok{├──}\NormalTok{ konsolerc}
+\ExtensionTok{└──}\NormalTok{ settings.json}
+
+\CommentTok{\# Estructura plana, difícil de gestionar}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 1: Backup Completo}\label{paso-1-backup-completo}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. Backup de dotfiles actuales}
+\FunctionTok{cp} \AttributeTok{{-}r}\NormalTok{ \textasciitilde{}/dotfiles \textasciitilde{}/dotfiles{-}backup{-}}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d}\VariableTok{)}
+
+\CommentTok{\# 2. Backup de HOME}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ \textasciitilde{}/home{-}backup}
+\FunctionTok{cp}\NormalTok{ \textasciitilde{}/.zshrc \textasciitilde{}/home{-}backup/}
+\FunctionTok{cp}\NormalTok{ \textasciitilde{}/.gitconfig \textasciitilde{}/home{-}backup/}
+\CommentTok{\# etc...}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 2: Crear Nueva
+Estructura}\label{paso-2-crear-nueva-estructura}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# Crear directorios de paquetes}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ git shell nvim terminal vscode}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 3: Reorganizar
+Archivos}\label{paso-3-reorganizar-archivos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# Git}
+\FunctionTok{mv}\NormalTok{ .gitconfig git/}
+
+\CommentTok{\# Shell}
+\FunctionTok{mv}\NormalTok{ .zshrc shell/}
+\FunctionTok{mv}\NormalTok{ .zshenv shell/}
+
+\CommentTok{\# Neovim (crear estructura correcta)}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ nvim/.config}
+\FunctionTok{mv}\NormalTok{ nvim/ nvim/.config/nvim/}
+
+\CommentTok{\# Terminal}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ terminal/.config}
+\FunctionTok{mv}\NormalTok{ konsolerc terminal/.config/}
+
+\CommentTok{\# VSCode}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ vscode/.config/Code/User}
+\FunctionTok{mv}\NormalTok{ settings.json vscode/.config/Code/User/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 4: Verificar Nueva
+Estructura}\label{paso-4-verificar-nueva-estructura}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Debería verse así:}
+\ExtensionTok{tree} \AttributeTok{{-}L}\NormalTok{ 3 \textasciitilde{}/dotfiles/}
+
+\CommentTok{\# \textasciitilde{}/dotfiles/}
+\CommentTok{\# ├── git/}
+\CommentTok{\# │   └── .gitconfig}
+\CommentTok{\# ├── shell/}
+\CommentTok{\# │   ├── .zshrc}
+\CommentTok{\# │   └── .zshenv}
+\CommentTok{\# ├── nvim/}
+\CommentTok{\# │   └── .config/}
+\CommentTok{\# │       └── nvim/}
+\CommentTok{\# ├── terminal/}
+\CommentTok{\# │   └── .config/}
+\CommentTok{\# │       └── konsolerc}
+\CommentTok{\# └── vscode/}
+\CommentTok{\#     └── .config/}
+\CommentTok{\#         └── Code/}
+\CommentTok{\#             └── User/}
+\CommentTok{\#                 └── settings.json}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 5: Eliminar Symlinks/Archivos Viejos de
+HOME}\label{paso-5-eliminar-symlinksarchivos-viejos-de-home}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Eliminar configs de HOME (los vamos a recrear con Stow)}
+\FunctionTok{rm}\NormalTok{ \textasciitilde{}/.gitconfig}
+\FunctionTok{rm}\NormalTok{ \textasciitilde{}/.zshrc}
+\FunctionTok{rm}\NormalTok{ \textasciitilde{}/.zshenv}
+\FunctionTok{rm} \AttributeTok{{-}rf}\NormalTok{ \textasciitilde{}/.config/nvim}
+\FunctionTok{rm}\NormalTok{ \textasciitilde{}/.config/konsolerc}
+\FunctionTok{rm}\NormalTok{ \textasciitilde{}/.config/Code/User/settings.json}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 6: Instalar con
+Stow}\label{paso-6-instalar-con-stow}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# Dry run primero}
+\ExtensionTok{stow} \AttributeTok{{-}nv}\NormalTok{ git shell nvim terminal vscode}
+
+\CommentTok{\# Si todo OK, instalar}
+\ExtensionTok{stow}\NormalTok{ git shell nvim terminal vscode}
+
+\CommentTok{\# Verificar}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.gitconfig}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.zshrc}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.config/nvim}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 7: Commit Nueva
+Estructura}\label{paso-7-commit-nueva-estructura}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# Stage todo}
+\FunctionTok{git}\NormalTok{ add }\AttributeTok{{-}A}
+
+\CommentTok{\# Ver cambios}
+\FunctionTok{git}\NormalTok{ status}
+
+\CommentTok{\# Commit}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"refactor: Migrate to GNU Stow structure}
+
+\StringTok{BREAKING CHANGE: Repository structure changed to use Stow}
+
+\StringTok{{-} Organized configs into packages (git, shell, nvim, etc.)}
+\StringTok{{-} Each package replicates HOME directory structure}
+\StringTok{{-} Use \textquotesingle{}stow \textless{}package\textgreater{}\textquotesingle{} to install}
+
+\StringTok{Migration guide:}
+\StringTok{1. stow {-}D * (if already installed)}
+\StringTok{2. stow git shell nvim terminal vscode"}
+
+\CommentTok{\# Push}
+\FunctionTok{git}\NormalTok{ push origin main}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 8: Actualizar
+README}\label{paso-8-actualizar-readme}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ README.md }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\# Dotfiles (Stow{-}managed)}
+
+\StringTok{Personal configurations managed with GNU Stow.}
+
+\StringTok{\# Structure}
+\end{Highlighting}
+\end{Shaded}
+
+\textasciitilde/dotfiles/ ├── git/ \# Git config ├── shell/ \# Zsh ├──
+nvim/ \# Neovim ├── terminal/ \# Konsole └── vscode/ \# VSCode
+
+\begin{verbatim}
+
+# Installation
+
+```bash
+# Install Stow
+sudo pacman -S stow
+
+# Clone
+git clone https://github.com/user/dotfiles.git ~/dotfiles
+
+# Install all
+cd ~/dotfiles
+stow */
+
+# Or selective
+stow git shell nvim
+\end{verbatim}
+
+\subsubsection{Update}\label{update}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{git}\NormalTok{ pull}
+\ExtensionTok{stow} \AttributeTok{{-}R} \PreprocessorTok{*}\NormalTok{/}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+EOF
+
+git add README.md
+git commit -m "docs: Update README for Stow"
+git push
+\end{verbatim}
+
+\subsubsection{Paso 9: Crear Scripts}\label{paso-9-crear-scripts}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.sh}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ install.sh }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\#!/bin/bash}
+\StringTok{cd "$HOME/dotfiles"}
+\StringTok{stow git shell nvim terminal vscode}
+\StringTok{echo "✅ Dotfiles installed"}
+\OperatorTok{EOF}
+
+\FunctionTok{chmod}\NormalTok{ +x install.sh}
+\FunctionTok{git}\NormalTok{ add install.sh}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"chore: Add install script"}
+\FunctionTok{git}\NormalTok{ push}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 10: Limpiar Historial de Git
+(Opcional)}\label{paso-10-limpiar-historial-de-git-opcional}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Si tu repo era muy grande con historia antigua,}
+\CommentTok{\# puedes limpiarlo:}
+
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# Crear orphan branch}
+\FunctionTok{git}\NormalTok{ checkout }\AttributeTok{{-}{-}orphan}\NormalTok{ latest\_branch}
+
+\CommentTok{\# Add all files}
+\FunctionTok{git}\NormalTok{ add }\AttributeTok{{-}A}
+
+\CommentTok{\# Commit}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"refactor: Fresh start with Stow structure"}
+
+\CommentTok{\# Delete main}
+\FunctionTok{git}\NormalTok{ branch }\AttributeTok{{-}D}\NormalTok{ main}
+
+\CommentTok{\# Rename current branch to main}
+\FunctionTok{git}\NormalTok{ branch }\AttributeTok{{-}m}\NormalTok{ main}
+
+\CommentTok{\# Force push}
+\FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}f}\NormalTok{ origin main}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 10: Setup para Desarrollo
+Multi-Proyecto}\label{caso-10-setup-para-desarrollo-multi-proyecto}
+
+\textbf{Escenario:} Trabajas en múltiples proyectos (Python, Web, Latex)
+y quieres configs específicas por proyecto.
+
+\subsubsection{Estructura de Dotfiles}\label{estructura-de-dotfiles}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{\textasciitilde{}/dotfiles/}
+\ExtensionTok{├──}\NormalTok{ common/           }\CommentTok{\# Común a todo}
+\ExtensionTok{│}\NormalTok{   ├── git/}
+\ExtensionTok{│}\NormalTok{   └── shell/}
+\ExtensionTok{├──}\NormalTok{ python{-}dev/       }\CommentTok{\# Python development}
+\ExtensionTok{│}\NormalTok{   ├── nvim/}
+\ExtensionTok{│}\NormalTok{   └── vscode/}
+\ExtensionTok{├──}\NormalTok{ web{-}dev/          }\CommentTok{\# Web development}
+\ExtensionTok{│}\NormalTok{   ├── nvim/}
+\ExtensionTok{│}\NormalTok{   └── vscode/}
+\ExtensionTok{└──}\NormalTok{ latex{-}writing/    }\CommentTok{\# Academic writing}
+    \ExtensionTok{├──}\NormalTok{ nvim/}
+    \ExtensionTok{└──}\NormalTok{ texstudio/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 1: Crear Estructura}\label{paso-1-crear-estructura}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# Común}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ common/}\DataTypeTok{\{git}\OperatorTok{,}\DataTypeTok{shell\}}
+
+\CommentTok{\# Python dev}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ python{-}dev/}\DataTypeTok{\{nvim}\OperatorTok{,}\DataTypeTok{vscode\}}
+
+\CommentTok{\# Web dev}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ web{-}dev/}\DataTypeTok{\{nvim}\OperatorTok{,}\DataTypeTok{vscode\}}
+
+\CommentTok{\# LaTeX}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ latex{-}writing/}\DataTypeTok{\{nvim}\OperatorTok{,}\DataTypeTok{texstudio\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 2: Configs Comunes}\label{paso-2-configs-comunes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Git (igual para todos)}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ common/git/.gitconfig }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{[user]}
+\StringTok{    name = Edison Achalma}
+\StringTok{    email = achalmaedison@gmail.com}
+
+\StringTok{[core]}
+\StringTok{    editor = nvim}
+\OperatorTok{EOF}
+
+\CommentTok{\# Shell base}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ common/shell/.zshrc }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\# Common shell config}
+
+\StringTok{\# Aliases}
+\StringTok{alias gs=\textquotesingle{}git status\textquotesingle{}}
+\StringTok{alias ll=\textquotesingle{}ls {-}lah\textquotesingle{}}
+
+\StringTok{\# Load project{-}specific config}
+\StringTok{[ {-}f \textasciitilde{}/.zshrc.project ] \&\& source \textasciitilde{}/.zshrc.project}
+\OperatorTok{EOF}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 3: Configs Específicas por
+Proyecto}\label{paso-3-configs-especuxedficas-por-proyecto}
+
+\textbf{Python Development:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Neovim para Python}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ python{-}dev/nvim/.config/nvim/init.lua }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{{-}{-} Python{-}focused Neovim config}
+
+\StringTok{{-}{-} LSP}
+\StringTok{require(\textquotesingle{}lspconfig\textquotesingle{}).pyright.setup\{\}}
+
+\StringTok{{-}{-} Python{-}specific keymaps}
+\StringTok{vim.keymap.set(\textquotesingle{}n\textquotesingle{}, \textquotesingle{}\textless{}leader\textgreater{}r\textquotesingle{}, \textquotesingle{}:!python \%\textless{}CR\textgreater{}\textquotesingle{})}
+\OperatorTok{EOF}
+
+\CommentTok{\# VSCode para Python}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ python{-}dev/vscode/.config/Code/User/settings.json }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\{}
+\StringTok{    "python.linting.enabled": true,}
+\StringTok{    "python.linting.pylintEnabled": true,}
+\StringTok{    "python.formatting.provider": "black"}
+\StringTok{\}}
+\OperatorTok{EOF}
+
+\CommentTok{\# Shell additions para Python}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ python{-}dev/shell/.zshrc.project }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\# Python dev environment}
+
+\StringTok{export PYTHONPATH="$HOME/projects/python:$PYTHONPATH"}
+
+\StringTok{alias pytest=\textquotesingle{}python {-}m pytest\textquotesingle{}}
+\StringTok{alias venv=\textquotesingle{}python {-}m venv venv \&\& source venv/bin/activate\textquotesingle{}}
+\OperatorTok{EOF}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Web Development:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Neovim para Web}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ web{-}dev/nvim/.config/nvim/init.lua }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{{-}{-} Web{-}focused Neovim config}
+
+\StringTok{{-}{-} LSP for JS/TS}
+\StringTok{require(\textquotesingle{}lspconfig\textquotesingle{}).tsserver.setup\{\}}
+
+\StringTok{{-}{-} Live server}
+\StringTok{vim.keymap.set(\textquotesingle{}n\textquotesingle{}, \textquotesingle{}\textless{}leader\textgreater{}l\textquotesingle{}, \textquotesingle{}:!live{-}server .\textless{}CR\textgreater{}\textquotesingle{})}
+\OperatorTok{EOF}
+
+\CommentTok{\# VSCode para Web}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ web{-}dev/vscode/.config/Code/User/settings.json }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\{}
+\StringTok{    "emmet.includeLanguages": \{}
+\StringTok{        "javascript": "javascriptreact"}
+\StringTok{    \},}
+\StringTok{    "prettier.enable": true,}
+\StringTok{    "editor.formatOnSave": true}
+\StringTok{\}}
+\OperatorTok{EOF}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 4: Scripts de
+Activación}\label{paso-4-scripts-de-activaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Script para activar proyecto Python}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ \textasciitilde{}/dotfiles/activate{-}python.sh }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\#!/bin/bash}
+
+\StringTok{echo "🐍 Activando entorno Python..."}
+
+\StringTok{cd \textasciitilde{}/dotfiles}
+
+\StringTok{\# Unstow otros proyectos}
+\StringTok{stow {-}D web{-}dev/nvim 2\textgreater{}/dev/null || true}
+\StringTok{stow {-}D latex{-}writing/nvim 2\textgreater{}/dev/null || true}
+
+\StringTok{\# Stow común}
+\StringTok{stow common/*}
+
+\StringTok{\# Stow Python}
+\StringTok{stow python{-}dev/*}
+
+\StringTok{\# Copiar project{-}specific shell config}
+\StringTok{cp python{-}dev/shell/.zshrc.project \textasciitilde{}/.zshrc.project}
+
+\StringTok{echo "✅ Entorno Python activado"}
+\OperatorTok{EOF}
+
+\FunctionTok{chmod}\NormalTok{ +x \textasciitilde{}/dotfiles/activate{-}python.sh}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Script para activar proyecto Web}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ \textasciitilde{}/dotfiles/activate{-}web.sh }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\#!/bin/bash}
+
+\StringTok{echo "🌐 Activando entorno Web..."}
+
+\StringTok{cd \textasciitilde{}/dotfiles}
+
+\StringTok{\# Unstow otros}
+\StringTok{stow {-}D python{-}dev/nvim 2\textgreater{}/dev/null || true}
+\StringTok{stow {-}D latex{-}writing/nvim 2\textgreater{}/dev/null || true}
+
+\StringTok{\# Stow común}
+\StringTok{stow common/*}
+
+\StringTok{\# Stow Web}
+\StringTok{stow web{-}dev/*}
+
+\StringTok{\# Shell config}
+\StringTok{cp web{-}dev/shell/.zshrc.project \textasciitilde{}/.zshrc.project}
+
+\StringTok{echo "✅ Entorno Web activado"}
+\OperatorTok{EOF}
+
+\FunctionTok{chmod}\NormalTok{ +x \textasciitilde{}/dotfiles/activate{-}web.sh}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 5: Uso}\label{paso-5-uso}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Trabajar en proyecto Python}
+\ExtensionTok{\textasciitilde{}/dotfiles/activate{-}python.sh}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/projects/python/my{-}project}
+\ExtensionTok{nvim}  \CommentTok{\# Abre con config de Python}
+
+\CommentTok{\# Cambiar a proyecto Web}
+\ExtensionTok{\textasciitilde{}/dotfiles/activate{-}web.sh}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/projects/web/my{-}app}
+\ExtensionTok{nvim}  \CommentTok{\# Abre con config de Web}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Paso 6: Automatizar con Direnv
+(Avanzado)}\label{paso-6-automatizar-con-direnv-avanzado}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Instalar direnv}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ direnv}
+
+\CommentTok{\# En cada proyecto, crear .envrc}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/projects/python/my{-}project}
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ .envrc }\OperatorTok{\textless{}\textless{} \textquotesingle{}EOF\textquotesingle{}}
+\StringTok{\#!/bin/bash}
+\StringTok{\# Activar entorno Python automáticamente}
+\StringTok{source "$HOME/dotfiles/activate{-}python.sh"}
+\OperatorTok{EOF}
+
+\ExtensionTok{direnv}\NormalTok{ allow}
+
+\CommentTok{\# Ahora al entrar al directorio, se activa automáticamente}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Mi Repositorio .dotfiles}\label{mi-repositorio-.dotfiles}
+
+\subsection{Mi Estructura Actual}\label{mi-estructura-actual}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{\textasciitilde{}/dotfiles/}
+\ExtensionTok{├──}\NormalTok{ git/}
+\ExtensionTok{│}\NormalTok{   └── .gitconfig}
+\ExtensionTok{├──}\NormalTok{ kde/}
+\ExtensionTok{│}\NormalTok{   └── .config/}
+\ExtensionTok{│}\NormalTok{       ├── kdeglobals}
+\ExtensionTok{│}\NormalTok{       ├── dolphinrc}
+\ExtensionTok{│}\NormalTok{       └── ...}
+\ExtensionTok{├──}\NormalTok{ shell/}
+\ExtensionTok{│}\NormalTok{   ├── .zshrc}
+\ExtensionTok{│}\NormalTok{   └── starship.toml}
+\ExtensionTok{├──}\NormalTok{ terminal/}
+\ExtensionTok{│}\NormalTok{   └── .config/}
+\ExtensionTok{│}\NormalTok{       └── konsolerc}
+\ExtensionTok{├──}\NormalTok{ vscode/}
+\ExtensionTok{│}\NormalTok{   └── .config/}
+\ExtensionTok{│}\NormalTok{       ├── settings.json}
+\ExtensionTok{│}\NormalTok{       └── keybindings.json}
+\ExtensionTok{├──}\NormalTok{ zotero/}
+\ExtensionTok{│}\NormalTok{   └── .zotero/...}
+\ExtensionTok{├──}\NormalTok{ obsidian/}
+\ExtensionTok{│}\NormalTok{   └── Documents/thoughts/.obsidian/}
+\ExtensionTok{└──}\NormalTok{ ... }\ErrorTok{(}\ExtensionTok{más}\NormalTok{ paquetes}\KeywordTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Implementación de Stow en mi
+Repo}\label{implementaciuxf3n-de-stow-en-mi-repo}
+
+\subsection{1. Script install.sh}\label{script-install.sh}
+
+Mi \texttt{install.sh} actual debe usar Stow. Aquí está mi versión
+mejorada:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# \textasciitilde{}/dotfiles/install.sh}
+
+\BuiltInTok{set} \AttributeTok{{-}e}
+
+\VariableTok{DOTFILES}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/dotfiles"}
+\VariableTok{BACKUP\_DIR}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/dotfiles{-}backup{-}}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d{-}\%H\%M\%S}\VariableTok{)}\StringTok{"}
+
+\CommentTok{\# Colores}
+\VariableTok{RED}\OperatorTok{=}\StringTok{\textquotesingle{}\textbackslash{}033[0;31m\textquotesingle{}}
+\VariableTok{GREEN}\OperatorTok{=}\StringTok{\textquotesingle{}\textbackslash{}033[0;32m\textquotesingle{}}
+\VariableTok{YELLOW}\OperatorTok{=}\StringTok{\textquotesingle{}\textbackslash{}033[1;33m\textquotesingle{}}
+\VariableTok{NC}\OperatorTok{=}\StringTok{\textquotesingle{}\textbackslash{}033[0m\textquotesingle{}} \CommentTok{\# No Color}
+
+\CommentTok{\# Funciones}
+\FunctionTok{log\_info()} \KeywordTok{\{}
+    \BuiltInTok{echo} \AttributeTok{{-}e} \StringTok{"}\VariableTok{$\{GREEN\}}\StringTok{[INFO]}\VariableTok{$\{NC\}}\StringTok{ }\VariableTok{$1}\StringTok{"}
+\KeywordTok{\}}
+
+\FunctionTok{log\_warn()} \KeywordTok{\{}
+    \BuiltInTok{echo} \AttributeTok{{-}e} \StringTok{"}\VariableTok{$\{YELLOW\}}\StringTok{[WARN]}\VariableTok{$\{NC\}}\StringTok{ }\VariableTok{$1}\StringTok{"}
+\KeywordTok{\}}
+
+\FunctionTok{log\_error()} \KeywordTok{\{}
+    \BuiltInTok{echo} \AttributeTok{{-}e} \StringTok{"}\VariableTok{$\{RED\}}\StringTok{[ERROR]}\VariableTok{$\{NC\}}\StringTok{ }\VariableTok{$1}\StringTok{"}
+\KeywordTok{\}}
+
+\CommentTok{\# Verificar que Stow está instalado}
+\ControlFlowTok{if} \OtherTok{! }\BuiltInTok{command} \AttributeTok{{-}v}\NormalTok{ stow }\OperatorTok{\&\textgreater{}}\NormalTok{ /dev/null}\KeywordTok{;} \ControlFlowTok{then}
+    \ExtensionTok{log\_error} \StringTok{"Stow no está instalado"}
+    \ExtensionTok{log\_info} \StringTok{"Instalando stow..."}
+    \FunctionTok{sudo}\NormalTok{ apt update }\KeywordTok{\&\&} \FunctionTok{sudo}\NormalTok{ apt install }\AttributeTok{{-}y}\NormalTok{ stow}
+\ControlFlowTok{fi}
+
+\CommentTok{\# Función para hacer backup}
+\FunctionTok{backup\_if\_exists()} \KeywordTok{\{}
+    \BuiltInTok{local} \VariableTok{file}\OperatorTok{=}\StringTok{"}\VariableTok{$1}\StringTok{"}
+    \ControlFlowTok{if} \BuiltInTok{[} \OtherTok{{-}e} \StringTok{"}\VariableTok{$file}\StringTok{"} \BuiltInTok{]} \KeywordTok{\&\&} \BuiltInTok{[} \OtherTok{!} \OtherTok{{-}L} \StringTok{"}\VariableTok{$file}\StringTok{"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+        \FunctionTok{mkdir} \AttributeTok{{-}p} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{"}
+        \FunctionTok{cp} \AttributeTok{{-}r} \StringTok{"}\VariableTok{$file}\StringTok{"} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/"}
+        \ExtensionTok{log\_warn} \StringTok{"Backup: }\VariableTok{$file}\StringTok{ {-}\textgreater{} }\VariableTok{$BACKUP\_DIR}\StringTok{/"}
+    \ControlFlowTok{fi}
+\KeywordTok{\}}
+
+\CommentTok{\# Función para stow paquete}
+\FunctionTok{stow\_package()} \KeywordTok{\{}
+    \BuiltInTok{local} \VariableTok{package}\OperatorTok{=}\StringTok{"}\VariableTok{$1}\StringTok{"}
+    
+    \ExtensionTok{log\_info} \StringTok{"Stowing }\VariableTok{$package}\StringTok{..."}
+    
+    \CommentTok{\# Dry run primero}
+    \ControlFlowTok{if} \ExtensionTok{stow} \AttributeTok{{-}nv} \StringTok{"}\VariableTok{$package}\StringTok{"} \DecValTok{2}\OperatorTok{\textgreater{}\&}\DecValTok{1} \KeywordTok{|} \FunctionTok{grep} \AttributeTok{{-}q} \StringTok{"WARNING"}\KeywordTok{;} \ControlFlowTok{then}
+        \ExtensionTok{log\_warn} \StringTok{"Conflicto detectado para }\VariableTok{$package}\StringTok{"}
+        \BuiltInTok{read} \AttributeTok{{-}p} \StringTok{"¿Hacer backup y continuar? [y/N] "} \AttributeTok{{-}n}\NormalTok{ 1 }\AttributeTok{{-}r}
+        \BuiltInTok{echo}
+        \ControlFlowTok{if} \KeywordTok{[[} \VariableTok{$REPLY} \OtherTok{=\textasciitilde{}} \PreprocessorTok{\^{}}\OperatorTok{[}\SpecialStringTok{Yy}\OperatorTok{]$} \KeywordTok{]];} \ControlFlowTok{then}
+            \CommentTok{\# Hacer backup de archivos conflictivos}
+            \CommentTok{\# (aquí necesitarías lógica más sofisticada)}
+            \ExtensionTok{stow} \StringTok{"}\VariableTok{$package}\StringTok{"}
+        \ControlFlowTok{else}
+            \ExtensionTok{log\_error} \StringTok{"Saltando }\VariableTok{$package}\StringTok{"}
+            \ControlFlowTok{return} \DecValTok{1}
+        \ControlFlowTok{fi}
+    \ControlFlowTok{else}
+        \ExtensionTok{stow} \StringTok{"}\VariableTok{$package}\StringTok{"}
+        \ExtensionTok{log\_info} \StringTok{"✓ }\VariableTok{$package}\StringTok{ instalado"}
+    \ControlFlowTok{fi}
+\KeywordTok{\}}
+
+\CommentTok{\# Cambiar a dotfiles directory}
+\BuiltInTok{cd} \StringTok{"}\VariableTok{$DOTFILES}\StringTok{"} \KeywordTok{||} \BuiltInTok{exit}\NormalTok{ 1}
+
+\CommentTok{\# Lista de paquetes a instalar}
+\VariableTok{PACKAGES}\OperatorTok{=}\VariableTok{(}
+    \StringTok{"git"}
+    \StringTok{"shell"}
+    \StringTok{"terminal"}
+    \StringTok{"kde"}
+    \StringTok{"vscode"}
+    \StringTok{"nvim"}
+    \StringTok{"kitty"}
+    \CommentTok{\# ... más paquetes}
+\VariableTok{)}
+
+\CommentTok{\# Opción para instalar todo o selectivo}
+\ControlFlowTok{if} \BuiltInTok{[} \StringTok{"}\VariableTok{$1}\StringTok{"} \OtherTok{==} \StringTok{"all"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+    \VariableTok{PACKAGES}\OperatorTok{=}\VariableTok{($(}\FunctionTok{ls} \AttributeTok{{-}d} \PreprocessorTok{*}\NormalTok{/ }\KeywordTok{|} \FunctionTok{sed} \StringTok{\textquotesingle{}s\#/\#\textquotesingle{}}\VariableTok{))}
+    \ExtensionTok{log\_info} \StringTok{"Instalando TODOS los paquetes"}
+\ControlFlowTok{elif} \BuiltInTok{[} \VariableTok{$\#} \OtherTok{{-}gt}\NormalTok{ 0 }\BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+    \VariableTok{PACKAGES}\OperatorTok{=}\VariableTok{(}\StringTok{"}\VariableTok{$@}\StringTok{"}\VariableTok{)}
+    \ExtensionTok{log\_info} \StringTok{"Instalando paquetes especificados: }\VariableTok{$\{PACKAGES}\OperatorTok{[*]}\VariableTok{\}}\StringTok{"}
+\ControlFlowTok{fi}
+
+\CommentTok{\# Instalar paquetes}
+\ControlFlowTok{for}\NormalTok{ package }\KeywordTok{in} \StringTok{"}\VariableTok{$\{PACKAGES}\OperatorTok{[@]}\VariableTok{\}}\StringTok{"}\KeywordTok{;} \ControlFlowTok{do}
+    \ExtensionTok{stow\_package} \StringTok{"}\VariableTok{$package}\StringTok{"} \KeywordTok{||} \FunctionTok{true}
+\ControlFlowTok{done}
+
+\ExtensionTok{log\_info} \StringTok{"Instalación completa!"}
+\ControlFlowTok{if} \BuiltInTok{[} \OtherTok{{-}d} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+    \ExtensionTok{log\_info} \StringTok{"Backups guardados en: }\VariableTok{$BACKUP\_DIR}\StringTok{"}
+\ControlFlowTok{fi}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Uso:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Instalar paquetes específicos}
+\ExtensionTok{./install.sh}\NormalTok{ git shell terminal}
+
+\CommentTok{\# Instalar todo}
+\ExtensionTok{./install.sh}\NormalTok{ all}
+
+\CommentTok{\# Ver qué haría sin hacer cambios}
+\CommentTok{\# (modificar script para agregar {-}n flag)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{2. Script para Desinstalar}\label{script-para-desinstalar}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# \textasciitilde{}/dotfiles/uninstall.sh}
+
+\VariableTok{DOTFILES}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/dotfiles"}
+
+\BuiltInTok{cd} \StringTok{"}\VariableTok{$DOTFILES}\StringTok{"} \KeywordTok{||} \BuiltInTok{exit}\NormalTok{ 1}
+
+\ControlFlowTok{if} \BuiltInTok{[} \VariableTok{$\#} \OtherTok{{-}eq}\NormalTok{ 0 }\BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+    \BuiltInTok{echo} \StringTok{"Uso: }\VariableTok{$0}\StringTok{ \textless{}paquete1\textgreater{} [paquete2] ..."}
+    \BuiltInTok{echo} \StringTok{"O: }\VariableTok{$0}\StringTok{ all"}
+    \BuiltInTok{exit}\NormalTok{ 1}
+\ControlFlowTok{fi}
+
+\ControlFlowTok{if} \BuiltInTok{[} \StringTok{"}\VariableTok{$1}\StringTok{"} \OtherTok{==} \StringTok{"all"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+    \VariableTok{PACKAGES}\OperatorTok{=}\VariableTok{($(}\FunctionTok{ls} \AttributeTok{{-}d} \PreprocessorTok{*}\NormalTok{/ }\KeywordTok{|} \FunctionTok{sed} \StringTok{\textquotesingle{}s\#/\#\textquotesingle{}}\VariableTok{))}
+\ControlFlowTok{else}
+    \VariableTok{PACKAGES}\OperatorTok{=}\VariableTok{(}\StringTok{"}\VariableTok{$@}\StringTok{"}\VariableTok{)}
+\ControlFlowTok{fi}
+
+\ControlFlowTok{for}\NormalTok{ package }\KeywordTok{in} \StringTok{"}\VariableTok{$\{PACKAGES}\OperatorTok{[@]}\VariableTok{\}}\StringTok{"}\KeywordTok{;} \ControlFlowTok{do}
+    \BuiltInTok{echo} \StringTok{"Unstowing }\VariableTok{$package}\StringTok{..."}
+    \ExtensionTok{stow} \AttributeTok{{-}D} \StringTok{"}\VariableTok{$package}\StringTok{"}
+    \BuiltInTok{echo} \StringTok{"✓ }\VariableTok{$package}\StringTok{ desinstalado"}
+\ControlFlowTok{done}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{3. Reorganizar Paquetes
+Problemáticos}\label{reorganizar-paquetes-problemuxe1ticos}
+
+\textbf{Zotero:} Ubicación no estándar
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Actual:}
+\ExtensionTok{zotero/}
+  \ExtensionTok{└──}\NormalTok{ .zotero/zotero/25vfdnq5.default/}
+      \ExtensionTok{└──}\NormalTok{ prefs.js}
+
+\CommentTok{\# Problema: .zotero está en HOME pero tiene subdirectorios profundos}
+
+\CommentTok{\# Solución 1: Usar como está (funciona)}
+\ExtensionTok{stow}\NormalTok{ zotero}
+\CommentTok{\# Resultado: \textasciitilde{}/.zotero/... → dotfiles/zotero/.zotero/...}
+
+\CommentTok{\# Solución 2: Si solo quieres prefs.js, simplificar:}
+\ExtensionTok{zotero/}
+  \ExtensionTok{└──}\NormalTok{ .zotero/}
+      \ExtensionTok{└──}\NormalTok{ zotero/}
+          \ExtensionTok{└──}\NormalTok{ 25vfdnq5.default/}
+              \ExtensionTok{└──}\NormalTok{ prefs.js}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Obsidian:} Ruta específica
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Actual:}
+\ExtensionTok{obsidian/}
+  \ExtensionTok{└──}\NormalTok{ Documents/thoughts/.obsidian/}
+
+\CommentTok{\# Problema: No está en .config sino en Documents}
+
+\CommentTok{\# Solución: Está bien así, Stow lo maneja}
+\ExtensionTok{stow}\NormalTok{ obsidian}
+\CommentTok{\# Resultado: \textasciitilde{}/Documents/thoughts/.obsidian → ...}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{4. .stowrc para tu Repo}\label{stowrc-para-tu-repo}
+
+Crear \texttt{\textasciitilde{}/dotfiles/.stowrc}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# \textasciitilde{}/dotfiles/.stowrc}
+
+\CommentTok{\# Target es siempre HOME}
+\ExtensionTok{{-}{-}target=}\VariableTok{$HOME}
+
+\CommentTok{\# Ignorar archivos comunes}
+\ExtensionTok{{-}{-}ignore=}\StringTok{\textquotesingle{}.git\textquotesingle{}}
+\ExtensionTok{{-}{-}ignore=}\StringTok{\textquotesingle{}README.*\textquotesingle{}}
+\ExtensionTok{{-}{-}ignore=}\StringTok{\textquotesingle{}LICENSE.*\textquotesingle{}}
+\ExtensionTok{{-}{-}ignore=}\StringTok{\textquotesingle{}.*.swp\textquotesingle{}}
+\ExtensionTok{{-}{-}ignore=}\StringTok{\textquotesingle{}.*\textasciitilde{}\textquotesingle{}}
+\ExtensionTok{{-}{-}ignore=}\StringTok{\textquotesingle{}install.sh\textquotesingle{}}
+\ExtensionTok{{-}{-}ignore=}\StringTok{\textquotesingle{}uninstall.sh\textquotesingle{}}
+\ExtensionTok{{-}{-}ignore=}\StringTok{\textquotesingle{}.stowrc\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+Con esto, no necesitas especificar \texttt{-t\ \textasciitilde{}} cada
+vez.
+
+\subsection{5. .stow-local-ignore por
+Paquete}\label{stow-local-ignore-por-paquete}
+
+\textbf{Para vscode:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# \textasciitilde{}/dotfiles/vscode/.stow{-}local{-}ignore}
+
+\CommentTok{\# No stow extensiones (solo configuración)}
+\ExtensionTok{\^{}/\textbackslash{}.config/Code/CachedData/}
+\ExtensionTok{\^{}/\textbackslash{}.config/Code/logs/}
+\ExtensionTok{\^{}/\textbackslash{}.config/Code/User/workspaceStorage/}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Para kde:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# \textasciitilde{}/dotfiles/kde/.stow{-}local{-}ignore}
+
+\CommentTok{\# Archivos de sesión y cache}
+\ExtensionTok{\^{}/\textbackslash{}.config/session/}
+\ExtensionTok{\^{}/\textbackslash{}.cache/}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Para shell:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# \textasciitilde{}/dotfiles/shell/.stow{-}local{-}ignore}
+
+\CommentTok{\# Historia de shells (puede tener info sensible)}
+\ExtensionTok{\^{}/\textbackslash{}.zsh\_history}
+\ExtensionTok{\^{}/\textbackslash{}.bash\_history}
+
+\CommentTok{\# Archivos compilados}
+\ExtensionTok{\textbackslash{}.zcompdump}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{6. Script de Verificación}\label{script-de-verificaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# \textasciitilde{}/dotfiles/check{-}stow.sh}
+
+\CommentTok{\# Verificar qué está stowed}
+
+\VariableTok{DOTFILES}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/dotfiles"}
+
+\BuiltInTok{echo} \StringTok{"Paquetes stowed:"}
+\BuiltInTok{echo} \StringTok{"================"}
+
+\BuiltInTok{cd} \StringTok{"}\VariableTok{$DOTFILES}\StringTok{"} \KeywordTok{||} \BuiltInTok{exit}\NormalTok{ 1}
+
+\ControlFlowTok{for}\NormalTok{ package }\KeywordTok{in} \PreprocessorTok{*}\NormalTok{/}\KeywordTok{;} \ControlFlowTok{do}
+    \VariableTok{package}\OperatorTok{=}\VariableTok{$\{package}\OperatorTok{\%}\NormalTok{/}\VariableTok{\}}
+    
+    \CommentTok{\# Encontrar primer archivo del paquete}
+    \VariableTok{first\_file}\OperatorTok{=}\VariableTok{$(}\FunctionTok{find} \StringTok{"}\VariableTok{$package}\StringTok{"} \AttributeTok{{-}type}\NormalTok{ f }\KeywordTok{|} \FunctionTok{head} \AttributeTok{{-}1}\VariableTok{)}
+    
+    \ControlFlowTok{if} \BuiltInTok{[} \OtherTok{{-}z} \StringTok{"}\VariableTok{$first\_file}\StringTok{"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+        \ControlFlowTok{continue}
+    \ControlFlowTok{fi}
+    
+    \CommentTok{\# Convertir a path en HOME}
+    \VariableTok{home\_path}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/}\VariableTok{$\{first\_file}\OperatorTok{\#}\VariableTok{$package}\NormalTok{/}\VariableTok{\}}\StringTok{"}
+    
+    \ControlFlowTok{if} \BuiltInTok{[} \OtherTok{{-}L} \StringTok{"}\VariableTok{$home\_path}\StringTok{"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+        \VariableTok{target}\OperatorTok{=}\VariableTok{$(}\FunctionTok{readlink} \StringTok{"}\VariableTok{$home\_path}\StringTok{"}\VariableTok{)}
+        \ControlFlowTok{if} \KeywordTok{[[} \StringTok{"}\VariableTok{$target}\StringTok{"} \OtherTok{==} \PreprocessorTok{*}\StringTok{"}\VariableTok{$DOTFILES}\StringTok{/}\VariableTok{$package}\StringTok{"}\PreprocessorTok{*} \KeywordTok{]];} \ControlFlowTok{then}
+            \BuiltInTok{echo} \StringTok{"✓ }\VariableTok{$package}\StringTok{"}
+        \ControlFlowTok{else}
+            \BuiltInTok{echo} \StringTok{"✗ }\VariableTok{$package}\StringTok{ (symlink apunta a otro lugar)"}
+        \ControlFlowTok{fi}
+    \ControlFlowTok{else}
+        \BuiltInTok{echo} \StringTok{"✗ }\VariableTok{$package}\StringTok{ (no stowed)"}
+    \ControlFlowTok{fi}
+\ControlFlowTok{done}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{7. Actualizar .gitignore}\label{actualizar-.gitignore}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# \textasciitilde{}/dotfiles/.gitignore}
+
+\CommentTok{\# Backups}
+\ExtensionTok{*\textasciitilde{}}
+\ExtensionTok{*.bak}
+\ExtensionTok{*.old}
+\ExtensionTok{*.orig}
+\BuiltInTok{.}\PreprocessorTok{*}\NormalTok{.swp}
+
+\CommentTok{\# Datos sensibles}
+\ExtensionTok{shell/.zsh\_history}
+\ExtensionTok{shell/.bash\_history}
+\ExtensionTok{.netrc}
+\ExtensionTok{.authinfo}
+
+\CommentTok{\# Cache y temporales}
+\ExtensionTok{**/.cache/}
+\ExtensionTok{**/\_\_pycache\_\_/}
+\ExtensionTok{**/node\_modules/}
+
+\CommentTok{\# Logs}
+\ExtensionTok{**/*.log}
+
+\CommentTok{\# Sistema}
+\ExtensionTok{.DS\_Store}
+\ExtensionTok{Thumbs.db}
+
+\CommentTok{\# Archivos de Stow}
+\ExtensionTok{.stow}
+
+\CommentTok{\# Zotero database (demasiado grande)}
+\ExtensionTok{zotero/.zotero/zotero/*/zotero.sqlite*}
+
+\CommentTok{\# VSCode workspace storage}
+\ExtensionTok{vscode/.config/Code/User/workspaceStorage/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{8. Comandos Útiles para tu
+Repo}\label{comandos-uxfatiles-para-tu-repo}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Navegar a dotfiles}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+
+\CommentTok{\# Instalar todo (primera vez)}
+\ExtensionTok{./install.sh}\NormalTok{ all}
+
+\CommentTok{\# Instalar paquetes esenciales}
+\ExtensionTok{./install.sh}\NormalTok{ git shell terminal kde}
+
+\CommentTok{\# Verificar qué está instalado}
+\ExtensionTok{./check{-}stow.sh}
+
+\CommentTok{\# Actualizar después de pull}
+\FunctionTok{git}\NormalTok{ pull}
+\ExtensionTok{stow} \AttributeTok{{-}R} \PreprocessorTok{*}\NormalTok{/  }\CommentTok{\# Restow todo}
+
+\CommentTok{\# Desinstalar temporalmente para pruebas}
+\ExtensionTok{stow} \AttributeTok{{-}D}\NormalTok{ vscode}
+\CommentTok{\# hacer pruebas...}
+\ExtensionTok{stow}\NormalTok{ vscode  }\CommentTok{\# Reinstalar}
+
+\CommentTok{\# Agregar nuevo paquete}
+\FunctionTok{mkdir}\NormalTok{ new{-}app}
+\CommentTok{\# crear estructura...}
+\ExtensionTok{stow}\NormalTok{ new{-}app}
+\FunctionTok{git}\NormalTok{ add new{-}app/}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"Add new{-}app"}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Workflows Completos}\label{workflows-completos}
+
+\subsection{Workflow 1: Configuración
+Inicial}\label{workflow-1-configuraciuxf3n-inicial}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Paso 1: Crear estructura}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ \textasciitilde{}/dotfiles}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{git}\NormalTok{ init}
+
+\CommentTok{\# Paso 2: Crear paquetes}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ zsh nvim git}
+
+\CommentTok{\# Paso 3: Mover configs existentes}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.zshrc zsh/}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.config/nvim nvim/.config/}
+\FunctionTok{mv}\NormalTok{ \textasciitilde{}/.gitconfig git/}
+
+\CommentTok{\# Paso 4: Stow}
+\ExtensionTok{stow}\NormalTok{ zsh nvim git}
+
+\CommentTok{\# Paso 5: Verificar}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/.zshrc  }\CommentTok{\# debe ser symlink}
+
+\CommentTok{\# Paso 6: Git}
+\FunctionTok{git}\NormalTok{ add .}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"Initial dotfiles"}
+\FunctionTok{git}\NormalTok{ remote add origin git@github.com:user/dotfiles.git}
+\FunctionTok{git}\NormalTok{ push }\AttributeTok{{-}u}\NormalTok{ origin main}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Workflow 2: Día a Día}\label{workflow-2-duxeda-a-duxeda}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Editar configuración (desde cualquier lugar)}
+\ExtensionTok{nvim}\NormalTok{ \textasciitilde{}/.config/nvim/init.lua  }\CommentTok{\# Edita a través del symlink}
+
+\CommentTok{\# Commit cambios}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{git}\NormalTok{ add nvim/}
+\FunctionTok{git}\NormalTok{ commit }\AttributeTok{{-}m} \StringTok{"Update nvim config: add new plugin"}
+\FunctionTok{git}\NormalTok{ push}
+
+\CommentTok{\# En otra máquina}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{git}\NormalTok{ pull}
+\CommentTok{\# Los cambios se reflejan automáticamente (symlinks)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Workflow 3: Nueva
+Máquina}\label{workflow-3-nueva-muxe1quina}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Clonar}
+\FunctionTok{git}\NormalTok{ clone https://github.com/user/dotfiles.git \textasciitilde{}/dotfiles}
+
+\CommentTok{\# Instalar Stow}
+\FunctionTok{sudo}\NormalTok{ apt install stow}
+
+\CommentTok{\# Backup existentes (precaución)}
+\FunctionTok{mkdir}\NormalTok{ \textasciitilde{}/backup}
+\FunctionTok{cp}\NormalTok{ \textasciitilde{}/.zshrc \textasciitilde{}/backup/ }\DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{||} \FunctionTok{true}
+
+\CommentTok{\# Stow}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\ExtensionTok{stow} \PreprocessorTok{*}\NormalTok{/}
+
+\CommentTok{\# Verificar}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ \textasciitilde{}/ }\KeywordTok{|} \FunctionTok{grep} \StringTok{\textquotesingle{}\textbackslash{}{-}\textgreater{}\textquotesingle{}}
+
+\CommentTok{\# Instalar dependencias de apps}
+\CommentTok{\# (nvim plugins, zsh plugins, etc)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Workflow 4: Experimentar}\label{workflow-4-experimentar}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear branch de experimento}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{git}\NormalTok{ checkout }\AttributeTok{{-}b}\NormalTok{ experiment{-}new{-}nvim}
+
+\CommentTok{\# Modificar libremente}
+\ExtensionTok{nvim}\NormalTok{ nvim/.config/nvim/init.lua}
+
+\CommentTok{\# Restow para aplicar}
+\ExtensionTok{stow} \AttributeTok{{-}R}\NormalTok{ nvim}
+
+\CommentTok{\# Probar...}
+
+\CommentTok{\# Si funciona:}
+\FunctionTok{git}\NormalTok{ checkout main}
+\FunctionTok{git}\NormalTok{ merge experiment{-}new{-}nvim}
+
+\CommentTok{\# Si no funciona:}
+\FunctionTok{git}\NormalTok{ checkout main}
+\ExtensionTok{stow} \AttributeTok{{-}R}\NormalTok{ nvim  }\CommentTok{\# Vuelve a main automáticamente}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Workflow 5: Actualización
+Limpia}\label{workflow-5-actualizaciuxf3n-limpia}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Pull cambios}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/dotfiles}
+\FunctionTok{git}\NormalTok{ pull origin main}
+
+\CommentTok{\# Verificar qué cambió}
+\FunctionTok{git}\NormalTok{ log }\AttributeTok{{-}p} \AttributeTok{{-}{-}since}\OperatorTok{=}\StringTok{"1 week ago"}
+
+\CommentTok{\# Desinstalar y reinstalar (limpia symlinks obsoletos)}
+\ExtensionTok{stow} \AttributeTok{{-}D}\NormalTok{ nvim}
+\ExtensionTok{stow}\NormalTok{ nvim}
+
+\CommentTok{\# O usar restow}
+\ExtensionTok{stow} \AttributeTok{{-}R}\NormalTok{ nvim}
+
+\CommentTok{\# Verificar que funciona}
+\ExtensionTok{nvim} \AttributeTok{{-}{-}version}
+\end{Highlighting}
+\end{Shaded}
+
 \section{Best Practices}\label{best-practices}
 
 \subsection{1. Organización de
@@ -3812,7 +6141,7 @@ Paquetes}\label{organizaciuxf3n-de-paquetes}
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{❌ DON'T:}
+\textbf{DON'T:}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4119,17 +6448,17 @@ Manager)}\label{yadm-yet-another-dotfiles-manager}
 \subsection{Comparación}\label{comparaciuxf3n}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1875}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1250}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1250}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1875}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.2083}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.2101}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1377}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1377}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1884}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1377}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1884}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
-Feature
+Característica
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Stow
+GNU Stow
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 yadm
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -4137,58 +6466,57 @@ chezmoi
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 dotbot
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Bare Git
+Repositorio Git bare
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Simplicidad & ⭐⭐⭐⭐⭐ & ⭐⭐⭐⭐ & ⭐⭐⭐ & ⭐⭐⭐⭐ & ⭐⭐⭐ \\
-Flexibilidad & ⭐⭐⭐⭐⭐ & ⭐⭐⭐ & ⭐⭐⭐⭐⭐ & ⭐⭐⭐ & ⭐⭐⭐⭐⭐ \\
-Templates & ❌ & ⭐⭐⭐ & ⭐⭐⭐⭐⭐ & ❌ & ❌ \\
-Secrets & ❌ & ⭐⭐⭐⭐ & ⭐⭐⭐⭐⭐ & ❌ & ❌ \\
-Instalación & Easy & Easy & Easy & Easy & None needed \\
-Comunidad & Grande & Media & Grande & Pequeña & N/A \\
+Simplicidad & Muy alta & Alta & Media & Alta & Media \\
+Flexibilidad & Muy alta & Media & Muy alta & Media & Muy alta \\
+Soporte para plantillas & No & Parcial & Completo (Jinja2) & No & No \\
+Manejo de secretos & No & Bueno & Excelente (integrado) & No & No \\
+Facilidad de instalación & Muy sencilla & Muy sencilla & Muy sencilla &
+Muy sencilla & Sin instalación adicional \\
+Tamaño de la comunidad & Grande & Mediana & Grande & Pequeña & N/A
+(herramienta nativa) \\
+Curva de aprendizaje & Baja & Baja & Media-alta & Baja & Media \\
+Uso de enlaces simbólicos & Sí (principal) & No & Sí (opcional) & Sí &
+No \\
+Soporte multiplataforma & Excelente & Bueno & Excelente & Bueno &
+Excelente \\
 \end{longtable}
 
-\textbf{Recomendación:} Stow es ideal si quieres: - Simplicidad -
-Control total - Organización por paquetes - Solo symlinks, sin magia
+\textbf{Recomendación:} Stow es ideal si quieres:
+
+\begin{itemize}
+\tightlist
+\item
+  Simplicidad
+\item
+  Control total
+\item
+  Organización por paquetes
+\item
+  Solo symlinks, sin magia
+\end{itemize}
 
 \section{Conclusión}\label{conclusiuxf3n}
 
-\subsection{Resumen de Stow}\label{resumen-de-stow}
+La gestión de dotfiles es una práctica esencial para optimizar el
+entorno de desarrollo y asegurar la persistencia de las configuraciones
+personalizadas. GNU Stow, en particular, se destaca por su simplicidad y
+eficacia al manejar enlaces simbólicos, especialmente cuando se combina
+con Git para el versionado y la sincronización. Permite una modularidad
+excelente y una replicación rápida de entornos.
 
-\textbf{Ventajas:}
-
-\begin{itemize}
-\tightlist
-\item
-  Simple y directo
-\item
-  Solo hace una cosa: symlinks
-\item
-  Organización clara por paquetes
-\item
-  No modifica archivos originales
-\item
-  Fácil de entender y debuggear
-\item
-  Perfecto para dotfiles
-\end{itemize}
-
-\textbf{Desventajas:}
-
-\begin{itemize}
-\tightlist
-\item
-  Sin templates
-\item
-  Sin manejo de secrets
-\item
-  Requiere estructura específica
-\item
-  Puede ser confuso al principio
-\end{itemize}
+Si bien existen alternativas más avanzadas como Chezmoi o YADM (que
+ofrecen funciones adicionales como plantillas y cifrado de secretos) o
+soluciones declarativas como NixOS/Home-Manager, Stow sigue siendo una
+opción robusta y preferida por muchos por su enfoque directo y la curva
+de aprendizaje mínima. La clave es elegir la herramienta que mejor se
+adapte a las necesidades y al nivel de complejidad deseado, siempre
+priorizando la seguridad de la información sensible.
 
 \subsection{Comandos Esenciales}\label{comandos-esenciales}
 
@@ -4216,25 +6544,6 @@ Control total - Organización por paquetes - Solo symlinks, sin magia
 \ExtensionTok{stow} \AttributeTok{{-}d}\NormalTok{ \textasciitilde{}/dotfiles }\AttributeTok{{-}t}\NormalTok{ \textasciitilde{} paquete}
 \end{Highlighting}
 \end{Shaded}
-
-\subsection{Próximos Pasos}\label{pruxf3ximos-pasos}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{Setup inicial:} Crear estructura de dotfiles
-\item
-  \textbf{Migrar configs:} Mover configs existentes a paquetes
-\item
-  \textbf{Stow todo:} Instalar con stow
-\item
-  \textbf{Git:} Versionar con Git
-\item
-  \textbf{Probar:} En máquina de prueba o VM
-\item
-  \textbf{Iterar:} Mejorar organización según necesites
-\end{enumerate}
 
 \subsection{Recursos Adicionales}\label{recursos-adicionales}
 

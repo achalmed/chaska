@@ -162,6 +162,7 @@ Aunque Stow fue diseñado para software, hoy en día su uso principal es **gesti
 # - Estructura clara y mantenible
 ```
 
+
 # Instalación
 
 ## Linux
@@ -634,6 +635,7 @@ kitty/
 
 **Instalación:**
 
+
 ```bash
 mkdir ~/dotfiles
 cd ~/dotfiles
@@ -707,7 +709,6 @@ stow bash git vim nvim kitty zsh
             └── lua/
                 └── plugins.lua
 ```
-
 
 # Instalación de Paquetes
 
@@ -836,7 +837,6 @@ stow bash zsh fish
 # Solo paquetes de editor
 stow nvim vim emacs
 ```
-
 
 # Desinstalación de Paquetes
 
@@ -980,7 +980,6 @@ stow nvim
 
 # Ventaja de -R: más rápido, optimizado
 ```
-
 
 # Gestión de Dotfiles
 
@@ -1205,7 +1204,6 @@ case "$HOSTNAME" in
 esac
 ```
 
-
 # Ignore Lists
 
 ## Tipos de Ignore Lists
@@ -1359,7 +1357,6 @@ stow --ignore='.*\.orig|.*\.dist' nvim
 
 # Combina con ignore lists existentes
 ```
-
 
 # Opciones Avanzadas
 
@@ -1537,700 +1534,6 @@ cd ~/work-dotfiles && stow nvim
 ```
 
 **.stow file:** Indica que un directorio es stow directory, protegiéndolo de operaciones de unstow.
-
-
-# Casos de Uso Prácticos
-
-## Caso 1: Setup en Nueva Máquina
-
-**Objetivo:** Instalar dotfiles en computadora nueva.
-
-```bash
-# 1. Clonar repositorio
-cd ~
-git clone https://github.com/user/dotfiles.git
-
-# 2. Instalar dependencias (si hay)
-cd dotfiles
-./scripts/install-deps.sh  # Opcional
-
-# 3. Hacer backup de existentes (precaución)
-mkdir -p ~/backup-dotfiles
-cp ~/.zshrc ~/backup-dotfiles/  # etc
-
-# 4. Stow paquetes deseados
-stow zsh nvim git kitty tmux
-
-# 5. Verificar
-ls -la ~/.zshrc
-# ~/.zshrc -> dotfiles/zsh/.zshrc
-
-# 6. Restart shell o source
-source ~/.zshrc
-```
-
-**Script automatizado:**
-
-```bash
-#!/bin/bash
-# install.sh
-
-set -e
-
-DOTFILES="$HOME/dotfiles"
-BACKUP="$HOME/dotfiles-backup-$(date +%Y%m%d)"
-
-# Backup existentes
-if [ -f ~/.zshrc ]; then
-    mkdir -p "$BACKUP"
-    cp ~/.zshrc "$BACKUP/"
-    echo "Backed up existing .zshrc"
-fi
-
-# Stow
-cd "$DOTFILES"
-stow zsh nvim git tmux kitty
-
-echo "Dotfiles installed!"
-echo "Backup location: $BACKUP"
-```
-
-## Caso 2: Actualizar Configuraciones
-
-**Objetivo:** Actualizar configs en máquina existente.
-
-```bash
-# 1. Pull latest changes
-cd ~/dotfiles
-git pull origin main
-
-# 2. Restow para actualizar symlinks
-stow -R nvim zsh
-
-# 3. Si estructura cambió mucho:
-stow -D nvim  # Remover viejo
-stow nvim     # Instalar nuevo
-
-# 4. Verificar cambios
-nvim ~/.config/nvim/init.lua
-```
-
-## Caso 3: Probar Nueva Configuración
-
-**Objetivo:** Probar configuración sin afectar la actual.
-
-```bash
-# 1. Crear branch en Git
-cd ~/dotfiles
-git checkout -b test-new-config
-
-# 2. Modificar paquete
-nvim nvim/.config/nvim/init.lua
-
-# 3. Restow
-stow -R nvim
-
-# 4. Probar
-nvim
-
-# 5a. Si funciona bien:
-git checkout main
-git merge test-new-config
-git push
-
-# 5b. Si no funciona:
-git checkout main
-stow -R nvim  # Vuelve a config anterior
-```
-
-## Caso 4: Compartir Configuración entre Usuarios
-
-**Objetivo:** Múltiples usuarios con dotfiles compartidos.
-
-**Setup:**
-
-```bash
-# Ubicación compartida
-sudo mkdir -p /opt/shared-dotfiles
-sudo chown :developers /opt/shared-dotfiles
-sudo chmod g+w /opt/shared-dotfiles
-
-# User A: Setup inicial
-cd /opt/shared-dotfiles
-git init
-mkdir -p common/git common/tmux
-# ... agregar configs ...
-git add .
-git commit -m "Initial shared configs"
-
-# User B: Usar configs
-cd /opt/shared-dotfiles
-git pull
-stow -d /opt/shared-dotfiles -t ~ common/git common/tmux
-```
-
-## Caso 5: Configuración Por Entorno
-
-**Objetivo:** Diferentes configs para diferentes entornos.
-
-**Estructura:**
-
-```bash
-~/dotfiles/
-├── common/        # Común a todos
-│   ├── git/
-│   └── tmux/
-├── dev/           # Desarrollo
-│   └── nvim/
-├── prod/          # Producción
-│   └── nvim/
-└── install-env.sh
-```
-
-**Script:**
-
-```bash
-#!/bin/bash
-# install-env.sh
-
-ENV="${1:-dev}"  # default: dev
-
-cd ~/dotfiles
-
-# Instalar común
-stow -d common -t ~ */
-
-# Instalar específico del entorno
-stow -d "$ENV" -t ~ */
-
-echo "Environment: $ENV installed"
-```
-
-**Uso:**
-
-```bash
-# Desarrollo
-./install-env.sh dev
-
-# Producción
-./install-env.sh prod
-```
-
-
-# Tu Repositorio .dotfiles
-
-Voy a analizar tu repositorio y dar recomendaciones específicas.
-
-## Análisis de tu Estructura Actual
-
-```bash
-~/dotfiles/
-├── git/
-│   └── .gitconfig
-├── kde/
-│   └── .config/
-│       ├── kdeglobals
-│       ├── dolphinrc
-│       └── ...
-├── shell/
-│   ├── .zshrc
-│   └── starship.toml
-├── terminal/
-│   └── .config/
-│       └── konsolerc
-├── vscode/
-│   └── .config/
-│       ├── settings.json
-│       └── keybindings.json
-├── zotero/
-│   └── .zotero/...
-├── obsidian/
-│   └── Documents/thoughts/.obsidian/
-└── ... (más paquetes)
-```
-
-## Implementación de Stow en tu Repo
-
-## 1. Script install.sh Mejorado
-
-Tu `install.sh` actual debe usar Stow. Aquí está mi versión mejorada:
-
-```bash
-#!/bin/bash
-# ~/dotfiles/install.sh
-
-set -e
-
-DOTFILES="$HOME/dotfiles"
-BACKUP_DIR="$HOME/dotfiles-backup-$(date +%Y%m%d-%H%M%S)"
-
-# Colores
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
-
-# Funciones
-log_info() {
-    echo -e "${GREEN}[INFO]${NC} $1"
-}
-
-log_warn() {
-    echo -e "${YELLOW}[WARN]${NC} $1"
-}
-
-log_error() {
-    echo -e "${RED}[ERROR]${NC} $1"
-}
-
-# Verificar que Stow está instalado
-if ! command -v stow &> /dev/null; then
-    log_error "Stow no está instalado"
-    log_info "Instalando stow..."
-    sudo apt update && sudo apt install -y stow
-fi
-
-# Función para hacer backup
-backup_if_exists() {
-    local file="$1"
-    if [ -e "$file" ] && [ ! -L "$file" ]; then
-        mkdir -p "$BACKUP_DIR"
-        cp -r "$file" "$BACKUP_DIR/"
-        log_warn "Backup: $file -> $BACKUP_DIR/"
-    fi
-}
-
-# Función para stow paquete
-stow_package() {
-    local package="$1"
-    
-    log_info "Stowing $package..."
-    
-    # Dry run primero
-    if stow -nv "$package" 2>&1 | grep -q "WARNING"; then
-        log_warn "Conflicto detectado para $package"
-        read -p "¿Hacer backup y continuar? [y/N] " -n 1 -r
-        echo
-        if [[ $REPLY =~ ^[Yy]$ ]]; then
-            # Hacer backup de archivos conflictivos
-            # (aquí necesitarías lógica más sofisticada)
-            stow "$package"
-        else
-            log_error "Saltando $package"
-            return 1
-        fi
-    else
-        stow "$package"
-        log_info "✓ $package instalado"
-    fi
-}
-
-# Cambiar a dotfiles directory
-cd "$DOTFILES" || exit 1
-
-# Lista de paquetes a instalar
-PACKAGES=(
-    "git"
-    "shell"
-    "terminal"
-    "kde"
-    "vscode"
-    "nvim"
-    "kitty"
-    # ... más paquetes
-)
-
-# Opción para instalar todo o selectivo
-if [ "$1" == "all" ]; then
-    PACKAGES=($(ls -d */ | sed 's#/#'))
-    log_info "Instalando TODOS los paquetes"
-elif [ $# -gt 0 ]; then
-    PACKAGES=("$@")
-    log_info "Instalando paquetes especificados: ${PACKAGES[*]}"
-fi
-
-# Instalar paquetes
-for package in "${PACKAGES[@]}"; do
-    stow_package "$package" || true
-done
-
-log_info "Instalación completa!"
-if [ -d "$BACKUP_DIR" ]; then
-    log_info "Backups guardados en: $BACKUP_DIR"
-fi
-```
-
-**Uso:**
-
-```bash
-# Instalar paquetes específicos
-./install.sh git shell terminal
-
-# Instalar todo
-./install.sh all
-
-# Ver qué haría sin hacer cambios
-# (modificar script para agregar -n flag)
-```
-
-## 2. Script para Desinstalar
-
-```bash
-#!/bin/bash
-# ~/dotfiles/uninstall.sh
-
-DOTFILES="$HOME/dotfiles"
-
-cd "$DOTFILES" || exit 1
-
-if [ $# -eq 0 ]; then
-    echo "Uso: $0 <paquete1> [paquete2] ..."
-    echo "O: $0 all"
-    exit 1
-fi
-
-if [ "$1" == "all" ]; then
-    PACKAGES=($(ls -d */ | sed 's#/#'))
-else
-    PACKAGES=("$@")
-fi
-
-for package in "${PACKAGES[@]}"; do
-    echo "Unstowing $package..."
-    stow -D "$package"
-    echo "✓ $package desinstalado"
-done
-```
-
-## 3. Reorganizar Paquetes Problemáticos
-
-**Zotero:** Ubicación no estándar
-
-```bash
-# Actual:
-zotero/
-  └── .zotero/zotero/25vfdnq5.default/
-      └── prefs.js
-
-# Problema: .zotero está en HOME pero tiene subdirectorios profundos
-
-# Solución 1: Usar como está (funciona)
-stow zotero
-# Resultado: ~/.zotero/... → dotfiles/zotero/.zotero/...
-
-# Solución 2: Si solo quieres prefs.js, simplificar:
-zotero/
-  └── .zotero/
-      └── zotero/
-          └── 25vfdnq5.default/
-              └── prefs.js
-```
-
-**Obsidian:** Ruta específica
-
-```bash
-# Actual:
-obsidian/
-  └── Documents/thoughts/.obsidian/
-
-# Problema: No está en .config sino en Documents
-
-# Solución: Está bien así, Stow lo maneja
-stow obsidian
-# Resultado: ~/Documents/thoughts/.obsidian → ...
-```
-
-## 4. .stowrc para tu Repo
-
-Crear `~/dotfiles/.stowrc`:
-
-```bash
-# ~/dotfiles/.stowrc
-
-# Target es siempre HOME
---target=$HOME
-
-# Ignorar archivos comunes
---ignore='.git'
---ignore='README.*'
---ignore='LICENSE.*'
---ignore='.*.swp'
---ignore='.*~'
---ignore='install.sh'
---ignore='uninstall.sh'
---ignore='.stowrc'
-```
-
-Con esto, no necesitas especificar `-t ~` cada vez.
-
-## 5. .stow-local-ignore por Paquete
-
-**Para vscode:**
-
-```bash
-# ~/dotfiles/vscode/.stow-local-ignore
-
-# No stow extensiones (solo configuración)
-^/\.config/Code/CachedData/
-^/\.config/Code/logs/
-^/\.config/Code/User/workspaceStorage/
-```
-
-**Para kde:**
-
-```bash
-# ~/dotfiles/kde/.stow-local-ignore
-
-# Archivos de sesión y cache
-^/\.config/session/
-^/\.cache/
-```
-
-**Para shell:**
-
-```bash
-# ~/dotfiles/shell/.stow-local-ignore
-
-# Historia de shells (puede tener info sensible)
-^/\.zsh_history
-^/\.bash_history
-
-# Archivos compilados
-\.zcompdump
-```
-
-## 6. Script de Verificación
-
-```bash
-#!/bin/bash
-# ~/dotfiles/check-stow.sh
-
-# Verificar qué está stowed
-
-DOTFILES="$HOME/dotfiles"
-
-echo "Paquetes stowed:"
-echo "================"
-
-cd "$DOTFILES" || exit 1
-
-for package in */; do
-    package=${package%/}
-    
-    # Encontrar primer archivo del paquete
-    first_file=$(find "$package" -type f | head -1)
-    
-    if [ -z "$first_file" ]; then
-        continue
-    fi
-    
-    # Convertir a path en HOME
-    home_path="$HOME/${first_file#$package/}"
-    
-    if [ -L "$home_path" ]; then
-        target=$(readlink "$home_path")
-        if [[ "$target" == *"$DOTFILES/$package"* ]]; then
-            echo "✓ $package"
-        else
-            echo "✗ $package (symlink apunta a otro lugar)"
-        fi
-    else
-        echo "✗ $package (no stowed)"
-    fi
-done
-```
-
-## 7. Actualizar .gitignore
-
-```bash
-# ~/dotfiles/.gitignore
-
-# Backups
-*~
-*.bak
-*.old
-*.orig
-.*.swp
-
-# Datos sensibles
-shell/.zsh_history
-shell/.bash_history
-.netrc
-.authinfo
-
-# Cache y temporales
-**/.cache/
-**/__pycache__/
-**/node_modules/
-
-# Logs
-**/*.log
-
-# Sistema
-.DS_Store
-Thumbs.db
-
-# Archivos de Stow
-.stow
-
-# Zotero database (demasiado grande)
-zotero/.zotero/zotero/*/zotero.sqlite*
-
-# VSCode workspace storage
-vscode/.config/Code/User/workspaceStorage/
-```
-
-## 8. Comandos Útiles para tu Repo
-
-```bash
-# Navegar a dotfiles
-cd ~/dotfiles
-
-# Instalar todo (primera vez)
-./install.sh all
-
-# Instalar paquetes esenciales
-./install.sh git shell terminal kde
-
-# Verificar qué está instalado
-./check-stow.sh
-
-# Actualizar después de pull
-git pull
-stow -R */  # Restow todo
-
-# Desinstalar temporalmente para pruebas
-stow -D vscode
-# hacer pruebas...
-stow vscode  # Reinstalar
-
-# Agregar nuevo paquete
-mkdir new-app
-# crear estructura...
-stow new-app
-git add new-app/
-git commit -m "Add new-app"
-```
-
-
-# Workflows Completos
-
-## Workflow 1: Configuración Inicial
-
-```bash
-# Paso 1: Crear estructura
-mkdir -p ~/dotfiles
-cd ~/dotfiles
-git init
-
-# Paso 2: Crear paquetes
-mkdir -p zsh nvim git
-
-# Paso 3: Mover configs existentes
-mv ~/.zshrc zsh/
-mv ~/.config/nvim nvim/.config/
-mv ~/.gitconfig git/
-
-# Paso 4: Stow
-stow zsh nvim git
-
-# Paso 5: Verificar
-ls -la ~/.zshrc  # debe ser symlink
-
-# Paso 6: Git
-git add .
-git commit -m "Initial dotfiles"
-git remote add origin git@github.com:user/dotfiles.git
-git push -u origin main
-```
-
-## Workflow 2: Día a Día
-
-```bash
-# Editar configuración (desde cualquier lugar)
-nvim ~/.config/nvim/init.lua  # Edita a través del symlink
-
-# Commit cambios
-cd ~/dotfiles
-git add nvim/
-git commit -m "Update nvim config: add new plugin"
-git push
-
-# En otra máquina
-cd ~/dotfiles
-git pull
-# Los cambios se reflejan automáticamente (symlinks)
-```
-
-## Workflow 3: Nueva Máquina
-
-```bash
-# Clonar
-git clone https://github.com/user/dotfiles.git ~/dotfiles
-
-# Instalar Stow
-sudo apt install stow
-
-# Backup existentes (precaución)
-mkdir ~/backup
-cp ~/.zshrc ~/backup/ 2>/dev/null || true
-
-# Stow
-cd ~/dotfiles
-stow */
-
-# Verificar
-ls -la ~/ | grep '\->'
-
-# Instalar dependencias de apps
-# (nvim plugins, zsh plugins, etc)
-```
-
-## Workflow 4: Experimentar
-
-```bash
-# Crear branch de experimento
-cd ~/dotfiles
-git checkout -b experiment-new-nvim
-
-# Modificar libremente
-nvim nvim/.config/nvim/init.lua
-
-# Restow para aplicar
-stow -R nvim
-
-# Probar...
-
-# Si funciona:
-git checkout main
-git merge experiment-new-nvim
-
-# Si no funciona:
-git checkout main
-stow -R nvim  # Vuelve a main automáticamente
-```
-
-## Workflow 5: Actualización Limpia
-
-```bash
-# Pull cambios
-cd ~/dotfiles
-git pull origin main
-
-# Verificar qué cambió
-git log -p --since="1 week ago"
-
-# Desinstalar y reinstalar (limpia symlinks obsoletos)
-stow -D nvim
-stow nvim
-
-# O usar restow
-stow -R nvim
-
-# Verificar que funciona
-nvim --version
-```
-
 
 # Integración con Git
 
@@ -3076,6 +2379,2739 @@ done
 echo "✓ Limpieza completa!"
 ```
 
+# Casos de Uso Prácticos
+
+## Caso 1: Crear Dotfiles desde Cero (Primera Vez)
+
+**Escenario:** Nunca has usado Stow, quieres empezar desde cero organizando tus configuraciones.
+
+**Objetivo:** Crear estructura de dotfiles, migrar configs existentes, versionar con Git.
+
+### Paso 1: Preparación
+
+```bash
+# 1.1 Instalar herramientas necesarias
+sudo pacman -S stow git zsh starship  # Arch/Archcraft
+# o
+sudo apt install stow git zsh        # Kubuntu/Debian
+
+# 1.2 Verificar instalación
+stow --version
+git --version
+
+# 1.3 Crear directorio para dotfiles
+mkdir -p ~/dotfiles
+cd ~/dotfiles
+
+# 1.4 Inicializar Git
+git init
+git branch -M main
+
+# 1.5 Configurar Git (si no está configurado)
+git config user.name "Edison Achalma"
+git config user.email "achalmaedison@gmail.com"
+```
+
+### Paso 2: Crear Estructura de Paquetes
+
+```bash
+# Crear paquetes para cada aplicación
+cd ~/dotfiles
+
+# Git
+mkdir -p git
+# Shell (Zsh)
+mkdir -p shell
+# Terminal (Konsole)
+mkdir -p terminal
+# Editor (VSCode)
+mkdir -p vscode
+# KDE
+mkdir -p kde
+```
+
+### Paso 3: Migrar Configuraciones Existentes
+
+**3.1 Git (.gitconfig):**
+
+```bash
+# Verificar que existe
+ls -la ~/.gitconfig
+
+# Mover al paquete
+mv ~/.gitconfig git/
+
+# Verificar
+ls -la git/.gitconfig
+```
+
+**3.2 Shell (Zsh):**
+
+```bash
+# Crear estructura
+mkdir -p shell
+
+# Mover archivos
+mv ~/.zshrc shell/
+mv ~/.zshenv shell/ 2>/dev/null || true  # Si existe
+
+# Si tienes starship
+mv ~/.config/starship.toml shell/ 2>/dev/null || true
+
+# Verificar
+tree shell/
+# shell/
+# ├── .zshrc
+# └── .zshenv
+```
+
+**3.3 Terminal (Konsole):**
+
+```bash
+# Crear estructura que replica HOME
+mkdir -p terminal/.config
+
+# Mover config de Konsole
+mv ~/.config/konsolerc terminal/.config/
+
+# Si tienes perfiles personalizados
+cp -r ~/.local/share/konsole terminal/.local/share/ 2>/dev/null || true
+
+# Verificar
+tree terminal/
+# terminal/
+# └── .config/
+#     └── konsolerc
+```
+
+**3.4 VSCode:**
+
+```bash
+# Crear estructura
+mkdir -p vscode/.config/Code/User
+
+# Mover settings
+mv ~/.config/Code/User/settings.json vscode/.config/Code/User/
+mv ~/.config/Code/User/keybindings.json vscode/.config/Code/User/
+
+# Snippets
+mv ~/.config/Code/User/snippets vscode/.config/Code/User/ 2>/dev/null || true
+
+# Verificar
+tree vscode/.config/Code/User/
+```
+
+**3.5 KDE Plasma:**
+
+```bash
+# Crear estructura
+mkdir -p kde/.config
+
+# Mover configuraciones principales
+mv ~/.config/kdeglobals kde/.config/
+mv ~/.config/dolphinrc kde/.config/
+mv ~/.config/kwinrc kde/.config/
+mv ~/.config/plasmarc kde/.config/
+mv ~/.config/plasma-org.kde.plasma.desktop-appletsrc kde/.config/
+mv ~/.config/mimeapps.list kde/.config/
+
+# Verificar
+ls kde/.config/
+```
+
+### Paso 4: Crear Ignore Lists
+
+**4.1 Global ignore:**
+
+```bash
+cat > ~/.stow-global-ignore << 'EOF'
+# Backups
+.*~
+.*\.bak
+.*\.old
+.*\.orig
+.*\.swp
+
+# Historia
+\.zsh_history
+\.bash_history
+
+# Cache
+\.cache
+__pycache__
+
+# Sistema
+\.DS_Store
+Thumbs\.db
+
+# Git
+\.git
+\.gitignore
+
+# Documentación
+^/README.*
+^/LICENSE.*
+EOF
+```
+
+**4.2 Ignore por paquete (shell):**
+
+```bash
+cat > shell/.stow-local-ignore << 'EOF'
+# Historia (datos sensibles)
+^/\.zsh_history
+^/\.bash_history
+
+# Cache compilado
+\.zcompdump
+EOF
+```
+
+**4.3 Ignore para VSCode:**
+
+```bash
+cat > vscode/.stow-local-ignore << 'EOF'
+# Cache y logs
+^/\.config/Code/CachedData/
+^/\.config/Code/logs/
+^/\.config/Code/User/workspaceStorage/
+
+# Backups automáticos
+^/\.config/Code/Backups/
+EOF
+```
+
+### Paso 5: Crear .gitignore
+
+```bash
+cat > .gitignore << 'EOF'
+# ========================================
+# BACKUPS
+# ========================================
+*~
+*.bak
+*.old
+*.orig
+*.swp
+*.swo
+
+# ========================================
+# DATOS SENSIBLES
+# ========================================
+# Historia de shells
+**/.zsh_history
+**/.bash_history
+
+# SSH keys
+**/.ssh/id_*
+**/.ssh/*.pem
+
+# Credenciales
+.netrc
+.authinfo
+
+# ========================================
+# CACHE Y TEMPORALES
+# ========================================
+**/.cache/
+**/__pycache__/
+*.pyc
+.zcompdump*
+
+# ========================================
+# STOW
+# ========================================
+.stow
+
+# ========================================
+# LOGS
+# ========================================
+**/*.log
+*.log
+
+# ========================================
+# SISTEMA
+# ========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+EOF
+```
+
+### Paso 6: Crear .stowrc
+
+```bash
+cat > .stowrc << 'EOF'
+# Target es siempre HOME
+--target=$HOME
+
+# Ignorar archivos comunes
+--ignore='^\.git'
+--ignore='^README.*'
+--ignore='^LICENSE.*'
+--ignore='\.gitignore$'
+--ignore='.*\.swp$'
+--ignore='.*~$'
+--ignore='^install\.sh$'
+--ignore='^\.stowrc$'
+EOF
+```
+
+### Paso 7: Instalar con Stow (Primera Vez)
+
+```bash
+# Navegar a dotfiles
+cd ~/dotfiles
+
+# Dry run primero para cada paquete
+stow -nv git
+stow -nv shell
+stow -nv terminal
+stow -nv vscode
+stow -nv kde
+
+# Si todo OK, instalar realmente
+stow git shell terminal vscode kde
+
+# Verificar symlinks
+ls -la ~/.gitconfig
+# lrwxrwxrwx ... .gitconfig -> dotfiles/git/.gitconfig
+
+ls -la ~/.zshrc
+# lrwxrwxrwx ... .zshrc -> dotfiles/shell/.zshrc
+
+ls -la ~/.config/konsolerc
+# lrwxrwxrwx ... konsolerc -> ../dotfiles/terminal/.config/konsolerc
+```
+
+### Paso 8: Verificar que Todo Funciona
+
+```bash
+# 8.1 Verificar Git
+git config --list | head -5
+
+# 8.2 Verificar Zsh
+cat ~/.zshrc | head -10
+
+# 8.3 Verificar VSCode
+cat ~/.config/Code/User/settings.json | head -10
+
+# 8.4 Abrir aplicaciones para probar
+code  # VSCode debe cargar tu config
+konsole  # Konsole debe tener tu configuración
+```
+
+### Paso 9: Crear Scripts de Ayuda
+
+**9.1 Script de instalación:**
+
+```bash
+cat > install.sh << 'EOF'
+#!/bin/bash
+set -e
+
+DOTFILES="$HOME/dotfiles"
+
+echo "🚀 Instalando dotfiles..."
+
+cd "$DOTFILES"
+
+# Lista de paquetes
+PACKAGES=(
+    "git"
+    "shell"
+    "terminal"
+    "vscode"
+    "kde"
+)
+
+# Instalar cada paquete
+for pkg in "${PACKAGES[@]}"; do
+    echo "📦 Instalando $pkg..."
+    stow "$pkg"
+done
+
+echo "✅ ¡Instalación completa!"
+EOF
+
+chmod +x install.sh
+```
+
+**9.2 Script de verificación:**
+
+```bash
+cat > check.sh << 'EOF'
+#!/bin/bash
+
+DOTFILES="$HOME/dotfiles"
+
+echo "📋 Verificando dotfiles..."
+echo ""
+
+cd "$DOTFILES"
+
+for pkg in */; do
+    pkg=${pkg%/}
+    
+    # Buscar primer archivo
+    first_file=$(find "$pkg" -type f | head -1)
+    
+    if [ -z "$first_file" ]; then
+        continue
+    fi
+    
+    # Path en HOME
+    home_path="$HOME/${first_file#$pkg/}"
+    
+    if [ -L "$home_path" ]; then
+        echo "✅ $pkg"
+    else
+        echo "❌ $pkg (no instalado)"
+    fi
+done
+EOF
+
+chmod +x check.sh
+```
+
+### Paso 10: Crear Repositorio en GitHub
+
+```bash
+# 10.1 Agregar todo a Git
+cd ~/dotfiles
+git add .
+
+# 10.2 Commit inicial
+git commit -m "Initial commit: Estructura básica de dotfiles
+
+- Git configuration
+- Zsh/Starship setup
+- Konsole terminal config
+- VSCode settings
+- KDE Plasma configuration"
+
+# 10.3 Crear repo en GitHub (vía navegador o gh CLI)
+# Opción A: Navegador
+# Ve a https://github.com/new
+# Nombre: .dotfiles
+# Descripción: "Dotfiles para Archcraft/Kubuntu con Stow"
+# Público o Privado
+# NO inicializar con README (ya lo tienes)
+
+# Opción B: GitHub CLI
+gh repo create .dotfiles --public --source=. --remote=origin
+
+# 10.4 Agregar remote y push
+git remote add origin https://github.com/achalmaedison/.dotfiles.git
+git push -u origin main
+```
+
+### Paso 11: Crear README.md
+
+```bash
+cat > README.md << 'EOF'
+# Dotfiles
+
+Configuraciones personales para Archcraft/Kubuntu gestionadas con GNU Stow.
+
+# Estructura
+
+```
+~/dotfiles/
+├── git/          # Git config
+├── shell/        # Zsh + Starship
+├── terminal/     # Konsole
+├── vscode/       # Visual Studio Code
+└── kde/          # KDE Plasma
+```
+
+# Instalación
+
+```bash
+# Clonar
+git clone https://github.com/achalmaedison/.dotfiles.git ~/dotfiles
+
+# Instalar Stow
+sudo pacman -S stow  # Arch
+# o
+sudo apt install stow  # Debian/Ubuntu
+
+# Instalar todo
+cd ~/dotfiles
+./install.sh
+
+# O instalar selectivo
+stow git shell terminal
+```
+
+### Actualizar
+
+```bash
+cd ~/dotfiles
+git pull
+stow -R */
+```
+
+### Requisitos
+
+- stow
+- git
+- zsh
+- starship (opcional)
+- VSCode (opcional)
+- KDE Plasma (opcional)
+
+```
+EOF
+
+git add README.md
+git commit -m "docs: Add README"
+git push
+```
+
+
+## Caso 2: Replicar Dotfiles en Laptop Nueva
+
+**Escenario:** Acabas de comprar/instalar una laptop nueva con Archcraft y quieres replicar tu setup completo.
+
+**Objetivo:** Clonar tu repo de dotfiles e instalar todo en la nueva máquina.
+
+### Paso 1: Preparar Nueva Máquina
+
+```bash
+# 1.1 Actualizar sistema (Archcraft/Arch)
+sudo pacman -Syu
+
+# 1.2 Instalar herramientas base
+sudo pacman -S git stow zsh base-devel
+
+# 1.3 Verificar HOME vacío (opcional)
+ls -la ~/ | grep "^\." | wc -l
+# Deberías ver solo archivos básicos del sistema
+```
+
+### Paso 2: Backup de Configs Existentes (Precaución)
+
+```bash
+# 2.1 Crear directorio de backup
+mkdir -p ~/dotfiles-backup-$(date +%Y%m%d)
+BACKUP_DIR=~/dotfiles-backup-$(date +%Y%m%d)
+
+# 2.2 Backup de archivos que podrían existir
+cp ~/.zshrc "$BACKUP_DIR/" 2>/dev/null || true
+cp ~/.gitconfig "$BACKUP_DIR/" 2>/dev/null || true
+cp -r ~/.config/Code "$BACKUP_DIR/" 2>/dev/null || true
+
+echo "Backup guardado en: $BACKUP_DIR"
+ls -la "$BACKUP_DIR"
+```
+
+### Paso 3: Clonar Repositorio
+
+```bash
+# 3.1 Clonar tu repo
+cd ~
+git clone https://github.com/achalmaedison/.dotfiles.git dotfiles
+
+# 3.2 Verificar contenido
+cd dotfiles
+ls -la
+
+# Deberías ver:
+# git/
+# shell/
+# terminal/
+# vscode/
+# kde/
+# install.sh
+# .gitignore
+# README.md
+```
+
+### Paso 4: Revisar y Ajustar (Si Necesario)
+
+```bash
+# 4.1 Ver qué paquetes hay
+ls -d */
+# git/  kde/  shell/  terminal/  vscode/
+
+# 4.2 Ver estructura de un paquete
+tree shell/
+# shell/
+# ├── .zshrc
+# └── .zshenv
+
+# 4.3 (Opcional) Editar configs antes de instalar
+# Por ejemplo, cambiar username en git
+nano git/.gitconfig
+```
+
+### Paso 5: Instalar Dependencias
+
+```bash
+# 5.1 Aplicaciones de tu setup
+sudo pacman -S \
+    zsh \
+    starship \
+    konsole \
+    code \  # VSCode (si está en repos)
+    plasma-desktop \
+    dolphin \
+    kate \
+    okular
+
+# 5.2 Si usas AUR (yay/paru)
+# VSCode desde AUR
+yay -S visual-studio-code-bin
+
+# Starship (si no está en repos oficiales)
+yay -S starship-bin
+
+# 5.3 Verificar instalaciones
+which zsh
+which starship
+which code
+```
+
+### Paso 6: Dry Run (Simulación)
+
+```bash
+# Navegar a dotfiles
+cd ~/dotfiles
+
+# Simular instalación para ver qué pasaría
+stow -nv git
+stow -nv shell
+stow -nv terminal
+stow -nv vscode
+stow -nv kde
+
+# Verificar que no hay errores
+# Si hay conflictos, verás warnings
+```
+
+### Paso 7: Resolver Conflictos (Si Existen)
+
+**Si ves algo como:**
+
+```
+WARNING! stowing shell would cause conflicts:
+  * existing target is neither a link nor a directory: .zshrc
+```
+
+**Resolver:**
+
+```bash
+# Opción A: Eliminar archivo existente
+rm ~/.zshrc
+
+# Opción B: Mover a backup (más seguro)
+mv ~/.zshrc ~/dotfiles-backup-$(date +%Y%m%d)/
+
+# Luego intentar stow nuevamente
+stow -nv shell
+```
+
+### Paso 8: Instalar Todo
+
+**Opción A: Con script (recomendado):**
+
+```bash
+cd ~/dotfiles
+./install.sh
+```
+
+**Opción B: Manual:**
+
+```bash
+cd ~/dotfiles
+
+# Instalar uno por uno
+stow git
+echo "✅ Git instalado"
+
+stow shell
+echo "✅ Shell instalado"
+
+stow terminal
+echo "✅ Terminal instalado"
+
+stow vscode
+echo "✅ VSCode instalado"
+
+stow kde
+echo "✅ KDE instalado"
+```
+
+**Opción C: Todo de una vez:**
+
+```bash
+cd ~/dotfiles
+stow git shell terminal vscode kde
+```
+
+### Paso 9: Verificar Instalación
+
+```bash
+# 9.1 Verificar symlinks creados
+ls -la ~/.gitconfig
+# lrwxrwxrwx ... .gitconfig -> dotfiles/git/.gitconfig
+
+ls -la ~/.zshrc
+# lrwxrwxrwx ... .zshrc -> dotfiles/shell/.zshrc
+
+ls -la ~/.config/Code/User/settings.json
+# lrwxrwxrwx ... settings.json -> ../../../../dotfiles/vscode/.config/Code/User/settings.json
+
+# 9.2 Usar script de verificación
+cd ~/dotfiles
+./check.sh
+```
+
+### Paso 10: Configurar Shell
+
+```bash
+# 10.1 Cambiar shell a Zsh (si no lo es)
+chsh -s /bin/zsh
+
+# 10.2 Logout y login para aplicar
+# O simplemente:
+exec zsh
+
+# 10.3 Verificar que Zsh cargó tu config
+echo $SHELL
+# /bin/zsh
+
+# Ver prompt (si usas starship)
+starship --version
+```
+
+### Paso 11: Instalar Dependencias Específicas
+
+**11.1 Extensiones de VSCode:**
+
+```bash
+# Si guardaste lista de extensiones
+# (Opción: guardar en dotfiles)
+code --list-extensions > ~/dotfiles/vscode/extensions.txt
+
+# En nueva máquina:
+while read -r ext; do
+    code --install-extension "$ext"
+done < ~/dotfiles/vscode/extensions.txt
+```
+
+**11.2 Plugins de Zsh (si usas):**
+
+```bash
+# Oh-My-Zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Zsh plugins (ejemplo: zsh-autosuggestions)
+git clone https://github.com/zsh-users/zsh-autosuggestions \
+    ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+```
+
+**11.3 Temas de KDE (si los tienes):**
+
+```bash
+# Si tienes temas personalizados en dotfiles
+# Instalarlos desde System Settings
+```
+
+### Paso 12: Probar Todo
+
+```bash
+# 12.1 Git
+git config --list | grep user
+# user.name=Edison Achalma
+# user.email=achalmaedison@gmail.com
+
+# 12.2 Zsh
+cat ~/.zshrc | head -5
+
+# 12.3 VSCode
+code
+# Debería cargar con tu configuración
+
+# 12.4 Konsole
+konsole
+# Debería usar tu configuración
+
+# 12.5 KDE
+# Logout/login para ver cambios en KDE
+```
+
+### Paso 13: Ajustes Finales
+
+```bash
+# Si algo no funciona, hacer debug:
+
+# Ver qué apunta cada symlink
+find ~ -maxdepth 2 -type l -ls | grep dotfiles
+
+# Si un symlink está roto:
+stow -D paquete-con-problema
+stow paquete-con-problema
+
+# Verificar logs
+journalctl --user -xe | grep -i error
+```
+
+
+## Caso 3: Actualizar Configs y Sincronizar
+
+**Escenario:** Has estado usando tus dotfiles y has hecho cambios en tu máquina principal. Quieres sincronizar con GitHub y otras máquinas.
+
+### Paso 1: Identificar Cambios
+
+```bash
+# 1.1 Ver qué archivos cambiaron
+cd ~/dotfiles
+git status
+
+# Ejemplo de output:
+# modified:   shell/.zshrc
+# modified:   vscode/.config/Code/User/settings.json
+
+# 1.2 Ver diferencias específicas
+git diff shell/.zshrc
+git diff vscode/.config/Code/User/settings.json
+
+# 1.3 Ver todos los cambios
+git diff
+```
+
+### Paso 2: Probar Cambios Localmente
+
+```bash
+# Si editaste configs directamente en HOME (a través de symlinks),
+# los cambios ya están en ~/dotfiles/
+
+# 2.1 Verificar que todo funciona
+source ~/.zshrc  # Para shell
+code  # Abrir VSCode para verificar settings
+
+# 2.2 Si hay problemas, revertir temporalmente
+cd ~/dotfiles
+git checkout -- shell/.zshrc  # Revertir cambios
+# Probar de nuevo
+```
+
+### Paso 3: Commit Cambios
+
+```bash
+cd ~/dotfiles
+
+# 3.1 Agregar archivos modificados
+git add shell/.zshrc
+git add vscode/.config/Code/User/settings.json
+
+# O agregar todo:
+git add -A
+
+# 3.2 Ver qué se va a commitear
+git status
+
+# 3.3 Commit con mensaje descriptivo
+git commit -m "chore(shell): Update Zsh aliases and PATH
+
+- Add alias for git status
+- Update PATH to include ~/.local/bin
+- Remove deprecated exports"
+
+git commit -m "feat(vscode): Enable format on save
+
+- Set editor.formatOnSave to true
+- Add Python formatting rules
+- Update keybindings for terminal"
+```
+
+### Paso 4: Push a GitHub
+
+```bash
+# 4.1 Push cambios
+git push origin main
+
+# 4.2 Verificar en GitHub
+# Ir a https://github.com/achalmaedison/.dotfiles
+# Deberías ver tus commits recientes
+```
+
+### Paso 5: Actualizar Otras Máquinas
+
+**En laptop/otra máquina:**
+
+```bash
+# 5.1 Pull cambios
+cd ~/dotfiles
+git pull origin main
+
+# 5.2 Los symlinks reflejan cambios automáticamente!
+cat ~/.zshrc  # Ya tiene los cambios
+
+# 5.3 Recargar configs
+source ~/.zshrc  # Shell
+# VSCode se recarga automáticamente
+
+# 5.4 Si hay cambios en estructura (archivos nuevos/eliminados):
+stow -R shell  # Restow para actualizar symlinks
+stow -R vscode
+```
+
+### Paso 6: Manejar Conflictos (Si Existen)
+
+**Si modificaste el mismo archivo en dos máquinas:**
+
+```bash
+cd ~/dotfiles
+git pull origin main
+
+# Si hay conflicto:
+# CONFLICT (content): Merge conflict in shell/.zshrc
+
+# 6.1 Ver conflicto
+git status
+# both modified:   shell/.zshrc
+
+# 6.2 Editar archivo
+nano shell/.zshrc
+
+# Verás marcadores:
+# <<<<<<< HEAD
+# (tu cambio local)
+# =======
+# (cambio de GitHub)
+# >>>>>>> origin/main
+
+# 6.3 Resolver manualmente, eliminar marcadores
+
+# 6.4 Marcar como resuelto
+git add shell/.zshrc
+git commit -m "merge: Resolve conflict in .zshrc"
+git push
+```
+
+## Caso 4: Agregar Nueva Aplicación (Kate Editor)
+
+**Escenario:** Instalaste Kate y quieres agregar su configuración a tus dotfiles.
+
+### Paso 1: Usar Kate y Configurar
+
+```bash
+# 1.1 Instalar Kate
+sudo pacman -S kate
+
+# 1.2 Abrir y configurar
+kate
+
+# Configurar:
+# - Settings → Configure Kate
+# - Cambiar tema, shortcuts, plugins, etc.
+# - Cerrar Kate (configs se guardan automáticamente)
+```
+
+### Paso 2: Localizar Archivos de Config
+
+```bash
+# 2.1 Archivos de configuración están en ~/.config/
+ls -la ~/.config/ | grep kate
+# drwxr-xr-x  - achalmaedison kate/
+
+# 2.2 Ver qué hay dentro
+ls -la ~/.config/kate/
+# katerc
+# externaltools/
+# formatting/
+# lspclient/
+
+# 2.3 También puede haber datos en ~/.local/share/
+ls -la ~/.local/share/ | grep kate
+```
+
+### Paso 3: Crear Paquete Kate
+
+```bash
+# 3.1 Crear estructura que replica HOME
+cd ~/dotfiles
+mkdir -p kate/.config
+
+# 3.2 Copiar configs (NO mover todavía)
+cp -r ~/.config/kate kate/.config/
+
+# 3.3 También copiar datos locales si existen
+mkdir -p kate/.local/share
+cp -r ~/.local/share/kate kate/.local/share/ 2>/dev/null || true
+
+# 3.4 Verificar estructura
+tree kate/
+# kate/
+# ├── .config/
+# │   └── kate/
+# │       ├── katerc
+# │       ├── externaltools/
+# │       ├── formatting/
+# │       └── lspclient/
+# └── .local/
+#     └── share/
+#         └── kate/
+```
+
+### Paso 4: Crear Ignore List para Kate
+
+```bash
+# Crear ignore para archivos que no queremos versionar
+cat > kate/.stow-local-ignore << 'EOF'
+# Sesiones y cache
+^/\.config/kate/sessions/
+^/\.local/share/kate/.*\.cache
+
+# Logs
+^/\.config/kate/.*\.log
+
+# Archivos temporales
+^/\.config/kate/.*\.tmp
+^/\.config/kate/.*\.swp
+EOF
+```
+
+### Paso 5: Test Stow (Dry Run)
+
+```bash
+cd ~/dotfiles
+
+# 5.1 Ver qué haría stow
+stow -nv kate
+
+# Deberías ver algo como:
+# LINK: .config/kate => dotfiles/kate/.config/kate
+```
+
+### Paso 6: Hacer Backup y Eliminar Original
+
+```bash
+# 6.1 Backup por seguridad
+cp -r ~/.config/kate ~/backup-kate-$(date +%Y%m%d)
+
+# 6.2 Eliminar original
+rm -rf ~/.config/kate
+rm -rf ~/.local/share/kate  # Si copiaste esto también
+
+# 6.3 Verificar que se eliminó
+ls ~/.config/ | grep kate
+# (no debería aparecer nada)
+```
+
+### Paso 7: Stow Kate
+
+```bash
+cd ~/dotfiles
+
+# 7.1 Instalar con stow
+stow kate
+
+# 7.2 Verificar symlinks
+ls -la ~/.config/ | grep kate
+# lrwxrwxrwx  - achalmaedison kate -> ../dotfiles/kate/.config/kate
+
+# 7.3 Verificar que Kate funciona
+kate
+# Debería abrir con tu configuración
+```
+
+### Paso 8: Versionar con Git
+
+```bash
+cd ~/dotfiles
+
+# 8.1 Agregar al staging
+git add kate/
+
+# 8.2 Commit
+git commit -m "feat(kate): Add Kate editor configuration
+
+- Custom keybindings
+- LSP configuration
+- Theme and appearance settings
+- External tools setup"
+
+# 8.3 Push
+git push origin main
+```
+
+### Paso 9: Actualizar README
+
+```bash
+cd ~/dotfiles
+
+# Agregar Kate a la lista de paquetes
+nano README.md
+
+# Agregar:
+# - kate/          # Kate editor
+
+# Commit cambio
+git add README.md
+git commit -m "docs: Add Kate to README"
+git push
+```
+
+### Paso 10: Actualizar Script de Instalación
+
+```bash
+# Si tienes install.sh, agregar kate
+nano install.sh
+
+# Agregar "kate" a la lista de PACKAGES:
+# PACKAGES=(
+#     "git"
+#     "shell"
+#     "terminal"
+#     "vscode"
+#     "kde"
+#     "kate"        # <-- Agregar esto
+# )
+
+git add install.sh
+git commit -m "chore(scripts): Add kate to install script"
+git push
+```
+
+## Caso 5: Migrar de Kubuntu a Archcraft
+
+**Escenario:** Usabas Kubuntu, ahora instalaste Archcraft. Quieres migrar tus dotfiles pero adaptándolos.
+
+### Paso 1: Evaluar Diferencias
+
+```bash
+# 1.1 En tu Kubuntu original, ver qué tienes
+cd ~/dotfiles
+ls -d */
+
+# Ejemplo:
+# git/ shell/ terminal/ vscode/ kde/ digikam/ okular/ ...
+
+# 1.2 Identificar qué es compatible con Archcraft
+# ✅ Compatible: git, shell, vscode
+# ⚠️  Adaptar: kde (Archcraft puede usar i3/bspwm)
+# ❌ No necesario: apps específicas de Kubuntu
+```
+
+### Paso 2: En Archcraft Nueva
+
+```bash
+# 2.1 Instalar Stow
+sudo pacman -S stow git
+
+# 2.2 Clonar dotfiles
+cd ~
+git clone https://github.com/achalmaedison/.dotfiles.git dotfiles
+```
+
+### Paso 3: Crear Branch para Archcraft
+
+```bash
+cd ~/dotfiles
+
+# 3.1 Crear branch específica
+git checkout -b archcraft-setup
+
+# 3.2 Ver qué paquetes hay
+ls -d */
+```
+
+### Paso 4: Instalar Paquetes Universales
+
+```bash
+cd ~/dotfiles
+
+# 4.1 Paquetes que funcionan en cualquier distro
+stow git
+stow shell
+stow terminal  # Si Archcraft usa Konsole, sino adaptar
+```
+
+### Paso 5: Adaptar o Crear Nuevos Paquetes
+
+**5.1 Window Manager (Si Archcraft usa i3/bspwm):**
+
+```bash
+# Crear nuevo paquete para i3 (ejemplo)
+mkdir -p i3/.config/i3
+
+# Configurar i3
+i3-config-wizard
+# O copiar config existente
+
+# Mover config al paquete
+mv ~/.config/i3/config i3/.config/i3/
+
+# Stow
+stow i3
+```
+
+**5.2 Terminal (Si Archcraft usa otro terminal):**
+
+```bash
+# Supongamos que Archcraft usa Alacritty en vez de Konsole
+
+# Crear paquete
+mkdir -p alacritty/.config/alacritty
+
+# Config de Alacritty
+cat > alacritty/.config/alacritty/alacritty.yml << 'EOF'
+# Alacritty configuration
+font:
+  size: 11.0
+  normal:
+    family: JetBrains Mono
+    
+window:
+  opacity: 0.95
+  
+colors:
+  # Tu esquema de colores...
+EOF
+
+# Stow
+stow alacritty
+```
+
+**5.3 Polybar (Si Archcraft lo usa):**
+
+```bash
+mkdir -p polybar/.config/polybar
+
+# Copiar config de Archcraft default
+cp /etc/polybar/config polybar/.config/polybar/
+
+# Personalizar
+nano polybar/.config/polybar/config
+
+# Stow
+stow polybar
+```
+
+### Paso 6: No Instalar Paquetes Incompatibles
+
+```bash
+# NO hacer stow de paquetes específicos de Kubuntu/KDE:
+# - kde/
+# - plasma-org.kde.plasma.desktop-appletsrc
+# - etc.
+
+# Estos causarían errores en Archcraft
+```
+
+### Paso 7: Commit Cambios
+
+```bash
+cd ~/dotfiles
+
+# Agregar nuevos paquetes
+git add i3/ alacritty/ polybar/
+
+# Commit en branch archcraft
+git commit -m "feat(archcraft): Add i3, Alacritty, Polybar configs
+
+- i3 window manager configuration
+- Alacritty terminal setup
+- Polybar panel configuration"
+
+# Push branch
+git push origin archcraft-setup
+```
+
+### Paso 8: Estrategia de Branches
+
+**Opción A: Mantener branches separadas:**
+
+```bash
+# Branch main: Para Kubuntu
+# Branch archcraft-setup: Para Archcraft
+
+# Puedes hacer cherry-pick de commits específicos:
+git checkout main
+git cherry-pick <commit-hash>  # Traer cambio específico de otra branch
+```
+
+**Opción B: Usar estructura de directorios:**
+
+```bash
+# Reorganizar dotfiles:
+~/dotfiles/
+├── common/          # Configs universales
+│   ├── git/
+│   ├── shell/
+│   └── vscode/
+├── kubuntu/         # Específicos de Kubuntu
+│   ├── kde/
+│   └── konsole/
+└── archcraft/       # Específicos de Archcraft
+    ├── i3/
+    ├── alacritty/
+    └── polybar/
+
+# Instalar según distro:
+cd ~/dotfiles/common && stow */
+cd ~/dotfiles/archcraft && stow */
+```
+
+### Paso 9: Script de Instalación por Distro
+
+```bash
+cat > install-arch.sh << 'EOF'
+#!/bin/bash
+# Install script para Archcraft
+
+DOTFILES="$HOME/dotfiles"
+
+echo "🚀 Instalando dotfiles para Archcraft..."
+
+# Common packages
+cd "$DOTFILES/common"
+stow git shell vscode
+
+# Archcraft-specific
+cd "$DOTFILES/archcraft"
+stow i3 alacritty polybar rofi
+
+echo "✅ ¡Instalación completa!"
+EOF
+
+chmod +x install-arch.sh
+```
+
+### Paso 10: Mantener Ambos Sistemas
+
+```bash
+# Cuando hagas cambios en configs comunes (git, shell, vscode):
+
+# 1. Hacer cambio en cualquier máquina
+cd ~/dotfiles
+nano common/shell/.zshrc
+
+# 2. Commit
+git add common/shell/.zshrc
+git commit -m "chore(shell): Update aliases"
+
+# 3. Push
+git push origin main
+
+# 4. En otra máquina (Kubuntu o Archcraft):
+git pull origin main
+# Los symlinks se actualizan automáticamente
+```
+
+## Caso 6: Probar Nueva Configuración Sin Romper
+
+**Escenario:** Quieres probar una nueva configuración de Neovim sin afectar tu setup actual.
+
+### Paso 1: Crear Branch Experimental
+
+```bash
+cd ~/dotfiles
+
+# 1.1 Crear branch
+git checkout -b experiment/nvim-lazyvim
+
+# 1.2 Verificar que estás en la branch
+git branch
+# * experiment/nvim-lazyvim
+#   main
+```
+
+### Paso 2: Crear Paquete Alternativo
+
+```bash
+# 2.1 Crear nuevo paquete con nombre distinto
+mkdir -p nvim-lazy/.config
+
+# 2.2 Instalar LazyVim (ejemplo)
+git clone https://github.com/LazyVim/starter nvim-lazy/.config/nvim
+
+# 2.3 Estructura
+tree nvim-lazy/.config/nvim/ -L 1
+```
+
+### Paso 3: Desinstalar Neovim Actual
+
+```bash
+# 3.1 Unstow config actual (si existe)
+cd ~/dotfiles
+stow -D nvim 2>/dev/null || true
+
+# 3.2 Verificar que se eliminó symlink
+ls -la ~/.config/ | grep nvim
+# No debería aparecer nada
+```
+
+### Paso 4: Instalar Nueva Config
+
+```bash
+# 4.1 Stow nueva config
+stow nvim-lazy
+
+# 4.2 Verificar symlink
+ls -la ~/.config/nvim
+# lrwxrwxrwx  - achalmaedison nvim -> ../../dotfiles/nvim-lazy/.config/nvim
+```
+
+### Paso 5: Probar
+
+```bash
+# 5.1 Abrir Neovim
+nvim
+
+# LazyVim se instalará automáticamente
+# Probar todas las features
+
+# 5.2 Usar por varios días
+# Evaluar si te gusta
+```
+
+### Paso 6: Decidir Qué Hacer
+
+**Opción A: Mantener nueva config (si te gustó):**
+
+```bash
+cd ~/dotfiles
+
+# 1. Eliminar config vieja
+rm -rf nvim/  # O hacer backup
+
+# 2. Renombrar nueva
+mv nvim-lazy nvim
+
+# 3. Restow
+stow -R nvim
+
+# 4. Commit
+git add .
+git commit -m "refactor(nvim): Switch to LazyVim configuration"
+
+# 5. Merge a main
+git checkout main
+git merge experiment/nvim-lazyvim
+
+# 6. Push
+git push origin main
+
+# 7. Eliminar branch experimental
+git branch -d experiment/nvim-lazyvim
+```
+
+**Opción B: Volver a config anterior (si no te gustó):**
+
+```bash
+cd ~/dotfiles
+
+# 1. Checkout a main
+git checkout main
+
+# 2. Unstow experimental
+stow -D nvim-lazy
+
+# 3. Restow original
+stow nvim
+
+# 4. Eliminar paquete experimental
+rm -rf nvim-lazy/
+
+# 5. Eliminar branch
+git branch -D experiment/nvim-lazyvim
+```
+
+**Opción C: Mantener ambas (para casos específicos):**
+
+```bash
+# Tener dos configs de Neovim:
+~/dotfiles/
+├── nvim/          # Config principal
+└── nvim-lazy/     # Config alternativa
+
+# Alias en shell para cambiar:
+alias nvim-main='stow -D nvim-lazy && stow nvim && nvim'
+alias nvim-lazy='stow -D nvim && stow nvim-lazy && nvim'
+```
+
+## Caso 7: Sincronizar Múltiples Máquinas en Tiempo Real
+
+**Escenario:** Trabajas en 3 máquinas (desktop, laptop, servidor) y quieres mantener dotfiles sincronizados.
+
+### Configuración Inicial (Una Vez)
+
+```bash
+# En cada máquina:
+
+# 1. Clonar dotfiles
+cd ~
+git clone https://github.com/achalmaedison/.dotfiles.git dotfiles
+
+# 2. Instalar
+cd dotfiles
+./install.sh
+
+# 3. Configurar Git con pull automático (opcional)
+git config pull.rebase true  # Rebase en lugar de merge
+```
+
+### Workflow Diario
+
+**Máquina A (Desktop) - Hacer Cambios:**
+
+```bash
+# 1. Editar configs normalmente
+nano ~/.zshrc  # Edita a través del symlink
+
+# 2. Commit y push
+cd ~/dotfiles
+git add shell/.zshrc
+git commit -m "chore(shell): Add new alias for docker"
+git push origin main
+```
+
+**Máquina B (Laptop) - Recibir Cambios:**
+
+```bash
+# 1. Pull cambios
+cd ~/dotfiles
+git pull origin main
+
+# 2. Los symlinks se actualizan automáticamente!
+cat ~/.zshrc  # Ya tiene el cambio
+
+# 3. Recargar shell
+source ~/.zshrc
+# O
+exec zsh
+```
+
+**Máquina C (Servidor) - Recibir Cambios:**
+
+```bash
+# Mismo proceso
+cd ~/dotfiles
+git pull origin main
+source ~/.zshrc
+```
+
+### Automatizar con Cron (Opcional)
+
+```bash
+# Crear script de sync
+cat > ~/dotfiles/sync.sh << 'EOF'
+#!/bin/bash
+cd "$HOME/dotfiles"
+
+# Pull cambios silenciosamente
+git pull origin main --quiet
+
+# Log
+echo "$(date): Dotfiles sincronizados" >> ~/dotfiles/sync.log
+EOF
+
+chmod +x ~/dotfiles/sync.sh
+
+# Agregar a crontab (sync cada hora)
+crontab -e
+
+# Agregar línea:
+0 * * * * $HOME/dotfiles/sync.sh
+```
+
+### Manejar Conflictos Automáticamente
+
+```bash
+# Script más robusto
+cat > ~/dotfiles/sync.sh << 'EOF'
+#!/bin/bash
+cd "$HOME/dotfiles"
+
+# Stash cambios locales si existen
+git stash
+
+# Pull
+git pull origin main --quiet
+
+# Reapply stash
+git stash pop
+
+# Si hay conflictos, notificar
+if [ $? -ne 0 ]; then
+    notify-send "Dotfiles" "Conflicto detectado, revisar manualmente"
+fi
+EOF
+```
+
+### Usar Git Hooks (Avanzado)
+
+```bash
+# Pre-commit hook para validar antes de commit
+cat > ~/dotfiles/.git/hooks/pre-commit << 'EOF'
+#!/bin/bash
+
+# Verificar que no hay datos sensibles
+if git diff --cached | grep -i "password\|secret\|token"; then
+    echo "ERROR: Posible dato sensible detectado!"
+    exit 1
+fi
+
+exit 0
+EOF
+
+chmod +x ~/dotfiles/.git/hooks/pre-commit
+```
+
+## Caso 8: Compartir Dotfiles con Equipo/Lab
+
+**Escenario:** Trabajas en un lab con múltiples usuarios y quieren compartir configuraciones base.
+
+### Paso 1: Crear Repo de Equipo
+
+```bash
+# En GitHub, crear repo:
+# Nombre: lab-dotfiles
+# Acceso: Privado/Público según necesidad
+
+# Clonar
+git clone https://github.com/lab/.lab-dotfiles.git ~/lab-dotfiles
+```
+
+### Paso 2: Estructura Multi-Usuario
+
+```bash
+cd ~/lab-dotfiles
+
+# Crear estructura
+mkdir -p {common,users}
+
+# Common: Configs compartidas
+mkdir -p common/{git,shell,terminal}
+
+# Users: Configs personales
+mkdir -p users/{alice,bob,carlos}
+```
+
+### Paso 3: Setup Común
+
+```bash
+# Git config compartido (sin user.name/email)
+cat > common/git/.gitconfig << 'EOF'
+[core]
+    editor = nano
+    autocrlf = input
+
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    
+[push]
+    default = simple
+EOF
+
+# Shell común
+cat > common/shell/.zshrc << 'EOF'
+# Shared Zsh configuration for Lab
+
+# Common aliases
+alias ll='ls -lah'
+alias ..='cd ..'
+
+# Lab-specific paths
+export LAB_DATA="/data/lab"
+export LAB_TOOLS="/opt/lab-tools"
+
+# Source user-specific config if exists
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+EOF
+```
+
+### Paso 4: Configs Personales
+
+```bash
+# Usuario Alice
+cat > users/alice/.zshrc.local << 'EOF'
+# Alice's personal config
+
+export EDITOR=nvim
+
+alias mydata='cd /data/lab/alice'
+EOF
+
+# Usuario Bob
+cat > users/bob/.zshrc.local << 'EOF'
+# Bob's personal config
+
+export EDITOR=vim
+
+alias mydata='cd /data/lab/bob'
+EOF
+```
+
+### Paso 5: Script de Instalación
+
+```bash
+cat > install-lab.sh << 'EOF'
+#!/bin/bash
+
+USERNAME="$1"
+
+if [ -z "$USERNAME" ]; then
+    echo "Uso: $0 <username>"
+    echo "Ejemplo: $0 alice"
+    exit 1
+fi
+
+DOTFILES="$HOME/lab-dotfiles"
+
+# Instalar común
+cd "$DOTFILES/common"
+stow git shell terminal
+
+# Instalar personal del usuario
+if [ -d "$DOTFILES/users/$USERNAME" ]; then
+    cd "$DOTFILES/users/$USERNAME"
+    stow .
+    echo "✅ Configs de $USERNAME instaladas"
+else
+    echo "⚠️  No hay configs personales para $USERNAME"
+fi
+
+echo "✅ Instalación completa para $USERNAME"
+EOF
+
+chmod +x install-lab.sh
+```
+
+### Paso 6: Cada Usuario Instala
+
+```bash
+# Usuario Alice:
+cd ~/lab-dotfiles
+./install-lab.sh alice
+
+# Usuario Bob:
+cd ~/lab-dotfiles
+./install-lab.sh bob
+```
+
+### Paso 7: Actualizar Configs Compartidas
+
+```bash
+# Cualquier usuario puede actualizar common/
+
+# 1. Modificar
+nano ~/lab-dotfiles/common/shell/.zshrc
+
+# 2. Commit
+cd ~/lab-dotfiles
+git add common/shell/.zshrc
+git commit -m "feat(shell): Add lab-wide utility function"
+
+# 3. Push
+git push origin main
+
+# 4. Otros usuarios pull
+git pull origin main
+# Cambios se aplican automáticamente via symlinks
+```
+
+### Paso 8: Usuarios Agregan Sus Configs
+
+```bash
+# Bob quiere agregar su config de Neovim
+
+# 1. Crear su directorio personal
+mkdir -p ~/lab-dotfiles/users/bob/.config
+
+# 2. Copiar config
+cp -r ~/.config/nvim ~/lab-dotfiles/users/bob/.config/
+
+# 3. Commit (solo su carpeta)
+cd ~/lab-dotfiles
+git add users/bob/.config/nvim
+git commit -m "feat(bob): Add Neovim configuration"
+git push
+
+# Otros usuarios no se afectan
+```
+
+## Caso 9: Migrar de Sistema Manual a Stow
+
+**Escenario:** Tienes dotfiles en GitHub pero SIN Stow (todos en raíz del repo). Quieres migrar a Stow.
+
+### Estado Inicial
+
+```bash
+# Tu repo actual (sin Stow):
+~/dotfiles/
+├── .gitconfig
+├── .zshrc
+├── .zshenv
+├── nvim/
+│   └── init.lua
+├── konsolerc
+└── settings.json
+
+# Estructura plana, difícil de gestionar
+```
+
+### Paso 1: Backup Completo
+
+```bash
+# 1. Backup de dotfiles actuales
+cp -r ~/dotfiles ~/dotfiles-backup-$(date +%Y%m%d)
+
+# 2. Backup de HOME
+mkdir -p ~/home-backup
+cp ~/.zshrc ~/home-backup/
+cp ~/.gitconfig ~/home-backup/
+# etc...
+```
+
+### Paso 2: Crear Nueva Estructura
+
+```bash
+cd ~/dotfiles
+
+# Crear directorios de paquetes
+mkdir -p git shell nvim terminal vscode
+```
+
+### Paso 3: Reorganizar Archivos
+
+```bash
+cd ~/dotfiles
+
+# Git
+mv .gitconfig git/
+
+# Shell
+mv .zshrc shell/
+mv .zshenv shell/
+
+# Neovim (crear estructura correcta)
+mkdir -p nvim/.config
+mv nvim/ nvim/.config/nvim/
+
+# Terminal
+mkdir -p terminal/.config
+mv konsolerc terminal/.config/
+
+# VSCode
+mkdir -p vscode/.config/Code/User
+mv settings.json vscode/.config/Code/User/
+```
+
+### Paso 4: Verificar Nueva Estructura
+
+```bash
+# Debería verse así:
+tree -L 3 ~/dotfiles/
+
+# ~/dotfiles/
+# ├── git/
+# │   └── .gitconfig
+# ├── shell/
+# │   ├── .zshrc
+# │   └── .zshenv
+# ├── nvim/
+# │   └── .config/
+# │       └── nvim/
+# ├── terminal/
+# │   └── .config/
+# │       └── konsolerc
+# └── vscode/
+#     └── .config/
+#         └── Code/
+#             └── User/
+#                 └── settings.json
+```
+
+### Paso 5: Eliminar Symlinks/Archivos Viejos de HOME
+
+```bash
+# Eliminar configs de HOME (los vamos a recrear con Stow)
+rm ~/.gitconfig
+rm ~/.zshrc
+rm ~/.zshenv
+rm -rf ~/.config/nvim
+rm ~/.config/konsolerc
+rm ~/.config/Code/User/settings.json
+```
+
+### Paso 6: Instalar con Stow
+
+```bash
+cd ~/dotfiles
+
+# Dry run primero
+stow -nv git shell nvim terminal vscode
+
+# Si todo OK, instalar
+stow git shell nvim terminal vscode
+
+# Verificar
+ls -la ~/.gitconfig
+ls -la ~/.zshrc
+ls -la ~/.config/nvim
+```
+
+### Paso 7: Commit Nueva Estructura
+
+```bash
+cd ~/dotfiles
+
+# Stage todo
+git add -A
+
+# Ver cambios
+git status
+
+# Commit
+git commit -m "refactor: Migrate to GNU Stow structure
+
+BREAKING CHANGE: Repository structure changed to use Stow
+
+- Organized configs into packages (git, shell, nvim, etc.)
+- Each package replicates HOME directory structure
+- Use 'stow <package>' to install
+
+Migration guide:
+1. stow -D * (if already installed)
+2. stow git shell nvim terminal vscode"
+
+# Push
+git push origin main
+```
+
+### Paso 8: Actualizar README
+
+```bash
+cat > README.md << 'EOF'
+# Dotfiles (Stow-managed)
+
+Personal configurations managed with GNU Stow.
+
+# Structure
+
+```
+~/dotfiles/
+├── git/          # Git config
+├── shell/        # Zsh
+├── nvim/         # Neovim
+├── terminal/     # Konsole
+└── vscode/       # VSCode
+```
+
+# Installation
+
+```bash
+# Install Stow
+sudo pacman -S stow
+
+# Clone
+git clone https://github.com/user/dotfiles.git ~/dotfiles
+
+# Install all
+cd ~/dotfiles
+stow */
+
+# Or selective
+stow git shell nvim
+```
+
+### Update
+
+```bash
+cd ~/dotfiles
+git pull
+stow -R */
+```
+
+```
+EOF
+
+git add README.md
+git commit -m "docs: Update README for Stow"
+git push
+```
+
+### Paso 9: Crear Scripts
+
+```bash
+# install.sh
+cat > install.sh << 'EOF'
+#!/bin/bash
+cd "$HOME/dotfiles"
+stow git shell nvim terminal vscode
+echo "✅ Dotfiles installed"
+EOF
+
+chmod +x install.sh
+git add install.sh
+git commit -m "chore: Add install script"
+git push
+```
+
+### Paso 10: Limpiar Historial de Git (Opcional)
+
+```bash
+# Si tu repo era muy grande con historia antigua,
+# puedes limpiarlo:
+
+cd ~/dotfiles
+
+# Crear orphan branch
+git checkout --orphan latest_branch
+
+# Add all files
+git add -A
+
+# Commit
+git commit -m "refactor: Fresh start with Stow structure"
+
+# Delete main
+git branch -D main
+
+# Rename current branch to main
+git branch -m main
+
+# Force push
+git push -f origin main
+```
+
+## Caso 10: Setup para Desarrollo Multi-Proyecto
+
+**Escenario:** Trabajas en múltiples proyectos (Python, Web, Latex) y quieres configs específicas por proyecto.
+
+### Estructura de Dotfiles
+
+```bash
+~/dotfiles/
+├── common/           # Común a todo
+│   ├── git/
+│   └── shell/
+├── python-dev/       # Python development
+│   ├── nvim/
+│   └── vscode/
+├── web-dev/          # Web development
+│   ├── nvim/
+│   └── vscode/
+└── latex-writing/    # Academic writing
+    ├── nvim/
+    └── texstudio/
+```
+
+### Paso 1: Crear Estructura
+
+```bash
+cd ~/dotfiles
+
+# Común
+mkdir -p common/{git,shell}
+
+# Python dev
+mkdir -p python-dev/{nvim,vscode}
+
+# Web dev
+mkdir -p web-dev/{nvim,vscode}
+
+# LaTeX
+mkdir -p latex-writing/{nvim,texstudio}
+```
+
+### Paso 2: Configs Comunes
+
+```bash
+# Git (igual para todos)
+cat > common/git/.gitconfig << 'EOF'
+[user]
+    name = Edison Achalma
+    email = achalmaedison@gmail.com
+
+[core]
+    editor = nvim
+EOF
+
+# Shell base
+cat > common/shell/.zshrc << 'EOF'
+# Common shell config
+
+# Aliases
+alias gs='git status'
+alias ll='ls -lah'
+
+# Load project-specific config
+[ -f ~/.zshrc.project ] && source ~/.zshrc.project
+EOF
+```
+
+### Paso 3: Configs Específicas por Proyecto
+
+**Python Development:**
+
+```bash
+# Neovim para Python
+cat > python-dev/nvim/.config/nvim/init.lua << 'EOF'
+-- Python-focused Neovim config
+
+-- LSP
+require('lspconfig').pyright.setup{}
+
+-- Python-specific keymaps
+vim.keymap.set('n', '<leader>r', ':!python %<CR>')
+EOF
+
+# VSCode para Python
+cat > python-dev/vscode/.config/Code/User/settings.json << 'EOF'
+{
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.formatting.provider": "black"
+}
+EOF
+
+# Shell additions para Python
+cat > python-dev/shell/.zshrc.project << 'EOF'
+# Python dev environment
+
+export PYTHONPATH="$HOME/projects/python:$PYTHONPATH"
+
+alias pytest='python -m pytest'
+alias venv='python -m venv venv && source venv/bin/activate'
+EOF
+```
+
+**Web Development:**
+
+```bash
+# Neovim para Web
+cat > web-dev/nvim/.config/nvim/init.lua << 'EOF'
+-- Web-focused Neovim config
+
+-- LSP for JS/TS
+require('lspconfig').tsserver.setup{}
+
+-- Live server
+vim.keymap.set('n', '<leader>l', ':!live-server .<CR>')
+EOF
+
+# VSCode para Web
+cat > web-dev/vscode/.config/Code/User/settings.json << 'EOF'
+{
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "prettier.enable": true,
+    "editor.formatOnSave": true
+}
+EOF
+```
+
+### Paso 4: Scripts de Activación
+
+```bash
+# Script para activar proyecto Python
+cat > ~/dotfiles/activate-python.sh << 'EOF'
+#!/bin/bash
+
+echo "🐍 Activando entorno Python..."
+
+cd ~/dotfiles
+
+# Unstow otros proyectos
+stow -D web-dev/nvim 2>/dev/null || true
+stow -D latex-writing/nvim 2>/dev/null || true
+
+# Stow común
+stow common/*
+
+# Stow Python
+stow python-dev/*
+
+# Copiar project-specific shell config
+cp python-dev/shell/.zshrc.project ~/.zshrc.project
+
+echo "✅ Entorno Python activado"
+EOF
+
+chmod +x ~/dotfiles/activate-python.sh
+```
+
+```bash
+# Script para activar proyecto Web
+cat > ~/dotfiles/activate-web.sh << 'EOF'
+#!/bin/bash
+
+echo "🌐 Activando entorno Web..."
+
+cd ~/dotfiles
+
+# Unstow otros
+stow -D python-dev/nvim 2>/dev/null || true
+stow -D latex-writing/nvim 2>/dev/null || true
+
+# Stow común
+stow common/*
+
+# Stow Web
+stow web-dev/*
+
+# Shell config
+cp web-dev/shell/.zshrc.project ~/.zshrc.project
+
+echo "✅ Entorno Web activado"
+EOF
+
+chmod +x ~/dotfiles/activate-web.sh
+```
+
+### Paso 5: Uso
+
+```bash
+# Trabajar en proyecto Python
+~/dotfiles/activate-python.sh
+cd ~/projects/python/my-project
+nvim  # Abre con config de Python
+
+# Cambiar a proyecto Web
+~/dotfiles/activate-web.sh
+cd ~/projects/web/my-app
+nvim  # Abre con config de Web
+```
+
+### Paso 6: Automatizar con Direnv (Avanzado)
+
+```bash
+# Instalar direnv
+sudo pacman -S direnv
+
+# En cada proyecto, crear .envrc
+cd ~/projects/python/my-project
+cat > .envrc << 'EOF'
+#!/bin/bash
+# Activar entorno Python automáticamente
+source "$HOME/dotfiles/activate-python.sh"
+EOF
+
+direnv allow
+
+# Ahora al entrar al directorio, se activa automáticamente
+```
+
+# Mi Repositorio .dotfiles
+
+## Mi Estructura Actual
+
+```bash
+~/dotfiles/
+├── git/
+│   └── .gitconfig
+├── kde/
+│   └── .config/
+│       ├── kdeglobals
+│       ├── dolphinrc
+│       └── ...
+├── shell/
+│   ├── .zshrc
+│   └── starship.toml
+├── terminal/
+│   └── .config/
+│       └── konsolerc
+├── vscode/
+│   └── .config/
+│       ├── settings.json
+│       └── keybindings.json
+├── zotero/
+│   └── .zotero/...
+├── obsidian/
+│   └── Documents/thoughts/.obsidian/
+└── ... (más paquetes)
+```
+
+## Implementación de Stow en mi Repo
+
+## 1. Script install.sh
+
+Mi `install.sh` actual debe usar Stow. Aquí está mi versión mejorada:
+
+```bash
+#!/bin/bash
+# ~/dotfiles/install.sh
+
+set -e
+
+DOTFILES="$HOME/dotfiles"
+BACKUP_DIR="$HOME/dotfiles-backup-$(date +%Y%m%d-%H%M%S)"
+
+# Colores
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+# Funciones
+log_info() {
+    echo -e "${GREEN}[INFO]${NC} $1"
+}
+
+log_warn() {
+    echo -e "${YELLOW}[WARN]${NC} $1"
+}
+
+log_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
+
+# Verificar que Stow está instalado
+if ! command -v stow &> /dev/null; then
+    log_error "Stow no está instalado"
+    log_info "Instalando stow..."
+    sudo apt update && sudo apt install -y stow
+fi
+
+# Función para hacer backup
+backup_if_exists() {
+    local file="$1"
+    if [ -e "$file" ] && [ ! -L "$file" ]; then
+        mkdir -p "$BACKUP_DIR"
+        cp -r "$file" "$BACKUP_DIR/"
+        log_warn "Backup: $file -> $BACKUP_DIR/"
+    fi
+}
+
+# Función para stow paquete
+stow_package() {
+    local package="$1"
+    
+    log_info "Stowing $package..."
+    
+    # Dry run primero
+    if stow -nv "$package" 2>&1 | grep -q "WARNING"; then
+        log_warn "Conflicto detectado para $package"
+        read -p "¿Hacer backup y continuar? [y/N] " -n 1 -r
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            # Hacer backup de archivos conflictivos
+            # (aquí necesitarías lógica más sofisticada)
+            stow "$package"
+        else
+            log_error "Saltando $package"
+            return 1
+        fi
+    else
+        stow "$package"
+        log_info "✓ $package instalado"
+    fi
+}
+
+# Cambiar a dotfiles directory
+cd "$DOTFILES" || exit 1
+
+# Lista de paquetes a instalar
+PACKAGES=(
+    "git"
+    "shell"
+    "terminal"
+    "kde"
+    "vscode"
+    "nvim"
+    "kitty"
+    # ... más paquetes
+)
+
+# Opción para instalar todo o selectivo
+if [ "$1" == "all" ]; then
+    PACKAGES=($(ls -d */ | sed 's#/#'))
+    log_info "Instalando TODOS los paquetes"
+elif [ $# -gt 0 ]; then
+    PACKAGES=("$@")
+    log_info "Instalando paquetes especificados: ${PACKAGES[*]}"
+fi
+
+# Instalar paquetes
+for package in "${PACKAGES[@]}"; do
+    stow_package "$package" || true
+done
+
+log_info "Instalación completa!"
+if [ -d "$BACKUP_DIR" ]; then
+    log_info "Backups guardados en: $BACKUP_DIR"
+fi
+```
+
+**Uso:**
+
+```bash
+# Instalar paquetes específicos
+./install.sh git shell terminal
+
+# Instalar todo
+./install.sh all
+
+# Ver qué haría sin hacer cambios
+# (modificar script para agregar -n flag)
+```
+
+## 2. Script para Desinstalar
+
+```bash
+#!/bin/bash
+# ~/dotfiles/uninstall.sh
+
+DOTFILES="$HOME/dotfiles"
+
+cd "$DOTFILES" || exit 1
+
+if [ $# -eq 0 ]; then
+    echo "Uso: $0 <paquete1> [paquete2] ..."
+    echo "O: $0 all"
+    exit 1
+fi
+
+if [ "$1" == "all" ]; then
+    PACKAGES=($(ls -d */ | sed 's#/#'))
+else
+    PACKAGES=("$@")
+fi
+
+for package in "${PACKAGES[@]}"; do
+    echo "Unstowing $package..."
+    stow -D "$package"
+    echo "✓ $package desinstalado"
+done
+```
+
+## 3. Reorganizar Paquetes Problemáticos
+
+**Zotero:** Ubicación no estándar
+
+```bash
+# Actual:
+zotero/
+  └── .zotero/zotero/25vfdnq5.default/
+      └── prefs.js
+
+# Problema: .zotero está en HOME pero tiene subdirectorios profundos
+
+# Solución 1: Usar como está (funciona)
+stow zotero
+# Resultado: ~/.zotero/... → dotfiles/zotero/.zotero/...
+
+# Solución 2: Si solo quieres prefs.js, simplificar:
+zotero/
+  └── .zotero/
+      └── zotero/
+          └── 25vfdnq5.default/
+              └── prefs.js
+```
+
+**Obsidian:** Ruta específica
+
+```bash
+# Actual:
+obsidian/
+  └── Documents/thoughts/.obsidian/
+
+# Problema: No está en .config sino en Documents
+
+# Solución: Está bien así, Stow lo maneja
+stow obsidian
+# Resultado: ~/Documents/thoughts/.obsidian → ...
+```
+
+## 4. .stowrc para tu Repo
+
+Crear `~/dotfiles/.stowrc`:
+
+```bash
+# ~/dotfiles/.stowrc
+
+# Target es siempre HOME
+--target=$HOME
+
+# Ignorar archivos comunes
+--ignore='.git'
+--ignore='README.*'
+--ignore='LICENSE.*'
+--ignore='.*.swp'
+--ignore='.*~'
+--ignore='install.sh'
+--ignore='uninstall.sh'
+--ignore='.stowrc'
+```
+
+Con esto, no necesitas especificar `-t ~` cada vez.
+
+## 5. .stow-local-ignore por Paquete
+
+**Para vscode:**
+
+```bash
+# ~/dotfiles/vscode/.stow-local-ignore
+
+# No stow extensiones (solo configuración)
+^/\.config/Code/CachedData/
+^/\.config/Code/logs/
+^/\.config/Code/User/workspaceStorage/
+```
+
+**Para kde:**
+
+```bash
+# ~/dotfiles/kde/.stow-local-ignore
+
+# Archivos de sesión y cache
+^/\.config/session/
+^/\.cache/
+```
+
+**Para shell:**
+
+```bash
+# ~/dotfiles/shell/.stow-local-ignore
+
+# Historia de shells (puede tener info sensible)
+^/\.zsh_history
+^/\.bash_history
+
+# Archivos compilados
+\.zcompdump
+```
+
+## 6. Script de Verificación
+
+```bash
+#!/bin/bash
+# ~/dotfiles/check-stow.sh
+
+# Verificar qué está stowed
+
+DOTFILES="$HOME/dotfiles"
+
+echo "Paquetes stowed:"
+echo "================"
+
+cd "$DOTFILES" || exit 1
+
+for package in */; do
+    package=${package%/}
+    
+    # Encontrar primer archivo del paquete
+    first_file=$(find "$package" -type f | head -1)
+    
+    if [ -z "$first_file" ]; then
+        continue
+    fi
+    
+    # Convertir a path en HOME
+    home_path="$HOME/${first_file#$package/}"
+    
+    if [ -L "$home_path" ]; then
+        target=$(readlink "$home_path")
+        if [[ "$target" == *"$DOTFILES/$package"* ]]; then
+            echo "✓ $package"
+        else
+            echo "✗ $package (symlink apunta a otro lugar)"
+        fi
+    else
+        echo "✗ $package (no stowed)"
+    fi
+done
+```
+
+## 7. Actualizar .gitignore
+
+```bash
+# ~/dotfiles/.gitignore
+
+# Backups
+*~
+*.bak
+*.old
+*.orig
+.*.swp
+
+# Datos sensibles
+shell/.zsh_history
+shell/.bash_history
+.netrc
+.authinfo
+
+# Cache y temporales
+**/.cache/
+**/__pycache__/
+**/node_modules/
+
+# Logs
+**/*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de Stow
+.stow
+
+# Zotero database (demasiado grande)
+zotero/.zotero/zotero/*/zotero.sqlite*
+
+# VSCode workspace storage
+vscode/.config/Code/User/workspaceStorage/
+```
+
+## 8. Comandos Útiles para tu Repo
+
+```bash
+# Navegar a dotfiles
+cd ~/dotfiles
+
+# Instalar todo (primera vez)
+./install.sh all
+
+# Instalar paquetes esenciales
+./install.sh git shell terminal kde
+
+# Verificar qué está instalado
+./check-stow.sh
+
+# Actualizar después de pull
+git pull
+stow -R */  # Restow todo
+
+# Desinstalar temporalmente para pruebas
+stow -D vscode
+# hacer pruebas...
+stow vscode  # Reinstalar
+
+# Agregar nuevo paquete
+mkdir new-app
+# crear estructura...
+stow new-app
+git add new-app/
+git commit -m "Add new-app"
+```
+
+# Workflows Completos
+
+## Workflow 1: Configuración Inicial
+
+```bash
+# Paso 1: Crear estructura
+mkdir -p ~/dotfiles
+cd ~/dotfiles
+git init
+
+# Paso 2: Crear paquetes
+mkdir -p zsh nvim git
+
+# Paso 3: Mover configs existentes
+mv ~/.zshrc zsh/
+mv ~/.config/nvim nvim/.config/
+mv ~/.gitconfig git/
+
+# Paso 4: Stow
+stow zsh nvim git
+
+# Paso 5: Verificar
+ls -la ~/.zshrc  # debe ser symlink
+
+# Paso 6: Git
+git add .
+git commit -m "Initial dotfiles"
+git remote add origin git@github.com:user/dotfiles.git
+git push -u origin main
+```
+
+## Workflow 2: Día a Día
+
+```bash
+# Editar configuración (desde cualquier lugar)
+nvim ~/.config/nvim/init.lua  # Edita a través del symlink
+
+# Commit cambios
+cd ~/dotfiles
+git add nvim/
+git commit -m "Update nvim config: add new plugin"
+git push
+
+# En otra máquina
+cd ~/dotfiles
+git pull
+# Los cambios se reflejan automáticamente (symlinks)
+```
+
+## Workflow 3: Nueva Máquina
+
+```bash
+# Clonar
+git clone https://github.com/user/dotfiles.git ~/dotfiles
+
+# Instalar Stow
+sudo apt install stow
+
+# Backup existentes (precaución)
+mkdir ~/backup
+cp ~/.zshrc ~/backup/ 2>/dev/null || true
+
+# Stow
+cd ~/dotfiles
+stow */
+
+# Verificar
+ls -la ~/ | grep '\->'
+
+# Instalar dependencias de apps
+# (nvim plugins, zsh plugins, etc)
+```
+
+## Workflow 4: Experimentar
+
+```bash
+# Crear branch de experimento
+cd ~/dotfiles
+git checkout -b experiment-new-nvim
+
+# Modificar libremente
+nvim nvim/.config/nvim/init.lua
+
+# Restow para aplicar
+stow -R nvim
+
+# Probar...
+
+# Si funciona:
+git checkout main
+git merge experiment-new-nvim
+
+# Si no funciona:
+git checkout main
+stow -R nvim  # Vuelve a main automáticamente
+```
+
+## Workflow 5: Actualización Limpia
+
+```bash
+# Pull cambios
+cd ~/dotfiles
+git pull origin main
+
+# Verificar qué cambió
+git log -p --since="1 week ago"
+
+# Desinstalar y reinstalar (limpia symlinks obsoletos)
+stow -D nvim
+stow nvim
+
+# O usar restow
+stow -R nvim
+
+# Verificar que funciona
+nvim --version
+```
 
 # Best Practices
 
@@ -3128,7 +5164,7 @@ nvim/
 ^/\.config/nvim/plugin/packer_compiled\.lua
 ```
 
-**❌ DON'T:**
+**DON'T:**
 
 ```bash
 # Commit archivos sensibles sin ignorar
@@ -3355,16 +5391,20 @@ config commit -m "Add zshrc"
 
 ## Comparación
 
-| Feature | Stow | yadm | chezmoi | dotbot | Bare Git |
-|---------|------|------|---------|--------|----------|
-| Simplicidad | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
-| Flexibilidad | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| Templates | ❌ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ❌ | ❌ |
-| Secrets | ❌ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ❌ | ❌ |
-| Instalación | Easy | Easy | Easy | Easy | None needed |
-| Comunidad | Grande | Media | Grande | Pequeña | N/A |
+| Característica              | GNU Stow          | yadm              | chezmoi                  | dotbot            | Repositorio Git bare     |
+|-----------------------------|-------------------|-------------------|--------------------------|-------------------|--------------------------|
+| Simplicidad                 | Muy alta          | Alta              | Media                    | Alta              | Media                    |
+| Flexibilidad                | Muy alta          | Media             | Muy alta                 | Media             | Muy alta                 |
+| Soporte para plantillas     | No                | Parcial           | Completo (Jinja2)        | No                | No                       |
+| Manejo de secretos          | No                | Bueno             | Excelente (integrado)    | No                | No                       |
+| Facilidad de instalación    | Muy sencilla      | Muy sencilla      | Muy sencilla             | Muy sencilla      | Sin instalación adicional|
+| Tamaño de la comunidad      | Grande            | Mediana           | Grande                   | Pequeña           | N/A (herramienta nativa) |
+| Curva de aprendizaje        | Baja              | Baja              | Media-alta               | Baja              | Media                    |
+| Uso de enlaces simbólicos   | Sí (principal)    | No                | Sí (opcional)            | Sí                | No                       |
+| Soporte multiplataforma     | Excelente         | Bueno             | Excelente                | Bueno             | Excelente                |
 
 **Recomendación:** Stow es ideal si quieres:
+
 - Simplicidad
 - Control total
 - Organización por paquetes
@@ -3373,23 +5413,9 @@ config commit -m "Add zshrc"
 
 # Conclusión
 
-## Resumen de Stow
+La gestión de dotfiles es una práctica esencial para optimizar el entorno de desarrollo y asegurar la persistencia de las configuraciones personalizadas. GNU Stow, en particular, se destaca por su simplicidad y eficacia al manejar enlaces simbólicos, especialmente cuando se combina con Git para el versionado y la sincronización. Permite una modularidad excelente y una replicación rápida de entornos.
 
-**Ventajas:**
-
-- Simple y directo
-- Solo hace una cosa: symlinks
-- Organización clara por paquetes
-- No modifica archivos originales
-- Fácil de entender y debuggear
-- Perfecto para dotfiles
-
-**Desventajas:**
-
-- Sin templates
-- Sin manejo de secrets
-- Requiere estructura específica
-- Puede ser confuso al principio
+Si bien existen alternativas más avanzadas como Chezmoi o YADM (que ofrecen funciones adicionales como plantillas y cifrado de secretos) o soluciones declarativas como NixOS/Home-Manager, Stow sigue siendo una opción robusta y preferida por muchos por su enfoque directo y la curva de aprendizaje mínima. La clave es elegir la herramienta que mejor se adapte a las necesidades y al nivel de complejidad deseado, siempre priorizando la seguridad de la información sensible.
 
 ## Comandos Esenciales
 
@@ -3416,14 +5442,6 @@ stow --ignore='patrón' paquete
 stow -d ~/dotfiles -t ~ paquete
 ```
 
-## Próximos Pasos
-
-1. **Setup inicial:** Crear estructura de dotfiles
-2. **Migrar configs:** Mover configs existentes a paquetes
-3. **Stow todo:** Instalar con stow
-4. **Git:** Versionar con Git
-5. **Probar:** En máquina de prueba o VM
-6. **Iterar:** Mejorar organización según necesites
 
 ## Recursos Adicionales
 

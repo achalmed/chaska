@@ -360,25 +360,59 @@ específicamente para flujos de trabajo de ciencia de datos.
 
 \textbf{Positron vs VS Code vs RStudio}
 
-\begin{longtable}[]{@{}llll@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2895}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2368}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2368}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2368}}@{}}
 \toprule\noalign{}
-Característica & Positron & VS Code & RStudio \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Característica
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Positron
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+VS Code
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RStudio
+\end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Base & Code OSS & Propietario & Propietario \\
-Python nativo & ✅ & ❌ (extensión) & ❌ \\
-R nativo & ✅ & ❌ (extensión) & ✅ \\
-Console interactiva & ✅ & ❌ & ✅ \\
-Data Explorer & ✅ & ❌ & ✅ \\
-Variables Pane & ✅ & ❌ & ✅ \\
-Plots Pane & ✅ & ❌ & ✅ \\
-Quarto & ✅ & ✅ (extensión) & ✅ \\
+Base técnica & Code OSS & Propietario + Code OSS & Propietario
+(Posit) \\
+Soporte nativo Python & Sí & No (extensión) & Limitado \\
+Soporte nativo R & Sí & No (extensión) & Sí (muy optimizado) \\
+Consola interactiva & Sí & No & Sí \\
+Panel de datos/variables/plots & Sí & No & Sí \\
+Soporte Quarto & Sí (nativo) & Sí (extensión) & Sí \\
 Extensiones & Open VSX & VS Marketplace & Limitadas \\
-AI Assistant & ✅ & ❌ (Copilot) & ❌ \\
-Multilenguaje & ✅ & ✅ & Limitado \\
+Asistente IA integrado & Sí & No (requiere Copilot) & No \\
+Multilenguaje & Sí (R + Python) & Sí (muy amplio) & Limitado (foco en
+R) \\
+Estabilidad & Alta & Muy alta & Muy alta \\
+Crashes afectan el IDE & No & No & Sí \\
 \end{longtable}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Positron} se posiciona como el sucesor natural para flujos de
+  trabajo modernos de ciencia de datos que usan \textbf{R y Python} por
+  igual. Combina lo mejor de RStudio (consola interactiva, panes de
+  datos/plots/variables) con la extensibilidad y modernidad de VS Code.
+\item
+  \textbf{VS Code} sigue siendo el rey de la versatilidad general, pero
+  requiere mucha configuración para obtener una experiencia fluida en R
+  o Python data science.
+\item
+  \textbf{RStudio} permanece muy bien mantenido por Posit, con
+  optimizaciones específicas para R que aún no están al 100\% en
+  Positron (ej. algunos add-ins, soporte completo de .Rproj en ciertos
+  casos, o features muy nicho como Sweave o ciertos publishing tools).
+  Si tu trabajo es 95--100\% R y no necesitas Python, RStudio sigue
+  siendo excelente y estable.
+\end{itemize}
 
 \section{Instalación}\label{instalaciuxf3n}
 

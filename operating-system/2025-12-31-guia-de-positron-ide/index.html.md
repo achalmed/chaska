@@ -65,19 +65,24 @@ Positron es un IDE moderno y extensible para ciencia de datos construido sobre *
 
 **Positron vs VS Code vs RStudio**
 
-| Característica | Positron | VS Code | RStudio |
-|----------------|----------|---------|---------|
-| Base | Code OSS | Propietario | Propietario |
-| Python nativo | ✅ | ❌ (extensión) | ❌ |
-| R nativo | ✅ | ❌ (extensión) | ✅ |
-| Console interactiva | ✅ | ❌ | ✅ |
-| Data Explorer | ✅ | ❌ | ✅ |
-| Variables Pane | ✅ | ❌ | ✅ |
-| Plots Pane | ✅ | ❌ | ✅ |
-| Quarto | ✅ | ✅ (extensión) | ✅ |
-| Extensiones | Open VSX | VS Marketplace | Limitadas |
-| AI Assistant | ✅ | ❌ (Copilot) | ❌ |
-| Multilenguaje | ✅ | ✅ | Limitado |
+| Característica                  | Positron                  | VS Code                   | RStudio                   |
+|---------------------------------|---------------------------|---------------------------|---------------------------|
+| Base técnica                    | Code OSS                  | Propietario + Code OSS    | Propietario (Posit)       |
+| Soporte nativo Python           | Sí                        | No (extensión)            | Limitado                  |
+| Soporte nativo R                | Sí                        | No (extensión)            | Sí (muy optimizado)       |
+| Consola interactiva             | Sí                        | No                        | Sí                        |
+| Panel de datos/variables/plots  | Sí                        | No                        | Sí                        |
+| Soporte Quarto                  | Sí (nativo)               | Sí (extensión)            | Sí                        |
+| Extensiones                     | Open VSX                  | VS Marketplace            | Limitadas                 |
+| Asistente IA integrado          | Sí                        | No (requiere Copilot)     | No                        |
+| Multilenguaje                   | Sí (R + Python)           | Sí (muy amplio)           | Limitado (foco en R)      |
+| Estabilidad                     | Alta                      | Muy alta                  | Muy alta                  |
+| Crashes afectan el IDE          | No                        | No                        | Sí                        |
+
+
+- **Positron** se posiciona como el sucesor natural para flujos de trabajo modernos de ciencia de datos que usan **R y Python** por igual. Combina lo mejor de RStudio (consola interactiva, panes de datos/plots/variables) con la extensibilidad y modernidad de VS Code.
+- **VS Code** sigue siendo el rey de la versatilidad general, pero requiere mucha configuración para obtener una experiencia fluida en R o Python data science.
+- **RStudio** permanece muy bien mantenido por Posit, con optimizaciones específicas para R que aún no están al 100% en Positron (ej. algunos add-ins, soporte completo de .Rproj en ciertos casos, o features muy nicho como Sweave o ciertos publishing tools). Si tu trabajo es 95–100% R y no necesitas Python, RStudio sigue siendo excelente y estable.
 
 
 # Instalación
@@ -1516,7 +1521,7 @@ execute:
 
 Este es un documento Quarto.
 
-::: {#a2b5ec42 .cell}
+::: {#3044972b .cell}
 ``` {.python .cell-code}
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -1529,7 +1534,7 @@ df.head()
 
 # Análisis
 
-::: {#ca7d40f8 .cell}
+::: {#8ae848a6 .cell}
 ``` {.python .cell-code}
 plt.plot(df['x'], df['y'])
 plt.show()

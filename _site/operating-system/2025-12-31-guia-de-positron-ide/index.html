@@ -9457,7 +9457,7 @@ src: url(data:font/ttf;base64,AAEAAAAQAQAABAAAR0RFRkZlQIQAAASkAAAD7kdQT1O7qqlVAA
         <div>
         <div class="quarto-title-meta-heading">Fecha de última modificación</div>
         <div class="quarto-title-meta-contents">
-          <p class="date-modified">31 de diciembre de 2025</p>
+          <p class="date-modified">2 de enero de 2026</p>
         </div>
       </div>
         
@@ -9597,6 +9597,12 @@ z-index: 0;
 </ul>
 <p><strong>Positron vs VS Code vs RStudio</strong></p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 23%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Característica</th>
@@ -9607,52 +9613,40 @@ z-index: 0;
 </thead>
 <tbody>
 <tr class="odd">
-<td>Base</td>
+<td>Base técnica</td>
 <td>Code OSS</td>
-<td>Propietario</td>
-<td>Propietario</td>
+<td>Propietario + Code OSS</td>
+<td>Propietario (Posit)</td>
 </tr>
 <tr class="even">
-<td>Python nativo</td>
-<td>✅</td>
-<td>❌ (extensión)</td>
-<td>❌</td>
+<td>Soporte nativo Python</td>
+<td>Sí</td>
+<td>No (extensión)</td>
+<td>Limitado</td>
 </tr>
 <tr class="odd">
-<td>R nativo</td>
-<td>✅</td>
-<td>❌ (extensión)</td>
-<td>✅</td>
+<td>Soporte nativo R</td>
+<td>Sí</td>
+<td>No (extensión)</td>
+<td>Sí (muy optimizado)</td>
 </tr>
 <tr class="even">
-<td>Console interactiva</td>
-<td>✅</td>
-<td>❌</td>
-<td>✅</td>
+<td>Consola interactiva</td>
+<td>Sí</td>
+<td>No</td>
+<td>Sí</td>
 </tr>
 <tr class="odd">
-<td>Data Explorer</td>
-<td>✅</td>
-<td>❌</td>
-<td>✅</td>
+<td>Panel de datos/variables/plots</td>
+<td>Sí</td>
+<td>No</td>
+<td>Sí</td>
 </tr>
 <tr class="even">
-<td>Variables Pane</td>
-<td>✅</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr class="odd">
-<td>Plots Pane</td>
-<td>✅</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-<tr class="even">
-<td>Quarto</td>
-<td>✅</td>
-<td>✅ (extensión)</td>
-<td>✅</td>
+<td>Soporte Quarto</td>
+<td>Sí (nativo)</td>
+<td>Sí (extensión)</td>
+<td>Sí</td>
 </tr>
 <tr class="odd">
 <td>Extensiones</td>
@@ -9661,19 +9655,36 @@ z-index: 0;
 <td>Limitadas</td>
 </tr>
 <tr class="even">
-<td>AI Assistant</td>
-<td>✅</td>
-<td>❌ (Copilot)</td>
-<td>❌</td>
+<td>Asistente IA integrado</td>
+<td>Sí</td>
+<td>No (requiere Copilot)</td>
+<td>No</td>
 </tr>
 <tr class="odd">
 <td>Multilenguaje</td>
-<td>✅</td>
-<td>✅</td>
-<td>Limitado</td>
+<td>Sí (R + Python)</td>
+<td>Sí (muy amplio)</td>
+<td>Limitado (foco en R)</td>
+</tr>
+<tr class="even">
+<td>Estabilidad</td>
+<td>Alta</td>
+<td>Muy alta</td>
+<td>Muy alta</td>
+</tr>
+<tr class="odd">
+<td>Crashes afectan el IDE</td>
+<td>No</td>
+<td>No</td>
+<td>Sí</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><strong>Positron</strong> se posiciona como el sucesor natural para flujos de trabajo modernos de ciencia de datos que usan <strong>R y Python</strong> por igual. Combina lo mejor de RStudio (consola interactiva, panes de datos/plots/variables) con la extensibilidad y modernidad de VS Code.</li>
+<li><strong>VS Code</strong> sigue siendo el rey de la versatilidad general, pero requiere mucha configuración para obtener una experiencia fluida en R o Python data science.</li>
+<li><strong>RStudio</strong> permanece muy bien mantenido por Posit, con optimizaciones específicas para R que aún no están al 100% en Positron (ej. algunos add-ins, soporte completo de .Rproj en ciertos casos, o features muy nicho como Sweave o ciertos publishing tools). Si tu trabajo es 95–100% R y no necesitas Python, RStudio sigue siendo excelente y estable.</li>
+</ul>
 <section id="instalación" class="level1">
 <h1>Instalación</h1>
 <section id="requisitos-del-sistema" class="level2">
@@ -11111,7 +11122,7 @@ Windows: %APPDATA%\Positron\User\settings.json</code></pre>
 <span id="cb73-10"><a href="#cb73-10"></a></span>
 <span id="cb73-11"><a href="#cb73-11"></a><span class="at">Este es un documento Quarto.</span></span>
 <span id="cb73-12"><a href="#cb73-12"></a></span>
-<span id="cb73-13"><a href="#cb73-13"></a><span class="at">:</span><span class="fu">:</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="co">#a2b5ec42 .cell}</span></span>
+<span id="cb73-13"><a href="#cb73-13"></a><span class="at">:</span><span class="fu">:</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="co">#3044972b .cell}</span></span>
 <span id="cb73-14"><a href="#cb73-14"></a><span class="at">``` {.python .cell-code</span><span class="kw">}</span></span>
 <span id="cb73-15"><a href="#cb73-15"></a><span class="at">import pandas as pd</span></span>
 <span id="cb73-16"><a href="#cb73-16"></a><span class="at">import matplotlib.pyplot as plt</span></span>
@@ -11123,7 +11134,7 @@ Windows: %APPDATA%\Positron\User\settings.json</code></pre>
 </section>
 <section id="análisis" class="level1">
 <h1>Análisis</h1>
-<div id="ca7d40f8" class="cell">
+<div id="8ae848a6" class="cell">
 <details class="code-fold">
 <summary>Mostrar el código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>plt.plot(df[<span class="st">&#39;x&#39;</span>], df[<span class="st">&#39;y&#39;</span>])</span>

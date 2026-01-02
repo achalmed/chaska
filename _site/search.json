@@ -4337,7 +4337,7 @@
     "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#crear-documento-quarto",
     "title": "Guía Completa de Positron IDE",
     "section": "Crear Documento Quarto",
-    "text": "Crear Documento Quarto\nNuevo archivo:\nFile → New File → Quarto Document\nEstructura básica (.qmd):\n---\ntitle: \"Mi Documento\"\nauthor: \"Tu Nombre\"\nformat: html\nexecute:\n  echo: true\n---\n\n# Introducción\n\nEste es un documento Quarto.\n\n::: {#a2b5ec42 .cell}\n``` {.python .cell-code}\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ndf = pd.read_csv('data.csv')\ndf.head()\n:::"
+    "text": "Crear Documento Quarto\nNuevo archivo:\nFile → New File → Quarto Document\nEstructura básica (.qmd):\n---\ntitle: \"Mi Documento\"\nauthor: \"Tu Nombre\"\nformat: html\nexecute:\n  echo: true\n---\n\n# Introducción\n\nEste es un documento Quarto.\n\n::: {#3044972b .cell}\n``` {.python .cell-code}\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ndf = pd.read_csv('data.csv')\ndf.head()\n:::"
   },
   {
     "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#preview",
@@ -5646,7 +5646,7 @@
     "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#uso-de-ignore-lists",
     "title": "Gestiona dotfiles fácilmente con GNU Stow",
     "section": "2. Uso de Ignore Lists",
-    "text": "2. Uso de Ignore Lists\nDO:\n# Ignorar archivos sensibles\n# .stow-global-ignore\n**/.history\n**/.ssh/id_*\n.netrc\n\n# Ignorar cache por paquete\n# nvim/.stow-local-ignore\n^/\\.config/nvim/plugin/packer_compiled\\.lua\n❌ DON’T:\n# Commit archivos sensibles sin ignorar\ngit add ~/.ssh/id_rsa  # ❌ ¡NUNCA!"
+    "text": "2. Uso de Ignore Lists\nDO:\n# Ignorar archivos sensibles\n# .stow-global-ignore\n**/.history\n**/.ssh/id_*\n.netrc\n\n# Ignorar cache por paquete\n# nvim/.stow-local-ignore\n^/\\.config/nvim/plugin/packer_compiled\\.lua\nDON’T:\n# Commit archivos sensibles sin ignorar\ngit add ~/.ssh/id_rsa  # ❌ ¡NUNCA!"
   },
   {
     "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#commits-y-mensajes",
@@ -5723,7 +5723,7 @@
     "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#comparación",
     "title": "Gestiona dotfiles fácilmente con GNU Stow",
     "section": "Comparación",
-    "text": "Comparación\n\n\n\n\n\n\n\n\n\n\n\nFeature\nStow\nyadm\nchezmoi\ndotbot\nBare Git\n\n\n\n\nSimplicidad\n⭐⭐⭐⭐⭐\n⭐⭐⭐⭐\n⭐⭐⭐\n⭐⭐⭐⭐\n⭐⭐⭐\n\n\nFlexibilidad\n⭐⭐⭐⭐⭐\n⭐⭐⭐\n⭐⭐⭐⭐⭐\n⭐⭐⭐\n⭐⭐⭐⭐⭐\n\n\nTemplates\n❌\n⭐⭐⭐\n⭐⭐⭐⭐⭐\n❌\n❌\n\n\nSecrets\n❌\n⭐⭐⭐⭐\n⭐⭐⭐⭐⭐\n❌\n❌\n\n\nInstalación\nEasy\nEasy\nEasy\nEasy\nNone needed\n\n\nComunidad\nGrande\nMedia\nGrande\nPequeña\nN/A\n\n\n\nRecomendación: Stow es ideal si quieres: - Simplicidad - Control total - Organización por paquetes - Solo symlinks, sin magia"
+    "text": "Comparación\n\n\n\n\n\n\n\n\n\n\n\nCaracterística\nGNU Stow\nyadm\nchezmoi\ndotbot\nRepositorio Git bare\n\n\n\n\nSimplicidad\nMuy alta\nAlta\nMedia\nAlta\nMedia\n\n\nFlexibilidad\nMuy alta\nMedia\nMuy alta\nMedia\nMuy alta\n\n\nSoporte para plantillas\nNo\nParcial\nCompleto (Jinja2)\nNo\nNo\n\n\nManejo de secretos\nNo\nBueno\nExcelente (integrado)\nNo\nNo\n\n\nFacilidad de instalación\nMuy sencilla\nMuy sencilla\nMuy sencilla\nMuy sencilla\nSin instalación adicional\n\n\nTamaño de la comunidad\nGrande\nMediana\nGrande\nPequeña\nN/A (herramienta nativa)\n\n\nCurva de aprendizaje\nBaja\nBaja\nMedia-alta\nBaja\nMedia\n\n\nUso de enlaces simbólicos\nSí (principal)\nNo\nSí (opcional)\nSí\nNo\n\n\nSoporte multiplataforma\nExcelente\nBueno\nExcelente\nBueno\nExcelente\n\n\n\nRecomendación: Stow es ideal si quieres:\n\nSimplicidad\nControl total\nOrganización por paquetes\nSolo symlinks, sin magia"
   },
   {
     "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#resumen-de-stow",
@@ -5752,5 +5752,691 @@
     "title": "Gestiona dotfiles fácilmente con GNU Stow",
     "section": "Recursos Adicionales",
     "text": "Recursos Adicionales\nDocumentación:\n\nManual oficial: man stow\nInfo pages: info stow\nWeb: https://www.gnu.org/software/stow/\n\nComunidad:\n\nr/unixporn (ejemplos de dotfiles)\nGitHub topic: dotfiles\nYouTube: “dotfiles management”\n\nEjemplos de dotfiles con Stow:\n\nhttps://github.com/search?q=stow+dotfiles\nhttps://dotfiles.github.io/"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-1-crear-dotfiles-desde-cero-primera-vez",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-1-crear-dotfiles-desde-cero-primera-vez",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Caso 1: Crear Dotfiles desde Cero (Primera Vez)",
+    "text": "Caso 1: Crear Dotfiles desde Cero (Primera Vez)\nEscenario: Nunca has usado Stow, quieres empezar desde cero organizando tus configuraciones.\nObjetivo: Crear estructura de dotfiles, migrar configs existentes, versionar con Git.\n\nPaso 1: Preparación\n# 1.1 Instalar herramientas necesarias\nsudo pacman -S stow git zsh starship  # Arch/Archcraft\n# o\nsudo apt install stow git zsh        # Kubuntu/Debian\n\n# 1.2 Verificar instalación\nstow --version\ngit --version\n\n# 1.3 Crear directorio para dotfiles\nmkdir -p ~/dotfiles\ncd ~/dotfiles\n\n# 1.4 Inicializar Git\ngit init\ngit branch -M main\n\n# 1.5 Configurar Git (si no está configurado)\ngit config user.name \"Edison Achalma\"\ngit config user.email \"achalmaedison@gmail.com\"\n\n\nPaso 2: Crear Estructura de Paquetes\n# Crear paquetes para cada aplicación\ncd ~/dotfiles\n\n# Git\nmkdir -p git\n# Shell (Zsh)\nmkdir -p shell\n# Terminal (Konsole)\nmkdir -p terminal\n# Editor (VSCode)\nmkdir -p vscode\n# KDE\nmkdir -p kde\n\n\nPaso 3: Migrar Configuraciones Existentes\n3.1 Git (.gitconfig):\n# Verificar que existe\nls -la ~/.gitconfig\n\n# Mover al paquete\nmv ~/.gitconfig git/\n\n# Verificar\nls -la git/.gitconfig\n3.2 Shell (Zsh):\n# Crear estructura\nmkdir -p shell\n\n# Mover archivos\nmv ~/.zshrc shell/\nmv ~/.zshenv shell/ 2&gt;/dev/null || true  # Si existe\n\n# Si tienes starship\nmv ~/.config/starship.toml shell/ 2&gt;/dev/null || true\n\n# Verificar\ntree shell/\n# shell/\n# ├── .zshrc\n# └── .zshenv\n3.3 Terminal (Konsole):\n# Crear estructura que replica HOME\nmkdir -p terminal/.config\n\n# Mover config de Konsole\nmv ~/.config/konsolerc terminal/.config/\n\n# Si tienes perfiles personalizados\ncp -r ~/.local/share/konsole terminal/.local/share/ 2&gt;/dev/null || true\n\n# Verificar\ntree terminal/\n# terminal/\n# └── .config/\n#     └── konsolerc\n3.4 VSCode:\n# Crear estructura\nmkdir -p vscode/.config/Code/User\n\n# Mover settings\nmv ~/.config/Code/User/settings.json vscode/.config/Code/User/\nmv ~/.config/Code/User/keybindings.json vscode/.config/Code/User/\n\n# Snippets\nmv ~/.config/Code/User/snippets vscode/.config/Code/User/ 2&gt;/dev/null || true\n\n# Verificar\ntree vscode/.config/Code/User/\n3.5 KDE Plasma:\n# Crear estructura\nmkdir -p kde/.config\n\n# Mover configuraciones principales\nmv ~/.config/kdeglobals kde/.config/\nmv ~/.config/dolphinrc kde/.config/\nmv ~/.config/kwinrc kde/.config/\nmv ~/.config/plasmarc kde/.config/\nmv ~/.config/plasma-org.kde.plasma.desktop-appletsrc kde/.config/\nmv ~/.config/mimeapps.list kde/.config/\n\n# Verificar\nls kde/.config/\n\n\nPaso 4: Crear Ignore Lists\n4.1 Global ignore:\ncat &gt; ~/.stow-global-ignore &lt;&lt; 'EOF'\n# Backups\n.*~\n.*\\.bak\n.*\\.old\n.*\\.orig\n.*\\.swp\n\n# Historia\n\\.zsh_history\n\\.bash_history\n\n# Cache\n\\.cache\n__pycache__\n\n# Sistema\n\\.DS_Store\nThumbs\\.db\n\n# Git\n\\.git\n\\.gitignore\n\n# Documentación\n^/README.*\n^/LICENSE.*\nEOF\n4.2 Ignore por paquete (shell):\ncat &gt; shell/.stow-local-ignore &lt;&lt; 'EOF'\n# Historia (datos sensibles)\n^/\\.zsh_history\n^/\\.bash_history\n\n# Cache compilado\n\\.zcompdump\nEOF\n4.3 Ignore para VSCode:\ncat &gt; vscode/.stow-local-ignore &lt;&lt; 'EOF'\n# Cache y logs\n^/\\.config/Code/CachedData/\n^/\\.config/Code/logs/\n^/\\.config/Code/User/workspaceStorage/\n\n# Backups automáticos\n^/\\.config/Code/Backups/\nEOF\n\n\nPaso 5: Crear .gitignore\ncat &gt; .gitignore &lt;&lt; 'EOF'\n# ========================================\n# BACKUPS\n# ========================================\n*~\n*.bak\n*.old\n*.orig\n*.swp\n*.swo\n\n# ========================================\n# DATOS SENSIBLES\n# ========================================\n# Historia de shells\n**/.zsh_history\n**/.bash_history\n\n# SSH keys\n**/.ssh/id_*\n**/.ssh/*.pem\n\n# Credenciales\n.netrc\n.authinfo\n\n# ========================================\n# CACHE Y TEMPORALES\n# ========================================\n**/.cache/\n**/__pycache__/\n*.pyc\n.zcompdump*\n\n# ========================================\n# STOW\n# ========================================\n.stow\n\n# ========================================\n# LOGS\n# ========================================\n**/*.log\n*.log\n\n# ========================================\n# SISTEMA\n# ========================================\n.DS_Store\nThumbs.db\ndesktop.ini\nEOF\n\n\nPaso 6: Crear .stowrc\ncat &gt; .stowrc &lt;&lt; 'EOF'\n# Target es siempre HOME\n--target=$HOME\n\n# Ignorar archivos comunes\n--ignore='^\\.git'\n--ignore='^README.*'\n--ignore='^LICENSE.*'\n--ignore='\\.gitignore$'\n--ignore='.*\\.swp$'\n--ignore='.*~$'\n--ignore='^install\\.sh$'\n--ignore='^\\.stowrc$'\nEOF\n\n\nPaso 7: Instalar con Stow (Primera Vez)\n# Navegar a dotfiles\ncd ~/dotfiles\n\n# Dry run primero para cada paquete\nstow -nv git\nstow -nv shell\nstow -nv terminal\nstow -nv vscode\nstow -nv kde\n\n# Si todo OK, instalar realmente\nstow git shell terminal vscode kde\n\n# Verificar symlinks\nls -la ~/.gitconfig\n# lrwxrwxrwx ... .gitconfig -&gt; dotfiles/git/.gitconfig\n\nls -la ~/.zshrc\n# lrwxrwxrwx ... .zshrc -&gt; dotfiles/shell/.zshrc\n\nls -la ~/.config/konsolerc\n# lrwxrwxrwx ... konsolerc -&gt; ../dotfiles/terminal/.config/konsolerc\n\n\nPaso 8: Verificar que Todo Funciona\n# 8.1 Verificar Git\ngit config --list | head -5\n\n# 8.2 Verificar Zsh\ncat ~/.zshrc | head -10\n\n# 8.3 Verificar VSCode\ncat ~/.config/Code/User/settings.json | head -10\n\n# 8.4 Abrir aplicaciones para probar\ncode  # VSCode debe cargar tu config\nkonsole  # Konsole debe tener tu configuración\n\n\nPaso 9: Crear Scripts de Ayuda\n9.1 Script de instalación:\ncat &gt; install.sh &lt;&lt; 'EOF'\n#!/bin/bash\nset -e\n\nDOTFILES=\"$HOME/dotfiles\"\n\necho \"🚀 Instalando dotfiles...\"\n\ncd \"$DOTFILES\"\n\n# Lista de paquetes\nPACKAGES=(\n    \"git\"\n    \"shell\"\n    \"terminal\"\n    \"vscode\"\n    \"kde\"\n)\n\n# Instalar cada paquete\nfor pkg in \"${PACKAGES[@]}\"; do\n    echo \"📦 Instalando $pkg...\"\n    stow \"$pkg\"\ndone\n\necho \"✅ ¡Instalación completa!\"\nEOF\n\nchmod +x install.sh\n9.2 Script de verificación:\ncat &gt; check.sh &lt;&lt; 'EOF'\n#!/bin/bash\n\nDOTFILES=\"$HOME/dotfiles\"\n\necho \"📋 Verificando dotfiles...\"\necho \"\"\n\ncd \"$DOTFILES\"\n\nfor pkg in */; do\n    pkg=${pkg%/}\n    \n    # Buscar primer archivo\n    first_file=$(find \"$pkg\" -type f | head -1)\n    \n    if [ -z \"$first_file\" ]; then\n        continue\n    fi\n    \n    # Path en HOME\n    home_path=\"$HOME/${first_file#$pkg/}\"\n    \n    if [ -L \"$home_path\" ]; then\n        echo \"✅ $pkg\"\n    else\n        echo \"❌ $pkg (no instalado)\"\n    fi\ndone\nEOF\n\nchmod +x check.sh\n\n\nPaso 10: Crear Repositorio en GitHub\n# 10.1 Agregar todo a Git\ncd ~/dotfiles\ngit add .\n\n# 10.2 Commit inicial\ngit commit -m \"Initial commit: Estructura básica de dotfiles\n\n- Git configuration\n- Zsh/Starship setup\n- Konsole terminal config\n- VSCode settings\n- KDE Plasma configuration\"\n\n# 10.3 Crear repo en GitHub (vía navegador o gh CLI)\n# Opción A: Navegador\n# Ve a https://github.com/new\n# Nombre: .dotfiles\n# Descripción: \"Dotfiles para Archcraft/Kubuntu con Stow\"\n# Público o Privado\n# NO inicializar con README (ya lo tienes)\n\n# Opción B: GitHub CLI\ngh repo create .dotfiles --public --source=. --remote=origin\n\n# 10.4 Agregar remote y push\ngit remote add origin https://github.com/achalmaedison/.dotfiles.git\ngit push -u origin main\n\n\nPaso 11: Crear README.md\ncat &gt; README.md &lt;&lt; 'EOF'\n# Dotfiles\n\nConfiguraciones personales para Archcraft/Kubuntu gestionadas con GNU Stow.\n\n# Estructura\n~/dotfiles/ ├── git/ # Git config ├── shell/ # Zsh + Starship ├── terminal/ # Konsole ├── vscode/ # Visual Studio Code └── kde/ # KDE Plasma\n\n# Instalación\n\n```bash\n# Clonar\ngit clone https://github.com/achalmaedison/.dotfiles.git ~/dotfiles\n\n# Instalar Stow\nsudo pacman -S stow  # Arch\n# o\nsudo apt install stow  # Debian/Ubuntu\n\n# Instalar todo\ncd ~/dotfiles\n./install.sh\n\n# O instalar selectivo\nstow git shell terminal\n\n\nActualizar\ncd ~/dotfiles\ngit pull\nstow -R */\n\n\nRequisitos\n\nstow\ngit\nzsh\nstarship (opcional)\nVSCode (opcional)\nKDE Plasma (opcional)\n\nEOF\n\ngit add README.md\ngit commit -m \"docs: Add README\"\ngit push"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-preparación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-preparación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 1: Preparación",
+    "text": "Paso 1: Preparación\n# 1.1 Instalar herramientas necesarias\nsudo pacman -S stow git zsh starship  # Arch/Archcraft\n# o\nsudo apt install stow git zsh        # Kubuntu/Debian\n\n# 1.2 Verificar instalación\nstow --version\ngit --version\n\n# 1.3 Crear directorio para dotfiles\nmkdir -p ~/dotfiles\ncd ~/dotfiles\n\n# 1.4 Inicializar Git\ngit init\ngit branch -M main\n\n# 1.5 Configurar Git (si no está configurado)\ngit config user.name \"Edison Achalma\"\ngit config user.email \"achalmaedison@gmail.com\""
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-crear-estructura-de-paquetes",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-crear-estructura-de-paquetes",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 2: Crear Estructura de Paquetes",
+    "text": "Paso 2: Crear Estructura de Paquetes\n# Crear paquetes para cada aplicación\ncd ~/dotfiles\n\n# Git\nmkdir -p git\n# Shell (Zsh)\nmkdir -p shell\n# Terminal (Konsole)\nmkdir -p terminal\n# Editor (VSCode)\nmkdir -p vscode\n# KDE\nmkdir -p kde"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-migrar-configuraciones-existentes",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-migrar-configuraciones-existentes",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 3: Migrar Configuraciones Existentes",
+    "text": "Paso 3: Migrar Configuraciones Existentes\n3.1 Git (.gitconfig):\n# Verificar que existe\nls -la ~/.gitconfig\n\n# Mover al paquete\nmv ~/.gitconfig git/\n\n# Verificar\nls -la git/.gitconfig\n3.2 Shell (Zsh):\n# Crear estructura\nmkdir -p shell\n\n# Mover archivos\nmv ~/.zshrc shell/\nmv ~/.zshenv shell/ 2&gt;/dev/null || true  # Si existe\n\n# Si tienes starship\nmv ~/.config/starship.toml shell/ 2&gt;/dev/null || true\n\n# Verificar\ntree shell/\n# shell/\n# ├── .zshrc\n# └── .zshenv\n3.3 Terminal (Konsole):\n# Crear estructura que replica HOME\nmkdir -p terminal/.config\n\n# Mover config de Konsole\nmv ~/.config/konsolerc terminal/.config/\n\n# Si tienes perfiles personalizados\ncp -r ~/.local/share/konsole terminal/.local/share/ 2&gt;/dev/null || true\n\n# Verificar\ntree terminal/\n# terminal/\n# └── .config/\n#     └── konsolerc\n3.4 VSCode:\n# Crear estructura\nmkdir -p vscode/.config/Code/User\n\n# Mover settings\nmv ~/.config/Code/User/settings.json vscode/.config/Code/User/\nmv ~/.config/Code/User/keybindings.json vscode/.config/Code/User/\n\n# Snippets\nmv ~/.config/Code/User/snippets vscode/.config/Code/User/ 2&gt;/dev/null || true\n\n# Verificar\ntree vscode/.config/Code/User/\n3.5 KDE Plasma:\n# Crear estructura\nmkdir -p kde/.config\n\n# Mover configuraciones principales\nmv ~/.config/kdeglobals kde/.config/\nmv ~/.config/dolphinrc kde/.config/\nmv ~/.config/kwinrc kde/.config/\nmv ~/.config/plasmarc kde/.config/\nmv ~/.config/plasma-org.kde.plasma.desktop-appletsrc kde/.config/\nmv ~/.config/mimeapps.list kde/.config/\n\n# Verificar\nls kde/.config/"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-crear-ignore-lists",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-crear-ignore-lists",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 4: Crear Ignore Lists",
+    "text": "Paso 4: Crear Ignore Lists\n4.1 Global ignore:\ncat &gt; ~/.stow-global-ignore &lt;&lt; 'EOF'\n# Backups\n.*~\n.*\\.bak\n.*\\.old\n.*\\.orig\n.*\\.swp\n\n# Historia\n\\.zsh_history\n\\.bash_history\n\n# Cache\n\\.cache\n__pycache__\n\n# Sistema\n\\.DS_Store\nThumbs\\.db\n\n# Git\n\\.git\n\\.gitignore\n\n# Documentación\n^/README.*\n^/LICENSE.*\nEOF\n4.2 Ignore por paquete (shell):\ncat &gt; shell/.stow-local-ignore &lt;&lt; 'EOF'\n# Historia (datos sensibles)\n^/\\.zsh_history\n^/\\.bash_history\n\n# Cache compilado\n\\.zcompdump\nEOF\n4.3 Ignore para VSCode:\ncat &gt; vscode/.stow-local-ignore &lt;&lt; 'EOF'\n# Cache y logs\n^/\\.config/Code/CachedData/\n^/\\.config/Code/logs/\n^/\\.config/Code/User/workspaceStorage/\n\n# Backups automáticos\n^/\\.config/Code/Backups/\nEOF"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-crear-.gitignore",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-crear-.gitignore",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 5: Crear .gitignore",
+    "text": "Paso 5: Crear .gitignore\ncat &gt; .gitignore &lt;&lt; 'EOF'\n# ========================================\n# BACKUPS\n# ========================================\n*~\n*.bak\n*.old\n*.orig\n*.swp\n*.swo\n\n# ========================================\n# DATOS SENSIBLES\n# ========================================\n# Historia de shells\n**/.zsh_history\n**/.bash_history\n\n# SSH keys\n**/.ssh/id_*\n**/.ssh/*.pem\n\n# Credenciales\n.netrc\n.authinfo\n\n# ========================================\n# CACHE Y TEMPORALES\n# ========================================\n**/.cache/\n**/__pycache__/\n*.pyc\n.zcompdump*\n\n# ========================================\n# STOW\n# ========================================\n.stow\n\n# ========================================\n# LOGS\n# ========================================\n**/*.log\n*.log\n\n# ========================================\n# SISTEMA\n# ========================================\n.DS_Store\nThumbs.db\ndesktop.ini\nEOF"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-crear-.stowrc",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-crear-.stowrc",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 6: Crear .stowrc",
+    "text": "Paso 6: Crear .stowrc\ncat &gt; .stowrc &lt;&lt; 'EOF'\n# Target es siempre HOME\n--target=$HOME\n\n# Ignorar archivos comunes\n--ignore='^\\.git'\n--ignore='^README.*'\n--ignore='^LICENSE.*'\n--ignore='\\.gitignore$'\n--ignore='.*\\.swp$'\n--ignore='.*~$'\n--ignore='^install\\.sh$'\n--ignore='^\\.stowrc$'\nEOF"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-7-instalar-con-stow-primera-vez",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-7-instalar-con-stow-primera-vez",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 7: Instalar con Stow (Primera Vez)",
+    "text": "Paso 7: Instalar con Stow (Primera Vez)\n# Navegar a dotfiles\ncd ~/dotfiles\n\n# Dry run primero para cada paquete\nstow -nv git\nstow -nv shell\nstow -nv terminal\nstow -nv vscode\nstow -nv kde\n\n# Si todo OK, instalar realmente\nstow git shell terminal vscode kde\n\n# Verificar symlinks\nls -la ~/.gitconfig\n# lrwxrwxrwx ... .gitconfig -&gt; dotfiles/git/.gitconfig\n\nls -la ~/.zshrc\n# lrwxrwxrwx ... .zshrc -&gt; dotfiles/shell/.zshrc\n\nls -la ~/.config/konsolerc\n# lrwxrwxrwx ... konsolerc -&gt; ../dotfiles/terminal/.config/konsolerc"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-8-verificar-que-todo-funciona",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-8-verificar-que-todo-funciona",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 8: Verificar que Todo Funciona",
+    "text": "Paso 8: Verificar que Todo Funciona\n# 8.1 Verificar Git\ngit config --list | head -5\n\n# 8.2 Verificar Zsh\ncat ~/.zshrc | head -10\n\n# 8.3 Verificar VSCode\ncat ~/.config/Code/User/settings.json | head -10\n\n# 8.4 Abrir aplicaciones para probar\ncode  # VSCode debe cargar tu config\nkonsole  # Konsole debe tener tu configuración"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-9-crear-scripts-de-ayuda",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-9-crear-scripts-de-ayuda",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 9: Crear Scripts de Ayuda",
+    "text": "Paso 9: Crear Scripts de Ayuda\n9.1 Script de instalación:\ncat &gt; install.sh &lt;&lt; 'EOF'\n#!/bin/bash\nset -e\n\nDOTFILES=\"$HOME/dotfiles\"\n\necho \"🚀 Instalando dotfiles...\"\n\ncd \"$DOTFILES\"\n\n# Lista de paquetes\nPACKAGES=(\n    \"git\"\n    \"shell\"\n    \"terminal\"\n    \"vscode\"\n    \"kde\"\n)\n\n# Instalar cada paquete\nfor pkg in \"${PACKAGES[@]}\"; do\n    echo \"📦 Instalando $pkg...\"\n    stow \"$pkg\"\ndone\n\necho \"✅ ¡Instalación completa!\"\nEOF\n\nchmod +x install.sh\n9.2 Script de verificación:\ncat &gt; check.sh &lt;&lt; 'EOF'\n#!/bin/bash\n\nDOTFILES=\"$HOME/dotfiles\"\n\necho \"📋 Verificando dotfiles...\"\necho \"\"\n\ncd \"$DOTFILES\"\n\nfor pkg in */; do\n    pkg=${pkg%/}\n    \n    # Buscar primer archivo\n    first_file=$(find \"$pkg\" -type f | head -1)\n    \n    if [ -z \"$first_file\" ]; then\n        continue\n    fi\n    \n    # Path en HOME\n    home_path=\"$HOME/${first_file#$pkg/}\"\n    \n    if [ -L \"$home_path\" ]; then\n        echo \"✅ $pkg\"\n    else\n        echo \"❌ $pkg (no instalado)\"\n    fi\ndone\nEOF\n\nchmod +x check.sh"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-10-crear-repositorio-en-github",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-10-crear-repositorio-en-github",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 10: Crear Repositorio en GitHub",
+    "text": "Paso 10: Crear Repositorio en GitHub\n# 10.1 Agregar todo a Git\ncd ~/dotfiles\ngit add .\n\n# 10.2 Commit inicial\ngit commit -m \"Initial commit: Estructura básica de dotfiles\n\n- Git configuration\n- Zsh/Starship setup\n- Konsole terminal config\n- VSCode settings\n- KDE Plasma configuration\"\n\n# 10.3 Crear repo en GitHub (vía navegador o gh CLI)\n# Opción A: Navegador\n# Ve a https://github.com/new\n# Nombre: .dotfiles\n# Descripción: \"Dotfiles para Archcraft/Kubuntu con Stow\"\n# Público o Privado\n# NO inicializar con README (ya lo tienes)\n\n# Opción B: GitHub CLI\ngh repo create .dotfiles --public --source=. --remote=origin\n\n# 10.4 Agregar remote y push\ngit remote add origin https://github.com/achalmaedison/.dotfiles.git\ngit push -u origin main"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-11-crear-readme.md",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-11-crear-readme.md",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 11: Crear README.md",
+    "text": "Paso 11: Crear README.md\ncat &gt; README.md &lt;&lt; 'EOF'\n# Dotfiles\n\nConfiguraciones personales para Archcraft/Kubuntu gestionadas con GNU Stow.\n\n# Estructura\n~/dotfiles/ ├── git/ # Git config ├── shell/ # Zsh + Starship ├── terminal/ # Konsole ├── vscode/ # Visual Studio Code └── kde/ # KDE Plasma\n\n# Instalación\n\n```bash\n# Clonar\ngit clone https://github.com/achalmaedison/.dotfiles.git ~/dotfiles\n\n# Instalar Stow\nsudo pacman -S stow  # Arch\n# o\nsudo apt install stow  # Debian/Ubuntu\n\n# Instalar todo\ncd ~/dotfiles\n./install.sh\n\n# O instalar selectivo\nstow git shell terminal"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-backup-de-configs-existentes-precaución",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-backup-de-configs-existentes-precaución",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 2: Backup de Configs Existentes (Precaución)",
+    "text": "Paso 2: Backup de Configs Existentes (Precaución)\n# 2.1 Crear directorio de backup\nmkdir -p ~/dotfiles-backup-$(date +%Y%m%d)\nBACKUP_DIR=~/dotfiles-backup-$(date +%Y%m%d)\n\n# 2.2 Backup de archivos que podrían existir\ncp ~/.zshrc \"$BACKUP_DIR/\" 2&gt;/dev/null || true\ncp ~/.gitconfig \"$BACKUP_DIR/\" 2&gt;/dev/null || true\ncp -r ~/.config/Code \"$BACKUP_DIR/\" 2&gt;/dev/null || true\n\necho \"Backup guardado en: $BACKUP_DIR\"\nls -la \"$BACKUP_DIR\""
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-clonar-repositorio",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-clonar-repositorio",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 3: Clonar Repositorio",
+    "text": "Paso 3: Clonar Repositorio\n# 3.1 Clonar tu repo\ncd ~\ngit clone https://github.com/achalmaedison/.dotfiles.git dotfiles\n\n# 3.2 Verificar contenido\ncd dotfiles\nls -la\n\n# Deberías ver:\n# git/\n# shell/\n# terminal/\n# vscode/\n# kde/\n# install.sh\n# .gitignore\n# README.md"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-revisar-y-ajustar-si-necesario",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-revisar-y-ajustar-si-necesario",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 4: Revisar y Ajustar (Si Necesario)",
+    "text": "Paso 4: Revisar y Ajustar (Si Necesario)\n# 4.1 Ver qué paquetes hay\nls -d */\n# git/  kde/  shell/  terminal/  vscode/\n\n# 4.2 Ver estructura de un paquete\ntree shell/\n# shell/\n# ├── .zshrc\n# └── .zshenv\n\n# 4.3 (Opcional) Editar configs antes de instalar\n# Por ejemplo, cambiar username en git\nnano git/.gitconfig"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-instalar-dependencias",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-instalar-dependencias",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 5: Instalar Dependencias",
+    "text": "Paso 5: Instalar Dependencias\n# 5.1 Aplicaciones de tu setup\nsudo pacman -S \\\n    zsh \\\n    starship \\\n    konsole \\\n    code \\  # VSCode (si está en repos)\n    plasma-desktop \\\n    dolphin \\\n    kate \\\n    okular\n\n# 5.2 Si usas AUR (yay/paru)\n# VSCode desde AUR\nyay -S visual-studio-code-bin\n\n# Starship (si no está en repos oficiales)\nyay -S starship-bin\n\n# 5.3 Verificar instalaciones\nwhich zsh\nwhich starship\nwhich code"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-dry-run-simulación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-dry-run-simulación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 6: Dry Run (Simulación)",
+    "text": "Paso 6: Dry Run (Simulación)\n# Navegar a dotfiles\ncd ~/dotfiles\n\n# Simular instalación para ver qué pasaría\nstow -nv git\nstow -nv shell\nstow -nv terminal\nstow -nv vscode\nstow -nv kde\n\n# Verificar que no hay errores\n# Si hay conflictos, verás warnings"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-7-resolver-conflictos-si-existen",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-7-resolver-conflictos-si-existen",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 7: Resolver Conflictos (Si Existen)",
+    "text": "Paso 7: Resolver Conflictos (Si Existen)\nSi ves algo como:\nWARNING! stowing shell would cause conflicts:\n  * existing target is neither a link nor a directory: .zshrc\nResolver:\n# Opción A: Eliminar archivo existente\nrm ~/.zshrc\n\n# Opción B: Mover a backup (más seguro)\nmv ~/.zshrc ~/dotfiles-backup-$(date +%Y%m%d)/\n\n# Luego intentar stow nuevamente\nstow -nv shell"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-8-instalar-todo",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-8-instalar-todo",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 8: Instalar Todo",
+    "text": "Paso 8: Instalar Todo\nOpción A: Con script (recomendado):\ncd ~/dotfiles\n./install.sh\nOpción B: Manual:\ncd ~/dotfiles\n\n# Instalar uno por uno\nstow git\necho \"✅ Git instalado\"\n\nstow shell\necho \"✅ Shell instalado\"\n\nstow terminal\necho \"✅ Terminal instalado\"\n\nstow vscode\necho \"✅ VSCode instalado\"\n\nstow kde\necho \"✅ KDE instalado\"\nOpción C: Todo de una vez:\ncd ~/dotfiles\nstow git shell terminal vscode kde"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-9-verificar-instalación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-9-verificar-instalación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 9: Verificar Instalación",
+    "text": "Paso 9: Verificar Instalación\n# 9.1 Verificar symlinks creados\nls -la ~/.gitconfig\n# lrwxrwxrwx ... .gitconfig -&gt; dotfiles/git/.gitconfig\n\nls -la ~/.zshrc\n# lrwxrwxrwx ... .zshrc -&gt; dotfiles/shell/.zshrc\n\nls -la ~/.config/Code/User/settings.json\n# lrwxrwxrwx ... settings.json -&gt; ../../../../dotfiles/vscode/.config/Code/User/settings.json\n\n# 9.2 Usar script de verificación\ncd ~/dotfiles\n./check.sh"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-10-configurar-shell",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-10-configurar-shell",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 10: Configurar Shell",
+    "text": "Paso 10: Configurar Shell\n# 10.1 Cambiar shell a Zsh (si no lo es)\nchsh -s /bin/zsh\n\n# 10.2 Logout y login para aplicar\n# O simplemente:\nexec zsh\n\n# 10.3 Verificar que Zsh cargó tu config\necho $SHELL\n# /bin/zsh\n\n# Ver prompt (si usas starship)\nstarship --version"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-11-instalar-dependencias-específicas",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-11-instalar-dependencias-específicas",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 11: Instalar Dependencias Específicas",
+    "text": "Paso 11: Instalar Dependencias Específicas\n11.1 Extensiones de VSCode:\n# Si guardaste lista de extensiones\n# (Opción: guardar en dotfiles)\ncode --list-extensions &gt; ~/dotfiles/vscode/extensions.txt\n\n# En nueva máquina:\nwhile read -r ext; do\n    code --install-extension \"$ext\"\ndone &lt; ~/dotfiles/vscode/extensions.txt\n11.2 Plugins de Zsh (si usas):\n# Oh-My-Zsh\nsh -c \"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"\n\n# Zsh plugins (ejemplo: zsh-autosuggestions)\ngit clone https://github.com/zsh-users/zsh-autosuggestions \\\n    ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions\n11.3 Temas de KDE (si los tienes):\n# Si tienes temas personalizados en dotfiles\n# Instalarlos desde System Settings"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-12-probar-todo",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-12-probar-todo",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 12: Probar Todo",
+    "text": "Paso 12: Probar Todo\n# 12.1 Git\ngit config --list | grep user\n# user.name=Edison Achalma\n# user.email=achalmaedison@gmail.com\n\n# 12.2 Zsh\ncat ~/.zshrc | head -5\n\n# 12.3 VSCode\ncode\n# Debería cargar con tu configuración\n\n# 12.4 Konsole\nkonsole\n# Debería usar tu configuración\n\n# 12.5 KDE\n# Logout/login para ver cambios en KDE"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-13-ajustes-finales",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-13-ajustes-finales",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 13: Ajustes Finales",
+    "text": "Paso 13: Ajustes Finales\n# Si algo no funciona, hacer debug:\n\n# Ver qué apunta cada symlink\nfind ~ -maxdepth 2 -type l -ls | grep dotfiles\n\n# Si un symlink está roto:\nstow -D paquete-con-problema\nstow paquete-con-problema\n\n# Verificar logs\njournalctl --user -xe | grep -i error\n✅ Resultado: Nueva laptop configurada idéntica a tu setup original."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-3-actualizar-configs-y-sincronizar",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-3-actualizar-configs-y-sincronizar",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Caso 3: Actualizar Configs y Sincronizar",
+    "text": "Caso 3: Actualizar Configs y Sincronizar\nEscenario: Has estado usando tus dotfiles y has hecho cambios en tu máquina principal. Quieres sincronizar con GitHub y otras máquinas.\n\nPaso 1: Identificar Cambios\n# 1.1 Ver qué archivos cambiaron\ncd ~/dotfiles\ngit status\n\n# Ejemplo de output:\n# modified:   shell/.zshrc\n# modified:   vscode/.config/Code/User/settings.json\n\n# 1.2 Ver diferencias específicas\ngit diff shell/.zshrc\ngit diff vscode/.config/Code/User/settings.json\n\n# 1.3 Ver todos los cambios\ngit diff\n\n\nPaso 2: Probar Cambios Localmente\n# Si editaste configs directamente en HOME (a través de symlinks),\n# los cambios ya están en ~/dotfiles/\n\n# 2.1 Verificar que todo funciona\nsource ~/.zshrc  # Para shell\ncode  # Abrir VSCode para verificar settings\n\n# 2.2 Si hay problemas, revertir temporalmente\ncd ~/dotfiles\ngit checkout -- shell/.zshrc  # Revertir cambios\n# Probar de nuevo\n\n\nPaso 3: Commit Cambios\ncd ~/dotfiles\n\n# 3.1 Agregar archivos modificados\ngit add shell/.zshrc\ngit add vscode/.config/Code/User/settings.json\n\n# O agregar todo:\ngit add -A\n\n# 3.2 Ver qué se va a commitear\ngit status\n\n# 3.3 Commit con mensaje descriptivo\ngit commit -m \"chore(shell): Update Zsh aliases and PATH\n\n- Add alias for git status\n- Update PATH to include ~/.local/bin\n- Remove deprecated exports\"\n\ngit commit -m \"feat(vscode): Enable format on save\n\n- Set editor.formatOnSave to true\n- Add Python formatting rules\n- Update keybindings for terminal\"\n\n\nPaso 4: Push a GitHub\n# 4.1 Push cambios\ngit push origin main\n\n# 4.2 Verificar en GitHub\n# Ir a https://github.com/achalmaedison/.dotfiles\n# Deberías ver tus commits recientes\n\n\nPaso 5: Actualizar Otras Máquinas\nEn laptop/otra máquina:\n# 5.1 Pull cambios\ncd ~/dotfiles\ngit pull origin main\n\n# 5.2 Los symlinks reflejan cambios automáticamente!\ncat ~/.zshrc  # Ya tiene los cambios\n\n# 5.3 Recargar configs\nsource ~/.zshrc  # Shell\n# VSCode se recarga automáticamente\n\n# 5.4 Si hay cambios en estructura (archivos nuevos/eliminados):\nstow -R shell  # Restow para actualizar symlinks\nstow -R vscode\n\n\nPaso 6: Manejar Conflictos (Si Existen)\nSi modificaste el mismo archivo en dos máquinas:\ncd ~/dotfiles\ngit pull origin main\n\n# Si hay conflicto:\n# CONFLICT (content): Merge conflict in shell/.zshrc\n\n# 6.1 Ver conflicto\ngit status\n# both modified:   shell/.zshrc\n\n# 6.2 Editar archivo\nnano shell/.zshrc\n\n# Verás marcadores:\n# &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\n# (tu cambio local)\n# =======\n# (cambio de GitHub)\n# &gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/main\n\n# 6.3 Resolver manualmente, eliminar marcadores\n\n# 6.4 Marcar como resuelto\ngit add shell/.zshrc\ngit commit -m \"merge: Resolve conflict in .zshrc\"\ngit push"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-identificar-cambios",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-identificar-cambios",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 1: Identificar Cambios",
+    "text": "Paso 1: Identificar Cambios\n# 1.1 Ver qué archivos cambiaron\ncd ~/dotfiles\ngit status\n\n# Ejemplo de output:\n# modified:   shell/.zshrc\n# modified:   vscode/.config/Code/User/settings.json\n\n# 1.2 Ver diferencias específicas\ngit diff shell/.zshrc\ngit diff vscode/.config/Code/User/settings.json\n\n# 1.3 Ver todos los cambios\ngit diff"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-probar-cambios-localmente",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-probar-cambios-localmente",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 2: Probar Cambios Localmente",
+    "text": "Paso 2: Probar Cambios Localmente\n# Si editaste configs directamente en HOME (a través de symlinks),\n# los cambios ya están en ~/dotfiles/\n\n# 2.1 Verificar que todo funciona\nsource ~/.zshrc  # Para shell\ncode  # Abrir VSCode para verificar settings\n\n# 2.2 Si hay problemas, revertir temporalmente\ncd ~/dotfiles\ngit checkout -- shell/.zshrc  # Revertir cambios\n# Probar de nuevo"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-commit-cambios",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-commit-cambios",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 3: Commit Cambios",
+    "text": "Paso 3: Commit Cambios\ncd ~/dotfiles\n\n# 3.1 Agregar archivos modificados\ngit add shell/.zshrc\ngit add vscode/.config/Code/User/settings.json\n\n# O agregar todo:\ngit add -A\n\n# 3.2 Ver qué se va a commitear\ngit status\n\n# 3.3 Commit con mensaje descriptivo\ngit commit -m \"chore(shell): Update Zsh aliases and PATH\n\n- Add alias for git status\n- Update PATH to include ~/.local/bin\n- Remove deprecated exports\"\n\ngit commit -m \"feat(vscode): Enable format on save\n\n- Set editor.formatOnSave to true\n- Add Python formatting rules\n- Update keybindings for terminal\""
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-push-a-github",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-push-a-github",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 4: Push a GitHub",
+    "text": "Paso 4: Push a GitHub\n# 4.1 Push cambios\ngit push origin main\n\n# 4.2 Verificar en GitHub\n# Ir a https://github.com/achalmaedison/.dotfiles\n# Deberías ver tus commits recientes"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-actualizar-otras-máquinas",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-actualizar-otras-máquinas",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 5: Actualizar Otras Máquinas",
+    "text": "Paso 5: Actualizar Otras Máquinas\nEn laptop/otra máquina:\n# 5.1 Pull cambios\ncd ~/dotfiles\ngit pull origin main\n\n# 5.2 Los symlinks reflejan cambios automáticamente!\ncat ~/.zshrc  # Ya tiene los cambios\n\n# 5.3 Recargar configs\nsource ~/.zshrc  # Shell\n# VSCode se recarga automáticamente\n\n# 5.4 Si hay cambios en estructura (archivos nuevos/eliminados):\nstow -R shell  # Restow para actualizar symlinks\nstow -R vscode"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-manejar-conflictos-si-existen",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-manejar-conflictos-si-existen",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 6: Manejar Conflictos (Si Existen)",
+    "text": "Paso 6: Manejar Conflictos (Si Existen)\nSi modificaste el mismo archivo en dos máquinas:\ncd ~/dotfiles\ngit pull origin main\n\n# Si hay conflicto:\n# CONFLICT (content): Merge conflict in shell/.zshrc\n\n# 6.1 Ver conflicto\ngit status\n# both modified:   shell/.zshrc\n\n# 6.2 Editar archivo\nnano shell/.zshrc\n\n# Verás marcadores:\n# &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\n# (tu cambio local)\n# =======\n# (cambio de GitHub)\n# &gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/main\n\n# 6.3 Resolver manualmente, eliminar marcadores\n\n# 6.4 Marcar como resuelto\ngit add shell/.zshrc\ngit commit -m \"merge: Resolve conflict in .zshrc\"\ngit push\n✅ Resultado: Configs actualizadas y sincronizadas entre máquinas."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-4-agregar-nueva-aplicación-kate-editor",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-4-agregar-nueva-aplicación-kate-editor",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Caso 4: Agregar Nueva Aplicación (Kate Editor)",
+    "text": "Caso 4: Agregar Nueva Aplicación (Kate Editor)\nEscenario: Instalaste Kate y quieres agregar su configuración a tus dotfiles.\n\nPaso 1: Usar Kate y Configurar\n# 1.1 Instalar Kate\nsudo pacman -S kate\n\n# 1.2 Abrir y configurar\nkate\n\n# Configurar:\n# - Settings → Configure Kate\n# - Cambiar tema, shortcuts, plugins, etc.\n# - Cerrar Kate (configs se guardan automáticamente)\n\n\nPaso 2: Localizar Archivos de Config\n# 2.1 Archivos de configuración están en ~/.config/\nls -la ~/.config/ | grep kate\n# drwxr-xr-x  - achalmaedison kate/\n\n# 2.2 Ver qué hay dentro\nls -la ~/.config/kate/\n# katerc\n# externaltools/\n# formatting/\n# lspclient/\n\n# 2.3 También puede haber datos en ~/.local/share/\nls -la ~/.local/share/ | grep kate\n\n\nPaso 3: Crear Paquete Kate\n# 3.1 Crear estructura que replica HOME\ncd ~/dotfiles\nmkdir -p kate/.config\n\n# 3.2 Copiar configs (NO mover todavía)\ncp -r ~/.config/kate kate/.config/\n\n# 3.3 También copiar datos locales si existen\nmkdir -p kate/.local/share\ncp -r ~/.local/share/kate kate/.local/share/ 2&gt;/dev/null || true\n\n# 3.4 Verificar estructura\ntree kate/\n# kate/\n# ├── .config/\n# │   └── kate/\n# │       ├── katerc\n# │       ├── externaltools/\n# │       ├── formatting/\n# │       └── lspclient/\n# └── .local/\n#     └── share/\n#         └── kate/\n\n\nPaso 4: Crear Ignore List para Kate\n# Crear ignore para archivos que no queremos versionar\ncat &gt; kate/.stow-local-ignore &lt;&lt; 'EOF'\n# Sesiones y cache\n^/\\.config/kate/sessions/\n^/\\.local/share/kate/.*\\.cache\n\n# Logs\n^/\\.config/kate/.*\\.log\n\n# Archivos temporales\n^/\\.config/kate/.*\\.tmp\n^/\\.config/kate/.*\\.swp\nEOF\n\n\nPaso 5: Test Stow (Dry Run)\ncd ~/dotfiles\n\n# 5.1 Ver qué haría stow\nstow -nv kate\n\n# Deberías ver algo como:\n# LINK: .config/kate =&gt; dotfiles/kate/.config/kate\n\n\nPaso 6: Hacer Backup y Eliminar Original\n# 6.1 Backup por seguridad\ncp -r ~/.config/kate ~/backup-kate-$(date +%Y%m%d)\n\n# 6.2 Eliminar original\nrm -rf ~/.config/kate\nrm -rf ~/.local/share/kate  # Si copiaste esto también\n\n# 6.3 Verificar que se eliminó\nls ~/.config/ | grep kate\n# (no debería aparecer nada)\n\n\nPaso 7: Stow Kate\ncd ~/dotfiles\n\n# 7.1 Instalar con stow\nstow kate\n\n# 7.2 Verificar symlinks\nls -la ~/.config/ | grep kate\n# lrwxrwxrwx  - achalmaedison kate -&gt; ../dotfiles/kate/.config/kate\n\n# 7.3 Verificar que Kate funciona\nkate\n# Debería abrir con tu configuración\n\n\nPaso 8: Versionar con Git\ncd ~/dotfiles\n\n# 8.1 Agregar al staging\ngit add kate/\n\n# 8.2 Commit\ngit commit -m \"feat(kate): Add Kate editor configuration\n\n- Custom keybindings\n- LSP configuration\n- Theme and appearance settings\n- External tools setup\"\n\n# 8.3 Push\ngit push origin main\n\n\nPaso 9: Actualizar README\ncd ~/dotfiles\n\n# Agregar Kate a la lista de paquetes\nnano README.md\n\n# Agregar:\n# - kate/          # Kate editor\n\n# Commit cambio\ngit add README.md\ngit commit -m \"docs: Add Kate to README\"\ngit push\n\n\nPaso 10: Actualizar Script de Instalación\n# Si tienes install.sh, agregar kate\nnano install.sh\n\n# Agregar \"kate\" a la lista de PACKAGES:\n# PACKAGES=(\n#     \"git\"\n#     \"shell\"\n#     \"terminal\"\n#     \"vscode\"\n#     \"kde\"\n#     \"kate\"        # &lt;-- Agregar esto\n# )\n\ngit add install.sh\ngit commit -m \"chore(scripts): Add kate to install script\"\ngit push"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-usar-kate-y-configurar",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-usar-kate-y-configurar",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 1: Usar Kate y Configurar",
+    "text": "Paso 1: Usar Kate y Configurar\n# 1.1 Instalar Kate\nsudo pacman -S kate\n\n# 1.2 Abrir y configurar\nkate\n\n# Configurar:\n# - Settings → Configure Kate\n# - Cambiar tema, shortcuts, plugins, etc.\n# - Cerrar Kate (configs se guardan automáticamente)"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-localizar-archivos-de-config",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-localizar-archivos-de-config",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 2: Localizar Archivos de Config",
+    "text": "Paso 2: Localizar Archivos de Config\n# 2.1 Archivos de configuración están en ~/.config/\nls -la ~/.config/ | grep kate\n# drwxr-xr-x  - achalmaedison kate/\n\n# 2.2 Ver qué hay dentro\nls -la ~/.config/kate/\n# katerc\n# externaltools/\n# formatting/\n# lspclient/\n\n# 2.3 También puede haber datos en ~/.local/share/\nls -la ~/.local/share/ | grep kate"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-crear-paquete-kate",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-crear-paquete-kate",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 3: Crear Paquete Kate",
+    "text": "Paso 3: Crear Paquete Kate\n# 3.1 Crear estructura que replica HOME\ncd ~/dotfiles\nmkdir -p kate/.config\n\n# 3.2 Copiar configs (NO mover todavía)\ncp -r ~/.config/kate kate/.config/\n\n# 3.3 También copiar datos locales si existen\nmkdir -p kate/.local/share\ncp -r ~/.local/share/kate kate/.local/share/ 2&gt;/dev/null || true\n\n# 3.4 Verificar estructura\ntree kate/\n# kate/\n# ├── .config/\n# │   └── kate/\n# │       ├── katerc\n# │       ├── externaltools/\n# │       ├── formatting/\n# │       └── lspclient/\n# └── .local/\n#     └── share/\n#         └── kate/"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-crear-ignore-list-para-kate",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-crear-ignore-list-para-kate",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 4: Crear Ignore List para Kate",
+    "text": "Paso 4: Crear Ignore List para Kate\n# Crear ignore para archivos que no queremos versionar\ncat &gt; kate/.stow-local-ignore &lt;&lt; 'EOF'\n# Sesiones y cache\n^/\\.config/kate/sessions/\n^/\\.local/share/kate/.*\\.cache\n\n# Logs\n^/\\.config/kate/.*\\.log\n\n# Archivos temporales\n^/\\.config/kate/.*\\.tmp\n^/\\.config/kate/.*\\.swp\nEOF"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-test-stow-dry-run",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-test-stow-dry-run",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 5: Test Stow (Dry Run)",
+    "text": "Paso 5: Test Stow (Dry Run)\ncd ~/dotfiles\n\n# 5.1 Ver qué haría stow\nstow -nv kate\n\n# Deberías ver algo como:\n# LINK: .config/kate =&gt; dotfiles/kate/.config/kate"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-hacer-backup-y-eliminar-original",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-hacer-backup-y-eliminar-original",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 6: Hacer Backup y Eliminar Original",
+    "text": "Paso 6: Hacer Backup y Eliminar Original\n# 6.1 Backup por seguridad\ncp -r ~/.config/kate ~/backup-kate-$(date +%Y%m%d)\n\n# 6.2 Eliminar original\nrm -rf ~/.config/kate\nrm -rf ~/.local/share/kate  # Si copiaste esto también\n\n# 6.3 Verificar que se eliminó\nls ~/.config/ | grep kate\n# (no debería aparecer nada)"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-7-stow-kate",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-7-stow-kate",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 7: Stow Kate",
+    "text": "Paso 7: Stow Kate\ncd ~/dotfiles\n\n# 7.1 Instalar con stow\nstow kate\n\n# 7.2 Verificar symlinks\nls -la ~/.config/ | grep kate\n# lrwxrwxrwx  - achalmaedison kate -&gt; ../dotfiles/kate/.config/kate\n\n# 7.3 Verificar que Kate funciona\nkate\n# Debería abrir con tu configuración"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-8-versionar-con-git",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-8-versionar-con-git",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 8: Versionar con Git",
+    "text": "Paso 8: Versionar con Git\ncd ~/dotfiles\n\n# 8.1 Agregar al staging\ngit add kate/\n\n# 8.2 Commit\ngit commit -m \"feat(kate): Add Kate editor configuration\n\n- Custom keybindings\n- LSP configuration\n- Theme and appearance settings\n- External tools setup\"\n\n# 8.3 Push\ngit push origin main"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-9-actualizar-readme",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-9-actualizar-readme",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 9: Actualizar README",
+    "text": "Paso 9: Actualizar README\ncd ~/dotfiles\n\n# Agregar Kate a la lista de paquetes\nnano README.md\n\n# Agregar:\n# - kate/          # Kate editor\n\n# Commit cambio\ngit add README.md\ngit commit -m \"docs: Add Kate to README\"\ngit push"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-10-actualizar-script-de-instalación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-10-actualizar-script-de-instalación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 10: Actualizar Script de Instalación",
+    "text": "Paso 10: Actualizar Script de Instalación\n# Si tienes install.sh, agregar kate\nnano install.sh\n\n# Agregar \"kate\" a la lista de PACKAGES:\n# PACKAGES=(\n#     \"git\"\n#     \"shell\"\n#     \"terminal\"\n#     \"vscode\"\n#     \"kde\"\n#     \"kate\"        # &lt;-- Agregar esto\n# )\n\ngit add install.sh\ngit commit -m \"chore(scripts): Add kate to install script\"\ngit push\n✅ Resultado: Kate configurado, versionado y disponible en todas las máquinas."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-5-migrar-de-kubuntu-a-archcraft",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-5-migrar-de-kubuntu-a-archcraft",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Caso 5: Migrar de Kubuntu a Archcraft",
+    "text": "Caso 5: Migrar de Kubuntu a Archcraft\nEscenario: Usabas Kubuntu, ahora instalaste Archcraft. Quieres migrar tus dotfiles pero adaptándolos.\n\nPaso 1: Evaluar Diferencias\n# 1.1 En tu Kubuntu original, ver qué tienes\ncd ~/dotfiles\nls -d */\n\n# Ejemplo:\n# git/ shell/ terminal/ vscode/ kde/ digikam/ okular/ ...\n\n# 1.2 Identificar qué es compatible con Archcraft\n# ✅ Compatible: git, shell, vscode\n# ⚠️  Adaptar: kde (Archcraft puede usar i3/bspwm)\n# ❌ No necesario: apps específicas de Kubuntu\n\n\nPaso 2: En Archcraft Nueva\n# 2.1 Instalar Stow\nsudo pacman -S stow git\n\n# 2.2 Clonar dotfiles\ncd ~\ngit clone https://github.com/achalmaedison/.dotfiles.git dotfiles\n\n\nPaso 3: Crear Branch para Archcraft\ncd ~/dotfiles\n\n# 3.1 Crear branch específica\ngit checkout -b archcraft-setup\n\n# 3.2 Ver qué paquetes hay\nls -d */\n\n\nPaso 4: Instalar Paquetes Universales\ncd ~/dotfiles\n\n# 4.1 Paquetes que funcionan en cualquier distro\nstow git\nstow shell\nstow terminal  # Si Archcraft usa Konsole, sino adaptar\n\n\nPaso 5: Adaptar o Crear Nuevos Paquetes\n5.1 Window Manager (Si Archcraft usa i3/bspwm):\n# Crear nuevo paquete para i3 (ejemplo)\nmkdir -p i3/.config/i3\n\n# Configurar i3\ni3-config-wizard\n# O copiar config existente\n\n# Mover config al paquete\nmv ~/.config/i3/config i3/.config/i3/\n\n# Stow\nstow i3\n5.2 Terminal (Si Archcraft usa otro terminal):\n# Supongamos que Archcraft usa Alacritty en vez de Konsole\n\n# Crear paquete\nmkdir -p alacritty/.config/alacritty\n\n# Config de Alacritty\ncat &gt; alacritty/.config/alacritty/alacritty.yml &lt;&lt; 'EOF'\n# Alacritty configuration\nfont:\n  size: 11.0\n  normal:\n    family: JetBrains Mono\n    \nwindow:\n  opacity: 0.95\n  \ncolors:\n  # Tu esquema de colores...\nEOF\n\n# Stow\nstow alacritty\n5.3 Polybar (Si Archcraft lo usa):\nmkdir -p polybar/.config/polybar\n\n# Copiar config de Archcraft default\ncp /etc/polybar/config polybar/.config/polybar/\n\n# Personalizar\nnano polybar/.config/polybar/config\n\n# Stow\nstow polybar\n\n\nPaso 6: No Instalar Paquetes Incompatibles\n# NO hacer stow de paquetes específicos de Kubuntu/KDE:\n# - kde/\n# - plasma-org.kde.plasma.desktop-appletsrc\n# - etc.\n\n# Estos causarían errores en Archcraft\n\n\nPaso 7: Commit Cambios\ncd ~/dotfiles\n\n# Agregar nuevos paquetes\ngit add i3/ alacritty/ polybar/\n\n# Commit en branch archcraft\ngit commit -m \"feat(archcraft): Add i3, Alacritty, Polybar configs\n\n- i3 window manager configuration\n- Alacritty terminal setup\n- Polybar panel configuration\"\n\n# Push branch\ngit push origin archcraft-setup\n\n\nPaso 8: Estrategia de Branches\nOpción A: Mantener branches separadas:\n# Branch main: Para Kubuntu\n# Branch archcraft-setup: Para Archcraft\n\n# Puedes hacer cherry-pick de commits específicos:\ngit checkout main\ngit cherry-pick &lt;commit-hash&gt;  # Traer cambio específico de otra branch\nOpción B: Usar estructura de directorios:\n# Reorganizar dotfiles:\n~/dotfiles/\n├── common/          # Configs universales\n│   ├── git/\n│   ├── shell/\n│   └── vscode/\n├── kubuntu/         # Específicos de Kubuntu\n│   ├── kde/\n│   └── konsole/\n└── archcraft/       # Específicos de Archcraft\n    ├── i3/\n    ├── alacritty/\n    └── polybar/\n\n# Instalar según distro:\ncd ~/dotfiles/common && stow */\ncd ~/dotfiles/archcraft && stow */\n\n\nPaso 9: Script de Instalación por Distro\ncat &gt; install-arch.sh &lt;&lt; 'EOF'\n#!/bin/bash\n# Install script para Archcraft\n\nDOTFILES=\"$HOME/dotfiles\"\n\necho \"🚀 Instalando dotfiles para Archcraft...\"\n\n# Common packages\ncd \"$DOTFILES/common\"\nstow git shell vscode\n\n# Archcraft-specific\ncd \"$DOTFILES/archcraft\"\nstow i3 alacritty polybar rofi\n\necho \"✅ ¡Instalación completa!\"\nEOF\n\nchmod +x install-arch.sh\n\n\nPaso 10: Mantener Ambos Sistemas\n# Cuando hagas cambios en configs comunes (git, shell, vscode):\n\n# 1. Hacer cambio en cualquier máquina\ncd ~/dotfiles\nnano common/shell/.zshrc\n\n# 2. Commit\ngit add common/shell/.zshrc\ngit commit -m \"chore(shell): Update aliases\"\n\n# 3. Push\ngit push origin main\n\n# 4. En otra máquina (Kubuntu o Archcraft):\ngit pull origin main\n# Los symlinks se actualizan automáticamente"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-evaluar-diferencias",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-evaluar-diferencias",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 1: Evaluar Diferencias",
+    "text": "Paso 1: Evaluar Diferencias\n# 1.1 En tu Kubuntu original, ver qué tienes\ncd ~/dotfiles\nls -d */\n\n# Ejemplo:\n# git/ shell/ terminal/ vscode/ kde/ digikam/ okular/ ...\n\n# 1.2 Identificar qué es compatible con Archcraft\n# ✅ Compatible: git, shell, vscode\n# ⚠️  Adaptar: kde (Archcraft puede usar i3/bspwm)\n# ❌ No necesario: apps específicas de Kubuntu"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-en-archcraft-nueva",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-en-archcraft-nueva",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 2: En Archcraft Nueva",
+    "text": "Paso 2: En Archcraft Nueva\n# 2.1 Instalar Stow\nsudo pacman -S stow git\n\n# 2.2 Clonar dotfiles\ncd ~\ngit clone https://github.com/achalmaedison/.dotfiles.git dotfiles"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-crear-branch-para-archcraft",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-crear-branch-para-archcraft",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 3: Crear Branch para Archcraft",
+    "text": "Paso 3: Crear Branch para Archcraft\ncd ~/dotfiles\n\n# 3.1 Crear branch específica\ngit checkout -b archcraft-setup\n\n# 3.2 Ver qué paquetes hay\nls -d */"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-instalar-paquetes-universales",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-instalar-paquetes-universales",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 4: Instalar Paquetes Universales",
+    "text": "Paso 4: Instalar Paquetes Universales\ncd ~/dotfiles\n\n# 4.1 Paquetes que funcionan en cualquier distro\nstow git\nstow shell\nstow terminal  # Si Archcraft usa Konsole, sino adaptar"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-adaptar-o-crear-nuevos-paquetes",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-adaptar-o-crear-nuevos-paquetes",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 5: Adaptar o Crear Nuevos Paquetes",
+    "text": "Paso 5: Adaptar o Crear Nuevos Paquetes\n5.1 Window Manager (Si Archcraft usa i3/bspwm):\n# Crear nuevo paquete para i3 (ejemplo)\nmkdir -p i3/.config/i3\n\n# Configurar i3\ni3-config-wizard\n# O copiar config existente\n\n# Mover config al paquete\nmv ~/.config/i3/config i3/.config/i3/\n\n# Stow\nstow i3\n5.2 Terminal (Si Archcraft usa otro terminal):\n# Supongamos que Archcraft usa Alacritty en vez de Konsole\n\n# Crear paquete\nmkdir -p alacritty/.config/alacritty\n\n# Config de Alacritty\ncat &gt; alacritty/.config/alacritty/alacritty.yml &lt;&lt; 'EOF'\n# Alacritty configuration\nfont:\n  size: 11.0\n  normal:\n    family: JetBrains Mono\n    \nwindow:\n  opacity: 0.95\n  \ncolors:\n  # Tu esquema de colores...\nEOF\n\n# Stow\nstow alacritty\n5.3 Polybar (Si Archcraft lo usa):\nmkdir -p polybar/.config/polybar\n\n# Copiar config de Archcraft default\ncp /etc/polybar/config polybar/.config/polybar/\n\n# Personalizar\nnano polybar/.config/polybar/config\n\n# Stow\nstow polybar"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-no-instalar-paquetes-incompatibles",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-no-instalar-paquetes-incompatibles",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 6: No Instalar Paquetes Incompatibles",
+    "text": "Paso 6: No Instalar Paquetes Incompatibles\n# NO hacer stow de paquetes específicos de Kubuntu/KDE:\n# - kde/\n# - plasma-org.kde.plasma.desktop-appletsrc\n# - etc.\n\n# Estos causarían errores en Archcraft"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-7-commit-cambios",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-7-commit-cambios",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 7: Commit Cambios",
+    "text": "Paso 7: Commit Cambios\ncd ~/dotfiles\n\n# Agregar nuevos paquetes\ngit add i3/ alacritty/ polybar/\n\n# Commit en branch archcraft\ngit commit -m \"feat(archcraft): Add i3, Alacritty, Polybar configs\n\n- i3 window manager configuration\n- Alacritty terminal setup\n- Polybar panel configuration\"\n\n# Push branch\ngit push origin archcraft-setup"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-8-estrategia-de-branches",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-8-estrategia-de-branches",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 8: Estrategia de Branches",
+    "text": "Paso 8: Estrategia de Branches\nOpción A: Mantener branches separadas:\n# Branch main: Para Kubuntu\n# Branch archcraft-setup: Para Archcraft\n\n# Puedes hacer cherry-pick de commits específicos:\ngit checkout main\ngit cherry-pick &lt;commit-hash&gt;  # Traer cambio específico de otra branch\nOpción B: Usar estructura de directorios:\n# Reorganizar dotfiles:\n~/dotfiles/\n├── common/          # Configs universales\n│   ├── git/\n│   ├── shell/\n│   └── vscode/\n├── kubuntu/         # Específicos de Kubuntu\n│   ├── kde/\n│   └── konsole/\n└── archcraft/       # Específicos de Archcraft\n    ├── i3/\n    ├── alacritty/\n    └── polybar/\n\n# Instalar según distro:\ncd ~/dotfiles/common && stow */\ncd ~/dotfiles/archcraft && stow */"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-9-script-de-instalación-por-distro",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-9-script-de-instalación-por-distro",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 9: Script de Instalación por Distro",
+    "text": "Paso 9: Script de Instalación por Distro\ncat &gt; install-arch.sh &lt;&lt; 'EOF'\n#!/bin/bash\n# Install script para Archcraft\n\nDOTFILES=\"$HOME/dotfiles\"\n\necho \"🚀 Instalando dotfiles para Archcraft...\"\n\n# Common packages\ncd \"$DOTFILES/common\"\nstow git shell vscode\n\n# Archcraft-specific\ncd \"$DOTFILES/archcraft\"\nstow i3 alacritty polybar rofi\n\necho \"✅ ¡Instalación completa!\"\nEOF\n\nchmod +x install-arch.sh"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-10-mantener-ambos-sistemas",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-10-mantener-ambos-sistemas",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 10: Mantener Ambos Sistemas",
+    "text": "Paso 10: Mantener Ambos Sistemas\n# Cuando hagas cambios en configs comunes (git, shell, vscode):\n\n# 1. Hacer cambio en cualquier máquina\ncd ~/dotfiles\nnano common/shell/.zshrc\n\n# 2. Commit\ngit add common/shell/.zshrc\ngit commit -m \"chore(shell): Update aliases\"\n\n# 3. Push\ngit push origin main\n\n# 4. En otra máquina (Kubuntu o Archcraft):\ngit pull origin main\n# Los symlinks se actualizan automáticamente\n✅ Resultado: Dotfiles funcionando en Kubuntu y Archcraft con estructura organizada."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-6-probar-nueva-configuración-sin-romper",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-6-probar-nueva-configuración-sin-romper",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Caso 6: Probar Nueva Configuración Sin Romper",
+    "text": "Caso 6: Probar Nueva Configuración Sin Romper\nEscenario: Quieres probar una nueva configuración de Neovim sin afectar tu setup actual.\n\nPaso 1: Crear Branch Experimental\ncd ~/dotfiles\n\n# 1.1 Crear branch\ngit checkout -b experiment/nvim-lazyvim\n\n# 1.2 Verificar que estás en la branch\ngit branch\n# * experiment/nvim-lazyvim\n#   main\n\n\nPaso 2: Crear Paquete Alternativo\n# 2.1 Crear nuevo paquete con nombre distinto\nmkdir -p nvim-lazy/.config\n\n# 2.2 Instalar LazyVim (ejemplo)\ngit clone https://github.com/LazyVim/starter nvim-lazy/.config/nvim\n\n# 2.3 Estructura\ntree nvim-lazy/.config/nvim/ -L 1\n\n\nPaso 3: Desinstalar Neovim Actual\n# 3.1 Unstow config actual (si existe)\ncd ~/dotfiles\nstow -D nvim 2&gt;/dev/null || true\n\n# 3.2 Verificar que se eliminó symlink\nls -la ~/.config/ | grep nvim\n# No debería aparecer nada\n\n\nPaso 4: Instalar Nueva Config\n# 4.1 Stow nueva config\nstow nvim-lazy\n\n# 4.2 Verificar symlink\nls -la ~/.config/nvim\n# lrwxrwxrwx  - achalmaedison nvim -&gt; ../../dotfiles/nvim-lazy/.config/nvim\n\n\nPaso 5: Probar\n# 5.1 Abrir Neovim\nnvim\n\n# LazyVim se instalará automáticamente\n# Probar todas las features\n\n# 5.2 Usar por varios días\n# Evaluar si te gusta\n\n\nPaso 6: Decidir Qué Hacer\nOpción A: Mantener nueva config (si te gustó):\ncd ~/dotfiles\n\n# 1. Eliminar config vieja\nrm -rf nvim/  # O hacer backup\n\n# 2. Renombrar nueva\nmv nvim-lazy nvim\n\n# 3. Restow\nstow -R nvim\n\n# 4. Commit\ngit add .\ngit commit -m \"refactor(nvim): Switch to LazyVim configuration\"\n\n# 5. Merge a main\ngit checkout main\ngit merge experiment/nvim-lazyvim\n\n# 6. Push\ngit push origin main\n\n# 7. Eliminar branch experimental\ngit branch -d experiment/nvim-lazyvim\nOpción B: Volver a config anterior (si no te gustó):\ncd ~/dotfiles\n\n# 1. Checkout a main\ngit checkout main\n\n# 2. Unstow experimental\nstow -D nvim-lazy\n\n# 3. Restow original\nstow nvim\n\n# 4. Eliminar paquete experimental\nrm -rf nvim-lazy/\n\n# 5. Eliminar branch\ngit branch -D experiment/nvim-lazyvim\nOpción C: Mantener ambas (para casos específicos):\n# Tener dos configs de Neovim:\n~/dotfiles/\n├── nvim/          # Config principal\n└── nvim-lazy/     # Config alternativa\n\n# Alias en shell para cambiar:\nalias nvim-main='stow -D nvim-lazy && stow nvim && nvim'\nalias nvim-lazy='stow -D nvim && stow nvim-lazy && nvim'"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-crear-branch-experimental",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-crear-branch-experimental",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 1: Crear Branch Experimental",
+    "text": "Paso 1: Crear Branch Experimental\ncd ~/dotfiles\n\n# 1.1 Crear branch\ngit checkout -b experiment/nvim-lazyvim\n\n# 1.2 Verificar que estás en la branch\ngit branch\n# * experiment/nvim-lazyvim\n#   main"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-crear-paquete-alternativo",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-crear-paquete-alternativo",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 2: Crear Paquete Alternativo",
+    "text": "Paso 2: Crear Paquete Alternativo\n# 2.1 Crear nuevo paquete con nombre distinto\nmkdir -p nvim-lazy/.config\n\n# 2.2 Instalar LazyVim (ejemplo)\ngit clone https://github.com/LazyVim/starter nvim-lazy/.config/nvim\n\n# 2.3 Estructura\ntree nvim-lazy/.config/nvim/ -L 1"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-desinstalar-neovim-actual",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-desinstalar-neovim-actual",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 3: Desinstalar Neovim Actual",
+    "text": "Paso 3: Desinstalar Neovim Actual\n# 3.1 Unstow config actual (si existe)\ncd ~/dotfiles\nstow -D nvim 2&gt;/dev/null || true\n\n# 3.2 Verificar que se eliminó symlink\nls -la ~/.config/ | grep nvim\n# No debería aparecer nada"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-instalar-nueva-config",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-instalar-nueva-config",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 4: Instalar Nueva Config",
+    "text": "Paso 4: Instalar Nueva Config\n# 4.1 Stow nueva config\nstow nvim-lazy\n\n# 4.2 Verificar symlink\nls -la ~/.config/nvim\n# lrwxrwxrwx  - achalmaedison nvim -&gt; ../../dotfiles/nvim-lazy/.config/nvim"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-probar",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-probar",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 5: Probar",
+    "text": "Paso 5: Probar\n# 5.1 Abrir Neovim\nnvim\n\n# LazyVim se instalará automáticamente\n# Probar todas las features\n\n# 5.2 Usar por varios días\n# Evaluar si te gusta"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-decidir-qué-hacer",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-decidir-qué-hacer",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 6: Decidir Qué Hacer",
+    "text": "Paso 6: Decidir Qué Hacer\nOpción A: Mantener nueva config (si te gustó):\ncd ~/dotfiles\n\n# 1. Eliminar config vieja\nrm -rf nvim/  # O hacer backup\n\n# 2. Renombrar nueva\nmv nvim-lazy nvim\n\n# 3. Restow\nstow -R nvim\n\n# 4. Commit\ngit add .\ngit commit -m \"refactor(nvim): Switch to LazyVim configuration\"\n\n# 5. Merge a main\ngit checkout main\ngit merge experiment/nvim-lazyvim\n\n# 6. Push\ngit push origin main\n\n# 7. Eliminar branch experimental\ngit branch -d experiment/nvim-lazyvim\nOpción B: Volver a config anterior (si no te gustó):\ncd ~/dotfiles\n\n# 1. Checkout a main\ngit checkout main\n\n# 2. Unstow experimental\nstow -D nvim-lazy\n\n# 3. Restow original\nstow nvim\n\n# 4. Eliminar paquete experimental\nrm -rf nvim-lazy/\n\n# 5. Eliminar branch\ngit branch -D experiment/nvim-lazyvim\nOpción C: Mantener ambas (para casos específicos):\n# Tener dos configs de Neovim:\n~/dotfiles/\n├── nvim/          # Config principal\n└── nvim-lazy/     # Config alternativa\n\n# Alias en shell para cambiar:\nalias nvim-main='stow -D nvim-lazy && stow nvim && nvim'\nalias nvim-lazy='stow -D nvim && stow nvim-lazy && nvim'\n✅ Resultado: Nueva config probada sin riesgo, decisión informada."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-7-sincronizar-múltiples-máquinas-en-tiempo-real",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-7-sincronizar-múltiples-máquinas-en-tiempo-real",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Caso 7: Sincronizar Múltiples Máquinas en Tiempo Real",
+    "text": "Caso 7: Sincronizar Múltiples Máquinas en Tiempo Real\nEscenario: Trabajas en 3 máquinas (desktop, laptop, servidor) y quieres mantener dotfiles sincronizados.\n\nConfiguración Inicial (Una Vez)\n# En cada máquina:\n\n# 1. Clonar dotfiles\ncd ~\ngit clone https://github.com/achalmaedison/.dotfiles.git dotfiles\n\n# 2. Instalar\ncd dotfiles\n./install.sh\n\n# 3. Configurar Git con pull automático (opcional)\ngit config pull.rebase true  # Rebase en lugar de merge\n\n\nWorkflow Diario\nMáquina A (Desktop) - Hacer Cambios:\n# 1. Editar configs normalmente\nnano ~/.zshrc  # Edita a través del symlink\n\n# 2. Commit y push\ncd ~/dotfiles\ngit add shell/.zshrc\ngit commit -m \"chore(shell): Add new alias for docker\"\ngit push origin main\nMáquina B (Laptop) - Recibir Cambios:\n# 1. Pull cambios\ncd ~/dotfiles\ngit pull origin main\n\n# 2. Los symlinks se actualizan automáticamente!\ncat ~/.zshrc  # Ya tiene el cambio\n\n# 3. Recargar shell\nsource ~/.zshrc\n# O\nexec zsh\nMáquina C (Servidor) - Recibir Cambios:\n# Mismo proceso\ncd ~/dotfiles\ngit pull origin main\nsource ~/.zshrc\n\n\nAutomatizar con Cron (Opcional)\n# Crear script de sync\ncat &gt; ~/dotfiles/sync.sh &lt;&lt; 'EOF'\n#!/bin/bash\ncd \"$HOME/dotfiles\"\n\n# Pull cambios silenciosamente\ngit pull origin main --quiet\n\n# Log\necho \"$(date): Dotfiles sincronizados\" &gt;&gt; ~/dotfiles/sync.log\nEOF\n\nchmod +x ~/dotfiles/sync.sh\n\n# Agregar a crontab (sync cada hora)\ncrontab -e\n\n# Agregar línea:\n0 * * * * $HOME/dotfiles/sync.sh\n\n\nManejar Conflictos Automáticamente\n# Script más robusto\ncat &gt; ~/dotfiles/sync.sh &lt;&lt; 'EOF'\n#!/bin/bash\ncd \"$HOME/dotfiles\"\n\n# Stash cambios locales si existen\ngit stash\n\n# Pull\ngit pull origin main --quiet\n\n# Reapply stash\ngit stash pop\n\n# Si hay conflictos, notificar\nif [ $? -ne 0 ]; then\n    notify-send \"Dotfiles\" \"Conflicto detectado, revisar manualmente\"\nfi\nEOF\n\n\nUsar Git Hooks (Avanzado)\n# Pre-commit hook para validar antes de commit\ncat &gt; ~/dotfiles/.git/hooks/pre-commit &lt;&lt; 'EOF'\n#!/bin/bash\n\n# Verificar que no hay datos sensibles\nif git diff --cached | grep -i \"password\\|secret\\|token\"; then\n    echo \"ERROR: Posible dato sensible detectado!\"\n    exit 1\nfi\n\nexit 0\nEOF\n\nchmod +x ~/dotfiles/.git/hooks/pre-commit"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#configuración-inicial-una-vez",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#configuración-inicial-una-vez",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Configuración Inicial (Una Vez)",
+    "text": "Configuración Inicial (Una Vez)\n# En cada máquina:\n\n# 1. Clonar dotfiles\ncd ~\ngit clone https://github.com/achalmaedison/.dotfiles.git dotfiles\n\n# 2. Instalar\ncd dotfiles\n./install.sh\n\n# 3. Configurar Git con pull automático (opcional)\ngit config pull.rebase true  # Rebase en lugar de merge"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#workflow-diario-1",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#workflow-diario-1",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Workflow Diario",
+    "text": "Workflow Diario\nMáquina A (Desktop) - Hacer Cambios:\n# 1. Editar configs normalmente\nnano ~/.zshrc  # Edita a través del symlink\n\n# 2. Commit y push\ncd ~/dotfiles\ngit add shell/.zshrc\ngit commit -m \"chore(shell): Add new alias for docker\"\ngit push origin main\nMáquina B (Laptop) - Recibir Cambios:\n# 1. Pull cambios\ncd ~/dotfiles\ngit pull origin main\n\n# 2. Los symlinks se actualizan automáticamente!\ncat ~/.zshrc  # Ya tiene el cambio\n\n# 3. Recargar shell\nsource ~/.zshrc\n# O\nexec zsh\nMáquina C (Servidor) - Recibir Cambios:\n# Mismo proceso\ncd ~/dotfiles\ngit pull origin main\nsource ~/.zshrc"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#automatizar-con-cron-opcional",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#automatizar-con-cron-opcional",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Automatizar con Cron (Opcional)",
+    "text": "Automatizar con Cron (Opcional)\n# Crear script de sync\ncat &gt; ~/dotfiles/sync.sh &lt;&lt; 'EOF'\n#!/bin/bash\ncd \"$HOME/dotfiles\"\n\n# Pull cambios silenciosamente\ngit pull origin main --quiet\n\n# Log\necho \"$(date): Dotfiles sincronizados\" &gt;&gt; ~/dotfiles/sync.log\nEOF\n\nchmod +x ~/dotfiles/sync.sh\n\n# Agregar a crontab (sync cada hora)\ncrontab -e\n\n# Agregar línea:\n0 * * * * $HOME/dotfiles/sync.sh"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#manejar-conflictos-automáticamente",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#manejar-conflictos-automáticamente",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Manejar Conflictos Automáticamente",
+    "text": "Manejar Conflictos Automáticamente\n# Script más robusto\ncat &gt; ~/dotfiles/sync.sh &lt;&lt; 'EOF'\n#!/bin/bash\ncd \"$HOME/dotfiles\"\n\n# Stash cambios locales si existen\ngit stash\n\n# Pull\ngit pull origin main --quiet\n\n# Reapply stash\ngit stash pop\n\n# Si hay conflictos, notificar\nif [ $? -ne 0 ]; then\n    notify-send \"Dotfiles\" \"Conflicto detectado, revisar manualmente\"\nfi\nEOF"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#usar-git-hooks-avanzado",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#usar-git-hooks-avanzado",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Usar Git Hooks (Avanzado)",
+    "text": "Usar Git Hooks (Avanzado)\n# Pre-commit hook para validar antes de commit\ncat &gt; ~/dotfiles/.git/hooks/pre-commit &lt;&lt; 'EOF'\n#!/bin/bash\n\n# Verificar que no hay datos sensibles\nif git diff --cached | grep -i \"password\\|secret\\|token\"; then\n    echo \"ERROR: Posible dato sensible detectado!\"\n    exit 1\nfi\n\nexit 0\nEOF\n\nchmod +x ~/dotfiles/.git/hooks/pre-commit"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-8-compartir-dotfiles-con-equipolab",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-8-compartir-dotfiles-con-equipolab",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Caso 8: Compartir Dotfiles con Equipo/Lab",
+    "text": "Caso 8: Compartir Dotfiles con Equipo/Lab\nEscenario: Trabajas en un lab con múltiples usuarios y quieren compartir configuraciones base.\n\nPaso 1: Crear Repo de Equipo\n# En GitHub, crear repo:\n# Nombre: lab-dotfiles\n# Acceso: Privado/Público según necesidad\n\n# Clonar\ngit clone https://github.com/lab/.lab-dotfiles.git ~/lab-dotfiles\n\n\nPaso 2: Estructura Multi-Usuario\ncd ~/lab-dotfiles\n\n# Crear estructura\nmkdir -p {common,users}\n\n# Common: Configs compartidas\nmkdir -p common/{git,shell,terminal}\n\n# Users: Configs personales\nmkdir -p users/{alice,bob,carlos}\n\n\nPaso 3: Setup Común\n# Git config compartido (sin user.name/email)\ncat &gt; common/git/.gitconfig &lt;&lt; 'EOF'\n[core]\n    editor = nano\n    autocrlf = input\n\n[alias]\n    st = status\n    co = checkout\n    br = branch\n    \n[push]\n    default = simple\nEOF\n\n# Shell común\ncat &gt; common/shell/.zshrc &lt;&lt; 'EOF'\n# Shared Zsh configuration for Lab\n\n# Common aliases\nalias ll='ls -lah'\nalias ..='cd ..'\n\n# Lab-specific paths\nexport LAB_DATA=\"/data/lab\"\nexport LAB_TOOLS=\"/opt/lab-tools\"\n\n# Source user-specific config if exists\n[ -f ~/.zshrc.local ] && source ~/.zshrc.local\nEOF\n\n\nPaso 4: Configs Personales\n# Usuario Alice\ncat &gt; users/alice/.zshrc.local &lt;&lt; 'EOF'\n# Alice's personal config\n\nexport EDITOR=nvim\n\nalias mydata='cd /data/lab/alice'\nEOF\n\n# Usuario Bob\ncat &gt; users/bob/.zshrc.local &lt;&lt; 'EOF'\n# Bob's personal config\n\nexport EDITOR=vim\n\nalias mydata='cd /data/lab/bob'\nEOF\n\n\nPaso 5: Script de Instalación\ncat &gt; install-lab.sh &lt;&lt; 'EOF'\n#!/bin/bash\n\nUSERNAME=\"$1\"\n\nif [ -z \"$USERNAME\" ]; then\n    echo \"Uso: $0 &lt;username&gt;\"\n    echo \"Ejemplo: $0 alice\"\n    exit 1\nfi\n\nDOTFILES=\"$HOME/lab-dotfiles\"\n\n# Instalar común\ncd \"$DOTFILES/common\"\nstow git shell terminal\n\n# Instalar personal del usuario\nif [ -d \"$DOTFILES/users/$USERNAME\" ]; then\n    cd \"$DOTFILES/users/$USERNAME\"\n    stow .\n    echo \"✅ Configs de $USERNAME instaladas\"\nelse\n    echo \"⚠️  No hay configs personales para $USERNAME\"\nfi\n\necho \"✅ Instalación completa para $USERNAME\"\nEOF\n\nchmod +x install-lab.sh\n\n\nPaso 6: Cada Usuario Instala\n# Usuario Alice:\ncd ~/lab-dotfiles\n./install-lab.sh alice\n\n# Usuario Bob:\ncd ~/lab-dotfiles\n./install-lab.sh bob\n\n\nPaso 7: Actualizar Configs Compartidas\n# Cualquier usuario puede actualizar common/\n\n# 1. Modificar\nnano ~/lab-dotfiles/common/shell/.zshrc\n\n# 2. Commit\ncd ~/lab-dotfiles\ngit add common/shell/.zshrc\ngit commit -m \"feat(shell): Add lab-wide utility function\"\n\n# 3. Push\ngit push origin main\n\n# 4. Otros usuarios pull\ngit pull origin main\n# Cambios se aplican automáticamente via symlinks\n\n\nPaso 8: Usuarios Agregan Sus Configs\n# Bob quiere agregar su config de Neovim\n\n# 1. Crear su directorio personal\nmkdir -p ~/lab-dotfiles/users/bob/.config\n\n# 2. Copiar config\ncp -r ~/.config/nvim ~/lab-dotfiles/users/bob/.config/\n\n# 3. Commit (solo su carpeta)\ncd ~/lab-dotfiles\ngit add users/bob/.config/nvim\ngit commit -m \"feat(bob): Add Neovim configuration\"\ngit push\n\n# Otros usuarios no se afectan"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-crear-repo-de-equipo",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-crear-repo-de-equipo",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 1: Crear Repo de Equipo",
+    "text": "Paso 1: Crear Repo de Equipo\n# En GitHub, crear repo:\n# Nombre: lab-dotfiles\n# Acceso: Privado/Público según necesidad\n\n# Clonar\ngit clone https://github.com/lab/.lab-dotfiles.git ~/lab-dotfiles"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-estructura-multi-usuario",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-estructura-multi-usuario",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 2: Estructura Multi-Usuario",
+    "text": "Paso 2: Estructura Multi-Usuario\ncd ~/lab-dotfiles\n\n# Crear estructura\nmkdir -p {common,users}\n\n# Common: Configs compartidas\nmkdir -p common/{git,shell,terminal}\n\n# Users: Configs personales\nmkdir -p users/{alice,bob,carlos}"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-setup-común",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-setup-común",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 3: Setup Común",
+    "text": "Paso 3: Setup Común\n# Git config compartido (sin user.name/email)\ncat &gt; common/git/.gitconfig &lt;&lt; 'EOF'\n[core]\n    editor = nano\n    autocrlf = input\n\n[alias]\n    st = status\n    co = checkout\n    br = branch\n    \n[push]\n    default = simple\nEOF\n\n# Shell común\ncat &gt; common/shell/.zshrc &lt;&lt; 'EOF'\n# Shared Zsh configuration for Lab\n\n# Common aliases\nalias ll='ls -lah'\nalias ..='cd ..'\n\n# Lab-specific paths\nexport LAB_DATA=\"/data/lab\"\nexport LAB_TOOLS=\"/opt/lab-tools\"\n\n# Source user-specific config if exists\n[ -f ~/.zshrc.local ] && source ~/.zshrc.local\nEOF"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-configs-personales",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-configs-personales",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 4: Configs Personales",
+    "text": "Paso 4: Configs Personales\n# Usuario Alice\ncat &gt; users/alice/.zshrc.local &lt;&lt; 'EOF'\n# Alice's personal config\n\nexport EDITOR=nvim\n\nalias mydata='cd /data/lab/alice'\nEOF\n\n# Usuario Bob\ncat &gt; users/bob/.zshrc.local &lt;&lt; 'EOF'\n# Bob's personal config\n\nexport EDITOR=vim\n\nalias mydata='cd /data/lab/bob'\nEOF"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-script-de-instalación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-script-de-instalación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 5: Script de Instalación",
+    "text": "Paso 5: Script de Instalación\ncat &gt; install-lab.sh &lt;&lt; 'EOF'\n#!/bin/bash\n\nUSERNAME=\"$1\"\n\nif [ -z \"$USERNAME\" ]; then\n    echo \"Uso: $0 &lt;username&gt;\"\n    echo \"Ejemplo: $0 alice\"\n    exit 1\nfi\n\nDOTFILES=\"$HOME/lab-dotfiles\"\n\n# Instalar común\ncd \"$DOTFILES/common\"\nstow git shell terminal\n\n# Instalar personal del usuario\nif [ -d \"$DOTFILES/users/$USERNAME\" ]; then\n    cd \"$DOTFILES/users/$USERNAME\"\n    stow .\n    echo \"✅ Configs de $USERNAME instaladas\"\nelse\n    echo \"⚠️  No hay configs personales para $USERNAME\"\nfi\n\necho \"✅ Instalación completa para $USERNAME\"\nEOF\n\nchmod +x install-lab.sh"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-cada-usuario-instala",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-cada-usuario-instala",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 6: Cada Usuario Instala",
+    "text": "Paso 6: Cada Usuario Instala\n# Usuario Alice:\ncd ~/lab-dotfiles\n./install-lab.sh alice\n\n# Usuario Bob:\ncd ~/lab-dotfiles\n./install-lab.sh bob"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-7-actualizar-configs-compartidas",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-7-actualizar-configs-compartidas",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 7: Actualizar Configs Compartidas",
+    "text": "Paso 7: Actualizar Configs Compartidas\n# Cualquier usuario puede actualizar common/\n\n# 1. Modificar\nnano ~/lab-dotfiles/common/shell/.zshrc\n\n# 2. Commit\ncd ~/lab-dotfiles\ngit add common/shell/.zshrc\ngit commit -m \"feat(shell): Add lab-wide utility function\"\n\n# 3. Push\ngit push origin main\n\n# 4. Otros usuarios pull\ngit pull origin main\n# Cambios se aplican automáticamente via symlinks"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-8-usuarios-agregan-sus-configs",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-8-usuarios-agregan-sus-configs",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 8: Usuarios Agregan Sus Configs",
+    "text": "Paso 8: Usuarios Agregan Sus Configs\n# Bob quiere agregar su config de Neovim\n\n# 1. Crear su directorio personal\nmkdir -p ~/lab-dotfiles/users/bob/.config\n\n# 2. Copiar config\ncp -r ~/.config/nvim ~/lab-dotfiles/users/bob/.config/\n\n# 3. Commit (solo su carpeta)\ncd ~/lab-dotfiles\ngit add users/bob/.config/nvim\ngit commit -m \"feat(bob): Add Neovim configuration\"\ngit push\n\n# Otros usuarios no se afectan\n✅ Resultado: Lab con configs compartidas y personalizadas."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-9-migrar-de-sistema-manual-a-stow",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-9-migrar-de-sistema-manual-a-stow",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Caso 9: Migrar de Sistema Manual a Stow",
+    "text": "Caso 9: Migrar de Sistema Manual a Stow\nEscenario: Tienes dotfiles en GitHub pero SIN Stow (todos en raíz del repo). Quieres migrar a Stow.\n\nEstado Inicial\n# Tu repo actual (sin Stow):\n~/dotfiles/\n├── .gitconfig\n├── .zshrc\n├── .zshenv\n├── nvim/\n│   └── init.lua\n├── konsolerc\n└── settings.json\n\n# Estructura plana, difícil de gestionar\n\n\nPaso 1: Backup Completo\n# 1. Backup de dotfiles actuales\ncp -r ~/dotfiles ~/dotfiles-backup-$(date +%Y%m%d)\n\n# 2. Backup de HOME\nmkdir -p ~/home-backup\ncp ~/.zshrc ~/home-backup/\ncp ~/.gitconfig ~/home-backup/\n# etc...\n\n\nPaso 2: Crear Nueva Estructura\ncd ~/dotfiles\n\n# Crear directorios de paquetes\nmkdir -p git shell nvim terminal vscode\n\n\nPaso 3: Reorganizar Archivos\ncd ~/dotfiles\n\n# Git\nmv .gitconfig git/\n\n# Shell\nmv .zshrc shell/\nmv .zshenv shell/\n\n# Neovim (crear estructura correcta)\nmkdir -p nvim/.config\nmv nvim/ nvim/.config/nvim/\n\n# Terminal\nmkdir -p terminal/.config\nmv konsolerc terminal/.config/\n\n# VSCode\nmkdir -p vscode/.config/Code/User\nmv settings.json vscode/.config/Code/User/\n\n\nPaso 4: Verificar Nueva Estructura\n# Debería verse así:\ntree -L 3 ~/dotfiles/\n\n# ~/dotfiles/\n# ├── git/\n# │   └── .gitconfig\n# ├── shell/\n# │   ├── .zshrc\n# │   └── .zshenv\n# ├── nvim/\n# │   └── .config/\n# │       └── nvim/\n# ├── terminal/\n# │   └── .config/\n# │       └── konsolerc\n# └── vscode/\n#     └── .config/\n#         └── Code/\n#             └── User/\n#                 └── settings.json\n\n\nPaso 5: Eliminar Symlinks/Archivos Viejos de HOME\n# Eliminar configs de HOME (los vamos a recrear con Stow)\nrm ~/.gitconfig\nrm ~/.zshrc\nrm ~/.zshenv\nrm -rf ~/.config/nvim\nrm ~/.config/konsolerc\nrm ~/.config/Code/User/settings.json\n\n\nPaso 6: Instalar con Stow\ncd ~/dotfiles\n\n# Dry run primero\nstow -nv git shell nvim terminal vscode\n\n# Si todo OK, instalar\nstow git shell nvim terminal vscode\n\n# Verificar\nls -la ~/.gitconfig\nls -la ~/.zshrc\nls -la ~/.config/nvim\n\n\nPaso 7: Commit Nueva Estructura\ncd ~/dotfiles\n\n# Stage todo\ngit add -A\n\n# Ver cambios\ngit status\n\n# Commit\ngit commit -m \"refactor: Migrate to GNU Stow structure\n\nBREAKING CHANGE: Repository structure changed to use Stow\n\n- Organized configs into packages (git, shell, nvim, etc.)\n- Each package replicates HOME directory structure\n- Use 'stow &lt;package&gt;' to install\n\nMigration guide:\n1. stow -D * (if already installed)\n2. stow git shell nvim terminal vscode\"\n\n# Push\ngit push origin main\n\n\nPaso 8: Actualizar README\ncat &gt; README.md &lt;&lt; 'EOF'\n# Dotfiles (Stow-managed)\n\nPersonal configurations managed with GNU Stow.\n\n# Structure\n~/dotfiles/ ├── git/ # Git config ├── shell/ # Zsh ├── nvim/ # Neovim ├── terminal/ # Konsole └── vscode/ # VSCode\n\n# Installation\n\n```bash\n# Install Stow\nsudo pacman -S stow\n\n# Clone\ngit clone https://github.com/user/dotfiles.git ~/dotfiles\n\n# Install all\ncd ~/dotfiles\nstow */\n\n# Or selective\nstow git shell nvim\n\n\nUpdate\ncd ~/dotfiles\ngit pull\nstow -R */\nEOF\n\ngit add README.md\ngit commit -m \"docs: Update README for Stow\"\ngit push\n\n\nPaso 9: Crear Scripts\n# install.sh\ncat &gt; install.sh &lt;&lt; 'EOF'\n#!/bin/bash\ncd \"$HOME/dotfiles\"\nstow git shell nvim terminal vscode\necho \"✅ Dotfiles installed\"\nEOF\n\nchmod +x install.sh\ngit add install.sh\ngit commit -m \"chore: Add install script\"\ngit push\n\n\nPaso 10: Limpiar Historial de Git (Opcional)\n# Si tu repo era muy grande con historia antigua,\n# puedes limpiarlo:\n\ncd ~/dotfiles\n\n# Crear orphan branch\ngit checkout --orphan latest_branch\n\n# Add all files\ngit add -A\n\n# Commit\ngit commit -m \"refactor: Fresh start with Stow structure\"\n\n# Delete main\ngit branch -D main\n\n# Rename current branch to main\ngit branch -m main\n\n# Force push\ngit push -f origin main"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estado-inicial",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estado-inicial",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Estado Inicial",
+    "text": "Estado Inicial\n# Tu repo actual (sin Stow):\n~/dotfiles/\n├── .gitconfig\n├── .zshrc\n├── .zshenv\n├── nvim/\n│   └── init.lua\n├── konsolerc\n└── settings.json\n\n# Estructura plana, difícil de gestionar\n\nPaso 1: Backup Completo\n# 1. Backup de dotfiles actuales\ncp -r ~/dotfiles ~/dotfiles-backup-$(date +%Y%m%d)\n\n# 2. Backup de HOME\nmkdir -p ~/home-backup\ncp ~/.zshrc ~/home-backup/\ncp ~/.gitconfig ~/home-backup/\n# etc...\n\n\nPaso 2: Crear Nueva Estructura\ncd ~/dotfiles\n\n# Crear directorios de paquetes\nmkdir -p git shell nvim terminal vscode\n\n\nPaso 3: Reorganizar Archivos\ncd ~/dotfiles\n\n# Git\nmv .gitconfig git/\n\n# Shell\nmv .zshrc shell/\nmv .zshenv shell/\n\n# Neovim (crear estructura correcta)\nmkdir -p nvim/.config\nmv nvim/ nvim/.config/nvim/\n\n# Terminal\nmkdir -p terminal/.config\nmv konsolerc terminal/.config/\n\n# VSCode\nmkdir -p vscode/.config/Code/User\nmv settings.json vscode/.config/Code/User/\n\n\nPaso 4: Verificar Nueva Estructura\n# Debería verse así:\ntree -L 3 ~/dotfiles/\n\n# ~/dotfiles/\n# ├── git/\n# │   └── .gitconfig\n# ├── shell/\n# │   ├── .zshrc\n# │   └── .zshenv\n# ├── nvim/\n# │   └── .config/\n# │       └── nvim/\n# ├── terminal/\n# │   └── .config/\n# │       └── konsolerc\n# └── vscode/\n#     └── .config/\n#         └── Code/\n#             └── User/\n#                 └── settings.json\n\n\nPaso 5: Eliminar Symlinks/Archivos Viejos de HOME\n# Eliminar configs de HOME (los vamos a recrear con Stow)\nrm ~/.gitconfig\nrm ~/.zshrc\nrm ~/.zshenv\nrm -rf ~/.config/nvim\nrm ~/.config/konsolerc\nrm ~/.config/Code/User/settings.json\n\n\nPaso 6: Instalar con Stow\ncd ~/dotfiles\n\n# Dry run primero\nstow -nv git shell nvim terminal vscode\n\n# Si todo OK, instalar\nstow git shell nvim terminal vscode\n\n# Verificar\nls -la ~/.gitconfig\nls -la ~/.zshrc\nls -la ~/.config/nvim\n\n\nPaso 7: Commit Nueva Estructura\ncd ~/dotfiles\n\n# Stage todo\ngit add -A\n\n# Ver cambios\ngit status\n\n# Commit\ngit commit -m \"refactor: Migrate to GNU Stow structure\n\nBREAKING CHANGE: Repository structure changed to use Stow\n\n- Organized configs into packages (git, shell, nvim, etc.)\n- Each package replicates HOME directory structure\n- Use 'stow &lt;package&gt;' to install\n\nMigration guide:\n1. stow -D * (if already installed)\n2. stow git shell nvim terminal vscode\"\n\n# Push\ngit push origin main\n\n\nPaso 8: Actualizar README\ncat &gt; README.md &lt;&lt; 'EOF'\n# Dotfiles (Stow-managed)\n\nPersonal configurations managed with GNU Stow.\n\n# Structure\n~/dotfiles/ ├── git/ # Git config ├── shell/ # Zsh ├── nvim/ # Neovim ├── terminal/ # Konsole └── vscode/ # VSCode\n\n# Installation\n\n```bash\n# Install Stow\nsudo pacman -S stow\n\n# Clone\ngit clone https://github.com/user/dotfiles.git ~/dotfiles\n\n# Install all\ncd ~/dotfiles\nstow */\n\n# Or selective\nstow git shell nvim"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-backup-completo",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-backup-completo",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 1: Backup Completo",
+    "text": "Paso 1: Backup Completo\n# 1. Backup de dotfiles actuales\ncp -r ~/dotfiles ~/dotfiles-backup-$(date +%Y%m%d)\n\n# 2. Backup de HOME\nmkdir -p ~/home-backup\ncp ~/.zshrc ~/home-backup/\ncp ~/.gitconfig ~/home-backup/\n# etc..."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-crear-nueva-estructura",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-crear-nueva-estructura",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 2: Crear Nueva Estructura",
+    "text": "Paso 2: Crear Nueva Estructura\ncd ~/dotfiles\n\n# Crear directorios de paquetes\nmkdir -p git shell nvim terminal vscode"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-reorganizar-archivos",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-reorganizar-archivos",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 3: Reorganizar Archivos",
+    "text": "Paso 3: Reorganizar Archivos\ncd ~/dotfiles\n\n# Git\nmv .gitconfig git/\n\n# Shell\nmv .zshrc shell/\nmv .zshenv shell/\n\n# Neovim (crear estructura correcta)\nmkdir -p nvim/.config\nmv nvim/ nvim/.config/nvim/\n\n# Terminal\nmkdir -p terminal/.config\nmv konsolerc terminal/.config/\n\n# VSCode\nmkdir -p vscode/.config/Code/User\nmv settings.json vscode/.config/Code/User/"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-verificar-nueva-estructura",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-verificar-nueva-estructura",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 4: Verificar Nueva Estructura",
+    "text": "Paso 4: Verificar Nueva Estructura\n# Debería verse así:\ntree -L 3 ~/dotfiles/\n\n# ~/dotfiles/\n# ├── git/\n# │   └── .gitconfig\n# ├── shell/\n# │   ├── .zshrc\n# │   └── .zshenv\n# ├── nvim/\n# │   └── .config/\n# │       └── nvim/\n# ├── terminal/\n# │   └── .config/\n# │       └── konsolerc\n# └── vscode/\n#     └── .config/\n#         └── Code/\n#             └── User/\n#                 └── settings.json"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-eliminar-symlinksarchivos-viejos-de-home",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-eliminar-symlinksarchivos-viejos-de-home",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 5: Eliminar Symlinks/Archivos Viejos de HOME",
+    "text": "Paso 5: Eliminar Symlinks/Archivos Viejos de HOME\n# Eliminar configs de HOME (los vamos a recrear con Stow)\nrm ~/.gitconfig\nrm ~/.zshrc\nrm ~/.zshenv\nrm -rf ~/.config/nvim\nrm ~/.config/konsolerc\nrm ~/.config/Code/User/settings.json"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-instalar-con-stow",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-instalar-con-stow",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 6: Instalar con Stow",
+    "text": "Paso 6: Instalar con Stow\ncd ~/dotfiles\n\n# Dry run primero\nstow -nv git shell nvim terminal vscode\n\n# Si todo OK, instalar\nstow git shell nvim terminal vscode\n\n# Verificar\nls -la ~/.gitconfig\nls -la ~/.zshrc\nls -la ~/.config/nvim"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-7-commit-nueva-estructura",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-7-commit-nueva-estructura",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 7: Commit Nueva Estructura",
+    "text": "Paso 7: Commit Nueva Estructura\ncd ~/dotfiles\n\n# Stage todo\ngit add -A\n\n# Ver cambios\ngit status\n\n# Commit\ngit commit -m \"refactor: Migrate to GNU Stow structure\n\nBREAKING CHANGE: Repository structure changed to use Stow\n\n- Organized configs into packages (git, shell, nvim, etc.)\n- Each package replicates HOME directory structure\n- Use 'stow &lt;package&gt;' to install\n\nMigration guide:\n1. stow -D * (if already installed)\n2. stow git shell nvim terminal vscode\"\n\n# Push\ngit push origin main"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-8-actualizar-readme",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-8-actualizar-readme",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 8: Actualizar README",
+    "text": "Paso 8: Actualizar README\ncat &gt; README.md &lt;&lt; 'EOF'\n# Dotfiles (Stow-managed)\n\nPersonal configurations managed with GNU Stow.\n\n# Structure\n~/dotfiles/ ├── git/ # Git config ├── shell/ # Zsh ├── nvim/ # Neovim ├── terminal/ # Konsole └── vscode/ # VSCode\n\n# Installation\n\n```bash\n# Install Stow\nsudo pacman -S stow\n\n# Clone\ngit clone https://github.com/user/dotfiles.git ~/dotfiles\n\n# Install all\ncd ~/dotfiles\nstow */\n\n# Or selective\nstow git shell nvim"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-10-limpiar-historial-de-git-opcional",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-10-limpiar-historial-de-git-opcional",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 10: Limpiar Historial de Git (Opcional)",
+    "text": "Paso 10: Limpiar Historial de Git (Opcional)\n# Si tu repo era muy grande con historia antigua,\n# puedes limpiarlo:\n\ncd ~/dotfiles\n\n# Crear orphan branch\ngit checkout --orphan latest_branch\n\n# Add all files\ngit add -A\n\n# Commit\ngit commit -m \"refactor: Fresh start with Stow structure\"\n\n# Delete main\ngit branch -D main\n\n# Rename current branch to main\ngit branch -m main\n\n# Force push\ngit push -f origin main\n✅ Resultado: Repo migrado de estructura plana a Stow."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-10-setup-para-desarrollo-multi-proyecto",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-10-setup-para-desarrollo-multi-proyecto",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Caso 10: Setup para Desarrollo Multi-Proyecto",
+    "text": "Caso 10: Setup para Desarrollo Multi-Proyecto\nEscenario: Trabajas en múltiples proyectos (Python, Web, Latex) y quieres configs específicas por proyecto.\n\nEstructura de Dotfiles\n~/dotfiles/\n├── common/           # Común a todo\n│   ├── git/\n│   └── shell/\n├── python-dev/       # Python development\n│   ├── nvim/\n│   └── vscode/\n├── web-dev/          # Web development\n│   ├── nvim/\n│   └── vscode/\n└── latex-writing/    # Academic writing\n    ├── nvim/\n    └── texstudio/\n\n\nPaso 1: Crear Estructura\ncd ~/dotfiles\n\n# Común\nmkdir -p common/{git,shell}\n\n# Python dev\nmkdir -p python-dev/{nvim,vscode}\n\n# Web dev\nmkdir -p web-dev/{nvim,vscode}\n\n# LaTeX\nmkdir -p latex-writing/{nvim,texstudio}\n\n\nPaso 2: Configs Comunes\n# Git (igual para todos)\ncat &gt; common/git/.gitconfig &lt;&lt; 'EOF'\n[user]\n    name = Edison Achalma\n    email = achalmaedison@gmail.com\n\n[core]\n    editor = nvim\nEOF\n\n# Shell base\ncat &gt; common/shell/.zshrc &lt;&lt; 'EOF'\n# Common shell config\n\n# Aliases\nalias gs='git status'\nalias ll='ls -lah'\n\n# Load project-specific config\n[ -f ~/.zshrc.project ] && source ~/.zshrc.project\nEOF\n\n\nPaso 3: Configs Específicas por Proyecto\nPython Development:\n# Neovim para Python\ncat &gt; python-dev/nvim/.config/nvim/init.lua &lt;&lt; 'EOF'\n-- Python-focused Neovim config\n\n-- LSP\nrequire('lspconfig').pyright.setup{}\n\n-- Python-specific keymaps\nvim.keymap.set('n', '&lt;leader&gt;r', ':!python %&lt;CR&gt;')\nEOF\n\n# VSCode para Python\ncat &gt; python-dev/vscode/.config/Code/User/settings.json &lt;&lt; 'EOF'\n{\n    \"python.linting.enabled\": true,\n    \"python.linting.pylintEnabled\": true,\n    \"python.formatting.provider\": \"black\"\n}\nEOF\n\n# Shell additions para Python\ncat &gt; python-dev/shell/.zshrc.project &lt;&lt; 'EOF'\n# Python dev environment\n\nexport PYTHONPATH=\"$HOME/projects/python:$PYTHONPATH\"\n\nalias pytest='python -m pytest'\nalias venv='python -m venv venv && source venv/bin/activate'\nEOF\nWeb Development:\n# Neovim para Web\ncat &gt; web-dev/nvim/.config/nvim/init.lua &lt;&lt; 'EOF'\n-- Web-focused Neovim config\n\n-- LSP for JS/TS\nrequire('lspconfig').tsserver.setup{}\n\n-- Live server\nvim.keymap.set('n', '&lt;leader&gt;l', ':!live-server .&lt;CR&gt;')\nEOF\n\n# VSCode para Web\ncat &gt; web-dev/vscode/.config/Code/User/settings.json &lt;&lt; 'EOF'\n{\n    \"emmet.includeLanguages\": {\n        \"javascript\": \"javascriptreact\"\n    },\n    \"prettier.enable\": true,\n    \"editor.formatOnSave\": true\n}\nEOF\n\n\nPaso 4: Scripts de Activación\n# Script para activar proyecto Python\ncat &gt; ~/dotfiles/activate-python.sh &lt;&lt; 'EOF'\n#!/bin/bash\n\necho \"🐍 Activando entorno Python...\"\n\ncd ~/dotfiles\n\n# Unstow otros proyectos\nstow -D web-dev/nvim 2&gt;/dev/null || true\nstow -D latex-writing/nvim 2&gt;/dev/null || true\n\n# Stow común\nstow common/*\n\n# Stow Python\nstow python-dev/*\n\n# Copiar project-specific shell config\ncp python-dev/shell/.zshrc.project ~/.zshrc.project\n\necho \"✅ Entorno Python activado\"\nEOF\n\nchmod +x ~/dotfiles/activate-python.sh\n# Script para activar proyecto Web\ncat &gt; ~/dotfiles/activate-web.sh &lt;&lt; 'EOF'\n#!/bin/bash\n\necho \"🌐 Activando entorno Web...\"\n\ncd ~/dotfiles\n\n# Unstow otros\nstow -D python-dev/nvim 2&gt;/dev/null || true\nstow -D latex-writing/nvim 2&gt;/dev/null || true\n\n# Stow común\nstow common/*\n\n# Stow Web\nstow web-dev/*\n\n# Shell config\ncp web-dev/shell/.zshrc.project ~/.zshrc.project\n\necho \"✅ Entorno Web activado\"\nEOF\n\nchmod +x ~/dotfiles/activate-web.sh\n\n\nPaso 5: Uso\n# Trabajar en proyecto Python\n~/dotfiles/activate-python.sh\ncd ~/projects/python/my-project\nnvim  # Abre con config de Python\n\n# Cambiar a proyecto Web\n~/dotfiles/activate-web.sh\ncd ~/projects/web/my-app\nnvim  # Abre con config de Web\n\n\nPaso 6: Automatizar con Direnv (Avanzado)\n# Instalar direnv\nsudo pacman -S direnv\n\n# En cada proyecto, crear .envrc\ncd ~/projects/python/my-project\ncat &gt; .envrc &lt;&lt; 'EOF'\n#!/bin/bash\n# Activar entorno Python automáticamente\nsource \"$HOME/dotfiles/activate-python.sh\"\nEOF\n\ndirenv allow\n\n# Ahora al entrar al directorio, se activa automáticamente"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estructura-de-dotfiles",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estructura-de-dotfiles",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Estructura de Dotfiles",
+    "text": "Estructura de Dotfiles\n~/dotfiles/\n├── common/           # Común a todo\n│   ├── git/\n│   └── shell/\n├── python-dev/       # Python development\n│   ├── nvim/\n│   └── vscode/\n├── web-dev/          # Web development\n│   ├── nvim/\n│   └── vscode/\n└── latex-writing/    # Academic writing\n    ├── nvim/\n    └── texstudio/\n\nPaso 1: Crear Estructura\ncd ~/dotfiles\n\n# Común\nmkdir -p common/{git,shell}\n\n# Python dev\nmkdir -p python-dev/{nvim,vscode}\n\n# Web dev\nmkdir -p web-dev/{nvim,vscode}\n\n# LaTeX\nmkdir -p latex-writing/{nvim,texstudio}\n\n\nPaso 2: Configs Comunes\n# Git (igual para todos)\ncat &gt; common/git/.gitconfig &lt;&lt; 'EOF'\n[user]\n    name = Edison Achalma\n    email = achalmaedison@gmail.com\n\n[core]\n    editor = nvim\nEOF\n\n# Shell base\ncat &gt; common/shell/.zshrc &lt;&lt; 'EOF'\n# Common shell config\n\n# Aliases\nalias gs='git status'\nalias ll='ls -lah'\n\n# Load project-specific config\n[ -f ~/.zshrc.project ] && source ~/.zshrc.project\nEOF\n\n\nPaso 3: Configs Específicas por Proyecto\nPython Development:\n# Neovim para Python\ncat &gt; python-dev/nvim/.config/nvim/init.lua &lt;&lt; 'EOF'\n-- Python-focused Neovim config\n\n-- LSP\nrequire('lspconfig').pyright.setup{}\n\n-- Python-specific keymaps\nvim.keymap.set('n', '&lt;leader&gt;r', ':!python %&lt;CR&gt;')\nEOF\n\n# VSCode para Python\ncat &gt; python-dev/vscode/.config/Code/User/settings.json &lt;&lt; 'EOF'\n{\n    \"python.linting.enabled\": true,\n    \"python.linting.pylintEnabled\": true,\n    \"python.formatting.provider\": \"black\"\n}\nEOF\n\n# Shell additions para Python\ncat &gt; python-dev/shell/.zshrc.project &lt;&lt; 'EOF'\n# Python dev environment\n\nexport PYTHONPATH=\"$HOME/projects/python:$PYTHONPATH\"\n\nalias pytest='python -m pytest'\nalias venv='python -m venv venv && source venv/bin/activate'\nEOF\nWeb Development:\n# Neovim para Web\ncat &gt; web-dev/nvim/.config/nvim/init.lua &lt;&lt; 'EOF'\n-- Web-focused Neovim config\n\n-- LSP for JS/TS\nrequire('lspconfig').tsserver.setup{}\n\n-- Live server\nvim.keymap.set('n', '&lt;leader&gt;l', ':!live-server .&lt;CR&gt;')\nEOF\n\n# VSCode para Web\ncat &gt; web-dev/vscode/.config/Code/User/settings.json &lt;&lt; 'EOF'\n{\n    \"emmet.includeLanguages\": {\n        \"javascript\": \"javascriptreact\"\n    },\n    \"prettier.enable\": true,\n    \"editor.formatOnSave\": true\n}\nEOF\n\n\nPaso 4: Scripts de Activación\n# Script para activar proyecto Python\ncat &gt; ~/dotfiles/activate-python.sh &lt;&lt; 'EOF'\n#!/bin/bash\n\necho \"🐍 Activando entorno Python...\"\n\ncd ~/dotfiles\n\n# Unstow otros proyectos\nstow -D web-dev/nvim 2&gt;/dev/null || true\nstow -D latex-writing/nvim 2&gt;/dev/null || true\n\n# Stow común\nstow common/*\n\n# Stow Python\nstow python-dev/*\n\n# Copiar project-specific shell config\ncp python-dev/shell/.zshrc.project ~/.zshrc.project\n\necho \"✅ Entorno Python activado\"\nEOF\n\nchmod +x ~/dotfiles/activate-python.sh\n# Script para activar proyecto Web\ncat &gt; ~/dotfiles/activate-web.sh &lt;&lt; 'EOF'\n#!/bin/bash\n\necho \"🌐 Activando entorno Web...\"\n\ncd ~/dotfiles\n\n# Unstow otros\nstow -D python-dev/nvim 2&gt;/dev/null || true\nstow -D latex-writing/nvim 2&gt;/dev/null || true\n\n# Stow común\nstow common/*\n\n# Stow Web\nstow web-dev/*\n\n# Shell config\ncp web-dev/shell/.zshrc.project ~/.zshrc.project\n\necho \"✅ Entorno Web activado\"\nEOF\n\nchmod +x ~/dotfiles/activate-web.sh\n\n\nPaso 5: Uso\n# Trabajar en proyecto Python\n~/dotfiles/activate-python.sh\ncd ~/projects/python/my-project\nnvim  # Abre con config de Python\n\n# Cambiar a proyecto Web\n~/dotfiles/activate-web.sh\ncd ~/projects/web/my-app\nnvim  # Abre con config de Web\n\n\nPaso 6: Automatizar con Direnv (Avanzado)\n# Instalar direnv\nsudo pacman -S direnv\n\n# En cada proyecto, crear .envrc\ncd ~/projects/python/my-project\ncat &gt; .envrc &lt;&lt; 'EOF'\n#!/bin/bash\n# Activar entorno Python automáticamente\nsource \"$HOME/dotfiles/activate-python.sh\"\nEOF\n\ndirenv allow\n\n# Ahora al entrar al directorio, se activa automáticamente"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-crear-estructura",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-1-crear-estructura",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 1: Crear Estructura",
+    "text": "Paso 1: Crear Estructura\ncd ~/dotfiles\n\n# Común\nmkdir -p common/{git,shell}\n\n# Python dev\nmkdir -p python-dev/{nvim,vscode}\n\n# Web dev\nmkdir -p web-dev/{nvim,vscode}\n\n# LaTeX\nmkdir -p latex-writing/{nvim,texstudio}"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-configs-comunes",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-2-configs-comunes",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 2: Configs Comunes",
+    "text": "Paso 2: Configs Comunes\n# Git (igual para todos)\ncat &gt; common/git/.gitconfig &lt;&lt; 'EOF'\n[user]\n    name = Edison Achalma\n    email = achalmaedison@gmail.com\n\n[core]\n    editor = nvim\nEOF\n\n# Shell base\ncat &gt; common/shell/.zshrc &lt;&lt; 'EOF'\n# Common shell config\n\n# Aliases\nalias gs='git status'\nalias ll='ls -lah'\n\n# Load project-specific config\n[ -f ~/.zshrc.project ] && source ~/.zshrc.project\nEOF"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-configs-específicas-por-proyecto",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-3-configs-específicas-por-proyecto",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 3: Configs Específicas por Proyecto",
+    "text": "Paso 3: Configs Específicas por Proyecto\nPython Development:\n# Neovim para Python\ncat &gt; python-dev/nvim/.config/nvim/init.lua &lt;&lt; 'EOF'\n-- Python-focused Neovim config\n\n-- LSP\nrequire('lspconfig').pyright.setup{}\n\n-- Python-specific keymaps\nvim.keymap.set('n', '&lt;leader&gt;r', ':!python %&lt;CR&gt;')\nEOF\n\n# VSCode para Python\ncat &gt; python-dev/vscode/.config/Code/User/settings.json &lt;&lt; 'EOF'\n{\n    \"python.linting.enabled\": true,\n    \"python.linting.pylintEnabled\": true,\n    \"python.formatting.provider\": \"black\"\n}\nEOF\n\n# Shell additions para Python\ncat &gt; python-dev/shell/.zshrc.project &lt;&lt; 'EOF'\n# Python dev environment\n\nexport PYTHONPATH=\"$HOME/projects/python:$PYTHONPATH\"\n\nalias pytest='python -m pytest'\nalias venv='python -m venv venv && source venv/bin/activate'\nEOF\nWeb Development:\n# Neovim para Web\ncat &gt; web-dev/nvim/.config/nvim/init.lua &lt;&lt; 'EOF'\n-- Web-focused Neovim config\n\n-- LSP for JS/TS\nrequire('lspconfig').tsserver.setup{}\n\n-- Live server\nvim.keymap.set('n', '&lt;leader&gt;l', ':!live-server .&lt;CR&gt;')\nEOF\n\n# VSCode para Web\ncat &gt; web-dev/vscode/.config/Code/User/settings.json &lt;&lt; 'EOF'\n{\n    \"emmet.includeLanguages\": {\n        \"javascript\": \"javascriptreact\"\n    },\n    \"prettier.enable\": true,\n    \"editor.formatOnSave\": true\n}\nEOF"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-scripts-de-activación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-4-scripts-de-activación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 4: Scripts de Activación",
+    "text": "Paso 4: Scripts de Activación\n# Script para activar proyecto Python\ncat &gt; ~/dotfiles/activate-python.sh &lt;&lt; 'EOF'\n#!/bin/bash\n\necho \"🐍 Activando entorno Python...\"\n\ncd ~/dotfiles\n\n# Unstow otros proyectos\nstow -D web-dev/nvim 2&gt;/dev/null || true\nstow -D latex-writing/nvim 2&gt;/dev/null || true\n\n# Stow común\nstow common/*\n\n# Stow Python\nstow python-dev/*\n\n# Copiar project-specific shell config\ncp python-dev/shell/.zshrc.project ~/.zshrc.project\n\necho \"✅ Entorno Python activado\"\nEOF\n\nchmod +x ~/dotfiles/activate-python.sh\n# Script para activar proyecto Web\ncat &gt; ~/dotfiles/activate-web.sh &lt;&lt; 'EOF'\n#!/bin/bash\n\necho \"🌐 Activando entorno Web...\"\n\ncd ~/dotfiles\n\n# Unstow otros\nstow -D python-dev/nvim 2&gt;/dev/null || true\nstow -D latex-writing/nvim 2&gt;/dev/null || true\n\n# Stow común\nstow common/*\n\n# Stow Web\nstow web-dev/*\n\n# Shell config\ncp web-dev/shell/.zshrc.project ~/.zshrc.project\n\necho \"✅ Entorno Web activado\"\nEOF\n\nchmod +x ~/dotfiles/activate-web.sh"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-uso",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-5-uso",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 5: Uso",
+    "text": "Paso 5: Uso\n# Trabajar en proyecto Python\n~/dotfiles/activate-python.sh\ncd ~/projects/python/my-project\nnvim  # Abre con config de Python\n\n# Cambiar a proyecto Web\n~/dotfiles/activate-web.sh\ncd ~/projects/web/my-app\nnvim  # Abre con config de Web"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-automatizar-con-direnv-avanzado",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#paso-6-automatizar-con-direnv-avanzado",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Paso 6: Automatizar con Direnv (Avanzado)",
+    "text": "Paso 6: Automatizar con Direnv (Avanzado)\n# Instalar direnv\nsudo pacman -S direnv\n\n# En cada proyecto, crear .envrc\ncd ~/projects/python/my-project\ncat &gt; .envrc &lt;&lt; 'EOF'\n#!/bin/bash\n# Activar entorno Python automáticamente\nsource \"$HOME/dotfiles/activate-python.sh\"\nEOF\n\ndirenv allow\n\n# Ahora al entrar al directorio, se activa automáticamente\n✅ Resultado: Configs específicas por tipo de proyecto, fácil cambio entre entornos."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-2-replicar-dotfiles-en-laptop-nueva",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-2-replicar-dotfiles-en-laptop-nueva",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Caso 2: Replicar Dotfiles en Laptop Nueva",
+    "text": "Caso 2: Replicar Dotfiles en Laptop Nueva\nEscenario: Acabas de comprar/instalar una laptop nueva con Archcraft y quieres replicar tu setup completo.\nObjetivo: Clonar tu repo de dotfiles e instalar todo en la nueva máquina.\n\nPaso 1: Preparar Nueva Máquina\n# 1.1 Actualizar sistema (Archcraft/Arch)\nsudo pacman -Syu\n\n# 1.2 Instalar herramientas base\nsudo pacman -S git stow zsh base-devel\n\n# 1.3 Verificar HOME vacío (opcional)\nls -la ~/ | grep \"^\\.\" | wc -l\n# Deberías ver solo archivos básicos del sistema\n\n\nPaso 2: Backup de Configs Existentes (Precaución)\n# 2.1 Crear directorio de backup\nmkdir -p ~/dotfiles-backup-$(date +%Y%m%d)\nBACKUP_DIR=~/dotfiles-backup-$(date +%Y%m%d)\n\n# 2.2 Backup de archivos que podrían existir\ncp ~/.zshrc \"$BACKUP_DIR/\" 2&gt;/dev/null || true\ncp ~/.gitconfig \"$BACKUP_DIR/\" 2&gt;/dev/null || true\ncp -r ~/.config/Code \"$BACKUP_DIR/\" 2&gt;/dev/null || true\n\necho \"Backup guardado en: $BACKUP_DIR\"\nls -la \"$BACKUP_DIR\"\n\n\nPaso 3: Clonar Repositorio\n# 3.1 Clonar tu repo\ncd ~\ngit clone https://github.com/achalmaedison/.dotfiles.git dotfiles\n\n# 3.2 Verificar contenido\ncd dotfiles\nls -la\n\n# Deberías ver:\n# git/\n# shell/\n# terminal/\n# vscode/\n# kde/\n# install.sh\n# .gitignore\n# README.md\n\n\nPaso 4: Revisar y Ajustar (Si Necesario)\n# 4.1 Ver qué paquetes hay\nls -d */\n# git/  kde/  shell/  terminal/  vscode/\n\n# 4.2 Ver estructura de un paquete\ntree shell/\n# shell/\n# ├── .zshrc\n# └── .zshenv\n\n# 4.3 (Opcional) Editar configs antes de instalar\n# Por ejemplo, cambiar username en git\nnano git/.gitconfig\n\n\nPaso 5: Instalar Dependencias\n# 5.1 Aplicaciones de tu setup\nsudo pacman -S \\\n    zsh \\\n    starship \\\n    konsole \\\n    code \\  # VSCode (si está en repos)\n    plasma-desktop \\\n    dolphin \\\n    kate \\\n    okular\n\n# 5.2 Si usas AUR (yay/paru)\n# VSCode desde AUR\nyay -S visual-studio-code-bin\n\n# Starship (si no está en repos oficiales)\nyay -S starship-bin\n\n# 5.3 Verificar instalaciones\nwhich zsh\nwhich starship\nwhich code\n\n\nPaso 6: Dry Run (Simulación)\n# Navegar a dotfiles\ncd ~/dotfiles\n\n# Simular instalación para ver qué pasaría\nstow -nv git\nstow -nv shell\nstow -nv terminal\nstow -nv vscode\nstow -nv kde\n\n# Verificar que no hay errores\n# Si hay conflictos, verás warnings\n\n\nPaso 7: Resolver Conflictos (Si Existen)\nSi ves algo como:\nWARNING! stowing shell would cause conflicts:\n  * existing target is neither a link nor a directory: .zshrc\nResolver:\n# Opción A: Eliminar archivo existente\nrm ~/.zshrc\n\n# Opción B: Mover a backup (más seguro)\nmv ~/.zshrc ~/dotfiles-backup-$(date +%Y%m%d)/\n\n# Luego intentar stow nuevamente\nstow -nv shell\n\n\nPaso 8: Instalar Todo\nOpción A: Con script (recomendado):\ncd ~/dotfiles\n./install.sh\nOpción B: Manual:\ncd ~/dotfiles\n\n# Instalar uno por uno\nstow git\necho \"✅ Git instalado\"\n\nstow shell\necho \"✅ Shell instalado\"\n\nstow terminal\necho \"✅ Terminal instalado\"\n\nstow vscode\necho \"✅ VSCode instalado\"\n\nstow kde\necho \"✅ KDE instalado\"\nOpción C: Todo de una vez:\ncd ~/dotfiles\nstow git shell terminal vscode kde\n\n\nPaso 9: Verificar Instalación\n# 9.1 Verificar symlinks creados\nls -la ~/.gitconfig\n# lrwxrwxrwx ... .gitconfig -&gt; dotfiles/git/.gitconfig\n\nls -la ~/.zshrc\n# lrwxrwxrwx ... .zshrc -&gt; dotfiles/shell/.zshrc\n\nls -la ~/.config/Code/User/settings.json\n# lrwxrwxrwx ... settings.json -&gt; ../../../../dotfiles/vscode/.config/Code/User/settings.json\n\n# 9.2 Usar script de verificación\ncd ~/dotfiles\n./check.sh\n\n\nPaso 10: Configurar Shell\n# 10.1 Cambiar shell a Zsh (si no lo es)\nchsh -s /bin/zsh\n\n# 10.2 Logout y login para aplicar\n# O simplemente:\nexec zsh\n\n# 10.3 Verificar que Zsh cargó tu config\necho $SHELL\n# /bin/zsh\n\n# Ver prompt (si usas starship)\nstarship --version\n\n\nPaso 11: Instalar Dependencias Específicas\n11.1 Extensiones de VSCode:\n# Si guardaste lista de extensiones\n# (Opción: guardar en dotfiles)\ncode --list-extensions &gt; ~/dotfiles/vscode/extensions.txt\n\n# En nueva máquina:\nwhile read -r ext; do\n    code --install-extension \"$ext\"\ndone &lt; ~/dotfiles/vscode/extensions.txt\n11.2 Plugins de Zsh (si usas):\n# Oh-My-Zsh\nsh -c \"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"\n\n# Zsh plugins (ejemplo: zsh-autosuggestions)\ngit clone https://github.com/zsh-users/zsh-autosuggestions \\\n    ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions\n11.3 Temas de KDE (si los tienes):\n# Si tienes temas personalizados en dotfiles\n# Instalarlos desde System Settings\n\n\nPaso 12: Probar Todo\n# 12.1 Git\ngit config --list | grep user\n# user.name=Edison Achalma\n# user.email=achalmaedison@gmail.com\n\n# 12.2 Zsh\ncat ~/.zshrc | head -5\n\n# 12.3 VSCode\ncode\n# Debería cargar con tu configuración\n\n# 12.4 Konsole\nkonsole\n# Debería usar tu configuración\n\n# 12.5 KDE\n# Logout/login para ver cambios en KDE\n\n\nPaso 13: Ajustes Finales\n# Si algo no funciona, hacer debug:\n\n# Ver qué apunta cada symlink\nfind ~ -maxdepth 2 -type l -ls | grep dotfiles\n\n# Si un symlink está roto:\nstow -D paquete-con-problema\nstow paquete-con-problema\n\n# Verificar logs\njournalctl --user -xe | grep -i error"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#mi-estructura-actual",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#mi-estructura-actual",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Mi Estructura Actual",
+    "text": "Mi Estructura Actual\n~/dotfiles/\n├── git/\n│   └── .gitconfig\n├── kde/\n│   └── .config/\n│       ├── kdeglobals\n│       ├── dolphinrc\n│       └── ...\n├── shell/\n│   ├── .zshrc\n│   └── starship.toml\n├── terminal/\n│   └── .config/\n│       └── konsolerc\n├── vscode/\n│   └── .config/\n│       ├── settings.json\n│       └── keybindings.json\n├── zotero/\n│   └── .zotero/...\n├── obsidian/\n│   └── Documents/thoughts/.obsidian/\n└── ... (más paquetes)"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#implementación-de-stow-en-mi-repo",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#implementación-de-stow-en-mi-repo",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Implementación de Stow en mi Repo",
+    "text": "Implementación de Stow en mi Repo"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#script-install.sh",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#script-install.sh",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "1. Script install.sh",
+    "text": "1. Script install.sh\nMi install.sh actual debe usar Stow. Aquí está mi versión mejorada:\n#!/bin/bash\n# ~/dotfiles/install.sh\n\nset -e\n\nDOTFILES=\"$HOME/dotfiles\"\nBACKUP_DIR=\"$HOME/dotfiles-backup-$(date +%Y%m%d-%H%M%S)\"\n\n# Colores\nRED='\\033[0;31m'\nGREEN='\\033[0;32m'\nYELLOW='\\033[1;33m'\nNC='\\033[0m' # No Color\n\n# Funciones\nlog_info() {\n    echo -e \"${GREEN}[INFO]${NC} $1\"\n}\n\nlog_warn() {\n    echo -e \"${YELLOW}[WARN]${NC} $1\"\n}\n\nlog_error() {\n    echo -e \"${RED}[ERROR]${NC} $1\"\n}\n\n# Verificar que Stow está instalado\nif ! command -v stow &&gt; /dev/null; then\n    log_error \"Stow no está instalado\"\n    log_info \"Instalando stow...\"\n    sudo apt update && sudo apt install -y stow\nfi\n\n# Función para hacer backup\nbackup_if_exists() {\n    local file=\"$1\"\n    if [ -e \"$file\" ] && [ ! -L \"$file\" ]; then\n        mkdir -p \"$BACKUP_DIR\"\n        cp -r \"$file\" \"$BACKUP_DIR/\"\n        log_warn \"Backup: $file -&gt; $BACKUP_DIR/\"\n    fi\n}\n\n# Función para stow paquete\nstow_package() {\n    local package=\"$1\"\n    \n    log_info \"Stowing $package...\"\n    \n    # Dry run primero\n    if stow -nv \"$package\" 2&gt;&1 | grep -q \"WARNING\"; then\n        log_warn \"Conflicto detectado para $package\"\n        read -p \"¿Hacer backup y continuar? [y/N] \" -n 1 -r\n        echo\n        if [[ $REPLY =~ ^[Yy]$ ]]; then\n            # Hacer backup de archivos conflictivos\n            # (aquí necesitarías lógica más sofisticada)\n            stow \"$package\"\n        else\n            log_error \"Saltando $package\"\n            return 1\n        fi\n    else\n        stow \"$package\"\n        log_info \"✓ $package instalado\"\n    fi\n}\n\n# Cambiar a dotfiles directory\ncd \"$DOTFILES\" || exit 1\n\n# Lista de paquetes a instalar\nPACKAGES=(\n    \"git\"\n    \"shell\"\n    \"terminal\"\n    \"kde\"\n    \"vscode\"\n    \"nvim\"\n    \"kitty\"\n    # ... más paquetes\n)\n\n# Opción para instalar todo o selectivo\nif [ \"$1\" == \"all\" ]; then\n    PACKAGES=($(ls -d */ | sed 's#/#'))\n    log_info \"Instalando TODOS los paquetes\"\nelif [ $# -gt 0 ]; then\n    PACKAGES=(\"$@\")\n    log_info \"Instalando paquetes especificados: ${PACKAGES[*]}\"\nfi\n\n# Instalar paquetes\nfor package in \"${PACKAGES[@]}\"; do\n    stow_package \"$package\" || true\ndone\n\nlog_info \"Instalación completa!\"\nif [ -d \"$BACKUP_DIR\" ]; then\n    log_info \"Backups guardados en: $BACKUP_DIR\"\nfi\nUso:\n# Instalar paquetes específicos\n./install.sh git shell terminal\n\n# Instalar todo\n./install.sh all\n\n# Ver qué haría sin hacer cambios\n# (modificar script para agregar -n flag)"
   }
 ]
