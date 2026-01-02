@@ -18,7 +18,7 @@
     "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html",
     "title": "Gestiona dotfiles fácilmente con GNU Stow",
     "section": "",
-    "text": "¿Alguna vez has perdido horas configurando tu terminal o editor tras cambiar de computadora? Los dotfiles, esos archivos ocultos como .bashrc o .gitconfig, guardan tus personalizaciones, pero gestionarlos a mano es un caos. GNU Stow simplifica todo: organiza tus configuraciones en un repositorio central y usa enlaces simbólicos para sincronizarlas en minutos. Este tutorial te guía paso a paso para instalar Stow, crear un repositorio de dotfiles, enlazar configuraciones y automatizar el proceso. ¡Di adiós a las configuraciones repetitivas y toma el control de tu entorno!\nCon Stow, tus configuraciones personalizadas estarán siempre a un comando de distancia. Aprenderás a centralizar archivos como .zshrc o .config/nvim, integrarlos con Git y desplegarlos en Linux, macOS o WSL sin complicaciones. ¿Listo para optimizar tu flujo de trabajo? Sigue leyendo y descubre cómo GNU Stow transforma la gestión de dotfiles en algo simple y poderoso."
+    "text": "¿Alguna vez has perdido horas configurando tu terminal o editor tras cambiar de computadora? Los dotfiles, esos archivos ocultos como .bashrc o .gitconfig, guardan tus personalizaciones, pero gestionarlos a mano es un caos. GNU Stow simplifica todo: organiza tus configuraciones en un repositorio central y usa enlaces simbólicos para sincronizarlas en minutos.\n¿Qué es Dotfiles?\nLos dotfiles son archivos ocultos en sistemas Unix (Linux, macOS) que empiezan con un punto (ej., .zshrc, .gitconfig, .config/nvim). Almacenan configuraciones personalizadas para tu terminal, editor de código o gestor de ventanas. Por ejemplo, .bashrc define alias y variables de entorno, mientras que .vimrc ajusta tu editor Vim. Estos archivos son el corazón de tu flujo de trabajo, ya que personalizan tus herramientas favoritas.\nTener dotfiles bien organizados te ahorra horas al replicar tu entorno en nuevas máquinas. Imagina configurar tu shell o editor desde cero tras reinstalar tu sistema: ¡es tedioso! Con una gestión adecuada, puedes clonar tus configuraciones y tener todo listo rápidamente. Esto es importante para desarrolladores que trabajan en múltiples dispositivos o entornos como servidores y laptops.\nProblemas de la Gestión Manual\nCopiar dotfiles manualmente o usar scripts caseros es lento y arriesgado. Puedes sobrescribir archivos, olvidar configuraciones o perderlas en una reinstalación. Por ejemplo, mover .zshrc a otra máquina sin un sistema organizado puede causar errores si las versiones del software difieren. GNU Stow soluciona esto al centralizar tus archivos y crear enlaces simbólicos automáticamente, manteniendo todo sincronizado.\n¿Qué es GNU Stow?\nGNU Stow es un gestor de granjas de enlaces simbólicos (symlink farm manager) que permite administrar múltiples paquetes de software o conjuntos de archivos de configuración de manera organizada. Concepto principal:\nProblema original:\nSolución con Stow:\nGestión de Dotfiles\nAunque Stow fue diseñado para software, hoy en día su uso principal es gestionar dotfiles:\nVentajas:\nComparación: Antes vs Después de Stow\nSin Stow:\nCon Stow:"
   },
   {
     "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#qué-son-los-dotfiles-y-por-qué-importan",
@@ -4758,5 +4758,999 @@
     "title": "Guía Completa de Positron IDE",
     "section": "Trucos prácticos que uso día a día",
     "text": "Trucos prácticos que uso día a día\n1. Ejecutar código selectivamente sin salir del editor\n\nCtrl + Enter → Ejecuta la línea actual o selección\nCtrl + Alt + Home → Ejecuta todo desde el inicio del archivo hasta la línea actual (ideal para setups y carga de datos)\nCtrl + Alt + End → Ejecuta desde la línea actual hasta el final (muy útil para pruebas rápidas al final del script)\nCtrl + Shift + P (o Cmd en macOS) → Ejecuta archivo completo en la consola\n\nTruco pro: Combina Ctrl + Alt + Home + Ctrl + Enter para rehacer rápidamente todo el análisis desde cero sin tocar el ratón.\n2. Navegación ultrarrápida entre editor y consola\nCtrl + K → F     → Enfocar consola (muy rápido para escribir rápido)\nCtrl + K → V     → Enfocar panel de Variables\nCtrl + K → R     → Enfocar panel de Help (documentación)\nCtrl + L         → Limpiar la consola (equivalente al clásico Ctrl + L de RStudio)\nCtrl + Shift + 0 → Reiniciar el intérprete (cuando todo se pone loco)\nTruco diario: Crea un flujo mental “editor → consola → variables” y usa estos tres atajos en secuencia rapidísima.\n3. El workflow más rápido para explorar dataframes (mi favorito)\n\nCargas datos en consola o script:\nimport pandas as pd\ndf = pd.read_csv(\"datos_grandes.csv\")\no\ndf &lt;- read_csv(\"datos_grandes.csv\")\nOpciones rápidas de exploración:\n\nDoble clic en df en el Variables Pane → abre Data Explorer completo (filtrar, ordenar, buscar, estadísticas)\nView(df) (R) o df.head(20) (Python) → vista rápida en consola\nClic derecho en variable → “View in Data Explorer”\nAtajo personalizado recomendado (agrega a keybindings.json):\n{\n    \"key\": \"f2\",\n    \"command\": \"positron.dataExplorer.openDataExplorer\",\n    \"when\": \"positronVariablesFocus\"\n}\n\n\n4. Trucos rápidos de transformación de texto\nPositron hereda estas joyas de Code OSS:\n\nMayúsculas / minúsculas / título / oración:\n\nSelecciona texto\nCtrl + Shift + P → escribe “Transform to”\nElige: Upper Case / Lower Case / Title Case / Sentence Case\n\nMulti-cursor express (imprescindible para renombrar columnas):\n\nCtrl + D → selecciona siguiente ocurrencia\nCtrl + Shift + L → selecciona todas las ocurrencias en el archivo\nAlt + Click → múltiples cursores manuales\n\nTruco ultra-rápido: Ctrl + Shift + P → “Join Lines” (une líneas seleccionadas en una) → genial para convertir listas largas en una sola línea de código.\n\n5. Cambio rápido entre Python y R en el mismo proyecto\n\nUsa el selector de intérprete en la barra superior (junto al nombre del archivo)\nPuedes tener dos sesiones simultáneas: una Python y otra R\nTruco práctico:\n\nCargas datos en Python (pandas)\nCambias a sesión R\nUsas reticulate::py$df para traer el dataframe de Python a R\nSigues limpiando con tidyverse\n\n\n6. Trucos con Plots Pane que ahorran mucho tiempo\n\nHistorial automático de gráficos → flechas arriba/abajo para navegar\nClic derecho en plot → Exportar (PNG/SVG/PDF) rápido\nTruco: plt.show() (Python) o print() (ggplot2) → aparece automáticamente\nUsa plt.ion() (modo interactivo matplotlib) para actualizar gráficos en vivo sin repetir show()\n\n7. Bonus: Mini-flujo de análisis exprés\n1. Ctrl + N → nuevo script\n2. Pega/pega datos o carga rápida\n3. Ctrl + Alt + Home → ejecuta todo hasta cursor\n4. Doble clic variable → Data Explorer\n5. F1 sobre función → Help pane\n6. Selecciona gráfico → Plots pane\n7. Ctrl + Shift + K → renderiza Quarto (si estás en .qmd)"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#linux",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#linux",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Linux",
+    "text": "Linux\nUbuntu/Debian:\nsudo apt update\nsudo apt install stow\nArch Linux:\nsudo pacman -S stow\nFedora/RHEL:\nsudo dnf install stow\nopenSUSE:\nsudo zypper install stow"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#macos",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#macos",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "macOS",
+    "text": "macOS\n# Con Homebrew\nbrew install stow\n\n# O con MacPorts\nsudo port install stow"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#desde-fuente",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#desde-fuente",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Desde Fuente",
+    "text": "Desde Fuente\n# Descargar última versión\nwget https://ftp.gnu.org/gnu/stow/stow-latest.tar.gz\ntar -xzf stow-latest.tar.gz\ncd stow-2.4.1\n\n# Compilar e instalar\n./configure\nmake\nsudo make install"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#verificar-instalación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#verificar-instalación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Verificar Instalación",
+    "text": "Verificar Instalación\n# Verificar versión\nstow --version\n# GNU Stow version 2.4.1\n\n# Ver ayuda\nstow --help"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#terminología-clave",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#terminología-clave",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Terminología Clave",
+    "text": "Terminología Clave"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#package-paquete",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#package-paquete",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "1. Package (Paquete)",
+    "text": "1. Package (Paquete)\nUna colección relacionada de archivos y directorios que administras como una unidad.\n# Ejemplo: paquete \"nvim\"\nnvim/\n├── .config/\n│   └── nvim/\n│       ├── init.lua\n│       └── lua/\n└── .local/\n    └── share/\n        └── nvim/"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#target-directory-directorio-objetivo",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#target-directory-directorio-objetivo",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "2. Target Directory (Directorio Objetivo)",
+    "text": "2. Target Directory (Directorio Objetivo)\nEl directorio raíz donde quieres que aparezcan instalados tus paquetes.\n# Para dotfiles, usualmente es:\nTarget: ~/ (tu HOME)\n\n# Para software del sistema:\nTarget: /usr/local"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#stow-directory-directorio-stow",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#stow-directory-directorio-stow",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "3. Stow Directory (Directorio Stow)",
+    "text": "3. Stow Directory (Directorio Stow)\nEl directorio raíz que contiene todos tus paquetes en subdirectorios separados.\n# Para dotfiles:\nStow dir: ~/dotfiles/\n\n# Para software:\nStow dir: /usr/local/stow/"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#installation-image-imagen-de-instalación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#installation-image-imagen-de-instalación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "4. Installation Image (Imagen de Instalación)",
+    "text": "4. Installation Image (Imagen de Instalación)\nLa estructura de archivos y directorios requerida por un paquete, relativa al target directory.\n# El paquete \"zsh\" tiene esta imagen:\nzsh/\n├── .zshrc          # → ~/.zshrc\n├── .zshenv         # → ~/.zshenv\n└── .config/\n    └── zsh/        # → ~/.config/zsh/\n        └── aliases.zsh"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#symlink-enlace-simbólico",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#symlink-enlace-simbólico",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "5. Symlink (Enlace Simbólico)",
+    "text": "5. Symlink (Enlace Simbólico)\nUn archivo especial que apunta a otro archivo o directorio.\n# Ejemplo:\n~/.zshrc -&gt; ~/dotfiles/zsh/.zshrc\n         ↑\n      symlink\nTipos de symlinks:\n\nAbsoluto: /home/user/dotfiles/zsh/.zshrc\nRelativo: ../dotfiles/zsh/.zshrc\n\n\nNota: Stow solo crea symlinks relativos dentro del target directory."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#jerarquía-de-directorios",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#jerarquía-de-directorios",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Jerarquía de Directorios",
+    "text": "Jerarquía de Directorios\n┌─────────────────────────────────────────┐\n│  /home/user/  (target directory)       │\n│                                         │\n│  .zshrc  ──────┐                        │\n│  .config/      │                        │\n│    ├── nvim/   │  symlinks             │\n│    └── kitty/  │                        │\n└─────────────────┼──────────────────────┘\n                  │\n                  ↓\n┌─────────────────────────────────────────┐\n│  /home/user/dotfiles/  (stow dir)      │\n│                                         │\n│  ├── zsh/     (package)                 │\n│  │   └── .zshrc                         │\n│  ├── nvim/    (package)                 │\n│  │   └── .config/                       │\n│  │       └── nvim/                      │\n│  └── kitty/   (package)                 │\n│      └── .config/                       │\n│          └── kitty/                     │\n└─────────────────────────────────────────┘"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#sintaxis-básica",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#sintaxis-básica",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Sintaxis Básica",
+    "text": "Sintaxis Básica\nstow [opciones] [flags de acción] paquete1 paquete2 ..."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#acciones-principales",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#acciones-principales",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Acciones Principales",
+    "text": "Acciones Principales"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#stow-instalar",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#stow-instalar",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "1. Stow (Instalar)",
+    "text": "1. Stow (Instalar)\n# Instalar un paquete\nstow nombre-paquete\n\n# Instalar múltiples paquetes\nstow nvim zsh kitty\n\n# Flag explícito (opcional)\nstow -S nvim\nstow --stow nvim"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#delete-desinstalar",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#delete-desinstalar",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "2. Delete (Desinstalar)",
+    "text": "2. Delete (Desinstalar)\n# Desinstalar un paquete\nstow -D nvim\nstow --delete nvim\n\n# Desinstalar múltiples\nstow -D nvim zsh kitty"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#restow-reinstalar",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#restow-reinstalar",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "3. Restow (Reinstalar)",
+    "text": "3. Restow (Reinstalar)\n# Unstow + Stow en una operación\nstow -R nvim\nstow --restow nvim\n\n# Útil después de actualizar paquete"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#opciones-de-directorio",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#opciones-de-directorio",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Opciones de Directorio",
+    "text": "Opciones de Directorio"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#d---dir-stow-directory",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#d---dir-stow-directory",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "-d / --dir (Stow Directory)",
+    "text": "-d / --dir (Stow Directory)\n# Especificar stow directory\nstow -d ~/mis-dotfiles -t ~ nvim\n\n# Default: directorio actual"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#t---target-target-directory",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#t---target-target-directory",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "-t / --target (Target Directory)",
+    "text": "-t / --target (Target Directory)\n# Especificar target directory\nstow -t /usr/local perl\n\n# Default: padre del stow directory\nEjemplo completo:\n# Estructura:\n/opt/\n  └── myapps/        # stow directory\n      └── myapp/     # package\n          └── bin/\n              └── myapp\n\n# Comando:\ncd /opt/myapps\nstow -t /usr/local myapp\n\n# Resultado:\n/usr/local/bin/myapp -&gt; ../opt/myapps/myapp/bin/myapp"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#opciones-de-simulación-y-verbosidad",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#opciones-de-simulación-y-verbosidad",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Opciones de Simulación y Verbosidad",
+    "text": "Opciones de Simulación y Verbosidad"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#n---no---simulate-dry-run",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#n---no---simulate-dry-run",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "-n / --no / --simulate (Dry Run)",
+    "text": "-n / --no / --simulate (Dry Run)\n# Mostrar qué haría sin hacer cambios\nstow -n nvim\nstow --simulate nvim\n\n# Combinado con verbose\nstow -nv nvim"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#v---verbose-verbosidad",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#v---verbose-verbosidad",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "-v / --verbose (Verbosidad)",
+    "text": "-v / --verbose (Verbosidad)\n# Niveles de verbosidad: 0-5\nstow -v nvim          # verbose level 1\nstow -vv nvim         # verbose level 2\nstow --verbose=5 nvim # verbose level 5\n\n# Nivel 0: silencioso (default)\n# Nivel 1-2: operaciones principales\n# Nivel 3-5: debug detallado\nEjemplo:\n$ stow -nv zsh\nWARNING! stowing zsh would cause conflicts:\n  * existing target is neither a link nor a directory: .zshrc\nAll operations aborted."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#opciones-avanzadas",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#opciones-avanzadas",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Opciones Avanzadas",
+    "text": "Opciones Avanzadas"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#ignore-ignorar-archivos",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#ignore-ignorar-archivos",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "--ignore (Ignorar Archivos)",
+    "text": "--ignore (Ignorar Archivos)\n# Ignorar archivos que coincidan con regexp\nstow --ignore='.*\\.orig' --ignore='.*\\.dist' nvim\n\n# Múltiples patrones\nstow --ignore='README.*' --ignore='.*~' nvim"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#defer-diferir",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#defer-diferir",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "--defer (Diferir)",
+    "text": "--defer (Diferir)\n# No sobrescribir si ya existe desde otro paquete\nstow --defer=man --defer=info perl"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#override-sobrescribir",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#override-sobrescribir",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "--override (Sobrescribir)",
+    "text": "--override (Sobrescribir)\n# Forzar sobrescribir symlinks existentes\nstow --override=man --override=info perl"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#dotfiles-modo-dotfiles",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#dotfiles-modo-dotfiles",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "--dotfiles (Modo Dotfiles)",
+    "text": "--dotfiles (Modo Dotfiles)\n# Transforma \"dot-\" en \".\"\n# dot-bashrc → .bashrc\nstow --dotfiles bash\n\n# Ejemplo de paquete:\nbash/\n  └── dot-bashrc    # Se convierte en ~/.bashrc"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#no-folding-sin-tree-folding",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#no-folding-sin-tree-folding",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "--no-folding (Sin Tree Folding)",
+    "text": "--no-folding (Sin Tree Folding)\n# Desactivar tree folding\nstow --no-folding nvim\n\n# Crea directorios en lugar de symlinks a directorios"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#adopt-adoptar-archivos",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#adopt-adoptar-archivos",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "--adopt (Adoptar Archivos)",
+    "text": "--adopt (Adoptar Archivos)\n# CUIDADO: Modifica el stow directory\n# Mueve archivos del target al package\n\nstow --adopt nvim\n\n# Si ~/.config/nvim/init.lua existe:\n# Lo mueve a ~/dotfiles/nvim/.config/nvim/init.lua\n# Luego crea el symlink"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#combinando-operaciones",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#combinando-operaciones",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Combinando Operaciones",
+    "text": "Combinando Operaciones\n# Mezclar múltiples acciones\nstow -D old-nvim -S new-nvim\n\n# Orden de ejecución:\n# 1. Unstow old-nvim\n# 2. Stow new-nvim\n\n# Múltiples paquetes, múltiples acciones\nstow -S pkg1 pkg2 -D pkg3 pkg4 -S pkg5 -R pkg6\n# Resultado: unstow pkg3,4,6 → stow pkg1,2,5,6"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estructura-recomendada-para-dotfiles",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estructura-recomendada-para-dotfiles",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Estructura Recomendada para Dotfiles",
+    "text": "Estructura Recomendada para Dotfiles\n~/dotfiles/                    # Stow directory\n├── git/                       # Package\n│   └── .gitconfig\n├── zsh/                       # Package\n│   ├── .zshrc\n│   ├── .zshenv\n│   └── .config/\n│       └── zsh/\n│           ├── aliases.zsh\n│           └── functions.zsh\n├── nvim/                      # Package\n│   └── .config/\n│       └── nvim/\n│           ├── init.lua\n│           └── lua/\n│               ├── plugins/\n│               └── config/\n├── kitty/                     # Package\n│   └── .config/\n│       └── kitty/\n│           ├── kitty.conf\n│           └── themes/\n├── tmux/                      # Package\n│   ├── .tmux.conf\n│   └── .config/\n│       └── tmux/\n└── kde/                       # Package\n    └── .config/\n        ├── kdeglobals\n        ├── dolphinrc\n        └── kwinrc"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#principios-de-organización",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#principios-de-organización",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Principios de Organización",
+    "text": "Principios de Organización"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#un-directorio-un-paquete",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#un-directorio-un-paquete",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "1. Un Directorio = Un Paquete",
+    "text": "1. Un Directorio = Un Paquete\n# Bien: un paquete por aplicación\nnvim/\n  └── .config/\n      └── nvim/\n\n# Mal: múltiples aplicaciones en un paquete\neditors/\n  ├── .config/\n  │   ├── nvim/\n  │   └── vim/\n  └── .vimrc"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#replicar-estructura-del-home",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#replicar-estructura-del-home",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "2. Replicar Estructura del HOME",
+    "text": "2. Replicar Estructura del HOME\n# El contenido del paquete debe replicar la estructura de ~/\n\n# Ejemplo: archivo en ~/.config/kitty/kitty.conf\n# Paquete debe ser:\nkitty/\n  └── .config/              # replica la estructura\n      └── kitty/\n          └── kitty.conf\n\n# NO:\nkitty/\n  └── kitty.conf            # falta .config/"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#agrupar-lógicamente",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#agrupar-lógicamente",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "3. Agrupar Lógicamente",
+    "text": "3. Agrupar Lógicamente\n# Opción 1: Por aplicación\n~/dotfiles/\n├── nvim/\n├── vim/\n└── emacs/\n\n# Opción 2: Por categoría (menos común)\n~/dotfiles/\n├── editors/\n│   ├── .vimrc\n│   └── .config/nvim/\n└── shells/\n    ├── .zshrc\n    └── .bashrc\n\n# Recomendado: Opción 1 (por aplicación)"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#ejemplos-de-estructuras",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#ejemplos-de-estructuras",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Ejemplos de Estructuras",
+    "text": "Ejemplos de Estructuras"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estructura-simple",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estructura-simple",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Estructura Simple",
+    "text": "Estructura Simple\n~/dotfiles/\n├── bash/\n│   └── .bashrc\n├── git/\n│   └── .gitconfig\n└── vim/\n    └── .vimrc\nInstalación:\nmkdir ~/dotfiles\ncd ~/dotfiles\n\n# Crear la estructura para bash\nmkdir -p bash\n\n# o mueve, o crea symlink, como prefieras\ncp ~/.bashrc bash/.bashrc           \n# (opcional) cp ~/.bash_profile bash/.bash_profile\n\n# Para git\nmkdir git\ncp ~/.gitconfig git/.gitconfig\n\n# Para vim\nmkdir vim\ncp ~/.vimrc vim/.vimrc\n# si tienes ~/.vim/ con plugins, etc → también lo copias/mueves\n\n# Para zsh + oh-my-zsh customizaciones\nmkdir -p zsh/.config\ncp ~/.zshrc zsh/.zshrc\nUna vez que tengas (por ejemplo) la carpeta bash/ con .bashrc dentro:\ncd ~/dotfiles\n\n# Instalar un paquete\nstow bash       # → crea symlink ~/.bashrc → ~/dotfiles/bash/.bashrc\nstow git\nstow vim\n\n# Instalar múltiples paquetes\nstow bash git vim nvim kitty zsh\nResultado:\n~/.bashrc -&gt; dotfiles/bash/.bashrc\n~/.gitconfig -&gt; dotfiles/git/.gitconfig\n~/.vimrc -&gt; dotfiles/vim/.vimrc"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estructura-compleja",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estructura-compleja",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Estructura Compleja",
+    "text": "Estructura Compleja\n~/dotfiles/\n├── shell/\n│   ├── .bashrc\n│   ├── .zshrc\n│   └── .config/\n│       ├── bash/\n│       │   └── aliases.bash\n│       └── zsh/\n│           └── aliases.zsh\n├── terminal/\n│   └── .config/\n│       ├── kitty/\n│       │   ├── kitty.conf\n│       │   └── themes/\n│       └── alacritty/\n│           └── alacritty.yml\n└── editor/\n    └── .config/\n        └── nvim/\n            ├── init.lua\n            └── lua/\n                └── plugins.lua"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#proceso-de-instalación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#proceso-de-instalación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Proceso de Instalación",
+    "text": "Proceso de Instalación"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#tree-folding-plegado-de-árbol",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#tree-folding-plegado-de-árbol",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "1. Tree Folding (Plegado de Árbol)",
+    "text": "1. Tree Folding (Plegado de Árbol)\nStow intenta crear el mínimo número de symlinks posible.\nEjemplo 1: Target Vacío\n# Estado inicial:\n~/ (vacío, sin ~/.config/)\n\n# Paquete:\n~/dotfiles/nvim/\n  └── .config/\n      └── nvim/\n          └── init.lua\n\n# Comando:\ncd ~/dotfiles\nstow nvim\n\n# Resultado (tree folding):\n~/.config -&gt; dotfiles/nvim/.config/\n\n# En lugar de:\n# ~/.config/nvim/init.lua -&gt; ...\n# Stow crea un symlink al directorio completo\nEjemplo 2: Target con Archivos Existentes\n# Estado inicial:\n~/.config/\n  └── kitty/        # ya existe\n      └── kitty.conf\n\n# Paquete:\n~/dotfiles/nvim/\n  └── .config/\n      └── nvim/\n          └── init.lua\n\n# Comando:\nstow nvim\n\n# Resultado (NO puede hacer tree folding):\n~/.config/              # directorio real\n  ├── kitty/            # ya existía\n  │   └── kitty.conf\n  └── nvim -&gt; ../dotfiles/nvim/.config/nvim/"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#tree-unfolding-desplegado-de-árbol",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#tree-unfolding-desplegado-de-árbol",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "2. Tree Unfolding (Desplegado de Árbol)",
+    "text": "2. Tree Unfolding (Desplegado de Árbol)\nCuando un symlink plegado debe ser “abierto” para acomodar otro paquete.\nEscenario:\n# Estado inicial:\n~/.config -&gt; dotfiles/nvim/.config/\n\n# Instalar otro paquete:\n~/dotfiles/kitty/\n  └── .config/\n      └── kitty/\n          └── kitty.conf\n\n# Comando:\nstow kitty\n\n# Proceso de unfolding:\n# 1. Eliminar symlink: ~/.config\n# 2. Crear directorio: ~/.config/\n# 3. Crear symlinks:\n#    ~/.config/nvim -&gt; ../dotfiles/nvim/.config/nvim/\n#    ~/.config/kitty -&gt; ../dotfiles/kitty/.config/kitty/"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#instalación-básica",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#instalación-básica",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Instalación Básica",
+    "text": "Instalación Básica\n# Crea el directorio\nmkdir ~/dotfiles\n\n# Navegar al stow directory\ncd ~/dotfiles\n\n# Instalar un paquete\nstow nvim\n\n# Instalar múltiples paquetes\nstow nvim zsh git kitty\n\n# Instalar todos los paquetes\nstow */"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#instalación-con-verificación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#instalación-con-verificación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Instalación con Verificación",
+    "text": "Instalación con Verificación\n# Dry run primero (simular)\nstow -nv nvim\n\n# Si todo OK, instalar realmente\nstow nvim\n\n# Verificar symlinks creados\nls -la ~/.config/nvim"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#instalación-selectiva",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#instalación-selectiva",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Instalación Selectiva",
+    "text": "Instalación Selectiva\n# Solo paquetes de terminal\nstow kitty alacritty tmux\n\n# Solo paquetes de shell\nstow bash zsh fish\n\n# Solo paquetes de editor\nstow nvim vim emacs"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#proceso-de-desinstalación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#proceso-de-desinstalación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Proceso de Desinstalación",
+    "text": "Proceso de Desinstalación"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#eliminación-de-symlinks",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#eliminación-de-symlinks",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "1. Eliminación de Symlinks",
+    "text": "1. Eliminación de Symlinks\n# Paquete instalado:\n~/.zshrc -&gt; dotfiles/zsh/.zshrc\n\n# Desinstalar:\ncd ~/dotfiles\nstow -D zsh\n\n# Resultado:\n# ~/.zshrc eliminado (porque era symlink a stow package)"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#eliminación-de-directorios-vacíos",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#eliminación-de-directorios-vacíos",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "2. Eliminación de Directorios Vacíos",
+    "text": "2. Eliminación de Directorios Vacíos\n# Antes:\n~/.config/\n  └── nvim -&gt; ../dotfiles/nvim/.config/nvim/\n\n# Desinstalar:\nstow -D nvim\n\n# Después:\n# ~/.config/ eliminado (si quedó vacío)"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#tree-refolding-re-plegado",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#tree-refolding-re-plegado",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "3. Tree Refolding (Re-plegado)",
+    "text": "3. Tree Refolding (Re-plegado)\nDespués de eliminar symlinks, si un directorio contiene solo symlinks a un único paquete, Stow lo “re-pliega”.\nEscenario:\n# Estado actual:\n~/.config/\n  ├── nvim -&gt; ../dotfiles/nvim/.config/nvim/\n  └── kitty -&gt; ../dotfiles/kitty/.config/kitty/\n\n# Desinstalar kitty:\nstow -D kitty\n\n# Resultado (refolding):\n~/.config -&gt; dotfiles/nvim/.config/"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#desinstalación-básica",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#desinstalación-básica",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Desinstalación Básica",
+    "text": "Desinstalación Básica\n# Navegar al stow directory\ncd ~/dotfiles\n\n# Desinstalar un paquete\nstow -D nvim\n\n# Desinstalar múltiples paquetes\nstow -D nvim zsh git\n\n# Desinstalar todos los paquetes\nstow -D */"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#desinstalación-con-verificación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#desinstalación-con-verificación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Desinstalación con Verificación",
+    "text": "Desinstalación con Verificación\n# Dry run primero\nstow -Dnv nvim\n\n# Si todo OK, desinstalar realmente\nstow -D nvim\n\n# Verificar que symlinks fueron eliminados\nls -la ~/.config/nvim"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#desinstalación-parcial",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#desinstalación-parcial",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Desinstalación Parcial",
+    "text": "Desinstalación Parcial\n# Desinstalar solo configuraciones de terminal\nstow -D kitty alacritty tmux\n\n# Mantener el resto"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#comando-restow",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#comando-restow",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Comando Restow",
+    "text": "Comando Restow\n# Restow = Unstow + Stow\nstow -R nvim\nstow --restow nvim"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#cuándo-usar-restow",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#cuándo-usar-restow",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Cuándo Usar Restow",
+    "text": "Cuándo Usar Restow\n1. Después de actualizar un paquete:\n# Editaste archivos en ~/dotfiles/nvim/\ncd ~/dotfiles\nstow -R nvim\n\n# Esto actualiza los symlinks si la estructura cambió\n2. Para limpiar symlinks obsoletos:\n# Eliminaste archivos del paquete\nstow -R nvim\n\n# Restow elimina symlinks huérfanos\n3. Después de cambiar estructura:\n# Moviste archivos dentro del paquete\n# Antes: nvim/.vimrc\n# Ahora: nvim/.config/nvim/init.lua\n\nstow -R nvim"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#restow-vs-delete-stow",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#restow-vs-delete-stow",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Restow vs Delete + Stow",
+    "text": "Restow vs Delete + Stow\n# Método 1: Restow (recomendado)\nstow -R nvim\n\n# Método 2: Manual (equivalente)\nstow -D nvim\nstow nvim\n\n# Ventaja de -R: más rápido, optimizado"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#setup-inicial",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#setup-inicial",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Setup Inicial",
+    "text": "Setup Inicial"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#crear-estructura",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#crear-estructura",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "1. Crear Estructura",
+    "text": "1. Crear Estructura\n# Crear directorio para dotfiles\nmkdir -p ~/dotfiles\ncd ~/dotfiles\n\n# Inicializar Git\ngit init"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#mover-configuraciones-existentes",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#mover-configuraciones-existentes",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "2. Mover Configuraciones Existentes",
+    "text": "2. Mover Configuraciones Existentes\nMétodo manual:\n# Crear paquete\nmkdir -p ~/dotfiles/zsh\n\n# Mover archivos\nmv ~/.zshrc ~/dotfiles/zsh/\nmv ~/.zshenv ~/dotfiles/zsh/\n\n# Stow\ncd ~/dotfiles\nstow zsh\nCon script:\n#!/bin/bash\n# migrate-to-stow.sh\n\nDOTFILES=\"$HOME/dotfiles\"\nmkdir -p \"$DOTFILES\"\n\n# Migrar zsh\nmkdir -p \"$DOTFILES/zsh\"\nmv ~/.zshrc \"$DOTFILES/zsh/\"\nmv ~/.zshenv \"$DOTFILES/zsh/\"\n\n# Migrar nvim\nmkdir -p \"$DOTFILES/nvim/.config\"\nmv ~/.config/nvim \"$DOTFILES/nvim/.config/\"\n\n# Migrar git\nmkdir -p \"$DOTFILES/git\"\nmv ~/.gitconfig \"$DOTFILES/git/\"\n\n# Stow todo\ncd \"$DOTFILES\"\nstow zsh nvim git"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#usar---adopt-con-precaución",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#usar---adopt-con-precaución",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "3. Usar --adopt (Con Precaución)",
+    "text": "3. Usar --adopt (Con Precaución)\n# Crear estructura primero\nmkdir -p ~/dotfiles/nvim/.config\nmkdir ~/dotfiles/nvim/.config/nvim\n\n# Adoptar configuración existente\ncd ~/dotfiles\nstow --adopt nvim\n\n# Esto MUEVE ~/.config/nvim/* a ~/dotfiles/nvim/.config/nvim/\n# Y luego crea el symlink"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#workflow-diario",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#workflow-diario",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Workflow Diario",
+    "text": "Workflow Diario"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#editar-configuraciones",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#editar-configuraciones",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Editar Configuraciones",
+    "text": "Editar Configuraciones\n# Los symlinks te permiten editar en cualquier lugar:\n\n# Opción 1: Editar en home (a través del symlink)\nnvim ~/.zshrc              # Edita ~/dotfiles/zsh/.zshrc\n\n# Opción 2: Editar directamente en dotfiles\nnvim ~/dotfiles/zsh/.zshrc # Mismo archivo"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#agregar-nueva-aplicación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#agregar-nueva-aplicación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Agregar Nueva Aplicación",
+    "text": "Agregar Nueva Aplicación\n# 1. Crear paquete\ncd ~/dotfiles\nmkdir -p new-app/.config/new-app\n\n# 2. Agregar archivos\ncp -r ~/.config/new-app/* new-app/.config/new-app/\n\n# 3. Remover originales\nrm -rf ~/.config/new-app\n\n# 4. Stow\nstow new-app\n\n# 5. Commit a Git\ngit add new-app/\ngit commit -m \"Add new-app configuration\""
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#sincronizar-con-git",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#sincronizar-con-git",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Sincronizar con Git",
+    "text": "Sincronizar con Git\ncd ~/dotfiles\n\n# Después de cambios\ngit add .\ngit commit -m \"Update nvim configuration\"\ngit push origin main\n\n# En otra máquina\ngit pull origin main\nstow nvim  # o stow -R nvim si ya estaba instalado"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#manejo-de-archivos-sensibles",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#manejo-de-archivos-sensibles",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Manejo de Archivos Sensibles",
+    "text": "Manejo de Archivos Sensibles"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estrategia-1-.gitignore",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estrategia-1-.gitignore",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Estrategia 1: .gitignore",
+    "text": "Estrategia 1: .gitignore\n# ~/dotfiles/.gitignore\n# Ignorar archivos sensibles\n\n# SSH keys\n.ssh/id_*\n.ssh/*.pem\n\n# Contraseñas\n.netrc\n.authinfo\n\n# Tokens\n.config/gh/hosts.yml"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estrategia-2-archivos-template",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estrategia-2-archivos-template",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Estrategia 2: Archivos Template",
+    "text": "Estrategia 2: Archivos Template\n# Crear template sin datos sensibles\n# ~/dotfiles/git/.gitconfig.local.template\n[user]\n    name = YOUR_NAME\n    email = YOUR_EMAIL\n\n# .gitignore\n.gitconfig.local\n\n# Script de setup\n#!/bin/bash\nif [ ! -f ~/dotfiles/git/.gitconfig.local ]; then\n    cp ~/dotfiles/git/.gitconfig.local.template \\\n       ~/dotfiles/git/.gitconfig.local\n    echo \"Edit ~/dotfiles/git/.gitconfig.local\"\nfi"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estrategia-3-encriptación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estrategia-3-encriptación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Estrategia 3: Encriptación",
+    "text": "Estrategia 3: Encriptación\n# Usar git-crypt o similar\ncd ~/dotfiles\ngit-crypt init\n\n# Especificar qué encriptar\n# .gitattributes\n.netrc filter=git-crypt diff=git-crypt\n.ssh/id_* filter=git-crypt diff=git-crypt"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estructura-para-múltiples-hosts",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estructura-para-múltiples-hosts",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Estructura para Múltiples Hosts",
+    "text": "Estructura para Múltiples Hosts\n~/dotfiles/\n├── common/              # Compartido entre todos\n│   ├── git/\n│   └── tmux/\n├── desktop/             # Solo desktop\n│   ├── kde/\n│   └── i3/\n├── laptop/              # Solo laptop\n│   └── power-management/\n└── server/              # Solo servers\n    └── ssh/\nScript de instalación por host:\n#!/bin/bash\n# install.sh\n\nHOSTNAME=$(hostname)\n\n# Instalar común\ncd ~/dotfiles/common\nstow */\n\n# Instalar específico del host\ncase \"$HOSTNAME\" in\n    desktop-main)\n        cd ~/dotfiles/desktop\n        stow */\n        ;;\n    laptop-work)\n        cd ~/dotfiles/laptop\n        stow */\n        ;;\n    server-*)\n        cd ~/dotfiles/server\n        stow */\n        ;;\nesac"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#tipos-de-ignore-lists",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#tipos-de-ignore-lists",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Tipos de Ignore Lists",
+    "text": "Tipos de Ignore Lists"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#built-in-predeterminado",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#built-in-predeterminado",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "1. Built-in (Predeterminado)",
+    "text": "1. Built-in (Predeterminado)\nStow ignora automáticamente:\nRCS\n.+,v\nCVS\n\\.\\#.+        # CVS conflict files / emacs lock files\n\\.cvsignore\n\\.svn\n_darcs\n\\.hg\n\\.git\n\\.gitignore\n\\.gitmodules\n.+~           # emacs backup files\n\\#.*\\#        # emacs autosave files\n^/README.*\n^/LICENSE.*\n^/COPYING"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#global-ignore-list",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#global-ignore-list",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "2. Global Ignore List",
+    "text": "2. Global Ignore List\nArchivo: ~/.stow-global-ignore\n# ~/.stow-global-ignore\n\n# Archivos de respaldo\n.*\\.bak\n.*\\.old\n.*\\.orig\n\n# Temporales\n.*\\.swp\n.*\\.tmp\n\n# OS específicos\n\\.DS_Store\nThumbs\\.db\n\n# IDEs\n\\.idea\n\\.vscode\n\n# Build artifacts\nnode_modules\n__pycache__\n*.pyc"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#package-local-ignore-list",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#package-local-ignore-list",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "3. Package-Local Ignore List",
+    "text": "3. Package-Local Ignore List\nArchivo: &lt;package&gt;/.stow-local-ignore\n# ~/dotfiles/nvim/.stow-local-ignore\n\n# Plugin managers\n^/\\.config/nvim/plugin/packer_compiled\\.lua\n\n# Cache\n^/\\.config/nvim/.*\\.cache/\n\n# Logs\n^/\\.config/nvim/.*\\.log\n\n# Lazy-lock\n^/\\.config/nvim/lazy-lock\\.json"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#sintaxis-de-ignore-lists",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#sintaxis-de-ignore-lists",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Sintaxis de Ignore Lists",
+    "text": "Sintaxis de Ignore Lists"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#reglas-de-matching",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#reglas-de-matching",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Reglas de Matching",
+    "text": "Reglas de Matching\n1. Expresiones con / (path completo):\n# Match contra path completo desde raíz del paquete\n^/README.*           # README en raíz\n^/\\.config/nvim/cache/  # Directorio cache específico\n2. Expresiones sin / (basename):\n# Match contra nombre del archivo/directorio\nREADME.*      # Cualquier README en cualquier ubicación\n.*\\.log       # Archivos .log en cualquier ubicación"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#ejemplos-prácticos",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#ejemplos-prácticos",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Ejemplos Prácticos",
+    "text": "Ejemplos Prácticos\nEjemplo 1: Ignorar documentación:\n# .stow-local-ignore\n^/README.*\n^/LICENSE.*\n^/CHANGELOG.*\n^/docs/\nEjemplo 2: Ignorar archivos temporales:\n# .stow-local-ignore\n.*\\.swp$\n.*\\.swo$\n.*~$\n\\#.*\\#$\nEjemplo 3: Ignorar por aplicación:\n# nvim/.stow-local-ignore\n^/\\.config/nvim/plugin/\n^/\\.config/nvim/.*\\.cache/\nlazy-lock\\.json\n\n# zsh/.stow-local-ignore\n\\.zcompdump\n\\.zsh_history"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#precedencia-de-ignore-lists",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#precedencia-de-ignore-lists",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Precedencia de Ignore Lists",
+    "text": "Precedencia de Ignore Lists\n1. .stow-local-ignore (en paquete)\n     ↓ (si no existe)\n2. ~/.stow-global-ignore\n     ↓ (si no existe)\n3. Built-in ignore list"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#opción---ignore-en-cli",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#opción---ignore-en-cli",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Opción --ignore en CLI",
+    "text": "Opción --ignore en CLI\n# Ignorar específicos para esta ejecución\nstow --ignore='.*\\.orig' --ignore='.*\\.dist' nvim\n\n# Equivalente a expresión OR\nstow --ignore='.*\\.orig|.*\\.dist' nvim\n\n# Combina con ignore lists existentes"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#tree-folding-control",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#tree-folding-control",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Tree Folding Control",
+    "text": "Tree Folding Control"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#no-folding",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#no-folding",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "--no-folding",
+    "text": "--no-folding\nDesactiva tree folding completamente.\nSin –no-folding (default):\n# Resultado:\n~/.config -&gt; dotfiles/nvim/.config/\nCon –no-folding:\n# Resultado:\n~/.config/              # directorio real\n  └── nvim -&gt; ../dotfiles/nvim/.config/nvim/\nUso:\nstow --no-folding nvim"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#adopt-mode",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#adopt-mode",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Adopt Mode",
+    "text": "Adopt Mode"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#adopt",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#adopt",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "--adopt",
+    "text": "--adopt\nADVERTENCIA: Modifica el contenido del stow directory.\nEscenario:\n# Tienes configuración existente:\n~/.config/nvim/init.lua\n\n# Quieres adoptarla en tu paquete:\n~/dotfiles/nvim/.config/nvim/  (vacío)\n\n# Comando:\ncd ~/dotfiles\nstow --adopt nvim\n\n# Resultado:\n# 1. ~/.config/nvim/init.lua → movido a ~/dotfiles/nvim/.config/nvim/init.lua\n# 2. ~/.config/nvim/init.lua → se convierte en symlink\nUso con Git:\n# 1. Adoptar archivos\nstow --adopt nvim\n\n# 2. Ver diferencias\ncd nvim\ngit diff\n\n# 3. Decidir qué mantener\ngit add -p  # Añadir selectivamente\n# o\ngit checkout HEAD -- .  # Descartar cambios adoptados"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#defer-y-override",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#defer-y-override",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Defer y Override",
+    "text": "Defer y Override"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#defer",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#defer",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "--defer",
+    "text": "--defer\nEvita stowing si el archivo ya está stowed por otro paquete.\nEscenario:\n# paquete-a tiene:\npaquete-a/\n  └── .config/\n      └── shared/\n          └── config.txt\n\n# paquete-b tiene:\npaquete-b/\n  └── .config/\n      └── shared/\n          └── config.txt\n\n# Instalar A primero:\nstow paquete-a  # OK\n\n# Instalar B con defer:\nstow --defer='.config/shared/config.txt' paquete-b\n# B no sobrescribirá config.txt de A"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#override",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#override",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "--override",
+    "text": "--override\nFuerza stowing incluso si ya existe symlink de otro paquete.\nEscenario:\n# Mismo escenario de arriba\n\n# Instalar B con override:\nstow --override='.config/shared/' paquete-b\n# B sobrescribirá todos los archivos en .config/shared/"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#dotfiles-mode",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#dotfiles-mode",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Dotfiles Mode",
+    "text": "Dotfiles Mode"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#dotfiles",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#dotfiles",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "--dotfiles",
+    "text": "--dotfiles\nTransforma dot- en . al hacer stow.\nUso:\n# Estructura del paquete:\nbash/\n  ├── dot-bashrc\n  ├── dot-bash_profile\n  └── dot-config/\n      └── bash/\n          └── aliases.bash\n\n# Stow con --dotfiles:\nstow --dotfiles bash\n\n# Resultado:\n~/.bashrc -&gt; dotfiles/bash/dot-bashrc\n~/.bash_profile -&gt; dotfiles/bash/dot-bash_profile\n~/.config/ ...\nVentajas:\n\nMantiene paquetes visibles (no ocultos por .)\nMás fácil navegar en GUI\nMejor para Git\n\nDesventajas:\n\nNecesita usar --dotfiles siempre\nPuede confundir\nNo estándar\n\nRecomendación: Usar nombres normales con . en vez de dot-."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#multiple-stow-directories",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#multiple-stow-directories",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Multiple Stow Directories",
+    "text": "Multiple Stow Directories\nPuedes tener múltiples stow directories para diferentes propósitos.\nEjemplo:\n# Estructura:\n~/dotfiles/          # Personal configs\n  └── nvim/\n\n~/work-dotfiles/     # Work configs\n  └── nvim/\n\n# Marcar como stow directories:\ntouch ~/dotfiles/.stow\ntouch ~/work-dotfiles/.stow\n\n# Stow desde diferentes directorios:\ncd ~/dotfiles && stow nvim\ncd ~/work-dotfiles && stow nvim\n.stow file: Indica que un directorio es stow directory, protegiéndolo de operaciones de unstow."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-1-setup-en-nueva-máquina",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-1-setup-en-nueva-máquina",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Caso 1: Setup en Nueva Máquina",
+    "text": "Caso 1: Setup en Nueva Máquina\nObjetivo: Instalar dotfiles en computadora nueva.\n# 1. Clonar repositorio\ncd ~\ngit clone https://github.com/user/dotfiles.git\n\n# 2. Instalar dependencias (si hay)\ncd dotfiles\n./scripts/install-deps.sh  # Opcional\n\n# 3. Hacer backup de existentes (precaución)\nmkdir -p ~/backup-dotfiles\ncp ~/.zshrc ~/backup-dotfiles/  # etc\n\n# 4. Stow paquetes deseados\nstow zsh nvim git kitty tmux\n\n# 5. Verificar\nls -la ~/.zshrc\n# ~/.zshrc -&gt; dotfiles/zsh/.zshrc\n\n# 6. Restart shell o source\nsource ~/.zshrc\nScript automatizado:\n#!/bin/bash\n# install.sh\n\nset -e\n\nDOTFILES=\"$HOME/dotfiles\"\nBACKUP=\"$HOME/dotfiles-backup-$(date +%Y%m%d)\"\n\n# Backup existentes\nif [ -f ~/.zshrc ]; then\n    mkdir -p \"$BACKUP\"\n    cp ~/.zshrc \"$BACKUP/\"\n    echo \"Backed up existing .zshrc\"\nfi\n\n# Stow\ncd \"$DOTFILES\"\nstow zsh nvim git tmux kitty\n\necho \"Dotfiles installed!\"\necho \"Backup location: $BACKUP\""
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-2-actualizar-configuraciones",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-2-actualizar-configuraciones",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Caso 2: Actualizar Configuraciones",
+    "text": "Caso 2: Actualizar Configuraciones\nObjetivo: Actualizar configs en máquina existente.\n# 1. Pull latest changes\ncd ~/dotfiles\ngit pull origin main\n\n# 2. Restow para actualizar symlinks\nstow -R nvim zsh\n\n# 3. Si estructura cambió mucho:\nstow -D nvim  # Remover viejo\nstow nvim     # Instalar nuevo\n\n# 4. Verificar cambios\nnvim ~/.config/nvim/init.lua"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-3-probar-nueva-configuración",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-3-probar-nueva-configuración",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Caso 3: Probar Nueva Configuración",
+    "text": "Caso 3: Probar Nueva Configuración\nObjetivo: Probar configuración sin afectar la actual.\n# 1. Crear branch en Git\ncd ~/dotfiles\ngit checkout -b test-new-config\n\n# 2. Modificar paquete\nnvim nvim/.config/nvim/init.lua\n\n# 3. Restow\nstow -R nvim\n\n# 4. Probar\nnvim\n\n# 5a. Si funciona bien:\ngit checkout main\ngit merge test-new-config\ngit push\n\n# 5b. Si no funciona:\ngit checkout main\nstow -R nvim  # Vuelve a config anterior"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-4-compartir-configuración-entre-usuarios",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-4-compartir-configuración-entre-usuarios",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Caso 4: Compartir Configuración entre Usuarios",
+    "text": "Caso 4: Compartir Configuración entre Usuarios\nObjetivo: Múltiples usuarios con dotfiles compartidos.\nSetup:\n# Ubicación compartida\nsudo mkdir -p /opt/shared-dotfiles\nsudo chown :developers /opt/shared-dotfiles\nsudo chmod g+w /opt/shared-dotfiles\n\n# User A: Setup inicial\ncd /opt/shared-dotfiles\ngit init\nmkdir -p common/git common/tmux\n# ... agregar configs ...\ngit add .\ngit commit -m \"Initial shared configs\"\n\n# User B: Usar configs\ncd /opt/shared-dotfiles\ngit pull\nstow -d /opt/shared-dotfiles -t ~ common/git common/tmux"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-5-configuración-por-entorno",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#caso-5-configuración-por-entorno",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Caso 5: Configuración Por Entorno",
+    "text": "Caso 5: Configuración Por Entorno\nObjetivo: Diferentes configs para diferentes entornos.\nEstructura:\n~/dotfiles/\n├── common/        # Común a todos\n│   ├── git/\n│   └── tmux/\n├── dev/           # Desarrollo\n│   └── nvim/\n├── prod/          # Producción\n│   └── nvim/\n└── install-env.sh\nScript:\n#!/bin/bash\n# install-env.sh\n\nENV=\"${1:-dev}\"  # default: dev\n\ncd ~/dotfiles\n\n# Instalar común\nstow -d common -t ~ */\n\n# Instalar específico del entorno\nstow -d \"$ENV\" -t ~ */\n\necho \"Environment: $ENV installed\"\nUso:\n# Desarrollo\n./install-env.sh dev\n\n# Producción\n./install-env.sh prod"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#análisis-de-tu-estructura-actual",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#análisis-de-tu-estructura-actual",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Análisis de tu Estructura Actual",
+    "text": "Análisis de tu Estructura Actual\n~/dotfiles/\n├── git/\n│   └── .gitconfig\n├── kde/\n│   └── .config/\n│       ├── kdeglobals\n│       ├── dolphinrc\n│       └── ...\n├── shell/\n│   ├── .zshrc\n│   └── starship.toml\n├── terminal/\n│   └── .config/\n│       └── konsolerc\n├── vscode/\n│   └── .config/\n│       ├── settings.json\n│       └── keybindings.json\n├── zotero/\n│   └── .zotero/...\n├── obsidian/\n│   └── Documents/thoughts/.obsidian/\n└── ... (más paquetes)"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#implementación-de-stow-en-tu-repo",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#implementación-de-stow-en-tu-repo",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Implementación de Stow en tu Repo",
+    "text": "Implementación de Stow en tu Repo"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#script-install.sh-mejorado",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#script-install.sh-mejorado",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "1. Script install.sh Mejorado",
+    "text": "1. Script install.sh Mejorado\nTu install.sh actual debe usar Stow. Aquí está mi versión mejorada:\n#!/bin/bash\n# ~/dotfiles/install.sh\n\nset -e\n\nDOTFILES=\"$HOME/dotfiles\"\nBACKUP_DIR=\"$HOME/dotfiles-backup-$(date +%Y%m%d-%H%M%S)\"\n\n# Colores\nRED='\\033[0;31m'\nGREEN='\\033[0;32m'\nYELLOW='\\033[1;33m'\nNC='\\033[0m' # No Color\n\n# Funciones\nlog_info() {\n    echo -e \"${GREEN}[INFO]${NC} $1\"\n}\n\nlog_warn() {\n    echo -e \"${YELLOW}[WARN]${NC} $1\"\n}\n\nlog_error() {\n    echo -e \"${RED}[ERROR]${NC} $1\"\n}\n\n# Verificar que Stow está instalado\nif ! command -v stow &&gt; /dev/null; then\n    log_error \"Stow no está instalado\"\n    log_info \"Instalando stow...\"\n    sudo apt update && sudo apt install -y stow\nfi\n\n# Función para hacer backup\nbackup_if_exists() {\n    local file=\"$1\"\n    if [ -e \"$file\" ] && [ ! -L \"$file\" ]; then\n        mkdir -p \"$BACKUP_DIR\"\n        cp -r \"$file\" \"$BACKUP_DIR/\"\n        log_warn \"Backup: $file -&gt; $BACKUP_DIR/\"\n    fi\n}\n\n# Función para stow paquete\nstow_package() {\n    local package=\"$1\"\n    \n    log_info \"Stowing $package...\"\n    \n    # Dry run primero\n    if stow -nv \"$package\" 2&gt;&1 | grep -q \"WARNING\"; then\n        log_warn \"Conflicto detectado para $package\"\n        read -p \"¿Hacer backup y continuar? [y/N] \" -n 1 -r\n        echo\n        if [[ $REPLY =~ ^[Yy]$ ]]; then\n            # Hacer backup de archivos conflictivos\n            # (aquí necesitarías lógica más sofisticada)\n            stow \"$package\"\n        else\n            log_error \"Saltando $package\"\n            return 1\n        fi\n    else\n        stow \"$package\"\n        log_info \"✓ $package instalado\"\n    fi\n}\n\n# Cambiar a dotfiles directory\ncd \"$DOTFILES\" || exit 1\n\n# Lista de paquetes a instalar\nPACKAGES=(\n    \"git\"\n    \"shell\"\n    \"terminal\"\n    \"kde\"\n    \"vscode\"\n    \"nvim\"\n    \"kitty\"\n    # ... más paquetes\n)\n\n# Opción para instalar todo o selectivo\nif [ \"$1\" == \"all\" ]; then\n    PACKAGES=($(ls -d */ | sed 's#/#'))\n    log_info \"Instalando TODOS los paquetes\"\nelif [ $# -gt 0 ]; then\n    PACKAGES=(\"$@\")\n    log_info \"Instalando paquetes especificados: ${PACKAGES[*]}\"\nfi\n\n# Instalar paquetes\nfor package in \"${PACKAGES[@]}\"; do\n    stow_package \"$package\" || true\ndone\n\nlog_info \"Instalación completa!\"\nif [ -d \"$BACKUP_DIR\" ]; then\n    log_info \"Backups guardados en: $BACKUP_DIR\"\nfi\nUso:\n# Instalar paquetes específicos\n./install.sh git shell terminal\n\n# Instalar todo\n./install.sh all\n\n# Ver qué haría sin hacer cambios\n# (modificar script para agregar -n flag)"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#script-para-desinstalar",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#script-para-desinstalar",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "2. Script para Desinstalar",
+    "text": "2. Script para Desinstalar\n#!/bin/bash\n# ~/dotfiles/uninstall.sh\n\nDOTFILES=\"$HOME/dotfiles\"\n\ncd \"$DOTFILES\" || exit 1\n\nif [ $# -eq 0 ]; then\n    echo \"Uso: $0 &lt;paquete1&gt; [paquete2] ...\"\n    echo \"O: $0 all\"\n    exit 1\nfi\n\nif [ \"$1\" == \"all\" ]; then\n    PACKAGES=($(ls -d */ | sed 's#/#'))\nelse\n    PACKAGES=(\"$@\")\nfi\n\nfor package in \"${PACKAGES[@]}\"; do\n    echo \"Unstowing $package...\"\n    stow -D \"$package\"\n    echo \"✓ $package desinstalado\"\ndone"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#reorganizar-paquetes-problemáticos",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#reorganizar-paquetes-problemáticos",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "3. Reorganizar Paquetes Problemáticos",
+    "text": "3. Reorganizar Paquetes Problemáticos\nZotero: Ubicación no estándar\n# Actual:\nzotero/\n  └── .zotero/zotero/25vfdnq5.default/\n      └── prefs.js\n\n# Problema: .zotero está en HOME pero tiene subdirectorios profundos\n\n# Solución 1: Usar como está (funciona)\nstow zotero\n# Resultado: ~/.zotero/... → dotfiles/zotero/.zotero/...\n\n# Solución 2: Si solo quieres prefs.js, simplificar:\nzotero/\n  └── .zotero/\n      └── zotero/\n          └── 25vfdnq5.default/\n              └── prefs.js\nObsidian: Ruta específica\n# Actual:\nobsidian/\n  └── Documents/thoughts/.obsidian/\n\n# Problema: No está en .config sino en Documents\n\n# Solución: Está bien así, Stow lo maneja\nstow obsidian\n# Resultado: ~/Documents/thoughts/.obsidian → ..."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#stowrc-para-tu-repo",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#stowrc-para-tu-repo",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "4. .stowrc para tu Repo",
+    "text": "4. .stowrc para tu Repo\nCrear ~/dotfiles/.stowrc:\n# ~/dotfiles/.stowrc\n\n# Target es siempre HOME\n--target=$HOME\n\n# Ignorar archivos comunes\n--ignore='.git'\n--ignore='README.*'\n--ignore='LICENSE.*'\n--ignore='.*.swp'\n--ignore='.*~'\n--ignore='install.sh'\n--ignore='uninstall.sh'\n--ignore='.stowrc'\nCon esto, no necesitas especificar -t ~ cada vez."
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#stow-local-ignore-por-paquete",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#stow-local-ignore-por-paquete",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "5. .stow-local-ignore por Paquete",
+    "text": "5. .stow-local-ignore por Paquete\nPara vscode:\n# ~/dotfiles/vscode/.stow-local-ignore\n\n# No stow extensiones (solo configuración)\n^/\\.config/Code/CachedData/\n^/\\.config/Code/logs/\n^/\\.config/Code/User/workspaceStorage/\nPara kde:\n# ~/dotfiles/kde/.stow-local-ignore\n\n# Archivos de sesión y cache\n^/\\.config/session/\n^/\\.cache/\nPara shell:\n# ~/dotfiles/shell/.stow-local-ignore\n\n# Historia de shells (puede tener info sensible)\n^/\\.zsh_history\n^/\\.bash_history\n\n# Archivos compilados\n\\.zcompdump"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#script-de-verificación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#script-de-verificación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "6. Script de Verificación",
+    "text": "6. Script de Verificación\n#!/bin/bash\n# ~/dotfiles/check-stow.sh\n\n# Verificar qué está stowed\n\nDOTFILES=\"$HOME/dotfiles\"\n\necho \"Paquetes stowed:\"\necho \"================\"\n\ncd \"$DOTFILES\" || exit 1\n\nfor package in */; do\n    package=${package%/}\n    \n    # Encontrar primer archivo del paquete\n    first_file=$(find \"$package\" -type f | head -1)\n    \n    if [ -z \"$first_file\" ]; then\n        continue\n    fi\n    \n    # Convertir a path en HOME\n    home_path=\"$HOME/${first_file#$package/}\"\n    \n    if [ -L \"$home_path\" ]; then\n        target=$(readlink \"$home_path\")\n        if [[ \"$target\" == *\"$DOTFILES/$package\"* ]]; then\n            echo \"✓ $package\"\n        else\n            echo \"✗ $package (symlink apunta a otro lugar)\"\n        fi\n    else\n        echo \"✗ $package (no stowed)\"\n    fi\ndone"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#actualizar-.gitignore",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#actualizar-.gitignore",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "7. Actualizar .gitignore",
+    "text": "7. Actualizar .gitignore\n# ~/dotfiles/.gitignore\n\n# Backups\n*~\n*.bak\n*.old\n*.orig\n.*.swp\n\n# Datos sensibles\nshell/.zsh_history\nshell/.bash_history\n.netrc\n.authinfo\n\n# Cache y temporales\n**/.cache/\n**/__pycache__/\n**/node_modules/\n\n# Logs\n**/*.log\n\n# Sistema\n.DS_Store\nThumbs.db\n\n# Archivos de Stow\n.stow\n\n# Zotero database (demasiado grande)\nzotero/.zotero/zotero/*/zotero.sqlite*\n\n# VSCode workspace storage\nvscode/.config/Code/User/workspaceStorage/"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#comandos-útiles-para-tu-repo",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#comandos-útiles-para-tu-repo",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "8. Comandos Útiles para tu Repo",
+    "text": "8. Comandos Útiles para tu Repo\n# Navegar a dotfiles\ncd ~/dotfiles\n\n# Instalar todo (primera vez)\n./install.sh all\n\n# Instalar paquetes esenciales\n./install.sh git shell terminal kde\n\n# Verificar qué está instalado\n./check-stow.sh\n\n# Actualizar después de pull\ngit pull\nstow -R */  # Restow todo\n\n# Desinstalar temporalmente para pruebas\nstow -D vscode\n# hacer pruebas...\nstow vscode  # Reinstalar\n\n# Agregar nuevo paquete\nmkdir new-app\n# crear estructura...\nstow new-app\ngit add new-app/\ngit commit -m \"Add new-app\""
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#workflow-1-configuración-inicial",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#workflow-1-configuración-inicial",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Workflow 1: Configuración Inicial",
+    "text": "Workflow 1: Configuración Inicial\n# Paso 1: Crear estructura\nmkdir -p ~/dotfiles\ncd ~/dotfiles\ngit init\n\n# Paso 2: Crear paquetes\nmkdir -p zsh nvim git\n\n# Paso 3: Mover configs existentes\nmv ~/.zshrc zsh/\nmv ~/.config/nvim nvim/.config/\nmv ~/.gitconfig git/\n\n# Paso 4: Stow\nstow zsh nvim git\n\n# Paso 5: Verificar\nls -la ~/.zshrc  # debe ser symlink\n\n# Paso 6: Git\ngit add .\ngit commit -m \"Initial dotfiles\"\ngit remote add origin git@github.com:user/dotfiles.git\ngit push -u origin main"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#workflow-2-día-a-día",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#workflow-2-día-a-día",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Workflow 2: Día a Día",
+    "text": "Workflow 2: Día a Día\n# Editar configuración (desde cualquier lugar)\nnvim ~/.config/nvim/init.lua  # Edita a través del symlink\n\n# Commit cambios\ncd ~/dotfiles\ngit add nvim/\ngit commit -m \"Update nvim config: add new plugin\"\ngit push\n\n# En otra máquina\ncd ~/dotfiles\ngit pull\n# Los cambios se reflejan automáticamente (symlinks)"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#workflow-3-nueva-máquina",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#workflow-3-nueva-máquina",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Workflow 3: Nueva Máquina",
+    "text": "Workflow 3: Nueva Máquina\n# Clonar\ngit clone https://github.com/user/dotfiles.git ~/dotfiles\n\n# Instalar Stow\nsudo apt install stow\n\n# Backup existentes (precaución)\nmkdir ~/backup\ncp ~/.zshrc ~/backup/ 2&gt;/dev/null || true\n\n# Stow\ncd ~/dotfiles\nstow */\n\n# Verificar\nls -la ~/ | grep '\\-&gt;'\n\n# Instalar dependencias de apps\n# (nvim plugins, zsh plugins, etc)"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#workflow-4-experimentar",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#workflow-4-experimentar",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Workflow 4: Experimentar",
+    "text": "Workflow 4: Experimentar\n# Crear branch de experimento\ncd ~/dotfiles\ngit checkout -b experiment-new-nvim\n\n# Modificar libremente\nnvim nvim/.config/nvim/init.lua\n\n# Restow para aplicar\nstow -R nvim\n\n# Probar...\n\n# Si funciona:\ngit checkout main\ngit merge experiment-new-nvim\n\n# Si no funciona:\ngit checkout main\nstow -R nvim  # Vuelve a main automáticamente"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#workflow-5-actualización-limpia",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#workflow-5-actualización-limpia",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Workflow 5: Actualización Limpia",
+    "text": "Workflow 5: Actualización Limpia\n# Pull cambios\ncd ~/dotfiles\ngit pull origin main\n\n# Verificar qué cambió\ngit log -p --since=\"1 week ago\"\n\n# Desinstalar y reinstalar (limpia symlinks obsoletos)\nstow -D nvim\nstow nvim\n\n# O usar restow\nstow -R nvim\n\n# Verificar que funciona\nnvim --version"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estructura-de-repositorio",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estructura-de-repositorio",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Estructura de Repositorio",
+    "text": "Estructura de Repositorio\n~/dotfiles/\n├── .git/\n├── .gitignore\n├── .stowrc\n├── README.md\n├── LICENSE\n├── install.sh\n├── uninstall.sh\n├── check-stow.sh\n├── zsh/\n│   ├── .stow-local-ignore\n│   ├── .zshrc\n│   └── .zshenv\n├── nvim/\n│   ├── .stow-local-ignore\n│   └── .config/\n│       └── nvim/\n└── ... (más paquetes)"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#gitignore-completo",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#gitignore-completo",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": ".gitignore Completo",
+    "text": ".gitignore Completo\n# ~/dotfiles/.gitignore\n\n# ========================================\n# BACKUPS\n# ========================================\n*~\n*.bak\n*.old\n*.orig\n*.swp\n*.swo\n\n# ========================================\n# HISTORIA Y DATOS SENSIBLES\n# ========================================\n\n# Shell history (puede contener comandos con passwords)\n**/.zsh_history\n**/.bash_history\n**/.history\n\n# Credenciales\n.netrc\n.authinfo\n**/.ssh/id_*\n**/.ssh/*.pem\n\n# Tokens\n**/.config/gh/hosts.yml\n\n# ========================================\n# CACHE Y TEMPORALES\n# ========================================\n\n# Directorios de cache\n**/.cache/\n**/__pycache__/\n**/node_modules/\n\n# Compilados\n*.pyc\n*.zwc\n.zcompdump*\n\n# Logs\n**/*.log\n\n# ========================================\n# ARCHIVOS DE SISTEMA\n# ========================================\n.DS_Store\nThumbs.db\ndesktop.ini\n\n# ========================================\n# STOW\n# ========================================\n.stow\n\n# ========================================\n# APLICACIONES ESPECÍFICAS\n# ========================================\n\n# Zotero (database muy grande)\nzotero/.zotero/zotero/*/zotero.sqlite*\nzotero/.zotero/zotero/*/storage/\n\n# VSCode\nvscode/.config/Code/User/workspaceStorage/\nvscode/.config/Code/CachedData/\nvscode/.config/Code/logs/\n\n# Obsidian\nobsidian/Documents/thoughts/.obsidian/workspace\nobsidian/Documents/thoughts/.obsidian/workspace.json\n\n# KDE\nkde/.config/session/\nkde/.cache/"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#commits-best-practices",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#commits-best-practices",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Commits Best Practices",
+    "text": "Commits Best Practices\n# Commits semánticos\n\n# Agregar nueva aplicación\ngit commit -m \"feat(tmux): Add tmux configuration\"\n\n# Actualizar configuración\ngit commit -m \"chore(nvim): Update LSP settings\"\n\n# Fix\ngit commit -m \"fix(zsh): Correct path to starship\"\n\n# Documentación\ngit commit -m \"docs: Update README with stow instructions\"\n\n# Refactor\ngit commit -m \"refactor(shell): Reorganize shell configs\""
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#branches-strategy",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#branches-strategy",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Branches Strategy",
+    "text": "Branches Strategy\n# Main branch\nmain  # Configuración estable\n\n# Feature branches\nfeature/add-tmux-config\nfeature/new-nvim-setup\n\n# Experimental\nexperiment/test-fish-shell\nexperiment/new-colorscheme\n\n# Host-specific\nhost/desktop-main\nhost/laptop-work\nhost/server-prod"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#tags-para-versiones",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#tags-para-versiones",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Tags para Versiones",
+    "text": "Tags para Versiones\n# Tagear versiones estables\ngit tag -a v1.0.0 -m \"Stable dotfiles v1.0.0\"\ngit push origin v1.0.0\n\n# Ver tags\ngit tag -l\n\n# Checkout a tag\ngit checkout v1.0.0"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#submodules-para-plugins",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#submodules-para-plugins",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Submodules para Plugins",
+    "text": "Submodules para Plugins\n# Agregar plugin como submodule\ncd ~/dotfiles/nvim/.config/nvim\ngit submodule add https://github.com/user/plugin.git pack/plugins/start/plugin\n\n# Actualizar submodules\ngit submodule update --init --recursive\n\n# Pull con submodules\ngit pull --recurse-submodules"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#github-actions-para-validación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#github-actions-para-validación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "GitHub Actions para Validación",
+    "text": "GitHub Actions para Validación\n# .github/workflows/validate.yml\n\nname: Validate Dotfiles\n\non: [push, pull_request]\n\njobs:\n  validate:\n    runs-on: ubuntu-latest\n    \n    steps:\n    - uses: actions/checkout@v2\n    \n    - name: Install stow\n      run: sudo apt-get install -y stow\n    \n    - name: Test stow (dry run)\n      run: |\n        cd $GITHUB_WORKSPACE\n        stow -nv */\n    \n    - name: Check for sensitive data\n      run: |\n        # Verificar que no haya claves SSH\n        if find . -name \"id_rsa\" -o -name \"id_ed25519\"; then\n          echo \"ERROR: SSH keys found!\"\n          exit 1\n        fi"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problema-1-conflictos-al-stow",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problema-1-conflictos-al-stow",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Problema 1: Conflictos al Stow",
+    "text": "Problema 1: Conflictos al Stow\nError:\nWARNING! stowing nvim would cause conflicts:\n  * existing target is neither a link nor a directory: .config/nvim/init.lua\nAll operations aborted.\nCausa: Ya existe un archivo/directorio en el target que no es un symlink de Stow.\nSoluciones:\nOpción 1: Hacer backup y eliminar\n# Backup\ncp ~/.config/nvim/init.lua ~/.config/nvim/init.lua.backup\n\n# Eliminar\nrm ~/.config/nvim/init.lua\n\n# Stow\nstow nvim\nOpción 2: Usar –adopt (cuidado)\nstow --adopt nvim\n# Mueve el archivo al paquete y crea symlink\nOpción 3: Verificar y resolver manualmente\n# Ver qué está causando conflicto\nstow -nv nvim\n\n# Resolver caso por caso"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problema-2-symlinks-rotos",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problema-2-symlinks-rotos",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Problema 2: Symlinks Rotos",
+    "text": "Problema 2: Symlinks Rotos\nError:\nls -la ~/.zshrc\n# lrwxrwxrwx ... .zshrc -&gt; dotfiles/zsh/.zshrc (broken)\nCausa: El paquete fue movido o eliminado.\nSoluciones:\nOpción 1: Restow\ncd ~/dotfiles\nstow -R zsh\nOpción 2: Desinstalar y reinstalar\nstow -D zsh  # Limpia symlinks rotos\nstow zsh     # Crea nuevos\nOpción 3: Encontrar todos los symlinks rotos\n# Encontrar symlinks rotos en HOME\nfind ~/ -xtype l\n\n# Eliminar symlinks rotos de Stow\nfind ~/ -xtype l -lname '*dotfiles*' -delete"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problema-3-directorio-no-vacío",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problema-3-directorio-no-vacío",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Problema 3: Directorio No Vacío",
+    "text": "Problema 3: Directorio No Vacío\nError:\nBUG in find_stowed_path? Absolute/relative mismatch\nCausa: Stow está confundido por la estructura de directorios.\nSolución:\n# Verificar que estás en el stow directory\npwd  # Debe ser ~/dotfiles\n\n# Verificar estructura del paquete\ntree nvim\n\n# Usar paths correctos\ncd ~/dotfiles\nstow -t ~ nvim"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problema-4-tree-folding-inesperado",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problema-4-tree-folding-inesperado",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Problema 4: Tree Folding Inesperado",
+    "text": "Problema 4: Tree Folding Inesperado\nProblema: Stow crea symlink a directorio completo en lugar de entrar y enlazar archivos.\nEjemplo:\n# Esperado:\n~/.config/\n  └── nvim/ (directorio)\n      └── init.lua -&gt; ~/dotfiles/nvim/.config/nvim/init.lua\n\n# Obtenido:\n~/.config/\n  └── nvim -&gt; ~/dotfiles/nvim/.config/nvim/ (symlink a directorio)\nCausa: Stow hace tree folding por defecto para minimizar symlinks.\nSolución si no lo quieres:\n# Usar --no-folding\nstow --no-folding nvim\n\n# O desplegar manualmente\nstow -D nvim  # Remover\nmkdir -p ~/.config/nvim  # Crear directorio\nstow --no-folding nvim  # Stow sin folding"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problema-5-permiso-denegado",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problema-5-permiso-denegado",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Problema 5: Permiso Denegado",
+    "text": "Problema 5: Permiso Denegado\nError:\ncannot stow: permission denied\nCausa: No tienes permisos para crear symlinks en target directory.\nSoluciones:\nPara /usr/local:\n# Cambiar ownership\nsudo chown -R $USER:$USER /usr/local\n\n# O usar sudo (no recomendado)\nsudo stow -t /usr/local myapp\nPara HOME:\n# Verificar ownership\nls -ld ~\n# drwxr-xr-x 50 user user ...\n\n# Si no eres owner:\nsudo chown -R $USER:$USER ~"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problema-6-stow-no-encuentra-paquete",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problema-6-stow-no-encuentra-paquete",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Problema 6: Stow No Encuentra Paquete",
+    "text": "Problema 6: Stow No Encuentra Paquete\nError:\nstow: Cannot read package description: No such file or directory\nCausa: No estás en el stow directory o el paquete no existe.\nSolución:\n# Verificar ubicación\npwd\n\n# Listar paquetes disponibles\nls -d */\n\n# Cambiar a stow directory\ncd ~/dotfiles\n\n# Stow\nstow nvim"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problema-7-.stowrc-no-se-aplica",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problema-7-.stowrc-no-se-aplica",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Problema 7: .stowrc No Se Aplica",
+    "text": "Problema 7: .stowrc No Se Aplica\nProblema: Las opciones en .stowrc no se usan.\nCausas y soluciones:\n1. Archivo en ubicación incorrecta:\n# .stowrc debe estar en:\n# - Directorio actual (donde ejecutas stow)\n# - O ~/\n\n# Verificar:\nls -la .stowrc\nls -la ~/.stowrc\n2. Sintaxis incorrecta:\n# Correcto:\n--target=/home/user\n\n# Incorrecto:\ntarget=/home/user  # Sin --\n3. Variables no expandidas:\n# Use $HOME con comillas si es necesario\n--target=$HOME"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problema-8-stow-muy-lento",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#problema-8-stow-muy-lento",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Problema 8: Stow Muy Lento",
+    "text": "Problema 8: Stow Muy Lento\nCausa: Directorios muy grandes o muchos archivos.\nSoluciones:\n1. Usar ignore lists:\n# Ignorar directorios grandes\n# ~/.stow-global-ignore\nnode_modules\n__pycache__\n.cache\nstorage\n2. Evitar stowing todo junto:\n# En lugar de:\nstow */  # Lento si hay muchos paquetes\n\n# Hacer:\nstow nvim zsh git  # Solo los necesarios\n3. Simplificar estructura:\n# Dividir paquetes grandes en paquetes más pequeños"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#script-1-install.sh-completo",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#script-1-install.sh-completo",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Script 1: install.sh Completo",
+    "text": "Script 1: install.sh Completo\nYa proporcioné un ejemplo arriba. Aquí una versión más robusta:\n#!/bin/bash\n# ~/dotfiles/install.sh\n\nset -e\n\nSCRIPT_DIR=\"$(cd \"$(dirname \"${BASH_SOURCE[0]}\")\" && pwd)\"\nDOTFILES=\"$SCRIPT_DIR\"\nBACKUP_DIR=\"$HOME/dotfiles-backup-$(date +%Y%m%d-%H%M%S)\"\nLOG_FILE=\"$DOTFILES/install.log\"\n\n# Colores\nRED='\\033[0;31m'\nGREEN='\\033[0;32m'\nYELLOW='\\033[1;33m'\nBLUE='\\033[0;34m'\nNC='\\033[0m'\n\n# Logging\nlog() {\n    echo -e \"$1\" | tee -a \"$LOG_FILE\"\n}\n\nlog_info() {\n    log \"${BLUE}[$(date +'%Y-%m-%d %H:%M:%S')]${NC} ${GREEN}[INFO]${NC} $1\"\n}\n\nlog_warn() {\n    log \"${BLUE}[$(date +'%Y-%m-%d %H:%M:%S')]${NC} ${YELLOW}[WARN]${NC} $1\"\n}\n\nlog_error() {\n    log \"${BLUE}[$(date +'%Y-%m-%d %H:%M:%S')]${NC} ${RED}[ERROR]${NC} $1\"\n}\n\n# Verificar dependencias\ncheck_dependencies() {\n    log_info \"Verificando dependencias...\"\n    \n    if ! command -v stow &&gt; /dev/null; then\n        log_error \"Stow no está instalado\"\n        read -p \"¿Instalar stow? [Y/n] \" -n 1 -r\n        echo\n        if [[ ! $REPLY =~ ^[Nn]$ ]]; then\n            if command -v apt &&gt; /dev/null; then\n                sudo apt update && sudo apt install -y stow\n            elif command -v pacman &&gt; /dev/null; then\n                sudo pacman -S stow\n            elif command -v brew &&gt; /dev/null; then\n                brew install stow\n            else\n                log_error \"No se pudo instalar stow automáticamente\"\n                exit 1\n            fi\n        else\n            exit 1\n        fi\n    fi\n    \n    log_info \"✓ Dependencias OK\"\n}\n\n# Backup de archivo/directorio existente\nbackup_if_exists() {\n    local path=\"$1\"\n    local name=\"$2\"\n    \n    if [ -e \"$path\" ] && [ ! -L \"$path\" ]; then\n        log_warn \"Existe: $path\"\n        mkdir -p \"$BACKUP_DIR\"\n        cp -r \"$path\" \"$BACKUP_DIR/\"\n        log_info \"Backup: $name → $BACKUP_DIR/\"\n        return 0\n    fi\n    return 1\n}\n\n# Verificar conflictos antes de stow\ncheck_conflicts() {\n    local package=\"$1\"\n    \n    if stow -nv \"$package\" 2&gt;&1 | grep -q \"WARNING\\|ERROR\"; then\n        return 1\n    fi\n    return 0\n}\n\n# Stow paquete con manejo de errores\nstow_package() {\n    local package=\"$1\"\n    local force=\"${2:-false}\"\n    \n    if [ ! -d \"$package\" ]; then\n        log_error \"Paquete no existe: $package\"\n        return 1\n    fi\n    \n    log_info \"Procesando: $package\"\n    \n    # Check conflicts\n    if ! check_conflicts \"$package\"; then\n        log_warn \"Conflictos detectados en: $package\"\n        \n        if [ \"$force\" = \"true\" ]; then\n            log_info \"Forzando instalación...\"\n            # Aquí podrías implementar lógica de backup automático\n        else\n            read -p \"¿Continuar? [y/N] \" -n 1 -r\n            echo\n            if [[ ! $REPLY =~ ^[Yy]$ ]]; then\n                log_error \"Saltado: $package\"\n                return 1\n            fi\n        fi\n    fi\n    \n    # Stow\n    if stow -v \"$package\"; then\n        log_info \"✓ Instalado: $package\"\n        return 0\n    else\n        log_error \"✗ Error al instalar: $package\"\n        return 1\n    fi\n}\n\n# Mostrar ayuda\nshow_help() {\n    cat &lt;&lt; EOF\nUso: $0 [opciones] [paquetes...]\n\nOpciones:\n  -h, --help          Mostrar esta ayuda\n  -a, --all           Instalar todos los paquetes\n  -f, --force         Forzar instalación (saltear prompts)\n  -l, --list          Listar paquetes disponibles\n  -d, --dry-run       Simular sin hacer cambios\n\nEjemplos:\n  $0 nvim zsh git     # Instalar paquetes específicos\n  $0 --all            # Instalar todo\n  $0 --list           # Ver paquetes disponibles\nEOF\n}\n\n# Listar paquetes disponibles\nlist_packages() {\n    log_info \"Paquetes disponibles:\"\n    cd \"$DOTFILES\"\n    for package in */; do\n        package=${package%/}\n        if [ \"$package\" != \".git\" ] && [ -d \"$package\" ]; then\n            echo \"  - $package\"\n        fi\n    done\n}\n\n# Main\nmain() {\n    local force=false\n    local dry_run=false\n    local packages=()\n    \n    # Parse argumentos\n    while [[ $# -gt 0 ]]; do\n        case $1 in\n            -h|--help)\n                show_help\n                exit 0\n                ;;\n            -a|--all)\n                cd \"$DOTFILES\"\n                packages=($(ls -d */ | sed 's#/#' | grep -v '^\\.'))\n                shift\n                ;;\n            -f|--force)\n                force=true\n                shift\n                ;;\n            -l|--list)\n                list_packages\n                exit 0\n                ;;\n            -d|--dry-run)\n                dry_run=true\n                shift\n                ;;\n            *)\n                packages+=(\"$1\")\n                shift\n                ;;\n        esac\n    done\n    \n    # Verificar que hay paquetes para instalar\n    if [ ${#packages[@]} -eq 0 ]; then\n        log_error \"No se especificaron paquetes\"\n        show_help\n        exit 1\n    fi\n    \n    # Iniciar log\n    log_info \"=== Instalación de Dotfiles ===\"\n    log_info \"Directorio: $DOTFILES\"\n    log_info \"Paquetes: ${packages[*]}\"\n    \n    # Verificar dependencias\n    check_dependencies\n    \n    # Cambiar a dotfiles directory\n    cd \"$DOTFILES\" || exit 1\n    \n    # Dry run si se especificó\n    if [ \"$dry_run\" = true ]; then\n        log_info \"=== DRY RUN ===\"\n        for package in \"${packages[@]}\"; do\n            log_info \"Simulating: $package\"\n            stow -nv \"$package\" || true\n        done\n        exit 0\n    fi\n    \n    # Instalar paquetes\n    local success=0\n    local failed=0\n    \n    for package in \"${packages[@]}\"; do\n        if stow_package \"$package\" \"$force\"; then\n            ((success++))\n        else\n            ((failed++))\n        fi\n    done\n    \n    # Resumen\n    log_info \"\"\n    log_info \"=== Resumen ===\"\n    log_info \"Exitosos: $success\"\n    if [ $failed -gt 0 ]; then\n        log_warn \"Fallidos: $failed\"\n    fi\n    \n    if [ -d \"$BACKUP_DIR\" ]; then\n        log_info \"Backups en: $BACKUP_DIR\"\n    fi\n    \n    log_info \"Log completo en: $LOG_FILE\"\n}\n\n# Ejecutar\nmain \"$@\""
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#script-2-update.sh",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#script-2-update.sh",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Script 2: update.sh",
+    "text": "Script 2: update.sh\n#!/bin/bash\n# ~/dotfiles/update.sh\n\nset -e\n\nDOTFILES=\"$HOME/dotfiles\"\n\ncd \"$DOTFILES\"\n\necho \"🔄 Actualizando dotfiles...\"\n\n# Pull latest changes\ngit pull origin main\n\n# Restow todos los paquetes instalados\nfor package in */; do\n    package=${package%/}\n    \n    # Verificar si está stowed\n    if find \"$HOME\" -maxdepth 2 -type l -lname \"*$DOTFILES/$package/*\" 2&gt;/dev/null | grep -q .; then\n        echo \"↻ Restowing $package...\"\n        stow -R \"$package\"\n    fi\ndone\n\necho \"✓ Actualización completa!\""
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#script-3-check.sh",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#script-3-check.sh",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Script 3: check.sh",
+    "text": "Script 3: check.sh\n#!/bin/bash\n# ~/dotfiles/check.sh\n\nDOTFILES=\"$HOME/dotfiles\"\n\necho \"📋 Estado de paquetes:\"\necho \"====================\"\n\ncd \"$DOTFILES\"\n\nfor package in */; do\n    package=${package%/}\n    \n    if [ \"$package\" = \".git\" ]; then\n        continue\n    fi\n    \n    # Buscar primer archivo del paquete\n    first_file=$(find \"$package\" -type f -o -type l | head -1)\n    \n    if [ -z \"$first_file\" ]; then\n        echo \"⚠️  $package (vacío)\"\n        continue\n    fi\n    \n    # Convertir a path en HOME\n    home_path=\"$HOME/${first_file#$package/}\"\n    \n    if [ -L \"$home_path\" ]; then\n        target=$(readlink \"$home_path\")\n        if [[ \"$target\" == *\"$DOTFILES/$package\"* ]]; then\n            echo \"✅ $package\"\n        else\n            echo \"⚠️  $package (symlink apunta a: $target)\"\n        fi\n    elif [ -e \"$home_path\" ]; then\n        echo \"❌ $package (existe pero no es symlink)\"\n    else\n        echo \"❌ $package (no instalado)\"\n    fi\ndone\n\n# Verificar symlinks rotos\necho \"\"\necho \"🔗 Verificando symlinks rotos...\"\nbroken_links=$(find \"$HOME\" -maxdepth 3 -xtype l -lname \"*$DOTFILES/*\" 2&gt;/dev/null)\n\nif [ -z \"$broken_links\" ]; then\n    echo \"✅ No hay symlinks rotos\"\nelse\n    echo \"⚠️  Symlinks rotos encontrados:\"\n    echo \"$broken_links\"\nfi"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#script-4-clean.sh",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#script-4-clean.sh",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Script 4: clean.sh",
+    "text": "Script 4: clean.sh\n#!/bin/bash\n# ~/dotfiles/clean.sh\n\nDOTFILES=\"$HOME/dotfiles\"\n\necho \"🧹 Limpiando symlinks huérfanos...\"\n\n# Encontrar symlinks rotos que apuntan a dotfiles\nfind \"$HOME\" -maxdepth 3 -xtype l -lname \"*$DOTFILES/*\" 2&gt;/dev/null | while read -r broken_link; do\n    echo \"Eliminando: $broken_link\"\n    rm \"$broken_link\"\ndone\n\necho \"✓ Limpieza completa!\""
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#organización-de-paquetes",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#organización-de-paquetes",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "1. Organización de Paquetes",
+    "text": "1. Organización de Paquetes\nDO:\n# Un paquete por aplicación\n~/dotfiles/\n├── nvim/\n├── zsh/\n└── git/\n\n# Replicar estructura de HOME exactamente\nnvim/\n  └── .config/\n      └── nvim/\n          └── init.lua\nDON’T:\n# Múltiples aplicaciones en un paquete\n~/dotfiles/\n└── configs/\n    ├── .config/nvim/\n    ├── .config/kitty/\n    └── .zshrc\n\n# Estructura diferente a HOME\nnvim/\n  └── init.lua  # ❌ Falta .config/nvim/"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#uso-de-ignore-lists",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#uso-de-ignore-lists",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "2. Uso de Ignore Lists",
+    "text": "2. Uso de Ignore Lists\nDO:\n# Ignorar archivos sensibles\n# .stow-global-ignore\n**/.history\n**/.ssh/id_*\n.netrc\n\n# Ignorar cache por paquete\n# nvim/.stow-local-ignore\n^/\\.config/nvim/plugin/packer_compiled\\.lua\n❌ DON’T:\n# Commit archivos sensibles sin ignorar\ngit add ~/.ssh/id_rsa  # ❌ ¡NUNCA!"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#commits-y-mensajes",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#commits-y-mensajes",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "3. Commits y Mensajes",
+    "text": "3. Commits y Mensajes\nDO:\n# Commits descriptivos y atómicos\ngit commit -m \"feat(nvim): Add LSP configuration for Rust\"\ngit commit -m \"fix(zsh): Correct path to starship prompt\"\n\n# Un cambio lógico por commit\nDON’T:\n# Commits genéricos\ngit commit -m \"Update stuff\"\ngit commit -m \"Changes\"\n\n# Múltiples cambios no relacionados en un commit"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#testing-antes-de-commit",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#testing-antes-de-commit",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "4. Testing Antes de Commit",
+    "text": "4. Testing Antes de Commit\nDO:\n# Siempre test antes de commit\nstow -D nvim  # Desinstalar\nstow nvim     # Reinstalar\n# Verificar que funciona\ngit commit\n\n# Dry run en nueva máquina\nstow -nv */\nDON’T:\n# Commit sin probar\n# Cambios → commit → push → Rompe en otra máquina"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#backup-siempre",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#backup-siempre",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "5. Backup Siempre",
+    "text": "5. Backup Siempre\nDO:\n# Backup antes de stow en nueva máquina\nmkdir ~/backup\ncp -r ~/.config/nvim ~/backup/\n\n# Luego stow\nstow nvim\nDON’T:\n# Stow directamente sin backup\nstow nvim  # ❌ Puede sobrescribir configs importantes"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#documentación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#documentación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "6. Documentación",
+    "text": "6. Documentación\nDO:\n# README.md completo\n# - Qué paquetes hay\n# - Cómo instalar\n# - Dependencias\n# - Comandos útiles\n\n# Comentarios en configs\n# nvim/init.lua\n-- LSP configuration\n-- Requires: nvim-lspconfig plugin\nDON’T:\n# README vacío o sin info\n# Configs sin comentarios"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estructura-consistente",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#estructura-consistente",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "7. Estructura Consistente",
+    "text": "7. Estructura Consistente\nDO:\n# Misma estructura en todos los paquetes\npackage/\n  ├── .stow-local-ignore\n  ├── README.md\n  └── (archivos que van en HOME)\nDON’T:\n# Estructura inconsistente entre paquetes"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#versionado",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#versionado",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "8. Versionado",
+    "text": "8. Versionado\nDO:\n# Tags para versiones estables\ngit tag -a v1.0.0 -m \"Stable nvim config\"\n\n# Branches para experimentar\ngit checkout -b experiment/new-theme\nDON’T:\n# Todo en main sin tags\n# Experimentar directamente en main"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#yadm-yet-another-dotfiles-manager",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#yadm-yet-another-dotfiles-manager",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "1. yadm (Yet Another Dotfiles Manager)",
+    "text": "1. yadm (Yet Another Dotfiles Manager)\nVentajas:\n\nGit nativo, no symlinks\nEncriptación built-in\nTemplates con Jinja2\nBootstrap scripts\n\nDesventajas:\n\nMenos control granular\nTodo en un repo\n\n# Instalar\nsudo apt install yadm\n\n# Usar\nyadm init\nyadm add ~/.zshrc\nyadm commit -m \"Add zshrc\""
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#chezmoi",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#chezmoi",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "2. chezmoi",
+    "text": "2. chezmoi\nVentajas:\n\nTemplates\nSecrets management\nCross-platform\nEstado vs archivos\n\nDesventajas:\n\nMás complejo\nCurva de aprendizaje\n\n# Instalar\nsh -c \"$(curl -fsLS get.chezmoi.io)\"\n\n# Usar\nchezmoi init\nchezmoi add ~/.zshrc"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#dotbot",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#dotbot",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "3. dotbot",
+    "text": "3. dotbot\nVentajas:\n\nBasado en configuración YAML\nBootstrapping automático\nPlugins\n\nDesventajas:\n\nOtra herramienta que aprender\nMenos flexibilidad que Stow\n\n# install.conf.yaml\n- link:\n    ~/.zshrc: zshrc\n    ~/.config/nvim: nvim"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#bare-git-repository",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#bare-git-repository",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "4. Bare Git Repository",
+    "text": "4. Bare Git Repository\nVentajas:\n\nSolo Git, no tools extra\nTotal control\n\nDesventajas:\n\nMás manual\nConflictos con .gitignore\n\n# Setup\ngit init --bare $HOME/.dotfiles\nalias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'\nconfig config --local status.showUntrackedFiles no\n\n# Usar\nconfig add .zshrc\nconfig commit -m \"Add zshrc\""
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#comparación",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#comparación",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Comparación",
+    "text": "Comparación\n\n\n\n\n\n\n\n\n\n\n\nFeature\nStow\nyadm\nchezmoi\ndotbot\nBare Git\n\n\n\n\nSimplicidad\n⭐⭐⭐⭐⭐\n⭐⭐⭐⭐\n⭐⭐⭐\n⭐⭐⭐⭐\n⭐⭐⭐\n\n\nFlexibilidad\n⭐⭐⭐⭐⭐\n⭐⭐⭐\n⭐⭐⭐⭐⭐\n⭐⭐⭐\n⭐⭐⭐⭐⭐\n\n\nTemplates\n❌\n⭐⭐⭐\n⭐⭐⭐⭐⭐\n❌\n❌\n\n\nSecrets\n❌\n⭐⭐⭐⭐\n⭐⭐⭐⭐⭐\n❌\n❌\n\n\nInstalación\nEasy\nEasy\nEasy\nEasy\nNone needed\n\n\nComunidad\nGrande\nMedia\nGrande\nPequeña\nN/A\n\n\n\nRecomendación: Stow es ideal si quieres: - Simplicidad - Control total - Organización por paquetes - Solo symlinks, sin magia"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#resumen-de-stow",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#resumen-de-stow",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Resumen de Stow",
+    "text": "Resumen de Stow\nVentajas:\n\nSimple y directo\nSolo hace una cosa: symlinks\nOrganización clara por paquetes\nNo modifica archivos originales\nFácil de entender y debuggear\nPerfecto para dotfiles\n\nDesventajas:\n\nSin templates\nSin manejo de secrets\nRequiere estructura específica\nPuede ser confuso al principio"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#comandos-esenciales",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#comandos-esenciales",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Comandos Esenciales",
+    "text": "Comandos Esenciales\n# Instalar\nstow paquete\n\n# Desinstalar\nstow -D paquete\n\n# Reinstalar\nstow -R paquete\n\n# Simular\nstow -nv paquete\n\n# Ver qué hace\nstow -vv paquete\n\n# Ignorar archivos\nstow --ignore='patrón' paquete\n\n# Especificar directorios\nstow -d ~/dotfiles -t ~ paquete"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#próximos-pasos",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#próximos-pasos",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Próximos Pasos",
+    "text": "Próximos Pasos\n\nSetup inicial: Crear estructura de dotfiles\nMigrar configs: Mover configs existentes a paquetes\nStow todo: Instalar con stow\nGit: Versionar con Git\nProbar: En máquina de prueba o VM\nIterar: Mejorar organización según necesites"
+  },
+  {
+    "objectID": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#recursos-adicionales",
+    "href": "operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html#recursos-adicionales",
+    "title": "Gestiona dotfiles fácilmente con GNU Stow",
+    "section": "Recursos Adicionales",
+    "text": "Recursos Adicionales\nDocumentación:\n\nManual oficial: man stow\nInfo pages: info stow\nWeb: https://www.gnu.org/software/stow/\n\nComunidad:\n\nr/unixporn (ejemplos de dotfiles)\nGitHub topic: dotfiles\nYouTube: “dotfiles management”\n\nEjemplos de dotfiles con Stow:\n\nhttps://github.com/search?q=stow+dotfiles\nhttps://dotfiles.github.io/"
   }
 ]
