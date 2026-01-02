@@ -231,7 +231,7 @@ stow --help
 
 ## Terminología Clave
 
-## 1. Package (Paquete)
+### Package (Paquete)
 
 Una colección relacionada de archivos y directorios que administras como una unidad.
 
@@ -247,7 +247,7 @@ nvim/
         └── nvim/
 ```
 
-## 2. Target Directory (Directorio Objetivo)
+### Target Directory (Directorio Objetivo)
 
 El directorio raíz donde quieres que aparezcan instalados tus paquetes.
 
@@ -259,7 +259,7 @@ Target: ~/ (tu HOME)
 Target: /usr/local
 ```
 
-## 3. Stow Directory (Directorio Stow)
+### Stow Directory (Directorio Stow)
 
 El directorio raíz que contiene todos tus paquetes en subdirectorios separados.
 
@@ -271,7 +271,7 @@ Stow dir: ~/dotfiles/
 Stow dir: /usr/local/stow/
 ```
 
-## 4. Installation Image (Imagen de Instalación)
+### Installation Image (Imagen de Instalación)
 
 La estructura de archivos y directorios requerida por un paquete, relativa al target directory.
 
@@ -285,7 +285,7 @@ zsh/
         └── aliases.zsh
 ```
 
-## 5. Symlink (Enlace Simbólico)
+### Symlink (Enlace Simbólico)
 
 Un archivo especial que apunta a otro archivo o directorio.
 
@@ -330,7 +330,6 @@ Un archivo especial que apunta a otro archivo o directorio.
 └─────────────────────────────────────────┘
 ```
 
-
 # Sintaxis y Comandos
 
 ## Sintaxis Básica
@@ -341,7 +340,7 @@ stow [opciones] [flags de acción] paquete1 paquete2 ...
 
 ## Acciones Principales
 
-## 1. Stow (Instalar)
+### Stow (Instalar)
 
 ```bash
 # Instalar un paquete
@@ -355,7 +354,7 @@ stow -S nvim
 stow --stow nvim
 ```
 
-## 2. Delete (Desinstalar)
+### Delete (Desinstalar)
 
 ```bash
 # Desinstalar un paquete
@@ -366,7 +365,7 @@ stow --delete nvim
 stow -D nvim zsh kitty
 ```
 
-## 3. Restow (Reinstalar)
+### Restow (Reinstalar)
 
 ```bash
 # Unstow + Stow en una operación
@@ -378,7 +377,7 @@ stow --restow nvim
 
 ## Opciones de Directorio
 
-## `-d` / `--dir` (Stow Directory)
+### `-d` / `--dir` (Stow Directory)
 
 ```bash
 # Especificar stow directory
@@ -387,7 +386,7 @@ stow -d ~/mis-dotfiles -t ~ nvim
 # Default: directorio actual
 ```
 
-## `-t` / `--target` (Target Directory)
+### `-t` / `--target` (Target Directory)
 
 ```bash
 # Especificar target directory
@@ -416,7 +415,7 @@ stow -t /usr/local myapp
 
 ## Opciones de Simulación y Verbosidad
 
-## `-n` / `--no` / `--simulate` (Dry Run)
+### `-n` / `--no` / `--simulate` (Dry Run)
 
 ```bash
 # Mostrar qué haría sin hacer cambios
@@ -427,7 +426,7 @@ stow --simulate nvim
 stow -nv nvim
 ```
 
-## `-v` / `--verbose` (Verbosidad)
+### `-v` / `--verbose` (Verbosidad)
 
 ```bash
 # Niveles de verbosidad: 0-5
@@ -451,7 +450,7 @@ All operations aborted.
 
 ## Opciones Avanzadas
 
-## `--ignore` (Ignorar Archivos)
+### `--ignore` (Ignorar Archivos)
 
 ```bash
 # Ignorar archivos que coincidan con regexp
@@ -461,21 +460,21 @@ stow --ignore='.*\.orig' --ignore='.*\.dist' nvim
 stow --ignore='README.*' --ignore='.*~' nvim
 ```
 
-## `--defer` (Diferir)
+### `--defer` (Diferir)
 
 ```bash
 # No sobrescribir si ya existe desde otro paquete
 stow --defer=man --defer=info perl
 ```
 
-## `--override` (Sobrescribir)
+### `--override` (Sobrescribir)
 
 ```bash
 # Forzar sobrescribir symlinks existentes
 stow --override=man --override=info perl
 ```
 
-## `--dotfiles` (Modo Dotfiles)
+### `--dotfiles` (Modo Dotfiles)
 
 ```bash
 # Transforma "dot-" en "."
@@ -487,7 +486,7 @@ bash/
   └── dot-bashrc    # Se convierte en ~/.bashrc
 ```
 
-## `--no-folding` (Sin Tree Folding)
+### `--no-folding` (Sin Tree Folding)
 
 ```bash
 # Desactivar tree folding
@@ -496,7 +495,7 @@ stow --no-folding nvim
 # Crea directorios en lugar de symlinks a directorios
 ```
 
-## `--adopt` (Adoptar Archivos)
+### `--adopt` (Adoptar Archivos)
 
 ```bash
 # CUIDADO: Modifica el stow directory
@@ -565,7 +564,7 @@ stow -S pkg1 pkg2 -D pkg3 pkg4 -S pkg5 -R pkg6
 
 ## Principios de Organización
 
-## 1. Un Directorio = Un Paquete
+### Un Directorio = Un Paquete
 
 ```bash
 # Bien: un paquete por aplicación
@@ -581,7 +580,7 @@ editors/
   └── .vimrc
 ```
 
-## 2. Replicar Estructura del HOME
+### Replicar Estructura del HOME
 
 ```bash
 # El contenido del paquete debe replicar la estructura de ~/
@@ -598,7 +597,7 @@ kitty/
   └── kitty.conf            # falta .config/
 ```
 
-## 3. Agrupar Lógicamente
+### Agrupar Lógicamente
 
 ```bash
 # Opción 1: Por aplicación
@@ -621,7 +620,7 @@ kitty/
 
 ## Ejemplos de Estructuras
 
-## Estructura Simple
+### Estructura Simple
 
 ```bash
 ~/dotfiles/
@@ -683,7 +682,7 @@ stow bash git vim nvim kitty zsh
 ~/.vimrc -> dotfiles/vim/.vimrc
 ```
 
-## Estructura Compleja
+### Estructura Compleja
 
 ```bash
 ~/dotfiles/
@@ -714,7 +713,7 @@ stow bash git vim nvim kitty zsh
 
 ## Proceso de Instalación
 
-## 1. Tree Folding (Plegado de Árbol)
+### Tree Folding (Plegado de Árbol)
 
 Stow intenta crear el **mínimo número de symlinks** posible.
 
@@ -766,7 +765,7 @@ stow nvim
   └── nvim -> ../dotfiles/nvim/.config/nvim/
 ```
 
-## 2. Tree Unfolding (Desplegado de Árbol)
+### Tree Unfolding (Desplegado de Árbol)
 
 Cuando un symlink plegado debe ser "abierto" para acomodar otro paquete.
 
@@ -842,7 +841,7 @@ stow nvim vim emacs
 
 ## Proceso de Desinstalación
 
-## 1. Eliminación de Symlinks
+### Eliminación de Symlinks
 
 ```bash
 # Paquete instalado:
@@ -856,7 +855,7 @@ stow -D zsh
 # ~/.zshrc eliminado (porque era symlink a stow package)
 ```
 
-## 2. Eliminación de Directorios Vacíos
+### Eliminación de Directorios Vacíos
 
 ```bash
 # Antes:
@@ -870,7 +869,7 @@ stow -D nvim
 # ~/.config/ eliminado (si quedó vacío)
 ```
 
-## 3. Tree Refolding (Re-plegado)
+### Tree Refolding (Re-plegado)
 
 Después de eliminar symlinks, si un directorio contiene solo symlinks a un único paquete, Stow lo "re-pliega".
 
@@ -985,7 +984,7 @@ stow nvim
 
 ## Setup Inicial
 
-## 1. Crear Estructura
+### Crear Estructura
 
 ```bash
 # Crear directorio para dotfiles
@@ -996,7 +995,7 @@ cd ~/dotfiles
 git init
 ```
 
-## 2. Mover Configuraciones Existentes
+### Mover Configuraciones Existentes
 
 **Método manual:**
 
@@ -1040,7 +1039,7 @@ cd "$DOTFILES"
 stow zsh nvim git
 ```
 
-## 3. Usar `--adopt` (Con Precaución)
+### Usar `--adopt` (Con Precaución)
 
 ```bash
 # Crear estructura primero
@@ -1057,7 +1056,7 @@ stow --adopt nvim
 
 ## Workflow Diario
 
-## Editar Configuraciones
+### Editar Configuraciones
 
 ```bash
 # Los symlinks te permiten editar en cualquier lugar:
@@ -1069,7 +1068,7 @@ nvim ~/.zshrc              # Edita ~/dotfiles/zsh/.zshrc
 nvim ~/dotfiles/zsh/.zshrc # Mismo archivo
 ```
 
-## Agregar Nueva Aplicación
+### Agregar Nueva Aplicación
 
 ```bash
 # 1. Crear paquete
@@ -1090,7 +1089,7 @@ git add new-app/
 git commit -m "Add new-app configuration"
 ```
 
-## Sincronizar con Git
+### Sincronizar con Git
 
 ```bash
 cd ~/dotfiles
@@ -1107,7 +1106,7 @@ stow nvim  # o stow -R nvim si ya estaba instalado
 
 ## Manejo de Archivos Sensibles
 
-## Estrategia 1: .gitignore
+### Estrategia 1: .gitignore
 
 ```bash
 # ~/dotfiles/.gitignore
@@ -1125,7 +1124,7 @@ stow nvim  # o stow -R nvim si ya estaba instalado
 .config/gh/hosts.yml
 ```
 
-## Estrategia 2: Archivos Template
+### Estrategia 2: Archivos Template
 
 ```bash
 # Crear template sin datos sensibles
@@ -1146,7 +1145,7 @@ if [ ! -f ~/dotfiles/git/.gitconfig.local ]; then
 fi
 ```
 
-## Estrategia 3: Encriptación
+### Estrategia 3: Encriptación
 
 ```bash
 # Usar git-crypt o similar
@@ -1208,7 +1207,7 @@ esac
 
 ## Tipos de Ignore Lists
 
-## 1. Built-in (Predeterminado)
+### Built-in (Predeterminado)
 
 Stow ignora automáticamente:
 
@@ -1231,7 +1230,7 @@ _darcs
 ^/COPYING
 ```
 
-## 2. Global Ignore List
+### Global Ignore List
 
 Archivo: `~/.stow-global-ignore`
 
@@ -1261,7 +1260,7 @@ __pycache__
 *.pyc
 ```
 
-## 3. Package-Local Ignore List
+### Package-Local Ignore List
 
 Archivo: `<package>/.stow-local-ignore`
 
@@ -1283,7 +1282,7 @@ Archivo: `<package>/.stow-local-ignore`
 
 ## Sintaxis de Ignore Lists
 
-## Reglas de Matching
+### Reglas de Matching
 
 **1. Expresiones con `/` (path completo):**
 
@@ -1301,7 +1300,7 @@ README.*      # Cualquier README en cualquier ubicación
 .*\.log       # Archivos .log en cualquier ubicación
 ```
 
-## Ejemplos Prácticos
+### Ejemplos Prácticos
 
 **Ejemplo 1: Ignorar documentación:**
 
@@ -1362,7 +1361,7 @@ stow --ignore='.*\.orig|.*\.dist' nvim
 
 ## Tree Folding Control
 
-## `--no-folding`
+### `--no-folding`
 
 Desactiva tree folding completamente.
 
@@ -1389,7 +1388,7 @@ stow --no-folding nvim
 
 ## Adopt Mode
 
-## `--adopt`
+### `--adopt`
 
 **ADVERTENCIA:** Modifica el contenido del stow directory.
 
@@ -1429,7 +1428,7 @@ git checkout HEAD -- .  # Descartar cambios adoptados
 
 ## Defer y Override
 
-## `--defer`
+### `--defer`
 
 Evita stowing si el archivo ya está stowed por otro paquete.
 
@@ -1456,7 +1455,7 @@ stow --defer='.config/shared/config.txt' paquete-b
 # B no sobrescribirá config.txt de A
 ```
 
-## `--override`
+### `--override`
 
 Fuerza stowing incluso si ya existe symlink de otro paquete.
 
@@ -1472,7 +1471,7 @@ stow --override='.config/shared/' paquete-b
 
 ## Dotfiles Mode
 
-## `--dotfiles`
+### `--dotfiles`
 
 Transforma `dot-` en `.` al hacer stow.
 
@@ -1746,7 +1745,6 @@ jobs:
         fi
 ```
 
-
 # Troubleshooting
 
 ## Problema 1: Conflictos al Stow
@@ -2010,7 +2008,6 @@ stow nvim zsh git  # Solo los necesarios
 ```bash
 # Dividir paquetes grandes en paquetes más pequeños
 ```
-
 
 # Scripts de Automatización
 
@@ -2810,24 +2807,25 @@ git push -u origin main
 
 ```bash
 cat > README.md << 'EOF'
+
 # Dotfiles
 
 Configuraciones personales para Archcraft/Kubuntu gestionadas con GNU Stow.
 
-# Estructura
+## Estructura
 
-```
+``
 ~/dotfiles/
 ├── git/          # Git config
 ├── shell/        # Zsh + Starship
 ├── terminal/     # Konsole
 ├── vscode/       # Visual Studio Code
 └── kde/          # KDE Plasma
-```
+``
 
-# Instalación
+## Instalación
 
-```bash
+``bash
 # Clonar
 git clone https://github.com/achalmaedison/.dotfiles.git ~/dotfiles
 
@@ -2842,17 +2840,17 @@ cd ~/dotfiles
 
 # O instalar selectivo
 stow git shell terminal
-```
+``
 
-### Actualizar
+## Actualizar
 
-```bash
+``bash
 cd ~/dotfiles
 git pull
 stow -R */
-```
+``
 
-### Requisitos
+## Requisitos
 
 - stow
 - git
@@ -2860,15 +2858,12 @@ stow -R */
 - starship (opcional)
 - VSCode (opcional)
 - KDE Plasma (opcional)
-
-```
 EOF
 
 git add README.md
 git commit -m "docs: Add README"
 git push
 ```
-
 
 ## Caso 2: Replicar Dotfiles en Laptop Nueva
 
@@ -4297,18 +4292,18 @@ Personal configurations managed with GNU Stow.
 
 # Structure
 
-```
+``
 ~/dotfiles/
 ├── git/          # Git config
 ├── shell/        # Zsh
 ├── nvim/         # Neovim
 ├── terminal/     # Konsole
 └── vscode/       # VSCode
-```
+``
 
-# Installation
+## Installation
 
-```bash
+``bash
 # Install Stow
 sudo pacman -S stow
 
@@ -4321,17 +4316,16 @@ stow */
 
 # Or selective
 stow git shell nvim
-```
+``
 
-### Update
+## Update
 
-```bash
+``bash
 cd ~/dotfiles
 git pull
 stow -R */
-```
+``
 
-```
 EOF
 
 git add README.md
@@ -4632,9 +4626,9 @@ direnv allow
 └── ... (más paquetes)
 ```
 
-## Implementación de Stow en mi Repo
+## Implementación de Stow
 
-## 1. Script install.sh
+### Script install.sh
 
 Mi `install.sh` actual debe usar Stow. Aquí está mi versión mejorada:
 
@@ -4756,7 +4750,7 @@ fi
 # (modificar script para agregar -n flag)
 ```
 
-## 2. Script para Desinstalar
+### Script para Desinstalar
 
 ```bash
 #!/bin/bash
@@ -4785,7 +4779,7 @@ for package in "${PACKAGES[@]}"; do
 done
 ```
 
-## 3. Reorganizar Paquetes Problemáticos
+### Reorganizar Paquetes Problemáticos
 
 **Zotero:** Ubicación no estándar
 
@@ -4823,7 +4817,7 @@ stow obsidian
 # Resultado: ~/Documents/thoughts/.obsidian → ...
 ```
 
-## 4. .stowrc para tu Repo
+### .stowrc
 
 Crear `~/dotfiles/.stowrc`:
 
@@ -4846,7 +4840,7 @@ Crear `~/dotfiles/.stowrc`:
 
 Con esto, no necesitas especificar `-t ~` cada vez.
 
-## 5. .stow-local-ignore por Paquete
+### .stow-local-ignore por Paquete
 
 **Para vscode:**
 
@@ -4882,7 +4876,7 @@ Con esto, no necesitas especificar `-t ~` cada vez.
 \.zcompdump
 ```
 
-## 6. Script de Verificación
+### Script de Verificación
 
 ```bash
 #!/bin/bash
@@ -4923,7 +4917,7 @@ for package in */; do
 done
 ```
 
-## 7. Actualizar .gitignore
+### Actualizar .gitignore
 
 ```bash
 # ~/dotfiles/.gitignore
@@ -4963,7 +4957,7 @@ zotero/.zotero/zotero/*/zotero.sqlite*
 vscode/.config/Code/User/workspaceStorage/
 ```
 
-## 8. Comandos Útiles para tu Repo
+### Comandos Útiles
 
 ```bash
 # Navegar a dotfiles
@@ -4995,7 +4989,7 @@ git add new-app/
 git commit -m "Add new-app"
 ```
 
-# Workflows Completos
+# Workflows
 
 ## Workflow 1: Configuración Inicial
 
@@ -5115,7 +5109,7 @@ nvim --version
 
 # Best Practices
 
-## 1. Organización de Paquetes
+## Organización de Paquetes
 
 **DO:**
 
@@ -5148,7 +5142,7 @@ nvim/
   └── init.lua  # ❌ Falta .config/nvim/
 ```
 
-## 2. Uso de Ignore Lists
+## Uso de Ignore Lists
 
 **DO:**
 
@@ -5171,7 +5165,7 @@ nvim/
 git add ~/.ssh/id_rsa  # ❌ ¡NUNCA!
 ```
 
-## 3. Commits y Mensajes
+## Commits y Mensajes
 
 **DO:**
 
@@ -5193,7 +5187,7 @@ git commit -m "Changes"
 # Múltiples cambios no relacionados en un commit
 ```
 
-## 4. Testing Antes de Commit
+## Testing Antes de Commit
 
 **DO:**
 
@@ -5215,7 +5209,7 @@ stow -nv */
 # Cambios → commit → push → Rompe en otra máquina
 ```
 
-## 5. Backup Siempre
+## Backup Siempre
 
 **DO:**
 
@@ -5235,7 +5229,7 @@ stow nvim
 stow nvim  # ❌ Puede sobrescribir configs importantes
 ```
 
-## 6. Documentación
+## Documentación
 
 **DO:**
 
@@ -5259,7 +5253,7 @@ stow nvim  # ❌ Puede sobrescribir configs importantes
 # Configs sin comentarios
 ```
 
-## 7. Estructura Consistente
+## Estructura Consistente
 
 **DO:**
 
@@ -5277,7 +5271,7 @@ package/
 # Estructura inconsistente entre paquetes
 ```
 
-## 8. Versionado
+## Versionado
 
 **DO:**
 
@@ -5299,7 +5293,7 @@ git checkout -b experiment/new-theme
 
 # Alternativas a Stow
 
-## 1. yadm (Yet Another Dotfiles Manager)
+## Yadm (Yet Another Dotfiles Manager)
 
 **Ventajas:**
 
@@ -5323,7 +5317,7 @@ yadm add ~/.zshrc
 yadm commit -m "Add zshrc"
 ```
 
-## 2. chezmoi
+## Chezmoi
 
 **Ventajas:**
 
@@ -5346,7 +5340,7 @@ chezmoi init
 chezmoi add ~/.zshrc
 ```
 
-## 3. dotbot
+## Dotbot
 
 **Ventajas:**
 
@@ -5366,7 +5360,7 @@ chezmoi add ~/.zshrc
     ~/.config/nvim: nvim
 ```
 
-## 4. Bare Git Repository
+## Bare Git Repository
 
 **Ventajas:**
 
