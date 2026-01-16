@@ -41,9 +41,10 @@ citation:
   pdf-url: https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github/index.pdf
 date: 12/31/2025
 draft: false
-image: ../featured.jpg
+image: featured.jpg
 ---
 
+![](featured.png)
 
 **¿Qué es Positron?**
 
@@ -1521,7 +1522,7 @@ execute:
 
 Este es un documento Quarto.
 
-::: {#3044972b .cell}
+::: {#a7433491 .cell}
 ``` {.python .cell-code}
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -1534,7 +1535,7 @@ df.head()
 
 # Análisis
 
-::: {#8ae848a6 .cell}
+::: {#ce605b12 .cell}
 ``` {.python .cell-code}
 plt.plot(df['x'], df['y'])
 plt.show()

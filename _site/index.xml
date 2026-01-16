@@ -26,46 +26,51 @@ Incluye notas y tutoriales para mi futuro y espero que también para ti.&lt;br&g
   <description><![CDATA[ 
 
 <style>
-:root {
---primary-color: ;
-}
-#title-block-header {
-width: 100%;
-overflow: hidden;
-position: relative;
-}
-.title-block-content {
-position: relative;
-padding-top: 60px;
+  :root {
+    --primary-color: ;
+  }
 
-padding-bottom: 60px;
+  #title-block-header {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
 
-max-width: 752px;
-margin: 0 auto;
-z-index: 1;
-}
-#particles-js {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-z-index: 0;
-}
-.bg-image {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-object-fit: cover;
-z-index: 0;
-}
+  .title-block-content {
+    position: relative;
+    padding-top: 60px;
+    /* Reducido de 130px */
+    padding-bottom: 60px;
+    /* Reducido de 130px */
+    max-width: 752px;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  #particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
 </style>
 
 
 
 
+<p><a href="featured.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/featured.png" class="img-fluid"></a></p>
 <p><strong>¿Qué es Positron?</strong></p>
 <p>Positron es un IDE moderno y extensible para ciencia de datos construido sobre <strong>Code OSS</strong> (el núcleo open-source de VS Code). Desarrollado por <strong>Posit Software</strong> (anteriormente RStudio), está diseñado específicamente para flujos de trabajo de ciencia de datos.</p>
 <p><strong>Características Principales:</strong></p>
@@ -4178,7 +4183,7 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">{</span><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">#3044972b .cell}</span></span>
+font-style: inherit;">#a7433491 .cell}</span></span>
 <span id="cb73-14"><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">``` {.python .cell-code</span><span class="kw" style="color: #003B4F;
@@ -4203,16 +4208,13 @@ font-style: inherit;">df.head()</span></span></code></pre></div></div>
 </section>
 <section id="análisis" class="level1">
 <h1>Análisis</h1>
-<div id="8ae848a6" class="cell">
-<details class="code-fold">
-<summary>Mostrar el código</summary>
+<div id="ce605b12" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1">plt.plot(df[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'x'</span>], df[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'y'</span>])</span>
 <span id="cb74-2">plt.show()</span></code></pre></div></div>
-</details>
 </div>
 <section id="renderizar" class="level2">
 <h2 class="anchored" data-anchor-id="renderizar">Renderizar</h2>
@@ -6719,7 +6721,7 @@ December. <a href="https://chaska-x.netlify.app/operating-system/2025-12-31-guia
   <category>Operating System</category>
   <guid>https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/</guid>
   <pubDate>Wed, 31 Dec 2025 05:00:00 GMT</pubDate>
-  <media:content url="https://chaska-x.netlify.app/operating-system/featured.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/featured.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Guía Completa de Kitty Terminal</title>
@@ -6728,46 +6730,51 @@ December. <a href="https://chaska-x.netlify.app/operating-system/2025-12-31-guia
   <description><![CDATA[ 
 
 <style>
-:root {
---primary-color: ;
-}
-#title-block-header {
-width: 100%;
-overflow: hidden;
-position: relative;
-}
-.title-block-content {
-position: relative;
-padding-top: 60px;
+  :root {
+    --primary-color: ;
+  }
 
-padding-bottom: 60px;
+  #title-block-header {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
 
-max-width: 752px;
-margin: 0 auto;
-z-index: 1;
-}
-#particles-js {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-z-index: 0;
-}
-.bg-image {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-object-fit: cover;
-z-index: 0;
-}
+  .title-block-content {
+    position: relative;
+    padding-top: 60px;
+    /* Reducido de 130px */
+    padding-bottom: 60px;
+    /* Reducido de 130px */
+    max-width: 752px;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  #particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
 </style>
 
 
 
 
+<p><a href="featured.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/featured.png" class="img-fluid"></a></p>
 <p><strong>¿Qué es Kitty?</strong></p>
 <p>Kitty es un emulador de terminal moderno, rápido y rico en características, diseñado desde cero para aprovechar las GPUs modernas. Creado por Kovid Goyal, es conocido por:</p>
 <p><strong>Características Principales:</strong></p>
@@ -15013,7 +15020,7 @@ December. <a href="https://chaska-x.netlify.app/operating-system/2025-12-31-guia
   <category>Operating System</category>
   <guid>https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/</guid>
   <pubDate>Wed, 31 Dec 2025 05:00:00 GMT</pubDate>
-  <media:content url="https://chaska-x.netlify.app/operating-system/featured.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/featured.png" medium="image" type="image/png" height="78" width="144"/>
 </item>
 <item>
   <title>Guía Completa de Ranger</title>
@@ -15022,46 +15029,51 @@ December. <a href="https://chaska-x.netlify.app/operating-system/2025-12-31-guia
   <description><![CDATA[ 
 
 <style>
-:root {
---primary-color: ;
-}
-#title-block-header {
-width: 100%;
-overflow: hidden;
-position: relative;
-}
-.title-block-content {
-position: relative;
-padding-top: 60px;
+  :root {
+    --primary-color: ;
+  }
 
-padding-bottom: 60px;
+  #title-block-header {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
 
-max-width: 752px;
-margin: 0 auto;
-z-index: 1;
-}
-#particles-js {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-z-index: 0;
-}
-.bg-image {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-object-fit: cover;
-z-index: 0;
-}
+  .title-block-content {
+    position: relative;
+    padding-top: 60px;
+    /* Reducido de 130px */
+    padding-bottom: 60px;
+    /* Reducido de 130px */
+    max-width: 752px;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  #particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
 </style>
 
 
 
 
+<p><a href="featured.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/featured.png" class="img-fluid"></a></p>
 <p><strong>¿Qué es Ranger?</strong></p>
 <p>Ranger es un gestor de archivos de consola con:</p>
 <ul>
@@ -19610,7 +19622,7 @@ Achalma, Edison. 2025. <span>“Guía Completa de Ranger,”</span> December.
   <category>Operating System</category>
   <guid>https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/</guid>
   <pubDate>Tue, 30 Dec 2025 05:00:00 GMT</pubDate>
-  <media:content url="https://chaska-x.netlify.app/operating-system/featured.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/featured.png" medium="image" type="image/png" height="78" width="144"/>
 </item>
 <item>
   <title>Gestiona dotfiles fácilmente con GNU Stow</title>

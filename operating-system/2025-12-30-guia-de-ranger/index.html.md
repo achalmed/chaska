@@ -37,8 +37,10 @@ citation:
   pdf-url: https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github/index.pdf
 date: 12/30/2025
 draft: false
-image: ../featured.jpg
+image: featured.png
 ---
+
+![](featured.png)
 
 **¿Qué es Ranger?**
 
