@@ -41,7 +41,7 @@ citation:
   pdf-url: https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github/index.pdf
 date: 12/31/2025
 draft: false
-image: featured.jpg
+image: featured.png
 ---
 
 ![](featured.png)
@@ -1522,7 +1522,7 @@ execute:
 
 Este es un documento Quarto.
 
-::: {#a7433491 .cell}
+::: {#f430b798 .cell}
 ``` {.python .cell-code}
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -1535,7 +1535,7 @@ df.head()
 
 # Análisis
 
-::: {#ce605b12 .cell}
+::: {#01cf9fca .cell}
 ``` {.python .cell-code}
 plt.plot(df['x'], df['y'])
 plt.show()

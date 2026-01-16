@@ -4337,7 +4337,7 @@
     "href": "operating-system/2025-12-31-guia-de-positron-ide/index.html#crear-documento-quarto",
     "title": "Guía Completa de Positron IDE",
     "section": "Crear Documento Quarto",
-    "text": "Crear Documento Quarto\nNuevo archivo:\nFile → New File → Quarto Document\nEstructura básica (.qmd):\n---\ntitle: \"Mi Documento\"\nauthor: \"Tu Nombre\"\nformat: html\nexecute:\n  echo: true\n---\n\n# Introducción\n\nEste es un documento Quarto.\n\n::: {#a7433491 .cell}\n``` {.python .cell-code}\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ndf = pd.read_csv('data.csv')\ndf.head()\n:::"
+    "text": "Crear Documento Quarto\nNuevo archivo:\nFile → New File → Quarto Document\nEstructura básica (.qmd):\n---\ntitle: \"Mi Documento\"\nauthor: \"Tu Nombre\"\nformat: html\nexecute:\n  echo: true\n---\n\n# Introducción\n\nEste es un documento Quarto.\n\n::: {#f430b798 .cell}\n``` {.python .cell-code}\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ndf = pd.read_csv('data.csv')\ndf.head()\n:::"
   },
   {
     "objectID": "operating-system/2025-12-31-guia-de-positron-ide/index.html#preview",
