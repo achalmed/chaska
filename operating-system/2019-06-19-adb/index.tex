@@ -1,5 +1,5 @@
 \documentclass[
-  jou,
+  doc,
   floatsintext,
   longtable,
   a4paper,
@@ -12,6 +12,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 
+\geometry{inner=1in, outer=1in}
+\fancyhfoffset[LE,RO]{0cm}
 
 
 \usepackage[bidi=default]{babel}
@@ -203,56 +205,42 @@ contenido final del artículo. }
 \par{   El autor no tiene conflictos de interés que revelar.    Los
 roles de autor se clasificaron utilizando la taxonomía de roles de
 colaborador (CRediT; https://credit.niso.org/) de la siguiente
-manera:  Edison Achalma:   conceptualización, redacción}
+manera:  Edison Achalma:   conceptualización, metodología, análisis
+formal, investigación, recursos, curación de
+datos, redacción, visualización, supervisión, administración del
+proyecto}
 \par{La correspondencia relativa a este artículo debe dirigirse a Edison
-Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@unsch.edu.pe}}
+Achalma, Escuela Profesional de Economía, Universidad Nacional de San
+Cristóbal de Huamanga, Portal Independencia N°
+57, Ayacucho, AYA 5001, Perú, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@unsch.edu.pe}}
 }
-
-\usepackage{pbalance}
-% \usepackage{float}
-\makeatletter
-\let\oldtpt\ThreePartTable
-\let\endoldtpt\endThreePartTable
-\def\ThreePartTable{\@ifnextchar[\ThreePartTable@i \ThreePartTable@ii}
-\def\ThreePartTable@i[#1]{\begin{figure}[!htbp]
-\onecolumn
-\begin{minipage}{0.485\textwidth}
-\oldtpt[#1]
-}
-\def\ThreePartTable@ii{\begin{figure}[!htbp]
-\onecolumn
-\begin{minipage}{0.48\textwidth}
-\oldtpt
-}
-\def\endThreePartTable{
-\endoldtpt
-\end{minipage}
-\twocolumn
-\end{figure}}
-\makeatother
-
 
 \makeatletter
-\let\endoldlt\endlongtable		
+\let\endoldlt\endlongtable
 \def\endlongtable{
 \hline
-\endoldlt}
+\endoldlt
+}
 \makeatother
-
-\newenvironment{twocolumntable}% environment name
-{% begin code
-\begin{table*}[!htbp]%
-\onecolumn%
-}%
-{%
-\twocolumn%
-\end{table*}%
-}% end code
 
 \urlstyle{same}
 
 
 
+\usepackage{hyperref}
+\hypersetup{
+  pdftitle={Guía completa de comandos ADB Android},
+  pdfauthor={Edison Achalma},
+  pdfsubject={Este abstract será actualizado una vez que se complete el contenido final del artículo.},
+  pdfkeywords={keyword1, keyword2},
+  unicode=true,
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdfcreator={Quarto},
+  pdflang={es}
+}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -285,8 +273,8 @@ Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@uns
 \@ifpackageloaded{float}{}{\usepackage{float}}
 \floatstyle{ruled}
 \@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
-\floatname{codelisting}{Listing}
-\newcommand*\listoflistings{\listof{codelisting}{Lista de Listings}}
+\floatname{codelisting}{Listado}
+\newcommand*\listoflistings{\listof{codelisting}{Lista de Listados}}
 \makeatother
 \makeatletter
 \makeatother
@@ -345,6 +333,1442 @@ Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@uns
 
 
 
+\section{ADB}\label{adb}
+
+\subsection{¿Qué es Android Debug
+Bridge?}\label{quuxe9-es-android-debug-bridge}
+
+\textbf{Android Debug Bridge (ADB)} es una herramienta de línea de
+comandos versátil que permite comunicarte con dispositivos Android. Es
+parte esencial del SDK de Android y proporciona acceso completo al
+sistema operativo del dispositivo.
+
+\subsection{Componentes de ADB}\label{componentes-de-adb}
+
+ADB es un programa cliente-servidor con tres componentes:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Cliente}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Se ejecuta en tu computadora (Arch Linux)
+  \item
+    Envía comandos al servidor
+  \item
+    Se invoca desde la terminal con \texttt{adb}
+  \end{itemize}
+\item
+  \textbf{Daemon (adbd)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Se ejecuta en el dispositivo Android
+  \item
+    Ejecuta los comandos recibidos
+  \item
+    Proceso en segundo plano
+  \end{itemize}
+\item
+  \textbf{Servidor}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Se ejecuta en tu computadora
+  \item
+    Gestiona la comunicación entre cliente y daemon
+  \item
+    Puerto TCP 5037
+  \item
+    Proceso en segundo plano
+  \end{itemize}
+\end{enumerate}
+
+\subsection{Funcionamiento}\label{funcionamiento}
+
+\begin{verbatim}
+┌─────────────────────────────────────────────┐
+│          ARCH LINUX (Host)                  │
+│                                             │
+│  ┌──────────┐         ┌──────────┐         │
+│  │ Cliente  │────────▶│ Servidor │         │
+│  │   adb    │         │ (puerto  │         │
+│  │          │         │  5037)   │         │
+│  └──────────┘         └─────┬────┘         │
+│                             │              │
+└─────────────────────────────┼──────────────┘
+                              │
+                              │ USB / WiFi
+                              │
+┌─────────────────────────────▼──────────────┐
+│       DISPOSITIVO ANDROID                  │
+│                                            │
+│         ┌──────────────┐                   │
+│         │   Daemon     │                   │
+│         │   (adbd)     │                   │
+│         └──────────────┘                   │
+│                                            │
+└────────────────────────────────────────────┘
+\end{verbatim}
+
+\subsection{Ventajas de ADB}\label{ventajas-de-adb}
+
+\textbf{Para desarrollo:}
+
+\begin{itemize}
+\tightlist
+\item
+  Instalar y depurar aplicaciones
+\item
+  Acceder al shell Unix del dispositivo
+\item
+  Copiar archivos bidireccional
+\item
+  Ejecutar comandos del sistema
+\end{itemize}
+
+\textbf{Para testing:}
+
+\begin{itemize}
+\tightlist
+\item
+  Automatizar pruebas
+\item
+  Capturar logs y errores
+\item
+  Simular eventos del usuario
+\item
+  Modificar configuraciones
+\end{itemize}
+
+\textbf{Para gestión:}
+
+\begin{itemize}
+\tightlist
+\item
+  Instalar APKs sin Google Play
+\item
+  Hacer backups de datos
+\item
+  Capturar pantalla y video
+\item
+  Analizar rendimiento
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Arquitectura de ADB}\label{arquitectura-de-adb}
+
+\subsection{Proceso de Conexión}\label{proceso-de-conexiuxf3n}
+
+\textbf{1. Inicio del Cliente}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{adb}\NormalTok{ devices}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{2. Verificación del Servidor}
+
+\begin{itemize}
+\tightlist
+\item
+  Si no hay servidor corriendo → lo inicia
+\item
+  El servidor se vincula al puerto 5037
+\item
+  Escucha comandos de clientes
+\end{itemize}
+
+\textbf{3. Detección de Dispositivos}
+
+\begin{itemize}
+\tightlist
+\item
+  Escanea puertos USB
+\item
+  Escanea puertos de red (5555-5585)
+\item
+  Establece conexión con daemon (adbd)
+\end{itemize}
+
+\textbf{4. Comunicación}
+
+\begin{itemize}
+\tightlist
+\item
+  Cliente envía comando al servidor
+\item
+  Servidor envía comando al daemon
+\item
+  Daemon ejecuta y responde
+\item
+  Respuesta llega al cliente
+\end{itemize}
+
+\subsection{Puertos y Conexiones}\label{puertos-y-conexiones}
+
+\textbf{Emuladores:}
+
+\begin{verbatim}
+Emulador 1: consola 5554, adb 5555
+Emulador 2: consola 5556, adb 5557
+Emulador 3: consola 5558, adb 5559
+...hasta 16 emuladores
+\end{verbatim}
+
+\textbf{Dispositivos Físicos:}
+
+\begin{itemize}
+\tightlist
+\item
+  USB: Detección automática por vendor ID
+\item
+  WiFi: Puerto 5555 (configurable)
+\end{itemize}
+
+\section{Instalación en Arch Linux}\label{instalaciuxf3n-en-arch-linux}
+
+\subsection{Método 1: Repositorios Oficiales
+(Recomendado)}\label{muxe9todo-1-repositorios-oficiales-recomendado}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ADB está en el paquete android{-}tools}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ android{-}tools}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Verificar instalación:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{adb}\NormalTok{ version}
+\CommentTok{\# Salida esperada:}
+\CommentTok{\# Android Debug Bridge version 1.0.41}
+\CommentTok{\# Version 35.0.1{-}11580240}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Método 2: Android SDK
+Completo}\label{muxe9todo-2-android-sdk-completo}
+
+\textbf{Si necesitas todas las herramientas de Android:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. Instalar dependencias}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ jdk17{-}openjdk}
+
+\CommentTok{\# 2. Instalar Android SDK desde AUR}
+\ExtensionTok{yay} \AttributeTok{{-}S}\NormalTok{ android{-}sdk android{-}sdk{-}platform{-}tools}
+
+\CommentTok{\# 3. Configurar variables de entorno}
+\CommentTok{\# Agregar a \textasciitilde{}/.config/fish/config.fish}
+\BuiltInTok{set} \AttributeTok{{-}gx}\NormalTok{ ANDROID\_HOME /opt/android{-}sdk}
+\BuiltInTok{set} \AttributeTok{{-}gx}\NormalTok{ PATH }\VariableTok{$PATH} \VariableTok{$ANDROID\_HOME}\NormalTok{/platform{-}tools }\VariableTok{$ANDROID\_HOME}\NormalTok{/tools}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Recargar configuración:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{source \textasciitilde{}/.config/fish/config.fish}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Método 3: Descarga
+Manual}\label{muxe9todo-3-descarga-manual}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. Crear directorio}
+\FunctionTok{mkdir} \AttributeTok{{-}p}\NormalTok{ \textasciitilde{}/android/platform{-}tools}
+\BuiltInTok{cd}\NormalTok{ \textasciitilde{}/android/platform{-}tools}
+
+\CommentTok{\# 2. Descargar herramientas}
+\ExtensionTok{curl} \AttributeTok{{-}LO}\NormalTok{ https://dl.google.com/android/repository/platform{-}tools{-}latest{-}linux.zip}
+
+\CommentTok{\# 3. Extraer}
+\FunctionTok{unzip}\NormalTok{ platform{-}tools{-}latest{-}linux.zip}
+
+\CommentTok{\# 4. Agregar al PATH (Fish)}
+\BuiltInTok{set} \AttributeTok{{-}gx}\NormalTok{ PATH }\VariableTok{$PATH}\NormalTok{ \textasciitilde{}/android/platform{-}tools}
+
+\CommentTok{\# Para hacerlo permanente:}
+\BuiltInTok{echo} \StringTok{\textquotesingle{}set {-}gx PATH $PATH \textasciitilde{}/android/platform{-}tools\textquotesingle{}} \OperatorTok{\textgreater{}\textgreater{}}\NormalTok{ \textasciitilde{}/.config/fish/config.fish}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Configuración Inicial}\label{configuraciuxf3n-inicial}
+
+\subsection{1. Verificar Instalación}\label{verificar-instalaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Versión de ADB}
+\ExtensionTok{adb}\NormalTok{ version}
+
+\CommentTok{\# Ayuda general}
+\ExtensionTok{adb} \AttributeTok{{-}{-}help}
+
+\CommentTok{\# Lista de comandos}
+\ExtensionTok{adb}\NormalTok{ help}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{2. Configurar Permisos de
+Usuario}\label{configurar-permisos-de-usuario}
+
+\textbf{En Arch Linux, necesitas estar en el grupo \texttt{adbusers}:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Verificar si el grupo existe}
+\FunctionTok{getent}\NormalTok{ group adbusers}
+
+\CommentTok{\# Si no existe, crearlo}
+\FunctionTok{sudo}\NormalTok{ groupadd adbusers}
+
+\CommentTok{\# Agregar tu usuario al grupo}
+\FunctionTok{sudo}\NormalTok{ usermod }\AttributeTok{{-}aG}\NormalTok{ adbusers }\VariableTok{$USER}
+
+\CommentTok{\# Verificar}
+\FunctionTok{groups} \VariableTok{$USER} \KeywordTok{|} \FunctionTok{grep}\NormalTok{ adbusers}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Aplicar cambios (una de estas opciones):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Opción 1: Recargar grupos (temporal)}
+\ExtensionTok{newgrp}\NormalTok{ adbusers}
+
+\CommentTok{\# Opción 2: Cerrar sesión y volver a iniciar}
+
+\CommentTok{\# Opción 3: Reiniciar sistema}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{3. Configurar Reglas udev}\label{configurar-reglas-udev}
+
+\textbf{Las reglas udev permiten que ADB detecte dispositivos sin sudo.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear archivo de reglas}
+\FunctionTok{sudo}\NormalTok{ nano /etc/udev/rules.d/51{-}android.rules}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Agregar reglas para fabricantes comunes:}
+
+\begin{verbatim}
+# Google
+SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="adbusers"
+
+# Samsung
+SUBSYSTEM=="usb", ATTR{idVendor}=="04e8", MODE="0666", GROUP="adbusers"
+
+# Xiaomi
+SUBSYSTEM=="usb", ATTR{idVendor}=="2717", MODE="0666", GROUP="adbusers"
+
+# Huawei
+SUBSYSTEM=="usb", ATTR{idVendor}=="12d1", MODE="0666", GROUP="adbusers"
+
+# OnePlus
+SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"
+
+# Motorola
+SUBSYSTEM=="usb", ATTR{idVendor}=="22b8", MODE="0666", GROUP="adbusers"
+
+# LG
+SUBSYSTEM=="usb", ATTR{idVendor}=="1004", MODE="0666", GROUP="adbusers"
+
+# HTC
+SUBSYSTEM=="usb", ATTR{idVendor}=="0bb4", MODE="0666", GROUP="adbusers"
+
+# Sony
+SUBSYSTEM=="usb", ATTR{idVendor}=="0fce", MODE="0666", GROUP="adbusers"
+
+# ASUS
+SUBSYSTEM=="usb", ATTR{idVendor}=="0b05", MODE="0666", GROUP="adbusers"
+
+# Oppo
+SUBSYSTEM=="usb", ATTR{idVendor}=="22d9", MODE="0666", GROUP="adbusers"
+
+# Realme
+SUBSYSTEM=="usb", ATTR{idVendor}=="22d9", MODE="0666", GROUP="adbusers"
+
+# Vivo
+SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"
+\end{verbatim}
+
+\textbf{Recargar reglas:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ udevadm control }\AttributeTok{{-}{-}reload{-}rules}
+\FunctionTok{sudo}\NormalTok{ udevadm trigger}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{4. Habilitar Depuración USB en
+Android}\label{habilitar-depuraciuxf3n-usb-en-android}
+
+\textbf{En el dispositivo Android:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Activar Opciones de Desarrollador:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Ir a: \texttt{Ajustes} → \texttt{Acerca\ del\ teléfono}
+  \item
+    Tocar 7 veces en \texttt{Número\ de\ compilación}
+  \end{itemize}
+\item
+  \textbf{Habilitar Depuración USB:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Ir a: \texttt{Ajustes} → \texttt{Opciones\ de\ desarrollador}
+  \item
+    Activar: \texttt{Depuración\ USB}
+  \end{itemize}
+\item
+  \textbf{Dispositivos Xiaomi (adicional):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Activar: \texttt{Depuración\ USB\ (Configuración\ de\ seguridad)}
+  \item
+    Reiniciar dispositivo
+  \end{itemize}
+\end{enumerate}
+
+\subsection{5. Primera Conexión}\label{primera-conexiuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Conectar dispositivo por USB}
+
+\CommentTok{\# Iniciar servidor ADB}
+\ExtensionTok{adb}\NormalTok{ start{-}server}
+
+\CommentTok{\# Listar dispositivos}
+\ExtensionTok{adb}\NormalTok{ devices}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{En el dispositivo Android aparecerá un diálogo:}
+
+\begin{itemize}
+\tightlist
+\item
+  ``¿Permitir depuración USB?''
+\item
+  Marcar: ``Permitir siempre desde esta computadora''
+\item
+  Aceptar
+\end{itemize}
+
+\textbf{Verificar conexión:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{adb}\NormalTok{ devices}
+\CommentTok{\# Salida esperada:}
+\CommentTok{\# List of devices attached}
+\CommentTok{\# ABC123456789    device}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Conexión de Dispositivos}\label{conexiuxf3n-de-dispositivos}
+
+\subsection{Conexión USB}\label{conexiuxf3n-usb}
+
+\textbf{Básica (un solo dispositivo):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Listar dispositivos}
+\ExtensionTok{adb}\NormalTok{ devices}
+
+\CommentTok{\# Salida:}
+\CommentTok{\# List of devices attached}
+\CommentTok{\# ABC123456789    device}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Múltiples dispositivos:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Listar con detalles}
+\ExtensionTok{adb}\NormalTok{ devices }\AttributeTok{{-}l}
+
+\CommentTok{\# Salida:}
+\CommentTok{\# List of devices attached}
+\CommentTok{\# ABC123    device usb:1{-}1 product:phone model:Pixel\_6 device:pixel6}
+\CommentTok{\# DEF456    device usb:1{-}2 product:tablet model:Tab\_S8 device:tabs8}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Especificar dispositivo:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Por número de serie}
+\ExtensionTok{adb} \AttributeTok{{-}s}\NormalTok{ ABC123456789 shell}
+
+\CommentTok{\# Solo USB (si hay uno solo)}
+\ExtensionTok{adb} \AttributeTok{{-}d}\NormalTok{ shell}
+
+\CommentTok{\# Solo emulador (si hay uno solo)}
+\ExtensionTok{adb} \AttributeTok{{-}e}\NormalTok{ shell}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Conexión WiFi (Android
+11+)}\label{conexiuxf3n-wifi-android-11}
+
+\subsubsection{Método 1: Vinculación con
+Código}\label{muxe9todo-1-vinculaciuxf3n-con-cuxf3digo}
+
+\textbf{En el dispositivo:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Ir a: \texttt{Ajustes} → \texttt{Opciones\ de\ desarrollador}
+\item
+  Activar: \texttt{Depuración\ inalámbrica}
+\item
+  Tocar: \texttt{Vincular\ dispositivo\ con\ código\ de\ vinculación}
+\item
+  Aparecerá: IP, Puerto y Código de 6 dígitos
+\end{enumerate}
+
+\textbf{En Arch Linux:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Vincular (usar IP y puerto del dispositivo)}
+\ExtensionTok{adb}\NormalTok{ pair 192.168.1.100:37859}
+
+\CommentTok{\# Ingresar código de 6 dígitos cuando se solicite}
+\CommentTok{\# Enter pairing code: 123456}
+
+\CommentTok{\# Conectar (usar IP mostrada en "Depuración inalámbrica")}
+\ExtensionTok{adb}\NormalTok{ connect 192.168.1.100:5555}
+
+\CommentTok{\# Verificar}
+\ExtensionTok{adb}\NormalTok{ devices}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Método 2: Desde USB a WiFi (Android 10 y
+anteriores)}\label{muxe9todo-2-desde-usb-a-wifi-android-10-y-anteriores}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. Conectar dispositivo por USB}
+\ExtensionTok{adb}\NormalTok{ devices}
+
+\CommentTok{\# 2. Obtener IP del dispositivo}
+\ExtensionTok{adb}\NormalTok{ shell ip addr show wlan0 }\KeywordTok{|} \FunctionTok{grep}\NormalTok{ inet}
+\CommentTok{\# O desde el dispositivo: Ajustes → Acerca del teléfono → Estado}
+
+\CommentTok{\# 3. Habilitar TCP/IP en puerto 5555}
+\ExtensionTok{adb}\NormalTok{ tcpip 5555}
+
+\CommentTok{\# 4. Desconectar cable USB}
+
+\CommentTok{\# 5. Conectar por WiFi}
+\ExtensionTok{adb}\NormalTok{ connect 192.168.1.100:5555}
+
+\CommentTok{\# 6. Verificar}
+\ExtensionTok{adb}\NormalTok{ devices}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Volver a USB:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{adb}\NormalTok{ usb}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Reconexión Automática}\label{reconexiuxf3n-automuxe1tica}
+
+\textbf{Si se pierde conexión WiFi:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Reintentar conexión}
+\ExtensionTok{adb}\NormalTok{ connect 192.168.1.100:5555}
+
+\CommentTok{\# Si no funciona, reiniciar servidor}
+\ExtensionTok{adb}\NormalTok{ kill{-}server}
+\ExtensionTok{adb}\NormalTok{ start{-}server}
+\ExtensionTok{adb}\NormalTok{ connect 192.168.1.100:5555}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Variable de Entorno
+ANDROID\_SERIAL}\label{variable-de-entorno-android_serial}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Fish}
+\BuiltInTok{set} \AttributeTok{{-}gx}\NormalTok{ ANDROID\_SERIAL ABC123456789}
+\ExtensionTok{adb}\NormalTok{ shell  }\CommentTok{\# Se conecta automáticamente a ABC123456789}
+
+\CommentTok{\# Bash/Zsh}
+\BuiltInTok{export} \VariableTok{ANDROID\_SERIAL}\OperatorTok{=}\NormalTok{ABC123456789}
+\ExtensionTok{adb}\NormalTok{ shell}
+
+\CommentTok{\# Hacer permanente en Fish}
+\BuiltInTok{echo} \StringTok{\textquotesingle{}set {-}gx ANDROID\_SERIAL ABC123456789\textquotesingle{}} \OperatorTok{\textgreater{}\textgreater{}}\NormalTok{ \textasciitilde{}/.config/fish/config.fish}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Comandos Básicos}\label{comandos-buxe1sicos}
+
+\subsection{Gestión del Servidor ADB}\label{gestiuxf3n-del-servidor-adb}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Iniciar servidor}
+\ExtensionTok{adb}\NormalTok{ start{-}server}
+
+\CommentTok{\# Detener servidor}
+\ExtensionTok{adb}\NormalTok{ kill{-}server}
+
+\CommentTok{\# Reiniciar servidor}
+\ExtensionTok{adb}\NormalTok{ kill{-}server }\KeywordTok{\&\&} \ExtensionTok{adb}\NormalTok{ start{-}server}
+
+\CommentTok{\# Verificar versión}
+\ExtensionTok{adb}\NormalTok{ version}
+
+\CommentTok{\# Ver puerto del servidor}
+\CommentTok{\# (siempre es 5037 por defecto)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Información del
+Dispositivo}\label{informaciuxf3n-del-dispositivo}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Listar dispositivos conectados}
+\ExtensionTok{adb}\NormalTok{ devices}
+\ExtensionTok{adb}\NormalTok{ devices }\AttributeTok{{-}l}  \CommentTok{\# con detalles}
+
+\CommentTok{\# Shell del dispositivo}
+\ExtensionTok{adb}\NormalTok{ shell}
+
+\CommentTok{\# Ejecutar comando único}
+\ExtensionTok{adb}\NormalTok{ shell ls /sdcard}
+
+\CommentTok{\# Obtener información del sistema}
+\ExtensionTok{adb}\NormalTok{ shell getprop}
+
+\CommentTok{\# Versión de Android}
+\ExtensionTok{adb}\NormalTok{ shell getprop ro.build.version.release}
+
+\CommentTok{\# Modelo del dispositivo}
+\ExtensionTok{adb}\NormalTok{ shell getprop ro.product.model}
+
+\CommentTok{\# Fabricante}
+\ExtensionTok{adb}\NormalTok{ shell getprop ro.product.manufacturer}
+
+\CommentTok{\# Número de serie}
+\ExtensionTok{adb}\NormalTok{ get{-}serialno}
+
+\CommentTok{\# Estado del dispositivo}
+\ExtensionTok{adb}\NormalTok{ get{-}state}
+\CommentTok{\# Posibles valores: device, offline, bootloader, recovery}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Reiniciar Dispositivo}\label{reiniciar-dispositivo}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Reinicio normal}
+\ExtensionTok{adb}\NormalTok{ reboot}
+
+\CommentTok{\# Reiniciar en recovery}
+\ExtensionTok{adb}\NormalTok{ reboot recovery}
+
+\CommentTok{\# Reiniciar en bootloader}
+\ExtensionTok{adb}\NormalTok{ reboot bootloader}
+
+\CommentTok{\# Reiniciar en modo fastboot}
+\ExtensionTok{adb}\NormalTok{ reboot{-}bootloader}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Logs y Debugging}\label{logs-y-debugging}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ver logs en tiempo real}
+\ExtensionTok{adb}\NormalTok{ logcat}
+
+\CommentTok{\# Filtrar por tag}
+\ExtensionTok{adb}\NormalTok{ logcat ActivityManager:I }\PreprocessorTok{*}\NormalTok{:S}
+
+\CommentTok{\# Guardar logs en archivo}
+\ExtensionTok{adb}\NormalTok{ logcat }\OperatorTok{\textgreater{}}\NormalTok{ logs.txt}
+
+\CommentTok{\# Limpiar buffer de logs}
+\ExtensionTok{adb}\NormalTok{ logcat }\AttributeTok{{-}c}
+
+\CommentTok{\# Ver logs de kernel}
+\ExtensionTok{adb}\NormalTok{ shell dmesg}
+
+\CommentTok{\# Obtener bug report}
+\ExtensionTok{adb}\NormalTok{ bugreport bugreport.zip}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Gestión de Aplicaciones}\label{gestiuxf3n-de-aplicaciones}
+
+\subsection{Instalar APK}\label{instalar-apk}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Instalación básica}
+\ExtensionTok{adb}\NormalTok{ install app.apk}
+
+\CommentTok{\# Reinstalar manteniendo datos}
+\ExtensionTok{adb}\NormalTok{ install }\AttributeTok{{-}r}\NormalTok{ app.apk}
+
+\CommentTok{\# Instalar en almacenamiento externo}
+\ExtensionTok{adb}\NormalTok{ install }\AttributeTok{{-}s}\NormalTok{ app.apk}
+
+\CommentTok{\# Permitir downgrade}
+\ExtensionTok{adb}\NormalTok{ install }\AttributeTok{{-}d}\NormalTok{ app.apk}
+
+\CommentTok{\# Instalar APK de prueba}
+\ExtensionTok{adb}\NormalTok{ install }\AttributeTok{{-}t}\NormalTok{ app.apk}
+
+\CommentTok{\# Otorgar todos los permisos}
+\ExtensionTok{adb}\NormalTok{ install }\AttributeTok{{-}g}\NormalTok{ app.apk}
+
+\CommentTok{\# Instalar en dispositivo específico}
+\ExtensionTok{adb} \AttributeTok{{-}s}\NormalTok{ ABC123 install app.apk}
+
+\CommentTok{\# Instalar múltiples APKs (split APKs)}
+\ExtensionTok{adb}\NormalTok{ install{-}multiple base.apk config.apk}
+
+\CommentTok{\# Instalación incremental (Android 11+)}
+\ExtensionTok{adb}\NormalTok{ install }\AttributeTok{{-}{-}incremental}\NormalTok{ app.apk}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Desinstalar Aplicación}\label{desinstalar-aplicaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Desinstalar}
+\ExtensionTok{adb}\NormalTok{ uninstall com.example.app}
+
+\CommentTok{\# Desinstalar pero mantener datos}
+\ExtensionTok{adb}\NormalTok{ uninstall }\AttributeTok{{-}k}\NormalTok{ com.example.app}
+
+\CommentTok{\# Desinstalar del dispositivo específico}
+\ExtensionTok{adb} \AttributeTok{{-}s}\NormalTok{ ABC123 uninstall com.example.app}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Listar Aplicaciones}\label{listar-aplicaciones}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Todas las aplicaciones}
+\ExtensionTok{adb}\NormalTok{ shell pm list packages}
+
+\CommentTok{\# Solo aplicaciones de terceros}
+\ExtensionTok{adb}\NormalTok{ shell pm list packages }\AttributeTok{{-}3}
+
+\CommentTok{\# Solo aplicaciones del sistema}
+\ExtensionTok{adb}\NormalTok{ shell pm list packages }\AttributeTok{{-}s}
+
+\CommentTok{\# Aplicaciones habilitadas}
+\ExtensionTok{adb}\NormalTok{ shell pm list packages }\AttributeTok{{-}e}
+
+\CommentTok{\# Aplicaciones deshabilitadas}
+\ExtensionTok{adb}\NormalTok{ shell pm list packages }\AttributeTok{{-}d}
+
+\CommentTok{\# Buscar por nombre}
+\ExtensionTok{adb}\NormalTok{ shell pm list packages }\KeywordTok{|} \FunctionTok{grep}\NormalTok{ chrome}
+
+\CommentTok{\# Con ruta del APK}
+\ExtensionTok{adb}\NormalTok{ shell pm list packages }\AttributeTok{{-}f}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Información de
+Aplicación}\label{informaciuxf3n-de-aplicaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ruta del APK}
+\ExtensionTok{adb}\NormalTok{ shell pm path com.android.chrome}
+
+\CommentTok{\# Información completa}
+\ExtensionTok{adb}\NormalTok{ shell dumpsys package com.android.chrome}
+
+\CommentTok{\# Permisos}
+\ExtensionTok{adb}\NormalTok{ shell dumpsys package com.android.chrome }\KeywordTok{|} \FunctionTok{grep}\NormalTok{ permission}
+
+\CommentTok{\# Versión}
+\ExtensionTok{adb}\NormalTok{ shell dumpsys package com.android.chrome }\KeywordTok{|} \FunctionTok{grep}\NormalTok{ versionName}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Iniciar Aplicación}\label{iniciar-aplicaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Iniciar actividad principal}
+\ExtensionTok{adb}\NormalTok{ shell monkey }\AttributeTok{{-}p}\NormalTok{ com.android.chrome }\AttributeTok{{-}c}\NormalTok{ android.intent.category.LAUNCHER 1}
+
+\CommentTok{\# Iniciar actividad específica}
+\ExtensionTok{adb}\NormalTok{ shell am start }\AttributeTok{{-}n}\NormalTok{ com.android.chrome/com.google.android.apps.chrome.Main}
+
+\CommentTok{\# Iniciar con intent}
+\ExtensionTok{adb}\NormalTok{ shell am start }\AttributeTok{{-}a}\NormalTok{ android.intent.action.VIEW }\AttributeTok{{-}d}\NormalTok{ https://google.com}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Detener Aplicación}\label{detener-aplicaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Forzar detención}
+\ExtensionTok{adb}\NormalTok{ shell am force{-}stop com.android.chrome}
+
+\CommentTok{\# Matar proceso}
+\ExtensionTok{adb}\NormalTok{ shell am kill com.android.chrome}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Limpiar Datos de
+Aplicación}\label{limpiar-datos-de-aplicaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Borrar todos los datos y caché}
+\ExtensionTok{adb}\NormalTok{ shell pm clear com.android.chrome}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Habilitar/Deshabilitar
+Aplicación}\label{habilitardeshabilitar-aplicaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Deshabilitar}
+\ExtensionTok{adb}\NormalTok{ shell pm disable{-}user com.example.app}
+
+\CommentTok{\# Habilitar}
+\ExtensionTok{adb}\NormalTok{ shell pm enable com.example.app}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Transferencia de Archivos}\label{transferencia-de-archivos}
+
+\subsection{Copiar Archivos al Dispositivo
+(Push)}\label{copiar-archivos-al-dispositivo-push}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Sintaxis básica}
+\ExtensionTok{adb}\NormalTok{ push archivo\_local ruta\_dispositivo}
+
+\CommentTok{\# Ejemplos:}
+\ExtensionTok{adb}\NormalTok{ push documento.pdf /sdcard/Download/}
+\ExtensionTok{adb}\NormalTok{ push foto.jpg /sdcard/DCIM/}
+\ExtensionTok{adb}\NormalTok{ push video.mp4 /sdcard/Movies/}
+\ExtensionTok{adb}\NormalTok{ push musica.mp3 /sdcard/Music/}
+
+\CommentTok{\# Copiar directorio completo}
+\ExtensionTok{adb}\NormalTok{ push carpeta/ /sdcard/carpeta/}
+
+\CommentTok{\# Con dispositivo específico}
+\ExtensionTok{adb} \AttributeTok{{-}s}\NormalTok{ ABC123 push archivo.txt /sdcard/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Copiar Archivos del Dispositivo
+(Pull)}\label{copiar-archivos-del-dispositivo-pull}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Sintaxis básica}
+\ExtensionTok{adb}\NormalTok{ pull ruta\_dispositivo archivo\_local}
+
+\CommentTok{\# Ejemplos:}
+\ExtensionTok{adb}\NormalTok{ pull /sdcard/Download/documento.pdf ./}
+\ExtensionTok{adb}\NormalTok{ pull /sdcard/DCIM/Camera/foto.jpg \textasciitilde{}/Imágenes/}
+\ExtensionTok{adb}\NormalTok{ pull /sdcard/WhatsApp/Media/ ./whatsapp\_backup/}
+
+\CommentTok{\# Directorio completo}
+\ExtensionTok{adb}\NormalTok{ pull /sdcard/Download/ ./descargas/}
+
+\CommentTok{\# Con dispositivo específico}
+\ExtensionTok{adb} \AttributeTok{{-}s}\NormalTok{ ABC123 pull /sdcard/foto.jpg ./}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Explorar Sistema de
+Archivos}\label{explorar-sistema-de-archivos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Listar contenido de directorio}
+\ExtensionTok{adb}\NormalTok{ shell ls /sdcard/}
+
+\CommentTok{\# Listar con detalles}
+\ExtensionTok{adb}\NormalTok{ shell ls }\AttributeTok{{-}la}\NormalTok{ /sdcard/}
+
+\CommentTok{\# Árbol de directorios (si está disponible)}
+\ExtensionTok{adb}\NormalTok{ shell find /sdcard/ }\AttributeTok{{-}type}\NormalTok{ d}
+
+\CommentTok{\# Buscar archivos}
+\ExtensionTok{adb}\NormalTok{ shell find /sdcard/ }\AttributeTok{{-}name} \StringTok{"*.pdf"}
+
+\CommentTok{\# Ver contenido de archivo}
+\ExtensionTok{adb}\NormalTok{ shell cat /sdcard/archivo.txt}
+
+\CommentTok{\# Espacio disponible}
+\ExtensionTok{adb}\NormalTok{ shell df }\AttributeTok{{-}h}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Crear/Eliminar Archivos y
+Directorios}\label{creareliminar-archivos-y-directorios}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear directorio}
+\ExtensionTok{adb}\NormalTok{ shell mkdir /sdcard/MiCarpeta}
+
+\CommentTok{\# Crear archivo}
+\ExtensionTok{adb}\NormalTok{ shell touch /sdcard/archivo.txt}
+
+\CommentTok{\# Escribir en archivo}
+\ExtensionTok{adb}\NormalTok{ shell }\StringTok{"echo \textquotesingle{}Hola\textquotesingle{} \textgreater{} /sdcard/archivo.txt"}
+
+\CommentTok{\# Eliminar archivo}
+\ExtensionTok{adb}\NormalTok{ shell rm /sdcard/archivo.txt}
+
+\CommentTok{\# Eliminar directorio vacío}
+\ExtensionTok{adb}\NormalTok{ shell rmdir /sdcard/MiCarpeta}
+
+\CommentTok{\# Eliminar directorio con contenido}
+\ExtensionTok{adb}\NormalTok{ shell rm }\AttributeTok{{-}rf}\NormalTok{ /sdcard/MiCarpeta}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Shell de Android}\label{shell-de-android}
+
+\subsection{Acceder al Shell}\label{acceder-al-shell}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Shell interactivo}
+\ExtensionTok{adb}\NormalTok{ shell}
+
+\CommentTok{\# Comando único}
+\ExtensionTok{adb}\NormalTok{ shell ls /system/bin}
+
+\CommentTok{\# Múltiples comandos}
+\ExtensionTok{adb}\NormalTok{ shell }\StringTok{"cd /sdcard \&\& ls {-}l"}
+
+\CommentTok{\# Como root (si disponible)}
+\ExtensionTok{adb}\NormalTok{ root}
+\ExtensionTok{adb}\NormalTok{ shell}
+\CommentTok{\# Ahora estarás como root (\#)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Comandos Unix Disponibles}\label{comandos-unix-disponibles}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Listar herramientas disponibles}
+\ExtensionTok{adb}\NormalTok{ shell ls /system/bin}
+
+\CommentTok{\# Ayuda de herramientas}
+\ExtensionTok{adb}\NormalTok{ shell toybox }\AttributeTok{{-}{-}help}
+\ExtensionTok{adb}\NormalTok{ shell ls }\AttributeTok{{-}{-}help}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Comandos comunes:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{ls} - Listar archivos
+\item
+  \texttt{cd} - Cambiar directorio
+\item
+  \texttt{pwd} - Mostrar directorio actual
+\item
+  \texttt{cat} - Ver contenido de archivo
+\item
+  \texttt{grep} - Buscar texto
+\item
+  \texttt{find} - Buscar archivos
+\item
+  \texttt{ps} - Listar procesos
+\item
+  \texttt{top} - Monitor de procesos
+\item
+  \texttt{kill} - Terminar proceso
+\item
+  \texttt{df} - Espacio en disco
+\item
+  \texttt{du} - Uso de disco
+\item
+  \texttt{cp} - Copiar
+\item
+  \texttt{mv} - Mover
+\item
+  \texttt{rm} - Eliminar
+\item
+  \texttt{chmod} - Cambiar permisos
+\item
+  \texttt{chown} - Cambiar propietario
+\end{itemize}
+
+\subsection{Propiedades del Sistema}\label{propiedades-del-sistema}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Listar todas las propiedades}
+\ExtensionTok{adb}\NormalTok{ shell getprop}
+
+\CommentTok{\# Ver propiedad específica}
+\ExtensionTok{adb}\NormalTok{ shell getprop ro.build.version.sdk}
+
+\CommentTok{\# Establecer propiedad (requiere root)}
+\ExtensionTok{adb}\NormalTok{ shell setprop debug.myapp.level 5}
+
+\CommentTok{\# Propiedades útiles:}
+\ExtensionTok{adb}\NormalTok{ shell getprop ro.product.model           }\CommentTok{\# Modelo}
+\ExtensionTok{adb}\NormalTok{ shell getprop ro.build.version.release   }\CommentTok{\# Versión Android}
+\ExtensionTok{adb}\NormalTok{ shell getprop ro.build.version.sdk       }\CommentTok{\# Nivel API}
+\ExtensionTok{adb}\NormalTok{ shell getprop ro.product.manufacturer    }\CommentTok{\# Fabricante}
+\ExtensionTok{adb}\NormalTok{ shell getprop ro.serialno                }\CommentTok{\# Serial}
+\ExtensionTok{adb}\NormalTok{ shell getprop net.hostname               }\CommentTok{\# Hostname}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Configuraciones del
+Sistema}\label{configuraciones-del-sistema}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ver configuración}
+\ExtensionTok{adb}\NormalTok{ shell settings get global wifi\_on}
+\ExtensionTok{adb}\NormalTok{ shell settings get system screen\_brightness}
+
+\CommentTok{\# Establecer configuración}
+\ExtensionTok{adb}\NormalTok{ shell settings put global airplane\_mode\_on 0}
+\ExtensionTok{adb}\NormalTok{ shell settings put system screen\_brightness 100}
+
+\CommentTok{\# Listar todas}
+\ExtensionTok{adb}\NormalTok{ shell settings list global}
+\ExtensionTok{adb}\NormalTok{ shell settings list system}
+\ExtensionTok{adb}\NormalTok{ shell settings list secure}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Administrador de
+Actividades}\label{administrador-de-actividades}
+
+\textbf{El Administrador de Actividades (am) controla actividades,
+servicios e intents.}
+
+\subsection{Sintaxis Básica}\label{sintaxis-buxe1sica}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Desde shell}
+\ExtensionTok{adb}\NormalTok{ shell}
+\ExtensionTok{am}\NormalTok{ comando}
+
+\CommentTok{\# Comando directo}
+\ExtensionTok{adb}\NormalTok{ shell am comando}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Iniciar Actividad}\label{iniciar-actividad}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Iniciar actividad por acción}
+\ExtensionTok{adb}\NormalTok{ shell am start }\AttributeTok{{-}a}\NormalTok{ android.intent.action.VIEW}
+
+\CommentTok{\# Iniciar actividad por componente}
+\ExtensionTok{adb}\NormalTok{ shell am start }\AttributeTok{{-}n}\NormalTok{ com.android.chrome/com.google.android.apps.chrome.Main}
+
+\CommentTok{\# Abrir URL}
+\ExtensionTok{adb}\NormalTok{ shell am start }\AttributeTok{{-}a}\NormalTok{ android.intent.action.VIEW }\AttributeTok{{-}d}\NormalTok{ https://google.com}
+
+\CommentTok{\# Abrir archivo}
+\ExtensionTok{adb}\NormalTok{ shell am start }\AttributeTok{{-}a}\NormalTok{ android.intent.action.VIEW }\AttributeTok{{-}d}\NormalTok{ file:///sdcard/documento.pdf}
+
+\CommentTok{\# Con espera hasta completar}
+\ExtensionTok{adb}\NormalTok{ shell am start }\AttributeTok{{-}W} \AttributeTok{{-}n}\NormalTok{ com.android.chrome/com.google.android.apps.chrome.Main}
+
+\CommentTok{\# Habilitar debugging}
+\ExtensionTok{adb}\NormalTok{ shell am start }\AttributeTok{{-}D} \AttributeTok{{-}n}\NormalTok{ com.example.app/.MainActivity}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Iniciar Servicio}\label{iniciar-servicio}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{adb}\NormalTok{ shell am startservice }\AttributeTok{{-}n}\NormalTok{ com.example.app/.MyService}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Enviar Broadcast}\label{enviar-broadcast}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Broadcast simple}
+\ExtensionTok{adb}\NormalTok{ shell am broadcast }\AttributeTok{{-}a}\NormalTok{ android.intent.action.BOOT\_COMPLETED}
+
+\CommentTok{\# Con datos extra}
+\ExtensionTok{adb}\NormalTok{ shell am broadcast }\AttributeTok{{-}a}\NormalTok{ com.example.ACTION }\AttributeTok{{-}{-}es}\NormalTok{ key value}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Forzar Detención}\label{forzar-detenciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{adb}\NormalTok{ shell am force{-}stop com.android.chrome}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Matar Proceso}\label{matar-proceso}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Matar app}
+\ExtensionTok{adb}\NormalTok{ shell am kill com.android.chrome}
+
+\CommentTok{\# Matar todos los procesos en segundo plano}
+\ExtensionTok{adb}\NormalTok{ shell am kill{-}all}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Modificar Pantalla}\label{modificar-pantalla}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Cambiar tamaño de pantalla}
+\ExtensionTok{adb}\NormalTok{ shell am display{-}size 1920x1080}
+
+\CommentTok{\# Restablecer}
+\ExtensionTok{adb}\NormalTok{ shell am display{-}size reset}
+
+\CommentTok{\# Cambiar densidad (DPI)}
+\ExtensionTok{adb}\NormalTok{ shell am display{-}density 480}
+
+\CommentTok{\# Restablecer}
+\ExtensionTok{adb}\NormalTok{ shell am display{-}density reset}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Ejemplos de Intents}\label{ejemplos-de-intents}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Abrir configuración WiFi}
+\ExtensionTok{adb}\NormalTok{ shell am start }\AttributeTok{{-}a}\NormalTok{ android.settings.WIFI\_SETTINGS}
+
+\CommentTok{\# Abrir ajustes del sistema}
+\ExtensionTok{adb}\NormalTok{ shell am start }\AttributeTok{{-}a}\NormalTok{ android.settings.SETTINGS}
+
+\CommentTok{\# Abrir configuración de aplicación específica}
+\ExtensionTok{adb}\NormalTok{ shell am start }\AttributeTok{{-}a}\NormalTok{ android.settings.APPLICATION\_DETAILS\_SETTINGS }\AttributeTok{{-}d}\NormalTok{ package:com.example.app}
+
+\CommentTok{\# Hacer llamada}
+\ExtensionTok{adb}\NormalTok{ shell am start }\AttributeTok{{-}a}\NormalTok{ android.intent.action.CALL }\AttributeTok{{-}d}\NormalTok{ tel:123456789}
+
+\CommentTok{\# Enviar SMS}
+\ExtensionTok{adb}\NormalTok{ shell am start }\AttributeTok{{-}a}\NormalTok{ android.intent.action.SENDTO }\AttributeTok{{-}d}\NormalTok{ sms:123456789 }\AttributeTok{{-}{-}es}\NormalTok{ sms\_body }\StringTok{"Hola"}
+
+\CommentTok{\# Abrir cámara}
+\ExtensionTok{adb}\NormalTok{ shell am start }\AttributeTok{{-}a}\NormalTok{ android.media.action.IMAGE\_CAPTURE}
+
+\CommentTok{\# Compartir texto}
+\ExtensionTok{adb}\NormalTok{ shell am start }\AttributeTok{{-}a}\NormalTok{ android.intent.action.SEND }\AttributeTok{{-}{-}es}\NormalTok{ android.intent.extra.TEXT }\StringTok{"Texto"} \AttributeTok{{-}{-}et}\NormalTok{ android.intent.extra.SUBJECT }\StringTok{"Asunto"}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Administrador de Paquetes}\label{administrador-de-paquetes}
+
+\textbf{El Administrador de Paquetes (pm) gestiona aplicaciones
+instaladas.}
+
+\subsection{Listar Paquetes}\label{listar-paquetes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Todos los paquetes}
+\ExtensionTok{adb}\NormalTok{ shell pm list packages}
+
+\CommentTok{\# Solo terceros}
+\ExtensionTok{adb}\NormalTok{ shell pm list packages }\AttributeTok{{-}3}
+
+\CommentTok{\# Solo sistema}
+\ExtensionTok{adb}\NormalTok{ shell pm list packages }\AttributeTok{{-}s}
+
+\CommentTok{\# Habilitados}
+\ExtensionTok{adb}\NormalTok{ shell pm list packages }\AttributeTok{{-}e}
+
+\CommentTok{\# Deshabilitados}
+\ExtensionTok{adb}\NormalTok{ shell pm list packages }\AttributeTok{{-}d}
+
+\CommentTok{\# Con archivo APK}
+\ExtensionTok{adb}\NormalTok{ shell pm list packages }\AttributeTok{{-}f}
+
+\CommentTok{\# Buscar específico}
+\ExtensionTok{adb}\NormalTok{ shell pm list packages }\KeywordTok{|} \FunctionTok{grep}\NormalTok{ chrome}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Información del Paquete}\label{informaciuxf3n-del-paquete}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ruta del APK}
+\ExtensionTok{adb}\NormalTok{ shell pm path com.android.chrome}
+
+\CommentTok{\# Información completa}
+\ExtensionTok{adb}\NormalTok{ shell dumpsys package com.android.chrome}
+
+\CommentTok{\# Permisos}
+\ExtensionTok{adb}\NormalTok{ shell pm list permissions}
+
+\CommentTok{\# Permisos de paquete}
+\ExtensionTok{adb}\NormalTok{ shell dumpsys package com.android.chrome }\KeywordTok{|} \FunctionTok{grep}\NormalTok{ permission}
+
+\CommentTok{\# Grupos de permisos}
+\ExtensionTok{adb}\NormalTok{ shell pm list permission{-}groups}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Otorgar/Revocar Permisos}\label{otorgarrevocar-permisos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Otorgar permiso}
+\ExtensionTok{adb}\NormalTok{ shell pm grant com.example.app android.permission.CAMERA}
+
+\CommentTok{\# Revocar permiso}
+\ExtensionTok{adb}\NormalTok{ shell pm revoke com.example.app android.permission.CAMERA}
+
+\CommentTok{\# Permisos comunes:}
+\CommentTok{\# android.permission.CAMERA}
+\CommentTok{\# android.permission.READ\_EXTERNAL\_STORAGE}
+\CommentTok{\# android.permission.WRITE\_EXTERNAL\_STORAGE}
+\CommentTok{\# android.permission.ACCESS\_FINE\_LOCATION}
+\CommentTok{\# android.permission.RECORD\_AUDIO}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Habilitar/Deshabilitar
+Paquete}\label{habilitardeshabilitar-paquete}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Deshabilitar}
+\ExtensionTok{adb}\NormalTok{ shell pm disable{-}user com.example.app}
+
+\CommentTok{\# Habilitar}
+\ExtensionTok{adb}\NormalTok{ shell pm enable com.example.app}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Limpiar Datos}\label{limpiar-datos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Borrar datos de aplicación}
+\ExtensionTok{adb}\NormalTok{ shell pm clear com.android.chrome}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Usuarios}\label{usuarios}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Listar usuarios}
+\ExtensionTok{adb}\NormalTok{ shell pm list users}
+
+\CommentTok{\# Crear usuario}
+\ExtensionTok{adb}\NormalTok{ shell pm create{-}user }\StringTok{"Nombre Usuario"}
+
+\CommentTok{\# Eliminar usuario}
+\ExtensionTok{adb}\NormalTok{ shell pm remove{-}user USER\_ID}
+
+\CommentTok{\# Máximo de usuarios}
+\ExtensionTok{adb}\NormalTok{ shell pm get{-}max{-}users}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Captura de Pantalla y
+Grabación}\label{captura-de-pantalla-y-grabaciuxf3n}
+
+\subsection{Captura de Pantalla}\label{captura-de-pantalla}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Capturar y guardar en dispositivo}
+\ExtensionTok{adb}\NormalTok{ shell screencap /sdcard/screenshot.png}
+
+\CommentTok{\# Capturar y descargar}
+\ExtensionTok{adb}\NormalTok{ shell screencap /sdcard/screenshot.png}
+\ExtensionTok{adb}\NormalTok{ pull /sdcard/screenshot.png ./}
+\ExtensionTok{adb}\NormalTok{ shell rm /sdcard/screenshot.png}
+
+\CommentTok{\# Captura directa (un solo comando)}
+\ExtensionTok{adb}\NormalTok{ exec{-}out screencap }\AttributeTok{{-}p} \OperatorTok{\textgreater{}}\NormalTok{ screenshot.png}
+
+\CommentTok{\# Con timestamp}
+\ExtensionTok{adb}\NormalTok{ exec{-}out screencap }\AttributeTok{{-}p} \OperatorTok{\textgreater{}}\NormalTok{ screenshot\_}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d\_\%H\%M\%S}\VariableTok{)}\NormalTok{.png}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Grabación de Video}\label{grabaciuxf3n-de-video}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Grabar video (hasta 3 minutos por defecto)}
+\ExtensionTok{adb}\NormalTok{ shell screenrecord /sdcard/video.mp4}
+
+\CommentTok{\# Detener con Ctrl+C}
+
+\CommentTok{\# Descargar}
+\ExtensionTok{adb}\NormalTok{ pull /sdcard/video.mp4 ./}
+
+\CommentTok{\# Con límite de tiempo (segundos)}
+\ExtensionTok{adb}\NormalTok{ shell screenrecord }\AttributeTok{{-}{-}time{-}limit}\NormalTok{ 30 /sdcard/video.mp4}
+
+\CommentTok{\# Especificar tamaño}
+\ExtensionTok{adb}\NormalTok{ shell screenrecord }\AttributeTok{{-}{-}size}\NormalTok{ 1280x720 /sdcard/video.mp4}
+
+\CommentTok{\# Cambiar bitrate (por defecto 20 Mbps)}
+\ExtensionTok{adb}\NormalTok{ shell screenrecord }\AttributeTok{{-}{-}bit{-}rate}\NormalTok{ 8000000 /sdcard/video.mp4}
+
+\CommentTok{\# Verbose (mostrar info)}
+\ExtensionTok{adb}\NormalTok{ shell screenrecord }\AttributeTok{{-}{-}verbose}\NormalTok{ /sdcard/video.mp4}
+
+\CommentTok{\# Rotar video 90 grados}
+\ExtensionTok{adb}\NormalTok{ shell screenrecord }\AttributeTok{{-}{-}rotate}\NormalTok{ /sdcard/video.mp4}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Limitaciones de screenrecord:}
+
+\begin{itemize}
+\tightlist
+\item
+  No graba audio
+\item
+  Máximo 3 minutos por video
+\item
+  No funciona en Wear OS
+\item
+  No soporta rotación durante grabación
+\end{itemize}
+
+\section{Redirección de Puertos}\label{redirecciuxf3n-de-puertos}
+
+\subsection{Forward (Host →
+Dispositivo)}\label{forward-host-dispositivo}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Redirigir puerto host 6100 a dispositivo 7100}
+\ExtensionTok{adb}\NormalTok{ forward tcp:6100 tcp:7100}
+
+\CommentTok{\# Listar redirecciones}
+\ExtensionTok{adb}\NormalTok{ forward }\AttributeTok{{-}{-}list}
+
+\CommentTok{\# Eliminar redirección específica}
+\ExtensionTok{adb}\NormalTok{ forward }\AttributeTok{{-}{-}remove}\NormalTok{ tcp:6100}
+
+\CommentTok{\# Eliminar todas}
+\ExtensionTok{adb}\NormalTok{ forward }\AttributeTok{{-}{-}remove{-}all}
+
+\CommentTok{\# Ejemplo: acceder a servidor en dispositivo desde host}
+\CommentTok{\# Si hay servidor en dispositivo:puerto 8080}
+\ExtensionTok{adb}\NormalTok{ forward tcp:8080 tcp:8080}
+\CommentTok{\# Ahora accesible en: http://localhost:8080}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Reverse (Dispositivo →
+Host)}\label{reverse-dispositivo-host}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Redirigir puerto dispositivo 9000 a host 9000}
+\ExtensionTok{adb}\NormalTok{ reverse tcp:9000 tcp:9000}
+
+\CommentTok{\# Listar}
+\ExtensionTok{adb}\NormalTok{ reverse }\AttributeTok{{-}{-}list}
+
+\CommentTok{\# Eliminar}
+\ExtensionTok{adb}\NormalTok{ reverse }\AttributeTok{{-}{-}remove}\NormalTok{ tcp:9000}
+
+\CommentTok{\# Eliminar todas}
+\ExtensionTok{adb}\NormalTok{ reverse }\AttributeTok{{-}{-}remove{-}all}
+
+\CommentTok{\# Ejemplo: dispositivo accede a servidor en host}
+\CommentTok{\# Si hay servidor en host:puerto 3000}
+\ExtensionTok{adb}\NormalTok{ reverse tcp:3000 tcp:3000}
+\CommentTok{\# Dispositivo puede acceder a http://localhost:3000}
+\end{Highlighting}
+\end{Shaded}
+
 \section{Comandos ADB para Conectar y Instalar en
 Windows}\label{comandos-adb-para-conectar-y-instalar-en-windows}
 
@@ -364,6 +1788,7 @@ Windows}\label{comandos-adb-para-conectar-y-instalar-en-windows}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+
 \ExtensionTok{C:\textbackslash{}Users\textbackslash{}achalmaedison}\OperatorTok{\textgreater{}}\NormalTok{cd }\StringTok{"C:\textbackslash{}Users\textbackslash{}achalmaedison\textbackslash{}Downloads\textbackslash{}ADB"}
 \end{Highlighting}
 \end{Shaded}
@@ -372,6 +1797,7 @@ Windows}\label{comandos-adb-para-conectar-y-instalar-en-windows}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+
 \ExtensionTok{C:\textbackslash{}Users\textbackslash{}achalmaedison\textbackslash{}Downloads\textbackslash{}ADB}\OperatorTok{\textgreater{}}\NormalTok{adb connect 127.0.0.1:58526}
 \end{Highlighting}
 \end{Shaded}
@@ -380,6 +1806,7 @@ Windows}\label{comandos-adb-para-conectar-y-instalar-en-windows}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+
 \ExtensionTok{Ya}\NormalTok{ conectado a 127.0.0.1:58526}
 \end{Highlighting}
 \end{Shaded}
@@ -389,6 +1816,7 @@ APK}\label{instalaciuxf3n-de-instagram-apk}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+
 \ExtensionTok{C:\textbackslash{}Users\textbackslash{}achalmaedison\textbackslash{}Downloads\textbackslash{}ADB}\OperatorTok{\textgreater{}}\NormalTok{adb install Instagram.apk}
 \end{Highlighting}
 \end{Shaded}
@@ -397,7 +1825,9 @@ APK}\label{instalaciuxf3n-de-instagram-apk}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+
 \ExtensionTok{Realizando}\NormalTok{ Instalación en Streaming}
+
 \ExtensionTok{Instalación}\NormalTok{ Exitosa}
 \end{Highlighting}
 \end{Shaded}
@@ -416,7 +1846,6 @@ de herramientas de Android}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   Configurar el subsistema de Android.
 \item
@@ -432,6 +1861,7 @@ de herramientas de Android}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+
 \BuiltInTok{cd}\NormalTok{ C:}\DataTypeTok{\textbackslash{}p}\NormalTok{latform{-}tools}
 \end{Highlighting}
 \end{Shaded}
@@ -443,6 +1873,7 @@ Conectar el dispositivo:
 
 \begin{Shaded}
 \begin{Highlighting}[]
+
 \ExtensionTok{adb}\NormalTok{ connect 127.0.0.1:58526}
 \end{Highlighting}
 \end{Shaded}
@@ -451,12 +1882,14 @@ Instalar aplicaciones:
 
 \begin{Shaded}
 \begin{Highlighting}[]
+
 \ExtensionTok{adb}\NormalTok{ install gmail.apk}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+
 \ExtensionTok{adb}\NormalTok{ install facebook{-}354{-}0{-}0{-}22{-}110.apk}
 \end{Highlighting}
 \end{Shaded}
@@ -469,33 +1902,1126 @@ esperada}\label{ejemplo-de-salida-esperada}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+
 \ExtensionTok{Microsoft}\NormalTok{ Windows [Version 10.0.22000.527]}
+
 \KeywordTok{(}\ExtensionTok{c}\KeywordTok{)} \ExtensionTok{Microsoft}\NormalTok{ Corporation. All rights reserved.}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+
 \ExtensionTok{C:\textbackslash{}platform{-}tools}\OperatorTok{\textgreater{}}\NormalTok{adb connect 172.28.22.78}
+
 \ExtensionTok{*}\NormalTok{ daemon not running}\KeywordTok{;} \ExtensionTok{starting}\NormalTok{ now at tcp:5037}
+
 \ExtensionTok{*}\NormalTok{ daemon started successfully}
+
 \ExtensionTok{connected}\NormalTok{ to 172.28.22.78:5555}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+
 \ExtensionTok{C:\textbackslash{}platform{-}tools}\OperatorTok{\textgreater{}}\NormalTok{adb install termux{-}app\_v0.118.0+github{-}debug\_arm64{-}v8a.apk}
+
 \ExtensionTok{Performing}\NormalTok{ Streamed Install}
+
 \ExtensionTok{Success}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+
 \ExtensionTok{C:\textbackslash{}platform{-}tools}\OperatorTok{\textgreater{}}
 \end{Highlighting}
 \end{Shaded}
+
+\section{Windows 11: Cómo descargar APK usando el Subsistema de Windows
+para Android y
+ADB}\label{windows-11-cuxf3mo-descargar-apk-usando-el-subsistema-de-windows-para-android-y-adb}
+
+Aquí te explicamos cómo descargar un archivo APK para instalar una
+aplicación de Android en tu PC con Windows 11 usando el Subsistema de
+Windows para Android. Puedes instalar el Subsistema de Windows para
+Android manualmente en tu PC con su archivo Msixbundle siguiendo nuestra
+\href{https://nerdschalk.com/android-apps-on-windows-11-dev-channel-how-to-install-windows-subsystem-for-android-manually-with-msixbundle/}{guía
+aquí}.
+
+\subsection{Paso 1: Habilitar el modo de desarrollador en el subsistema
+de
+Windows}\label{paso-1-habilitar-el-modo-de-desarrollador-en-el-subsistema-de-windows}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Instala el
+  \href{https://nerdschalk.com/android-apps-on-windows-11-dev-channel-how-to-install-windows-subsystem-for-android-manually-with-msixbundle/}{Subsistema
+  de Windows para Android}.
+\item
+  Abre la aplicación `Subsistema de Windows para Android' en tu PC. Para
+  ello, presiona la tecla \textbf{Windows} y busca \textbf{Subsistema de
+  Windows para Android}.
+\item
+  Haz clic en la aplicación para abrirla.
+\item
+  Dentro de la aplicación, activa el \textbf{Modo Desarrollador}.
+\end{enumerate}
+
+\subsection{Paso 2: Instalar las herramientas de la plataforma
+SDK}\label{paso-2-instalar-las-herramientas-de-la-plataforma-sdk}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Visita la página de herramientas de la plataforma SDK de Google
+  \href{https://developer.android.com/studio/releases/platform-tools.html}{aquí}.
+\item
+  Descarga \textbf{SDK Platform-Tools para Windows}.
+\item
+  Acepta los términos y condiciones y haz clic en el botón de descarga.
+\item
+  Se descargará un archivo ZIP llamado
+  \textbf{platform-tools\_rXX.X.X-windows.zip} (la versión puede
+  variar).
+\item
+  Crea una carpeta separada en el Explorador de Windows, por ejemplo,
+  \texttt{C:\textbackslash{}Plataforma-Tools}.
+\item
+  Mueve el archivo ZIP descargado a esta carpeta.
+\item
+  Haz clic derecho en el archivo y selecciona \textbf{Extraer todo},
+  luego haz clic en \textbf{Extraer}.
+\item
+  Abre la carpeta \texttt{platform-tools}, donde encontrarás
+  \texttt{adb.exe} y otros archivos.
+\end{enumerate}
+
+\subsection{Paso 3: Instalar la aplicación de
+Android}\label{paso-3-instalar-la-aplicaciuxf3n-de-android}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Abre la carpeta \textbf{platform-tools}.
+\item
+  Haz clic en la barra de direcciones, escribe \textbf{\texttt{cmd}} y
+  presiona \textbf{Enter}.
+\item
+  Se abrirá una ventana de comandos en la ubicación de la carpeta
+  \textbf{platform-tools}.
+\item
+  Descarga el archivo APK de la aplicación de Android que deseas
+  instalar.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Por ejemplo, para instalar Snapchat, busca \textbf{Snapchat APK} en
+    Google y descarga el archivo de una fuente confiable.
+  \item
+    Renombra el archivo a algo simple, como \texttt{snapchat.apk}, y
+    muévelo a la carpeta \textbf{platform-tools}.
+  \end{itemize}
+\item
+  Abre el \textbf{Subsistema de Windows para Android} y copia la
+  dirección \textbf{IP} en la opción de \textbf{Modo Desarrollador}.
+\item
+  En la ventana de comandos, ejecuta el siguiente comando:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{adb.exe}\NormalTok{ connect }\PreprocessorTok{[}\SpecialStringTok{DIRECCIÓN\_IP}\PreprocessorTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+  \textbf{Ejemplo:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{adb.exe}\NormalTok{ connect 127.0.0.1:12345}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Luego, instala la aplicación ejecutando:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{adb.exe}\NormalTok{ install }\PreprocessorTok{[}\SpecialStringTok{NOMBRE\_DEL\_APK}\PreprocessorTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+  \textbf{Ejemplo:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{adb.exe}\NormalTok{ install snapchat.apk}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Cuando la instalación finalice, verás el mensaje \textbf{Success}.
+\item
+  Cierra la ventana de comandos.
+\item
+  Abre la aplicación en tu PC escribiendo su nombre en el menú Inicio
+  (por ejemplo, \textbf{Snapchat}).
+\end{enumerate}
+
+\section{Casos de Uso Profesionales}\label{casos-de-uso-profesionales}
+
+\subsection{Caso 1: Instalación Masiva de
+APKs}\label{caso-1-instalaciuxf3n-masiva-de-apks}
+
+\textbf{Escenario:} Instalar múltiples APKs en varios dispositivos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# instalar\_apks.sh}
+
+\CommentTok{\# Directorio con APKs}
+\VariableTok{APK\_DIR}\OperatorTok{=}\StringTok{"./apks"}
+
+\CommentTok{\# Obtener lista de dispositivos}
+\VariableTok{devices}\OperatorTok{=}\VariableTok{$(}\ExtensionTok{adb}\NormalTok{ devices }\KeywordTok{|} \FunctionTok{grep} \AttributeTok{{-}v} \StringTok{"List"} \KeywordTok{|} \FunctionTok{grep} \StringTok{"device$"} \KeywordTok{|} \FunctionTok{awk} \StringTok{\textquotesingle{}\{print $1\}\textquotesingle{}}\VariableTok{)}
+
+\CommentTok{\# Para cada dispositivo}
+\ControlFlowTok{for}\NormalTok{ device }\KeywordTok{in} \VariableTok{$devices}\KeywordTok{;} \ControlFlowTok{do}
+    \BuiltInTok{echo} \StringTok{"Instalando en dispositivo: }\VariableTok{$device}\StringTok{"}
+    
+    \CommentTok{\# Para cada APK}
+    \ControlFlowTok{for}\NormalTok{ apk }\KeywordTok{in} \StringTok{"}\VariableTok{$APK\_DIR}\StringTok{"}\NormalTok{/}\PreprocessorTok{*}\NormalTok{.apk}\KeywordTok{;} \ControlFlowTok{do}
+        \BuiltInTok{echo} \StringTok{"  Instalando: }\VariableTok{$(}\FunctionTok{basename} \VariableTok{$apk)}\StringTok{"}
+        \ExtensionTok{adb} \AttributeTok{{-}s} \StringTok{"}\VariableTok{$device}\StringTok{"}\NormalTok{ install }\AttributeTok{{-}r} \StringTok{"}\VariableTok{$apk}\StringTok{"}
+    \ControlFlowTok{done}
+\ControlFlowTok{done}
+
+\BuiltInTok{echo} \StringTok{"Instalación completada"}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Usar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{chmod}\NormalTok{ +x instalar\_apks.sh}
+\ExtensionTok{./instalar\_apks.sh}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 2: Backup Automático de
+Aplicación}\label{caso-2-backup-automuxe1tico-de-aplicaciuxf3n}
+
+\textbf{Escenario:} Respaldar datos de aplicación específica.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# backup\_app.sh}
+
+\VariableTok{PACKAGE}\OperatorTok{=}\StringTok{"com.example.app"}
+\VariableTok{BACKUP\_DIR}\OperatorTok{=}\StringTok{"./backups/}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d\_\%H\%M\%S}\VariableTok{)}\StringTok{"}
+
+\FunctionTok{mkdir} \AttributeTok{{-}p} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{"}
+
+\BuiltInTok{echo} \StringTok{"Respaldando }\VariableTok{$PACKAGE}\StringTok{..."}
+
+\CommentTok{\# Backup de APK}
+\BuiltInTok{echo} \StringTok{"1. Respaldando APK..."}
+\VariableTok{APK\_PATH}\OperatorTok{=}\VariableTok{$(}\ExtensionTok{adb}\NormalTok{ shell pm path }\StringTok{"}\VariableTok{$PACKAGE}\StringTok{"} \KeywordTok{|} \FunctionTok{cut} \AttributeTok{{-}d:} \AttributeTok{{-}f2} \KeywordTok{|} \FunctionTok{tr} \AttributeTok{{-}d} \StringTok{\textquotesingle{}\textbackslash{}r\textquotesingle{}}\VariableTok{)}
+\ExtensionTok{adb}\NormalTok{ pull }\StringTok{"}\VariableTok{$APK\_PATH}\StringTok{"} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/app.apk"}
+
+\CommentTok{\# Backup de datos (requiere app debuggable o root)}
+\BuiltInTok{echo} \StringTok{"2. Respaldando datos..."}
+\ExtensionTok{adb}\NormalTok{ backup }\AttributeTok{{-}f} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/data.ab"} \AttributeTok{{-}noapk} \StringTok{"}\VariableTok{$PACKAGE}\StringTok{"}
+
+\CommentTok{\# Backup de base de datos (si accesible)}
+\BuiltInTok{echo} \StringTok{"3. Respaldando bases de datos..."}
+\ExtensionTok{adb}\NormalTok{ pull /data/data/}\StringTok{"}\VariableTok{$PACKAGE}\StringTok{"}\NormalTok{/databases }\StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/databases/"}
+
+\BuiltInTok{echo} \StringTok{"Backup completado en: }\VariableTok{$BACKUP\_DIR}\StringTok{"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 3: Testing
+Automatizado}\label{caso-3-testing-automatizado}
+
+\textbf{Escenario:} Ejecutar suite de tests en dispositivo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# run\_tests.sh}
+
+\VariableTok{PACKAGE}\OperatorTok{=}\StringTok{"com.example.app"}
+\VariableTok{TEST\_PACKAGE}\OperatorTok{=}\StringTok{"com.example.app.test"}
+
+\BuiltInTok{echo} \StringTok{"Iniciando tests..."}
+
+\CommentTok{\# Instalar APKs}
+\ExtensionTok{adb}\NormalTok{ install }\AttributeTok{{-}r}\NormalTok{ app.apk}
+\ExtensionTok{adb}\NormalTok{ install }\AttributeTok{{-}r}\NormalTok{ app{-}test.apk}
+
+\CommentTok{\# Ejecutar tests}
+\ExtensionTok{adb}\NormalTok{ shell am instrument }\AttributeTok{{-}w} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}e}\NormalTok{ package }\StringTok{"}\VariableTok{$PACKAGE}\StringTok{"} \DataTypeTok{\textbackslash{}}
+    \StringTok{"}\VariableTok{$TEST\_PACKAGE}\StringTok{/androidx.test.runner.AndroidJUnitRunner"}
+
+\CommentTok{\# Generar reporte}
+\ExtensionTok{adb}\NormalTok{ pull /sdcard/test{-}results.xml ./}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 4: Análisis de
+Rendimiento}\label{caso-4-anuxe1lisis-de-rendimiento}
+
+\textbf{Escenario:} Capturar métricas de rendimiento de aplicación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# performance\_test.sh}
+
+\VariableTok{PACKAGE}\OperatorTok{=}\StringTok{"com.example.app"}
+\VariableTok{DURATION}\OperatorTok{=}\NormalTok{60  }\CommentTok{\# segundos}
+
+\BuiltInTok{echo} \StringTok{"Analizando rendimiento de }\VariableTok{$PACKAGE}\StringTok{ por }\VariableTok{$DURATION}\StringTok{ segundos..."}
+
+\CommentTok{\# Limpiar logs}
+\ExtensionTok{adb}\NormalTok{ logcat }\AttributeTok{{-}c}
+
+\CommentTok{\# Iniciar app}
+\ExtensionTok{adb}\NormalTok{ shell monkey }\AttributeTok{{-}p} \StringTok{"}\VariableTok{$PACKAGE}\StringTok{"} \AttributeTok{{-}c}\NormalTok{ android.intent.category.LAUNCHER 1}
+
+\CommentTok{\# Capturar CPU/Memoria}
+\ExtensionTok{adb}\NormalTok{ shell top }\AttributeTok{{-}n}\NormalTok{ 1 }\AttributeTok{{-}d}\NormalTok{ 1 }\AttributeTok{{-}m}\NormalTok{ 10 }\OperatorTok{\textgreater{}}\NormalTok{ cpu\_usage.txt }\KeywordTok{\&}
+\VariableTok{TOP\_PID}\OperatorTok{=}\VariableTok{$!}
+
+\CommentTok{\# Esperar duración}
+\FunctionTok{sleep} \StringTok{"}\VariableTok{$DURATION}\StringTok{"}
+
+\CommentTok{\# Detener captura}
+\BuiltInTok{kill} \VariableTok{$TOP\_PID}
+
+\CommentTok{\# Obtener memoria detallada}
+\ExtensionTok{adb}\NormalTok{ shell dumpsys meminfo }\StringTok{"}\VariableTok{$PACKAGE}\StringTok{"} \OperatorTok{\textgreater{}}\NormalTok{ memory\_info.txt}
+
+\CommentTok{\# Obtener logs}
+\ExtensionTok{adb}\NormalTok{ logcat }\AttributeTok{{-}d} \OperatorTok{\textgreater{}}\NormalTok{ app\_logs.txt}
+
+\BuiltInTok{echo} \StringTok{"Análisis completado"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 5: Captura Automatizada de
+Screenshots}\label{caso-5-captura-automatizada-de-screenshots}
+
+\textbf{Escenario:} Capturar screenshots para documentación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# capture\_screenshots.sh}
+
+\VariableTok{OUTPUT\_DIR}\OperatorTok{=}\StringTok{"./screenshots/}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d\_\%H\%M\%S}\VariableTok{)}\StringTok{"}
+\FunctionTok{mkdir} \AttributeTok{{-}p} \StringTok{"}\VariableTok{$OUTPUT\_DIR}\StringTok{"}
+
+\VariableTok{SCREENS}\OperatorTok{=}\VariableTok{(}
+    \StringTok{"com.example.app/.MainActivity:Pantalla Principal"}
+    \StringTok{"com.example.app/.SettingsActivity:Configuración"}
+    \StringTok{"com.example.app/.ProfileActivity:Perfil"}
+\VariableTok{)}
+
+\ControlFlowTok{for}\NormalTok{ screen }\KeywordTok{in} \StringTok{"}\VariableTok{$\{SCREENS}\OperatorTok{[@]}\VariableTok{\}}\StringTok{"}\KeywordTok{;} \ControlFlowTok{do}
+    \VariableTok{ACTIVITY}\OperatorTok{=}\VariableTok{$(}\BuiltInTok{echo} \StringTok{"}\VariableTok{$screen}\StringTok{"} \KeywordTok{|} \FunctionTok{cut} \AttributeTok{{-}d:} \AttributeTok{{-}f1}\VariableTok{)}
+    \VariableTok{NAME}\OperatorTok{=}\VariableTok{$(}\BuiltInTok{echo} \StringTok{"}\VariableTok{$screen}\StringTok{"} \KeywordTok{|} \FunctionTok{cut} \AttributeTok{{-}d:} \AttributeTok{{-}f2}\VariableTok{)}
+    
+    \BuiltInTok{echo} \StringTok{"Capturando: }\VariableTok{$NAME}\StringTok{"}
+    
+    \CommentTok{\# Abrir actividad}
+    \ExtensionTok{adb}\NormalTok{ shell am start }\AttributeTok{{-}n} \StringTok{"}\VariableTok{$ACTIVITY}\StringTok{"}
+    \FunctionTok{sleep}\NormalTok{ 2}
+    
+    \CommentTok{\# Capturar}
+    \VariableTok{FILENAME}\OperatorTok{=}\VariableTok{$(}\BuiltInTok{echo} \StringTok{"}\VariableTok{$NAME}\StringTok{"} \KeywordTok{|} \FunctionTok{tr} \StringTok{\textquotesingle{} \textquotesingle{}} \StringTok{\textquotesingle{}\_\textquotesingle{}} \KeywordTok{|} \FunctionTok{tr} \StringTok{\textquotesingle{}[:upper:]\textquotesingle{}} \StringTok{\textquotesingle{}[:lower:]\textquotesingle{}}\VariableTok{)}
+    \ExtensionTok{adb}\NormalTok{ exec{-}out screencap }\AttributeTok{{-}p} \OperatorTok{\textgreater{}} \StringTok{"}\VariableTok{$OUTPUT\_DIR}\StringTok{/}\VariableTok{$\{FILENAME\}}\StringTok{.png"}
+    
+    \FunctionTok{sleep}\NormalTok{ 1}
+\ControlFlowTok{done}
+
+\BuiltInTok{echo} \StringTok{"Screenshots guardados en: }\VariableTok{$OUTPUT\_DIR}\StringTok{"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 6: Monitoreo de Logs en Tiempo
+Real}\label{caso-6-monitoreo-de-logs-en-tiempo-real}
+
+\textbf{Escenario:} Filtrar logs de aplicación específica.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# monitor\_logs.sh}
+
+\VariableTok{PACKAGE}\OperatorTok{=}\StringTok{"com.example.app"}
+
+\CommentTok{\# Obtener PID}
+\VariableTok{PID}\OperatorTok{=}\VariableTok{$(}\ExtensionTok{adb}\NormalTok{ shell ps }\KeywordTok{|} \FunctionTok{grep} \StringTok{"}\VariableTok{$PACKAGE}\StringTok{"} \KeywordTok{|} \FunctionTok{awk} \StringTok{\textquotesingle{}\{print $2\}\textquotesingle{}}\VariableTok{)}
+
+\BuiltInTok{echo} \StringTok{"Monitoreando logs de }\VariableTok{$PACKAGE}\StringTok{ (PID: }\VariableTok{$PID}\StringTok{)"}
+\BuiltInTok{echo} \StringTok{"Presiona Ctrl+C para detener"}
+
+\CommentTok{\# Filtrar logs por PID}
+\ExtensionTok{adb}\NormalTok{ logcat }\AttributeTok{{-}{-}pid}\OperatorTok{=}\StringTok{"}\VariableTok{$PID}\StringTok{"} \AttributeTok{{-}v}\NormalTok{ time}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 7: Instalación y Testing
+Rápido}\label{caso-7-instalaciuxf3n-y-testing-ruxe1pido}
+
+\textbf{Escenario:} Ciclo desarrollo-testing rápido.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# quick\_test.sh}
+
+\VariableTok{APK}\OperatorTok{=}\StringTok{"app{-}debug.apk"}
+\VariableTok{PACKAGE}\OperatorTok{=}\StringTok{"com.example.app"}
+
+\BuiltInTok{echo} \StringTok{"1. Desinstalando versión anterior..."}
+\ExtensionTok{adb}\NormalTok{ uninstall }\StringTok{"}\VariableTok{$PACKAGE}\StringTok{"} \DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null}
+
+\BuiltInTok{echo} \StringTok{"2. Instalando nueva versión..."}
+\ExtensionTok{adb}\NormalTok{ install }\StringTok{"}\VariableTok{$APK}\StringTok{"}
+
+\BuiltInTok{echo} \StringTok{"3. Otorgando permisos..."}
+\ExtensionTok{adb}\NormalTok{ shell pm grant }\StringTok{"}\VariableTok{$PACKAGE}\StringTok{"}\NormalTok{ android.permission.CAMERA}
+\ExtensionTok{adb}\NormalTok{ shell pm grant }\StringTok{"}\VariableTok{$PACKAGE}\StringTok{"}\NormalTok{ android.permission.READ\_EXTERNAL\_STORAGE}
+\ExtensionTok{adb}\NormalTok{ shell pm grant }\StringTok{"}\VariableTok{$PACKAGE}\StringTok{"}\NormalTok{ android.permission.WRITE\_EXTERNAL\_STORAGE}
+
+\BuiltInTok{echo} \StringTok{"4. Iniciando app..."}
+\ExtensionTok{adb}\NormalTok{ shell monkey }\AttributeTok{{-}p} \StringTok{"}\VariableTok{$PACKAGE}\StringTok{"} \AttributeTok{{-}c}\NormalTok{ android.intent.category.LAUNCHER 1}
+
+\BuiltInTok{echo} \StringTok{"5. Mostrando logs..."}
+\ExtensionTok{adb}\NormalTok{ logcat }\AttributeTok{{-}c}
+\ExtensionTok{adb}\NormalTok{ logcat }\KeywordTok{|} \FunctionTok{grep} \StringTok{"}\VariableTok{$PACKAGE}\StringTok{"}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Troubleshooting}\label{troubleshooting}
+
+\subsection{Problema 1: ``adb: command not
+found''}\label{problema-1-adb-command-not-found}
+
+\textbf{Causa:} ADB no está instalado o no está en PATH.
+
+\textbf{Soluciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. Verificar instalación}
+\FunctionTok{which}\NormalTok{ adb}
+
+\CommentTok{\# 2. Si no está, instalar}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ android{-}tools}
+
+\CommentTok{\# 3. Verificar PATH}
+\BuiltInTok{echo} \VariableTok{$PATH} \KeywordTok{|} \FunctionTok{grep}\NormalTok{ android}
+
+\CommentTok{\# 4. Si instalaste manualmente, agregar a PATH}
+\BuiltInTok{set} \AttributeTok{{-}gx}\NormalTok{ PATH }\VariableTok{$PATH}\NormalTok{ \textasciitilde{}/android/platform{-}tools}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema 2: ``no permissions (missing udev
+rules?)''}\label{problema-2-no-permissions-missing-udev-rules}
+
+\textbf{Causa:} Reglas udev faltantes o usuario no en grupo adbusers.
+
+\textbf{Soluciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. Verificar grupo}
+\FunctionTok{groups} \KeywordTok{|} \FunctionTok{grep}\NormalTok{ adbusers}
+
+\CommentTok{\# 2. Agregar a grupo}
+\FunctionTok{sudo}\NormalTok{ usermod }\AttributeTok{{-}aG}\NormalTok{ adbusers }\VariableTok{$USER}
+\ExtensionTok{newgrp}\NormalTok{ adbusers}
+
+\CommentTok{\# 3. Crear/verificar reglas udev}
+\FunctionTok{sudo}\NormalTok{ nano /etc/udev/rules.d/51{-}android.rules}
+\CommentTok{\# Ver sección "Configuración Inicial"}
+
+\CommentTok{\# 4. Recargar reglas}
+\FunctionTok{sudo}\NormalTok{ udevadm control }\AttributeTok{{-}{-}reload{-}rules}
+\FunctionTok{sudo}\NormalTok{ udevadm trigger}
+
+\CommentTok{\# 5. Reconectar dispositivo}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema 3: ``device offline'' o
+``unauthorized''}\label{problema-3-device-offline-o-unauthorized}
+
+\textbf{Causa:} Dispositivo no autorizado o conexión interrumpida.
+
+\textbf{Soluciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. Revocar autorizaciones en dispositivo}
+\CommentTok{\# Android: Opciones desarrollador → Revocar autorizaciones USB}
+
+\CommentTok{\# 2. Reconectar dispositivo}
+
+\CommentTok{\# 3. Aceptar diálogo de autorización}
+
+\CommentTok{\# 4. Reiniciar servidor adb}
+\ExtensionTok{adb}\NormalTok{ kill{-}server}
+\ExtensionTok{adb}\NormalTok{ start{-}server}
+\ExtensionTok{adb}\NormalTok{ devices}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema 4: ``more than one
+device/emulator''}\label{problema-4-more-than-one-deviceemulator}
+
+\textbf{Causa:} Múltiples dispositivos conectados sin especificar cuál
+usar.
+
+\textbf{Soluciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. Listar dispositivos}
+\ExtensionTok{adb}\NormalTok{ devices}
+
+\CommentTok{\# 2. Especificar por serial}
+\ExtensionTok{adb} \AttributeTok{{-}s}\NormalTok{ ABC123456789 shell}
+
+\CommentTok{\# 3. O establecer variable de entorno}
+\BuiltInTok{set} \AttributeTok{{-}gx}\NormalTok{ ANDROID\_SERIAL ABC123456789}
+\ExtensionTok{adb}\NormalTok{ shell}
+
+\CommentTok{\# 4. Usar {-}d (solo USB) o {-}e (solo emulador)}
+\ExtensionTok{adb} \AttributeTok{{-}d}\NormalTok{ shell}
+\ExtensionTok{adb} \AttributeTok{{-}e}\NormalTok{ shell}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema 5: Conexión WiFi se
+desconecta}\label{problema-5-conexiuxf3n-wifi-se-desconecta}
+
+\textbf{Causa:} Red inestable o dispositivo cambia de red.
+
+\textbf{Soluciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. Verificar que ambos estén en misma red}
+\CommentTok{\# Dispositivo: Ajustes → WiFi}
+\CommentTok{\# Host: ip addr show}
+
+\CommentTok{\# 2. Reconectar}
+\ExtensionTok{adb}\NormalTok{ connect 192.168.1.100:5555}
+
+\CommentTok{\# 3. Si falla, reiniciar desde USB}
+\ExtensionTok{adb}\NormalTok{ usb}
+\ExtensionTok{adb}\NormalTok{ tcpip 5555}
+\ExtensionTok{adb}\NormalTok{ connect 192.168.1.100:5555}
+
+\CommentTok{\# 4. Ping para verificar conectividad}
+\FunctionTok{ping}\NormalTok{ 192.168.1.100}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema 6: ``daemon not running; starting
+now''}\label{problema-6-daemon-not-running-starting-now}
+
+\textbf{Causa:} Servidor ADB no estaba corriendo (normal).
+
+\textbf{No es un error.} ADB inicia automáticamente el servidor.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Si quieres iniciar manualmente:}
+\ExtensionTok{adb}\NormalTok{ start{-}server}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema 7: ``insufficient permissions for
+device''}\label{problema-7-insufficient-permissions-for-device}
+
+\textbf{Causa:} Permisos USB incorrectos.
+
+\textbf{Soluciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. Verificar reglas udev (ver Problema 2)}
+
+\CommentTok{\# 2. Verificar vendor ID del dispositivo}
+\ExtensionTok{lsusb}
+\CommentTok{\# Buscar tu dispositivo Android}
+
+\CommentTok{\# 3. Agregar vendor ID a reglas udev}
+\FunctionTok{sudo}\NormalTok{ nano /etc/udev/rules.d/51{-}android.rules}
+\CommentTok{\# SUBSYSTEM=="usb", ATTR\{idVendor\}=="XXXX", MODE="0666", GROUP="adbusers"}
+
+\CommentTok{\# 4. Recargar reglas}
+\FunctionTok{sudo}\NormalTok{ udevadm control }\AttributeTok{{-}{-}reload{-}rules}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema 8: ``error: protocol fault (no
+status)''}\label{problema-8-error-protocol-fault-no-status}
+
+\textbf{Causa:} Comunicación corrupta con dispositivo.
+
+\textbf{Soluciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. Desconectar y reconectar dispositivo}
+
+\CommentTok{\# 2. Reiniciar servidor ADB}
+\ExtensionTok{adb}\NormalTok{ kill{-}server}
+\ExtensionTok{adb}\NormalTok{ start{-}server}
+
+\CommentTok{\# 3. Reiniciar dispositivo}
+\ExtensionTok{adb}\NormalTok{ reboot}
+
+\CommentTok{\# 4. Como último recurso, reiniciar computadora}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Automatización con
+Scripts}\label{automatizaciuxf3n-con-scripts}
+
+\subsection{Script Fish: Instalador de APK
+Mejorado}\label{script-fish-instalador-de-apk-mejorado}
+
+\textbf{Crear
+\texttt{\textasciitilde{}/.config/fish/functions/adb-install-smart.fish}:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{function adb{-}install{-}smart {-}{-}description "Instalar APK con opciones inteligentes"}
+\NormalTok{    if test (count $argv) {-}lt 1}
+\NormalTok{        echo "Uso: adb{-}install{-}smart \textless{}archivo.apk\textgreater{} [opciones]"}
+\NormalTok{        echo ""}
+\NormalTok{        echo "Opciones:"}
+\NormalTok{        echo "  {-}r : Reinstalar manteniendo datos"}
+\NormalTok{        echo "  {-}g : Otorgar todos los permisos"}
+\NormalTok{        echo "  {-}t : APK de prueba"}
+\NormalTok{        echo "  {-}d : Permitir downgrade"}
+\NormalTok{        return 1}
+\NormalTok{    end}
+    
+\NormalTok{    set apk $argv[1]}
+\NormalTok{    set options}
+    
+\NormalTok{    \# Parsear opciones}
+\NormalTok{    for arg in $argv[2..{-}1]}
+\NormalTok{        set options $options $arg}
+\NormalTok{    end}
+    
+\NormalTok{    \# Verificar que el archivo existe}
+\NormalTok{    if not test {-}f "$apk"}
+\NormalTok{        echo "Error: Archivo no encontrado: $apk"}
+\NormalTok{        return 1}
+\NormalTok{    end}
+    
+\NormalTok{    \# Verificar extensión}
+\NormalTok{    if not string match {-}q "*.apk" "$apk"}
+\NormalTok{        echo "Error: El archivo debe ser .apk"}
+\NormalTok{        return 1}
+\NormalTok{    end}
+    
+\NormalTok{    \# Obtener package name}
+\NormalTok{    set package (aapt dump badging "$apk" 2\textgreater{}/dev/null | grep package: | awk \textquotesingle{}\{print $2\}\textquotesingle{} | cut {-}d"\textquotesingle{}" {-}f2)}
+    
+\NormalTok{    echo "Instalando: $apk"}
+\NormalTok{    if test {-}n "$package"}
+\NormalTok{        echo "Paquete: $package"}
+\NormalTok{    end}
+    
+\NormalTok{    \# Instalar}
+\NormalTok{    adb install $options "$apk"}
+    
+\NormalTok{    if test $status {-}eq 0}
+\NormalTok{        echo "✓ Instalación exitosa"}
+        
+\NormalTok{        \# Si se otorgaron permisos, mostrarlos}
+\NormalTok{        if string match {-}q "*{-}g*" "$options"}
+\NormalTok{            echo "Permisos otorgados automáticamente"}
+\NormalTok{        end}
+\NormalTok{    else}
+\NormalTok{        echo "✗ Error en la instalación"}
+\NormalTok{        return 1}
+\NormalTok{    end}
+\NormalTok{end}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Usar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{adb{-}install{-}smart app.apk}
+\NormalTok{adb{-}install{-}smart app.apk {-}r {-}g}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Script Bash: Backup
+Completo}\label{script-bash-backup-completo}
+
+\textbf{Crear \texttt{\textasciitilde{}/bin/adb-backup-full}:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# adb{-}backup{-}full {-} Backup completo del dispositivo}
+
+\BuiltInTok{set} \AttributeTok{{-}e}
+
+\VariableTok{BACKUP\_DIR}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/android{-}backups/}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d\_\%H\%M\%S}\VariableTok{)}\StringTok{"}
+\VariableTok{DEVICE\_SERIAL}\OperatorTok{=}\StringTok{""}
+
+\CommentTok{\# Parsear argumentos}
+\ControlFlowTok{while} \BuiltInTok{getopts} \StringTok{"s:d:"} \VariableTok{opt}\KeywordTok{;} \ControlFlowTok{do}
+    \ControlFlowTok{case} \VariableTok{$opt} \KeywordTok{in}
+        \SpecialStringTok{s}\KeywordTok{)} \VariableTok{DEVICE\_SERIAL}\OperatorTok{=}\StringTok{"{-}s }\VariableTok{$OPTARG}\StringTok{"} \ControlFlowTok{;;}
+        \SpecialStringTok{d}\KeywordTok{)} \VariableTok{BACKUP\_DIR}\OperatorTok{=}\StringTok{"}\VariableTok{$OPTARG}\StringTok{"} \ControlFlowTok{;;}
+        \PreprocessorTok{*}\KeywordTok{)} \BuiltInTok{echo} \StringTok{"Uso: }\VariableTok{$0}\StringTok{ [{-}s serial] [{-}d directorio]"}\KeywordTok{;} \BuiltInTok{exit}\NormalTok{ 1 }\ControlFlowTok{;;}
+    \ControlFlowTok{esac}
+\ControlFlowTok{done}
+
+\FunctionTok{mkdir} \AttributeTok{{-}p} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{"}
+
+\BuiltInTok{echo} \StringTok{"==================================="}
+\BuiltInTok{echo} \StringTok{"Backup Completo de Dispositivo Android"}
+\BuiltInTok{echo} \StringTok{"==================================="}
+\BuiltInTok{echo} \StringTok{"Directorio: }\VariableTok{$BACKUP\_DIR}\StringTok{"}
+\BuiltInTok{echo} \StringTok{""}
+
+\CommentTok{\# Información del dispositivo}
+\BuiltInTok{echo} \StringTok{"1. Capturando información del dispositivo..."}
+\ExtensionTok{adb} \VariableTok{$DEVICE\_SERIAL}\NormalTok{ shell getprop }\OperatorTok{\textgreater{}} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/device\_info.txt"}
+\ExtensionTok{adb} \VariableTok{$DEVICE\_SERIAL}\NormalTok{ shell }\StringTok{"dumpsys battery"} \OperatorTok{\textgreater{}} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/battery\_info.txt"}
+
+\CommentTok{\# Lista de aplicaciones}
+\BuiltInTok{echo} \StringTok{"2. Listando aplicaciones instaladas..."}
+\ExtensionTok{adb} \VariableTok{$DEVICE\_SERIAL}\NormalTok{ shell pm list packages }\AttributeTok{{-}f} \OperatorTok{\textgreater{}} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/packages.txt"}
+\ExtensionTok{adb} \VariableTok{$DEVICE\_SERIAL}\NormalTok{ shell pm list packages }\AttributeTok{{-}3} \OperatorTok{\textgreater{}} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/packages\_user.txt"}
+
+\CommentTok{\# Backup de APKs de usuario}
+\BuiltInTok{echo} \StringTok{"3. Respaldando APKs de usuario..."}
+\FunctionTok{mkdir} \AttributeTok{{-}p} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/apks"}
+\VariableTok{USER\_APPS}\OperatorTok{=}\VariableTok{$(}\ExtensionTok{adb} \VariableTok{$DEVICE\_SERIAL}\NormalTok{ shell pm list packages }\AttributeTok{{-}3} \KeywordTok{|} \FunctionTok{cut} \AttributeTok{{-}d:} \AttributeTok{{-}f2}\VariableTok{)}
+\ControlFlowTok{for}\NormalTok{ app }\KeywordTok{in} \VariableTok{$USER\_APPS}\KeywordTok{;} \ControlFlowTok{do}
+    \BuiltInTok{echo} \StringTok{"  Respaldando: }\VariableTok{$app}\StringTok{"}
+    \VariableTok{APK\_PATH}\OperatorTok{=}\VariableTok{$(}\ExtensionTok{adb} \VariableTok{$DEVICE\_SERIAL}\NormalTok{ shell pm path }\StringTok{"}\VariableTok{$app}\StringTok{"} \KeywordTok{|} \FunctionTok{cut} \AttributeTok{{-}d:} \AttributeTok{{-}f2} \KeywordTok{|} \FunctionTok{tr} \AttributeTok{{-}d} \StringTok{\textquotesingle{}\textbackslash{}r\textquotesingle{}}\VariableTok{)}
+    \ExtensionTok{adb} \VariableTok{$DEVICE\_SERIAL}\NormalTok{ pull }\StringTok{"}\VariableTok{$APK\_PATH}\StringTok{"} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/apks/}\VariableTok{$\{app\}}\StringTok{.apk"} \DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{||} \BuiltInTok{echo} \StringTok{"    Error respaldando }\VariableTok{$app}\StringTok{"}
+\ControlFlowTok{done}
+
+\CommentTok{\# Backup de datos}
+\BuiltInTok{echo} \StringTok{"4. Respaldando datos de usuario..."}
+\ExtensionTok{adb} \VariableTok{$DEVICE\_SERIAL}\NormalTok{ backup }\AttributeTok{{-}f} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/data.ab"} \AttributeTok{{-}all} \AttributeTok{{-}apk} \AttributeTok{{-}shared}
+
+\CommentTok{\# Contactos (si accesible)}
+\BuiltInTok{echo} \StringTok{"5. Respaldando contactos..."}
+\ExtensionTok{adb} \VariableTok{$DEVICE\_SERIAL}\NormalTok{ pull /data/data/com.android.providers.contacts/databases }\StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/contacts/"} \DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{||} \BuiltInTok{echo} \StringTok{"  No accesible (requiere root)"}
+
+\CommentTok{\# Fotos y videos}
+\BuiltInTok{echo} \StringTok{"6. Respaldando multimedia..."}
+\ExtensionTok{adb} \VariableTok{$DEVICE\_SERIAL}\NormalTok{ pull /sdcard/DCIM }\StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/DCIM/"} \DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{||} \FunctionTok{true}
+\ExtensionTok{adb} \VariableTok{$DEVICE\_SERIAL}\NormalTok{ pull /sdcard/Pictures }\StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/Pictures/"} \DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{||} \FunctionTok{true}
+\ExtensionTok{adb} \VariableTok{$DEVICE\_SERIAL}\NormalTok{ pull /sdcard/Download }\StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/Download/"} \DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{||} \FunctionTok{true}
+
+\CommentTok{\# Crear archivo de metadatos}
+\BuiltInTok{echo} \StringTok{"7. Creando metadatos..."}
+\FunctionTok{cat} \OperatorTok{\textgreater{}} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/README.txt"} \OperatorTok{\textless{}\textless{} EOF}
+\StringTok{Backup de Dispositivo Android}
+\StringTok{Fecha: }\VariableTok{$(}\FunctionTok{date}\VariableTok{)}
+\StringTok{Dispositivo: }\VariableTok{$(}\ExtensionTok{adb} \VariableTok{$DEVICE\_SERIAL}\NormalTok{ shell getprop ro.product.model}\VariableTok{)}
+\StringTok{Android: }\VariableTok{$(}\ExtensionTok{adb} \VariableTok{$DEVICE\_SERIAL}\NormalTok{ shell getprop ro.build.version.release}\VariableTok{)}
+\StringTok{Serial: }\VariableTok{$(}\ExtensionTok{adb} \VariableTok{$DEVICE\_SERIAL}\NormalTok{ get{-}serialno}\VariableTok{)}
+
+\StringTok{Contenido:}
+\StringTok{{-} device\_info.txt: Propiedades del sistema}
+\StringTok{{-} packages.txt: Lista de todos los paquetes}
+\StringTok{{-} packages\_user.txt: Solo paquetes de usuario}
+\StringTok{{-} apks/: APKs de aplicaciones de usuario}
+\StringTok{{-} data.ab: Backup de datos (usar \textquotesingle{}adb restore data.ab\textquotesingle{})}
+\StringTok{{-} DCIM/, Pictures/, Download/: Multimedia}
+\OperatorTok{EOF}
+
+\BuiltInTok{echo} \StringTok{""}
+\BuiltInTok{echo} \StringTok{"==================================="}
+\BuiltInTok{echo} \StringTok{"Backup completado exitosamente"}
+\BuiltInTok{echo} \StringTok{"Ubicación: }\VariableTok{$BACKUP\_DIR}\StringTok{"}
+\BuiltInTok{echo} \StringTok{"==================================="}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Hacer ejecutable y usar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{chmod}\NormalTok{ +x \textasciitilde{}/bin/adb{-}backup{-}full}
+\ExtensionTok{adb{-}backup{-}full}
+\ExtensionTok{adb{-}backup{-}full} \AttributeTok{{-}s}\NormalTok{ ABC123456789}
+\ExtensionTok{adb{-}backup{-}full} \AttributeTok{{-}d}\NormalTok{ \textasciitilde{}/mis{-}backups/backup{-}especial}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Alias Útiles para Fish}\label{alias-uxfatiles-para-fish}
+
+\textbf{Agregar a \texttt{\textasciitilde{}/.config/fish/config.fish}:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\# =============================================================================}
+\NormalTok{\# ALIAS DE ADB}
+\NormalTok{\# =============================================================================}
+
+\NormalTok{\# Básicos}
+\NormalTok{alias adb{-}devices="adb devices {-}l"}
+\NormalTok{alias adb{-}restart="adb kill{-}server \&\& adb start{-}server"}
+\NormalTok{alias adb{-}logcat="adb logcat {-}v time"}
+
+\NormalTok{\# Dispositivo}
+\NormalTok{alias adb{-}model="adb shell getprop ro.product.model"}
+\NormalTok{alias adb{-}android="adb shell getprop ro.build.version.release"}
+\NormalTok{alias adb{-}battery="adb shell dumpsys battery"}
+\NormalTok{alias adb{-}wifi="adb shell svc wifi enable"}
+\NormalTok{alias adb{-}wifi{-}off="adb shell svc wifi disable"}
+
+\NormalTok{\# Aplicaciones}
+\NormalTok{alias adb{-}apps="adb shell pm list packages {-}3"}
+\NormalTok{alias adb{-}apps{-}all="adb shell pm list packages"}
+\NormalTok{alias adb{-}uninstall="adb uninstall"}
+\NormalTok{alias adb{-}clear="adb shell pm clear"}
+
+\NormalTok{\# Archivos}
+\NormalTok{alias adb{-}pull{-}dcim="adb pull /sdcard/DCIM/ ./"}
+\NormalTok{alias adb{-}pull{-}download="adb pull /sdcard/Download/ ./"}
+\NormalTok{alias adb{-}ls="adb shell ls {-}la"}
+
+\NormalTok{\# Captura}
+\NormalTok{alias adb{-}screenshot="adb exec{-}out screencap {-}p \textgreater{} screenshot\_(date +\%Y\%m\%d\_\%H\%M\%S).png"}
+\NormalTok{alias adb{-}record="adb shell screenrecord /sdcard/video.mp4"}
+
+\NormalTok{\# Desarrollo}
+\NormalTok{alias adb{-}install{-}debug="adb install {-}r {-}t {-}g"}
+\NormalTok{alias adb{-}logs="adb logcat {-}v time | grep {-}i"}
+
+\NormalTok{\# Conexión}
+\NormalTok{alias adb{-}wifi{-}connect="adb tcpip 5555"}
+\NormalTok{alias adb{-}usb="adb usb"}
+
+\NormalTok{\# Reinicio}
+\NormalTok{alias adb{-}reboot="adb reboot"}
+\NormalTok{alias adb{-}recovery="adb reboot recovery"}
+\NormalTok{alias adb{-}bootloader="adb reboot bootloader"}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Recargar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{source \textasciitilde{}/.config/fish/config.fish}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Referencia Rápida}\label{referencia-ruxe1pida}
+
+\subsection{Comandos Esenciales}\label{comandos-esenciales}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# SERVIDOR}
+\ExtensionTok{adb}\NormalTok{ start{-}server              }\CommentTok{\# Iniciar servidor}
+\ExtensionTok{adb}\NormalTok{ kill{-}server               }\CommentTok{\# Detener servidor}
+\ExtensionTok{adb}\NormalTok{ version                   }\CommentTok{\# Versión}
+
+\CommentTok{\# DISPOSITIVOS}
+\ExtensionTok{adb}\NormalTok{ devices                   }\CommentTok{\# Listar dispositivos}
+\ExtensionTok{adb}\NormalTok{ devices }\AttributeTok{{-}l}                \CommentTok{\# Con detalles}
+\ExtensionTok{adb} \AttributeTok{{-}s}\NormalTok{ SERIAL comando         }\CommentTok{\# Especificar dispositivo}
+\ExtensionTok{adb} \AttributeTok{{-}d}\NormalTok{ comando                }\CommentTok{\# Solo USB}
+\ExtensionTok{adb} \AttributeTok{{-}e}\NormalTok{ comando                }\CommentTok{\# Solo emulador}
+
+\CommentTok{\# CONEXIÓN}
+\ExtensionTok{adb}\NormalTok{ tcpip 5555                }\CommentTok{\# Habilitar WiFi}
+\ExtensionTok{adb}\NormalTok{ connect IP:5555           }\CommentTok{\# Conectar WiFi}
+\ExtensionTok{adb}\NormalTok{ disconnect                }\CommentTok{\# Desconectar WiFi}
+\ExtensionTok{adb}\NormalTok{ usb                       }\CommentTok{\# Volver a USB}
+
+\CommentTok{\# INFORMACIÓN}
+\ExtensionTok{adb}\NormalTok{ shell getprop             }\CommentTok{\# Propiedades}
+\ExtensionTok{adb}\NormalTok{ get{-}serialno              }\CommentTok{\# Número de serie}
+\ExtensionTok{adb}\NormalTok{ get{-}state                 }\CommentTok{\# Estado}
+
+\CommentTok{\# APLICACIONES}
+\ExtensionTok{adb}\NormalTok{ install app.apk           }\CommentTok{\# Instalar}
+\ExtensionTok{adb}\NormalTok{ install }\AttributeTok{{-}r}\NormalTok{ app.apk        }\CommentTok{\# Reinstalar}
+\ExtensionTok{adb}\NormalTok{ uninstall PACKAGE         }\CommentTok{\# Desinstalar}
+\ExtensionTok{adb}\NormalTok{ shell pm list packages    }\CommentTok{\# Listar apps}
+\ExtensionTok{adb}\NormalTok{ shell pm clear PACKAGE    }\CommentTok{\# Limpiar datos}
+
+\CommentTok{\# ARCHIVOS}
+\ExtensionTok{adb}\NormalTok{ push LOCAL REMOTE         }\CommentTok{\# Copiar a dispositivo}
+\ExtensionTok{adb}\NormalTok{ pull REMOTE LOCAL         }\CommentTok{\# Copiar de dispositivo}
+\ExtensionTok{adb}\NormalTok{ shell ls /sdcard          }\CommentTok{\# Listar archivos}
+
+\CommentTok{\# SHELL}
+\ExtensionTok{adb}\NormalTok{ shell                     }\CommentTok{\# Shell interactivo}
+\ExtensionTok{adb}\NormalTok{ shell COMANDO             }\CommentTok{\# Comando único}
+
+\CommentTok{\# CAPTURA}
+\ExtensionTok{adb}\NormalTok{ exec{-}out screencap }\AttributeTok{{-}p} \OperatorTok{\textgreater{}}\NormalTok{ screenshot.png}
+\ExtensionTok{adb}\NormalTok{ shell screenrecord /sdcard/video.mp4}
+
+\CommentTok{\# LOGS}
+\ExtensionTok{adb}\NormalTok{ logcat                    }\CommentTok{\# Ver logs}
+\ExtensionTok{adb}\NormalTok{ logcat }\AttributeTok{{-}c}                 \CommentTok{\# Limpiar logs}
+\ExtensionTok{adb}\NormalTok{ bugreport                 }\CommentTok{\# Reporte de bugs}
+
+\CommentTok{\# REINICIO}
+\ExtensionTok{adb}\NormalTok{ reboot                    }\CommentTok{\# Reiniciar}
+\ExtensionTok{adb}\NormalTok{ reboot recovery           }\CommentTok{\# Recovery}
+\ExtensionTok{adb}\NormalTok{ reboot bootloader         }\CommentTok{\# Bootloader}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Atajos de Teclado en
+Terminal}\label{atajos-de-teclado-en-terminal}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Atajo & Acción \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Ctrl+C} & Detener comando actual \\
+\texttt{Ctrl+D} & Salir de shell adb \\
+\texttt{Ctrl+Z} & Suspender comando \\
+\texttt{Ctrl+L} & Limpiar pantalla \\
+\texttt{↑} / \texttt{↓} & Historial de comandos \\
+\end{longtable}
+
+\subsection{Variables de Entorno
+Útiles}\label{variables-de-entorno-uxfatiles}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\# Fish}
+\NormalTok{set {-}gx ANDROID\_SERIAL ABC123456789}
+\NormalTok{set {-}gx ANDROID\_HOME /opt/android{-}sdk}
+\NormalTok{set {-}gx ADB\_TRACE all  \# Debug verbose}
+
+\NormalTok{\# Bash/Zsh}
+\NormalTok{export ANDROID\_SERIAL=ABC123456789}
+\NormalTok{export ANDROID\_HOME=/opt/android{-}sdk}
+\NormalTok{export ADB\_TRACE=all}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Locations Importantes}\label{locations-importantes}
+
+\begin{verbatim}
+/sdcard/              # Almacenamiento interno (equivale a /storage/emulated/0/)
+/sdcard/DCIM/         # Fotos de cámara
+/sdcard/Download/     # Descargas
+/sdcard/Pictures/     # Imágenes
+/sdcard/Music/        # Música
+/sdcard/Movies/       # Videos
+/data/data/           # Datos de apps (requiere root)
+/system/app/          # Apps del sistema (requiere root)
+/data/app/            # Apps de usuario (requiere root)
+\end{verbatim}
+
+\subsection{Intents Comunes}\label{intents-comunes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Configuración}
+\ExtensionTok{android.settings.SETTINGS}
+\ExtensionTok{android.settings.WIFI\_SETTINGS}
+\ExtensionTok{android.settings.BLUETOOTH\_SETTINGS}
+\ExtensionTok{android.settings.APPLICATION\_SETTINGS}
+
+\CommentTok{\# Acciones}
+\ExtensionTok{android.intent.action.VIEW}
+\ExtensionTok{android.intent.action.CALL}
+\ExtensionTok{android.intent.action.SENDTO}
+\ExtensionTok{android.intent.action.SEND}
+\ExtensionTok{android.media.action.IMAGE\_CAPTURE}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Recursos Adicionales}\label{recursos-adicionales}
+
+\subsection{Documentación Oficial}\label{documentaciuxf3n-oficial}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{ADB Official:}
+  https://developer.android.com/studio/command-line/adb
+\item
+  \textbf{Platform Tools:}
+  https://developer.android.com/studio/releases/platform-tools
+\item
+  \textbf{Android Debug:} https://developer.android.com/studio/debug
+\end{itemize}
+
+\subsection{Comunidad}\label{comunidad}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{XDA Developers:} https://www.xda-developers.com/
+\item
+  \textbf{Stack Overflow:}
+  https://stackoverflow.com/questions/tagged/adb
+\item
+  \textbf{Android Developers:} https://developer.android.com/
+\end{itemize}
+
+\subsection{Herramientas
+Complementarias}\label{herramientas-complementarias}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# En Arch Linux}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ android{-}tools android{-}udev scrcpy}
+
+\CommentTok{\# Otras herramientas útiles}
+\ExtensionTok{yay} \AttributeTok{{-}S}\NormalTok{ apktool android{-}sdk{-}platform{-}tools}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Mejores Prácticas}\label{mejores-pruxe1cticas}
+
+\subsection{Seguridad}\label{seguridad}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Depuración USB solo cuando sea necesario}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Desactivar cuando no uses ADB
+  \item
+    No conectar a computadoras desconocidas
+  \end{itemize}
+\item
+  \textbf{Autorizar solo computadoras confiables}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Verificar huella digital RSA
+  \item
+    Revocar autorizaciones periódicamente
+  \end{itemize}
+\item
+  \textbf{Conexión WiFi segura}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Usar solo en redes confiables
+  \item
+    Desactivar cuando no la uses
+  \item
+    No usar en redes públicas
+  \end{itemize}
+\end{enumerate}
+
+\subsection{Rendimiento}\label{rendimiento}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Cerrar servidor cuando no lo uses}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{adb}\NormalTok{ kill{-}server}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Usar comandos específicos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Bien}
+\ExtensionTok{adb} \AttributeTok{{-}s}\NormalTok{ ABC123 shell pm list packages }\AttributeTok{{-}3}
+
+\CommentTok{\# Evitar}
+\ExtensionTok{adb}\NormalTok{ shell pm list packages }\KeywordTok{|} \FunctionTok{grep}\NormalTok{ algo}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Transferencias grandes por USB}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    WiFi es más lento para archivos grandes
+  \item
+    USB 3.0 es significativamente más rápido
+  \end{itemize}
+\end{enumerate}
+
+\subsection{Desarrollo}\label{desarrollo}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Automatizar tareas repetitivas}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Crear scripts Fish/Bash
+  \item
+    Usar alias para comandos comunes
+  \end{itemize}
+\item
+  \textbf{Mantener logs organizados}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{adb}\NormalTok{ logcat }\OperatorTok{\textgreater{}}\NormalTok{ logs/app\_}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d\_\%H\%M\%S}\VariableTok{)}\NormalTok{.log}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Backup regular}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Antes de pruebas destructivas
+  \item
+    Usar scripts automatizados
+  \end{itemize}
+\end{enumerate}
 
 \section{Publicaciones Similares}\label{publicaciones-similares}
 

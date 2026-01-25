@@ -81,63 +81,63 @@
     "href": "operating-system/2019-06-19-adb/index.html",
     "title": "Guía completa de comandos ADB Android",
     "section": "",
-    "text": "Microsoft Corporation. Todos los derechos reservados.\n\n\n\n\nC:\\Users\\achalmaedison&gt;cd \"C:\\Users\\achalmaedison\\Downloads\\ADB\"\n\n\n\nC:\\Users\\achalmaedison\\Downloads\\ADB&gt;adb connect 127.0.0.1:58526\nSalida esperada:\nYa conectado a 127.0.0.1:58526\n\n\n\nC:\\Users\\achalmaedison\\Downloads\\ADB&gt;adb install Instagram.apk\nSalida esperada:\nRealizando Instalación en Streaming\nInstalación Exitosa\nEste es un ejemplo de cómo utilizar los comandos ADB en un entorno Windows.\n\n\n\nPuedes descargar ADB desde el siguiente enlace:\nPlataforma de herramientas de Android\n\n\n\n\nConfigurar el subsistema de Android.\nActivar el modo desarrollador.\nCopiar la dirección IP del dispositivo.\nAbrir CMD como administrador.\nNavegar a la carpeta platform-tools ubicada en C:\\platform-tools:\n\ncd C:\\platform-tools\n\n\n\nConectar el dispositivo:\nadb connect 127.0.0.1:58526\nInstalar aplicaciones:\nadb install gmail.apk\nadb install facebook-354-0-0-22-110.apk\nNota: Si los comandos no funcionan, intenta reiniciar el sistema.\n\n\n\nMicrosoft Windows [Version 10.0.22000.527]\n(c) Microsoft Corporation. All rights reserved.\nC:\\platform-tools&gt;adb connect 172.28.22.78\n* daemon not running; starting now at tcp:5037\n* daemon started successfully\nconnected to 172.28.22.78:5555\nC:\\platform-tools&gt;adb install termux-app_v0.118.0+github-debug_arm64-v8a.apk\nPerforming Streamed Install\nSuccess\nC:\\platform-tools&gt;"
+    "text": "Android Debug Bridge (ADB) es una herramienta de línea de comandos versátil que permite comunicarte con dispositivos Android. Es parte esencial del SDK de Android y proporciona acceso completo al sistema operativo del dispositivo.\n\n\n\nADB es un programa cliente-servidor con tres componentes:\n\nCliente\n\nSe ejecuta en tu computadora (Arch Linux)\nEnvía comandos al servidor\nSe invoca desde la terminal con adb\n\nDaemon (adbd)\n\nSe ejecuta en el dispositivo Android\nEjecuta los comandos recibidos\nProceso en segundo plano\n\nServidor\n\nSe ejecuta en tu computadora\nGestiona la comunicación entre cliente y daemon\nPuerto TCP 5037\nProceso en segundo plano\n\n\n\n\n\n┌─────────────────────────────────────────────┐\n│          ARCH LINUX (Host)                  │\n│                                             │\n│  ┌──────────┐         ┌──────────┐         │\n│  │ Cliente  │────────▶│ Servidor │         │\n│  │   adb    │         │ (puerto  │         │\n│  │          │         │  5037)   │         │\n│  └──────────┘         └─────┬────┘         │\n│                             │              │\n└─────────────────────────────┼──────────────┘\n                              │\n                              │ USB / WiFi\n                              │\n┌─────────────────────────────▼──────────────┐\n│       DISPOSITIVO ANDROID                  │\n│                                            │\n│         ┌──────────────┐                   │\n│         │   Daemon     │                   │\n│         │   (adbd)     │                   │\n│         └──────────────┘                   │\n│                                            │\n└────────────────────────────────────────────┘\n\n\n\nPara desarrollo:\n\nInstalar y depurar aplicaciones\nAcceder al shell Unix del dispositivo\nCopiar archivos bidireccional\nEjecutar comandos del sistema\n\nPara testing:\n\nAutomatizar pruebas\nCapturar logs y errores\nSimular eventos del usuario\nModificar configuraciones\n\nPara gestión:\n\nInstalar APKs sin Google Play\nHacer backups de datos\nCapturar pantalla y video\nAnalizar rendimiento"
   },
   {
     "objectID": "operating-system/2019-06-19-adb/index.html#versión-de-microsoft-windows-10.0.22000.282",
     "href": "operating-system/2019-06-19-adb/index.html#versión-de-microsoft-windows-10.0.22000.282",
     "title": "Guía completa de comandos ADB Android",
-    "section": "",
-    "text": "Microsoft Corporation. Todos los derechos reservados."
+    "section": "Versión de Microsoft Windows: 10.0.22000.282",
+    "text": "Versión de Microsoft Windows: 10.0.22000.282\n\nMicrosoft Corporation. Todos los derechos reservados."
   },
   {
     "objectID": "operating-system/2019-06-19-adb/index.html#cambio-de-directorio-a-la-ubicación-de-adb",
     "href": "operating-system/2019-06-19-adb/index.html#cambio-de-directorio-a-la-ubicación-de-adb",
     "title": "Guía completa de comandos ADB Android",
-    "section": "",
-    "text": "C:\\Users\\achalmaedison&gt;cd \"C:\\Users\\achalmaedison\\Downloads\\ADB\""
+    "section": "Cambio de directorio a la ubicación de ADB",
+    "text": "Cambio de directorio a la ubicación de ADB\n\nC:\\Users\\achalmaedison&gt;cd \"C:\\Users\\achalmaedison\\Downloads\\ADB\""
   },
   {
     "objectID": "operating-system/2019-06-19-adb/index.html#conexión-con-adb",
     "href": "operating-system/2019-06-19-adb/index.html#conexión-con-adb",
     "title": "Guía completa de comandos ADB Android",
-    "section": "",
-    "text": "C:\\Users\\achalmaedison\\Downloads\\ADB&gt;adb connect 127.0.0.1:58526\nSalida esperada:\nYa conectado a 127.0.0.1:58526"
+    "section": "Conexión con ADB",
+    "text": "Conexión con ADB\n\nC:\\Users\\achalmaedison\\Downloads\\ADB&gt;adb connect 127.0.0.1:58526\nSalida esperada:\n\nYa conectado a 127.0.0.1:58526"
   },
   {
     "objectID": "operating-system/2019-06-19-adb/index.html#instalación-de-instagram-apk",
     "href": "operating-system/2019-06-19-adb/index.html#instalación-de-instagram-apk",
     "title": "Guía completa de comandos ADB Android",
-    "section": "",
-    "text": "C:\\Users\\achalmaedison\\Downloads\\ADB&gt;adb install Instagram.apk\nSalida esperada:\nRealizando Instalación en Streaming\nInstalación Exitosa\nEste es un ejemplo de cómo utilizar los comandos ADB en un entorno Windows."
+    "section": "Instalación de Instagram APK",
+    "text": "Instalación de Instagram APK\n\nC:\\Users\\achalmaedison\\Downloads\\ADB&gt;adb install Instagram.apk\nSalida esperada:\n\nRealizando Instalación en Streaming\n\nInstalación Exitosa\nEste es un ejemplo de cómo utilizar los comandos ADB en un entorno Windows."
   },
   {
     "objectID": "operating-system/2019-06-19-adb/index.html#descarga-de-adb",
     "href": "operating-system/2019-06-19-adb/index.html#descarga-de-adb",
     "title": "Guía completa de comandos ADB Android",
-    "section": "",
-    "text": "Puedes descargar ADB desde el siguiente enlace:\nPlataforma de herramientas de Android"
+    "section": "Descarga de ADB",
+    "text": "Descarga de ADB\nPuedes descargar ADB desde el siguiente enlace:\nPlataforma de herramientas de Android"
   },
   {
     "objectID": "operating-system/2019-06-19-adb/index.html#configuración",
     "href": "operating-system/2019-06-19-adb/index.html#configuración",
     "title": "Guía completa de comandos ADB Android",
-    "section": "",
-    "text": "Configurar el subsistema de Android.\nActivar el modo desarrollador.\nCopiar la dirección IP del dispositivo.\nAbrir CMD como administrador.\nNavegar a la carpeta platform-tools ubicada en C:\\platform-tools:\n\ncd C:\\platform-tools"
+    "section": "Configuración",
+    "text": "Configuración\n\nConfigurar el subsistema de Android.\nActivar el modo desarrollador.\nCopiar la dirección IP del dispositivo.\nAbrir CMD como administrador.\nNavegar a la carpeta platform-tools ubicada en C:\\platform-tools:\n\n\ncd C:\\platform-tools"
   },
   {
     "objectID": "operating-system/2019-06-19-adb/index.html#comandos-para-conexión-e-instalación-de-aplicaciones",
     "href": "operating-system/2019-06-19-adb/index.html#comandos-para-conexión-e-instalación-de-aplicaciones",
     "title": "Guía completa de comandos ADB Android",
-    "section": "",
-    "text": "Conectar el dispositivo:\nadb connect 127.0.0.1:58526\nInstalar aplicaciones:\nadb install gmail.apk\nadb install facebook-354-0-0-22-110.apk\nNota: Si los comandos no funcionan, intenta reiniciar el sistema."
+    "section": "Comandos para conexión e instalación de aplicaciones",
+    "text": "Comandos para conexión e instalación de aplicaciones\nConectar el dispositivo:\n\nadb connect 127.0.0.1:58526\nInstalar aplicaciones:\n\nadb install gmail.apk\n\nadb install facebook-354-0-0-22-110.apk\nNota: Si los comandos no funcionan, intenta reiniciar el sistema."
   },
   {
     "objectID": "operating-system/2019-06-19-adb/index.html#ejemplo-de-salida-esperada",
     "href": "operating-system/2019-06-19-adb/index.html#ejemplo-de-salida-esperada",
     "title": "Guía completa de comandos ADB Android",
-    "section": "",
-    "text": "Microsoft Windows [Version 10.0.22000.527]\n(c) Microsoft Corporation. All rights reserved.\nC:\\platform-tools&gt;adb connect 172.28.22.78\n* daemon not running; starting now at tcp:5037\n* daemon started successfully\nconnected to 172.28.22.78:5555\nC:\\platform-tools&gt;adb install termux-app_v0.118.0+github-debug_arm64-v8a.apk\nPerforming Streamed Install\nSuccess\nC:\\platform-tools&gt;"
+    "section": "Ejemplo de salida esperada",
+    "text": "Ejemplo de salida esperada\n\nMicrosoft Windows [Version 10.0.22000.527]\n\n(c) Microsoft Corporation. All rights reserved.\n\nC:\\platform-tools&gt;adb connect 172.28.22.78\n\n* daemon not running; starting now at tcp:5037\n\n* daemon started successfully\n\nconnected to 172.28.22.78:5555\n\nC:\\platform-tools&gt;adb install termux-app_v0.118.0+github-debug_arm64-v8a.apk\n\nPerforming Streamed Install\n\nSuccess\n\nC:\\platform-tools&gt;"
   },
   {
     "objectID": "operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.html#introducción",
@@ -6445,5 +6445,1118 @@
     "title": "Gestiona dotfiles fácilmente con GNU Stow",
     "section": "Implementación de Stow",
     "text": "Implementación de Stow\n\nScript install.sh\nMi install.sh actual debe usar Stow. Aquí está mi versión mejorada:\n#!/bin/bash\n# ~/dotfiles/install.sh\n\nset -e\n\nDOTFILES=\"$HOME/dotfiles\"\nBACKUP_DIR=\"$HOME/dotfiles-backup-$(date +%Y%m%d-%H%M%S)\"\n\n# Colores\nRED='\\033[0;31m'\nGREEN='\\033[0;32m'\nYELLOW='\\033[1;33m'\nNC='\\033[0m' # No Color\n\n# Funciones\nlog_info() {\n    echo -e \"${GREEN}[INFO]${NC} $1\"\n}\n\nlog_warn() {\n    echo -e \"${YELLOW}[WARN]${NC} $1\"\n}\n\nlog_error() {\n    echo -e \"${RED}[ERROR]${NC} $1\"\n}\n\n# Verificar que Stow está instalado\nif ! command -v stow &&gt; /dev/null; then\n    log_error \"Stow no está instalado\"\n    log_info \"Instalando stow...\"\n    sudo apt update && sudo apt install -y stow\nfi\n\n# Función para hacer backup\nbackup_if_exists() {\n    local file=\"$1\"\n    if [ -e \"$file\" ] && [ ! -L \"$file\" ]; then\n        mkdir -p \"$BACKUP_DIR\"\n        cp -r \"$file\" \"$BACKUP_DIR/\"\n        log_warn \"Backup: $file -&gt; $BACKUP_DIR/\"\n    fi\n}\n\n# Función para stow paquete\nstow_package() {\n    local package=\"$1\"\n    \n    log_info \"Stowing $package...\"\n    \n    # Dry run primero\n    if stow -nv \"$package\" 2&gt;&1 | grep -q \"WARNING\"; then\n        log_warn \"Conflicto detectado para $package\"\n        read -p \"¿Hacer backup y continuar? [y/N] \" -n 1 -r\n        echo\n        if [[ $REPLY =~ ^[Yy]$ ]]; then\n            # Hacer backup de archivos conflictivos\n            # (aquí necesitarías lógica más sofisticada)\n            stow \"$package\"\n        else\n            log_error \"Saltando $package\"\n            return 1\n        fi\n    else\n        stow \"$package\"\n        log_info \"✓ $package instalado\"\n    fi\n}\n\n# Cambiar a dotfiles directory\ncd \"$DOTFILES\" || exit 1\n\n# Lista de paquetes a instalar\nPACKAGES=(\n    \"git\"\n    \"shell\"\n    \"terminal\"\n    \"kde\"\n    \"vscode\"\n    \"nvim\"\n    \"kitty\"\n    # ... más paquetes\n)\n\n# Opción para instalar todo o selectivo\nif [ \"$1\" == \"all\" ]; then\n    PACKAGES=($(ls -d */ | sed 's#/#'))\n    log_info \"Instalando TODOS los paquetes\"\nelif [ $# -gt 0 ]; then\n    PACKAGES=(\"$@\")\n    log_info \"Instalando paquetes especificados: ${PACKAGES[*]}\"\nfi\n\n# Instalar paquetes\nfor package in \"${PACKAGES[@]}\"; do\n    stow_package \"$package\" || true\ndone\n\nlog_info \"Instalación completa!\"\nif [ -d \"$BACKUP_DIR\" ]; then\n    log_info \"Backups guardados en: $BACKUP_DIR\"\nfi\nUso:\n# Instalar paquetes específicos\n./install.sh git shell terminal\n\n# Instalar todo\n./install.sh all\n\n# Ver qué haría sin hacer cambios\n# (modificar script para agregar -n flag)\n\n\nScript para Desinstalar\n#!/bin/bash\n# ~/dotfiles/uninstall.sh\n\nDOTFILES=\"$HOME/dotfiles\"\n\ncd \"$DOTFILES\" || exit 1\n\nif [ $# -eq 0 ]; then\n    echo \"Uso: $0 &lt;paquete1&gt; [paquete2] ...\"\n    echo \"O: $0 all\"\n    exit 1\nfi\n\nif [ \"$1\" == \"all\" ]; then\n    PACKAGES=($(ls -d */ | sed 's#/#'))\nelse\n    PACKAGES=(\"$@\")\nfi\n\nfor package in \"${PACKAGES[@]}\"; do\n    echo \"Unstowing $package...\"\n    stow -D \"$package\"\n    echo \"✓ $package desinstalado\"\ndone\n\n\nReorganizar Paquetes Problemáticos\nZotero: Ubicación no estándar\n# Actual:\nzotero/\n  └── .zotero/zotero/25vfdnq5.default/\n      └── prefs.js\n\n# Problema: .zotero está en HOME pero tiene subdirectorios profundos\n\n# Solución 1: Usar como está (funciona)\nstow zotero\n# Resultado: ~/.zotero/... → dotfiles/zotero/.zotero/...\n\n# Solución 2: Si solo quieres prefs.js, simplificar:\nzotero/\n  └── .zotero/\n      └── zotero/\n          └── 25vfdnq5.default/\n              └── prefs.js\nObsidian: Ruta específica\n# Actual:\nobsidian/\n  └── Documents/thoughts/.obsidian/\n\n# Problema: No está en .config sino en Documents\n\n# Solución: Está bien así, Stow lo maneja\nstow obsidian\n# Resultado: ~/Documents/thoughts/.obsidian → ...\n\n\n.stowrc\nCrear ~/dotfiles/.stowrc:\n# ~/dotfiles/.stowrc\n\n# Target es siempre HOME\n--target=$HOME\n\n# Ignorar archivos comunes\n--ignore='.git'\n--ignore='README.*'\n--ignore='LICENSE.*'\n--ignore='.*.swp'\n--ignore='.*~'\n--ignore='install.sh'\n--ignore='uninstall.sh'\n--ignore='.stowrc'\nCon esto, no necesitas especificar -t ~ cada vez.\n\n\n.stow-local-ignore por Paquete\nPara vscode:\n# ~/dotfiles/vscode/.stow-local-ignore\n\n# No stow extensiones (solo configuración)\n^/\\.config/Code/CachedData/\n^/\\.config/Code/logs/\n^/\\.config/Code/User/workspaceStorage/\nPara kde:\n# ~/dotfiles/kde/.stow-local-ignore\n\n# Archivos de sesión y cache\n^/\\.config/session/\n^/\\.cache/\nPara shell:\n# ~/dotfiles/shell/.stow-local-ignore\n\n# Historia de shells (puede tener info sensible)\n^/\\.zsh_history\n^/\\.bash_history\n\n# Archivos compilados\n\\.zcompdump\n\n\nScript de Verificación\n#!/bin/bash\n# ~/dotfiles/check-stow.sh\n\n# Verificar qué está stowed\n\nDOTFILES=\"$HOME/dotfiles\"\n\necho \"Paquetes stowed:\"\necho \"================\"\n\ncd \"$DOTFILES\" || exit 1\n\nfor package in */; do\n    package=${package%/}\n    \n    # Encontrar primer archivo del paquete\n    first_file=$(find \"$package\" -type f | head -1)\n    \n    if [ -z \"$first_file\" ]; then\n        continue\n    fi\n    \n    # Convertir a path en HOME\n    home_path=\"$HOME/${first_file#$package/}\"\n    \n    if [ -L \"$home_path\" ]; then\n        target=$(readlink \"$home_path\")\n        if [[ \"$target\" == *\"$DOTFILES/$package\"* ]]; then\n            echo \"✓ $package\"\n        else\n            echo \"✗ $package (symlink apunta a otro lugar)\"\n        fi\n    else\n        echo \"✗ $package (no stowed)\"\n    fi\ndone\n\n\nActualizar .gitignore\n# ~/dotfiles/.gitignore\n\n# Backups\n*~\n*.bak\n*.old\n*.orig\n.*.swp\n\n# Datos sensibles\nshell/.zsh_history\nshell/.bash_history\n.netrc\n.authinfo\n\n# Cache y temporales\n**/.cache/\n**/__pycache__/\n**/node_modules/\n\n# Logs\n**/*.log\n\n# Sistema\n.DS_Store\nThumbs.db\n\n# Archivos de Stow\n.stow\n\n# Zotero database (demasiado grande)\nzotero/.zotero/zotero/*/zotero.sqlite*\n\n# VSCode workspace storage\nvscode/.config/Code/User/workspaceStorage/\n\n\nComandos Útiles\n# Navegar a dotfiles\ncd ~/dotfiles\n\n# Instalar todo (primera vez)\n./install.sh all\n\n# Instalar paquetes esenciales\n./install.sh git shell terminal kde\n\n# Verificar qué está instalado\n./check-stow.sh\n\n# Actualizar después de pull\ngit pull\nstow -R */  # Restow todo\n\n# Desinstalar temporalmente para pruebas\nstow -D vscode\n# hacer pruebas...\nstow vscode  # Reinstalar\n\n# Agregar nuevo paquete\nmkdir new-app\n# crear estructura...\nstow new-app\ngit add new-app/\ngit commit -m \"Add new-app\""
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#qué-es-android-debug-bridge",
+    "href": "operating-system/2019-06-19-adb/index.html#qué-es-android-debug-bridge",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "",
+    "text": "Android Debug Bridge (ADB) es una herramienta de línea de comandos versátil que permite comunicarte con dispositivos Android. Es parte esencial del SDK de Android y proporciona acceso completo al sistema operativo del dispositivo."
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#componentes-de-adb",
+    "href": "operating-system/2019-06-19-adb/index.html#componentes-de-adb",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "",
+    "text": "ADB es un programa cliente-servidor con tres componentes:\n\nCliente\n\nSe ejecuta en tu computadora (Arch Linux)\nEnvía comandos al servidor\nSe invoca desde la terminal con adb\n\nDaemon (adbd)\n\nSe ejecuta en el dispositivo Android\nEjecuta los comandos recibidos\nProceso en segundo plano\n\nServidor\n\nSe ejecuta en tu computadora\nGestiona la comunicación entre cliente y daemon\nPuerto TCP 5037\nProceso en segundo plano"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#funcionamiento",
+    "href": "operating-system/2019-06-19-adb/index.html#funcionamiento",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "",
+    "text": "┌─────────────────────────────────────────────┐\n│          ARCH LINUX (Host)                  │\n│                                             │\n│  ┌──────────┐         ┌──────────┐         │\n│  │ Cliente  │────────▶│ Servidor │         │\n│  │   adb    │         │ (puerto  │         │\n│  │          │         │  5037)   │         │\n│  └──────────┘         └─────┬────┘         │\n│                             │              │\n└─────────────────────────────┼──────────────┘\n                              │\n                              │ USB / WiFi\n                              │\n┌─────────────────────────────▼──────────────┐\n│       DISPOSITIVO ANDROID                  │\n│                                            │\n│         ┌──────────────┐                   │\n│         │   Daemon     │                   │\n│         │   (adbd)     │                   │\n│         └──────────────┘                   │\n│                                            │\n└────────────────────────────────────────────┘"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#ventajas-de-adb",
+    "href": "operating-system/2019-06-19-adb/index.html#ventajas-de-adb",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "",
+    "text": "Para desarrollo:\n\nInstalar y depurar aplicaciones\nAcceder al shell Unix del dispositivo\nCopiar archivos bidireccional\nEjecutar comandos del sistema\n\nPara testing:\n\nAutomatizar pruebas\nCapturar logs y errores\nSimular eventos del usuario\nModificar configuraciones\n\nPara gestión:\n\nInstalar APKs sin Google Play\nHacer backups de datos\nCapturar pantalla y video\nAnalizar rendimiento"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#proceso-de-conexión",
+    "href": "operating-system/2019-06-19-adb/index.html#proceso-de-conexión",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Proceso de Conexión",
+    "text": "Proceso de Conexión\n1. Inicio del Cliente\nadb devices\n2. Verificación del Servidor\n\nSi no hay servidor corriendo → lo inicia\nEl servidor se vincula al puerto 5037\nEscucha comandos de clientes\n\n3. Detección de Dispositivos\n\nEscanea puertos USB\nEscanea puertos de red (5555-5585)\nEstablece conexión con daemon (adbd)\n\n4. Comunicación\n\nCliente envía comando al servidor\nServidor envía comando al daemon\nDaemon ejecuta y responde\nRespuesta llega al cliente"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#puertos-y-conexiones",
+    "href": "operating-system/2019-06-19-adb/index.html#puertos-y-conexiones",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Puertos y Conexiones",
+    "text": "Puertos y Conexiones\nEmuladores:\nEmulador 1: consola 5554, adb 5555\nEmulador 2: consola 5556, adb 5557\nEmulador 3: consola 5558, adb 5559\n...hasta 16 emuladores\nDispositivos Físicos:\n\nUSB: Detección automática por vendor ID\nWiFi: Puerto 5555 (configurable)"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#método-1-repositorios-oficiales-recomendado",
+    "href": "operating-system/2019-06-19-adb/index.html#método-1-repositorios-oficiales-recomendado",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Método 1: Repositorios Oficiales (Recomendado)",
+    "text": "Método 1: Repositorios Oficiales (Recomendado)\n# ADB está en el paquete android-tools\nsudo pacman -S android-tools\nVerificar instalación:\nadb version\n# Salida esperada:\n# Android Debug Bridge version 1.0.41\n# Version 35.0.1-11580240"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#método-2-android-sdk-completo",
+    "href": "operating-system/2019-06-19-adb/index.html#método-2-android-sdk-completo",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Método 2: Android SDK Completo",
+    "text": "Método 2: Android SDK Completo\nSi necesitas todas las herramientas de Android:\n# 1. Instalar dependencias\nsudo pacman -S jdk17-openjdk\n\n# 2. Instalar Android SDK desde AUR\nyay -S android-sdk android-sdk-platform-tools\n\n# 3. Configurar variables de entorno\n# Agregar a ~/.config/fish/config.fish\nset -gx ANDROID_HOME /opt/android-sdk\nset -gx PATH $PATH $ANDROID_HOME/platform-tools $ANDROID_HOME/tools\nRecargar configuración:\nsource ~/.config/fish/config.fish"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#método-3-descarga-manual",
+    "href": "operating-system/2019-06-19-adb/index.html#método-3-descarga-manual",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Método 3: Descarga Manual",
+    "text": "Método 3: Descarga Manual\n# 1. Crear directorio\nmkdir -p ~/android/platform-tools\ncd ~/android/platform-tools\n\n# 2. Descargar herramientas\ncurl -LO https://dl.google.com/android/repository/platform-tools-latest-linux.zip\n\n# 3. Extraer\nunzip platform-tools-latest-linux.zip\n\n# 4. Agregar al PATH (Fish)\nset -gx PATH $PATH ~/android/platform-tools\n\n# Para hacerlo permanente:\necho 'set -gx PATH $PATH ~/android/platform-tools' &gt;&gt; ~/.config/fish/config.fish"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#verificar-instalación",
+    "href": "operating-system/2019-06-19-adb/index.html#verificar-instalación",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "1. Verificar Instalación",
+    "text": "1. Verificar Instalación\n# Versión de ADB\nadb version\n\n# Ayuda general\nadb --help\n\n# Lista de comandos\nadb help"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#configurar-permisos-de-usuario",
+    "href": "operating-system/2019-06-19-adb/index.html#configurar-permisos-de-usuario",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "2. Configurar Permisos de Usuario",
+    "text": "2. Configurar Permisos de Usuario\nEn Arch Linux, necesitas estar en el grupo adbusers:\n# Verificar si el grupo existe\ngetent group adbusers\n\n# Si no existe, crearlo\nsudo groupadd adbusers\n\n# Agregar tu usuario al grupo\nsudo usermod -aG adbusers $USER\n\n# Verificar\ngroups $USER | grep adbusers\nAplicar cambios (una de estas opciones):\n# Opción 1: Recargar grupos (temporal)\nnewgrp adbusers\n\n# Opción 2: Cerrar sesión y volver a iniciar\n\n# Opción 3: Reiniciar sistema"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#configurar-reglas-udev",
+    "href": "operating-system/2019-06-19-adb/index.html#configurar-reglas-udev",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "3. Configurar Reglas udev",
+    "text": "3. Configurar Reglas udev\nLas reglas udev permiten que ADB detecte dispositivos sin sudo.\n# Crear archivo de reglas\nsudo nano /etc/udev/rules.d/51-android.rules\nAgregar reglas para fabricantes comunes:\n# Google\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"18d1\", MODE=\"0666\", GROUP=\"adbusers\"\n\n# Samsung\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"04e8\", MODE=\"0666\", GROUP=\"adbusers\"\n\n# Xiaomi\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"2717\", MODE=\"0666\", GROUP=\"adbusers\"\n\n# Huawei\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"12d1\", MODE=\"0666\", GROUP=\"adbusers\"\n\n# OnePlus\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"2a70\", MODE=\"0666\", GROUP=\"adbusers\"\n\n# Motorola\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"22b8\", MODE=\"0666\", GROUP=\"adbusers\"\n\n# LG\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"1004\", MODE=\"0666\", GROUP=\"adbusers\"\n\n# HTC\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"0bb4\", MODE=\"0666\", GROUP=\"adbusers\"\n\n# Sony\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"0fce\", MODE=\"0666\", GROUP=\"adbusers\"\n\n# ASUS\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"0b05\", MODE=\"0666\", GROUP=\"adbusers\"\n\n# Oppo\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"22d9\", MODE=\"0666\", GROUP=\"adbusers\"\n\n# Realme\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"22d9\", MODE=\"0666\", GROUP=\"adbusers\"\n\n# Vivo\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"2d95\", MODE=\"0666\", GROUP=\"adbusers\"\nRecargar reglas:\nsudo udevadm control --reload-rules\nsudo udevadm trigger"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#habilitar-depuración-usb-en-android",
+    "href": "operating-system/2019-06-19-adb/index.html#habilitar-depuración-usb-en-android",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "4. Habilitar Depuración USB en Android",
+    "text": "4. Habilitar Depuración USB en Android\nEn el dispositivo Android:\n\nActivar Opciones de Desarrollador:\n\nIr a: Ajustes → Acerca del teléfono\nTocar 7 veces en Número de compilación\n\nHabilitar Depuración USB:\n\nIr a: Ajustes → Opciones de desarrollador\nActivar: Depuración USB\n\nDispositivos Xiaomi (adicional):\n\nActivar: Depuración USB (Configuración de seguridad)\nReiniciar dispositivo"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#primera-conexión",
+    "href": "operating-system/2019-06-19-adb/index.html#primera-conexión",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "5. Primera Conexión",
+    "text": "5. Primera Conexión\n# Conectar dispositivo por USB\n\n# Iniciar servidor ADB\nadb start-server\n\n# Listar dispositivos\nadb devices\nEn el dispositivo Android aparecerá un diálogo:\n\n“¿Permitir depuración USB?”\nMarcar: “Permitir siempre desde esta computadora”\nAceptar\n\nVerificar conexión:\nadb devices\n# Salida esperada:\n# List of devices attached\n# ABC123456789    device"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#conexión-usb",
+    "href": "operating-system/2019-06-19-adb/index.html#conexión-usb",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Conexión USB",
+    "text": "Conexión USB\nBásica (un solo dispositivo):\n# Listar dispositivos\nadb devices\n\n# Salida:\n# List of devices attached\n# ABC123456789    device\nMúltiples dispositivos:\n# Listar con detalles\nadb devices -l\n\n# Salida:\n# List of devices attached\n# ABC123    device usb:1-1 product:phone model:Pixel_6 device:pixel6\n# DEF456    device usb:1-2 product:tablet model:Tab_S8 device:tabs8\nEspecificar dispositivo:\n# Por número de serie\nadb -s ABC123456789 shell\n\n# Solo USB (si hay uno solo)\nadb -d shell\n\n# Solo emulador (si hay uno solo)\nadb -e shell"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#conexión-wifi-android-11",
+    "href": "operating-system/2019-06-19-adb/index.html#conexión-wifi-android-11",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Conexión WiFi (Android 11+)",
+    "text": "Conexión WiFi (Android 11+)\n\nMétodo 1: Vinculación con Código\nEn el dispositivo:\n\nIr a: Ajustes → Opciones de desarrollador\nActivar: Depuración inalámbrica\nTocar: Vincular dispositivo con código de vinculación\nAparecerá: IP, Puerto y Código de 6 dígitos\n\nEn Arch Linux:\n# Vincular (usar IP y puerto del dispositivo)\nadb pair 192.168.1.100:37859\n\n# Ingresar código de 6 dígitos cuando se solicite\n# Enter pairing code: 123456\n\n# Conectar (usar IP mostrada en \"Depuración inalámbrica\")\nadb connect 192.168.1.100:5555\n\n# Verificar\nadb devices\n\n\nMétodo 2: Desde USB a WiFi (Android 10 y anteriores)\n# 1. Conectar dispositivo por USB\nadb devices\n\n# 2. Obtener IP del dispositivo\nadb shell ip addr show wlan0 | grep inet\n# O desde el dispositivo: Ajustes → Acerca del teléfono → Estado\n\n# 3. Habilitar TCP/IP en puerto 5555\nadb tcpip 5555\n\n# 4. Desconectar cable USB\n\n# 5. Conectar por WiFi\nadb connect 192.168.1.100:5555\n\n# 6. Verificar\nadb devices\nVolver a USB:\nadb usb"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#reconexión-automática",
+    "href": "operating-system/2019-06-19-adb/index.html#reconexión-automática",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Reconexión Automática",
+    "text": "Reconexión Automática\nSi se pierde conexión WiFi:\n# Reintentar conexión\nadb connect 192.168.1.100:5555\n\n# Si no funciona, reiniciar servidor\nadb kill-server\nadb start-server\nadb connect 192.168.1.100:5555"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#variable-de-entorno-android_serial",
+    "href": "operating-system/2019-06-19-adb/index.html#variable-de-entorno-android_serial",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Variable de Entorno ANDROID_SERIAL",
+    "text": "Variable de Entorno ANDROID_SERIAL\n# Fish\nset -gx ANDROID_SERIAL ABC123456789\nadb shell  # Se conecta automáticamente a ABC123456789\n\n# Bash/Zsh\nexport ANDROID_SERIAL=ABC123456789\nadb shell\n\n# Hacer permanente en Fish\necho 'set -gx ANDROID_SERIAL ABC123456789' &gt;&gt; ~/.config/fish/config.fish"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#gestión-del-servidor-adb",
+    "href": "operating-system/2019-06-19-adb/index.html#gestión-del-servidor-adb",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Gestión del Servidor ADB",
+    "text": "Gestión del Servidor ADB\n# Iniciar servidor\nadb start-server\n\n# Detener servidor\nadb kill-server\n\n# Reiniciar servidor\nadb kill-server && adb start-server\n\n# Verificar versión\nadb version\n\n# Ver puerto del servidor\n# (siempre es 5037 por defecto)"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#información-del-dispositivo",
+    "href": "operating-system/2019-06-19-adb/index.html#información-del-dispositivo",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Información del Dispositivo",
+    "text": "Información del Dispositivo\n# Listar dispositivos conectados\nadb devices\nadb devices -l  # con detalles\n\n# Shell del dispositivo\nadb shell\n\n# Ejecutar comando único\nadb shell ls /sdcard\n\n# Obtener información del sistema\nadb shell getprop\n\n# Versión de Android\nadb shell getprop ro.build.version.release\n\n# Modelo del dispositivo\nadb shell getprop ro.product.model\n\n# Fabricante\nadb shell getprop ro.product.manufacturer\n\n# Número de serie\nadb get-serialno\n\n# Estado del dispositivo\nadb get-state\n# Posibles valores: device, offline, bootloader, recovery"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#reiniciar-dispositivo",
+    "href": "operating-system/2019-06-19-adb/index.html#reiniciar-dispositivo",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Reiniciar Dispositivo",
+    "text": "Reiniciar Dispositivo\n# Reinicio normal\nadb reboot\n\n# Reiniciar en recovery\nadb reboot recovery\n\n# Reiniciar en bootloader\nadb reboot bootloader\n\n# Reiniciar en modo fastboot\nadb reboot-bootloader"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#logs-y-debugging",
+    "href": "operating-system/2019-06-19-adb/index.html#logs-y-debugging",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Logs y Debugging",
+    "text": "Logs y Debugging\n# Ver logs en tiempo real\nadb logcat\n\n# Filtrar por tag\nadb logcat ActivityManager:I *:S\n\n# Guardar logs en archivo\nadb logcat &gt; logs.txt\n\n# Limpiar buffer de logs\nadb logcat -c\n\n# Ver logs de kernel\nadb shell dmesg\n\n# Obtener bug report\nadb bugreport bugreport.zip"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#instalar-apk",
+    "href": "operating-system/2019-06-19-adb/index.html#instalar-apk",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Instalar APK",
+    "text": "Instalar APK\n# Instalación básica\nadb install app.apk\n\n# Reinstalar manteniendo datos\nadb install -r app.apk\n\n# Instalar en almacenamiento externo\nadb install -s app.apk\n\n# Permitir downgrade\nadb install -d app.apk\n\n# Instalar APK de prueba\nadb install -t app.apk\n\n# Otorgar todos los permisos\nadb install -g app.apk\n\n# Instalar en dispositivo específico\nadb -s ABC123 install app.apk\n\n# Instalar múltiples APKs (split APKs)\nadb install-multiple base.apk config.apk\n\n# Instalación incremental (Android 11+)\nadb install --incremental app.apk"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#desinstalar-aplicación",
+    "href": "operating-system/2019-06-19-adb/index.html#desinstalar-aplicación",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Desinstalar Aplicación",
+    "text": "Desinstalar Aplicación\n# Desinstalar\nadb uninstall com.example.app\n\n# Desinstalar pero mantener datos\nadb uninstall -k com.example.app\n\n# Desinstalar del dispositivo específico\nadb -s ABC123 uninstall com.example.app"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#listar-aplicaciones",
+    "href": "operating-system/2019-06-19-adb/index.html#listar-aplicaciones",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Listar Aplicaciones",
+    "text": "Listar Aplicaciones\n# Todas las aplicaciones\nadb shell pm list packages\n\n# Solo aplicaciones de terceros\nadb shell pm list packages -3\n\n# Solo aplicaciones del sistema\nadb shell pm list packages -s\n\n# Aplicaciones habilitadas\nadb shell pm list packages -e\n\n# Aplicaciones deshabilitadas\nadb shell pm list packages -d\n\n# Buscar por nombre\nadb shell pm list packages | grep chrome\n\n# Con ruta del APK\nadb shell pm list packages -f"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#información-de-aplicación",
+    "href": "operating-system/2019-06-19-adb/index.html#información-de-aplicación",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Información de Aplicación",
+    "text": "Información de Aplicación\n# Ruta del APK\nadb shell pm path com.android.chrome\n\n# Información completa\nadb shell dumpsys package com.android.chrome\n\n# Permisos\nadb shell dumpsys package com.android.chrome | grep permission\n\n# Versión\nadb shell dumpsys package com.android.chrome | grep versionName"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#iniciar-aplicación",
+    "href": "operating-system/2019-06-19-adb/index.html#iniciar-aplicación",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Iniciar Aplicación",
+    "text": "Iniciar Aplicación\n# Iniciar actividad principal\nadb shell monkey -p com.android.chrome -c android.intent.category.LAUNCHER 1\n\n# Iniciar actividad específica\nadb shell am start -n com.android.chrome/com.google.android.apps.chrome.Main\n\n# Iniciar con intent\nadb shell am start -a android.intent.action.VIEW -d https://google.com"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#detener-aplicación",
+    "href": "operating-system/2019-06-19-adb/index.html#detener-aplicación",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Detener Aplicación",
+    "text": "Detener Aplicación\n# Forzar detención\nadb shell am force-stop com.android.chrome\n\n# Matar proceso\nadb shell am kill com.android.chrome"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#limpiar-datos-de-aplicación",
+    "href": "operating-system/2019-06-19-adb/index.html#limpiar-datos-de-aplicación",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Limpiar Datos de Aplicación",
+    "text": "Limpiar Datos de Aplicación\n# Borrar todos los datos y caché\nadb shell pm clear com.android.chrome"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#habilitardeshabilitar-aplicación",
+    "href": "operating-system/2019-06-19-adb/index.html#habilitardeshabilitar-aplicación",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Habilitar/Deshabilitar Aplicación",
+    "text": "Habilitar/Deshabilitar Aplicación\n# Deshabilitar\nadb shell pm disable-user com.example.app\n\n# Habilitar\nadb shell pm enable com.example.app"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#copiar-archivos-al-dispositivo-push",
+    "href": "operating-system/2019-06-19-adb/index.html#copiar-archivos-al-dispositivo-push",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Copiar Archivos al Dispositivo (Push)",
+    "text": "Copiar Archivos al Dispositivo (Push)\n# Sintaxis básica\nadb push archivo_local ruta_dispositivo\n\n# Ejemplos:\nadb push documento.pdf /sdcard/Download/\nadb push foto.jpg /sdcard/DCIM/\nadb push video.mp4 /sdcard/Movies/\nadb push musica.mp3 /sdcard/Music/\n\n# Copiar directorio completo\nadb push carpeta/ /sdcard/carpeta/\n\n# Con dispositivo específico\nadb -s ABC123 push archivo.txt /sdcard/"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#copiar-archivos-del-dispositivo-pull",
+    "href": "operating-system/2019-06-19-adb/index.html#copiar-archivos-del-dispositivo-pull",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Copiar Archivos del Dispositivo (Pull)",
+    "text": "Copiar Archivos del Dispositivo (Pull)\n# Sintaxis básica\nadb pull ruta_dispositivo archivo_local\n\n# Ejemplos:\nadb pull /sdcard/Download/documento.pdf ./\nadb pull /sdcard/DCIM/Camera/foto.jpg ~/Imágenes/\nadb pull /sdcard/WhatsApp/Media/ ./whatsapp_backup/\n\n# Directorio completo\nadb pull /sdcard/Download/ ./descargas/\n\n# Con dispositivo específico\nadb -s ABC123 pull /sdcard/foto.jpg ./"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#explorar-sistema-de-archivos",
+    "href": "operating-system/2019-06-19-adb/index.html#explorar-sistema-de-archivos",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Explorar Sistema de Archivos",
+    "text": "Explorar Sistema de Archivos\n# Listar contenido de directorio\nadb shell ls /sdcard/\n\n# Listar con detalles\nadb shell ls -la /sdcard/\n\n# Árbol de directorios (si está disponible)\nadb shell find /sdcard/ -type d\n\n# Buscar archivos\nadb shell find /sdcard/ -name \"*.pdf\"\n\n# Ver contenido de archivo\nadb shell cat /sdcard/archivo.txt\n\n# Espacio disponible\nadb shell df -h"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#creareliminar-archivos-y-directorios",
+    "href": "operating-system/2019-06-19-adb/index.html#creareliminar-archivos-y-directorios",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Crear/Eliminar Archivos y Directorios",
+    "text": "Crear/Eliminar Archivos y Directorios\n# Crear directorio\nadb shell mkdir /sdcard/MiCarpeta\n\n# Crear archivo\nadb shell touch /sdcard/archivo.txt\n\n# Escribir en archivo\nadb shell \"echo 'Hola' &gt; /sdcard/archivo.txt\"\n\n# Eliminar archivo\nadb shell rm /sdcard/archivo.txt\n\n# Eliminar directorio vacío\nadb shell rmdir /sdcard/MiCarpeta\n\n# Eliminar directorio con contenido\nadb shell rm -rf /sdcard/MiCarpeta"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#acceder-al-shell",
+    "href": "operating-system/2019-06-19-adb/index.html#acceder-al-shell",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Acceder al Shell",
+    "text": "Acceder al Shell\n# Shell interactivo\nadb shell\n\n# Comando único\nadb shell ls /system/bin\n\n# Múltiples comandos\nadb shell \"cd /sdcard && ls -l\"\n\n# Como root (si disponible)\nadb root\nadb shell\n# Ahora estarás como root (#)"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#comandos-unix-disponibles",
+    "href": "operating-system/2019-06-19-adb/index.html#comandos-unix-disponibles",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Comandos Unix Disponibles",
+    "text": "Comandos Unix Disponibles\n# Listar herramientas disponibles\nadb shell ls /system/bin\n\n# Ayuda de herramientas\nadb shell toybox --help\nadb shell ls --help\nComandos comunes:\n\nls - Listar archivos\ncd - Cambiar directorio\npwd - Mostrar directorio actual\ncat - Ver contenido de archivo\ngrep - Buscar texto\nfind - Buscar archivos\nps - Listar procesos\ntop - Monitor de procesos\nkill - Terminar proceso\ndf - Espacio en disco\ndu - Uso de disco\ncp - Copiar\nmv - Mover\nrm - Eliminar\nchmod - Cambiar permisos\nchown - Cambiar propietario"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#propiedades-del-sistema",
+    "href": "operating-system/2019-06-19-adb/index.html#propiedades-del-sistema",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Propiedades del Sistema",
+    "text": "Propiedades del Sistema\n# Listar todas las propiedades\nadb shell getprop\n\n# Ver propiedad específica\nadb shell getprop ro.build.version.sdk\n\n# Establecer propiedad (requiere root)\nadb shell setprop debug.myapp.level 5\n\n# Propiedades útiles:\nadb shell getprop ro.product.model           # Modelo\nadb shell getprop ro.build.version.release   # Versión Android\nadb shell getprop ro.build.version.sdk       # Nivel API\nadb shell getprop ro.product.manufacturer    # Fabricante\nadb shell getprop ro.serialno                # Serial\nadb shell getprop net.hostname               # Hostname"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#configuraciones-del-sistema",
+    "href": "operating-system/2019-06-19-adb/index.html#configuraciones-del-sistema",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Configuraciones del Sistema",
+    "text": "Configuraciones del Sistema\n# Ver configuración\nadb shell settings get global wifi_on\nadb shell settings get system screen_brightness\n\n# Establecer configuración\nadb shell settings put global airplane_mode_on 0\nadb shell settings put system screen_brightness 100\n\n# Listar todas\nadb shell settings list global\nadb shell settings list system\nadb shell settings list secure"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#sintaxis-básica",
+    "href": "operating-system/2019-06-19-adb/index.html#sintaxis-básica",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Sintaxis Básica",
+    "text": "Sintaxis Básica\n# Desde shell\nadb shell\nam comando\n\n# Comando directo\nadb shell am comando"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#iniciar-actividad",
+    "href": "operating-system/2019-06-19-adb/index.html#iniciar-actividad",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Iniciar Actividad",
+    "text": "Iniciar Actividad\n# Iniciar actividad por acción\nadb shell am start -a android.intent.action.VIEW\n\n# Iniciar actividad por componente\nadb shell am start -n com.android.chrome/com.google.android.apps.chrome.Main\n\n# Abrir URL\nadb shell am start -a android.intent.action.VIEW -d https://google.com\n\n# Abrir archivo\nadb shell am start -a android.intent.action.VIEW -d file:///sdcard/documento.pdf\n\n# Con espera hasta completar\nadb shell am start -W -n com.android.chrome/com.google.android.apps.chrome.Main\n\n# Habilitar debugging\nadb shell am start -D -n com.example.app/.MainActivity"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#iniciar-servicio",
+    "href": "operating-system/2019-06-19-adb/index.html#iniciar-servicio",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Iniciar Servicio",
+    "text": "Iniciar Servicio\nadb shell am startservice -n com.example.app/.MyService"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#enviar-broadcast",
+    "href": "operating-system/2019-06-19-adb/index.html#enviar-broadcast",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Enviar Broadcast",
+    "text": "Enviar Broadcast\n# Broadcast simple\nadb shell am broadcast -a android.intent.action.BOOT_COMPLETED\n\n# Con datos extra\nadb shell am broadcast -a com.example.ACTION --es key value"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#forzar-detención",
+    "href": "operating-system/2019-06-19-adb/index.html#forzar-detención",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Forzar Detención",
+    "text": "Forzar Detención\nadb shell am force-stop com.android.chrome"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#matar-proceso",
+    "href": "operating-system/2019-06-19-adb/index.html#matar-proceso",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Matar Proceso",
+    "text": "Matar Proceso\n# Matar app\nadb shell am kill com.android.chrome\n\n# Matar todos los procesos en segundo plano\nadb shell am kill-all"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#modificar-pantalla",
+    "href": "operating-system/2019-06-19-adb/index.html#modificar-pantalla",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Modificar Pantalla",
+    "text": "Modificar Pantalla\n# Cambiar tamaño de pantalla\nadb shell am display-size 1920x1080\n\n# Restablecer\nadb shell am display-size reset\n\n# Cambiar densidad (DPI)\nadb shell am display-density 480\n\n# Restablecer\nadb shell am display-density reset"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#ejemplos-de-intents",
+    "href": "operating-system/2019-06-19-adb/index.html#ejemplos-de-intents",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Ejemplos de Intents",
+    "text": "Ejemplos de Intents\n# Abrir configuración WiFi\nadb shell am start -a android.settings.WIFI_SETTINGS\n\n# Abrir ajustes del sistema\nadb shell am start -a android.settings.SETTINGS\n\n# Abrir configuración de aplicación específica\nadb shell am start -a android.settings.APPLICATION_DETAILS_SETTINGS -d package:com.example.app\n\n# Hacer llamada\nadb shell am start -a android.intent.action.CALL -d tel:123456789\n\n# Enviar SMS\nadb shell am start -a android.intent.action.SENDTO -d sms:123456789 --es sms_body \"Hola\"\n\n# Abrir cámara\nadb shell am start -a android.media.action.IMAGE_CAPTURE\n\n# Compartir texto\nadb shell am start -a android.intent.action.SEND --es android.intent.extra.TEXT \"Texto\" --et android.intent.extra.SUBJECT \"Asunto\""
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#listar-paquetes",
+    "href": "operating-system/2019-06-19-adb/index.html#listar-paquetes",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Listar Paquetes",
+    "text": "Listar Paquetes\n# Todos los paquetes\nadb shell pm list packages\n\n# Solo terceros\nadb shell pm list packages -3\n\n# Solo sistema\nadb shell pm list packages -s\n\n# Habilitados\nadb shell pm list packages -e\n\n# Deshabilitados\nadb shell pm list packages -d\n\n# Con archivo APK\nadb shell pm list packages -f\n\n# Buscar específico\nadb shell pm list packages | grep chrome"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#información-del-paquete",
+    "href": "operating-system/2019-06-19-adb/index.html#información-del-paquete",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Información del Paquete",
+    "text": "Información del Paquete\n# Ruta del APK\nadb shell pm path com.android.chrome\n\n# Información completa\nadb shell dumpsys package com.android.chrome\n\n# Permisos\nadb shell pm list permissions\n\n# Permisos de paquete\nadb shell dumpsys package com.android.chrome | grep permission\n\n# Grupos de permisos\nadb shell pm list permission-groups"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#otorgarrevocar-permisos",
+    "href": "operating-system/2019-06-19-adb/index.html#otorgarrevocar-permisos",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Otorgar/Revocar Permisos",
+    "text": "Otorgar/Revocar Permisos\n# Otorgar permiso\nadb shell pm grant com.example.app android.permission.CAMERA\n\n# Revocar permiso\nadb shell pm revoke com.example.app android.permission.CAMERA\n\n# Permisos comunes:\n# android.permission.CAMERA\n# android.permission.READ_EXTERNAL_STORAGE\n# android.permission.WRITE_EXTERNAL_STORAGE\n# android.permission.ACCESS_FINE_LOCATION\n# android.permission.RECORD_AUDIO"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#habilitardeshabilitar-paquete",
+    "href": "operating-system/2019-06-19-adb/index.html#habilitardeshabilitar-paquete",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Habilitar/Deshabilitar Paquete",
+    "text": "Habilitar/Deshabilitar Paquete\n# Deshabilitar\nadb shell pm disable-user com.example.app\n\n# Habilitar\nadb shell pm enable com.example.app"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#limpiar-datos",
+    "href": "operating-system/2019-06-19-adb/index.html#limpiar-datos",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Limpiar Datos",
+    "text": "Limpiar Datos\n# Borrar datos de aplicación\nadb shell pm clear com.android.chrome"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#usuarios",
+    "href": "operating-system/2019-06-19-adb/index.html#usuarios",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Usuarios",
+    "text": "Usuarios\n# Listar usuarios\nadb shell pm list users\n\n# Crear usuario\nadb shell pm create-user \"Nombre Usuario\"\n\n# Eliminar usuario\nadb shell pm remove-user USER_ID\n\n# Máximo de usuarios\nadb shell pm get-max-users"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#captura-de-pantalla",
+    "href": "operating-system/2019-06-19-adb/index.html#captura-de-pantalla",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Captura de Pantalla",
+    "text": "Captura de Pantalla\n# Capturar y guardar en dispositivo\nadb shell screencap /sdcard/screenshot.png\n\n# Capturar y descargar\nadb shell screencap /sdcard/screenshot.png\nadb pull /sdcard/screenshot.png ./\nadb shell rm /sdcard/screenshot.png\n\n# Captura directa (un solo comando)\nadb exec-out screencap -p &gt; screenshot.png\n\n# Con timestamp\nadb exec-out screencap -p &gt; screenshot_$(date +%Y%m%d_%H%M%S).png"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#grabación-de-video",
+    "href": "operating-system/2019-06-19-adb/index.html#grabación-de-video",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Grabación de Video",
+    "text": "Grabación de Video\n# Grabar video (hasta 3 minutos por defecto)\nadb shell screenrecord /sdcard/video.mp4\n\n# Detener con Ctrl+C\n\n# Descargar\nadb pull /sdcard/video.mp4 ./\n\n# Con límite de tiempo (segundos)\nadb shell screenrecord --time-limit 30 /sdcard/video.mp4\n\n# Especificar tamaño\nadb shell screenrecord --size 1280x720 /sdcard/video.mp4\n\n# Cambiar bitrate (por defecto 20 Mbps)\nadb shell screenrecord --bit-rate 8000000 /sdcard/video.mp4\n\n# Verbose (mostrar info)\nadb shell screenrecord --verbose /sdcard/video.mp4\n\n# Rotar video 90 grados\nadb shell screenrecord --rotate /sdcard/video.mp4\nLimitaciones de screenrecord:\n\nNo graba audio\nMáximo 3 minutos por video\nNo funciona en Wear OS\nNo soporta rotación durante grabación"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#forward-host-dispositivo",
+    "href": "operating-system/2019-06-19-adb/index.html#forward-host-dispositivo",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Forward (Host → Dispositivo)",
+    "text": "Forward (Host → Dispositivo)\n# Redirigir puerto host 6100 a dispositivo 7100\nadb forward tcp:6100 tcp:7100\n\n# Listar redirecciones\nadb forward --list\n\n# Eliminar redirección específica\nadb forward --remove tcp:6100\n\n# Eliminar todas\nadb forward --remove-all\n\n# Ejemplo: acceder a servidor en dispositivo desde host\n# Si hay servidor en dispositivo:puerto 8080\nadb forward tcp:8080 tcp:8080\n# Ahora accesible en: http://localhost:8080"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#reverse-dispositivo-host",
+    "href": "operating-system/2019-06-19-adb/index.html#reverse-dispositivo-host",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Reverse (Dispositivo → Host)",
+    "text": "Reverse (Dispositivo → Host)\n# Redirigir puerto dispositivo 9000 a host 9000\nadb reverse tcp:9000 tcp:9000\n\n# Listar\nadb reverse --list\n\n# Eliminar\nadb reverse --remove tcp:9000\n\n# Eliminar todas\nadb reverse --remove-all\n\n# Ejemplo: dispositivo accede a servidor en host\n# Si hay servidor en host:puerto 3000\nadb reverse tcp:3000 tcp:3000\n# Dispositivo puede acceder a http://localhost:3000"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#caso-1-instalación-masiva-de-apks",
+    "href": "operating-system/2019-06-19-adb/index.html#caso-1-instalación-masiva-de-apks",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Caso 1: Instalación Masiva de APKs",
+    "text": "Caso 1: Instalación Masiva de APKs\nEscenario: Instalar múltiples APKs en varios dispositivos.\n#!/bin/bash\n# instalar_apks.sh\n\n# Directorio con APKs\nAPK_DIR=\"./apks\"\n\n# Obtener lista de dispositivos\ndevices=$(adb devices | grep -v \"List\" | grep \"device$\" | awk '{print $1}')\n\n# Para cada dispositivo\nfor device in $devices; do\n    echo \"Instalando en dispositivo: $device\"\n    \n    # Para cada APK\n    for apk in \"$APK_DIR\"/*.apk; do\n        echo \"  Instalando: $(basename $apk)\"\n        adb -s \"$device\" install -r \"$apk\"\n    done\ndone\n\necho \"Instalación completada\"\nUsar:\nchmod +x instalar_apks.sh\n./instalar_apks.sh"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#caso-2-backup-automático-de-aplicación",
+    "href": "operating-system/2019-06-19-adb/index.html#caso-2-backup-automático-de-aplicación",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Caso 2: Backup Automático de Aplicación",
+    "text": "Caso 2: Backup Automático de Aplicación\nEscenario: Respaldar datos de aplicación específica.\n#!/bin/bash\n# backup_app.sh\n\nPACKAGE=\"com.example.app\"\nBACKUP_DIR=\"./backups/$(date +%Y%m%d_%H%M%S)\"\n\nmkdir -p \"$BACKUP_DIR\"\n\necho \"Respaldando $PACKAGE...\"\n\n# Backup de APK\necho \"1. Respaldando APK...\"\nAPK_PATH=$(adb shell pm path \"$PACKAGE\" | cut -d: -f2 | tr -d '\\r')\nadb pull \"$APK_PATH\" \"$BACKUP_DIR/app.apk\"\n\n# Backup de datos (requiere app debuggable o root)\necho \"2. Respaldando datos...\"\nadb backup -f \"$BACKUP_DIR/data.ab\" -noapk \"$PACKAGE\"\n\n# Backup de base de datos (si accesible)\necho \"3. Respaldando bases de datos...\"\nadb pull /data/data/\"$PACKAGE\"/databases \"$BACKUP_DIR/databases/\"\n\necho \"Backup completado en: $BACKUP_DIR\""
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#caso-3-testing-automatizado",
+    "href": "operating-system/2019-06-19-adb/index.html#caso-3-testing-automatizado",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Caso 3: Testing Automatizado",
+    "text": "Caso 3: Testing Automatizado\nEscenario: Ejecutar suite de tests en dispositivo.\n#!/bin/bash\n# run_tests.sh\n\nPACKAGE=\"com.example.app\"\nTEST_PACKAGE=\"com.example.app.test\"\n\necho \"Iniciando tests...\"\n\n# Instalar APKs\nadb install -r app.apk\nadb install -r app-test.apk\n\n# Ejecutar tests\nadb shell am instrument -w \\\n    -e package \"$PACKAGE\" \\\n    \"$TEST_PACKAGE/androidx.test.runner.AndroidJUnitRunner\"\n\n# Generar reporte\nadb pull /sdcard/test-results.xml ./"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#caso-4-análisis-de-rendimiento",
+    "href": "operating-system/2019-06-19-adb/index.html#caso-4-análisis-de-rendimiento",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Caso 4: Análisis de Rendimiento",
+    "text": "Caso 4: Análisis de Rendimiento\nEscenario: Capturar métricas de rendimiento de aplicación.\n#!/bin/bash\n# performance_test.sh\n\nPACKAGE=\"com.example.app\"\nDURATION=60  # segundos\n\necho \"Analizando rendimiento de $PACKAGE por $DURATION segundos...\"\n\n# Limpiar logs\nadb logcat -c\n\n# Iniciar app\nadb shell monkey -p \"$PACKAGE\" -c android.intent.category.LAUNCHER 1\n\n# Capturar CPU/Memoria\nadb shell top -n 1 -d 1 -m 10 &gt; cpu_usage.txt &\nTOP_PID=$!\n\n# Esperar duración\nsleep \"$DURATION\"\n\n# Detener captura\nkill $TOP_PID\n\n# Obtener memoria detallada\nadb shell dumpsys meminfo \"$PACKAGE\" &gt; memory_info.txt\n\n# Obtener logs\nadb logcat -d &gt; app_logs.txt\n\necho \"Análisis completado\""
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#caso-5-captura-automatizada-de-screenshots",
+    "href": "operating-system/2019-06-19-adb/index.html#caso-5-captura-automatizada-de-screenshots",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Caso 5: Captura Automatizada de Screenshots",
+    "text": "Caso 5: Captura Automatizada de Screenshots\nEscenario: Capturar screenshots para documentación.\n#!/bin/bash\n# capture_screenshots.sh\n\nOUTPUT_DIR=\"./screenshots/$(date +%Y%m%d_%H%M%S)\"\nmkdir -p \"$OUTPUT_DIR\"\n\nSCREENS=(\n    \"com.example.app/.MainActivity:Pantalla Principal\"\n    \"com.example.app/.SettingsActivity:Configuración\"\n    \"com.example.app/.ProfileActivity:Perfil\"\n)\n\nfor screen in \"${SCREENS[@]}\"; do\n    ACTIVITY=$(echo \"$screen\" | cut -d: -f1)\n    NAME=$(echo \"$screen\" | cut -d: -f2)\n    \n    echo \"Capturando: $NAME\"\n    \n    # Abrir actividad\n    adb shell am start -n \"$ACTIVITY\"\n    sleep 2\n    \n    # Capturar\n    FILENAME=$(echo \"$NAME\" | tr ' ' '_' | tr '[:upper:]' '[:lower:]')\n    adb exec-out screencap -p &gt; \"$OUTPUT_DIR/${FILENAME}.png\"\n    \n    sleep 1\ndone\n\necho \"Screenshots guardados en: $OUTPUT_DIR\""
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#caso-6-monitoreo-de-logs-en-tiempo-real",
+    "href": "operating-system/2019-06-19-adb/index.html#caso-6-monitoreo-de-logs-en-tiempo-real",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Caso 6: Monitoreo de Logs en Tiempo Real",
+    "text": "Caso 6: Monitoreo de Logs en Tiempo Real\nEscenario: Filtrar logs de aplicación específica.\n#!/bin/bash\n# monitor_logs.sh\n\nPACKAGE=\"com.example.app\"\n\n# Obtener PID\nPID=$(adb shell ps | grep \"$PACKAGE\" | awk '{print $2}')\n\necho \"Monitoreando logs de $PACKAGE (PID: $PID)\"\necho \"Presiona Ctrl+C para detener\"\n\n# Filtrar logs por PID\nadb logcat --pid=\"$PID\" -v time"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#caso-7-instalación-y-testing-rápido",
+    "href": "operating-system/2019-06-19-adb/index.html#caso-7-instalación-y-testing-rápido",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Caso 7: Instalación y Testing Rápido",
+    "text": "Caso 7: Instalación y Testing Rápido\nEscenario: Ciclo desarrollo-testing rápido.\n#!/bin/bash\n# quick_test.sh\n\nAPK=\"app-debug.apk\"\nPACKAGE=\"com.example.app\"\n\necho \"1. Desinstalando versión anterior...\"\nadb uninstall \"$PACKAGE\" 2&gt;/dev/null\n\necho \"2. Instalando nueva versión...\"\nadb install \"$APK\"\n\necho \"3. Otorgando permisos...\"\nadb shell pm grant \"$PACKAGE\" android.permission.CAMERA\nadb shell pm grant \"$PACKAGE\" android.permission.READ_EXTERNAL_STORAGE\nadb shell pm grant \"$PACKAGE\" android.permission.WRITE_EXTERNAL_STORAGE\n\necho \"4. Iniciando app...\"\nadb shell monkey -p \"$PACKAGE\" -c android.intent.category.LAUNCHER 1\n\necho \"5. Mostrando logs...\"\nadb logcat -c\nadb logcat | grep \"$PACKAGE\""
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#problema-1-adb-command-not-found",
+    "href": "operating-system/2019-06-19-adb/index.html#problema-1-adb-command-not-found",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Problema 1: “adb: command not found”",
+    "text": "Problema 1: “adb: command not found”\nCausa: ADB no está instalado o no está en PATH.\nSoluciones:\n# 1. Verificar instalación\nwhich adb\n\n# 2. Si no está, instalar\nsudo pacman -S android-tools\n\n# 3. Verificar PATH\necho $PATH | grep android\n\n# 4. Si instalaste manualmente, agregar a PATH\nset -gx PATH $PATH ~/android/platform-tools"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#problema-2-no-permissions-missing-udev-rules",
+    "href": "operating-system/2019-06-19-adb/index.html#problema-2-no-permissions-missing-udev-rules",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Problema 2: “no permissions (missing udev rules?)”",
+    "text": "Problema 2: “no permissions (missing udev rules?)”\nCausa: Reglas udev faltantes o usuario no en grupo adbusers.\nSoluciones:\n# 1. Verificar grupo\ngroups | grep adbusers\n\n# 2. Agregar a grupo\nsudo usermod -aG adbusers $USER\nnewgrp adbusers\n\n# 3. Crear/verificar reglas udev\nsudo nano /etc/udev/rules.d/51-android.rules\n# Ver sección \"Configuración Inicial\"\n\n# 4. Recargar reglas\nsudo udevadm control --reload-rules\nsudo udevadm trigger\n\n# 5. Reconectar dispositivo"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#problema-3-device-offline-o-unauthorized",
+    "href": "operating-system/2019-06-19-adb/index.html#problema-3-device-offline-o-unauthorized",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Problema 3: “device offline” o “unauthorized”",
+    "text": "Problema 3: “device offline” o “unauthorized”\nCausa: Dispositivo no autorizado o conexión interrumpida.\nSoluciones:\n# 1. Revocar autorizaciones en dispositivo\n# Android: Opciones desarrollador → Revocar autorizaciones USB\n\n# 2. Reconectar dispositivo\n\n# 3. Aceptar diálogo de autorización\n\n# 4. Reiniciar servidor adb\nadb kill-server\nadb start-server\nadb devices"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#problema-4-more-than-one-deviceemulator",
+    "href": "operating-system/2019-06-19-adb/index.html#problema-4-more-than-one-deviceemulator",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Problema 4: “more than one device/emulator”",
+    "text": "Problema 4: “more than one device/emulator”\nCausa: Múltiples dispositivos conectados sin especificar cuál usar.\nSoluciones:\n# 1. Listar dispositivos\nadb devices\n\n# 2. Especificar por serial\nadb -s ABC123456789 shell\n\n# 3. O establecer variable de entorno\nset -gx ANDROID_SERIAL ABC123456789\nadb shell\n\n# 4. Usar -d (solo USB) o -e (solo emulador)\nadb -d shell\nadb -e shell"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#problema-5-conexión-wifi-se-desconecta",
+    "href": "operating-system/2019-06-19-adb/index.html#problema-5-conexión-wifi-se-desconecta",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Problema 5: Conexión WiFi se desconecta",
+    "text": "Problema 5: Conexión WiFi se desconecta\nCausa: Red inestable o dispositivo cambia de red.\nSoluciones:\n# 1. Verificar que ambos estén en misma red\n# Dispositivo: Ajustes → WiFi\n# Host: ip addr show\n\n# 2. Reconectar\nadb connect 192.168.1.100:5555\n\n# 3. Si falla, reiniciar desde USB\nadb usb\nadb tcpip 5555\nadb connect 192.168.1.100:5555\n\n# 4. Ping para verificar conectividad\nping 192.168.1.100"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#problema-6-daemon-not-running-starting-now",
+    "href": "operating-system/2019-06-19-adb/index.html#problema-6-daemon-not-running-starting-now",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Problema 6: “daemon not running; starting now”",
+    "text": "Problema 6: “daemon not running; starting now”\nCausa: Servidor ADB no estaba corriendo (normal).\nNo es un error. ADB inicia automáticamente el servidor.\n# Si quieres iniciar manualmente:\nadb start-server"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#problema-7-insufficient-permissions-for-device",
+    "href": "operating-system/2019-06-19-adb/index.html#problema-7-insufficient-permissions-for-device",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Problema 7: “insufficient permissions for device”",
+    "text": "Problema 7: “insufficient permissions for device”\nCausa: Permisos USB incorrectos.\nSoluciones:\n# 1. Verificar reglas udev (ver Problema 2)\n\n# 2. Verificar vendor ID del dispositivo\nlsusb\n# Buscar tu dispositivo Android\n\n# 3. Agregar vendor ID a reglas udev\nsudo nano /etc/udev/rules.d/51-android.rules\n# SUBSYSTEM==\"usb\", ATTR{idVendor}==\"XXXX\", MODE=\"0666\", GROUP=\"adbusers\"\n\n# 4. Recargar reglas\nsudo udevadm control --reload-rules"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#problema-8-error-protocol-fault-no-status",
+    "href": "operating-system/2019-06-19-adb/index.html#problema-8-error-protocol-fault-no-status",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Problema 8: “error: protocol fault (no status)”",
+    "text": "Problema 8: “error: protocol fault (no status)”\nCausa: Comunicación corrupta con dispositivo.\nSoluciones:\n# 1. Desconectar y reconectar dispositivo\n\n# 2. Reiniciar servidor ADB\nadb kill-server\nadb start-server\n\n# 3. Reiniciar dispositivo\nadb reboot\n\n# 4. Como último recurso, reiniciar computadora"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#script-fish-instalador-de-apk-mejorado",
+    "href": "operating-system/2019-06-19-adb/index.html#script-fish-instalador-de-apk-mejorado",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Script Fish: Instalador de APK Mejorado",
+    "text": "Script Fish: Instalador de APK Mejorado\nCrear ~/.config/fish/functions/adb-install-smart.fish:\nfunction adb-install-smart --description \"Instalar APK con opciones inteligentes\"\n    if test (count $argv) -lt 1\n        echo \"Uso: adb-install-smart &lt;archivo.apk&gt; [opciones]\"\n        echo \"\"\n        echo \"Opciones:\"\n        echo \"  -r : Reinstalar manteniendo datos\"\n        echo \"  -g : Otorgar todos los permisos\"\n        echo \"  -t : APK de prueba\"\n        echo \"  -d : Permitir downgrade\"\n        return 1\n    end\n    \n    set apk $argv[1]\n    set options\n    \n    # Parsear opciones\n    for arg in $argv[2..-1]\n        set options $options $arg\n    end\n    \n    # Verificar que el archivo existe\n    if not test -f \"$apk\"\n        echo \"Error: Archivo no encontrado: $apk\"\n        return 1\n    end\n    \n    # Verificar extensión\n    if not string match -q \"*.apk\" \"$apk\"\n        echo \"Error: El archivo debe ser .apk\"\n        return 1\n    end\n    \n    # Obtener package name\n    set package (aapt dump badging \"$apk\" 2&gt;/dev/null | grep package: | awk '{print $2}' | cut -d\"'\" -f2)\n    \n    echo \"Instalando: $apk\"\n    if test -n \"$package\"\n        echo \"Paquete: $package\"\n    end\n    \n    # Instalar\n    adb install $options \"$apk\"\n    \n    if test $status -eq 0\n        echo \"✓ Instalación exitosa\"\n        \n        # Si se otorgaron permisos, mostrarlos\n        if string match -q \"*-g*\" \"$options\"\n            echo \"Permisos otorgados automáticamente\"\n        end\n    else\n        echo \"✗ Error en la instalación\"\n        return 1\n    end\nend\nUsar:\nadb-install-smart app.apk\nadb-install-smart app.apk -r -g"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#script-bash-backup-completo",
+    "href": "operating-system/2019-06-19-adb/index.html#script-bash-backup-completo",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Script Bash: Backup Completo",
+    "text": "Script Bash: Backup Completo\nCrear ~/bin/adb-backup-full:\n#!/bin/bash\n# adb-backup-full - Backup completo del dispositivo\n\nset -e\n\nBACKUP_DIR=\"$HOME/android-backups/$(date +%Y%m%d_%H%M%S)\"\nDEVICE_SERIAL=\"\"\n\n# Parsear argumentos\nwhile getopts \"s:d:\" opt; do\n    case $opt in\n        s) DEVICE_SERIAL=\"-s $OPTARG\" ;;\n        d) BACKUP_DIR=\"$OPTARG\" ;;\n        *) echo \"Uso: $0 [-s serial] [-d directorio]\"; exit 1 ;;\n    esac\ndone\n\nmkdir -p \"$BACKUP_DIR\"\n\necho \"===================================\"\necho \"Backup Completo de Dispositivo Android\"\necho \"===================================\"\necho \"Directorio: $BACKUP_DIR\"\necho \"\"\n\n# Información del dispositivo\necho \"1. Capturando información del dispositivo...\"\nadb $DEVICE_SERIAL shell getprop &gt; \"$BACKUP_DIR/device_info.txt\"\nadb $DEVICE_SERIAL shell \"dumpsys battery\" &gt; \"$BACKUP_DIR/battery_info.txt\"\n\n# Lista de aplicaciones\necho \"2. Listando aplicaciones instaladas...\"\nadb $DEVICE_SERIAL shell pm list packages -f &gt; \"$BACKUP_DIR/packages.txt\"\nadb $DEVICE_SERIAL shell pm list packages -3 &gt; \"$BACKUP_DIR/packages_user.txt\"\n\n# Backup de APKs de usuario\necho \"3. Respaldando APKs de usuario...\"\nmkdir -p \"$BACKUP_DIR/apks\"\nUSER_APPS=$(adb $DEVICE_SERIAL shell pm list packages -3 | cut -d: -f2)\nfor app in $USER_APPS; do\n    echo \"  Respaldando: $app\"\n    APK_PATH=$(adb $DEVICE_SERIAL shell pm path \"$app\" | cut -d: -f2 | tr -d '\\r')\n    adb $DEVICE_SERIAL pull \"$APK_PATH\" \"$BACKUP_DIR/apks/${app}.apk\" 2&gt;/dev/null || echo \"    Error respaldando $app\"\ndone\n\n# Backup de datos\necho \"4. Respaldando datos de usuario...\"\nadb $DEVICE_SERIAL backup -f \"$BACKUP_DIR/data.ab\" -all -apk -shared\n\n# Contactos (si accesible)\necho \"5. Respaldando contactos...\"\nadb $DEVICE_SERIAL pull /data/data/com.android.providers.contacts/databases \"$BACKUP_DIR/contacts/\" 2&gt;/dev/null || echo \"  No accesible (requiere root)\"\n\n# Fotos y videos\necho \"6. Respaldando multimedia...\"\nadb $DEVICE_SERIAL pull /sdcard/DCIM \"$BACKUP_DIR/DCIM/\" 2&gt;/dev/null || true\nadb $DEVICE_SERIAL pull /sdcard/Pictures \"$BACKUP_DIR/Pictures/\" 2&gt;/dev/null || true\nadb $DEVICE_SERIAL pull /sdcard/Download \"$BACKUP_DIR/Download/\" 2&gt;/dev/null || true\n\n# Crear archivo de metadatos\necho \"7. Creando metadatos...\"\ncat &gt; \"$BACKUP_DIR/README.txt\" &lt;&lt; EOF\nBackup de Dispositivo Android\nFecha: $(date)\nDispositivo: $(adb $DEVICE_SERIAL shell getprop ro.product.model)\nAndroid: $(adb $DEVICE_SERIAL shell getprop ro.build.version.release)\nSerial: $(adb $DEVICE_SERIAL get-serialno)\n\nContenido:\n- device_info.txt: Propiedades del sistema\n- packages.txt: Lista de todos los paquetes\n- packages_user.txt: Solo paquetes de usuario\n- apks/: APKs de aplicaciones de usuario\n- data.ab: Backup de datos (usar 'adb restore data.ab')\n- DCIM/, Pictures/, Download/: Multimedia\nEOF\n\necho \"\"\necho \"===================================\"\necho \"Backup completado exitosamente\"\necho \"Ubicación: $BACKUP_DIR\"\necho \"===================================\"\nHacer ejecutable y usar:\nchmod +x ~/bin/adb-backup-full\nadb-backup-full\nadb-backup-full -s ABC123456789\nadb-backup-full -d ~/mis-backups/backup-especial"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#alias-útiles-para-fish",
+    "href": "operating-system/2019-06-19-adb/index.html#alias-útiles-para-fish",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Alias Útiles para Fish",
+    "text": "Alias Útiles para Fish\nAgregar a ~/.config/fish/config.fish:\n# =============================================================================\n# ALIAS DE ADB\n# =============================================================================\n\n# Básicos\nalias adb-devices=\"adb devices -l\"\nalias adb-restart=\"adb kill-server && adb start-server\"\nalias adb-logcat=\"adb logcat -v time\"\n\n# Dispositivo\nalias adb-model=\"adb shell getprop ro.product.model\"\nalias adb-android=\"adb shell getprop ro.build.version.release\"\nalias adb-battery=\"adb shell dumpsys battery\"\nalias adb-wifi=\"adb shell svc wifi enable\"\nalias adb-wifi-off=\"adb shell svc wifi disable\"\n\n# Aplicaciones\nalias adb-apps=\"adb shell pm list packages -3\"\nalias adb-apps-all=\"adb shell pm list packages\"\nalias adb-uninstall=\"adb uninstall\"\nalias adb-clear=\"adb shell pm clear\"\n\n# Archivos\nalias adb-pull-dcim=\"adb pull /sdcard/DCIM/ ./\"\nalias adb-pull-download=\"adb pull /sdcard/Download/ ./\"\nalias adb-ls=\"adb shell ls -la\"\n\n# Captura\nalias adb-screenshot=\"adb exec-out screencap -p &gt; screenshot_(date +%Y%m%d_%H%M%S).png\"\nalias adb-record=\"adb shell screenrecord /sdcard/video.mp4\"\n\n# Desarrollo\nalias adb-install-debug=\"adb install -r -t -g\"\nalias adb-logs=\"adb logcat -v time | grep -i\"\n\n# Conexión\nalias adb-wifi-connect=\"adb tcpip 5555\"\nalias adb-usb=\"adb usb\"\n\n# Reinicio\nalias adb-reboot=\"adb reboot\"\nalias adb-recovery=\"adb reboot recovery\"\nalias adb-bootloader=\"adb reboot bootloader\"\nRecargar:\nsource ~/.config/fish/config.fish"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#comandos-esenciales",
+    "href": "operating-system/2019-06-19-adb/index.html#comandos-esenciales",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Comandos Esenciales",
+    "text": "Comandos Esenciales\n# SERVIDOR\nadb start-server              # Iniciar servidor\nadb kill-server               # Detener servidor\nadb version                   # Versión\n\n# DISPOSITIVOS\nadb devices                   # Listar dispositivos\nadb devices -l                # Con detalles\nadb -s SERIAL comando         # Especificar dispositivo\nadb -d comando                # Solo USB\nadb -e comando                # Solo emulador\n\n# CONEXIÓN\nadb tcpip 5555                # Habilitar WiFi\nadb connect IP:5555           # Conectar WiFi\nadb disconnect                # Desconectar WiFi\nadb usb                       # Volver a USB\n\n# INFORMACIÓN\nadb shell getprop             # Propiedades\nadb get-serialno              # Número de serie\nadb get-state                 # Estado\n\n# APLICACIONES\nadb install app.apk           # Instalar\nadb install -r app.apk        # Reinstalar\nadb uninstall PACKAGE         # Desinstalar\nadb shell pm list packages    # Listar apps\nadb shell pm clear PACKAGE    # Limpiar datos\n\n# ARCHIVOS\nadb push LOCAL REMOTE         # Copiar a dispositivo\nadb pull REMOTE LOCAL         # Copiar de dispositivo\nadb shell ls /sdcard          # Listar archivos\n\n# SHELL\nadb shell                     # Shell interactivo\nadb shell COMANDO             # Comando único\n\n# CAPTURA\nadb exec-out screencap -p &gt; screenshot.png\nadb shell screenrecord /sdcard/video.mp4\n\n# LOGS\nadb logcat                    # Ver logs\nadb logcat -c                 # Limpiar logs\nadb bugreport                 # Reporte de bugs\n\n# REINICIO\nadb reboot                    # Reiniciar\nadb reboot recovery           # Recovery\nadb reboot bootloader         # Bootloader"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#atajos-de-teclado-en-terminal",
+    "href": "operating-system/2019-06-19-adb/index.html#atajos-de-teclado-en-terminal",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Atajos de Teclado en Terminal",
+    "text": "Atajos de Teclado en Terminal\n\n\n\nAtajo\nAcción\n\n\n\n\nCtrl+C\nDetener comando actual\n\n\nCtrl+D\nSalir de shell adb\n\n\nCtrl+Z\nSuspender comando\n\n\nCtrl+L\nLimpiar pantalla\n\n\n↑ / ↓\nHistorial de comandos"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#variables-de-entorno-útiles",
+    "href": "operating-system/2019-06-19-adb/index.html#variables-de-entorno-útiles",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Variables de Entorno Útiles",
+    "text": "Variables de Entorno Útiles\n# Fish\nset -gx ANDROID_SERIAL ABC123456789\nset -gx ANDROID_HOME /opt/android-sdk\nset -gx ADB_TRACE all  # Debug verbose\n\n# Bash/Zsh\nexport ANDROID_SERIAL=ABC123456789\nexport ANDROID_HOME=/opt/android-sdk\nexport ADB_TRACE=all"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#locations-importantes",
+    "href": "operating-system/2019-06-19-adb/index.html#locations-importantes",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Locations Importantes",
+    "text": "Locations Importantes\n/sdcard/              # Almacenamiento interno (equivale a /storage/emulated/0/)\n/sdcard/DCIM/         # Fotos de cámara\n/sdcard/Download/     # Descargas\n/sdcard/Pictures/     # Imágenes\n/sdcard/Music/        # Música\n/sdcard/Movies/       # Videos\n/data/data/           # Datos de apps (requiere root)\n/system/app/          # Apps del sistema (requiere root)\n/data/app/            # Apps de usuario (requiere root)"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#intents-comunes",
+    "href": "operating-system/2019-06-19-adb/index.html#intents-comunes",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Intents Comunes",
+    "text": "Intents Comunes\n# Configuración\nandroid.settings.SETTINGS\nandroid.settings.WIFI_SETTINGS\nandroid.settings.BLUETOOTH_SETTINGS\nandroid.settings.APPLICATION_SETTINGS\n\n# Acciones\nandroid.intent.action.VIEW\nandroid.intent.action.CALL\nandroid.intent.action.SENDTO\nandroid.intent.action.SEND\nandroid.media.action.IMAGE_CAPTURE"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#documentación-oficial",
+    "href": "operating-system/2019-06-19-adb/index.html#documentación-oficial",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Documentación Oficial",
+    "text": "Documentación Oficial\n\nADB Official: https://developer.android.com/studio/command-line/adb\nPlatform Tools: https://developer.android.com/studio/releases/platform-tools\nAndroid Debug: https://developer.android.com/studio/debug"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#comunidad",
+    "href": "operating-system/2019-06-19-adb/index.html#comunidad",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Comunidad",
+    "text": "Comunidad\n\nXDA Developers: https://www.xda-developers.com/\nStack Overflow: https://stackoverflow.com/questions/tagged/adb\nAndroid Developers: https://developer.android.com/"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#herramientas-complementarias",
+    "href": "operating-system/2019-06-19-adb/index.html#herramientas-complementarias",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Herramientas Complementarias",
+    "text": "Herramientas Complementarias\n# En Arch Linux\nsudo pacman -S android-tools android-udev scrcpy\n\n# Otras herramientas útiles\nyay -S apktool android-sdk-platform-tools"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#seguridad",
+    "href": "operating-system/2019-06-19-adb/index.html#seguridad",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Seguridad",
+    "text": "Seguridad\n\nDepuración USB solo cuando sea necesario\n\nDesactivar cuando no uses ADB\nNo conectar a computadoras desconocidas\n\nAutorizar solo computadoras confiables\n\nVerificar huella digital RSA\nRevocar autorizaciones periódicamente\n\nConexión WiFi segura\n\nUsar solo en redes confiables\nDesactivar cuando no la uses\nNo usar en redes públicas"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#rendimiento",
+    "href": "operating-system/2019-06-19-adb/index.html#rendimiento",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Rendimiento",
+    "text": "Rendimiento\n\nCerrar servidor cuando no lo uses\nadb kill-server\nUsar comandos específicos\n# Bien\nadb -s ABC123 shell pm list packages -3\n\n# Evitar\nadb shell pm list packages | grep algo\nTransferencias grandes por USB\n\nWiFi es más lento para archivos grandes\nUSB 3.0 es significativamente más rápido"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#desarrollo",
+    "href": "operating-system/2019-06-19-adb/index.html#desarrollo",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Desarrollo",
+    "text": "Desarrollo\n\nAutomatizar tareas repetitivas\n\nCrear scripts Fish/Bash\nUsar alias para comandos comunes\n\nMantener logs organizados\nadb logcat &gt; logs/app_$(date +%Y%m%d_%H%M%S).log\nBackup regular\n\nAntes de pruebas destructivas\nUsar scripts automatizados"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html",
+    "href": "operating-system/2021-10-21-scrcpy/index.html",
+    "title": "Scrcpy",
+    "section": "",
+    "text": "scrcpy (screen copy) es una aplicación de código abierto que permite:\n\nDuplicar (mirror) la pantalla de dispositivos Android en tu computadora\nControlar el dispositivo desde el teclado y mouse de la computadora\nGrabar video y audio del dispositivo\nTransmitir audio desde el dispositivo\n\nPronunciación: “screen copy”\n\n\n\nscrcpy se enfoca en:\n\nLigereza: Aplicación nativa, solo muestra la pantalla del dispositivo\nRendimiento: 30-120 fps dependiendo del dispositivo\nCalidad: Hasta 1920×1080 o superior\nBaja latencia: 35-70ms\nInicio rápido: ~1 segundo para mostrar la primera imagen\nNo intrusivo: No instala nada en el dispositivo Android\nSin publicidad: Software libre y de código abierto\n\n\n\n\n\n\n\nCaracterística\nscrcpy\nVysor\nAirDroid\nTeamViewer\n\n\n\n\nGratuito\nSí\nLimitado\nLimitado\nNo\n\n\nCódigo abierto\nSí\nNo\nNo\nNo\n\n\nBaja latencia\nSí\nNo\nNo\nNo\n\n\nSin anuncios\nSí\nNo\nNo\nSí\n\n\nSin cuenta\nSí\nNo\nNo\nNo\n\n\nFunciona sin internet\nSí\nSí\nNo\nNo\n\n\nGrabación nativa\nSí\nPremium\nPremium\nNo"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#qué-es-scrcpy",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#qué-es-scrcpy",
+    "title": "Scrcpy",
+    "section": "",
+    "text": "scrcpy (screen copy) es una aplicación de código abierto que permite:\n\nDuplicar (mirror) la pantalla de dispositivos Android en tu computadora\nControlar el dispositivo desde el teclado y mouse de la computadora\nGrabar video y audio del dispositivo\nTransmitir audio desde el dispositivo\n\nPronunciación: “screen copy”"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#filosofía-de-diseño",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#filosofía-de-diseño",
+    "title": "Scrcpy",
+    "section": "",
+    "text": "scrcpy se enfoca en:\n\nLigereza: Aplicación nativa, solo muestra la pantalla del dispositivo\nRendimiento: 30-120 fps dependiendo del dispositivo\nCalidad: Hasta 1920×1080 o superior\nBaja latencia: 35-70ms\nInicio rápido: ~1 segundo para mostrar la primera imagen\nNo intrusivo: No instala nada en el dispositivo Android\nSin publicidad: Software libre y de código abierto"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#ventajas-sobre-otras-soluciones",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#ventajas-sobre-otras-soluciones",
+    "title": "Scrcpy",
+    "section": "",
+    "text": "Característica\nscrcpy\nVysor\nAirDroid\nTeamViewer\n\n\n\n\nGratuito\nSí\nLimitado\nLimitado\nNo\n\n\nCódigo abierto\nSí\nNo\nNo\nNo\n\n\nBaja latencia\nSí\nNo\nNo\nNo\n\n\nSin anuncios\nSí\nNo\nNo\nSí\n\n\nSin cuenta\nSí\nNo\nNo\nNo\n\n\nFunciona sin internet\nSí\nSí\nNo\nNo\n\n\nGrabación nativa\nSí\nPremium\nPremium\nNo"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#funcionalidades-disponibles",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#funcionalidades-disponibles",
+    "title": "Scrcpy",
+    "section": "Funcionalidades Disponibles",
+    "text": "Funcionalidades Disponibles\n\nDuplicación de pantalla (mirroring) en tiempo real\nReenvío de audio (Android 11+)\nGrabación de video y audio\nPantalla virtual (virtual display)\nDuplicación con pantalla apagada del dispositivo\nCopiar-pegar bidireccional (texto e imágenes)\nCalidad configurable de video\nDuplicación de cámara (Android 12+)\nWebcam virtual (V4L2 en Linux)\nSimulación de teclado y mouse físicos (HID)\nSoporte de gamepad\nModo OTG (control sin depuración USB)"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#casos-de-uso-ideales",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#casos-de-uso-ideales",
+    "title": "Scrcpy",
+    "section": "Casos de Uso Ideales",
+    "text": "Casos de Uso Ideales\nPara ti como economista e informático:\n\nPresentaciones Académicas\n\nMostrar aplicaciones de econometría móviles\nDemostrar visualizaciones de datos\nPresentar simulaciones interactivas\n\nTutoriales y Documentación\n\nGrabar tutoriales de aplicaciones\nCrear material educativo\nDocumentar procesos de análisis\n\nDesarrollo y Testing\n\nProbar aplicaciones econométricas\nVerificar visualizaciones en móvil\nDebug de aplicaciones web responsive\n\nColaboración Remota\n\nCompartir pantalla en reuniones\nAsistencia técnica remota\nDemostraciones en vivo"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#en-el-dispositivo-android",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#en-el-dispositivo-android",
+    "title": "Scrcpy",
+    "section": "En el Dispositivo Android",
+    "text": "En el Dispositivo Android\nRequisitos mínimos:\n\nAndroid 5.0 (API 21) o superior\nPara audio: Android 11 (API 30) o superior\n\nConfiguración necesaria:\n\nHabilitar Depuración USB\nIr a: Ajustes → Acerca del teléfono → Tocar 7 veces en Número de compilación\nLuego: Ajustes → Opciones de desarrollador → Activar Depuración USB\nDispositivos Xiaomi (adicional)\nAlgunos dispositivos Xiaomi requieren:\n\nDepuración USB (Configuración de seguridad) activado\nReiniciar el dispositivo después de activarlo\n\n\nVerificar que funciona:\n# Conectar dispositivo por USB\n# Verificar que aparece\nadb devices"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#en-arch-linux",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#en-arch-linux",
+    "title": "Scrcpy",
+    "section": "En Arch Linux",
+    "text": "En Arch Linux\nPaquetes necesarios:\n# Verificar que tienes instalado\npacman -Q ffmpeg sdl2 adb libusb\nSi falta algo:\nsudo pacman -S ffmpeg sdl2 android-tools libusb"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#método-1-instalación-desde-repositorios-oficiales-recomendado",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#método-1-instalación-desde-repositorios-oficiales-recomendado",
+    "title": "Scrcpy",
+    "section": "Método 1: Instalación desde Repositorios Oficiales (Recomendado)",
+    "text": "Método 1: Instalación desde Repositorios Oficiales (Recomendado)\n# scrcpy está en los repositorios oficiales de Arch\nsudo pacman -S scrcpy\nVerificar instalación:\nscrcpy --version\n# Debe mostrar: scrcpy 3.3.4 o superior"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#método-2-instalación-desde-aur-versión-de-desarrollo",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#método-2-instalación-desde-aur-versión-de-desarrollo",
+    "title": "Scrcpy",
+    "section": "Método 2: Instalación desde AUR (Versión de Desarrollo)",
+    "text": "Método 2: Instalación desde AUR (Versión de Desarrollo)\n# Si quieres la versión más reciente (desarrollo)\nyay -S scrcpy-git\n\n# O con paru\nparu -S scrcpy-git"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#método-3-compilación-desde-código-fuente",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#método-3-compilación-desde-código-fuente",
+    "title": "Scrcpy",
+    "section": "Método 3: Compilación desde Código Fuente",
+    "text": "Método 3: Compilación desde Código Fuente\nSolo si necesitas modificar el código o tienes requisitos específicos.\n# 1. Instalar dependencias de compilación\nsudo pacman -S base-devel meson ninja pkg-config \\\n  ffmpeg libusb sdl2 \\\n  jdk17-openjdk\n\n# 2. Clonar repositorio\ngit clone https://github.com/Genymobile/scrcpy.git\ncd scrcpy\n\n# 3. Compilar\nmeson setup x --buildtype=release --strip -Db_lto=true\nninja -Cx\n\n# 4. Instalar\nsudo ninja -Cx install\n\n# 5. Verificar\nscrcpy --version"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#configurar-adb",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#configurar-adb",
+    "title": "Scrcpy",
+    "section": "1. Configurar ADB",
+    "text": "1. Configurar ADB\nADB (Android Debug Bridge) es necesario para scrcpy.\n# Verificar que adb funciona\nadb --version\n\n# Iniciar servidor adb\nadb start-server\n\n# Listar dispositivos conectados\nadb devices\n\n# Debe mostrar algo como:\n# List of devices attached\n# 0123456789ABCDEF    device"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#configurar-permisos-de-usuario",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#configurar-permisos-de-usuario",
+    "title": "Scrcpy",
+    "section": "2. Configurar Permisos de Usuario",
+    "text": "2. Configurar Permisos de Usuario\nEn Arch Linux, tu usuario debe estar en el grupo adbusers:\n# Verificar si estás en el grupo\ngroups | grep adbusers\n\n# Si no estás, agregarte\nsudo usermod -aG adbusers $USER\n\n# Cerrar sesión y volver a iniciar\n# O ejecutar:\nnewgrp adbusers"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#configurar-reglas-udev",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#configurar-reglas-udev",
+    "title": "Scrcpy",
+    "section": "3. Configurar Reglas udev",
+    "text": "3. Configurar Reglas udev\nPara que adb detecte dispositivos sin sudo:\n# Crear archivo de reglas\nsudo nano /etc/udev/rules.d/51-android.rules\nAgregar (ejemplo para varios fabricantes):\n# Google\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"18d1\", MODE=\"0666\", GROUP=\"adbusers\"\n# Samsung\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"04e8\", MODE=\"0666\", GROUP=\"adbusers\"\n# Xiaomi\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"2717\", MODE=\"0666\", GROUP=\"adbusers\"\n# Huawei\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"12d1\", MODE=\"0666\", GROUP=\"adbusers\"\n# OnePlus\nSUBSYSTEM==\"usb\", ATTR{idVendor}==\"2a70\", MODE=\"0666\", GROUP=\"adbusers\"\nRecargar reglas:\nsudo udevadm control --reload-rules\nsudo udevadm trigger"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#primera-conexión",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#primera-conexión",
+    "title": "Scrcpy",
+    "section": "4. Primera Conexión",
+    "text": "4. Primera Conexión\n# Conectar dispositivo por USB\n# En el dispositivo, autorizar la computadora (popup que aparece)\n\n# Verificar conexión\nadb devices\n\n# Iniciar scrcpy\nscrcpy\nDebe aparecer la pantalla del dispositivo en una ventana."
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#comando-básico",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#comando-básico",
+    "title": "Scrcpy",
+    "section": "Comando Básico",
+    "text": "Comando Básico\n# Duplicar pantalla del dispositivo\nscrcpy\nEso es todo. scrcpy automáticamente:\n\nDetecta el dispositivo conectado\nInstala el servidor temporal en el dispositivo\nInicia la duplicación de pantalla\nHabilita el control con teclado y mouse"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#opciones-más-comunes",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#opciones-más-comunes",
+    "title": "Scrcpy",
+    "section": "Opciones Más Comunes",
+    "text": "Opciones Más Comunes\n# Limitar resolución (mejor rendimiento)\nscrcpy -m1920        # máximo 1920px de ancho\nscrcpy -m1024        # máximo 1024px (más fluido)\n\n# Solo video, sin audio\nscrcpy --no-audio\n\n# Solo audio, sin video\nscrcpy --no-video --no-control\n\n# Ventana siempre visible\nscrcpy --always-on-top\n\n# Pantalla completa\nscrcpy -f\n\n# Mantener dispositivo despierto (conectado a corriente)\nscrcpy -w\n\n# Apagar pantalla del dispositivo (ahorra batería)\nscrcpy -S"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#ejemplos-de-uso-rápido",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#ejemplos-de-uso-rápido",
+    "title": "Scrcpy",
+    "section": "Ejemplos de Uso Rápido",
+    "text": "Ejemplos de Uso Rápido\n# Presentación fluida (baja resolución, alta velocidad)\nscrcpy -m1024 --max-fps=60 --no-audio\n\n# Grabación de alta calidad\nscrcpy --video-codec=h265 -m1920 --max-fps=60 -r tutorial.mp4\n\n# Solo audio (como dictáfono)\nscrcpy --audio-source=mic --no-video --no-control -r grabacion.opus\n\n# Control sin duplicación (ahorra recursos)\nscrcpy --no-video --no-audio"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#selección-de-dispositivo",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#selección-de-dispositivo",
+    "title": "Scrcpy",
+    "section": "Selección de Dispositivo",
+    "text": "Selección de Dispositivo\nSi solo hay un dispositivo conectado:\nscrcpy  # Se conecta automáticamente\nSi hay múltiples dispositivos:\n# Listar dispositivos\nadb devices\n\n# Conectar por serial\nscrcpy --serial=0123456789ABCDEF\nscrcpy -s 0123456789ABCDEF  # versión corta\n\n# Conectar al único dispositivo USB\nscrcpy --select-usb\nscrcpy -d  # versión corta\n\n# Conectar al único dispositivo TCP/IP\nscrcpy --select-tcpip\nscrcpy -e  # versión corta"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#conexión-tcpip-inalámbrica",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#conexión-tcpip-inalámbrica",
+    "title": "Scrcpy",
+    "section": "Conexión TCP/IP (Inalámbrica)",
+    "text": "Conexión TCP/IP (Inalámbrica)\n\nMétodo 1: Automático\nDesde USB a WiFi automáticamente:\n# Conectar dispositivo por USB primero\nscrcpy --tcpip\n\n# scrcpy detecta la IP, habilita TCP/IP, y se conecta\n# Ahora puedes desconectar el cable USB\nSi ya sabes la IP del dispositivo:\nscrcpy --tcpip=192.168.1.100       # puerto por defecto 5555\nscrcpy --tcpip=192.168.1.100:5555  # especificar puerto\n\n\nMétodo 2: Manual\n# 1. Conectar dispositivo por USB\n# 2. Habilitar TCP/IP en el dispositivo\nadb tcpip 5555\n\n# 3. Obtener IP del dispositivo\nadb shell ip route | awk '{print $9}'\n# O desde el dispositivo: Ajustes → Acerca del teléfono → Estado\n\n# 4. Desconectar USB\n# 5. Conectar por WiFi\nadb connect 192.168.1.100:5555\n\n# 6. Usar scrcpy normalmente\nscrcpy\n\n# 7. Desconectar cuando termines\nadb disconnect\nNota: Desde Android 11 hay una opción de depuración inalámbrica en Opciones de Desarrollador."
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#variable-de-entorno",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#variable-de-entorno",
+    "title": "Scrcpy",
+    "section": "Variable de Entorno",
+    "text": "Variable de Entorno\n# En Fish\nset -gx ANDROID_SERIAL 0123456789ABCDEF\nscrcpy\n\n# En Bash/Zsh\nexport ANDROID_SERIAL=0123456789ABCDEF\nscrcpy"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#resolución-y-calidad",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#resolución-y-calidad",
+    "title": "Scrcpy",
+    "section": "Resolución y Calidad",
+    "text": "Resolución y Calidad\n\nLimitar Resolución\n# Limitar ancho/alto máximo\nscrcpy --max-size=1920\nscrcpy -m1920  # versión corta\n\n# Ejemplos por caso de uso:\nscrcpy -m1024  # Presentaciones fluidas\nscrcpy -m1920  # Balance calidad/rendimiento\nscrcpy -m2560  # Alta calidad (si el dispositivo lo soporta)\nRegla: La otra dimensión se calcula automáticamente manteniendo la relación de aspecto.\n\n\nTasa de Bits\n# Cambiar bitrate de video (por defecto 8 Mbps)\nscrcpy --video-bit-rate=2M\nscrcpy -b 2M  # versión corta\n\n# Ejemplos:\nscrcpy -b 2M   # Menor calidad, más fluido\nscrcpy -b 4M   # Balance\nscrcpy -b 8M   # Por defecto\nscrcpy -b 12M  # Alta calidad\n\n\nTasa de Fotogramas\n# Limitar FPS\nscrcpy --max-fps=30   # Ahorra batería\nscrcpy --max-fps=60   # Fluido\nscrcpy --max-fps=120  # Muy fluido (si dispositivo lo soporta)\n\n# Mostrar FPS en consola\nscrcpy --print-fps\n\n# Mostrar/ocultar FPS en tiempo real\n# Presionar MOD+i (Alt+i o Super+i)"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#códec-de-video",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#códec-de-video",
+    "title": "Scrcpy",
+    "section": "Códec de Video",
+    "text": "Códec de Video\n# Seleccionar códec\nscrcpy --video-codec=h264  # Por defecto, menor latencia\nscrcpy --video-codec=h265  # Mejor calidad\nscrcpy --video-codec=av1   # Muy nueva, pocos dispositivos\n\n# Listar codificadores disponibles\nscrcpy --list-encoders\nRecomendaciones:\n\nH.264: Mejor latencia, compatible con todos los dispositivos\nH.265: Mejor calidad, mayor compresión\nAV1: Mejor compresión, pero pocos dispositivos lo soportan"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#orientación-de-pantalla",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#orientación-de-pantalla",
+    "title": "Scrcpy",
+    "section": "Orientación de Pantalla",
+    "text": "Orientación de Pantalla\n# Orientación de captura (en el dispositivo)\nscrcpy --capture-orientation=0      # Sin rotación\nscrcpy --capture-orientation=90     # 90° horario\nscrcpy --capture-orientation=180    # 180°\nscrcpy --capture-orientation=270    # 270° horario\n\n# Bloquear orientación (no rota aunque gires el dispositivo)\nscrcpy --capture-orientation=@90    # Bloqueada a 90°\n\n# Orientación de visualización (en la computadora)\nscrcpy --orientation=90             # Rotar visualización 90°\n\n# Rotar contenido por ángulo personalizado\nscrcpy --angle=23                   # Rotar 23° horario"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#recorte-de-pantalla",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#recorte-de-pantalla",
+    "title": "Scrcpy",
+    "section": "Recorte de Pantalla",
+    "text": "Recorte de Pantalla\n# Recortar región específica\nscrcpy --crop=1224:1440:0:0   # Ancho:Alto:OffsetX:OffsetY\n\n# Ejemplo: recortar solo la mitad superior\nscrcpy --crop=1080:960:0:0    # Para un dispositivo 1080x1920"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#bufferización",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#bufferización",
+    "title": "Scrcpy",
+    "section": "Bufferización",
+    "text": "Bufferización\n# Agregar buffer para compensar fluctuaciones de red (WiFi)\nscrcpy --video-buffer=50    # 50ms de buffer\nscrcpy --video-buffer=200   # 200ms (más suave, más latencia)\n\n# Sin buffer (por defecto, menor latencia)\nscrcpy"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#sin-reproducción-de-video",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#sin-reproducción-de-video",
+    "title": "Scrcpy",
+    "section": "Sin Reproducción de Video",
+    "text": "Sin Reproducción de Video\n# Solo grabar, sin mostrar (útil para grabaciones largas)\nscrcpy --no-playback --record=archivo.mp4\n\n# O solo desactivar reproducción de video\nscrcpy --no-video-playback --record=archivo.mp4"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#pantalla-virtual",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#pantalla-virtual",
+    "title": "Scrcpy",
+    "section": "Pantalla Virtual",
+    "text": "Pantalla Virtual\n# Crear nueva pantalla virtual (no duplica la principal)\nscrcpy --new-display=1920x1080\n\n# Con DPI personalizado\nscrcpy --new-display=1920x1080/420\n\n# Iniciar app en pantalla virtual\nscrcpy --new-display=1920x1080 --start-app=org.videolan.vlc\n\n# Sin decoraciones del sistema\nscrcpy --new-display --no-vd-system-decorations --start-app=org.mozilla.firefox"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#habilitardeshabilitar-audio",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#habilitardeshabilitar-audio",
+    "title": "Scrcpy",
+    "section": "Habilitar/Deshabilitar Audio",
+    "text": "Habilitar/Deshabilitar Audio\n# Sin audio (por defecto está habilitado)\nscrcpy --no-audio\n\n# Solo audio, sin video\nscrcpy --no-video --no-control\n\n# Audio sin ventana\nscrcpy --no-window  # implica --no-video --no-control"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#fuente-de-audio",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#fuente-de-audio",
+    "title": "Scrcpy",
+    "section": "Fuente de Audio",
+    "text": "Fuente de Audio\n# Salida de audio del dispositivo (por defecto)\nscrcpy --audio-source=output\n\n# Micrófono del dispositivo\nscrcpy --audio-source=mic\n\n# Otras fuentes:\nscrcpy --audio-source=playback            # Reproducción (apps pueden optar por no capturar)\nscrcpy --audio-source=mic-unprocessed     # Micrófono sin procesar\nscrcpy --audio-source=mic-camcorder       # Optimizado para video\nscrcpy --audio-source=mic-voice-recognition\nscrcpy --audio-source=mic-voice-communication\nscrcpy --audio-source=voice-call\nscrcpy --audio-source=voice-call-uplink\nscrcpy --audio-source=voice-call-downlink\nEjemplo: Dictáfono (grabar micrófono directamente):\nscrcpy --audio-source=mic --no-video --no-playback --record=grabacion.opus"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#duplicación-de-audio-android-13",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#duplicación-de-audio-android-13",
+    "title": "Scrcpy",
+    "section": "Duplicación de Audio (Android 13+)",
+    "text": "Duplicación de Audio (Android 13+)\n# Reproducir audio en dispositivo Y en la computadora\nscrcpy --audio-dup\n\n# Equivalente a:\nscrcpy --audio-source=playback --audio-dup"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#códec-de-audio",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#códec-de-audio",
+    "title": "Scrcpy",
+    "section": "Códec de Audio",
+    "text": "Códec de Audio\n# Seleccionar códec\nscrcpy --audio-codec=opus  # Por defecto\nscrcpy --audio-codec=aac\nscrcpy --audio-codec=flac\nscrcpy --audio-codec=raw   # PCM 16-bit sin comprimir\n\n# Ejemplo: grabar audio en FLAC de alta calidad\nscrcpy --no-video --audio-codec=flac --record=audio.flac\n\n# Opciones adicionales de códec\nscrcpy --audio-codec=flac --audio-codec-options=flac-compression-level=8"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#bitrate-de-audio",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#bitrate-de-audio",
+    "title": "Scrcpy",
+    "section": "Bitrate de Audio",
+    "text": "Bitrate de Audio\n# Cambiar bitrate (por defecto 128 Kbps)\nscrcpy --audio-bit-rate=64K\nscrcpy --audio-bit-rate=64000  # equivalente\nscrcpy --audio-bit-rate=320K   # Alta calidad"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#bufferización-de-audio",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#bufferización-de-audio",
+    "title": "Scrcpy",
+    "section": "Bufferización de Audio",
+    "text": "Bufferización de Audio\n# Ajustar buffer de audio (por defecto 50ms)\nscrcpy --audio-buffer=40    # Menor latencia\nscrcpy --audio-buffer=100   # Más estable\nscrcpy --audio-buffer=200   # Muy estable, más latencia\n\n# Buffer de salida de audio (por defecto 5ms)\n# Solo cambiar si hay audio robótico/entrecortado\nscrcpy --audio-output-buffer=10"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#grabación-básica",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#grabación-básica",
+    "title": "Scrcpy",
+    "section": "Grabación Básica",
+    "text": "Grabación Básica\n# Grabar video y audio\nscrcpy --record=archivo.mp4\nscrcpy -r archivo.mkv  # versión corta\n\n# Solo video\nscrcpy --no-audio --record=video.mp4\n\n# Solo audio\nscrcpy --no-video --record=audio.opus\nscrcpy --no-video --audio-codec=aac --record=audio.aac\nscrcpy --no-video --audio-codec=flac --record=audio.flac\nscrcpy --no-video --audio-codec=raw --record=audio.wav"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#formatos-disponibles",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#formatos-disponibles",
+    "title": "Scrcpy",
+    "section": "Formatos Disponibles",
+    "text": "Formatos Disponibles\n\n\n\nFormato\nExtensiones\nUso\n\n\n\n\nMP4\n.mp4, .m4a, .aac\nVideo y audio, compatible universalmente\n\n\nMatroska\n.mkv, .mka\nVideo y audio, mejor para edición\n\n\nOPUS\n.opus\nSolo audio, excelente compresión\n\n\nFLAC\n.flac\nSolo audio, sin pérdida\n\n\nWAV\n.wav\nSolo audio, sin comprimir\n\n\n\nEspecificar formato explícitamente:\nscrcpy --record=archivo --record-format=mkv"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#grabación-sin-reproducción",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#grabación-sin-reproducción",
+    "title": "Scrcpy",
+    "section": "Grabación Sin Reproducción",
+    "text": "Grabación Sin Reproducción\n# Grabar sin mostrar en pantalla (ahorra recursos)\nscrcpy --no-playback --record=archivo.mp4\n\n# Sin ventana (modo background)\nscrcpy --no-window --record=archivo.mp4\n# Interrumpir con Ctrl+C\n\n# Solo grabar video, seguir escuchando audio\nscrcpy --no-video-playback --record=archivo.mp4"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#límite-de-tiempo",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#límite-de-tiempo",
+    "title": "Scrcpy",
+    "section": "Límite de Tiempo",
+    "text": "Límite de Tiempo\n# Grabar por 20 segundos\nscrcpy --record=archivo.mp4 --time-limit=20\n\n# También funciona sin grabar\nscrcpy --time-limit=30  # Duplicar por 30 segundos y cerrar"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#ejemplos-de-grabación-profesional",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#ejemplos-de-grabación-profesional",
+    "title": "Scrcpy",
+    "section": "Ejemplos de Grabación Profesional",
+    "text": "Ejemplos de Grabación Profesional\n\nTutorial de App Móvil (Alta Calidad)\nscrcpy --video-codec=h265 -m1920 --max-fps=60 \\\n  --audio-codec=aac \\\n  --record=tutorial-app.mp4\n\n\nPresentación Académica (Balance)\nscrcpy -m1920 --max-fps=30 \\\n  --video-bit-rate=4M \\\n  --audio-bit-rate=128K \\\n  --record=presentacion.mkv\n\n\nGrabación de Podcast (Solo Audio)\nscrcpy --audio-source=mic \\\n  --audio-codec=opus \\\n  --no-video \\\n  --no-playback \\\n  --record=podcast.opus\n\n\nDemo de Análisis Econométrico (Pantalla + Audio)\nscrcpy --video-codec=h264 \\\n  -m1920 \\\n  --max-fps=60 \\\n  --stay-awake \\\n  --record=demo-econometria.mp4"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#tabla-de-atajos",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#tabla-de-atajos",
+    "title": "Scrcpy",
+    "section": "Tabla de Atajos",
+    "text": "Tabla de Atajos\n\n\n\nAcción\nAtajo\n\n\n\n\nVentana\n\n\n\nPantalla completa\nMOD+f\n\n\nRedimensionar 1:1 (pixel-perfect)\nMOD+g\n\n\nQuitar bordes negros\nMOD+w o doble-clic\n\n\nSiempre visible\nUsar --always-on-top\n\n\nRotación/Transformación\n\n\n\nRotar a la izquierda\nMOD+←\n\n\nRotar a la derecha\nMOD+→\n\n\nVoltear horizontalmente\nMOD+Shift+← o MOD+Shift+→\n\n\nVoltear verticalmente\nMOD+Shift+↑ o MOD+Shift+↓\n\n\nRotar dispositivo\nMOD+r\n\n\nPantalla del Dispositivo\n\n\n\nApagar pantalla\nMOD+o\n\n\nEncender pantalla\nMOD+Shift+o\n\n\nBotones Android\n\n\n\nHOME\nMOD+h o clic-medio\n\n\nBACK\nMOD+b o MOD+Backspace o clic-derecho\n\n\nAPP_SWITCH (recientes)\nMOD+s o 4to botón mouse\n\n\nMENU\nMOD+m\n\n\nVolumen\n\n\n\nSubir volumen\nMOD+↑\n\n\nBajar volumen\nMOD+↓\n\n\nEncender/apagar\nMOD+p\n\n\nPaneles\n\n\n\nNotificaciones\nMOD+n o 5to botón mouse\n\n\nConfiguración\nMOD+n+n (doble)\n\n\nColapsar paneles\nMOD+Shift+n\n\n\nCopiar/Pegar\n\n\n\nCopiar\nMOD+c\n\n\nCortar\nMOD+x\n\n\nPegar\nMOD+v\n\n\nPegar como eventos\nMOD+Shift+v\n\n\nControl\n\n\n\nConfiguración teclado (HID)\nMOD+k\n\n\nMostrar/ocultar FPS\nMOD+i\n\n\nPausar duplicación\nMOD+z\n\n\nReanudar\nMOD+Shift+z\n\n\nGestos\n\n\n\nPinch-to-zoom\nCtrl+clic+mover\n\n\nInclinación vertical\nShift+clic+mover\n\n\nInclinación horizontal\nCtrl+Shift+clic+mover\n\n\nArchivos\n\n\n\nInstalar APK\nArrastrar archivo .apk\n\n\nEnviar archivo\nArrastrar archivo (no-APK)"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#caso-1-presentación-académica-con-diapositivas-móviles",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#caso-1-presentación-académica-con-diapositivas-móviles",
+    "title": "Scrcpy",
+    "section": "Caso 1: Presentación Académica con Diapositivas Móviles",
+    "text": "Caso 1: Presentación Académica con Diapositivas Móviles\nEscenario: Presentar análisis econométrico desde app móvil en clase.\n# Configuración óptima\nscrcpy -m1920 \\\n  --max-fps=60 \\\n  --video-bit-rate=8M \\\n  --no-audio \\\n  --always-on-top \\\n  --stay-awake \\\n  -f\nExplicación:\n\n-m1920: Resolución óptima para proyector\n--max-fps=60: Fluidez en animaciones\n--no-audio: Sin distracciones\n--always-on-top: Siempre visible\n--stay-awake: Dispositivo no se apaga\n-f: Pantalla completa"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#caso-2-grabar-tutorial-de-app-econométrica",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#caso-2-grabar-tutorial-de-app-econométrica",
+    "title": "Scrcpy",
+    "section": "Caso 2: Grabar Tutorial de App Econométrica",
+    "text": "Caso 2: Grabar Tutorial de App Econométrica\nEscenario: Grabar tutorial de uso de app de estadística.\n# Grabación profesional\nscrcpy --video-codec=h265 \\\n  -m1920 \\\n  --max-fps=60 \\\n  --video-bit-rate=8M \\\n  --audio-source=mic \\\n  --audio-codec=aac \\\n  --audio-bit-rate=192K \\\n  --record=tutorial-app-estadistica.mp4 \\\n  --stay-awake \\\n  --show-touches\nExplicación:\n\n--video-codec=h265: Mejor calidad/compresión\n--audio-source=mic: Narración con tu voz\n--show-touches: Muestra dónde tocas\n--stay-awake: No se apaga durante grabación"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#caso-3-demostración-en-vivo-con-webcam",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#caso-3-demostración-en-vivo-con-webcam",
+    "title": "Scrcpy",
+    "section": "Caso 3: Demostración en Vivo con Webcam",
+    "text": "Caso 3: Demostración en Vivo con Webcam\nEscenario: Usar cámara del dispositivo como webcam para videollamada.\n# Configurar como webcam (Linux)\nscrcpy --video-source=camera \\\n  --camera-size=1920x1080 \\\n  --camera-facing=front \\\n  --v4l2-sink=/dev/video2 \\\n  --no-playback\nLuego usar /dev/video2 en Zoom, Google Meet, etc."
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#caso-4-control-remoto-para-demostraciones",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#caso-4-control-remoto-para-demostraciones",
+    "title": "Scrcpy",
+    "section": "Caso 4: Control Remoto para Demostraciones",
+    "text": "Caso 4: Control Remoto para Demostraciones\nEscenario: Controlar dispositivo de forma remota vía WiFi.\n# 1. Conectar por USB una vez\nscrcpy --tcpip\n\n# 2. Desconectar cable\n# 3. Ahora funciona inalámbrico\nscrcpy -m1024 --max-fps=30"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#caso-5-documentación-de-aplicación-con-capturas",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#caso-5-documentación-de-aplicación-con-capturas",
+    "title": "Scrcpy",
+    "section": "Caso 5: Documentación de Aplicación con Capturas",
+    "text": "Caso 5: Documentación de Aplicación con Capturas\nEscenario: Documentar flujo de trabajo de app.\n# Grabar sesión completa\nscrcpy --video-codec=h265 \\\n  -m1920 \\\n  --max-fps=30 \\\n  --record=documentacion-flujo.mkv \\\n  --no-audio \\\n  --show-touches\n\n# Luego extraer frames con ffmpeg:\nffmpeg -i documentacion-flujo.mkv -vf fps=1/5 captura_%04d.png"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#caso-6-podcastentrevista-con-audio-móvil",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#caso-6-podcastentrevista-con-audio-móvil",
+    "title": "Scrcpy",
+    "section": "Caso 6: Podcast/Entrevista con Audio Móvil",
+    "text": "Caso 6: Podcast/Entrevista con Audio Móvil\nEscenario: Grabar entrevista usando el teléfono como grabadora.\nscrcpy --audio-source=mic \\\n  --audio-codec=flac \\\n  --audio-buffer=200 \\\n  --no-video \\\n  --no-window \\\n  --record=entrevista-$(date +%Y%m%d).flac"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#problema-1-no-se-detecta-el-dispositivo",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#problema-1-no-se-detecta-el-dispositivo",
+    "title": "Scrcpy",
+    "section": "Problema 1: “No se detecta el dispositivo”",
+    "text": "Problema 1: “No se detecta el dispositivo”\nSíntomas:\nadb devices\n# List of devices attached\n# (vacío)\nSoluciones:\n# 1. Verificar cable USB (usar cable de datos, no solo carga)\n\n# 2. Verificar depuración USB en dispositivo\n# Ajustes → Opciones de desarrollador → Depuración USB\n\n# 3. Autorizar computadora en dispositivo (popup)\n\n# 4. Reiniciar servidor adb\nadb kill-server\nadb start-server\nadb devices\n\n# 5. Verificar permisos\ngroups | grep adbusers\n# Si no estás: sudo usermod -aG adbusers $USER\n\n# 6. Verificar reglas udev\nls /etc/udev/rules.d/51-android.rules\n# Si no existe, crearla (ver sección Configuración Inicial)\n\n# 7. Probar con sudo (temporal, para descartar permisos)\nsudo adb devices"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#problema-2-error-could-not-install-server",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#problema-2-error-could-not-install-server",
+    "title": "Scrcpy",
+    "section": "Problema 2: “Error: could not install server”",
+    "text": "Problema 2: “Error: could not install server”\nCausa: No hay espacio en /data/local/tmp o permisos incorrectos.\nSoluciones:\n# 1. Limpiar archivos temporales en dispositivo\nadb shell rm -rf /data/local/tmp/scrcpy-server*\n\n# 2. Verificar espacio\nadb shell df -h /data\n\n# 3. Si falta espacio, limpiar caché\n# En dispositivo: Ajustes → Almacenamiento → Limpiar caché\n\n# 4. Intentar de nuevo\nscrcpy"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#problema-3-pantalla-negra-pero-audio-funciona",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#problema-3-pantalla-negra-pero-audio-funciona",
+    "title": "Scrcpy",
+    "section": "Problema 3: “Pantalla negra pero audio funciona”",
+    "text": "Problema 3: “Pantalla negra pero audio funciona”\nCausas posibles:\n\nCódec de video no soportado\nResolución muy alta\nProblema de decodificación\n\nSoluciones:\n# 1. Reducir resolución\nscrcpy -m1024\n\n# 2. Cambiar códec\nscrcpy --video-codec=h264  # Más compatible\n\n# 3. Listar codificadores disponibles\nscrcpy --list-encoders\n\n# 4. Probar con otro codificador\nscrcpy --video-codec=h264 --video-encoder=OMX.qcom.video.encoder.avc\n\n# 5. Verificar FFmpeg\nffmpeg -version"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#problema-4-audio-entrecortado-o-robótico",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#problema-4-audio-entrecortado-o-robótico",
+    "title": "Scrcpy",
+    "section": "Problema 4: “Audio entrecortado o robótico”",
+    "text": "Problema 4: “Audio entrecortado o robótico”\nSoluciones:\n# 1. Aumentar buffer de audio\nscrcpy --audio-buffer=200\n\n# 2. Aumentar buffer de salida\nscrcpy --audio-output-buffer=10\n\n# 3. Cambiar códec\nscrcpy --audio-codec=aac  # En lugar de opus\n\n# 4. Reducir calidad de video (libera CPU)\nscrcpy -m1024 --max-fps=30\n\n# 5. Conexión por cable (en lugar de WiFi)"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#problema-5-latencia-alta-en-wifi",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#problema-5-latencia-alta-en-wifi",
+    "title": "Scrcpy",
+    "section": "Problema 5: “Latencia alta en WiFi”",
+    "text": "Problema 5: “Latencia alta en WiFi”\nSoluciones:\n# 1. Usar cable USB\n# WiFi siempre tendrá más latencia que USB\n\n# 2. Reducir calidad\nscrcpy -m1024 --max-fps=30 --video-bit-rate=2M\n\n# 3. Agregar buffer\nscrcpy --video-buffer=100 --audio-buffer=200\n\n# 4. Verificar red WiFi (2.4 GHz vs 5 GHz)\n# 5 GHz tiene menor latencia pero menor alcance\n\n# 5. Reducir interferencias (cerrar otras apps de red)"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#problema-6-no-se-puede-copiarpegar",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#problema-6-no-se-puede-copiarpegar",
+    "title": "Scrcpy",
+    "section": "Problema 6: “No se puede copiar/pegar”",
+    "text": "Problema 6: “No se puede copiar/pegar”\nRequisito: Android 7 o superior.\nSoluciones:\n# 1. Verificar versión de Android\nadb shell getprop ro.build.version.release\n\n# 2. Usar atajos correctos\n# MOD+c (copiar), MOD+v (pegar)\n\n# 3. Si no funciona, usar modo legacy\nscrcpy --legacy-paste\n\n# 4. Pegar como eventos de teclas\n# MOD+Shift+v"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#problema-7-dispositivo-xiaomi-no-responde",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#problema-7-dispositivo-xiaomi-no-responde",
+    "title": "Scrcpy",
+    "section": "Problema 7: “Dispositivo Xiaomi no responde”",
+    "text": "Problema 7: “Dispositivo Xiaomi no responde”\nSolución específica Xiaomi:\n# Habilitar opción adicional en Opciones de desarrollador:\n# \"Depuración USB (Configuración de seguridad)\"\n\n# Reiniciar dispositivo\n\n# Verificar\nadb devices\nscrcpy"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#problema-8-otg-no-funciona-en-windows",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#problema-8-otg-no-funciona-en-windows",
+    "title": "Scrcpy",
+    "section": "Problema 8: “OTG no funciona en Windows”",
+    "text": "Problema 8: “OTG no funciona en Windows”\nCausa: Windows no permite abrir dispositivo USB si ya está abierto por otro proceso (adb).\nSolución:\n# Usar OTG requiere que adb NO esté corriendo\nadb kill-server\n\n# Luego usar OTG\nscrcpy --otg\n\n# Nota: En OTG no hay duplicación de pantalla"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#uso-general",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#uso-general",
+    "title": "Scrcpy",
+    "section": "Uso General",
+    "text": "Uso General\n# Básico\nscrcpy                          # Duplicar pantalla\nscrcpy -m1024                   # Limitar a 1024px\nscrcpy -f                       # Pantalla completa\nscrcpy -w                       # Mantener despierto\nscrcpy -S                       # Apagar pantalla\n\n# Selección de dispositivo\nscrcpy -s 0123456789ABCDEF      # Por serial\nscrcpy -d                       # USB (único)\nscrcpy -e                       # TCP/IP (único)\nscrcpy --tcpip=192.168.1.100    # TCP/IP directo\n\n# Calidad\nscrcpy -m1920 --max-fps=60 -b 8M\nscrcpy --video-codec=h265\nscrcpy --audio-codec=aac"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#grabación",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#grabación",
+    "title": "Scrcpy",
+    "section": "Grabación",
+    "text": "Grabación\n# Video y audio\nscrcpy -r archivo.mp4\nscrcpy --record=archivo.mkv\n\n# Solo video\nscrcpy --no-audio -r video.mp4\n\n# Solo audio\nscrcpy --no-video -r audio.opus\n\n# Sin mostrar\nscrcpy --no-playback -r grabacion.mp4\n\n# Límite de tiempo\nscrcpy -r archivo.mp4 --time-limit=60"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#audio",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#audio",
+    "title": "Scrcpy",
+    "section": "Audio",
+    "text": "Audio\n# Sin audio\nscrcpy --no-audio\n\n# Fuentes de audio\nscrcpy --audio-source=mic       # Micrófono\nscrcpy --audio-source=output    # Salida (default)\n\n# Solo audio\nscrcpy --no-video --no-control\n\n# Duplicar audio (dispositivo + PC)\nscrcpy --audio-dup"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#control",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#control",
+    "title": "Scrcpy",
+    "section": "Control",
+    "text": "Control\n# Sin control\nscrcpy -n\n\n# Sin video ni audio\nscrcpy --no-video --no-audio\n\n# Mostrar toques\nscrcpy --show-touches\nscrcpy -t"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#tecladomouse",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#tecladomouse",
+    "title": "Scrcpy",
+    "section": "Teclado/Mouse",
+    "text": "Teclado/Mouse\n# Simulación física (HID)\nscrcpy -K                       # Teclado UHID\nscrcpy -M                       # Mouse UHID\nscrcpy -KM                      # Ambos\n\n# Modo OTG (sin adb)\nscrcpy --otg\nscrcpy --otg -G                 # Con gamepad"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#pantalla-virtual-1",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#pantalla-virtual-1",
+    "title": "Scrcpy",
+    "section": "Pantalla Virtual",
+    "text": "Pantalla Virtual\n# Crear display virtual\nscrcpy --new-display=1920x1080\n\n# Con app\nscrcpy --new-display --start-app=org.videolan.vlc\n\n# Sin decoraciones\nscrcpy --new-display --no-vd-system-decorations"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#cámara",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#cámara",
+    "title": "Scrcpy",
+    "section": "Cámara",
+    "text": "Cámara\n# Duplicar cámara\nscrcpy --video-source=camera\n\n# Seleccionar cámara\nscrcpy --video-source=camera --camera-facing=front\nscrcpy --video-source=camera --camera-id=0\n\n# Webcam (Linux)\nscrcpy --video-source=camera \\\n  --camera-size=1920x1080 \\\n  --v4l2-sink=/dev/video2 \\\n  --no-playback"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#combinaciones-útiles",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#combinaciones-útiles",
+    "title": "Scrcpy",
+    "section": "Combinaciones Útiles",
+    "text": "Combinaciones Útiles\n# Presentación fluida\nscrcpy -m1024 --max-fps=60 --no-audio -f -w\n\n# Grabación profesional\nscrcpy --video-codec=h265 -m1920 --max-fps=60 \\\n  --audio-codec=aac -r tutorial.mp4\n\n# Control inalámbrico ligero\nscrcpy --tcpip -m1024 --max-fps=30\n\n# Demo con toques visibles\nscrcpy -m1920 --show-touches --stay-awake\n\n# Solo grabar micrófono\nscrcpy --audio-source=mic --no-video \\\n  --no-playback -r grabacion.opus"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#alias-en-fish",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#alias-en-fish",
+    "title": "Scrcpy",
+    "section": "Alias en Fish",
+    "text": "Alias en Fish\nAgregar a ~/.config/fish/config.fish:\n# =============================================================================\n# ALIAS DE SCRCPY\n# =============================================================================\n\n# Uso básico\nalias scr=\"scrcpy\"\nalias scrf=\"scrcpy -f\"\nalias scrw=\"scrcpy -w\"\n\n# Presentaciones\nalias scr-present=\"scrcpy -m1920 --max-fps=60 --no-audio -f -w\"\nalias scr-demo=\"scrcpy -m1920 --show-touches --stay-awake -f\"\n\n# Grabación\nalias scr-rec=\"scrcpy --video-codec=h265 -m1920 --max-fps=60 --record\"\nalias scr-rec-audio=\"scrcpy --audio-source=mic --no-video --no-playback --record\"\n\n# WiFi\nalias scr-wifi=\"scrcpy --tcpip\"\n\n# Control\nalias scr-control=\"scrcpy --no-video --no-audio -KM\"\nRecargar:\nsource ~/.config/fish/config.fish"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#script-de-conexión-automática",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#script-de-conexión-automática",
+    "title": "Scrcpy",
+    "section": "Script de Conexión Automática",
+    "text": "Script de Conexión Automática\nCrear ~/bin/scrcpy-auto:\n#!/bin/bash\n\n# Script para conectar scrcpy automáticamente\n\n# Verificar dispositivos\nDEVICES=$(adb devices | grep -w device | wc -l)\n\nif [ \"$DEVICES\" -eq 0 ]; then\n    echo \"No hay dispositivos conectados.\"\n    echo \"Conecta un dispositivo por USB o configura WiFi.\"\n    exit 1\nelif [ \"$DEVICES\" -eq 1 ]; then\n    echo \"Conectando al único dispositivo...\"\n    scrcpy -m1920 --max-fps=60 \"$@\"\nelse\n    echo \"Múltiples dispositivos detectados:\"\n    adb devices\n    echo \"\"\n    echo \"Usa: scrcpy -s SERIAL\"\nfi\nHacer ejecutable:\nchmod +x ~/bin/scrcpy-auto\nUsar:\nscrcpy-auto\nscrcpy-auto --record=video.mp4"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#documentación-oficial",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#documentación-oficial",
+    "title": "Scrcpy",
+    "section": "Documentación Oficial",
+    "text": "Documentación Oficial\n\nGitHub: https://github.com/Genymobile/scrcpy\nDocumentación: https://github.com/Genymobile/scrcpy/tree/master/doc\nFAQ: https://github.com/Genymobile/scrcpy/blob/master/FAQ.md"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#comunidad",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#comunidad",
+    "title": "Scrcpy",
+    "section": "Comunidad",
+    "text": "Comunidad\n\nReddit: r/scrcpy\nIssues: https://github.com/Genymobile/scrcpy/issues"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#herramientas-complementarias",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#herramientas-complementarias",
+    "title": "Scrcpy",
+    "section": "Herramientas Complementarias",
+    "text": "Herramientas Complementarias\nPara editar grabaciones:\nsudo pacman -S ffmpeg kdenlive obs-studio\nPara capturas de pantalla adicionales:\nsudo pacman -S flameshot\nPara streaming:\nsudo pacman -S obs-studio"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#para-presentaciones",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#para-presentaciones",
+    "title": "Scrcpy",
+    "section": "Para Presentaciones",
+    "text": "Para Presentaciones\nscrcpy -m1920 --max-fps=60 --no-audio --always-on-top --stay-awake -f"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#para-grabaciones",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#para-grabaciones",
+    "title": "Scrcpy",
+    "section": "Para Grabaciones",
+    "text": "Para Grabaciones\nscrcpy --video-codec=h265 -m1920 --max-fps=60 \\\n  --audio-codec=aac --show-touches \\\n  --record=archivo.mp4"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#para-control-remoto",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#para-control-remoto",
+    "title": "Scrcpy",
+    "section": "Para Control Remoto",
+    "text": "Para Control Remoto\n# Primera vez (USB)\nscrcpy --tcpip\n\n# Siguientes veces (WiFi)\nscrcpy -m1024 --max-fps=30"
+  },
+  {
+    "objectID": "operating-system/2021-10-21-scrcpy/index.html#para-documentación",
+    "href": "operating-system/2021-10-21-scrcpy/index.html#para-documentación",
+    "title": "Scrcpy",
+    "section": "Para Documentación",
+    "text": "Para Documentación\nscrcpy -m1920 --show-touches --stay-awake --record=doc.mkv"
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#paso-1-habilitar-el-modo-de-desarrollador-en-el-subsistema-de-windows",
+    "href": "operating-system/2019-06-19-adb/index.html#paso-1-habilitar-el-modo-de-desarrollador-en-el-subsistema-de-windows",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Paso 1: Habilitar el modo de desarrollador en el subsistema de Windows",
+    "text": "Paso 1: Habilitar el modo de desarrollador en el subsistema de Windows\n\nInstala el Subsistema de Windows para Android.\nAbre la aplicación ‘Subsistema de Windows para Android’ en tu PC. Para ello, presiona la tecla Windows y busca Subsistema de Windows para Android.\nHaz clic en la aplicación para abrirla.\nDentro de la aplicación, activa el Modo Desarrollador."
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#paso-2-instalar-las-herramientas-de-la-plataforma-sdk",
+    "href": "operating-system/2019-06-19-adb/index.html#paso-2-instalar-las-herramientas-de-la-plataforma-sdk",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Paso 2: Instalar las herramientas de la plataforma SDK",
+    "text": "Paso 2: Instalar las herramientas de la plataforma SDK\n\nVisita la página de herramientas de la plataforma SDK de Google aquí.\nDescarga SDK Platform-Tools para Windows.\nAcepta los términos y condiciones y haz clic en el botón de descarga.\nSe descargará un archivo ZIP llamado platform-tools_rXX.X.X-windows.zip (la versión puede variar).\nCrea una carpeta separada en el Explorador de Windows, por ejemplo, C:\\Plataforma-Tools.\nMueve el archivo ZIP descargado a esta carpeta.\nHaz clic derecho en el archivo y selecciona Extraer todo, luego haz clic en Extraer.\nAbre la carpeta platform-tools, donde encontrarás adb.exe y otros archivos."
+  },
+  {
+    "objectID": "operating-system/2019-06-19-adb/index.html#paso-3-instalar-la-aplicación-de-android",
+    "href": "operating-system/2019-06-19-adb/index.html#paso-3-instalar-la-aplicación-de-android",
+    "title": "Guía completa de comandos ADB Android",
+    "section": "Paso 3: Instalar la aplicación de Android",
+    "text": "Paso 3: Instalar la aplicación de Android\n\nAbre la carpeta platform-tools.\nHaz clic en la barra de direcciones, escribe cmd y presiona Enter.\nSe abrirá una ventana de comandos en la ubicación de la carpeta platform-tools.\nDescarga el archivo APK de la aplicación de Android que deseas instalar.\n\nPor ejemplo, para instalar Snapchat, busca Snapchat APK en Google y descarga el archivo de una fuente confiable.\nRenombra el archivo a algo simple, como snapchat.apk, y muévelo a la carpeta platform-tools.\n\nAbre el Subsistema de Windows para Android y copia la dirección IP en la opción de Modo Desarrollador.\nEn la ventana de comandos, ejecuta el siguiente comando:\nadb.exe connect [DIRECCIÓN_IP]\nEjemplo:\nadb.exe connect 127.0.0.1:12345\nLuego, instala la aplicación ejecutando:\nadb.exe install [NOMBRE_DEL_APK]\nEjemplo:\nadb.exe install snapchat.apk\nCuando la instalación finalice, verás el mensaje Success.\nCierra la ventana de comandos.\nAbre la aplicación en tu PC escribiendo su nombre en el menú Inicio (por ejemplo, Snapchat)."
   }
 ]
