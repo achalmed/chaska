@@ -405,6 +405,34 @@ git rm -r directorio/      # Eliminar directorio recursivamente
 git mv <origen> <destino>  # Renombrar/mover archivo
 ```
 
+### Ejemplos
+
+```bash
+# Eliminar scripts obsoletos
+git rm sync-repos.py
+git rm sync-repos.sh quick-sync.sh repo-status.sh
+
+# Quitar .quarto/ del índice sin borrarla del disco
+# (típico cuando .quarto/ ya estaba trackeada antes de añadirla a .gitignore)
+git rm -r --cached .quarto/
+git rm -r --cached _freeze/
+git rm -r --cached _site/
+git commit -m "Eliminar carpetas generadas del índice"
+
+# Quitar un archivo de salida que se coló al tracking
+git rm --cached data/resultado_intermedio.rds
+
+# Renombrar
+git mv repo-status.sh status.sh 
+git mv guia_quarto_borrador.md guia_quarto.md
+git mv referencias.bib bibliography.bib
+
+# Mover
+git mv repos-config.yml config/repos-config.yml 
+git mv posts/2023-articulo-viejo.qmd posts/_archivo/2023-articulo-viejo.qmd
+```
+
+
 # Branching y Merging
 
 ## Conceptos de Ramas
