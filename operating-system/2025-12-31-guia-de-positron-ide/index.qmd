@@ -5,21 +5,21 @@ copyrightext: All rights reserved
 title: Guía Completa de Positron IDE
 abstract: Positron es un IDE moderno y especializado en ciencia de datos, construido sobre el núcleo open-source de VS Code (Code OSS) y desarrollado por Posit Software. Ofrece soporte nativo para Python y R, consola interactiva avanzada, paneles especializados (Variables, Data Explorer, Plots, Help), integración completa con Quarto y herramientas de asistencia IA. Esta guía completa cubre desde la instalación multiplataforma hasta la configuración avanzada, migración desde VS Code, personalización profunda y mejores prácticas para flujos de trabajo intensivos en análisis de datos, programación estadística y publicación científica reproducible.
 keywords:
-- Positron IDE
-- Ciencia de datos
-- Python
-- R 
-- Quarto
+  - Positron IDE
+  - Ciencia de datos
+  - Python
+  - R
+  - Quarto
 categories:
-- Operating System
+  - Operating System
 tags:
-- operating_system
-- positron_IDE
-- ciencia_de_datos
-- python
-- r 
-- quarto
-- visualcode
+  - operating_system
+  - positron_IDE
+  - ciencia_de_datos
+  - python
+  - r
+  - quarto
+  - visualcode
 author-note:
   status-changes:
     affiliation-change: null
@@ -37,7 +37,7 @@ eval: false
 citation:
   type: article-journal
   author:
-  - Edison Achalma
+    - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github/index.pdf
 date: 12/31/2025
 draft: false
@@ -66,25 +66,23 @@ Positron es un IDE moderno y extensible para ciencia de datos construido sobre *
 
 **Positron vs VS Code vs RStudio**
 
-| Característica                  | Positron                  | VS Code                   | RStudio                   |
-|---------------------------------|---------------------------|---------------------------|---------------------------|
-| Base técnica                    | Code OSS                  | Propietario + Code OSS    | Propietario (Posit)       |
-| Soporte nativo Python           | Sí                        | No (extensión)            | Limitado                  |
-| Soporte nativo R                | Sí                        | No (extensión)            | Sí (muy optimizado)       |
-| Consola interactiva             | Sí                        | No                        | Sí                        |
-| Panel de datos/variables/plots  | Sí                        | No                        | Sí                        |
-| Soporte Quarto                  | Sí (nativo)               | Sí (extensión)            | Sí                        |
-| Extensiones                     | Open VSX                  | VS Marketplace            | Limitadas                 |
-| Asistente IA integrado          | Sí                        | No (requiere Copilot)     | No                        |
-| Multilenguaje                   | Sí (R + Python)           | Sí (muy amplio)           | Limitado (foco en R)      |
-| Estabilidad                     | Alta                      | Muy alta                  | Muy alta                  |
-| Crashes afectan el IDE          | No                        | No                        | Sí                        |
-
+| Característica                 | Positron        | VS Code                | RStudio              |
+| ------------------------------ | --------------- | ---------------------- | -------------------- |
+| Base técnica                   | Code OSS        | Propietario + Code OSS | Propietario (Posit)  |
+| Soporte nativo Python          | Sí              | No (extensión)         | Limitado             |
+| Soporte nativo R               | Sí              | No (extensión)         | Sí (muy optimizado)  |
+| Consola interactiva            | Sí              | No                     | Sí                   |
+| Panel de datos/variables/plots | Sí              | No                     | Sí                   |
+| Soporte Quarto                 | Sí (nativo)     | Sí (extensión)         | Sí                   |
+| Extensiones                    | Open VSX        | VS Marketplace         | Limitadas            |
+| Asistente IA integrado         | Sí              | No (requiere Copilot)  | No                   |
+| Multilenguaje                  | Sí (R + Python) | Sí (muy amplio)        | Limitado (foco en R) |
+| Estabilidad                    | Alta            | Muy alta               | Muy alta             |
+| Crashes afectan el IDE         | No              | No                     | Sí                   |
 
 - **Positron** se posiciona como el sucesor natural para flujos de trabajo modernos de ciencia de datos que usan **R y Python** por igual. Combina lo mejor de RStudio (consola interactiva, panes de datos/plots/variables) con la extensibilidad y modernidad de VS Code.
 - **VS Code** sigue siendo el rey de la versatilidad general, pero requiere mucha configuración para obtener una experiencia fluida en R o Python data science.
 - **RStudio** permanece muy bien mantenido por Posit, con optimizaciones específicas para R que aún no están al 100% en Positron (ej. algunos add-ins, soporte completo de .Rproj en ciertos casos, o features muy nicho como Sweave o ciertos publishing tools). Si tu trabajo es 95–100% R y no necesitas Python, RStudio sigue siendo excelente y estable.
-
 
 # Instalación
 
@@ -183,14 +181,13 @@ Command Palette (Ctrl+Shift+P) → Preferences: Import Settings...
 
 ## Extensiones a Reemplazar
 
-| VS Code | Positron |
-|---------|----------|
-| ms-python.python | Built-in (nativo) |
+| VS Code          | Positron                    |
+| ---------------- | --------------------------- |
+| ms-python.python | Built-in (nativo)           |
 | REditorSupport.r | Built-in (posit.air-vscode) |
-| Jupyter | Built-in |
-| GitLens | Instalar desde Open VSX |
-| Prettier | Instalar desde Open VSX |
-
+| Jupyter          | Built-in                    |
+| GitLens          | Instalar desde Open VSX     |
+| Prettier         | Instalar desde Open VSX     |
 
 # Configuración Inicial
 
@@ -220,48 +217,48 @@ Command Palette → Preferences: Open User Settings (JSON)
 
 ```json
 {
-    // Editor
-    "editor.fontSize": 14,
-    "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Hack Nerd Font', monospace",
-    "editor.fontLigatures": true,
-    "editor.lineNumbers": "on",
-    "editor.minimap.enabled": false,
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.cursorBlinking": "smooth",
-    "editor.cursorSmoothCaretAnimation": "on",
-    
-    // Tema
-    "workbench.colorTheme": "Default Positron Dark",
-    "workbench.iconTheme": "material-icon-theme",
-    
-    // Terminal
-    "terminal.integrated.fontFamily": "'Hack Nerd Font', monospace",
-    "terminal.integrated.fontSize": 13,
-    "terminal.integrated.defaultProfile.linux": "bash",
-    "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.inheritEnv": false,
-    
-    // Git
-    "git.enableSmartCommit": true,
-    "git.autofetch": true,
-    "git.confirmSync": false,
-    
-    // Files
-    "files.autoSave": "onFocusChange",
-    "files.associations": {
-        "*.qmd": "quarto",
-        "*.Rmd": "rmarkdown",
-        "renv.lock": "json"
-    },
-    
-    // Quarto
-    "quarto.visualEditor.spellingDictionary": "es_ES",
-    
-    // Positron-specific
-    "positron.assistant.enable": true,
-    "positron.assistant.showTokenUsage.enable": true
+  // Editor
+  "editor.fontSize": 14,
+  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Hack Nerd Font', monospace",
+  "editor.fontLigatures": true,
+  "editor.lineNumbers": "on",
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+
+  // Tema
+  "workbench.colorTheme": "Default Positron Dark",
+  "workbench.iconTheme": "material-icon-theme",
+
+  // Terminal
+  "terminal.integrated.fontFamily": "'Hack Nerd Font', monospace",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.inheritEnv": false,
+
+  // Git
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+
+  // Files
+  "files.autoSave": "onFocusChange",
+  "files.associations": {
+    "*.qmd": "quarto",
+    "*.Rmd": "rmarkdown",
+    "renv.lock": "json"
+  },
+
+  // Quarto
+  "quarto.visualEditor.spellingDictionary": "es_ES",
+
+  // Positron-specific
+  "positron.assistant.enable": true,
+  "positron.assistant.showTokenUsage.enable": true
 }
 ```
 
@@ -361,70 +358,70 @@ Arrastrarlo a la posición deseada
 
 ## Atajos Específicos de Positron
 
-| Atajo | Acción |
-|-------|--------|
-| `Ctrl+Enter` | Ejecutar línea/selección en Console |
-| `Ctrl+Alt+Home` | Ejecutar desde inicio hasta línea actual |
-| `Ctrl+Alt+End` | Ejecutar desde línea actual hasta fin |
-| `Ctrl+Shift+0` | Reiniciar intérprete |
-| `Ctrl+Shift+P` | Ejecutar archivo completo en Console |
-| `F1` | Ayuda contextual |
-| `Ctrl+K, Ctrl+R` | Ayuda contextual (alternativo) |
-| `Ctrl+K, F` | Enfocar Console |
-| `Ctrl+K, V` | Enfocar Variables pane |
-| `Ctrl+L` | Limpiar Console |
+| Atajo            | Acción                                   |
+| ---------------- | ---------------------------------------- |
+| `Ctrl+Enter`     | Ejecutar línea/selección en Console      |
+| `Ctrl+Alt+Home`  | Ejecutar desde inicio hasta línea actual |
+| `Ctrl+Alt+End`   | Ejecutar desde línea actual hasta fin    |
+| `Ctrl+Shift+0`   | Reiniciar intérprete                     |
+| `Ctrl+Shift+P`   | Ejecutar archivo completo en Console     |
+| `F1`             | Ayuda contextual                         |
+| `Ctrl+K, Ctrl+R` | Ayuda contextual (alternativo)           |
+| `Ctrl+K, F`      | Enfocar Console                          |
+| `Ctrl+K, V`      | Enfocar Variables pane                   |
+| `Ctrl+L`         | Limpiar Console                          |
 
 ## Atajos Generales (heredados de VS Code)
 
 **Editor:**
 
-| Atajo | Acción |
-|-------|--------|
-| `Ctrl+P` | Quick Open (buscar archivo) |
-| `Ctrl+Shift+P` | Command Palette |
-| `Ctrl+,` | Settings |
-| `Ctrl+B` | Toggle Sidebar |
-| `Ctrl+J` | Toggle Panel |
-| `Ctrl+Shift+E` | Explorer |
-| `Ctrl+Shift+F` | Search |
-| `Ctrl+Shift+G` | Source Control |
-| `Ctrl+Shift+D` | Run & Debug |
-| `Ctrl+Shift+X` | Extensions |
+| Atajo          | Acción                      |
+| -------------- | --------------------------- |
+| `Ctrl+P`       | Quick Open (buscar archivo) |
+| `Ctrl+Shift+P` | Command Palette             |
+| `Ctrl+,`       | Settings                    |
+| `Ctrl+B`       | Toggle Sidebar              |
+| `Ctrl+J`       | Toggle Panel                |
+| `Ctrl+Shift+E` | Explorer                    |
+| `Ctrl+Shift+F` | Search                      |
+| `Ctrl+Shift+G` | Source Control              |
+| `Ctrl+Shift+D` | Run & Debug                 |
+| `Ctrl+Shift+X` | Extensions                  |
 
 **Edición:**
 
-| Atajo | Acción |
-|-------|--------|
-| `Ctrl+Space` | Trigger suggestions |
-| `Ctrl+Shift+K` | Delete line |
-| `Alt+Up/Down` | Move line up/down |
-| `Shift+Alt+Up/Down` | Copy line up/down |
-| `Ctrl+/` | Toggle comment |
-| `Ctrl+Shift+[` | Fold region |
-| `Ctrl+Shift+]` | Unfold region |
-| `Ctrl+K Ctrl+0` | Fold all |
-| `Ctrl+K Ctrl+J` | Unfold all |
+| Atajo               | Acción              |
+| ------------------- | ------------------- |
+| `Ctrl+Space`        | Trigger suggestions |
+| `Ctrl+Shift+K`      | Delete line         |
+| `Alt+Up/Down`       | Move line up/down   |
+| `Shift+Alt+Up/Down` | Copy line up/down   |
+| `Ctrl+/`            | Toggle comment      |
+| `Ctrl+Shift+[`      | Fold region         |
+| `Ctrl+Shift+]`      | Unfold region       |
+| `Ctrl+K Ctrl+0`     | Fold all            |
+| `Ctrl+K Ctrl+J`     | Unfold all          |
 
 **Navegación:**
 
-| Atajo | Acción |
-|-------|--------|
-| `Ctrl+G` | Go to line |
-| `Ctrl+Shift+O` | Go to symbol |
-| `Ctrl+T` | Show all symbols |
-| `F12` | Go to definition |
-| `Alt+F12` | Peek definition |
-| `Shift+F12` | Show references |
-| `Ctrl+K F12` | Open definition to side |
+| Atajo          | Acción                  |
+| -------------- | ----------------------- |
+| `Ctrl+G`       | Go to line              |
+| `Ctrl+Shift+O` | Go to symbol            |
+| `Ctrl+T`       | Show all symbols        |
+| `F12`          | Go to definition        |
+| `Alt+F12`      | Peek definition         |
+| `Shift+F12`    | Show references         |
+| `Ctrl+K F12`   | Open definition to side |
 
 **Terminal:**
 
-| Atajo | Acción |
-|-------|--------|
-| `` Ctrl+` `` | Toggle terminal |
-| `` Ctrl+Shift+` `` | New terminal |
-| `Ctrl+Shift+C` | Copy |
-| `Ctrl+Shift+V` | Paste |
+| Atajo              | Acción          |
+| ------------------ | --------------- |
+| `` Ctrl+` ``       | Toggle terminal |
+| `` Ctrl+Shift+` `` | New terminal    |
+| `Ctrl+Shift+C`     | Copy            |
+| `Ctrl+Shift+V`     | Paste           |
 
 ## Personalizar Atajos
 
@@ -444,197 +441,25 @@ Command Palette → Preferences: Open Keyboard Shortcuts (JSON)
 
 ```json
 [
-    {
-        "key": "ctrl+shift+r",
-        "command": "workbench.action.executeCode.console",
-        "when": "editorTextFocus",
-        "args": {
-            "langId": "r",
-            "code": "reprex::reprex_selection()",
-            "focus": true
-        }
-    },
-    {
-        "key": "ctrl+alt+f",
-        "command": "workbench.action.formatDocument"
-    },
-    {
-        "key": "f2",
-        "command": "positron.dataExplorer.openDataExplorer"
+  {
+    "key": "ctrl+shift+r",
+    "command": "workbench.action.executeCode.console",
+    "when": "editorTextFocus",
+    "args": {
+      "langId": "r",
+      "code": "reprex::reprex_selection()",
+      "focus": true
     }
+  },
+  {
+    "key": "ctrl+alt+f",
+    "command": "workbench.action.formatDocument"
+  },
+  {
+    "key": "f2",
+    "command": "positron.dataExplorer.openDataExplorer"
+  }
 ]
-```
-
-# Configuración Avanzada
-
-## Settings.json Completo (Base)
-
-```json
-{
-    // ==========================================
-    // EDITOR
-    // ==========================================
-    "editor.fontSize": 13,
-    "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Hack Nerd Font', monospace",
-    "editor.fontLigatures": true,
-    "editor.lineNumbers": "on",
-    "editor.rulers": [80, 120],
-    "editor.wordWrap": "off",
-    "editor.minimap.enabled": false,
-    "editor.scrollbar.vertical": "auto",
-    "editor.scrollbar.horizontal": "hidden",
-    "editor.cursorBlinking": "smooth",
-    "editor.cursorSmoothCaretAnimation": "on",
-    "editor.cursorStyle": "line",
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": false,
-    "editor.tabSize": 4,
-    "editor.insertSpaces": true,
-    "editor.detectIndentation": true,
-    "editor.renderWhitespace": "selection",
-    "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": true,
-    "editor.linkedEditing": true,
-    "editor.suggest.preview": true,
-    "editor.inlineSuggest.enabled": true,
-    "editor.quickSuggestions": {
-        "other": true,
-        "comments": false,
-        "strings": false
-    },
-    
-    // ==========================================
-    // WORKBENCH
-    // ==========================================
-    "workbench.colorTheme": "Default Positron Dark",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.productIconTheme": "Default",
-    "workbench.activityBar.location": "bottom",
-    "workbench.sideBar.location": "left",
-    "workbench.panel.defaultLocation": "bottom",
-    "workbench.statusBar.visible": true,
-    "workbench.editor.showTabs": "multiple",
-    "workbench.editor.tabSizing": "fit",
-    "workbench.editor.highlightModifiedTabs": true,
-    "workbench.editor.labelFormat": "short",
-    "workbench.editor.limit.enabled": true,
-    "workbench.editor.limit.value": 10,
-    "workbench.editor.empty.hint": "hidden",
-    "workbench.startupEditor": "none",
-    
-    // ==========================================
-    // TERMINAL
-    // ==========================================
-    "terminal.integrated.fontFamily": "'Hack Nerd Font', 'FiraCode Nerd Font', monospace",
-    "terminal.integrated.fontSize": 12,
-    "terminal.integrated.fontWeight": "normal",
-    "terminal.integrated.lineHeight": 1.2,
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.cursorStyle": "line",
-    "terminal.integrated.defaultProfile.linux": "bash",
-    "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.inheritEnv": false,
-    "terminal.integrated.enablePersistentSessions": false,
-    "terminal.integrated.scrollback": 10000,
-    
-    // ==========================================
-    // FILES
-    // ==========================================
-    "files.autoSave": "onFocusChange",
-    "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.associations": {
-        "*.qmd": "quarto",
-        "*.Rmd": "rmarkdown",
-        "*.renv.lock": "json",
-        "renv.lock": "json",
-        "*.ipynb": "jupyter-notebook"
-    },
-    "files.exclude": {
-        "**/.git": true,
-        "**/.DS_Store": true,
-        "**/__pycache__": true,
-        "**/.Rproj.user": true,
-        "**/.ipynb_checkpoints": true,
-        "**/node_modules": true
-    },
-    
-    // ==========================================
-    // GIT
-    // ==========================================
-    "git.enableSmartCommit": true,
-    "git.autofetch": true,
-    "git.confirmSync": false,
-    "git.openRepositoryInParentFolders": "always",
-    "git.suggestSmartCommit": false,
-    
-    // ==========================================
-    // SEARCH
-    // ==========================================
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/bower_components": true,
-        "**/.git": true,
-        "**/__pycache__": true,
-        "**/.Rproj.user": true,
-        "**/.ipynb_checkpoints": true
-    },
-    
-    // ==========================================
-    // DIFF EDITOR
-    // ==========================================
-    "diffEditor.ignoreTrimWhitespace": false,
-    "diffEditor.renderSideBySide": true,
-    "diffEditor.wordWrap": "off",
-    "diffEditor.maxComputationTime": 0,
-    
-    // ==========================================
-    // LANGUAGE-SPECIFIC
-    // ==========================================
-    "[python]": {
-        "editor.defaultFormatter": "charliermarsh.ruff",
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": "explicit"
-        },
-        "diffEditor.ignoreTrimWhitespace": false
-    },
-    "[r]": {
-        "editor.tabSize": 2,
-        "editor.insertSpaces": true
-    },
-    "[quarto]": {
-        "editor.defaultFormatter": "quarto.quarto",
-        "editor.wordWrap": "on"
-    },
-    "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.wordWrap": "on"
-    },
-    "[yaml]": {
-        "editor.defaultFormatter": "quarto.quarto",
-        "editor.tabSize": 2
-    },
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    
-    // ==========================================
-    // QUARTO
-    // ==========================================
-    "quarto.visualEditor.spellingDictionary": "es_ES",
-    "quarto.render.previewType": "internal",
-    
-    // ==========================================
-    // POSITRON-SPECIFIC
-    // ==========================================
-    "positron.assistant.enable": true,
-    "positron.assistant.alwaysEnableApplyInEditorAction": true,
-    "positron.assistant.alwaysIncludeCopilotTools": true,
-    "positron.assistant.showTokenUsage.enable": true
-}
 ```
 
 # Python en Positron
@@ -690,10 +515,10 @@ conda activate myenv
 
 ```json
 {
-    "python.defaultInterpreterPath": "/home/achalmaedison/anaconda3/bin/python",
-    "python.condaPath": "/home/achalmaedison/anaconda3/bin/conda",
-    "python.terminal.activateEnvironment": true,
-    "python.terminal.activateEnvInCurrentTerminal": true
+  "python.defaultInterpreterPath": "/home/achalmaedison/anaconda3/bin/python",
+  "python.condaPath": "/home/achalmaedison/anaconda3/bin/conda",
+  "python.terminal.activateEnvironment": true,
+  "python.terminal.activateEnvInCurrentTerminal": true
 }
 ```
 
@@ -701,11 +526,11 @@ conda activate myenv
 
 ```json
 {
-    // Usar IPython kernel empaquetado (recomendado)
-    "python.useBundledIpykernel": true,
-    
-    // O instalar manualmente
-    // python.useBundledIpykernel": false
+  // Usar IPython kernel empaquetado (recomendado)
+  "python.useBundledIpykernel": true
+
+  // O instalar manualmente
+  // python.useBundledIpykernel": false
 }
 ```
 
@@ -749,31 +574,31 @@ Click en el selector de intérprete en la esquina superior derecha
 
 ```json
 {
-    // Intérprete
-    "python.defaultInterpreterPath": "/path/to/python",
-    
-    // IPython
-    "python.useBundledIpykernel": true,
-    "python.enableAutoReload": true,
-    
-    // Formatting
-    "python.formatting.provider": "none",
-    "[python]": {
-        "editor.defaultFormatter": "charliermarsh.ruff",
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": "explicit",
-            "source.fixAll": "explicit"
-        }
-    },
-    
-    // Linting
-    "python.linting.enabled": true,
-    "python.linting.ruffEnabled": true,
-    
-    // Terminal
-    "python.terminal.activateEnvironment": true,
-    "python.terminal.activateEnvInCurrentTerminal": true
+  // Intérprete
+  "python.defaultInterpreterPath": "/path/to/python",
+
+  // IPython
+  "python.useBundledIpykernel": true,
+  "python.enableAutoReload": true,
+
+  // Formatting
+  "python.formatting.provider": "none",
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit",
+      "source.fixAll": "explicit"
+    }
+  },
+
+  // Linting
+  "python.linting.enabled": true,
+  "python.linting.ruffEnabled": true,
+
+  // Terminal
+  "python.terminal.activateEnvironment": true,
+  "python.terminal.activateEnvInCurrentTerminal": true
 }
 ```
 
@@ -840,21 +665,21 @@ rig default 4.3
 ```r
 # Paquetes core
 install.packages(c(
-    "usethis", 
-    "cli", 
-    "crayon", 
-    "rlang", 
-    "roxygen2", 
+    "usethis",
+    "cli",
+    "crayon",
+    "rlang",
+    "roxygen2",
     "pkgload"
 ))
 
 # Con pak (recomendado)
 pak::pak(c(
-    "usethis", 
-    "cli", 
-    "crayon", 
-    "rlang", 
-    "roxygen2", 
+    "usethis",
+    "cli",
+    "crayon",
+    "rlang",
+    "roxygen2",
     "pkgload"
 ))
 
@@ -882,9 +707,9 @@ Command Palette → R: Select Interpreter
 
 ```json
 {
-    "r.alwaysUseActiveTerminal": true,
-    "r.bracketedPaste": true,
-    "r.plot.useHttpgd": true
+  "r.alwaysUseActiveTerminal": true,
+  "r.bracketedPaste": true,
+  "r.plot.useHttpgd": true
 }
 ```
 
@@ -1021,10 +846,10 @@ Si quieres deshabilitar una extensión bootstrapped:
 
 ```json
 {
-    "extensions.allowed": {
-        "posit.air-vscode": false,  // Deshabilitar R si solo usas Python
-        "*": true
-    }
+  "extensions.allowed": {
+    "posit.air-vscode": false, // Deshabilitar R si solo usas Python
+    "*": true
+  }
 }
 ```
 
@@ -1071,7 +896,7 @@ Extensions → Buscar "theme"
 
 ```json
 {
-    "workbench.colorTheme": "One Dark Pro Mix"
+  "workbench.colorTheme": "One Dark Pro Mix"
 }
 ```
 
@@ -1089,7 +914,7 @@ Command Palette → Preferences: File Icon Theme
 
 ```json
 {
-    "workbench.iconTheme": "material-icon-theme"
+  "workbench.iconTheme": "material-icon-theme"
 }
 ```
 
@@ -1097,19 +922,19 @@ Command Palette → Preferences: File Icon Theme
 
 ```json
 {
-    "workbench.colorCustomizations": {
-        "[Default Positron Dark]": {
-            "editor.background": "#1a1a1a",
-            "sideBar.background": "#1e1e1e",
-            "activityBar.background": "#252525"
-        }
-    },
-    "editor.tokenColorCustomizations": {
-        "[Default Positron Dark]": {
-            "comments": "#6A9955",
-            "strings": "#CE9178"
-        }
+  "workbench.colorCustomizations": {
+    "[Default Positron Dark]": {
+      "editor.background": "#1a1a1a",
+      "sideBar.background": "#1e1e1e",
+      "activityBar.background": "#252525"
     }
+  },
+  "editor.tokenColorCustomizations": {
+    "[Default Positron Dark]": {
+      "comments": "#6A9955",
+      "strings": "#CE9178"
+    }
+  }
 }
 ```
 
@@ -1127,11 +952,11 @@ Command Palette → Preferences: File Icon Theme
 
 ```json
 {
-    "editor.fontFamily": "'JetBrains Mono', 'Fira Code', monospace",
-    "editor.fontLigatures": true,
-    "editor.fontSize": 13,
-    "terminal.integrated.fontFamily": "'Hack Nerd Font', monospace",
-    "terminal.integrated.fontSize": 12
+  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "terminal.integrated.fontFamily": "'Hack Nerd Font', monospace",
+  "terminal.integrated.fontSize": 12
 }
 ```
 
@@ -1157,21 +982,21 @@ Command Palette → Preferences: File Icon Theme
 
 ```json
 {
-    // Perfil por defecto
-    "terminal.integrated.defaultProfile.linux": "bash",
-    
-    // Fuente
-    "terminal.integrated.fontFamily": "'Hack Nerd Font', monospace",
-    "terminal.integrated.fontSize": 12,
-    
-    // Comportamiento
-    "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.cursorStyle": "line",
-    "terminal.integrated.scrollback": 10000,
-    
-    // Entorno
-    "terminal.integrated.inheritEnv": false
+  // Perfil por defecto
+  "terminal.integrated.defaultProfile.linux": "bash",
+
+  // Fuente
+  "terminal.integrated.fontFamily": "'Hack Nerd Font', monospace",
+  "terminal.integrated.fontSize": 12,
+
+  // Comportamiento
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.scrollback": 10000,
+
+  // Entorno
+  "terminal.integrated.inheritEnv": false
 }
 ```
 
@@ -1179,32 +1004,32 @@ Command Palette → Preferences: File Icon Theme
 
 ```json
 {
-    "terminal.integrated.profiles.linux": {
-        "bash": {
-            "path": "/bin/bash",
-            "icon": "terminal-bash"
-        },
-        "zsh": {
-            "path": "/usr/bin/zsh",
-            "icon": "terminal"
-        },
-        "fish": {
-            "path": "/usr/bin/fish",
-            "icon": "terminal"
-        }
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "/bin/bash",
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "/usr/bin/zsh",
+      "icon": "terminal"
+    },
+    "fish": {
+      "path": "/usr/bin/fish",
+      "icon": "terminal"
     }
+  }
 }
 ```
 
 ## Atajos de Terminal
 
-| Atajo | Acción |
-|-------|--------|
-| `` Ctrl+` `` | Toggle terminal |
-| `` Ctrl+Shift+` `` | New terminal |
-| `Ctrl+Shift+C` | Copy |
-| `Ctrl+Shift+V` | Paste |
-| `Ctrl+Shift+5` | Split terminal |
+| Atajo              | Acción          |
+| ------------------ | --------------- |
+| `` Ctrl+` ``       | Toggle terminal |
+| `` Ctrl+Shift+` `` | New terminal    |
+| `Ctrl+Shift+C`     | Copy            |
+| `Ctrl+Shift+V`     | Paste           |
+| `Ctrl+Shift+5`     | Split terminal  |
 
 # Console
 
@@ -1238,23 +1063,23 @@ El Console es una shell interactiva para Python (IPython) o R (IRKernel) integra
 
 ```json
 {
-    // Python
-    "python.useBundledIpykernel": true,
-    "python.enableAutoReload": true,
-    
-    // R
-    "r.alwaysUseActiveTerminal": true
+  // Python
+  "python.useBundledIpykernel": true,
+  "python.enableAutoReload": true,
+
+  // R
+  "r.alwaysUseActiveTerminal": true
 }
 ```
 
 ## Atajos Console
 
-| Atajo | Acción |
-|-------|--------|
-| `Ctrl+K, F` | Enfocar Console |
-| `Ctrl+L` | Limpiar Console |
+| Atajo          | Acción               |
+| -------------- | -------------------- |
+| `Ctrl+K, F`    | Enfocar Console      |
+| `Ctrl+L`       | Limpiar Console      |
 | `Ctrl+Shift+0` | Reiniciar intérprete |
-| `Ctrl+Up/Down` | Navegar historial |
+| `Ctrl+Up/Down` | Navegar historial    |
 
 # Variables Pane
 
@@ -1490,12 +1315,12 @@ quarto --version
 
 ```json
 {
-    "quarto.visualEditor.spellingDictionary": "es_ES",
-    "quarto.render.previewType": "internal",
-    "[quarto]": {
-        "editor.defaultFormatter": "quarto.quarto",
-        "editor.wordWrap": "on"
-    }
+  "quarto.visualEditor.spellingDictionary": "es_ES",
+  "quarto.render.previewType": "internal",
+  "[quarto]": {
+    "editor.defaultFormatter": "quarto.quarto",
+    "editor.wordWrap": "on"
+  }
 }
 ```
 
@@ -1509,7 +1334,7 @@ File → New File → Quarto Document
 
 **Estructura básica (.qmd):**
 
-```yaml
+````yaml
 ---
 title: "Mi Documento"
 author: "Tu Nombre"
@@ -1517,7 +1342,6 @@ format: html
 execute:
   echo: true
 ---
-
 # Introducción
 
 Este es un documento Quarto.
@@ -1528,7 +1352,7 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv('data.csv')
 df.head()
-```
+````
 
 # Análisis
 
@@ -1536,7 +1360,6 @@ df.head()
 plt.plot(df['x'], df['y'])
 plt.show()
 ```
-
 
 ## Renderizar
 
@@ -1636,10 +1459,10 @@ git config --global user.email "tu@email.com"
 
 ```json
 {
-    "git.enableSmartCommit": true,
-    "git.autofetch": true,
-    "git.confirmSync": false,
-    "git.openRepositoryInParentFolders": "always"
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.openRepositoryInParentFolders": "always"
 }
 ```
 
@@ -1686,9 +1509,9 @@ Asistente AI integrado para ayudar con código.
 
 ```json
 {
-    "positron.assistant.enable": true,
-    "positron.assistant.alwaysEnableApplyInEditorAction": true,
-    "positron.assistant.showTokenUsage.enable": true
+  "positron.assistant.enable": true,
+  "positron.assistant.alwaysEnableApplyInEditorAction": true,
+  "positron.assistant.showTokenUsage.enable": true
 }
 ```
 
@@ -1738,50 +1561,50 @@ Command Palette → Positron: Open Databot
 
 ```json
 {
-    // ==========================================
-    // MINIMALISTA
-    // ==========================================
-    
-    // Editor limpio
-    "editor.minimap.enabled": false,
-    "editor.scrollbar.vertical": "hidden",
-    "editor.scrollbar.horizontal": "hidden",
-    "editor.lineNumbers": "off",  // o "relative"
-    "editor.glyphMargin": false,
-    "editor.folding": false,
-    "editor.guides.indentation": false,
-    "editor.renderWhitespace": "none",
-    "editor.renderLineHighlight": "none",
-    "editor.overviewRulerBorder": false,
-    
-    // Workbench limpio
-    "workbench.statusBar.visible": false,
-    "workbench.activityBar.location": "hidden",  // o "bottom"
-    "workbench.editor.showTabs": "single",
-    "workbench.editor.tabSizing": "shrink",
-    "breadcrumbs.enabled": false,
-    "workbench.sideBar.location": "right",
-    
-    // Terminal limpio
-    "terminal.integrated.tabs.enabled": false,
-    
-    // Tema minimalista
-    "workbench.colorTheme": "Default Positron Dark",
-    "workbench.iconTheme": "minimal",
-    
-    // Zen Mode (Ctrl+K Z)
-    "zenMode.centerLayout": true,
-    "zenMode.fullScreen": false,
-    "zenMode.hideLineNumbers": false,
-    "zenMode.hideTabs": true,
-    "zenMode.hideStatusBar": true,
-    
-    // Resto de settings esenciales
-    "editor.fontSize": 14,
-    "editor.fontFamily": "'JetBrains Mono', monospace",
-    "editor.fontLigatures": true,
-    "editor.formatOnSave": true,
-    "files.autoSave": "onFocusChange"
+  // ==========================================
+  // MINIMALISTA
+  // ==========================================
+
+  // Editor limpio
+  "editor.minimap.enabled": false,
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.lineNumbers": "off", // o "relative"
+  "editor.glyphMargin": false,
+  "editor.folding": false,
+  "editor.guides.indentation": false,
+  "editor.renderWhitespace": "none",
+  "editor.renderLineHighlight": "none",
+  "editor.overviewRulerBorder": false,
+
+  // Workbench limpio
+  "workbench.statusBar.visible": false,
+  "workbench.activityBar.location": "hidden", // o "bottom"
+  "workbench.editor.showTabs": "single",
+  "workbench.editor.tabSizing": "shrink",
+  "breadcrumbs.enabled": false,
+  "workbench.sideBar.location": "right",
+
+  // Terminal limpio
+  "terminal.integrated.tabs.enabled": false,
+
+  // Tema minimalista
+  "workbench.colorTheme": "Default Positron Dark",
+  "workbench.iconTheme": "minimal",
+
+  // Zen Mode (Ctrl+K Z)
+  "zenMode.centerLayout": true,
+  "zenMode.fullScreen": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideTabs": true,
+  "zenMode.hideStatusBar": true,
+
+  // Resto de settings esenciales
+  "editor.fontSize": 14,
+  "editor.fontFamily": "'JetBrains Mono', monospace",
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange"
 }
 ```
 
@@ -1797,13 +1620,13 @@ Command Palette → View: Toggle Zen Mode (Ctrl+K Z)
 
 ```json
 {
-    "zenMode.centerLayout": true,
-    "zenMode.fullScreen": false,
-    "zenMode.hideLineNumbers": false,
-    "zenMode.hideTabs": true,
-    "zenMode.hideStatusBar": true,
-    "zenMode.hideActivityBar": true,
-    "zenMode.restore": true
+  "zenMode.centerLayout": true,
+  "zenMode.fullScreen": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideTabs": true,
+  "zenMode.hideStatusBar": true,
+  "zenMode.hideActivityBar": true,
+  "zenMode.restore": true
 }
 ```
 
@@ -1812,179 +1635,634 @@ Command Palette → View: Toggle Zen Mode (Ctrl+K Z)
 Esta es mi configuración de VS Code adaptada para Positron:
 
 ```json
+// ════════════════════════════════════════════════════════════════════════
+// CONFIGURACIÓN DE POSITRON — Edison Achalma (UNSCH, Ayacucho)
+// Positron 2026.06.0 · Python (Anaconda) + Quarto + LaTeX + zsh + Linux
+// ⚠️ OBSOLETO = ajuste renombrado; no actives junto con su reemplazo.
+// ════════════════════════════════════════════════════════════════════════
 {
-    // ==========================================
-    // PYTHON (ANACONDA)
-    // ==========================================
-    "python.defaultInterpreterPath": "/home/achalmaedison/anaconda3/bin/python",
-    "python.condaPath": "/home/achalmaedison/anaconda3/bin/conda",
-    "python.terminal.activateEnvironment": true,
-    "python.terminal.activateEnvInCurrentTerminal": true,
-    "python.useBundledIpykernel": true,
-    "python.enableAutoReload": true,
-    
-    // ==========================================
-    // TERMINAL
-    // ==========================================
-    "terminal.integrated.inheritEnv": false,
-    "terminal.integrated.fontSize": 12,
-    "terminal.integrated.fontFamily": "Hack Nerd Font",
-    "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.cursorStyle": "underline",
-    "terminal.integrated.cursorStyleInactive": "line",
-    "terminal.integrated.defaultProfile.linux": "fish",  // Cambiado de zsh a fish
-    "terminal.integrated.enablePersistentSessions": false,
-    "terminal.integrated.suggest.enabled": true,
-    "terminal.integrated.accessibleViewFocusOnCommandExecution": true,
-    
-    // ==========================================
-    // EDITOR
-    // ==========================================
-    "editor.fontSize": 13,
-    "editor.fontFamily": "'Hack Nerd Font', 'JetBrains Mono', monospace",
-    "editor.fontLigatures": true,
-    "editor.minimap.enabled": false,
-    "editor.minimap.autohide": true,
-    "editor.scrollbar.horizontal": "hidden",
-    "editor.scrollbar.vertical": "hidden",
-    "editor.overviewRulerBorder": false,
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": true,
-    "editor.glyphMargin": false,
-    "editor.linkedEditing": true,
-    "editor.cursorBlinking": "expand",
-    "editor.cursorSmoothCaretAnimation": "on",
-    "editor.guides.indentation": false,
-    "editor.matchBrackets": "never",
-    "editor.suggest.preview": true,
-    "editor.inlineSuggest.syntaxHighlightingEnabled": true,
-    
-    // ==========================================
-    // WORKBENCH
-    // ==========================================
-    "workbench.colorTheme": "One Dark Pro Mix",  // Tu tema favorito
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.productIconTheme": "fluent-icons",
-    "workbench.activityBar.location": "bottom",  // Mantener en bottom
-    "workbench.sideBar.location": "right",
-    "workbench.statusBar.visible": false,  // Oculto para minimalista
-    "workbench.editor.showTabs": "single",
-    "workbench.editor.tabSizing": "fixed",
-    "workbench.editor.highlightModifiedTabs": true,
-    "workbench.editor.limit.enabled": true,
-    "workbench.editor.empty.hint": "hidden",
-    "workbench.editor.wrapTabs": true,
-    "workbench.editor.centeredLayoutFixedWidth": true,
-    "window.customTitleBarVisibility": "auto",
-    "breadcrumbs.enabled": false,
-    
-    // ==========================================
-    // FILES
-    // ==========================================
-    "files.autoSave": "onFocusChange",
-    "files.associations": {
-        "renv.lock": "json",
-        "*.qmd": "quarto",
-        "*.Rmd": "rmarkdown"
-    },
-    
-    // ==========================================
-    // GIT
-    // ==========================================
-    "git.enableSmartCommit": true,
-    "git.autofetch": true,
-    "git.confirmSync": false,
-    "git.openRepositoryInParentFolders": "always",
-    
-    // ==========================================
-    // DIFF EDITOR
-    // ==========================================
-    "diffEditor.ignoreTrimWhitespace": false,
-    "diffEditor.maxComputationTime": 0,
-    "diffEditor.codeLens": true,
-    "diffEditor.wordWrap": "off",
-    
-    // ==========================================
-    // LANGUAGE-SPECIFIC
-    // ==========================================
-    "[python]": {
-        "editor.defaultFormatter": "charliermarsh.ruff",
-        "diffEditor.ignoreTrimWhitespace": false
-    },
-    "[quarto]": {
-        "editor.defaultFormatter": "quarto.quarto"
-    },
-    "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[yaml]": {
-        "editor.defaultFormatter": "quarto.quarto"
-    },
-    "[latex]": {
-        "editor.defaultFormatter": "James-Yu.latex-workshop"
-    },
-    
-    // ==========================================
-    // QUARTO
-    // ==========================================
-    "quarto.visualEditor.spellingDictionary": "es_ES",
-    
-    // ==========================================
-    // NOTEBOOKS
-    // ==========================================
-    "notebook.output.wordWrap": true,
-    "jupyter.interactiveWindow.textEditor.executeSelection": true,
-    
-    // ==========================================
-    // MISC
-    // ==========================================
-    "debug.console.wordWrap": false,
-    "chat.editor.wordWrap": "on",
-    "yaml.schemas": {
-        "https://quarto.org/schemas/quarto.yaml": "*.qmd"
-    },
-    
-    // ==========================================
-    // POSITRON-SPECIFIC
-    // ==========================================
-    "positron.assistant.enable": true,
-    "positron.assistant.alwaysEnableApplyInEditorAction": true,
-    "positron.assistant.alwaysIncludeCopilotTools": true,
-    "positron.assistant.showTokenUsage.enable": true,
-    
-    // ==========================================
-    // ACCESSIBILITY (ocultar para minimalista)
-    // ==========================================
-    "accessibility.verbosity.terminal": false,
-    "accessibility.hideAccessibleView": true,
-    
-    // ==========================================
-    // EXTENSIONES (si las instalas)
-    // ==========================================
-    // GitLens (si disponible)
-    "gitlens.graph.minimap.additionalTypes": [
-        "localBranches",
-        "stashes",
-        "remoteBranches",
-        "pullRequests",
-        "tags"
-    ],
-    
-    // CodeSnap (si disponible)
-    "codesnap.transparentBackground": true,
-    "codesnap.showWindowTitle": true,
-    "codesnap.containerPadding": "0em",
-    "codesnap.roundedCorners": false,
-    
-    // LaTeX Workshop (si usas LaTeX)
-    "latex-workshop.formatting.latex": "latexindent",
-    "latex-workshop.latex.option.maxPrintLine.enabled": false,
-    
-    // Indenticator (si lo instalas)
-    "indenticator.width": 0.5,
-    "indenticator.color.dark": "rgba(255,255,255,0.1)"
+  // ==========================================
+  // 1. PYTHON (ANACONDA / CONDA)
+  // ==========================================
+  // Ruta al intérprete Python por defecto.
+  "python.defaultInterpreterPath": "/home/achalmaedison/anaconda3/bin/python",
+  // Ruta al binario de conda para detectar entornos.
+  "python.condaPath": "/home/achalmaedison/anaconda3/bin/conda",
+  // Activa el entorno Python al abrir una terminal nueva.
+  "python.terminal.activateEnvironment": true, // true | false
+  // Activa el entorno en una terminal ya abierta.
+  "python.terminal.activateEnvInCurrentTerminal": true, // true | false
+  // Usa el ipykernel incluido en Positron en vez de buscar uno externo.
+  "python.useBundledIpykernel": true, // true | false
+  // Recarga automática de módulos editados (equivalente a %autoreload).
+  "python.enableAutoReload": true, // true | false
+  // Carpetas extra donde buscar instalaciones de Python (pyenv, uv, etc.).
+  // "python.interpreters.include": ["/home/achalmaedison/.venvs"], // array de rutas
+  // Excluye entornos específicos del selector de intérpretes.
+  // "python.interpreters.exclude": ["/home/achalmaedison/anaconda3/envs/old_env"], // array de rutas
+  // Cuándo arranca un intérprete al abrir una ventana nueva.
+  "interpreters.startupBehavior": "always", // "always" | "manual" | "auto"
+  // Cachea los intérpretes detectados entre sesiones (arranque más rápido).
+  "interpreters.discoveryCache.enabled": true, // true | false
+  // ==========================================
+  // 2. PAQUETES (panel "Packages")
+  // ==========================================
+  // Habilita el panel lateral de gestión de paquetes.
+  "packages.enabled": true, // true | false
+  // Método usado por el panel para instalar/actualizar paquetes de R.
+  "packages.r.installer": "auto", // "auto" | "pak" | "base"
+  // ==========================================
+  // 3. TERMINAL
+  // ==========================================
+  // No heredar variables de entorno del proceso padre del sistema.
+  "terminal.integrated.inheritEnv": false, // true | false
+  // Tamaño de fuente de la terminal integrada.
+  "terminal.integrated.fontSize": 12, // número en píxeles
+  // Familia tipográfica de la terminal.
+  "terminal.integrated.fontFamily": "'Hack Nerd Font', 'FiraCode Nerd Font', monospace",
+  // Copia automáticamente al portapapeles el texto seleccionado.
+  "terminal.integrated.copyOnSelection": true, // true | false
+  // Hace parpadear el cursor de la terminal.
+  "terminal.integrated.cursorBlinking": true, // true | false
+  // Forma del cursor cuando la terminal tiene el foco.
+  "terminal.integrated.cursorStyle": "underline", // "block" | "line" | "underline"
+  // Forma del cursor cuando la terminal NO tiene el foco.
+  "terminal.integrated.cursorStyleInactive": "line", // "outline" | "block" | "line" | "underline" | "none"
+  // Shell por defecto al abrir una terminal en Linux.
+  "terminal.integrated.defaultProfile.linux": "zsh", // "bash", "zsh", "fish", etc.
+  // Conserva (true) o descarta (false) el historial de sesiones de terminal al reiniciar Positron.
+  "terminal.integrated.enablePersistentSessions": false, // true | false
+  // Sugerencias de autocompletado tipo shell moderno en la terminal.
+  "terminal.integrated.suggest.enabled": true, // true | false
+  "terminal.integrated.accessibleViewFocusOnCommandExecution": true, // true | false
+  // Cantidad de líneas de historial (scrollback) que guarda la terminal.
+  "terminal.integrated.scrollback": 5000, // número entero (por defecto 1000)
+  // Muestra siempre una consola vinculada a notebooks/Quarto (ver sección 11).
+  // "console.showNotebookConsoles": true, // true | false
+  // ==========================================
+  // 4. EDITOR
+  // ==========================================
+  // Tamaño de fuente del editor de código.
+  "editor.fontSize": 13, // número en píxeles
+  // Familia tipográfica del editor.
+  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Hack Nerd Font', monospace",
+  // Activa ligaduras tipográficas (combina símbolos como != o => en un glifo).
+  "editor.fontLigatures": true, // true | false
+  // Estilo de numeración de líneas a la izquierda del código.
+  "editor.lineNumbers": "on", // "on" | "off" | "relative" | "interval"
+  // Dibuja líneas guía verticales en las columnas indicadas (ancho de línea).
+  "editor.rulers": [80, 160], // array de números de columna, ej. [80] o []
+  // Ajusta el texto al ancho de la ventana en vez de hacer scroll horizontal.
+  "editor.wordWrap": "off", // "off" | "on" | "wordWrapColumn" | "bounded"
+  // Muestra el minimapa (vista miniatura) a la derecha del editor.
+  "editor.minimap.enabled": true, // true | false
+  // Oculta el minimapa automáticamente salvo que pases el cursor sobre él.
+  "editor.minimap.autohide": true, // true | false
+  // Visibilidad de la barra de scroll vertical.
+  "editor.scrollbar.vertical": "hidden", // "auto" | "visible" | "hidden"
+  // Visibilidad de la barra de scroll horizontal.
+  "editor.scrollbar.horizontal": "hidden", // "auto" | "visible" | "hidden"
+  // Quita el borde alrededor de la regla de overview (a la derecha del scroll).
+  "editor.overviewRulerBorder": false, // true | false
+  // Animación del parpadeo del cursor de texto.
+  "editor.cursorBlinking": "smooth", // "blink" | "smooth" | "phase" | "expand" | "solid"
+  // Animación suave al mover el cursor entre posiciones.
+  "editor.cursorSmoothCaretAnimation": "on", // "off" | "explicit" | "on"
+  // Forma visual del cursor de texto en el editor.
+  "editor.cursorStyle": "line", // "line" | "block" | "underline" | "line-thin" | "block-outline" | "underline-thin"
+  // Formatea el archivo automáticamente cada vez que lo guardas.
+  "editor.formatOnSave": true, // true | false
+  // Formatea automáticamente el texto recién pegado.
+  "editor.formatOnPaste": true, // true | false
+  // Formatea automáticamente mientras escribes (algunos formateadores lo soportan).
+  "editor.formatOnType": false, // true | false
+  // Cantidad de espacios que representa una tabulación.
+  "editor.tabSize": 4, // número entero
+  // Usa espacios en vez del carácter de tabulación al presionar Tab.
+  "editor.insertSpaces": true, // true | false
+  // Detecta automáticamente la indentación (tabs/espacios) de cada archivo abierto.
+  "editor.detectIndentation": true, // true | false
+  // Cuándo se muestran los caracteres de espacio/tabulación como puntos visibles.
+  "editor.renderWhitespace": "selection", // "none" | "boundary" | "selection" | "trailing" | "all"
+  // Oculta la franja izquierda donde aparecen iconos de depuración (breakpoints).
+  "editor.glyphMargin": false, // true | false
+  // Colorea cada par de paréntesis/llaves/corchetes con un color distinto.
+  "editor.bracketPairColorization.enabled": true, // true | false
+  // Dibuja líneas guía verticales que conectan pares de paréntesis/llaves.
+  "editor.guides.bracketPairs": true, // true | false | "active"
+  // Dibuja líneas guía verticales de indentación.
+  "editor.guides.indentation": false, // true | false
+  // Resalta el paréntesis/llave que hace pareja con el que está bajo el cursor.
+  "editor.matchBrackets": "never", // "always" | "near" | "never"
+  // Al editar un nombre (variable, etiqueta HTML), edita simultáneamente sus referencias relacionadas.
+  "editor.linkedEditing": true, // true | false
+  // Muestra una vista previa del resultado al pasar el cursor sobre una sugerencia de autocompletado.
+  "editor.suggest.preview": true, // true | false
+  // Muestra sugerencias de autocompletado "fantasma" en línea mientras escribes.
+  "editor.inlineSuggest.enabled": true, // true | false
+  // Aplica resaltado de sintaxis a las sugerencias en línea (no solo texto plano).
+  "editor.inlineSuggest.syntaxHighlightingEnabled": true, // true | false
+  // Controla en qué contextos aparecen sugerencias automáticas mientras escribes (sin pulsar Ctrl+Espacio).
+  "editor.quickSuggestions": {
+    "other": true, // true | false | "inline" — sugerencias en código normal
+    "comments": false, // true | false | "inline" — sugerencias dentro de comentarios
+    "strings": false // true | false | "inline" — sugerencias dentro de cadenas de texto
+  },
+  // Resalta todas las apariciones de la palabra/símbolo bajo el cursor.
+  // "editor.occurrencesHighlight": "singleFile", // "off" | "singleFile" | "multiFile"
+  // Ejecuta acciones de código automáticamente al guardar (p. ej. el "fix all" de un formateador).
+  // "editor.codeActionsOnSave": { "source.fixAll.prettier": "explicit" }, // objeto { "acción": "explicit" | "always" | "never" }
+  // ==========================================
+  // 5. WORKBENCH
+  // ==========================================
+  // Tema de color general de la interfaz.
+  "workbench.colorTheme": "Default Positron Dark", // cualquier tema instalado, ej. "Default Light Modern"
+  // Tema de iconos para archivos/carpetas en el Explorer.
+  "workbench.iconTheme": "material-icon-theme", // "vs-minimal" (nativo) | "material-icon-theme" | cualquier tema instalado
+  // Tema de iconos de la propia interfaz (botones, paneles).
+  "workbench.productIconTheme": "material-product-icons", // cualquier tema de iconos de producto instalado
+  // Posición de la barra de actividad (íconos de paneles: Explorer, Git, etc.).
+  "workbench.activityBar.location": "bottom", // "default" | "top" | "bottom" | "hidden"
+  // Posición de la barra lateral principal.
+  "workbench.sideBar.location": "right", // "left" | "right"
+  // Muestra u oculta la barra de estado inferior.
+  "workbench.statusBar.visible": false, // true | false
+  // Cómo se muestran las pestañas de editores abiertos.
+  "workbench.editor.showTabs": "single", // "multiple" | "single" | "none"
+  // Cómo se ajusta el ancho de cada pestaña.
+  "workbench.editor.tabSizing": "fixed", // "fit" | "shrink" | "fixed"
+  // Resalta visualmente las pestañas con cambios sin guardar.
+  "workbench.editor.highlightModifiedTabs": true, // true | false
+  // Activa un límite máximo de pestañas abiertas simultáneamente.
+  "workbench.editor.limit.enabled": true, // true | false
+  // Oculta la pantalla de bienvenida/sugerencias al abrir un editor vacío.
+  "workbench.editor.empty.hint": "hidden", // "text" | "hidden"
+  // Permite que las pestañas pasen a una segunda fila en vez de hacer scroll horizontal.
+  "workbench.editor.wrapTabs": true, // true | false
+  // Ancho fijo del layout centrado (modo "Zen"/centrado de columnas).
+  "workbench.editor.centeredLayoutFixedWidth": true, // true | false
+  // Cuándo se muestra la barra de título personalizada de la ventana.
+  "window.customTitleBarVisibility": "auto", // "auto" | "windowed" | "never"
+  // Muestra el buscador central (Command Center) en la barra de título.
+  "window.commandCenter": true, // true | false
+  // Muestra la ruta de "migas de pan" (breadcrumbs) sobre el editor.
+  "breadcrumbs.enabled": false, // true | false
+  // Muestra la barra de acciones superior con botones de Run e intérprete activo.
+  // "workbench.topActionBar.visible": true, // true | false
+  // Visibilidad por defecto de la barra lateral secundaria (Plots, Viewer, Help).
+  // "workbench.secondarySideBar.defaultVisibility": "visible", // "visible" | "hidden"
+  // Muestra etiquetas de texto (no solo iconos) en la barra lateral secundaria.
+  // "workbench.secondarySideBar.showLabel": true, // true | false
+  // ==========================================
+  // 6. FILES
+  // ==========================================
+  // Cuándo se guardan automáticamente los archivos editados.
+  "files.autoSave": "onFocusChange", // "off" | "afterDelay" | "onFocusChange" | "onWindowChange"
+  // Asocia extensiones/nombres de archivo a un lenguaje o dialecto específico.
+  "files.associations": {
+    "renv.lock": "json",
+    "*.qmd": "quarto",
+    "*.Rmd": "rmarkdown",
+    "*.dat": "csv (pipe)",
+    "*.csv": "csv" // cambia a "csv (semicolon)" si tus CSV usan ; como separador
+  },
+  // Oculta del Explorer las carpetas/archivos que coincidan con estos patrones glob.
+  "files.exclude": {
+    "**/_site": true,
+    "**/.quarto": true,
+    "**/__pycache__": true,
+    "**/.ipynb_checkpoints": true
+  },
+  // Elimina espacios en blanco al final de cada línea al guardar.
+  // "files.trimTrailingWhitespace": true, // true | false
+  // Garantiza una línea en blanco al final del archivo al guardar.
+  // "files.insertFinalNewline": true, // true | false
+  // ==========================================
+  // 7. GIT
+  // ==========================================
+  // Hace stage automático de todos los cambios si no hay nada en stage al commitear.
+  "git.enableSmartCommit": true, // true | false
+  // Trae cambios (fetch) automáticamente del remoto por defecto cada cierto tiempo.
+  "git.autofetch": true, // true | false | "all"
+  // Pide confirmación antes de sincronizar (push+pull) el repositorio.
+  "git.confirmSync": false, // true | false
+  // Si una carpeta padre es un repo Git, la abre automáticamente como tal.
+  "git.openRepositoryInParentFolders": "always", // "always" | "never" | "prompt"
+  // Agrega un trailer "Co-authored-by" cuando el commit incluye código generado por IA.
+  "git.addAICoAuthor": "off", // "off" | "afterDelay" | "checkpointDecision"
+  // Permite hacer force push (con o sin "lease") desde la UI de Git.
+  "git.allowForcePush": false, // true | false
+  // Permite commitear sin ejecutar hooks de pre-commit/commit-msg (--no-verify).
+  "git.allowNoVerifyCommit": false, // true | false
+  // Muestra siempre el grupo "Staged Changes" aunque esté vacío.
+  "git.alwaysShowStagedChangesResourceGroup": false, // true | false
+  // Añade automáticamente la línea "Signed-off-by" a todos los commits (DCO).
+  "git.alwaysSignOff": false, // true | false
+  // Segundos entre cada autofetch automático (solo aplica si git.autofetch está activo).
+  "git.autofetchPeriod": 180, // número en segundos
+  // Refresca automáticamente el estado del repo al detectar cambios en disco.
+  "git.autorefresh": true, // true | false
+  // Cuándo detectar automáticamente repositorios Git al abrir carpetas.
+  "git.autoRepositoryDetection": true, // true | false | "subFolders" | "openEditors"
+  // Guarda cambios (stash) automáticamente antes de un pull y los restaura después.
+  // "git.autoStash": true, // true | false
+  // Desactiva el tooltip emergente de la anotación de blame en el editor.
+  // "git.blame.editorDecoration.disableHover": true, // true | false
+  // Muestra quién editó cada línea como decoración al final de línea en el editor.
+  // "git.blame.editorDecoration.enabled": true, // true | false
+  // Plantilla del texto de la decoración de blame en el editor.
+  // "git.blame.editorDecoration.template": "${subject}, ${authorName} (${authorDateAgo})", // variables: ${hash} ${hashShort} ${subject} ${authorName} ${authorEmail} ${authorDate} ${authorDateAgo}
+  // Ignora cambios de solo espacios en blanco al calcular el blame.
+  // "git.blame.ignoreWhitespace": true, // true | false
+  // Muestra el blame de la línea actual en la barra de estado.
+  "git.blame.statusBarItem.enabled": true, // true | false
+  // Plantilla del texto de blame en la barra de estado.
+  // "git.blame.statusBarItem.template": "${authorName} (${authorDateAgo})", // mismas variables que arriba
+  // Prefijo añadido automáticamente al crear una rama nueva.
+  // "git.branchPrefix": "", // texto libre, ej. "feature/"
+  // Ramas protegidas: pide confirmación antes de commitear directo sobre ellas.
+  "git.branchProtection": ["main"], // array de nombres de rama
+  // Cuándo mostrar el aviso de protección de rama.
+  "git.branchProtectionPrompt": "alwaysPrompt", // "alwaysPrompt" | "alwaysCommit" | "alwaysCommitToNewBranch"
+  // Diccionarios usados para generar nombres de rama aleatorios.
+  // "git.branchRandomName.dictionary": ["adjectives", "animals"], // combinación de: "adjectives" "animals" "colors" "numbers"
+  // Genera un nombre de rama aleatorio si no escribes uno al crearla.
+  // "git.branchRandomName.enable": false, // true | false
+  // Orden de las ramas en el selector.
+  "git.branchSortOrder": "committerdate", // "committerdate" | "alphabetically"
+  // Expresión regular para validar nombres de rama nuevos.
+  // "git.branchValidationRegex": "^(feature|fix|docs)/.+", // texto de regex; vacío = sin validación
+  // Carácter que reemplaza espacios en nombres de rama nuevos.
+  "git.branchWhitespaceChar": "-", // cualquier carácter
+  // Qué tipo de referencias se listan al ejecutar "Checkout to...".
+  "git.checkoutType": ["local", "remote", "tags"], // combinación de: "local" "remote" "tags"
+  // Cierra el editor de diff automáticamente tras stash/commit/discard/stage.
+  // "git.closeDiffOnOperation": true, // true | false
+  // Comandos Git cuya salida (stdout) se registra en el canal de salida "Git".
+  // "git.commandsToLog": ["commit", "push"], // array de nombres de comando, ej. "commit", "push", "pull"
+  // Longitud del hash corto de commit mostrado en la UI.
+  "git.commitShortHashLength": 7, // número entero
+  // Pide confirmación antes de eliminar archivos ya commiteados con Git.
+  "git.confirmCommittedDelete": true, // true | false
+  // Pide confirmación antes de crear un commit vacío.
+  "git.confirmEmptyCommits": true, // true | false
+  // Pide confirmación antes de hacer force push.
+  "git.confirmForcePush": true, // true | false
+  // Pide confirmación antes de commitear sin verificación (--no-verify).
+  "git.confirmNoVerifyCommit": true, // true | false
+  // Qué número se muestra en el badge de Git en la barra de actividad.
+  "git.countBadge": "all", // "all" | "tracked"
+  // Agrega colores y badges de Git al Explorer y a la vista de editores abiertos.
+  "git.decorations.enabled": true, // true | false
+  // Nombre de la rama por defecto al inicializar un repo nuevo (requiere Git ≥2.28).
+  "git.defaultBranchName": "main", // texto libre; vacío = usa la config global de Git
+  // Carpeta sugerida por defecto al clonar un repositorio.
+  // "git.defaultCloneDirectory": "/home/achalmaedison/Proyectos", // ruta de carpeta
+  // Detecta automáticamente submódulos Git dentro de tus repos.
+  "git.detectSubmodules": true, // true | false
+  // Límite de submódulos detectados antes de dejar de escanear.
+  "git.detectSubmodulesLimit": 10, // número entero
+  // Detecta automáticamente "worktrees" de Git.
+  "git.detectWorktrees": true, // true | false
+  // Límite de worktrees detectados antes de dejar de escanear.
+  "git.detectWorktreesLimit": 50, // número entero
+  // Severidad mínima de diagnósticos (errores del editor) que bloquean un commit.
+  // "git.diagnosticsCommitHook.sources": { "*": "error" }, // objeto { "fuente": "error" | "warning" | "information" | "hint" | "none" }
+  // Al descartar cambios sin seguimiento, los mueve a la papelera en vez de borrarlos.
+  "git.discardUntrackedChangesToTrash": true, // true | false
+  // Habilita la firma de commits con GPG, X.509 o SSH.
+  // "git.enableCommitSigning": true, // true | false
+  // Habilita o deshabilita la extensión de Git por completo.
+  "git.enabled": true, // true | false
+  // Muestra el comando "Git: Sync" en la barra de estado.
+  "git.enableStatusBarSync": true, // true | false
+  // Al hacer pull, trae todas las ramas en vez de solo la actual.
+  // "git.fetchOnPull": false, // true | false
+  // Empuja todos los tags anotados al ejecutar "Sync".
+  // "git.followTagsWhenSync": false, // true | false
+  // Repositorios que Positron debe ignorar por completo.
+  // "git.ignoredRepositories": [], // array de rutas
+  // Avisos que se pueden silenciar (todos en false por defecto).
+  // "git.ignoreLegacyWarning": false, // true | false
+  // "git.ignoreLimitWarning": false, // true | false
+  // "git.ignoreMissingGitWarning": false, // true | false
+  // "git.ignoreRebaseWarning": false, // true | false
+  // "git.ignoreSubmodules": false, // true | false
+  // "git.ignoreWindowsGit27Warning": false, // true | false
+  // Muestra advertencias de validación en el cuadro de mensaje de commit.
+  "git.inputValidation": true, // true | false | "always" | "warn"
+  // Umbral de caracteres del cuerpo del commit antes de avisar.
+  "git.inputValidationLength": 72, // número entero
+  // Umbral de caracteres del asunto (primera línea) del commit antes de avisar.
+  "git.inputValidationSubjectLength": 50, // número entero; vacío hereda git.inputValidationLength
+  // Abre automáticamente el editor de fusión para archivos en conflicto.
+  "git.mergeEditor": false, // true | false
+  // Qué hacer al abrir una carpeta recién clonada.
+  "git.openAfterClone": "prompt", // "always" | "alwaysNewWindow" | "whenNoFolderOpen" | "prompt"
+  // Abre el editor de diff (en vez del editor normal) al hacer clic en un cambio.
+  "git.openDiffOnClick": true, // true | false
+  // Ruta y nombre del binario de git.
+  // "git.path": "/usr/bin/git", // ruta de archivo o array de rutas
+  // Ejecuta un comando Git adicional automáticamente tras un commit exitoso.
+  "git.postCommitCommand": "none", // "none" | "push" | "sync"
+  // Pide guardar archivos sin guardar antes de commitear.
+  "git.promptToSaveFilesBeforeCommit": "always", // "always" | "staged" | "never"
+  // Pide guardar archivos sin guardar antes de hacer stash.
+  "git.promptToSaveFilesBeforeStash": "always", // "always" | "staged" | "never"
+  // Elimina referencias remotas obsoletas (prune) al hacer fetch.
+  // "git.pruneOnFetch": false, // true | false
+  // Hace fast-forward de una rama sin commits salientes antes del checkout.
+  // "git.pullBeforeCheckout": false, // true | false
+  // Trae todos los tags al hacer pull.
+  "git.pullTags": true, // true | false
+  // Fuerza el uso de rebase (en vez de merge) al ejecutar "Sync".
+  // "git.rebaseWhenSync": false, // true | false
+  // Recuerda el último comando post-commit ejecutado para sugerirlo de nuevo.
+  // "git.rememberPostCommitCommand": false, // true | false
+  // Reemplaza tags locales con los del remoto en caso de conflicto al hacer pull.
+  // "git.replaceTagsWhenPull": false, // true | false
+  // Carpetas ignoradas al escanear el workspace en busca de repos Git.
+  "git.repositoryScanIgnoredFolders": ["node_modules"], // array de nombres de carpeta
+  // Profundidad de carpetas a escanear en busca de repositorios Git.
+  "git.repositoryScanMaxDepth": 1, // número entero; -1 = sin límite
+  // Exige configuración explícita de usuario de Git (nombre/email).
+  "git.requireGitUserConfig": true, // true | false
+  // Rutas adicionales donde buscar repositorios Git más allá del workspace.
+  // "git.scanRepositories": [], // array de rutas
+  // Qué botones de acción mostrar en la vista de Source Control.
+  "git.showActionButton": {
+    "commit": true, // true | false — botón para commitear cambios pendientes
+    "publish": true, // true | false — botón para publicar una rama sin remoto
+    "sync": true // true | false — botón para sincronizar cambios
+  },
+  // Muestra el cuadro de texto del mensaje de commit en el panel.
+  "git.showCommitInput": true, // true | false
+  // Muestra una acción "Abrir archivo" en línea en la vista de cambios.
+  "git.showInlineOpenFileAction": true, // true | false
+  // Muestra progreso (barra/spinner) durante operaciones de Git.
+  "git.showProgress": true, // true | false
+  // Muestra una notificación cuando un push se completa con éxito.
+  // "git.showPushSuccessNotification": false, // true | false
+  // Muestra detalles del último commit en los selectores de checkout/rama/tag.
+  "git.showReferenceDetails": true, // true | false
+  // Umbral de similitud (%) para detectar un renombrado de archivo.
+  "git.similarityThreshold": 50, // número del 0 al 100
+  // Qué cambios se agregan automáticamente al stage con Smart Commit.
+  "git.smartCommitChanges": "all", // "all" | "tracked"
+  // Límite de cambios que se pueden parsear desde "git status".
+  "git.statusLimit": 10000, // número entero; 0 = sin límite
+  // Sugiere activar Smart Commit si detecta que no hay cambios en stage.
+  "git.suggestSmartCommit": true, // true | false
+  // Permite cancelar una operación de "Sync" en curso mediante notificación.
+  // "git.supportCancellation": false, // true | false
+  // Permite que Positron actúe como manejador de autenticación (GIT_ASKPASS) en la terminal.
+  "git.terminalAuthentication": true, // true | false
+  // Permite que Positron actúe como editor de Git (GIT_EDITOR) en la terminal.
+  // "git.terminalGitEditor": false, // true | false
+  // Qué fecha mostrar para cada ítem en la vista Timeline.
+  "git.timeline.date": "committed", // "committed" | "authored"
+  // Muestra el autor del commit en la vista Timeline.
+  "git.timeline.showAuthor": true, // true | false
+  // Incluye los cambios sin commitear en la vista Timeline.
+  // "git.timeline.showUncommitted": false, // true | false
+  // Cómo se agrupan los archivos sin seguimiento en la vista de cambios.
+  "git.untrackedChanges": "mixed", // "mixed" | "separate" | "hidden"
+  // Usa el texto del cuadro de commit como mensaje por defecto al hacer stash.
+  // "git.useCommitInputAsStashMessage": false, // true | false
+  // Usa un editor de texto completo para mensajes de commit sin texto previo.
+  "git.useEditorAsCommitInput": true, // true | false
+  // Usa la variante "--force-if-includes" al hacer force push (la más segura).
+  "git.useForcePushIfIncludes": true, // true | false
+  // Usa la variante "--force-with-lease" al hacer force push.
+  "git.useForcePushWithLease": true, // true | false
+  // Permite sobrescribir GIT_ASKPASS con la versión integrada de Positron.
+  "git.useIntegratedAskPass": true, // true | false
+  // Muestra salida detallada (incluye el diff) en el editor de mensaje de commit.
+  // "git.verboseCommit": false, // true | false
+  // Actualiza optimistamente la vista de Source Control tras ejecutar comandos Git.
+  "git.optimisticUpdate": true, // true | false
+  // Patrones glob de archivos/carpetas incluidos al crear un worktree nuevo (experimental).
+  // "git.worktreeIncludeFiles": [], // array de patrones glob
+  // ==========================================
+  // 8. DIFF EDITOR
+  // ==========================================
+  // Ignora cambios de solo espacios en blanco al mostrar diferencias.
+  "diffEditor.ignoreTrimWhitespace": false, // true | false
+  // Tiempo máximo (ms) dedicado a calcular el diff antes de mostrar un resultado parcial.
+  "diffEditor.maxComputationTime": 0, // número en milisegundos; 0 = sin límite
+  // Muestra acciones tipo CodeLens encima de los bloques modificados en el diff.
+  "diffEditor.codeLens": true, // true | false
+  // Ajusta el texto al ancho de la ventana dentro del editor de diff.
+  "diffEditor.wordWrap": "off", // "off" | "on" | "inherit"
+  // ==========================================
+  // 9. CONFIGURACIÓN POR LENGUAJE
+  // ==========================================
+  "[python]": {
+    // Formateador de código por defecto para archivos .py.
+    "editor.defaultFormatter": "charliermarsh.ruff", // id de cualquier extensión formateadora instalada
+    "diffEditor.ignoreTrimWhitespace": false // true | false
+    // Ordena automáticamente los imports de Python al guardar.
+    // "editor.codeActionsOnSave": { "source.organizeImports.ruff": "explicit" } // "explicit" | "always" | "never"
+  },
+  "[quarto]": {
+    // Formateador de código por defecto para archivos .qmd.
+    "editor.defaultFormatter": "quarto.quarto" // id de cualquier extensión formateadora instalada
+    // "editor.wordWrap": "on" // "off" | "on" | "wordWrapColumn" | "bounded"
+  },
+  "[markdown]": {
+    // Formateador de código por defecto para archivos .md.
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // id de cualquier extensión formateadora instalada
+    "editor.formatOnSave": true // true | false
+    // "editor.wordWrap": "on" // "off" | "on" | "wordWrapColumn" | "bounded"
+  },
+  "[yaml]": {
+    // Formateador de código por defecto para archivos .yaml/.yml.
+    "editor.defaultFormatter": "quarto.quarto" // id de cualquier extensión formateadora instalada
+  },
+  "[latex]": {
+    // Formateador de código por defecto para archivos .tex.
+    "editor.defaultFormatter": "James-Yu.latex-workshop" // id de cualquier extensión formateadora instalada
+  },
+  "[r]": {
+    // Formateador de código por defecto para archivos .R (extensión Air); elimina este bloque si no usas R.
+    "editor.defaultFormatter": "Posit.air-vscode", // id de cualquier extensión formateadora instalada
+    "editor.formatOnSave": true // true | false
+  },
+  // Igual que arriba pero para archivos .Rmd con código R embebido.
+  // "[rmarkdown]": {
+  //     "editor.defaultFormatter": "Posit.air-vscode",
+  //     "editor.formatOnSave": true
+  // },
+  // ==========================================
+  // 10. NOTEBOOKS (Jupyter / .ipynb)
+  // ==========================================
+  // Ajusta el texto al ancho de la salida de las celdas de notebook.
+  "notebook.output.wordWrap": true, // true | false
+  // Ejecuta la selección actual de texto en la ventana interactiva.
+  "jupyter.interactiveWindow.textEditor.executeSelection": true, // true | false
+  // Tamaño de fuente para celdas de markdown renderizadas en notebooks.
+  // "notebook.markup.fontSize": 14, // número en píxeles
+  // Flujo experimental que convierte el Data Explorer en una celda de gráfico (Plotly/Matplotlib/Seaborn).
+  // "positron.notebook.experimental": true, // true | false
+  // Telemetría de la extensión Jupyter de Microsoft.
+  // "telemetry.telemetryLevel": "off", // "all" | "error" | "crash" | "off"
+  // ==========================================
+  // 11. QUARTO
+  // ==========================================
+  // Diccionario ortográfico del editor visual de Quarto (WYSIWYM).
+  "quarto.visualEditor.spellingDictionary": "es_ES", // código de idioma, ej. "en_US", "es_ES"
+  // Renderiza automáticamente al guardar un .qmd.
+  // "quarto.render.renderOnSave": false, // true | false (también configurable por YAML con "editor: render-on-save")
+  // Muestra la salida de las celdas embebida directamente en el editor (como un notebook).
+  // "positron.quarto.inlineOutput.enabled": true, // true | false — ⚠️ bug conocido #12393 al alternar con archivos .R
+  // Muestra siempre una consola para documentos Quarto y notebooks Jupyter.
+  // "console.showNotebookConsoles": true, // true | false
+  // Ruta a una instalación propia del CLI de Quarto (Positron ya trae la 1.9.38 embebida).
+  // "quarto.path": "/usr/local/bin/quarto", // ruta de archivo
+  // ==========================================
+  // 12. MISC
+  // ==========================================
+  // Ajusta el texto al ancho de la consola de depuración.
+  "debug.console.wordWrap": false, // true | false
+  // Ajusta el texto al ancho del editor de mensajes del chat/asistente.
+  "chat.editor.wordWrap": "on", // "off" | "on"
+  // Asocia un esquema YAML (autocompletado/validación) a un patrón de archivo.
+  "yaml.schemas": {
+    "https://quarto.org/schemas/quarto.yaml": "*.qmd" // objeto { "url del esquema": "patrón glob de archivo" }
+  },
+  // ==========================================
+  // 13. POSIT ASSISTANT
+  // ==========================================
+  // ⚠️ OBSOLETO: "positron.assistant.enable": true,
+  // Habilita Posit Assistant (el asistente de IA integrado en Positron).
+  "assistant.enabled": true, // true | false
+  // Habilita siempre la acción "Apply in Editor" para sugerencias del asistente.
+  "positron.assistant.alwaysEnableApplyInEditorAction": true, // true | false
+  // Incluye siempre las herramientas de Copilot disponibles para el asistente.
+  "positron.assistant.alwaysIncludeCopilotTools": true, // true | false
+  // Muestra el conteo de tokens usados por el asistente.
+  "positron.assistant.showTokenUsage.enable": true, // true | false
+  // Sugerencias de "siguiente edición" mientras editas (requiere proveedor de modelos configurado).
+  // "assistant.nextEditSuggestions.enabled": true, // true | false
+  // Muestra un aviso inicial sobre el asistente en la terminal.
+  // "assistant.terminalHint.enabled": false, // true | false
+  // Soporte experimental para Google Vertex AI como proveedor de modelos.
+  // "assistant.provider.googleVertex.enabled": true, // true | false
+  // ==========================================
+  // 14. EXTENSIONES (marketplace)
+  // ==========================================
+  // Fuente del catálogo de extensiones (por defecto P3M desde 2026.05).
+  // "positron.extensions.gallerySource": "openvsx", // "p3m" | "openvsx"
+  // Envía metadatos de uso (versión, tipo de distribución) al consultar el gallery.
+  // "extensions.gallery.sendUsageData": false, // true | false
+  // ==========================================
+  // 15. AIR (R, Posit.air-vscode)
+  // ==========================================
+  // El formateador ya está activado en la sección 9, bloque "[r]".
+  // Configuración adicional vía archivo air.toml en la raíz del proyecto R:
+  //   line-width   = 80          # ancho máximo de línea (número entero)
+  //   indent-width = 2           # espacios de indentación (número entero)
+  //   indent-style = "space"     # "space" | "tab"
+  // Docs: https://posit-dev.github.io/air/configuration.html
+  // ==========================================
+  // 16. MATERIAL ICON THEME
+  // ==========================================
+  // Color de los iconos de archivo por defecto.
+  "material-icon-theme.files.color": "#42a5f5", // código de color hexadecimal
+  // Color de los iconos de carpeta por defecto.
+  "material-icon-theme.folders.color": "#ef5350", // código de color hexadecimal
+  // Diseño/estilo de los iconos de carpeta.
+  "material-icon-theme.folders.theme": "specific", // "specific" | "classic" | "chevrons" | "none"
+  // Opacidad de los iconos.
+  "material-icon-theme.opacity": 1, // número del 0 al 1
+  // Saturación de color de los iconos (0 = escala de grises).
+  "material-icon-theme.saturation": 1, // número del 0 al 1
+  // Asocia íconos personalizados a extensiones o nombres de archivo específicos.
+  // "material-icon-theme.files.associations": { "*.qmd": "markdown", "*.bib": "bibtex" }, // objeto { "patrón": "nombre de icono base" }
+  // Asocia íconos personalizados a nombres de carpeta específicos.
+  // "material-icon-theme.folders.associations": { "guias": "docs", "scripts": "tools" }, // objeto { "nombre de carpeta": "nombre de icono base" }
+  // ==========================================
+  // 17. PRETTIER
+  // ==========================================
+  // Formateador ya asignado a Markdown en la sección 9.
+  // Ancho máximo de línea que Prettier intentará respetar.
+  "prettier.printWidth": 80, // número entero
+  // Cómo envolver párrafos de prosa en Markdown.
+  "prettier.proseWrap": "preserve", // "preserve" | "always" | "never"
+  // Exige un comentario "pragma" al inicio del archivo para formatearlo.
+  "prettier.requirePragma": false, // true | false
+  // Exige que exista un archivo .prettierrc en el proyecto antes de formatear.
+  "prettier.requireConfig": false, // true | false
+  // ==========================================
+  // 18. RAINBOW CSV
+  // ==========================================
+  // Asociaciones *.dat/*.csv a dialectos CSV ya están en la sección 6.
+  // Desactiva la optimización de archivos grandes (necesario para CSV >300k líneas o >20MB).
+  // "editor.largeFileOptimizations": false, // true | false
+  // Consulta tipo SQL sobre el CSV: comando "RBQL" desde la paleta.
+  // Ejemplo de consulta: SELECT a1, a2 WHERE a3 == "Ayacucho" ORDER BY a1
+  // ==========================================
+  // 19. ACCESIBILIDAD
+  // ==========================================
+  // Nivel de detalle hablado/anunciado en la terminal por lectores de pantalla.
+  "accessibility.verbosity.terminal": false, // true | false
+  // Oculta el panel de "Accessible View" (vista accesible alternativa).
+  "accessibility.hideAccessibleView": true, // true | false
+  // ==========================================
+  // 20. GITLENS Y CODESNAP
+  // ==========================================
+  // Tipos de elementos adicionales mostrados en el minimapa del grafo de GitLens.
+  "gitlens.graph.minimap.additionalTypes": [
+    "localBranches", // ramas locales
+    "stashes", // stashes guardados
+    "remoteBranches", // ramas remotas
+    "pullRequests", // pull requests
+    "tags" // tags/etiquetas
+  ],
+  // Toma la captura con fondo transparente en vez de un color sólido.
+  "codesnap.transparentBackground": true, // true | false
+  // Muestra el título de la ventana ("carpeta - archivo") en la captura.
+  "codesnap.showWindowTitle": true, // true | false
+  // Relleno (padding CSS) alrededor del bloque de código.
+  "codesnap.containerPadding": "0em", // cualquier valor CSS de padding, ej. "2em" o "20px"
+  // Esquinas redondeadas o cuadradas en la ventana de la captura.
+  "codesnap.roundedCorners": false, // true | false
+  // Color de fondo del contenedor (solo si transparentBackground está en false).
+  // "codesnap.backgroundColor": "#abb8c3", // cualquier color CSS válido
+  // Sombra (box-shadow CSS) aplicada a la ventana de código.
+  // "codesnap.boxShadow": "rgba(0, 0, 0, 0.55) 0px 20px 68px", // cualquier valor CSS de box-shadow
+  // Muestra los tres botones estilo macOS (semáforo) en la ventana.
+  // "codesnap.showWindowControls": true, // true | false
+  // Muestra números de línea en la captura.
+  // "codesnap.showLineNumbers": true, // true | false
+  // Los números de línea inician desde el número real del archivo (no desde 1).
+  // "codesnap.realLineNumbers": true, // true | false
+  // Qué parte de la pantalla capturar.
+  // "codesnap.target": "container", // "container" | "window"
+  // Acción del botón disparador de la captura.
+  // "codesnap.shutterAction": "save", // "save" | "copy"
+  // ==========================================
+  // 21. LATEX WORKSHOP
+  // ==========================================
+  // Motor usado para formatear código LaTeX.
+  "latex-workshop.formatting.latex": "latexindent", // "latexindent" | "tex-fmt"
+  // Límite máximo de longitud de línea impresa por el motor de compilación.
+  "latex-workshop.latex.option.maxPrintLine.enabled": false, // true | false
+  // ==========================================
+  // 22. INDENTICATOR
+  // ==========================================
+  // Ancho de la línea guía de indentación.
+  "indenticator.width": 0.5, // número decimal en píxeles
+  // Color de la línea guía de indentación en temas oscuros.
+  "indenticator.color.dark": "rgba(255,255,255,0.1)", // cualquier color CSS válido (rgba/hex)
+  // ==========================================
+  // 23. GITIGNORE
+  // ==========================================
+  // Segundos que se cachea la lista de plantillas .gitignore obtenida de GitHub.
+  "gitignore.cacheExpirationInterval": 3600,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  } // número en segundos (3600 = 1 hora)
 }
 ```
 
@@ -2017,6 +2295,7 @@ Para replicar el setup de VS Code, se instala:
 ```
 Ctrl+Shift+P
 ```
+
 Todo está en el Command Palette. No recuerdas un atajo? Búscalo aquí.
 
 ## Quick Open
@@ -2024,6 +2303,7 @@ Todo está en el Command Palette. No recuerdas un atajo? Búscalo aquí.
 ```
 Ctrl+P
 ```
+
 Abre archivos rápidamente sin usar el Explorer.
 
 ## Multi-Cursor
@@ -2047,14 +2327,14 @@ File → Preferences → Configure User Snippets
 
 ```json
 {
-    "Import pandas": {
-        "prefix": "imp",
-        "body": [
-            "import pandas as pd",
-            "import numpy as np",
-            "import matplotlib.pyplot as plt"
-        ]
-    }
+  "Import pandas": {
+    "prefix": "imp",
+    "body": [
+      "import pandas as pd",
+      "import numpy as np",
+      "import matplotlib.pyplot as plt"
+    ]
+  }
 }
 ```
 
@@ -2085,7 +2365,7 @@ Si los necesitas:
 
 ```json
 {
-    "breadcrumbs.enabled": true
+  "breadcrumbs.enabled": true
 }
 ```
 
@@ -2098,7 +2378,6 @@ Click en archivo modificado en Source Control
 ## Sync Settings
 
 Positron puede sincronizar settings entre máquinas (similar a VS Code Settings Sync).
-
 
 ## Trucos prácticos que uso día a día
 
@@ -2126,26 +2405,28 @@ Ctrl + Shift + 0 → Reiniciar el intérprete (cuando todo se pone loco)
 **3. El workflow más rápido para explorar dataframes (mi favorito)**
 
 1. Cargas datos en consola o script:
+
    ```python
    import pandas as pd
    df = pd.read_csv("datos_grandes.csv")
    ```
+
    o
+
    ```r
    df <- read_csv("datos_grandes.csv")
    ```
 
 2. Opciones rápidas de exploración:
-
    - Doble clic en `df` en el **Variables Pane** → abre **Data Explorer** completo (filtrar, ordenar, buscar, estadísticas)
    - `View(df)` (R) o `df.head(20)` (Python) → vista rápida en consola
    - Clic derecho en variable → "View in Data Explorer"
    - Atajo personalizado recomendado (agrega a keybindings.json):
      ```json
      {
-         "key": "f2",
-         "command": "positron.dataExplorer.openDataExplorer",
-         "when": "positronVariablesFocus"
+       "key": "f2",
+       "command": "positron.dataExplorer.openDataExplorer",
+       "when": "positronVariablesFocus"
      }
      ```
 
@@ -2205,9 +2486,10 @@ Command Palette → Python: Select Interpreter
 ```
 
 O especificar manualmente:
+
 ```json
 {
-    "python.defaultInterpreterPath": "/path/to/python"
+  "python.defaultInterpreterPath": "/path/to/python"
 }
 ```
 
@@ -2250,7 +2532,7 @@ pip install ipython
 
 ```json
 {
-    "terminal.integrated.inheritEnv": false
+  "terminal.integrated.inheritEnv": false
 }
 ```
 
@@ -2313,7 +2595,7 @@ chmod 644 ~/.config/Positron/User/settings.json
 
 ```json
 {
-    "terminal.integrated.scrollback": 1000
+  "terminal.integrated.scrollback": 1000
 }
 ```
 
@@ -2321,70 +2603,10 @@ chmod 644 ~/.config/Positron/User/settings.json
 
 ```json
 {
-    "editor.minimap.enabled": false,
-    "editor.suggest.preview": false
+  "editor.minimap.enabled": false,
+  "editor.suggest.preview": false
 }
 ```
-
-# Conclusión
-
-## Resumen de Cambios de VS Code a Positron
-
-**Lo Mismo:**
-
-- Editor de código
-- Atajos de teclado (95%)
-- Terminal
-- Extensions system
-- Git integration
-- Settings system
-
-**Lo Nuevo:**
-
-- Console (IPython/IRKernel)
-- Variables Pane
-- Data Explorer
-- Plots Pane
-- Help Pane
-- Connections Pane
-- Soporte Python/R nativo
-- AI Assistant (Positron Assistant, Databot)
-
-**Lo Diferente:**
-
-- Open VSX en lugar de VS Marketplace
-- Algunas extensiones no disponibles
-- Mejor integración para data science
-
-## Próximos Pasos
-
-1. **Instalar Positron**
-2. **Importar settings de VS Code**
-3. **Configurar Python/R**
-4. **Instalar extensiones esenciales**
-5. **Personalizar tema y layout**
-6. **Explorar Console y panes**
-7. **Crear tu primer documento Quarto**
-
-## Recursos
-
-**Documentación:**
-
-- https://positron.posit.co/
-- https://github.com/posit-dev/positron
-
-**Comunidad:**
-
-- GitHub Discussions: https://github.com/posit-dev/positron/discussions
-- Posit Community: https://community.posit.co/
-
-**Aprendizaje:**
-
-- Quarto: https://quarto.org/
-- Python: https://docs.python.org/
-- R: https://www.r-project.org/
-
-
 
 {{< include ../../_contenido-inicio.qmd >}}
 
