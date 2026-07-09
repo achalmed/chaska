@@ -415,12 +415,19 @@ git rm sync-repos.sh quick-sync.sh repo-status.sh
 # Quitar .quarto/ del índice sin borrarla del disco
 # (típico cuando .quarto/ ya estaba trackeada antes de añadirla a .gitignore)
 git rm -r --cached .quarto/
+git rm -r --cached site_libs/
 git rm -r --cached _freeze/
 git rm -r --cached _site/
-git commit -m "Eliminar carpetas generadas del índice"
+
+cat .gitignore | grep site_libs
+
+git commit -m "chore: excluir carpetas generadas del índice desde git tracking"
+git commit -m "chore: exclude site_libs from git tracking"
 
 # Quitar un archivo de salida que se coló al tracking
 git rm --cached data/resultado_intermedio.rds
+git rm --cached .RData
+git commit -m "chore: exclude RData files from git tracking"
 
 # Renombrar
 git mv repo-status.sh status.sh 
