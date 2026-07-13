@@ -124,6 +124,7 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -240,6 +241,10 @@ Cristóbal de Huamanga, Portal Independencia N°
 
 
 
+\hypersetup{
+  pdftitle={Gu\'{\i}a Completa de Kitty Terminal},
+  pdfauthor={Autor}
+}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -368,6 +373,7 @@ Creado por Kovid Goyal, es conocido por:
 
 \textbf{Ventajas sobre otros terminales:}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2809}}
   >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1798}}
@@ -400,6 +406,7 @@ Control remoto (SSH) & Sí & No & Sí & No \\
 Multiplataforma & Sí (Linux/macOS/Windows) & Sí (Linux/macOS/Windows) &
 No (solo macOS) & No (solo Linux) \\
 \end{longtable}
+}
 
 \section{Instalación}\label{instalaciuxf3n}
 
@@ -889,6 +896,7 @@ En macOS algunos también usan \texttt{Cmd} (\texttt{⌘})
 
 \subsection{Scrolling}\label{scrolling}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Atajo & Acción \\
@@ -908,9 +916,11 @@ Atajo & Acción \\
 \texttt{Ctrl+Shift+G} & Ver último comando (shell integration) \\
 \texttt{Ctrl+Shift+/} & Buscar en scrollback \\
 \end{longtable}
+}
 
 \subsection{Tabs}\label{tabs}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Atajo & Acción \\
@@ -927,10 +937,12 @@ Atajo & Acción \\
 \texttt{Ctrl+Shift+Alt+T} & Renombrar tab \\
 \texttt{Ctrl+Alt+1...9} & Ir a tab N \\
 \end{longtable}
+}
 
 \subsection{Windows (Ventanas dentro de
 Tabs)}\label{windows-ventanas-dentro-de-tabs}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4667}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5333}}@{}}
@@ -955,6 +967,7 @@ Acción
 `\texttt{\textbar{}\ Mover\ window\ al\ top\ \textbar{}\ \textbar{}}Ctrl+Shift+R\texttt{\textbar{}\ Redimensionar\ window\ \textbar{}\ \textbar{}}Ctrl+Shift+F7\texttt{\textbar{}\ Selección\ visual\ de\ window\ \textbar{}\ \textbar{}}Ctrl+Shift+F8\texttt{\textbar{}\ Swap\ visual\ de\ window\ \textbar{}\ \textbar{}}Ctrl+Shift+1\ldots0`
 & Ir a window N \\
 \end{longtable}
+}
 
 \subsection{Navegación Direccional}\label{navegaciuxf3n-direccional}
 
@@ -978,6 +991,7 @@ Acción
 
 \subsection{Layouts}\label{layouts}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Atajo & Acción \\
@@ -987,9 +1001,11 @@ Atajo & Acción \\
 \endlastfoot
 \texttt{Ctrl+Shift+L} & Siguiente layout \\
 \end{longtable}
+}
 
 \subsection{Clipboard}\label{clipboard}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Atajo & Acción \\
@@ -1002,9 +1018,11 @@ Atajo & Acción \\
 \texttt{Ctrl+Shift+S} & Pegar de selección \\
 \texttt{Ctrl+Shift+O} & Pasar selección a programa \\
 \end{longtable}
+}
 
 \subsection{Fuentes}\label{fuentes}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Atajo & Acción \\
@@ -1016,9 +1034,11 @@ Atajo & Acción \\
 \texttt{Ctrl+Shift+Minus} & Disminuir tamaño \\
 \texttt{Ctrl+Shift+Backspace} & Reset tamaño \\
 \end{longtable}
+}
 
 \subsection{Miscelánea}\label{misceluxe1nea}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Atajo & Acción \\
@@ -1037,11 +1057,13 @@ Atajo & Acción \\
 \texttt{Ctrl+Shift+Escape} & Kitty shell \\
 \texttt{Ctrl+Shift+Delete} & Reset terminal \\
 \end{longtable}
+}
 
 \subsection{Atajos en macOS}\label{atajos-en-macos}
 
 Reemplazan algunos con \texttt{Cmd} (⌘):
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Windows/Linux & macOS \\
@@ -1057,6 +1079,7 @@ Windows/Linux & macOS \\
 \texttt{Ctrl+Shift+F2} & \texttt{Cmd+,} \\
 \texttt{Ctrl+Shift+F11} & \texttt{Ctrl+Cmd+F} \\
 \end{longtable}
+}
 
 \section{Ventanas y Pestañas}\label{ventanas-y-pestauxf1as}
 
@@ -3607,6 +3630,7 @@ Configuración}\label{archivos-de-configuraciuxf3n}
 
 \subsection{Comparison Chart}\label{comparison-chart}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lllll@{}}
 \toprule\noalign{}
 Característica & Kitty & Alacritty & iTerm2 & Wezterm \\
@@ -3625,6 +3649,7 @@ Cross-platform & ✅ & ✅ & ❌ & ✅ \\
 Config Language & conf & toml & GUI & lua \\
 Shell Integration & ✅ & ❌ & ✅ & ✅ \\
 \end{longtable}
+}
 
 \section{Conclusión}\label{conclusiuxf3n}
 
@@ -3764,9 +3789,8 @@ algunas sugerencias:
   \href{https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc}{Limpieza
   Y Optimizacion De Pc}
 \item
-  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf}{\faIcon{file-pdf}}
-  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11}{Usando
-  Apk En Windown 11}
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy}{Scrcpy}
 \item
   \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf}{\faIcon{file-pdf}}
   \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu}{Gestionar
@@ -3819,6 +3843,22 @@ algunas sugerencias:
   \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.pdf}{\faIcon{file-pdf}}
   \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow}{Gestiona
   Tus Dotfiles Con Gnu Stow}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger}{Guia
+  De Ranger}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal}{Guia
+  De Kitty Terminal}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide}{Guia
+  De Positron Ide}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync}{Guia
+  De Rsync}
 \end{enumerate}
 
 Esperamos que encuentres estas publicaciones igualmente interesantes y

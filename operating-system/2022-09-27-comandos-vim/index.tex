@@ -124,6 +124,7 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -222,9 +223,14 @@ libre. }
 \par{   El autor no tiene conflictos de interés que revelar.    Los
 roles de autor se clasificaron utilizando la taxonomía de roles de
 colaborador (CRediT; https://credit.niso.org/) de la siguiente
-manera:  Edison Achalma:   conceptualización, redacción}
+manera:  Edison Achalma:   conceptualización, metodología, análisis
+formal, investigación, recursos, curación de
+datos, redacción, visualización, supervisión, administración del
+proyecto}
 \par{La correspondencia relativa a este artículo debe dirigirse a Edison
-Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@unsch.edu.pe}}
+Achalma, Escuela Profesional de Economía, Universidad Nacional de San
+Cristóbal de Huamanga, Portal Independencia N°
+57, Ayacucho, AYA 5001, Perú, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@unsch.edu.pe}}
 }
 
 \makeatletter
@@ -239,6 +245,10 @@ Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@uns
 
 
 
+\hypersetup{
+  pdftitle={Gu\'{\i}a Completa de Vim y Neovim},
+  pdfauthor={Autor}
+}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -271,8 +281,8 @@ Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@uns
 \@ifpackageloaded{float}{}{\usepackage{float}}
 \floatstyle{ruled}
 \@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
-\floatname{codelisting}{Listing}
-\newcommand*\listoflistings{\listof{codelisting}{Lista de Listings}}
+\floatname{codelisting}{Listado}
+\newcommand*\listoflistings{\listof{codelisting}{Lista de Listados}}
 \makeatother
 \makeatletter
 \makeatother
@@ -374,6 +384,7 @@ mientras añade:
 
 \textbf{Diferencias Principales}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lll@{}}
 \toprule\noalign{}
 Característica & Vim & Neovim \\
@@ -388,6 +399,7 @@ Tree-sitter & No & Sí \\
 UI externa & Limitada & Completa \\
 Desarrollo & Conservador & Agresivo \\
 \end{longtable}
+}
 
 \section{Instalación}\label{instalaciuxf3n}
 
@@ -753,6 +765,7 @@ Normal)}\label{movimiento-de-cursor-modo-normal}
 
 \subsection{Básico (hjkl)}\label{buxe1sico-hjkl}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Movimiento \\
@@ -765,9 +778,11 @@ Tecla & Movimiento \\
 \texttt{k} & ↑ Arriba \\
 \texttt{l} & → Derecha \\
 \end{longtable}
+}
 
 \subsection{Por Palabras}\label{por-palabras}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Movimiento \\
@@ -783,12 +798,14 @@ Tecla & Movimiento \\
 \texttt{B} & Inicio de PALABRA anterior \\
 \texttt{ge} & Final de palabra anterior \\
 \end{longtable}
+}
 
 \textbf{Nota:} ``palabra'' = letras/números, ``PALABRA'' = cualquier
 carácter no-espacio
 
 \subsection{Por Línea}\label{por-luxednea}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Movimiento \\
@@ -803,9 +820,11 @@ Tecla & Movimiento \\
 \texttt{g0} & Inicio de línea visual (con wrap) \\
 \texttt{g\$} & Final de línea visual \\
 \end{longtable}
+}
 
 \subsection{Por Pantalla}\label{por-pantalla}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Movimiento \\
@@ -826,9 +845,11 @@ Tecla & Movimiento \\
 \texttt{Ctrl+f} & Página completa abajo (forward) \\
 \texttt{Ctrl+b} & Página completa arriba (backward) \\
 \end{longtable}
+}
 
 \subsection{Por Archivo}\label{por-archivo}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Movimiento \\
@@ -842,10 +863,12 @@ Tecla & Movimiento \\
 \texttt{\textless{}n\textgreater{}G} & Ir a línea n \\
 \texttt{\%} & Ir al paréntesis/llave/corchete coincidente \\
 \end{longtable}
+}
 
 \subsection{Búsqueda de Caracteres en
 Línea}\label{buxfasqueda-de-caracteres-en-luxednea}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Movimiento \\
@@ -860,6 +883,7 @@ Tecla & Movimiento \\
 \texttt{;} & Repetir último f/F/t/T \\
 \texttt{,} & Repetir último f/F/t/T en reversa \\
 \end{longtable}
+}
 
 \textbf{Ejemplos:}
 
@@ -883,6 +907,7 @@ Con cursor en `E':
 
 \subsection{Insertar}\label{insertar}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -898,9 +923,11 @@ Comando & Acción \\
 \texttt{O} & Abrir línea nueva arriba \\
 \texttt{gi} & Insertar en última posición de inserción \\
 \end{longtable}
+}
 
 \subsection{Eliminar}\label{eliminar}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -920,11 +947,13 @@ Comando & Acción \\
 \texttt{dG} & Eliminar hasta fin de archivo \\
 \texttt{dgg} & Eliminar hasta inicio de archivo \\
 \end{longtable}
+}
 
 \subsection{Cambiar (Change)}\label{cambiar-change}
 
 Igual que eliminar pero entra en modo Insert.
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -941,9 +970,11 @@ Comando & Acción \\
 \texttt{ci(} & Cambiar dentro de paréntesis \\
 \texttt{cit} & Cambiar dentro de tag HTML \\
 \end{longtable}
+}
 
 \subsection{Copiar y Pegar (Yank/Put)}\label{copiar-y-pegar-yankput}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -960,9 +991,11 @@ Comando & Acción \\
 \texttt{gp} & Pegar y mover cursor después \\
 \texttt{gP} & Pegar antes y mover cursor \\
 \end{longtable}
+}
 
 \subsection{Reemplazar}\label{reemplazar}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -977,9 +1010,11 @@ Comando & Acción \\
 \texttt{gu\{movimiento\}} & A minúsculas \\
 \texttt{gU\{movimiento\}} & A MAYÚSCULAS \\
 \end{longtable}
+}
 
 \subsection{Deshacer y Rehacer}\label{deshacer-y-rehacer}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -991,9 +1026,11 @@ Comando & Acción \\
 \texttt{Ctrl+r} & Rehacer (redo) \\
 \texttt{U} & Deshacer todos los cambios en línea \\
 \end{longtable}
+}
 
 \subsection{Repetir}\label{repetir}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -1005,9 +1042,11 @@ Comando & Acción \\
 \texttt{@:} & Repetir último comando Ex \\
 \texttt{@@} & Repetir último macro \\
 \end{longtable}
+}
 
 \subsection{Unir Líneas}\label{unir-luxedneas}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -1018,9 +1057,11 @@ Comando & Acción \\
 \texttt{J} & Unir línea siguiente con actual \\
 \texttt{gJ} & Unir sin añadir espacio \\
 \end{longtable}
+}
 
 \subsection{Indentación}\label{indentaciuxf3n}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -1035,11 +1076,13 @@ Comando & Acción \\
 paréntesis) \\
 \texttt{gg=G} & Auto-indentar archivo completo \\
 \end{longtable}
+}
 
 \section{Comandos de Búsqueda}\label{comandos-de-buxfasqueda}
 
 \subsection{Búsqueda Básica}\label{buxfasqueda-buxe1sica}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -1056,6 +1099,7 @@ Comando & Acción \\
 \texttt{g*} & Buscar parcial hacia adelante \\
 \texttt{g\#} & Buscar parcial hacia atrás \\
 \end{longtable}
+}
 
 \subsection{Opciones de Búsqueda}\label{opciones-de-buxfasqueda}
 
@@ -1108,6 +1152,7 @@ Comando & Acción \\
 \subsection{Tipos de Selección
 Visual}\label{tipos-de-selecciuxf3n-visual}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Tipo \\
@@ -1120,11 +1165,13 @@ Comando & Tipo \\
 \texttt{Ctrl+v} & Visual en bloque (columnar) \\
 \texttt{gv} & Reseleccionar última selección \\
 \end{longtable}
+}
 
 \subsection{Operaciones en Visual}\label{operaciones-en-visual}
 
 Una vez en modo visual:
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -1144,6 +1191,7 @@ Comando & Acción \\
 \texttt{o} & Ir al otro extremo de selección \\
 \texttt{O} & Ir a otra esquina (bloque) \\
 \end{longtable}
+}
 
 \subsection{Visual Block (Columnar)}\label{visual-block-columnar}
 
@@ -1176,6 +1224,7 @@ Operan sobre ``objetos'' como palabras, párrafos, etc.
 
 \textbf{Sintaxis:} \texttt{\{operador\}\{a/i\}\{objeto\}}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Objeto & Descripción \\
@@ -1197,6 +1246,7 @@ Objeto & Descripción \\
 \texttt{\textquotesingle{}} & Comillas simples \\
 \texttt{\textasciigrave{}} & Backticks \\
 \end{longtable}
+}
 
 \textbf{Modificadores:}
 
@@ -1228,6 +1278,7 @@ Vim tiene múltiples ``clipboards'' llamados registros.
 
 \subsection{Tipos de Registros}\label{tipos-de-registros}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Registro & Descripción \\
@@ -1248,6 +1299,7 @@ Registro & Descripción \\
 \texttt{"/} & Último patrón de búsqueda \\
 \texttt{":} & Último comando Ex \\
 \end{longtable}
+}
 
 \subsection{Usar Registros}\label{usar-registros}
 
@@ -1345,6 +1397,7 @@ Grabar y repetir secuencias de comandos.
 
 \subsection{Crear Ventanas}\label{crear-ventanas}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -1360,9 +1413,11 @@ Comando & Acción \\
 \texttt{Ctrl+w\ v} & Split vertical \\
 \texttt{:sp\ archivo} & Abrir archivo en split \\
 \end{longtable}
+}
 
 \subsection{Navegar Entre Ventanas}\label{navegar-entre-ventanas}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -1377,9 +1432,11 @@ Comando & Acción \\
 \texttt{Ctrl+w\ w} & Ciclar entre ventanas \\
 \texttt{Ctrl+w\ p} & Ir a ventana anterior \\
 \end{longtable}
+}
 
 \subsection{Mover Ventanas}\label{mover-ventanas}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -1394,9 +1451,11 @@ Comando & Acción \\
 \texttt{Ctrl+w\ r} & Rotar ventanas \\
 \texttt{Ctrl+w\ x} & Intercambiar con siguiente \\
 \end{longtable}
+}
 
 \subsection{Redimensionar Ventanas}\label{redimensionar-ventanas}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -1414,9 +1473,11 @@ Comando & Acción \\
 \texttt{:resize\ \{n\}} & Establecer altura \\
 \texttt{:vertical\ resize\ \{n\}} & Establecer ancho \\
 \end{longtable}
+}
 
 \subsection{Cerrar Ventanas}\label{cerrar-ventanas}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -1427,11 +1488,13 @@ Comando & Acción \\
 \texttt{:q} o \texttt{Ctrl+w\ q} & Cerrar ventana actual \\
 \texttt{:only} o \texttt{Ctrl+w\ o} & Cerrar todas menos actual \\
 \end{longtable}
+}
 
 \subsection{Pestañas (Tabs)}\label{pestauxf1as-tabs}
 
 \subsection{Gestión de Pestañas}\label{gestiuxf3n-de-pestauxf1as}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -1448,6 +1511,7 @@ Comando & Acción \\
 \texttt{\{n\}gt} & Ir a pestaña n \\
 \texttt{:tabs} & Listar pestañas \\
 \end{longtable}
+}
 
 \section{Buffers}\label{buffers}
 
@@ -1458,6 +1522,7 @@ buffers abiertos.
 
 \subsection{Comandos de Buffer}\label{comandos-de-buffer}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -1476,6 +1541,7 @@ Comando & Acción \\
 \texttt{:e\ archivo} & Editar archivo (crear buffer) \\
 \texttt{:badd\ archivo} & Añadir archivo a buffer list \\
 \end{longtable}
+}
 
 \subsection{Navegación Rápida}\label{navegaciuxf3n-ruxe1pida}
 
@@ -1501,6 +1567,7 @@ Comando & Acción \\
 
 \subsection{Rangos}\label{rangos}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Rango & Descripción \\
@@ -1517,9 +1584,11 @@ Rango & Descripción \\
 \texttt{.,+5} & Línea actual + 5 líneas \\
 \texttt{g/patrón/} & Líneas que coinciden con patrón \\
 \end{longtable}
+}
 
 \subsection{Flags}\label{flags}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Flag & Descripción \\
@@ -1533,6 +1602,7 @@ Flag & Descripción \\
 \texttt{I} & Case-sensitive \\
 \texttt{n} & Reportar número de coincidencias \\
 \end{longtable}
+}
 
 \subsection{Ejemplos Prácticos}\label{ejemplos-pruxe1cticos}
 
@@ -1582,6 +1652,7 @@ Flag & Descripción \\
 \subsection{Caracteres Especiales en
 Reemplazo}\label{caracteres-especiales-en-reemplazo}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Carácter & Significado \\
@@ -1600,6 +1671,7 @@ Carácter & Significado \\
 \texttt{\textbackslash{}e} & Fin de \texttt{\textbackslash{}U} o
 \texttt{\textbackslash{}L} \\
 \end{longtable}
+}
 
 \textbf{Ejemplos:}
 
@@ -1637,6 +1709,7 @@ partes.
 
 \subsection{Comandos de Plegado}\label{comandos-de-plegado}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -1660,6 +1733,7 @@ Comando & Acción \\
 \texttt{zj} & Mover al siguiente fold \\
 \texttt{zk} & Mover al fold anterior \\
 \end{longtable}
+}
 
 \subsection{Nivel de Plegado}\label{nivel-de-plegado}
 
@@ -1689,6 +1763,7 @@ Guardar posiciones en el archivo.
 
 \subsection{Ir a Marcas}\label{ir-a-marcas}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -1708,6 +1783,7 @@ modificación \\
 \texttt{\textquotesingle{}\^{}} & Ir a posición donde se salió de
 Insert \\
 \end{longtable}
+}
 
 \subsection{Ver Marcas}\label{ver-marcas}
 
@@ -1723,6 +1799,7 @@ List)}\label{lista-de-saltos-jump-list}
 
 Vim mantiene historial de saltos.
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -1734,10 +1811,12 @@ Comando & Acción \\
 \texttt{Ctrl+i} o \texttt{Tab} & Salto adelante \\
 \texttt{:jumps} & Ver lista de saltos \\
 \end{longtable}
+}
 
 \subsection{Lista de Cambios (Change
 List)}\label{lista-de-cambios-change-list}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Comando & Acción \\
@@ -1749,6 +1828,7 @@ Comando & Acción \\
 \texttt{g,} & Ir a siguiente cambio \\
 \texttt{:changes} & Ver lista de cambios \\
 \end{longtable}
+}
 
 \section{Comandos Ex}\label{comandos-ex}
 
@@ -3100,9 +3180,8 @@ algunas sugerencias:
   \href{https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc}{Limpieza
   Y Optimizacion De Pc}
 \item
-  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf}{\faIcon{file-pdf}}
-  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11}{Usando
-  Apk En Windown 11}
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy}{Scrcpy}
 \item
   \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf}{\faIcon{file-pdf}}
   \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu}{Gestionar
@@ -3155,6 +3234,22 @@ algunas sugerencias:
   \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.pdf}{\faIcon{file-pdf}}
   \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow}{Gestiona
   Tus Dotfiles Con Gnu Stow}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger}{Guia
+  De Ranger}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal}{Guia
+  De Kitty Terminal}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide}{Guia
+  De Positron Ide}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync}{Guia
+  De Rsync}
 \end{enumerate}
 
 Esperamos que encuentres estas publicaciones igualmente interesantes y

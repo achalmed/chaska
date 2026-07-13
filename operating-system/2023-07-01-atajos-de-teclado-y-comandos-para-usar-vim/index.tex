@@ -84,6 +84,7 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -165,9 +166,14 @@ contenido final del artículo. }
 \par{   El autor no tiene conflictos de interés que revelar.    Los
 roles de autor se clasificaron utilizando la taxonomía de roles de
 colaborador (CRediT; https://credit.niso.org/) de la siguiente
-manera:  Edison Achalma:   conceptualización, redacción}
+manera:  Edison Achalma:   conceptualización, metodología, análisis
+formal, investigación, recursos, curación de
+datos, redacción, visualización, supervisión, administración del
+proyecto}
 \par{La correspondencia relativa a este artículo debe dirigirse a Edison
-Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@unsch.edu.pe}}
+Achalma, Escuela Profesional de Economía, Universidad Nacional de San
+Cristóbal de Huamanga, Portal Independencia N°
+57, Ayacucho, AYA 5001, Perú, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@unsch.edu.pe}}
 }
 
 \makeatletter
@@ -182,6 +188,10 @@ Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@uns
 
 
 
+\hypersetup{
+  pdftitle={Atajos y comandos avanzados de Vim},
+  pdfauthor={Autor}
+}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -214,8 +224,8 @@ Achalma, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@uns
 \@ifpackageloaded{float}{}{\usepackage{float}}
 \floatstyle{ruled}
 \@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
-\floatname{codelisting}{Listing}
-\newcommand*\listoflistings{\listof{codelisting}{Lista de Listings}}
+\floatname{codelisting}{Listado}
+\newcommand*\listoflistings{\listof{codelisting}{Lista de Listados}}
 \makeatother
 \makeatletter
 \makeatother
@@ -426,6 +436,7 @@ habilidades de edición al siguiente nivel.
 Para intercambiar entre cada uno de los modos usa los siguientes atajos
 de teclado:
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.0846}}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1045}}
@@ -452,6 +463,7 @@ Modo de comando & \texttt{:} & Al presionar \texttt{:} accederás al modo
 de comando. Aquí puedes ejecutar comandos avanzados en Vim. Desde buscar
 y reemplazar texto hasta personalizar la configuración. \\
 \end{longtable}
+}
 
 \section{Guardar documentos en Vim}\label{guardar-documentos-en-vim}
 
@@ -461,6 +473,7 @@ Afortunadamente, Vim ofrece atajos de teclado rápidos y sencillos para
 realizar esta tarea. A continuación, se muestra una tabla con los atajos
 de teclado y su función correspondiente:
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1273}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8727}}@{}}
@@ -483,6 +496,7 @@ Por ejemplo \texttt{:w\ index.md} \\
 al mismo tiempo, puedes utilizar \texttt{:wq} o \texttt{:x}. Esto guarda
 los cambios y cierra Vim en un solo paso. \\
 \end{longtable}
+}
 
 \section{Atajos de navegación y
 movimiento}\label{atajos-de-navegaciuxf3n-y-movimiento}
@@ -494,6 +508,7 @@ categorías de atajos junto con sus respectivas funciones:
 \subsection{Movimiento básico con las teclas h, j, k,
 l}\label{movimiento-buxe1sico-con-las-teclas-h-j-k-l}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2625}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7375}}@{}}
@@ -516,11 +531,13 @@ arriba. \\
 \texttt{l} & La tecla \texttt{l} te permite mover el cursor hacia la
 derecha. \\
 \end{longtable}
+}
 
 \subsection{\texorpdfstring{Saltos rápidos en el archivo con \texttt{gg}
 y
 \texttt{G}}{Saltos rápidos en el archivo con gg y G}}\label{saltos-ruxe1pidos-en-el-archivo-con-gg-y-g}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3043}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.6957}}@{}}
@@ -537,11 +554,13 @@ Función
 \texttt{gg} & Presionar \texttt{gg} te lleva al comienzo del archivo. \\
 \texttt{G} & Presionar \texttt{G} te lleva al final del archivo. \\
 \end{longtable}
+}
 
 \subsection{\texorpdfstring{Navegación por palabras con \texttt{w},
 \texttt{b},
 \texttt{e}}{Navegación por palabras con w, b, e}}\label{navegaciuxf3n-por-palabras-con-w-b-e}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2692}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7308}}@{}}
@@ -562,10 +581,12 @@ anterior. \\
 \texttt{e} & Presionar \texttt{e} te lleva al final de la palabra
 actual. \\
 \end{longtable}
+}
 
 \subsection{Desplazamiento por páginas y
 ventanas}\label{desplazamiento-por-puxe1ginas-y-ventanas}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1288}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8712}}@{}}
@@ -591,10 +612,12 @@ desplazarte hacia abajo por media página. \\
 permite cambiar de ventana en Vim. Si tienes varias ventanas abiertas,
 este atajo te lleva a la siguiente ventana. \\
 \end{longtable}
+}
 
 \subsection{Otros movimientos del
 cursor}\label{otros-movimientos-del-cursor}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2100}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7900}}@{}}
@@ -625,10 +648,12 @@ y cambiar al modo insertar. \\
 \texttt{shift\ +\ 5} & Mover el cursor del inicio al final de un
 paréntesis y viceversa. \\
 \end{longtable}
+}
 
 \subsection{Navegación por el
 documento}\label{navegaciuxf3n-por-el-documento}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2360}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7640}}@{}}
@@ -659,6 +684,7 @@ posición. \\
 \texttt{Ctrl+y} & Mover una pantalla hacia arriba sin mover el cursor de
 posición. \\
 \end{longtable}
+}
 
 \section{Atajos de edición y manipulación de
 texto}\label{atajos-de-ediciuxf3n-y-manipulaciuxf3n-de-texto}
@@ -671,6 +697,7 @@ sus respectivas funciones explicadas:
 \subsection{Inserción y edición de
 texto}\label{inserciuxf3n-y-ediciuxf3n-de-texto}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1765}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8235}}@{}}
@@ -707,10 +734,12 @@ medias con otra palabra anterior al cursor. \\
 abiertas en Vim. \\
 \texttt{Ctrl+g} & Mostrar el número de líneas de un fichero. \\
 \end{longtable}
+}
 
 \subsection{Inserciòn de texto repetitivo o
 secuencial}\label{inserciuxf2n-de-texto-repetitivo-o-secuencial}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5429}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4571}}@{}}
@@ -731,10 +760,12 @@ Escribe ``hola mundo'' 10 veces. \\
 ``achalma'' 20 veces. \\
 \texttt{:put=range(1,10)} & Escribe los números del 1 al 10. \\
 \end{longtable}
+}
 
 \subsection{Eliminación de caracteres, palabras y
 líneas}\label{eliminaciuxf3n-de-caracteres-palabras-y-luxedneas}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2143}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7857}}@{}}
@@ -755,9 +786,11 @@ el cursor hasta el final. \\
 \texttt{dd} & Presionar \texttt{dd} te permite eliminar toda la línea
 actual. \\
 \end{longtable}
+}
 
 \subsection{Copiar y pegar texto}\label{copiar-y-pegar-texto}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1927}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8073}}@{}}
@@ -795,6 +828,7 @@ del documento. \\
 \texttt{shift\ +\ p} & Pega una línea arriba de la posición actual del
 cursor. \\
 \end{longtable}
+}
 
 ``¡No te preocupes, también puedes copiar y pegar texto en VIM
 utilizando el modo visual! Sigue estos pasos sencillos:
@@ -821,6 +855,7 @@ utilizando el modo visual! Sigue estos pasos sencillos:
 \subsection{Mover una línea de
 posición}\label{mover-una-luxednea-de-posiciuxf3n}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1221}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8779}}@{}}
@@ -841,12 +876,14 @@ línea inferior justo después de la línea actual. \\
 actual hasta 2 líneas antes de la actual, a una posición 8 líneas
 después de la posición actual del cursor. \\
 \end{longtable}
+}
 
 \section{Selección de texto y acciones en modo
 visual}\label{selecciuxf3n-de-texto-y-acciones-en-modo-visual}
 
 \subsection{Modo Visual}\label{modo-visual}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2917}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7083}}@{}}
@@ -864,9 +901,11 @@ Función
 \texttt{V} & Inicia el modo visual seleccionando toda una línea. \\
 \texttt{Ctrl\ +\ v} & Inicia el modo Bloque visual. \\
 \end{longtable}
+}
 
 \subsection{Selección de Palabras}\label{selecciuxf3n-de-palabras}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1909}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8091}}@{}}
@@ -884,9 +923,11 @@ Función
 \texttt{aw} & Selecciona la palabra donde se encuentra el cursor,
 incluyendo el espacio que la precede. \\
 \end{longtable}
+}
 
 \subsection{Selección de Bloques}\label{selecciuxf3n-de-bloques}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1750}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8250}}@{}}
@@ -915,9 +956,11 @@ etiquetas. \\
 \textless\textgreater{} y \textless/\textgreater{} sin incluir las
 etiquetas. \\
 \end{longtable}
+}
 
 \subsection{Otras Acciones}\label{otras-acciones}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1892}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8108}}@{}}
@@ -955,11 +998,13 @@ cursor a la derecha. (Aplica sangría al texto.) \\
 la izquierda. (Aplica sangría al texto.) \\
 \texttt{Esc} & Sale del modo visual. \\
 \end{longtable}
+}
 
 \section{Crear marcas en un fichero}\label{crear-marcas-en-un-fichero}
 
 \subsection{Crear Marcas}\label{crear-marcas}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2143}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7857}}@{}}
@@ -976,9 +1021,11 @@ Función
 \texttt{m\ +\ {[}a-z{]}} & Crea una marca local con el nombre
 especificado. Puedes usar letras de a a z. \\
 \end{longtable}
+}
 
 \subsection{Trabajar con Marcas}\label{trabajar-con-marcas}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2100}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7900}}@{}}
@@ -1001,9 +1048,11 @@ marca. \\
 ` & Salta a la marca anterior. Si estás en la marca b, te trasladarás a
 la marca a. \\
 \end{longtable}
+}
 
 \subsection{Eliminar Marcas}\label{eliminar-marcas}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2258}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7742}}@{}}
@@ -1026,6 +1075,7 @@ hasta la marca d. \\
 \texttt{:delmarks\ aBc} & Elimina las marcas especificadas (en este
 ejemplo, las marcas a, B y c). \\
 \end{longtable}
+}
 
 Nota: Si asignamos una marca con letras minúsculas, esta será una marca
 local y solo estará disponible mientras el fichero esté abierto. Si
@@ -1037,6 +1087,7 @@ texto}\label{aplicaciuxf3n-de-sangruxedas-a-un-texto}
 
 \subsection{Aplicar Sangrías}\label{aplicar-sangruxedas}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2500}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7500}}@{}}
@@ -1055,9 +1106,11 @@ derecha. \\
 \texttt{3\ \textgreater{}\textgreater{}} & Realiza un sangrado en 3
 líneas a partir de la posición actual. \\
 \end{longtable}
+}
 
 \subsection{Deshacer Sangría}\label{deshacer-sangruxeda}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2692}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7308}}@{}}
@@ -1074,10 +1127,12 @@ Función
 \texttt{\textless{}\textless{}} & Deshace la sangría, moviendo el texto
 hacia la izquierda. \\
 \end{longtable}
+}
 
 \subsection{Pegar y Ajustar a la Sangría
 Actual}\label{pegar-y-ajustar-a-la-sangruxeda-actual}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2386}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7614}}@{}}
@@ -1094,10 +1149,12 @@ Función
 \texttt{{]}p} & Pega el contenido del portapapeles y lo ajusta a la
 sangría actual. \\
 \end{longtable}
+}
 
 \subsection{Aplicar Sangría en Modo
 Visual}\label{aplicar-sangruxeda-en-modo-visual}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2442}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7558}}@{}}
@@ -1114,10 +1171,12 @@ Función
 \texttt{v\ +\ j\ +\ \textgreater{}} & Selecciona una frase en modo
 visual y la sangra hacia la derecha. \\
 \end{longtable}
+}
 
 \subsection{Aplicar Sangría en Modo
 Insertar}\label{aplicar-sangruxeda-en-modo-insertar}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2165}}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.7526}}
@@ -1138,11 +1197,13 @@ en modo insertar. & X \\
 \texttt{Ctrl+d} & Aplica una sangría moviendo el texto hacia la
 izquierda en modo insertar. & \\
 \end{longtable}
+}
 
 \section{Deshacer y rehacer cambios}\label{deshacer-y-rehacer-cambios}
 
 \subsection{Deshacer Cambios}\label{deshacer-cambios}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4306}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5694}}@{}}
@@ -1159,9 +1220,11 @@ Función
 \texttt{u} & Deshace el último cambio realizado. \\
 \texttt{2u} & Deshace los 2 últimos cambios realizados. \\
 \end{longtable}
+}
 
 \subsection{Restaurar Cambio}\label{restaurar-cambio}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2562}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7438}}@{}}
@@ -1178,9 +1241,11 @@ Función
 \texttt{U} & Restaura la última línea modificada. No se puede rehacer el
 cambio después de restaurarlo. \\
 \end{longtable}
+}
 
 \subsection{Rehacer Cambios}\label{rehacer-cambios}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4429}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5571}}@{}}
@@ -1197,10 +1262,12 @@ Función
 \texttt{Ctrl\ +\ r\ or\ :redo} & Rehace el último cambio realizado. \\
 \texttt{3\ +\ Ctrl\ +\ r} & Rehace los últimos 3 cambios deshechos. \\
 \end{longtable}
+}
 
 \subsection{Deshacer y Rehacer por
 Tiempo}\label{deshacer-y-rehacer-por-tiempo}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3605}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.6395}}@{}}
@@ -1219,11 +1286,13 @@ Función
 \texttt{:later\ 30m} & Rehace los cambios realizados en la última media
 hora. \\
 \end{longtable}
+}
 
 \section{Eliminar carateres y lineas}\label{eliminar-carateres-y-lineas}
 
 \subsection{Eliminar Caracteres}\label{eliminar-caracteres}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3647}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.6353}}@{}}
@@ -1243,9 +1312,11 @@ Función
 \texttt{r} & Reemplaza un carácter. \\
 \texttt{s} & Elimina un carácter y cambia al modo insertar. \\
 \end{longtable}
+}
 
 \subsection{Eliminar Palabras}\label{eliminar-palabras}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2952}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7048}}@{}}
@@ -1266,9 +1337,11 @@ al modo insertar. \\
 \texttt{ciw} & Borra la palabra completa bajo el cursor y cambia al modo
 insertar. \\
 \end{longtable}
+}
 
 \subsection{Eliminar Líneas}\label{eliminar-luxedneas}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2793}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7207}}@{}}
@@ -1295,9 +1368,11 @@ al modo insertar. \\
 \texttt{2cc} & Borra/corta 2 líneas a partir de donde está el cursor y
 cambia al modo insertar. \\
 \end{longtable}
+}
 
 \subsection{Eliminar por Patrón}\label{eliminar-por-patruxf3n}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2719}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7281}}@{}}
@@ -1328,6 +1403,7 @@ A. \\
 \texttt{:.-2,.+8d} & Borra las líneas desde 2 líneas encima hasta 8
 líneas debajo de la posición actual. \\
 \end{longtable}
+}
 
 ¡Hay otra forma de eliminar texto en Vim utilizando el modo visual!
 
@@ -1363,6 +1439,7 @@ teclado y comandos:
 \subsection{Búsqueda de texto o
 frase}\label{buxfasqueda-de-texto-o-frase}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1361}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8639}}@{}}
@@ -1395,10 +1472,12 @@ resultados de búsqueda. \\
 \texttt{3/palabra\_a\_busca} & Buscará todas las palabras que contengan
 ``palabra\_a\_busca'' y colocará el cursor en la tercera ocurrencia. \\
 \end{longtable}
+}
 
 \subsection{Navegación entre coincidencias de
 búsqueda}\label{navegaciuxf3n-entre-coincidencias-de-buxfasqueda}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1810}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8190}}@{}}
@@ -1417,9 +1496,11 @@ la palabra en la que se encuentra el cursor. \\
 \texttt{\#} & Presionar \texttt{\#} te lleva a la aparición anterior de
 la palabra en la que se encuentra el cursor. \\
 \end{longtable}
+}
 
 \subsection{Reemplazo de texto}\label{reemplazo-de-texto}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1603}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8397}}@{}}
@@ -1440,9 +1521,11 @@ apariciones de ``buscar'' por ``reemplazar'' en todo el archivo. \\
 \texttt{:s/buscar/reemplazar/g} te permite reemplazar solo la primera
 aparición de ``buscar'' por ``reemplazar'' en la línea actual. \\
 \end{longtable}
+}
 
 \subsection{Reemplazo de caracteres}\label{reemplazo-de-caracteres}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1902}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8098}}@{}}
@@ -1465,10 +1548,12 @@ ESC. \\
 \texttt{10ró} & Reemplaza las 10 letras a partir de la posición actual
 del cursor por ``ó''. \\
 \end{longtable}
+}
 
 \subsection{Búsqueda y reemplazo de
 palabras}\label{buxfasqueda-y-reemplazo-de-palabras}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1739}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8261}}@{}}
@@ -1499,10 +1584,12 @@ delimitador ``!'' y sin distinguir entre mayúsculas y minúsculas. \\
 & Reemplaza la palabra exacta ``geek'' por ``Linux'' en todo el
 documento pidiendo confirmación. \\
 \end{longtable}
+}
 
 \subsection{Búsqueda y reemplazo en rangos
 específicos}\label{buxfasqueda-y-reemplazo-en-rangos-especuxedficos}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1925}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8075}}@{}}
@@ -1527,9 +1614,11 @@ mayúsculas y minúsculas. \\
 contienen ``Achalma'' por ``Linux'' en la línea actual, distinguiendo
 entre mayúsculas y minúsculas. \\
 \end{longtable}
+}
 
 \subsection{Transformación de texto}\label{transformaciuxf3n-de-texto}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Shortcuts or commands & Función \\
@@ -1540,12 +1629,14 @@ Shortcuts or commands & Función \\
 \texttt{g+u+u} & Transforma una frase completa a minúsculas. \\
 \texttt{g+U+U} & Transforma una frase completa a mayúsculas. \\
 \end{longtable}
+}
 
 \section{Especificando rangos}\label{especificando-rangos}
 
 \subsection{Símbolos para especificar
 rangos}\label{suxedmbolos-para-especificar-rangos}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1061}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8939}}@{}}
@@ -1564,10 +1655,12 @@ Significado
 \texttt{.} & Representa la línea actual en la que se encuentra el
 cursor \\
 \end{longtable}
+}
 
 \subsection{Especificación de rangos mediante marcas y números de
 línea}\label{especificaciuxf3n-de-rangos-mediante-marcas-y-nuxfameros-de-luxednea}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1507}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8493}}@{}}
@@ -1587,9 +1680,11 @@ entre las marcas `a' y `b' \\
 \texttt{:.-2,.+8y} & Copia el contenido desde 2 líneas encima hasta 8
 líneas debajo \\
 \end{longtable}
+}
 
 \section{Juntar 2 líneas}\label{juntar-2-luxedneas}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2952}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7048}}@{}}
@@ -1608,10 +1703,12 @@ Función
 espacio entre ellas \\
 \texttt{:join} & Fórmula a utilizar si se desean unir 2 líneas \\
 \end{longtable}
+}
 
 \section{Atajos de teclado para realizar pliegues
 manuales}\label{atajos-de-teclado-para-realizar-pliegues-manuales}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1789}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8211}}@{}}
@@ -1644,6 +1741,7 @@ cursor. \\
 \texttt{zj} & Desplaza el cursor al siguiente pliegue. \\
 \texttt{zk} & Desplaza el cursor al pliegue anterior. \\
 \end{longtable}
+}
 
 \textbf{Nota:} Para realizar pliegues de forma manual, debes agregar la
 siguiente línea al archivo de configuración
@@ -1654,6 +1752,7 @@ siguiente línea al archivo de configuración
 \subsection{Mostrar y gestionar los
 registros}\label{mostrar-y-gestionar-los-registros}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1208}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8792}}@{}}
@@ -1699,11 +1798,13 @@ sistema operativo en modo de inserción. \\
 de tu sistema operativo en el modo de inserción de texto. No es
 necesario que el texto esté copiado en el portapapeles del sistema. \\
 \end{longtable}
+}
 
 \textbf{Nota:} Hay 26 registros nominales, desde ``a'' hasta ``z''.
 
 \subsection{Registros numéricos}\label{registros-numuxe9ricos}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3182}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.6818}}@{}}
@@ -1725,9 +1826,11 @@ Shortcuts or commands
 \texttt{"9yy} & Copia la línea actual al registro numérico 9. \\
 \texttt{"9p} & Pega el contenido del registro numérico 9. \\
 \end{longtable}
+}
 
 \subsection{Registros de lectura}\label{registros-de-lectura}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Registro & Contenido almacenado \\
@@ -1740,6 +1843,7 @@ Registro & Contenido almacenado \\
 editando. \\
 \texttt{"."} & Contiene el último texto insertado. \\
 \end{longtable}
+}
 
 Estos registros de lectura te permiten acceder a información relevante,
 como el último comando ejecutado, la ruta del archivo en edición y el
@@ -1748,6 +1852,7 @@ trabajo de Vim para mejorar tu productividad.
 
 \subsection{Registros especiales}\label{registros-especiales}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.0777}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.9223}}@{}}
@@ -1774,6 +1879,7 @@ búsqueda. \\
 ejemplo, puedes hacer una suma como \texttt{=2+2} \\
 & en modo normal y luego pegar el resultado con la tecla \texttt{p}. \\
 \end{longtable}
+}
 
 Estos registros especiales en Vim ofrecen funcionalidades adicionales,
 como el registro del ``agujero negro'' para evitar que palabras borradas
@@ -1790,6 +1896,7 @@ guardados y acceder a ellos en sesiones posteriores.
 \section{¿Cómo usar la terminal de Linux dentro de
 Vim?}\label{cuxf3mo-usar-la-terminal-de-linux-dentro-de-vim}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1694}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8306}}@{}}
@@ -1811,9 +1918,11 @@ usar otros comandos, como \texttt{sudo\ apt\ update}, en su lugar. \\
 \texttt{:r\ !\textless{}comando\textgreater{}} & Inserta la salida del
 comando ejecutado dentro del archivo de Vim que estás editando. \\
 \end{longtable}
+}
 
 \section{Encadenar comandos en Vim**}\label{encadenar-comandos-en-vim}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2692}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7308}}@{}}
@@ -1832,6 +1941,7 @@ documento y lo cierra. \\
 \texttt{:17,20y\ \textbackslash{}\textbar{}\ 122put} & Copia las líneas
 del 17 al 20 y las pega en la línea 122. \\
 \end{longtable}
+}
 
 Usando el símbolo de tubería \texttt{\textbar{}}, puedes encadenar la
 ejecución de comandos en Vim para realizar acciones de forma simultánea.
@@ -1855,6 +1965,7 @@ respectivos Combinación de teclas o comandos:
 
 \subsection{Apertura de archivos}\label{apertura-de-archivos}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1950}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8050}}@{}}
@@ -1890,6 +2001,7 @@ Por ejemplo, \texttt{:bd\ nombre\_archivo.py} cerrará el buffer del
 archivo ``nombre\_archivo.py''. \\
 \texttt{:ba} & Mostrar todos los buffers en pantalla. \\
 \end{longtable}
+}
 
 \subsection{Cierre de archivos}\label{cierre-de-archivos}
 
@@ -1899,6 +2011,7 @@ atajos de teclado específicos para salir del programa. Echa un vistazo a
 la siguiente tabla con los atajos de teclado y sus funciones
 correspondientes:
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1071}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8929}}@{}}
@@ -1926,6 +2039,7 @@ archivos abiertos en Vim y salir, incluso si hay cambios sin guardar. \\
 de los archivos abiertos, puedes utilizar \texttt{:qa!}. Esto cierra Vim
 de inmediato y descarta todos los cambios realizados. \\
 \end{longtable}
+}
 
 \subsection{Trabajar con pestañas}\label{trabajar-con-pestauxf1as}
 
@@ -1933,6 +2047,7 @@ Las pestañas en Vim son una forma práctica de organizar y alternar entre
 múltiples archivos abiertos. Con las siguientes combinaciones de teclas,
 podrás trabajar con pestañas de manera eficiente:
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2199}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7801}}@{}}
@@ -1982,10 +2097,12 @@ múltiples archivos en pestañas separadas. Por ejemplo,
 \texttt{vim\ -p\ archivo1.sh\ archivo2.sh} abrirá archivo1.sh y
 archivo2.sh en pestañas separadas. \\
 \end{longtable}
+}
 
 \subsection{División de la ventana en paneles y cambio entre ventanas y
 paneles}\label{divisiuxf3n-de-la-ventana-en-paneles-y-cambio-entre-ventanas-y-paneles}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1683}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8317}}@{}}
@@ -2050,6 +2167,7 @@ archivos en ventanas separadas.
 \texttt{archivo1.txt}, \texttt{archivo2.txt} y \texttt{archivo3.txt} en
 ventanas separadas. \\
 \end{longtable}
+}
 
 \section{Personalización y configuración de
 Vim}\label{personalizaciuxf3n-y-configuraciuxf3n-de-vim}
@@ -2203,9 +2321,8 @@ algunas sugerencias:
   \href{https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc}{Limpieza
   Y Optimizacion De Pc}
 \item
-  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf}{\faIcon{file-pdf}}
-  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11}{Usando
-  Apk En Windown 11}
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy}{Scrcpy}
 \item
   \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf}{\faIcon{file-pdf}}
   \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu}{Gestionar
@@ -2258,6 +2375,22 @@ algunas sugerencias:
   \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.pdf}{\faIcon{file-pdf}}
   \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow}{Gestiona
   Tus Dotfiles Con Gnu Stow}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger}{Guia
+  De Ranger}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal}{Guia
+  De Kitty Terminal}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide}{Guia
+  De Positron Ide}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync}{Guia
+  De Rsync}
 \end{enumerate}
 
 Esperamos que encuentres estas publicaciones igualmente interesantes y

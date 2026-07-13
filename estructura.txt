@@ -1,0 +1,281 @@
+# ============================================================
+# Proyecto : pub_chaska
+# Ruta     : /home/achalmaedison/Documents/pub_chaska
+# Generado : 2026-07-10 22:06:49
+# Script   : main.sh v2.1.0
+# Profund. : 6 niveles
+# Formato  : txt
+# Excluye  : _extensions _freeze _partials _site site_libs build __pycache__ log output temp .git .quarto node_modules .Rproj.user index_cache __MACOSX *.aux *.log *.out *.toc *.bbl *.blg *.synctex.gz *.fff *.ttt *.fls *.fdb_latexmk *.pyc *.pyo *.egg-info *.ipynb_checkpoints .DS_Store Thumbs.db .Rhistory .RData estructura.txt
+# ============================================================
+
+[4.0K Jul  2 20:15]  /home/achalmaedison/Documents/pub_chaska
+├── [ 259 Jun 20 11:43]  404.qmd
+├── [ 940 Jun 20 11:40]  CITATION.cff
+├── [ 16K Jun 20 11:43]  LICENSE
+├── [ 619 Jun 20 11:43]  SECURITY.md
+├── [ 106 Jun 20 11:43]  _contenido-final.qmd
+├── [ 197 Jun 20 11:43]  _contenido-inicio.qmd
+├── [4.0K Jul  2 19:33]  _filters
+│   ├── [1.3K Jun 20 11:46]  _metadata-pdf.lua
+│   └── [6.5K Jul  2 16:52]  apa-floats-html.lua
+├── [6.0K Jul  2 15:14]  _quarto.yml
+├── [4.0K Jul  2 19:33]  assets
+│   ├── [4.0K Jul  2 09:51]  css
+│   │   ├── [4.0K Jul  2 19:33]  components
+│   │   │   └── [2.4K Jul  2 08:13]  bibbase.css
+│   │   ├── [1.9K Jul  2 08:13]  global.css
+│   │   └── [4.0K Jul  2 19:33]  pages
+│   │       ├── [2.8K Jul  9 05:02]  about.css
+│   │       ├── [2.7K Jul  9 05:02]  contact.css
+│   │       ├── [7.6K Jul  9 05:02]  home.css
+│   │       └── [2.2K Jul  9 05:02]  listing.css
+│   ├── [4.0K Jun 20 11:40]  fonts
+│   │   ├── [ 33K Jun 20 11:40]  DankMono-Bold.woff2
+│   │   ├── [ 32K Jun 20 11:40]  DankMono-Italic.woff2
+│   │   ├── [ 30K Jun 20 11:40]  DankMono-Regular.woff2
+│   │   ├── [ 25K Jun 20 11:40]  petrona-v16-latin-500.eot
+│   │   ├── [ 79K Jun 20 11:40]  petrona-v16-latin-500.svg
+│   │   ├── [ 48K Jun 20 11:40]  petrona-v16-latin-500.ttf
+│   │   ├── [ 26K Jun 20 11:40]  petrona-v16-latin-500.woff
+│   │   ├── [ 22K Jun 20 11:40]  petrona-v16-latin-500.woff2
+│   │   ├── [ 25K Jun 20 11:40]  petrona-v16-latin-regular.eot
+│   │   ├── [ 79K Jun 20 11:40]  petrona-v16-latin-regular.svg
+│   │   ├── [ 48K Jun 20 11:40]  petrona-v16-latin-regular.ttf
+│   │   ├── [ 26K Jun 20 11:40]  petrona-v16-latin-regular.woff
+│   │   ├── [ 21K Jun 20 11:40]  petrona-v16-latin-regular.woff2
+│   │   ├── [ 22K Jun 20 11:40]  red-hat-text-v3-latin-500.eot
+│   │   ├── [ 53K Jun 20 11:40]  red-hat-text-v3-latin-500.svg
+│   │   ├── [ 45K Jun 20 11:40]  red-hat-text-v3-latin-500.ttf
+│   │   ├── [ 23K Jun 20 11:40]  red-hat-text-v3-latin-500.woff
+│   │   ├── [ 19K Jun 20 11:40]  red-hat-text-v3-latin-500.woff2
+│   │   ├── [ 22K Jun 20 11:40]  red-hat-text-v3-latin-500italic.eot
+│   │   ├── [ 55K Jun 20 11:40]  red-hat-text-v3-latin-500italic.svg
+│   │   ├── [ 45K Jun 20 11:40]  red-hat-text-v3-latin-500italic.ttf
+│   │   ├── [ 23K Jun 20 11:40]  red-hat-text-v3-latin-500italic.woff
+│   │   ├── [ 19K Jun 20 11:40]  red-hat-text-v3-latin-500italic.woff2
+│   │   ├── [ 22K Jun 20 11:40]  red-hat-text-v3-latin-italic.eot
+│   │   ├── [ 55K Jun 20 11:40]  red-hat-text-v3-latin-italic.svg
+│   │   ├── [ 45K Jun 20 11:40]  red-hat-text-v3-latin-italic.ttf
+│   │   ├── [ 23K Jun 20 11:40]  red-hat-text-v3-latin-italic.woff
+│   │   ├── [ 19K Jun 20 11:40]  red-hat-text-v3-latin-italic.woff2
+│   │   ├── [ 21K Jun 20 11:40]  red-hat-text-v3-latin-regular.eot
+│   │   ├── [ 53K Jun 20 11:40]  red-hat-text-v3-latin-regular.svg
+│   │   ├── [ 44K Jun 20 11:40]  red-hat-text-v3-latin-regular.ttf
+│   │   ├── [ 22K Jun 20 11:40]  red-hat-text-v3-latin-regular.woff
+│   │   └── [ 18K Jun 20 11:40]  red-hat-text-v3-latin-regular.woff2
+│   ├── [ 243 Jun 20 11:40]  gtm-body.html
+│   ├── [ 420 Jun 20 11:40]  gtm-head.html
+│   ├── [4.0K Jun 20 11:40]  img
+│   │   ├── [281K Jun 20 11:40]  achalma-social.png
+│   │   ├── [1.1M Jun 20 11:40]  default-preview.jpg
+│   │   ├── [ 31K Jun 20 11:40]  favicon.png
+│   │   └── [1.1M Jun 20 11:40]  sidebar.jpg
+│   ├── [1.0K Jul  2 10:44]  interactions.html
+│   ├── [4.0K Jul  2 19:33]  js
+│   │   ├── [2.1K Jul  2 10:57]  README.md
+│   │   ├── [1.5K Jul  2 10:43]  cursor.js
+│   │   ├── [1.8K Jul  2 10:43]  hero.js
+│   │   ├── [ 974 Jul  2 10:43]  navbar.js
+│   │   └── [1.6K Jul  2 10:43]  scroll-effects.js
+│   └── [4.0K Jul  2 19:33]  scss
+│       ├── [4.0K Jul  2 19:33]  00-settings
+│       │   ├── [1.9K Jul  2 09:47]  _bootstrap.scss
+│       │   ├── [ 882 Jul  2 09:46]  _layout.scss
+│       │   ├── [1.6K Jul  2 09:45]  _palette-dark.scss
+│       │   ├── [1.9K Jul  2 09:45]  _palette-light.scss
+│       │   ├── [5.1K Jul  2 09:46]  _tokens-dark.scss
+│       │   ├── [5.5K Jul  2 09:46]  _tokens-light.scss
+│       │   └── [1.7K Jul  2 09:46]  _typography.scss
+│       ├── [4.0K Jul  2 19:33]  01-tools
+│       │   └── [1.3K Jul  2 09:47]  _mixins.scss
+│       ├── [4.0K Jul  2 19:33]  02-base
+│       │   ├── [3.8K Jul  2 09:47]  _fonts.scss
+│       │   ├── [1.1K Jul  2 09:47]  _reset.scss
+│       │   ├── [1.5K Jul  2 09:47]  _root.scss
+│       │   └── [3.4K Jul  2 09:48]  _typography.scss
+│       ├── [4.0K Jul  2 19:33]  03-layout
+│       │   ├── [1.3K Jul  2 09:49]  _footer.scss
+│       │   ├── [3.0K Jul  2 09:48]  _navbar.scss
+│       │   ├── [1.3K Jul  2 09:50]  _responsive.scss
+│       │   └── [4.7K Jul  2 12:36]  _toc.scss
+│       ├── [4.0K Jul  2 20:10]  04-components
+│       │   ├── [1.4K Jul  2 09:49]  _buttons.scss
+│       │   ├── [1.0K Jul  2 09:49]  _callouts.scss
+│       │   ├── [1.2K Jul  2 09:49]  _citations.scss
+│       │   ├── [1.9K Jul  2 09:48]  _code.scss
+│       │   ├── [2.6K Jul  2 16:54]  _floats.scss
+│       │   ├── [2.8K Jul  2 09:48]  _listings.scss
+│       │   ├── [ 781 Jul  2 09:49]  _math.scss
+│       │   ├── [1.1K Jul  2 09:49]  _pagination.scss
+│       │   ├── [ 848 Jul  2 09:49]  _search.scss
+│       │   ├── [2.5K Jul  2 11:45]  _section-numbers.scss
+│       │   ├── [ 866 Jul  2 09:49]  _social.scss
+│       │   ├── [1.5K Jul  2 09:49]  _tables.scss
+│       │   └── [1.9K Jul  2 09:48]  _title-block.scss
+│       ├── [4.0K Jul  2 19:33]  05-interactions
+│       │   └── [2.2K Jul  2 09:50]  _microinteractions.scss
+│       ├── [4.0K Jul  2 19:33]  05-pages
+│       │   ├── [ 956 Jul  2 10:42]  _blog.scss
+│       │   ├── [ 946 Jul  2 10:42]  _courses.scss
+│       │   ├── [ 935 Jul  2 10:42]  _post.scss
+│       │   ├── [ 940 Jul  2 10:42]  _projects.scss
+│       │   ├── [1022 Jul  2 10:42]  _publications.scss
+│       │   ├── [3.4K Jul  2 10:42]  about.scss
+│       │   ├── [3.3K Jul  2 10:42]  contact.scss
+│       │   ├── [8.3K Jul  2 10:42]  home.scss
+│       │   └── [2.9K Jul  2 10:42]  listing.scss
+│       ├── [4.0K Jul  2 19:33]  06-themes
+│       │   └── [1.9K Jul  2 09:50]  _dark-adjustments.scss
+│       ├── [6.0K Jul  2 10:57]  README.md
+│       ├── [2.1K Jul  2 20:06]  theme-dark.scss
+│       └── [1.9K Jul  2 20:06]  theme-light.scss
+├── [4.0K Jun 22 23:47]  ciberseguridad-cybersoc-ccs
+│   ├── [ 16K Jul  2 14:59]  _metadata.yml
+│   └── [1.1M Jun 20 11:40]  featured.jpg
+├── [4.0K Jun 22 23:47]  ciberseguridad-ethical-hacking-ceh
+│   ├── [4.0K Jun 20 11:40]  2024-09-03-ejecutando-payload
+│   │   ├── [5.0K Jun 20 11:40]  index.html.md
+│   │   ├── [4.6K Jun 20 11:40]  index.qmd
+│   │   └── [ 15K Jun 20 11:40]  index.tex
+│   ├── [ 254 Jun 20 11:40]  _contenido_ciberseguridad-ethical-hacking-ceh.qmd
+│   ├── [ 16K Jul  2 14:59]  _metadata.yml
+│   └── [1.1M Jun 20 11:40]  featured.jpg
+├── [4.0K Jul  2 20:16]  docs
+│   └── [ 15K Jul  2 19:39]  README.md
+├── [4.0K Jun 22 23:47]  i3wm
+│   ├── [4.0K Jun 20 11:40]  2020-02-15-introduccion-a-i3wm
+│   │   ├── [4.5K Jun 20 11:40]  index.html.md
+│   │   ├── [1.9K Jun 20 11:40]  index.qmd
+│   │   └── [ 12K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2020-02-16-guia-de-instalacion-y-configuracion-de-i3wm
+│   │   ├── [5.3K Jun 20 11:40]  index.html.md
+│   │   ├── [2.7K Jun 20 11:40]  index.qmd
+│   │   └── [ 13K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2020-02-17-atajos-de-teclado-y-comandos-esenciales-de-i3wm
+│   │   ├── [4.9K Jun 20 11:40]  index.html.md
+│   │   ├── [2.4K Jun 20 11:40]  index.qmd
+│   │   └── [ 11K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 23 02:28]  2020-02-18-personalizando-de-i3wm
+│   │   ├── [2.6K Jun 20 11:40]  index.qmd
+│   │   └── [ 12K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2020-02-18-trabajando-con-ventanas-en-i3wm
+│   │   ├── [5.2K Jun 20 11:40]  index.html.md
+│   │   ├── [2.7K Jun 20 11:40]  index.qmd
+│   │   └── [ 12K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2020-02-19-aumenta-tu-productividad-con-i3wm
+│   │   ├── [5.3K Jun 20 11:40]  index.html.md
+│   │   ├── [2.7K Jun 20 11:40]  index.qmd
+│   │   └── [ 12K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2020-02-20-i3wm-vs-otros-gestores-de-ventanas
+│   │   ├── [5.2K Jun 20 11:40]  index.html.md
+│   │   ├── [2.7K Jun 20 11:40]  index.qmd
+│   │   └── [ 12K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2020-02-21-integracion-de-i3wm-en-tu-entorno-de-trabajo
+│   │   ├── [5.5K Jun 20 11:40]  index.html.md
+│   │   ├── [3.0K Jun 20 11:40]  index.qmd
+│   │   └── [ 12K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2020-02-22-casos-de-uso-avanzados-de-i3wm
+│   │   ├── [5.3K Jun 20 11:40]  index.html.md
+│   │   ├── [2.8K Jun 20 11:40]  index.qmd
+│   │   └── [ 12K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2020-02-23-solucion-de-problemas-comunes-en-i3wm
+│   │   ├── [5.3K Jun 20 11:40]  index.html.md
+│   │   ├── [2.8K Jun 20 11:40]  index.qmd
+│   │   └── [ 12K Jun 20 11:40]  index.tex
+│   ├── [2.4K Jun 20 11:40]  _contenido_i3wm.qmd
+│   ├── [ 16K Jul  2 14:59]  _metadata.yml
+│   └── [1.1M Jun 20 11:40]  featured.jpg
+├── [2.2K Jul  2 15:07]  index.qmd
+├── [4.0K Jun 22 23:47]  operating-system
+│   ├── [4.0K Jun 20 11:40]  2017-05-21-comandos-de-informacion-windows
+│   │   ├── [ 11K Jun 20 11:40]  index.html.md
+│   │   ├── [6.7K Jun 20 11:40]  index.qmd
+│   │   └── [ 20K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2019-06-19-adb
+│   │   ├── [ 52K Jun 20 11:40]  index.html.md
+│   │   ├── [ 48K Jun 20 11:40]  index.qmd
+│   │   └── [105K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2021-08-17-limpieza-y-optimizacion-de-pc
+│   │   ├── [7.1K Jun 20 11:40]  index.html.md
+│   │   ├── [2.9K Jun 20 11:40]  index.qmd
+│   │   └── [ 17K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2021-10-21-scrcpy
+│   │   ├── [ 34K Jun 20 11:40]  index.html.md
+│   │   ├── [ 30K Jun 20 11:40]  index.qmd
+│   │   └── [ 75K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2022-05-12-gestionar-versiones-de-jdk-en-kubuntu
+│   │   ├── [8.6K Jun 20 11:40]  index.html.md
+│   │   ├── [4.4K Jun 20 11:40]  index.qmd
+│   │   └── [ 19K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2022-07-21-instalar-tor-browser
+│   │   ├── [6.5K Jun 20 11:40]  index.html.md
+│   │   ├── [2.3K Jun 20 11:40]  index.qmd
+│   │   └── [ 16K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2022-08-14-crear-enlaces-duros-o-hard-link-en-linux
+│   │   ├── [8.4K Jun 20 11:40]  index.html.md
+│   │   ├── [4.2K Jun 20 11:40]  index.qmd
+│   │   └── [ 19K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2022-09-27-comandos-vim
+│   │   ├── [ 48K Jun 20 11:40]  index.html.md
+│   │   ├── [ 44K Jun 20 11:40]  index.qmd
+│   │   └── [100K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2023-02-16-guia-de-git-y-github
+│   │   ├── [ 43K Jun 20 11:40]  index.html.md
+│   │   ├── [ 40K Jul  2 08:58]  index.qmd
+│   │   └── [ 92K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2023-05-02-00-primeros-pasos-en-linux
+│   │   ├── [ 26K Jun 20 11:40]  index.html.md
+│   │   ├── [ 22K Jun 20 11:40]  index.qmd
+│   │   └── [ 35K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2023-06-17-01-introduccion-linux
+│   │   ├── [ 12K Jun 20 11:40]  index.html.md
+│   │   ├── [7.9K Jun 20 11:40]  index.qmd
+│   │   └── [ 19K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2023-06-18-02-distribuciones-linux
+│   │   ├── [ 19K Jun 20 11:40]  index.html.md
+│   │   ├── [ 15K Jun 20 11:40]  index.qmd
+│   │   └── [ 27K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2023-06-19-03-instalacion-linux
+│   │   ├── [ 14K Jun 20 11:40]  index.html.md
+│   │   ├── [9.4K Jun 20 11:40]  index.qmd
+│   │   └── [ 20K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2023-06-20-04-administracion-particiones-volumenes
+│   │   ├── [ 12K Jun 20 11:40]  index.html.md
+│   │   ├── [8.2K Jun 20 11:40]  index.qmd
+│   │   └── [ 19K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim
+│   │   ├── [ 79K Jun 20 11:40]  index.html.md
+│   │   ├── [ 74K Jun 20 11:40]  index.qmd
+│   │   └── [ 87K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2024-07-15-instalando-specitify
+│   │   ├── [7.4K Jun 20 11:40]  index.html.md
+│   │   ├── [3.2K Jun 20 11:40]  index.qmd
+│   │   └── [ 18K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2025-07-10-gestiona-tus-dotfiles-con-gnu-stow
+│   │   ├── [105K Jun 20 11:40]  index.html.md
+│   │   ├── [101K Jun 20 11:40]  index.qmd
+│   │   └── [237K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2025-12-30-guia-de-ranger
+│   │   ├── [240K Jun 20 11:40]  featured.png
+│   │   ├── [ 45K Jun 20 11:40]  index.html.md
+│   │   ├── [ 41K Jun 20 11:40]  index.qmd
+│   │   └── [ 87K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2025-12-31-guia-de-kitty-terminal
+│   │   ├── [ 88K Jun 20 11:40]  featured.png
+│   │   ├── [ 58K Jun 20 11:40]  index.html.md
+│   │   ├── [ 53K Jun 20 11:40]  index.qmd
+│   │   └── [128K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 21 16:05]  2025-12-31-guia-de-positron-ide
+│   │   ├── [452K Jun 20 11:40]  featured.png
+│   │   ├── [ 57K Jun 20 11:40]  index.html.md
+│   │   ├── [ 48K Jun 21 16:05]  index.qmd
+│   │   └── [112K Jun 20 11:40]  index.tex
+│   ├── [4.0K Jun 20 11:40]  2026-04-23-guia-de-rsync
+│   │   └── [ 39K Jun 20 11:40]  index.qmd
+│   ├── [4.0K Jun 20 11:40]  _contenido_operating-system.qmd
+│   ├── [ 16K Jul  2 14:59]  _metadata.yml
+│   └── [1.1M Jun 20 11:40]  featured.jpg
+└── [4.0K Jul  2 19:33]  scripts
+    └── [2.2K Jul  2 10:43]  build-page-css.sh
+
+56 directories, 213 files

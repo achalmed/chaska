@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>Guía Completa de Ranger – Edison Achalma B.Sc. Econ.</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -71,15 +74,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../assets/img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-30b4b9a2d3d7fc4440fb514efb3ce0ba.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c5476e714a85dbfbbcebc64b0d85118e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-cec134992aab4372cb718d1833829c4a.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c5476e714a85dbfbbcebc64b0d85118e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-73ea7a29ae0ac8f38264d57f9eb62418.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-06b466aced5058fffa44584b53f99f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-5389a330c79191949d5bbb2aa435eab0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-06b466aced5058fffa44584b53f99f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
@@ -120,17 +126,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-NGDQM4GK');</script>
 <!-- End Google Tag Manager -->
+<!-- Metadatos mejorados para Zotero -->
+<meta name="citation_title" content="Guía Completa de Ranger">
+<meta name="citation_author" content="Edison Achalma">
+<meta name="citation_author_orcid" content="0000-0001-6996-3364">
+<meta name="citation_publication_date" content="30 de diciembre de 2025">
+<meta name="citation_language" content="es">
+<meta name="citation_keywords" content="?meta:keywords-string">
+<meta name="citation_abstract" content="Ranger es un gestor de archivos basado en consola altamente eficiente, diseñado con una fuerte inspiración en los atajos de teclado de Vim y una filosofía minimalista. Esta guía completa explora en detalle su instalación en diferentes sistemas operativos, configuración inicial y avanzada, estructura de archivos de configuración (rc.conf, rifle.conf, scope.sh, commands.py), así como la personalización profunda mediante mapeos de teclado, comandos personalizados en Python y plugins. Se detallan las características principales que lo distinguen; navegación multi-columna, previsualización automática de múltiples tipos de archivo (texto, código, imágenes, PDFs, videos, comprimidos), gestión inteligente de archivos mediante rifle, soporte de pestañas, marcadores, renombrado masivo, integración con el shell y capacidades de preview mejoradas mediante herramientas externas. La guía incluye referencias prácticas de atajos fundamentales y avanzados, ejemplos de configuración realistas, soluciones a problemas comunes, trucos de productividad y recomendaciones para integrar Ranger en flujos de trabajo diarios de usuarios de terminal (especialmente aquellos familiarizados con Vim/Neovim). Dirigida tanto a usuarios noveles que buscan reemplazar gestores gráficos tradicionales, como a usuarios avanzados que desean optimizar y extender al máximo esta poderosa herramienta de gestión de archivos en entornos Linux.">
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Guía Completa de Ranger",
+  "author": {
+    "@type": "Person",
+    "name": "Edison Achalma",
+    "@id": "https://orcid.org/0000-0001-6996-3364"
+  },
+  "datePublished": "30 de diciembre de 2025",
+  "description": "Ranger es un gestor de archivos basado en consola altamente eficiente, diseñado con una fuerte inspiración en los atajos de teclado de Vim y una filosofía minimalista. Esta guía completa explora en detalle su instalación en diferentes sistemas operativos, configuración inicial y avanzada, estructura de archivos de configuración (rc.conf, rifle.conf, scope.sh, commands.py), así como la personalización profunda mediante mapeos de teclado, comandos personalizados en Python y plugins. Se detallan las características principales que lo distinguen; navegación multi-columna, previsualización automática de múltiples tipos de archivo (texto, código, imágenes, PDFs, videos, comprimidos), gestión inteligente de archivos mediante rifle, soporte de pestañas, marcadores, renombrado masivo, integración con el shell y capacidades de preview mejoradas mediante herramientas externas. La guía incluye referencias prácticas de atajos fundamentales y avanzados, ejemplos de configuración realistas, soluciones a problemas comunes, trucos de productividad y recomendaciones para integrar Ranger en flujos de trabajo diarios de usuarios de terminal (especialmente aquellos familiarizados con Vim/Neovim). Dirigida tanto a usuarios noveles que buscan reemplazar gestores gráficos tradicionales, como a usuarios avanzados que desean optimizar y extender al máximo esta poderosa herramienta de gestión de archivos en entornos Linux.",
+  "keywords": "?meta:keywords-string",
+  "inLanguage": "es"
+}
+</script>
 
 
-<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="stylesheet" href="../../assets/css/global.css">
+<link rel="stylesheet" href="../../assets/css/components/bibbase.css">
 <meta property="og:title" content="Edison Achalma B.Sc. Econ.">
 <meta property="og:description" content="Investigador y educador que aplica la ciencia de datos de forma que se dé prioridad a la equidad social.">
 <meta property="og:image" content="https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/featured.png">
-<meta property="og:site_name" content="Actus mercator">
+<meta property="og:site_name" content="Edison Achalma B.Sc. Econ.">
 <meta property="og:image:height" content="1033">
 <meta property="og:image:width" content="1918">
 <meta property="og:locale" content="es_ES">
-<meta name="twitter:title" content="Guía Completa de Ranger – Edison Achalma B.Sc. Econ.">
+<meta name="twitter:title" content="Guía Completa de Ranger">
 <meta name="twitter:description" content="El gestor de archivos de consola inspirado en Vim.">
 <meta name="twitter:image" content="https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/featured.png">
 <meta name="twitter:creator" content="@achalmaedison">
@@ -150,7 +183,169 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="citation_language" content="es">
 </head>
 
-<body class="floating nav-fixed quarto-light">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -242,16 +437,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <div id="quarto-announcement" data-announcement-id="198edcd182a186efde93855487f89d6b" class="alert alert-primary hidden"><i class="bi bi-gift quarto-announcement-icon"></i><div class="quarto-announcement-content">
-<p>¡Bienvenidos a mi mundo! ¡Felices fiestas! Gracias por visitar 🎄</p>
-</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
 </header>
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns" style="position: relative; width: 100%; margin: 0; padding: 0;">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
   <!-- Incluir imagen de fondo si existe featured.jpg, de lo contrario, partículas -->
     <div id="particles-js"></div>
@@ -259,10 +451,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Contenido principal del bloque de título -->
   <div class="title-block-content">
     <div class="quarto-title-block"><div><h1 class="title">Guía Completa de Ranger</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/achalmed/chaska/blob/main/operating-system/2025-12-30-guia-de-ranger/index.qmd"><i class="bi"></i></button></div></div>
-                <div class="quarto-categories">
-            <div class="quarto-category">Operating System</div>
-          </div>
-        
+    
     <div class="quarto-title-meta-author">
       <div class="quarto-title-meta-heading">Autor/a</div>
       <div class="quarto-title-meta-heading">Afiliación</div>
@@ -292,7 +481,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div>
         <div class="quarto-title-meta-heading">Fecha de última modificación</div>
         <div class="quarto-title-meta-contents">
-          <p class="date-modified">15 de enero de 2026</p>
+          <p class="date-modified">13 de julio de 2026</p>
         </div>
       </div>
         
@@ -312,6 +501,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </div>
 
+    <!-- Categorías tras los metadatos: fila silenciosa junto a las acciones,
+         sin competir con el título -->
+            <div class="quarto-categories">
+            <div class="quarto-category">Operating System</div>
+          </div>
+        
     
     <!-- Cargar script de Particle.js desde CDN, solo si no hay featured.jpg -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
@@ -324,188 +519,186 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
 </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
     <h2 id="toc-title">Contenidos</h2>
    
   <ul>
-  <li><a href="#instalación" id="toc-instalación" class="nav-link active" data-scroll-target="#instalación">Instalación</a>
+  <li><a href="#instalación" id="toc-instalación" class="nav-link active" data-scroll-target="#instalación"><span class="header-section-number">1</span> Instalación</a>
   <ul class="collapse">
-  <li><a href="#desde-repositorios" id="toc-desde-repositorios" class="nav-link" data-scroll-target="#desde-repositorios">Desde Repositorios</a></li>
-  <li><a href="#desde-pypi" id="toc-desde-pypi" class="nav-link" data-scroll-target="#desde-pypi">Desde PyPI</a></li>
-  <li><a href="#desde-código-fuente" id="toc-desde-código-fuente" class="nav-link" data-scroll-target="#desde-código-fuente">Desde Código Fuente</a></li>
-  <li><a href="#verificar-instalación" id="toc-verificar-instalación" class="nav-link" data-scroll-target="#verificar-instalación">Verificar Instalación</a></li>
-  <li><a href="#dependencias-opcionales" id="toc-dependencias-opcionales" class="nav-link" data-scroll-target="#dependencias-opcionales">Dependencias Opcionales</a>
+  <li><a href="#desde-repositorios" id="toc-desde-repositorios" class="nav-link" data-scroll-target="#desde-repositorios"><span class="header-section-number">1.1</span> Desde Repositorios</a></li>
+  <li><a href="#desde-pypi" id="toc-desde-pypi" class="nav-link" data-scroll-target="#desde-pypi"><span class="header-section-number">1.2</span> Desde PyPI</a></li>
+  <li><a href="#desde-código-fuente" id="toc-desde-código-fuente" class="nav-link" data-scroll-target="#desde-código-fuente"><span class="header-section-number">1.3</span> Desde Código Fuente</a></li>
+  <li><a href="#verificar-instalación" id="toc-verificar-instalación" class="nav-link" data-scroll-target="#verificar-instalación"><span class="header-section-number">1.4</span> Verificar Instalación</a></li>
+  <li><a href="#dependencias-opcionales" id="toc-dependencias-opcionales" class="nav-link" data-scroll-target="#dependencias-opcionales"><span class="header-section-number">1.5</span> Dependencias Opcionales</a>
   <ul class="collapse">
-  <li><a href="#para-debian-ubuntu-derivados" id="toc-para-debian-ubuntu-derivados" class="nav-link" data-scroll-target="#para-debian-ubuntu-derivados">Para Debian / Ubuntu / derivados</a></li>
-  <li><a href="#para-arch-linux-manjaro-derivados" id="toc-para-arch-linux-manjaro-derivados" class="nav-link" data-scroll-target="#para-arch-linux-manjaro-derivados">Para Arch Linux / Manjaro / derivados</a></li>
-  <li><a href="#instalación-recomendada-mínima-elige-según-tu-caso" id="toc-instalación-recomendada-mínima-elige-según-tu-caso" class="nav-link" data-scroll-target="#instalación-recomendada-mínima-elige-según-tu-caso">Instalación recomendada mínima (elige según tu caso)</a></li>
+  <li><a href="#para-debian-ubuntu-derivados" id="toc-para-debian-ubuntu-derivados" class="nav-link" data-scroll-target="#para-debian-ubuntu-derivados"><span class="header-section-number">1.5.1</span> Para Debian / Ubuntu / derivados</a></li>
+  <li><a href="#para-arch-linux-manjaro-derivados" id="toc-para-arch-linux-manjaro-derivados" class="nav-link" data-scroll-target="#para-arch-linux-manjaro-derivados"><span class="header-section-number">1.5.2</span> Para Arch Linux / Manjaro / derivados</a></li>
+  <li><a href="#instalación-recomendada-mínima-elige-según-tu-caso" id="toc-instalación-recomendada-mínima-elige-según-tu-caso" class="nav-link" data-scroll-target="#instalación-recomendada-mínima-elige-según-tu-caso"><span class="header-section-number">1.5.3</span> Instalación recomendada mínima (elige según tu caso)</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#configuración-inicial" id="toc-configuración-inicial" class="nav-link" data-scroll-target="#configuración-inicial">Configuración Inicial</a>
+  <li><a href="#configuración-inicial" id="toc-configuración-inicial" class="nav-link" data-scroll-target="#configuración-inicial"><span class="header-section-number">2</span> Configuración Inicial</a>
   <ul class="collapse">
-  <li><a href="#generar-archivos-de-configuración" id="toc-generar-archivos-de-configuración" class="nav-link" data-scroll-target="#generar-archivos-de-configuración">Generar Archivos de Configuración</a></li>
-  <li><a href="#ubicación-de-archivos" id="toc-ubicación-de-archivos" class="nav-link" data-scroll-target="#ubicación-de-archivos">Ubicación de Archivos</a></li>
-  <li><a href="#primer-lanzamiento" id="toc-primer-lanzamiento" class="nav-link" data-scroll-target="#primer-lanzamiento">Primer Lanzamiento</a></li>
+  <li><a href="#generar-archivos-de-configuración" id="toc-generar-archivos-de-configuración" class="nav-link" data-scroll-target="#generar-archivos-de-configuración"><span class="header-section-number">2.1</span> Generar Archivos de Configuración</a></li>
+  <li><a href="#ubicación-de-archivos" id="toc-ubicación-de-archivos" class="nav-link" data-scroll-target="#ubicación-de-archivos"><span class="header-section-number">2.2</span> Ubicación de Archivos</a></li>
+  <li><a href="#primer-lanzamiento" id="toc-primer-lanzamiento" class="nav-link" data-scroll-target="#primer-lanzamiento"><span class="header-section-number">2.3</span> Primer Lanzamiento</a></li>
   </ul></li>
-  <li><a href="#interfaz-y-navegación-básica" id="toc-interfaz-y-navegación-básica" class="nav-link" data-scroll-target="#interfaz-y-navegación-básica">Interfaz y Navegación Básica</a>
+  <li><a href="#interfaz-y-navegación-básica" id="toc-interfaz-y-navegación-básica" class="nav-link" data-scroll-target="#interfaz-y-navegación-básica"><span class="header-section-number">3</span> Interfaz y Navegación Básica</a>
   <ul class="collapse">
-  <li><a href="#estructura-de-la-pantalla" id="toc-estructura-de-la-pantalla" class="nav-link" data-scroll-target="#estructura-de-la-pantalla">Estructura de la Pantalla</a></li>
-  <li><a href="#columnas" id="toc-columnas" class="nav-link" data-scroll-target="#columnas">Columnas</a></li>
-  <li><a href="#barra-de-estado" id="toc-barra-de-estado" class="nav-link" data-scroll-target="#barra-de-estado">Barra de Estado</a></li>
+  <li><a href="#estructura-de-la-pantalla" id="toc-estructura-de-la-pantalla" class="nav-link" data-scroll-target="#estructura-de-la-pantalla"><span class="header-section-number">3.1</span> Estructura de la Pantalla</a></li>
+  <li><a href="#columnas" id="toc-columnas" class="nav-link" data-scroll-target="#columnas"><span class="header-section-number">3.2</span> Columnas</a></li>
+  <li><a href="#barra-de-estado" id="toc-barra-de-estado" class="nav-link" data-scroll-target="#barra-de-estado"><span class="header-section-number">3.3</span> Barra de Estado</a></li>
   </ul></li>
-  <li><a href="#atajos-de-teclado-fundamentales" id="toc-atajos-de-teclado-fundamentales" class="nav-link" data-scroll-target="#atajos-de-teclado-fundamentales">Atajos de Teclado Fundamentales</a>
+  <li><a href="#atajos-de-teclado-fundamentales" id="toc-atajos-de-teclado-fundamentales" class="nav-link" data-scroll-target="#atajos-de-teclado-fundamentales"><span class="header-section-number">4</span> Atajos de Teclado Fundamentales</a>
   <ul class="collapse">
-  <li><a href="#navegación-básica-estilo-vim" id="toc-navegación-básica-estilo-vim" class="nav-link" data-scroll-target="#navegación-básica-estilo-vim">Navegación Básica (Estilo Vim)</a></li>
-  <li><a href="#movimiento-rápido" id="toc-movimiento-rápido" class="nav-link" data-scroll-target="#movimiento-rápido">Movimiento Rápido</a></li>
-  <li><a href="#salir-y-ayuda" id="toc-salir-y-ayuda" class="nav-link" data-scroll-target="#salir-y-ayuda">Salir y Ayuda</a></li>
+  <li><a href="#navegación-básica-estilo-vim" id="toc-navegación-básica-estilo-vim" class="nav-link" data-scroll-target="#navegación-básica-estilo-vim"><span class="header-section-number">4.1</span> Navegación Básica (Estilo Vim)</a></li>
+  <li><a href="#movimiento-rápido" id="toc-movimiento-rápido" class="nav-link" data-scroll-target="#movimiento-rápido"><span class="header-section-number">4.2</span> Movimiento Rápido</a></li>
+  <li><a href="#salir-y-ayuda" id="toc-salir-y-ayuda" class="nav-link" data-scroll-target="#salir-y-ayuda"><span class="header-section-number">4.3</span> Salir y Ayuda</a></li>
   </ul></li>
-  <li><a href="#navegación-avanzada" id="toc-navegación-avanzada" class="nav-link" data-scroll-target="#navegación-avanzada">Navegación Avanzada</a>
+  <li><a href="#navegación-avanzada" id="toc-navegación-avanzada" class="nav-link" data-scroll-target="#navegación-avanzada"><span class="header-section-number">5</span> Navegación Avanzada</a>
   <ul class="collapse">
-  <li><a href="#historial-de-navegación" id="toc-historial-de-navegación" class="nav-link" data-scroll-target="#historial-de-navegación">Historial de Navegación</a></li>
-  <li><a href="#saltos-rápidos" id="toc-saltos-rápidos" class="nav-link" data-scroll-target="#saltos-rápidos">Saltos Rápidos</a></li>
-  <li><a href="#navegación-por-primera-letra" id="toc-navegación-por-primera-letra" class="nav-link" data-scroll-target="#navegación-por-primera-letra">Navegación por Primera Letra</a></li>
-  <li><a href="#ir-a-directorio-específico" id="toc-ir-a-directorio-específico" class="nav-link" data-scroll-target="#ir-a-directorio-específico">Ir a Directorio Específico</a></li>
+  <li><a href="#historial-de-navegación" id="toc-historial-de-navegación" class="nav-link" data-scroll-target="#historial-de-navegación"><span class="header-section-number">5.1</span> Historial de Navegación</a></li>
+  <li><a href="#saltos-rápidos" id="toc-saltos-rápidos" class="nav-link" data-scroll-target="#saltos-rápidos"><span class="header-section-number">5.2</span> Saltos Rápidos</a></li>
+  <li><a href="#navegación-por-primera-letra" id="toc-navegación-por-primera-letra" class="nav-link" data-scroll-target="#navegación-por-primera-letra"><span class="header-section-number">5.3</span> Navegación por Primera Letra</a></li>
+  <li><a href="#ir-a-directorio-específico" id="toc-ir-a-directorio-específico" class="nav-link" data-scroll-target="#ir-a-directorio-específico"><span class="header-section-number">5.4</span> Ir a Directorio Específico</a></li>
   </ul></li>
-  <li><a href="#operaciones-con-archivos" id="toc-operaciones-con-archivos" class="nav-link" data-scroll-target="#operaciones-con-archivos">Operaciones con Archivos</a>
+  <li><a href="#operaciones-con-archivos" id="toc-operaciones-con-archivos" class="nav-link" data-scroll-target="#operaciones-con-archivos"><span class="header-section-number">6</span> Operaciones con Archivos</a>
   <ul class="collapse">
-  <li><a href="#copiar-cortar-y-pegar" id="toc-copiar-cortar-y-pegar" class="nav-link" data-scroll-target="#copiar-cortar-y-pegar">Copiar, Cortar y Pegar</a></li>
-  <li><a href="#eliminar" id="toc-eliminar" class="nav-link" data-scroll-target="#eliminar">Eliminar</a></li>
-  <li><a href="#crear-y-editar" id="toc-crear-y-editar" class="nav-link" data-scroll-target="#crear-y-editar">Crear y Editar</a></li>
-  <li><a href="#permisos-y-propiedades" id="toc-permisos-y-propiedades" class="nav-link" data-scroll-target="#permisos-y-propiedades">Permisos y Propiedades</a></li>
+  <li><a href="#copiar-cortar-y-pegar" id="toc-copiar-cortar-y-pegar" class="nav-link" data-scroll-target="#copiar-cortar-y-pegar"><span class="header-section-number">6.1</span> Copiar, Cortar y Pegar</a></li>
+  <li><a href="#eliminar" id="toc-eliminar" class="nav-link" data-scroll-target="#eliminar"><span class="header-section-number">6.2</span> Eliminar</a></li>
+  <li><a href="#crear-y-editar" id="toc-crear-y-editar" class="nav-link" data-scroll-target="#crear-y-editar"><span class="header-section-number">6.3</span> Crear y Editar</a></li>
+  <li><a href="#permisos-y-propiedades" id="toc-permisos-y-propiedades" class="nav-link" data-scroll-target="#permisos-y-propiedades"><span class="header-section-number">6.4</span> Permisos y Propiedades</a></li>
   </ul></li>
-  <li><a href="#selección-múltiple" id="toc-selección-múltiple" class="nav-link" data-scroll-target="#selección-múltiple">Selección Múltiple</a>
+  <li><a href="#selección-múltiple" id="toc-selección-múltiple" class="nav-link" data-scroll-target="#selección-múltiple"><span class="header-section-number">7</span> Selección Múltiple</a>
   <ul class="collapse">
-  <li><a href="#seleccionar-archivos" id="toc-seleccionar-archivos" class="nav-link" data-scroll-target="#seleccionar-archivos">Seleccionar Archivos</a></li>
-  <li><a href="#modo-visual" id="toc-modo-visual" class="nav-link" data-scroll-target="#modo-visual">Modo Visual</a></li>
-  <li><a href="#operaciones-con-múltiples-archivos" id="toc-operaciones-con-múltiples-archivos" class="nav-link" data-scroll-target="#operaciones-con-múltiples-archivos">Operaciones con Múltiples Archivos</a></li>
-  <li><a href="#renombrado-masivo" id="toc-renombrado-masivo" class="nav-link" data-scroll-target="#renombrado-masivo">Renombrado Masivo</a></li>
+  <li><a href="#seleccionar-archivos" id="toc-seleccionar-archivos" class="nav-link" data-scroll-target="#seleccionar-archivos"><span class="header-section-number">7.1</span> Seleccionar Archivos</a></li>
+  <li><a href="#modo-visual" id="toc-modo-visual" class="nav-link" data-scroll-target="#modo-visual"><span class="header-section-number">7.2</span> Modo Visual</a></li>
+  <li><a href="#operaciones-con-múltiples-archivos" id="toc-operaciones-con-múltiples-archivos" class="nav-link" data-scroll-target="#operaciones-con-múltiples-archivos"><span class="header-section-number">7.3</span> Operaciones con Múltiples Archivos</a></li>
+  <li><a href="#renombrado-masivo" id="toc-renombrado-masivo" class="nav-link" data-scroll-target="#renombrado-masivo"><span class="header-section-number">7.4</span> Renombrado Masivo</a></li>
   </ul></li>
-  <li><a href="#búsqueda-y-filtrado" id="toc-búsqueda-y-filtrado" class="nav-link" data-scroll-target="#búsqueda-y-filtrado">Búsqueda y Filtrado</a>
+  <li><a href="#búsqueda-y-filtrado" id="toc-búsqueda-y-filtrado" class="nav-link" data-scroll-target="#búsqueda-y-filtrado"><span class="header-section-number">8</span> Búsqueda y Filtrado</a>
   <ul class="collapse">
-  <li><a href="#búsqueda" id="toc-búsqueda" class="nav-link" data-scroll-target="#búsqueda">Búsqueda</a></li>
-  <li><a href="#filtrado" id="toc-filtrado" class="nav-link" data-scroll-target="#filtrado">Filtrado</a></li>
-  <li><a href="#ordenamiento" id="toc-ordenamiento" class="nav-link" data-scroll-target="#ordenamiento">Ordenamiento</a></li>
+  <li><a href="#búsqueda" id="toc-búsqueda" class="nav-link" data-scroll-target="#búsqueda"><span class="header-section-number">8.1</span> Búsqueda</a></li>
+  <li><a href="#filtrado" id="toc-filtrado" class="nav-link" data-scroll-target="#filtrado"><span class="header-section-number">8.2</span> Filtrado</a></li>
+  <li><a href="#ordenamiento" id="toc-ordenamiento" class="nav-link" data-scroll-target="#ordenamiento"><span class="header-section-number">8.3</span> Ordenamiento</a></li>
   </ul></li>
-  <li><a href="#pestañas-tabs" id="toc-pestañas-tabs" class="nav-link" data-scroll-target="#pestañas-tabs">Pestañas (Tabs)</a>
+  <li><a href="#pestañas-tabs" id="toc-pestañas-tabs" class="nav-link" data-scroll-target="#pestañas-tabs"><span class="header-section-number">9</span> Pestañas (Tabs)</a>
   <ul class="collapse">
-  <li><a href="#gestión-de-pestañas" id="toc-gestión-de-pestañas" class="nav-link" data-scroll-target="#gestión-de-pestañas">Gestión de Pestañas</a></li>
-  <li><a href="#movimiento-entre-pestañas" id="toc-movimiento-entre-pestañas" class="nav-link" data-scroll-target="#movimiento-entre-pestañas">Movimiento Entre Pestañas</a></li>
+  <li><a href="#gestión-de-pestañas" id="toc-gestión-de-pestañas" class="nav-link" data-scroll-target="#gestión-de-pestañas"><span class="header-section-number">9.1</span> Gestión de Pestañas</a></li>
+  <li><a href="#movimiento-entre-pestañas" id="toc-movimiento-entre-pestañas" class="nav-link" data-scroll-target="#movimiento-entre-pestañas"><span class="header-section-number">9.2</span> Movimiento Entre Pestañas</a></li>
   </ul></li>
-  <li><a href="#marcadores-bookmarks" id="toc-marcadores-bookmarks" class="nav-link" data-scroll-target="#marcadores-bookmarks">Marcadores (Bookmarks)</a>
+  <li><a href="#marcadores-bookmarks" id="toc-marcadores-bookmarks" class="nav-link" data-scroll-target="#marcadores-bookmarks"><span class="header-section-number">10</span> Marcadores (Bookmarks)</a>
   <ul class="collapse">
-  <li><a href="#crear-y-usar-marcadores" id="toc-crear-y-usar-marcadores" class="nav-link" data-scroll-target="#crear-y-usar-marcadores">Crear y Usar Marcadores</a></li>
-  <li><a href="#marcadores-especiales" id="toc-marcadores-especiales" class="nav-link" data-scroll-target="#marcadores-especiales">Marcadores Especiales</a></li>
-  <li><a href="#ver-marcadores" id="toc-ver-marcadores" class="nav-link" data-scroll-target="#ver-marcadores">Ver Marcadores</a></li>
+  <li><a href="#crear-y-usar-marcadores" id="toc-crear-y-usar-marcadores" class="nav-link" data-scroll-target="#crear-y-usar-marcadores"><span class="header-section-number">10.1</span> Crear y Usar Marcadores</a></li>
+  <li><a href="#marcadores-especiales" id="toc-marcadores-especiales" class="nav-link" data-scroll-target="#marcadores-especiales"><span class="header-section-number">10.2</span> Marcadores Especiales</a></li>
+  <li><a href="#ver-marcadores" id="toc-ver-marcadores" class="nav-link" data-scroll-target="#ver-marcadores"><span class="header-section-number">10.3</span> Ver Marcadores</a></li>
   </ul></li>
-  <li><a href="#previsualización-de-archivos" id="toc-previsualización-de-archivos" class="nav-link" data-scroll-target="#previsualización-de-archivos">Previsualización de Archivos</a>
+  <li><a href="#previsualización-de-archivos" id="toc-previsualización-de-archivos" class="nav-link" data-scroll-target="#previsualización-de-archivos"><span class="header-section-number">11</span> Previsualización de Archivos</a>
   <ul class="collapse">
-  <li><a href="#configurar-previsualización" id="toc-configurar-previsualización" class="nav-link" data-scroll-target="#configurar-previsualización">Configurar Previsualización</a></li>
-  <li><a href="#tipos-de-previsualización" id="toc-tipos-de-previsualización" class="nav-link" data-scroll-target="#tipos-de-previsualización">Tipos de Previsualización</a></li>
-  <li><a href="#configurar-scope.sh" id="toc-configurar-scope.sh" class="nav-link" data-scroll-target="#configurar-scope.sh">Configurar scope.sh</a></li>
+  <li><a href="#configurar-previsualización" id="toc-configurar-previsualización" class="nav-link" data-scroll-target="#configurar-previsualización"><span class="header-section-number">11.1</span> Configurar Previsualización</a></li>
+  <li><a href="#tipos-de-previsualización" id="toc-tipos-de-previsualización" class="nav-link" data-scroll-target="#tipos-de-previsualización"><span class="header-section-number">11.2</span> Tipos de Previsualización</a></li>
+  <li><a href="#configurar-scope.sh" id="toc-configurar-scope.sh" class="nav-link" data-scroll-target="#configurar-scope.sh"><span class="header-section-number">11.3</span> Configurar scope.sh</a></li>
   </ul></li>
-  <li><a href="#comandos-de-consola" id="toc-comandos-de-consola" class="nav-link" data-scroll-target="#comandos-de-consola">Comandos de Consola</a>
+  <li><a href="#comandos-de-consola" id="toc-comandos-de-consola" class="nav-link" data-scroll-target="#comandos-de-consola"><span class="header-section-number">12</span> Comandos de Consola</a>
   <ul class="collapse">
-  <li><a href="#acceder-a-la-consola" id="toc-acceder-a-la-consola" class="nav-link" data-scroll-target="#acceder-a-la-consola">Acceder a la Consola</a></li>
-  <li><a href="#comandos-principales" id="toc-comandos-principales" class="nav-link" data-scroll-target="#comandos-principales">Comandos Principales</a></li>
-  <li><a href="#navegación" id="toc-navegación" class="nav-link" data-scroll-target="#navegación">Navegación</a></li>
-  <li><a href="#operaciones-de-archivos" id="toc-operaciones-de-archivos" class="nav-link" data-scroll-target="#operaciones-de-archivos">Operaciones de Archivos</a></li>
-  <li><a href="#búsqueda-1" id="toc-búsqueda-1" class="nav-link" data-scroll-target="#búsqueda-1">Búsqueda</a></li>
-  <li><a href="#pestañas-y-marcadores" id="toc-pestañas-y-marcadores" class="nav-link" data-scroll-target="#pestañas-y-marcadores">Pestañas y Marcadores</a></li>
-  <li><a href="#configuración" id="toc-configuración" class="nav-link" data-scroll-target="#configuración">Configuración</a></li>
-  <li><a href="#ayuda-y-sistema" id="toc-ayuda-y-sistema" class="nav-link" data-scroll-target="#ayuda-y-sistema">Ayuda y Sistema</a></li>
-  <li><a href="#comandos-de-shell" id="toc-comandos-de-shell" class="nav-link" data-scroll-target="#comandos-de-shell">Comandos de Shell</a></li>
-  <li><a href="#autocompletado" id="toc-autocompletado" class="nav-link" data-scroll-target="#autocompletado">Autocompletado</a></li>
+  <li><a href="#acceder-a-la-consola" id="toc-acceder-a-la-consola" class="nav-link" data-scroll-target="#acceder-a-la-consola"><span class="header-section-number">12.1</span> Acceder a la Consola</a></li>
+  <li><a href="#comandos-principales" id="toc-comandos-principales" class="nav-link" data-scroll-target="#comandos-principales"><span class="header-section-number">12.2</span> Comandos Principales</a></li>
+  <li><a href="#navegación" id="toc-navegación" class="nav-link" data-scroll-target="#navegación"><span class="header-section-number">12.3</span> Navegación</a></li>
+  <li><a href="#operaciones-de-archivos" id="toc-operaciones-de-archivos" class="nav-link" data-scroll-target="#operaciones-de-archivos"><span class="header-section-number">12.4</span> Operaciones de Archivos</a></li>
+  <li><a href="#búsqueda-1" id="toc-búsqueda-1" class="nav-link" data-scroll-target="#búsqueda-1"><span class="header-section-number">12.5</span> Búsqueda</a></li>
+  <li><a href="#pestañas-y-marcadores" id="toc-pestañas-y-marcadores" class="nav-link" data-scroll-target="#pestañas-y-marcadores"><span class="header-section-number">12.6</span> Pestañas y Marcadores</a></li>
+  <li><a href="#configuración" id="toc-configuración" class="nav-link" data-scroll-target="#configuración"><span class="header-section-number">12.7</span> Configuración</a></li>
+  <li><a href="#ayuda-y-sistema" id="toc-ayuda-y-sistema" class="nav-link" data-scroll-target="#ayuda-y-sistema"><span class="header-section-number">12.8</span> Ayuda y Sistema</a></li>
+  <li><a href="#comandos-de-shell" id="toc-comandos-de-shell" class="nav-link" data-scroll-target="#comandos-de-shell"><span class="header-section-number">12.9</span> Comandos de Shell</a></li>
+  <li><a href="#autocompletado" id="toc-autocompletado" class="nav-link" data-scroll-target="#autocompletado"><span class="header-section-number">12.10</span> Autocompletado</a></li>
   </ul></li>
-  <li><a href="#configuración-avanzada" id="toc-configuración-avanzada" class="nav-link" data-scroll-target="#configuración-avanzada">Configuración Avanzada</a>
+  <li><a href="#configuración-avanzada" id="toc-configuración-avanzada" class="nav-link" data-scroll-target="#configuración-avanzada"><span class="header-section-number">13</span> Configuración Avanzada</a>
   <ul class="collapse">
-  <li><a href="#rc.conf---configuración-principal" id="toc-rc.conf---configuración-principal" class="nav-link" data-scroll-target="#rc.conf---configuración-principal">rc.conf - Configuración Principal</a></li>
-  <li><a href="#opciones-comunes" id="toc-opciones-comunes" class="nav-link" data-scroll-target="#opciones-comunes">Opciones Comunes</a></li>
-  <li><a href="#mapeos-de-teclado-personalizados" id="toc-mapeos-de-teclado-personalizados" class="nav-link" data-scroll-target="#mapeos-de-teclado-personalizados">Mapeos de Teclado Personalizados</a></li>
-  <li><a href="#comandos-de-shell-1" id="toc-comandos-de-shell-1" class="nav-link" data-scroll-target="#comandos-de-shell-1">Comandos de Shell</a></li>
-  <li><a href="#rifle.conf---lanzador-de-archivos" id="toc-rifle.conf---lanzador-de-archivos" class="nav-link" data-scroll-target="#rifle.conf---lanzador-de-archivos">rifle.conf - Lanzador de Archivos</a></li>
-  <li><a href="#commands.py---comandos-personalizados" id="toc-commands.py---comandos-personalizados" class="nav-link" data-scroll-target="#commands.py---comandos-personalizados">commands.py - Comandos Personalizados</a></li>
+  <li><a href="#rc.conf---configuración-principal" id="toc-rc.conf---configuración-principal" class="nav-link" data-scroll-target="#rc.conf---configuración-principal"><span class="header-section-number">13.1</span> rc.conf - Configuración Principal</a></li>
+  <li><a href="#opciones-comunes" id="toc-opciones-comunes" class="nav-link" data-scroll-target="#opciones-comunes"><span class="header-section-number">13.2</span> Opciones Comunes</a></li>
+  <li><a href="#mapeos-de-teclado-personalizados" id="toc-mapeos-de-teclado-personalizados" class="nav-link" data-scroll-target="#mapeos-de-teclado-personalizados"><span class="header-section-number">13.3</span> Mapeos de Teclado Personalizados</a></li>
+  <li><a href="#comandos-de-shell-1" id="toc-comandos-de-shell-1" class="nav-link" data-scroll-target="#comandos-de-shell-1"><span class="header-section-number">13.4</span> Comandos de Shell</a></li>
+  <li><a href="#rifle.conf---lanzador-de-archivos" id="toc-rifle.conf---lanzador-de-archivos" class="nav-link" data-scroll-target="#rifle.conf---lanzador-de-archivos"><span class="header-section-number">13.5</span> rifle.conf - Lanzador de Archivos</a></li>
+  <li><a href="#commands.py---comandos-personalizados" id="toc-commands.py---comandos-personalizados" class="nav-link" data-scroll-target="#commands.py---comandos-personalizados"><span class="header-section-number">13.6</span> commands.py - Comandos Personalizados</a></li>
   </ul></li>
-  <li><a href="#rifle---el-lanzador-de-archivos" id="toc-rifle---el-lanzador-de-archivos" class="nav-link" data-scroll-target="#rifle---el-lanzador-de-archivos">Rifle - El Lanzador de Archivos</a>
+  <li><a href="#rifle---el-lanzador-de-archivos" id="toc-rifle---el-lanzador-de-archivos" class="nav-link" data-scroll-target="#rifle---el-lanzador-de-archivos"><span class="header-section-number">14</span> Rifle - El Lanzador de Archivos</a>
   <ul class="collapse">
-  <li><a href="#qué-es-rifle" id="toc-qué-es-rifle" class="nav-link" data-scroll-target="#qué-es-rifle">¿Qué es Rifle?</a></li>
-  <li><a href="#uso-básico" id="toc-uso-básico" class="nav-link" data-scroll-target="#uso-básico">Uso Básico</a></li>
-  <li><a href="#dentro-de-ranger" id="toc-dentro-de-ranger" class="nav-link" data-scroll-target="#dentro-de-ranger">Dentro de Ranger</a></li>
-  <li><a href="#configurar-rifle" id="toc-configurar-rifle" class="nav-link" data-scroll-target="#configurar-rifle">Configurar Rifle</a></li>
-  <li><a href="#flags-de-rifle" id="toc-flags-de-rifle" class="nav-link" data-scroll-target="#flags-de-rifle">Flags de Rifle</a></li>
+  <li><a href="#qué-es-rifle" id="toc-qué-es-rifle" class="nav-link" data-scroll-target="#qué-es-rifle"><span class="header-section-number">14.1</span> ¿Qué es Rifle?</a></li>
+  <li><a href="#uso-básico" id="toc-uso-básico" class="nav-link" data-scroll-target="#uso-básico"><span class="header-section-number">14.2</span> Uso Básico</a></li>
+  <li><a href="#dentro-de-ranger" id="toc-dentro-de-ranger" class="nav-link" data-scroll-target="#dentro-de-ranger"><span class="header-section-number">14.3</span> Dentro de Ranger</a></li>
+  <li><a href="#configurar-rifle" id="toc-configurar-rifle" class="nav-link" data-scroll-target="#configurar-rifle"><span class="header-section-number">14.4</span> Configurar Rifle</a></li>
+  <li><a href="#flags-de-rifle" id="toc-flags-de-rifle" class="nav-link" data-scroll-target="#flags-de-rifle"><span class="header-section-number">14.5</span> Flags de Rifle</a></li>
   </ul></li>
-  <li><a href="#plugins-y-extensiones" id="toc-plugins-y-extensiones" class="nav-link" data-scroll-target="#plugins-y-extensiones">Plugins y Extensiones</a>
+  <li><a href="#plugins-y-extensiones" id="toc-plugins-y-extensiones" class="nav-link" data-scroll-target="#plugins-y-extensiones"><span class="header-section-number">15</span> Plugins y Extensiones</a>
   <ul class="collapse">
-  <li><a href="#ubicación-de-plugins" id="toc-ubicación-de-plugins" class="nav-link" data-scroll-target="#ubicación-de-plugins">Ubicación de Plugins</a></li>
-  <li><a href="#plugins-populares" id="toc-plugins-populares" class="nav-link" data-scroll-target="#plugins-populares">Plugins Populares</a></li>
-  <li><a href="#ranger_devicons" id="toc-ranger_devicons" class="nav-link" data-scroll-target="#ranger_devicons">1. ranger_devicons</a></li>
-  <li><a href="#ranger-archives" id="toc-ranger-archives" class="nav-link" data-scroll-target="#ranger-archives">2. ranger-archives</a></li>
-  <li><a href="#fasd-integration" id="toc-fasd-integration" class="nav-link" data-scroll-target="#fasd-integration">3. fasd Integration</a></li>
-  <li><a href="#fzf-integration" id="toc-fzf-integration" class="nav-link" data-scroll-target="#fzf-integration">4. fzf Integration</a></li>
-  <li><a href="#crear-plugin-propio" id="toc-crear-plugin-propio" class="nav-link" data-scroll-target="#crear-plugin-propio">Crear Plugin Propio</a></li>
+  <li><a href="#ubicación-de-plugins" id="toc-ubicación-de-plugins" class="nav-link" data-scroll-target="#ubicación-de-plugins"><span class="header-section-number">15.1</span> Ubicación de Plugins</a></li>
+  <li><a href="#plugins-populares" id="toc-plugins-populares" class="nav-link" data-scroll-target="#plugins-populares"><span class="header-section-number">15.2</span> Plugins Populares</a></li>
+  <li><a href="#ranger_devicons" id="toc-ranger_devicons" class="nav-link" data-scroll-target="#ranger_devicons"><span class="header-section-number">15.3</span> 1. ranger_devicons</a></li>
+  <li><a href="#ranger-archives" id="toc-ranger-archives" class="nav-link" data-scroll-target="#ranger-archives"><span class="header-section-number">15.4</span> 2. ranger-archives</a></li>
+  <li><a href="#fasd-integration" id="toc-fasd-integration" class="nav-link" data-scroll-target="#fasd-integration"><span class="header-section-number">15.5</span> 3. fasd Integration</a></li>
+  <li><a href="#fzf-integration" id="toc-fzf-integration" class="nav-link" data-scroll-target="#fzf-integration"><span class="header-section-number">15.6</span> 4. fzf Integration</a></li>
+  <li><a href="#crear-plugin-propio" id="toc-crear-plugin-propio" class="nav-link" data-scroll-target="#crear-plugin-propio"><span class="header-section-number">15.7</span> Crear Plugin Propio</a></li>
   </ul></li>
-  <li><a href="#integración-con-shell" id="toc-integración-con-shell" class="nav-link" data-scroll-target="#integración-con-shell">Integración con Shell</a>
+  <li><a href="#integración-con-shell" id="toc-integración-con-shell" class="nav-link" data-scroll-target="#integración-con-shell"><span class="header-section-number">16</span> Integración con Shell</a>
   <ul class="collapse">
-  <li><a href="#cambiar-directorio-al-salir" id="toc-cambiar-directorio-al-salir" class="nav-link" data-scroll-target="#cambiar-directorio-al-salir">Cambiar Directorio al Salir</a></li>
-  <li><a href="#bash" id="toc-bash" class="nav-link" data-scroll-target="#bash">Bash</a></li>
-  <li><a href="#zsh" id="toc-zsh" class="nav-link" data-scroll-target="#zsh">Zsh</a></li>
-  <li><a href="#fish" id="toc-fish" class="nav-link" data-scroll-target="#fish">Fish</a></li>
-  <li><a href="#file-picker" id="toc-file-picker" class="nav-link" data-scroll-target="#file-picker">File Picker</a></li>
+  <li><a href="#cambiar-directorio-al-salir" id="toc-cambiar-directorio-al-salir" class="nav-link" data-scroll-target="#cambiar-directorio-al-salir"><span class="header-section-number">16.1</span> Cambiar Directorio al Salir</a></li>
+  <li><a href="#bash" id="toc-bash" class="nav-link" data-scroll-target="#bash"><span class="header-section-number">16.2</span> Bash</a></li>
+  <li><a href="#zsh" id="toc-zsh" class="nav-link" data-scroll-target="#zsh"><span class="header-section-number">16.3</span> Zsh</a></li>
+  <li><a href="#fish" id="toc-fish" class="nav-link" data-scroll-target="#fish"><span class="header-section-number">16.4</span> Fish</a></li>
+  <li><a href="#file-picker" id="toc-file-picker" class="nav-link" data-scroll-target="#file-picker"><span class="header-section-number">16.5</span> File Picker</a></li>
   </ul></li>
-  <li><a href="#trucos-y-tips-avanzados" id="toc-trucos-y-tips-avanzados" class="nav-link" data-scroll-target="#trucos-y-tips-avanzados">Trucos y Tips Avanzados</a>
+  <li><a href="#trucos-y-tips-avanzados" id="toc-trucos-y-tips-avanzados" class="nav-link" data-scroll-target="#trucos-y-tips-avanzados"><span class="header-section-number">17</span> Trucos y Tips Avanzados</a>
   <ul class="collapse">
-  <li><a href="#preview-de-archivos-con-sintaxis" id="toc-preview-de-archivos-con-sintaxis" class="nav-link" data-scroll-target="#preview-de-archivos-con-sintaxis">Preview de Archivos con Sintaxis</a></li>
-  <li><a href="#thumbnails-de-videos" id="toc-thumbnails-de-videos" class="nav-link" data-scroll-target="#thumbnails-de-videos">Thumbnails de Videos</a></li>
-  <li><a href="#preview-de-imágenes-terminal-compatible" id="toc-preview-de-imágenes-terminal-compatible" class="nav-link" data-scroll-target="#preview-de-imágenes-terminal-compatible">Preview de Imágenes (Terminal Compatible)</a></li>
-  <li><a href="#búsqueda-con-fzf" id="toc-búsqueda-con-fzf" class="nav-link" data-scroll-target="#búsqueda-con-fzf">Búsqueda con FZF</a></li>
-  <li><a href="#integración-con-git" id="toc-integración-con-git" class="nav-link" data-scroll-target="#integración-con-git">Integración con Git</a></li>
-  <li><a href="#archivos-grandes" id="toc-archivos-grandes" class="nav-link" data-scroll-target="#archivos-grandes">Archivos Grandes</a></li>
-  <li><a href="#abrir-en-programa-externo" id="toc-abrir-en-programa-externo" class="nav-link" data-scroll-target="#abrir-en-programa-externo">Abrir en Programa Externo</a></li>
-  <li><a href="#sincronizar-con-dropboxdrive" id="toc-sincronizar-con-dropboxdrive" class="nav-link" data-scroll-target="#sincronizar-con-dropboxdrive">Sincronizar con Dropbox/Drive</a></li>
-  <li><a href="#operaciones-bulk" id="toc-operaciones-bulk" class="nav-link" data-scroll-target="#operaciones-bulk">Operaciones Bulk</a></li>
-  <li><a href="#preview-de-archivos-jsonyaml" id="toc-preview-de-archivos-jsonyaml" class="nav-link" data-scroll-target="#preview-de-archivos-jsonyaml">Preview de Archivos JSON/YAML</a></li>
+  <li><a href="#preview-de-archivos-con-sintaxis" id="toc-preview-de-archivos-con-sintaxis" class="nav-link" data-scroll-target="#preview-de-archivos-con-sintaxis"><span class="header-section-number">17.1</span> Preview de Archivos con Sintaxis</a></li>
+  <li><a href="#thumbnails-de-videos" id="toc-thumbnails-de-videos" class="nav-link" data-scroll-target="#thumbnails-de-videos"><span class="header-section-number">17.2</span> Thumbnails de Videos</a></li>
+  <li><a href="#preview-de-imágenes-terminal-compatible" id="toc-preview-de-imágenes-terminal-compatible" class="nav-link" data-scroll-target="#preview-de-imágenes-terminal-compatible"><span class="header-section-number">17.3</span> Preview de Imágenes (Terminal Compatible)</a></li>
+  <li><a href="#búsqueda-con-fzf" id="toc-búsqueda-con-fzf" class="nav-link" data-scroll-target="#búsqueda-con-fzf"><span class="header-section-number">17.4</span> Búsqueda con FZF</a></li>
+  <li><a href="#integración-con-git" id="toc-integración-con-git" class="nav-link" data-scroll-target="#integración-con-git"><span class="header-section-number">17.5</span> Integración con Git</a></li>
+  <li><a href="#archivos-grandes" id="toc-archivos-grandes" class="nav-link" data-scroll-target="#archivos-grandes"><span class="header-section-number">17.6</span> Archivos Grandes</a></li>
+  <li><a href="#abrir-en-programa-externo" id="toc-abrir-en-programa-externo" class="nav-link" data-scroll-target="#abrir-en-programa-externo"><span class="header-section-number">17.7</span> Abrir en Programa Externo</a></li>
+  <li><a href="#sincronizar-con-dropboxdrive" id="toc-sincronizar-con-dropboxdrive" class="nav-link" data-scroll-target="#sincronizar-con-dropboxdrive"><span class="header-section-number">17.8</span> Sincronizar con Dropbox/Drive</a></li>
+  <li><a href="#operaciones-bulk" id="toc-operaciones-bulk" class="nav-link" data-scroll-target="#operaciones-bulk"><span class="header-section-number">17.9</span> Operaciones Bulk</a></li>
+  <li><a href="#preview-de-archivos-jsonyaml" id="toc-preview-de-archivos-jsonyaml" class="nav-link" data-scroll-target="#preview-de-archivos-jsonyaml"><span class="header-section-number">17.10</span> Preview de Archivos JSON/YAML</a></li>
   </ul></li>
-  <li><a href="#solución-de-problemas" id="toc-solución-de-problemas" class="nav-link" data-scroll-target="#solución-de-problemas">Solución de Problemas</a>
+  <li><a href="#solución-de-problemas" id="toc-solución-de-problemas" class="nav-link" data-scroll-target="#solución-de-problemas"><span class="header-section-number">18</span> Solución de Problemas</a>
   <ul class="collapse">
-  <li><a href="#problema-imágenes-no-se-previsualizan" id="toc-problema-imágenes-no-se-previsualizan" class="nav-link" data-scroll-target="#problema-imágenes-no-se-previsualizan">Problema: Imágenes no se previsualizan</a></li>
-  <li><a href="#problema-colores-incorrectos" id="toc-problema-colores-incorrectos" class="nav-link" data-scroll-target="#problema-colores-incorrectos">Problema: Colores incorrectos</a></li>
-  <li><a href="#problema-resaltado-de-sintaxis-no-funciona" id="toc-problema-resaltado-de-sintaxis-no-funciona" class="nav-link" data-scroll-target="#problema-resaltado-de-sintaxis-no-funciona">Problema: Resaltado de sintaxis no funciona</a></li>
-  <li><a href="#problema-ranger-lento" id="toc-problema-ranger-lento" class="nav-link" data-scroll-target="#problema-ranger-lento">Problema: Ranger lento</a></li>
-  <li><a href="#problema-no-cambia-directorio-del-shell" id="toc-problema-no-cambia-directorio-del-shell" class="nav-link" data-scroll-target="#problema-no-cambia-directorio-del-shell">Problema: No cambia directorio del shell</a></li>
-  <li><a href="#problema-archivos-ocultos-no-se-muestran" id="toc-problema-archivos-ocultos-no-se-muestran" class="nav-link" data-scroll-target="#problema-archivos-ocultos-no-se-muestran">Problema: Archivos ocultos no se muestran</a></li>
-  <li><a href="#problema-rifle-no-encuentra-programas" id="toc-problema-rifle-no-encuentra-programas" class="nav-link" data-scroll-target="#problema-rifle-no-encuentra-programas">Problema: Rifle no encuentra programas</a></li>
+  <li><a href="#problema-imágenes-no-se-previsualizan" id="toc-problema-imágenes-no-se-previsualizan" class="nav-link" data-scroll-target="#problema-imágenes-no-se-previsualizan"><span class="header-section-number">18.1</span> Problema: Imágenes no se previsualizan</a></li>
+  <li><a href="#problema-colores-incorrectos" id="toc-problema-colores-incorrectos" class="nav-link" data-scroll-target="#problema-colores-incorrectos"><span class="header-section-number">18.2</span> Problema: Colores incorrectos</a></li>
+  <li><a href="#problema-resaltado-de-sintaxis-no-funciona" id="toc-problema-resaltado-de-sintaxis-no-funciona" class="nav-link" data-scroll-target="#problema-resaltado-de-sintaxis-no-funciona"><span class="header-section-number">18.3</span> Problema: Resaltado de sintaxis no funciona</a></li>
+  <li><a href="#problema-ranger-lento" id="toc-problema-ranger-lento" class="nav-link" data-scroll-target="#problema-ranger-lento"><span class="header-section-number">18.4</span> Problema: Ranger lento</a></li>
+  <li><a href="#problema-no-cambia-directorio-del-shell" id="toc-problema-no-cambia-directorio-del-shell" class="nav-link" data-scroll-target="#problema-no-cambia-directorio-del-shell"><span class="header-section-number">18.5</span> Problema: No cambia directorio del shell</a></li>
+  <li><a href="#problema-archivos-ocultos-no-se-muestran" id="toc-problema-archivos-ocultos-no-se-muestran" class="nav-link" data-scroll-target="#problema-archivos-ocultos-no-se-muestran"><span class="header-section-number">18.6</span> Problema: Archivos ocultos no se muestran</a></li>
+  <li><a href="#problema-rifle-no-encuentra-programas" id="toc-problema-rifle-no-encuentra-programas" class="nav-link" data-scroll-target="#problema-rifle-no-encuentra-programas"><span class="header-section-number">18.7</span> Problema: Rifle no encuentra programas</a></li>
   </ul></li>
-  <li><a href="#referencia-completa-de-atajos" id="toc-referencia-completa-de-atajos" class="nav-link" data-scroll-target="#referencia-completa-de-atajos">Referencia Completa de Atajos</a>
+  <li><a href="#referencia-completa-de-atajos" id="toc-referencia-completa-de-atajos" class="nav-link" data-scroll-target="#referencia-completa-de-atajos"><span class="header-section-number">19</span> Referencia Completa de Atajos</a>
   <ul class="collapse">
-  <li><a href="#navegación-1" id="toc-navegación-1" class="nav-link" data-scroll-target="#navegación-1">Navegación</a></li>
-  <li><a href="#archivos" id="toc-archivos" class="nav-link" data-scroll-target="#archivos">Archivos</a></li>
-  <li><a href="#selección" id="toc-selección" class="nav-link" data-scroll-target="#selección">Selección</a></li>
-  <li><a href="#búsqueda-2" id="toc-búsqueda-2" class="nav-link" data-scroll-target="#búsqueda-2">Búsqueda</a></li>
-  <li><a href="#pestañas" id="toc-pestañas" class="nav-link" data-scroll-target="#pestañas">Pestañas</a></li>
-  <li><a href="#marcadores" id="toc-marcadores" class="nav-link" data-scroll-target="#marcadores">Marcadores</a></li>
-  <li><a href="#ordenamiento-1" id="toc-ordenamiento-1" class="nav-link" data-scroll-target="#ordenamiento-1">Ordenamiento</a></li>
-  <li><a href="#vista" id="toc-vista" class="nav-link" data-scroll-target="#vista">Vista</a></li>
-  <li><a href="#sistema" id="toc-sistema" class="nav-link" data-scroll-target="#sistema">Sistema</a></li>
-  <li><a href="#ir-a-g" id="toc-ir-a-g" class="nav-link" data-scroll-target="#ir-a-g">Ir a (g)</a></li>
+  <li><a href="#navegación-1" id="toc-navegación-1" class="nav-link" data-scroll-target="#navegación-1"><span class="header-section-number">19.1</span> Navegación</a></li>
+  <li><a href="#archivos" id="toc-archivos" class="nav-link" data-scroll-target="#archivos"><span class="header-section-number">19.2</span> Archivos</a></li>
+  <li><a href="#selección" id="toc-selección" class="nav-link" data-scroll-target="#selección"><span class="header-section-number">19.3</span> Selección</a></li>
+  <li><a href="#búsqueda-2" id="toc-búsqueda-2" class="nav-link" data-scroll-target="#búsqueda-2"><span class="header-section-number">19.4</span> Búsqueda</a></li>
+  <li><a href="#pestañas" id="toc-pestañas" class="nav-link" data-scroll-target="#pestañas"><span class="header-section-number">19.5</span> Pestañas</a></li>
+  <li><a href="#marcadores" id="toc-marcadores" class="nav-link" data-scroll-target="#marcadores"><span class="header-section-number">19.6</span> Marcadores</a></li>
+  <li><a href="#ordenamiento-1" id="toc-ordenamiento-1" class="nav-link" data-scroll-target="#ordenamiento-1"><span class="header-section-number">19.7</span> Ordenamiento</a></li>
+  <li><a href="#vista" id="toc-vista" class="nav-link" data-scroll-target="#vista"><span class="header-section-number">19.8</span> Vista</a></li>
+  <li><a href="#sistema" id="toc-sistema" class="nav-link" data-scroll-target="#sistema"><span class="header-section-number">19.9</span> Sistema</a></li>
+  <li><a href="#ir-a-g" id="toc-ir-a-g" class="nav-link" data-scroll-target="#ir-a-g"><span class="header-section-number">19.10</span> Ir a (g)</a></li>
   </ul></li>
-  <li><a href="#recursos-y-enlaces" id="toc-recursos-y-enlaces" class="nav-link" data-scroll-target="#recursos-y-enlaces">Recursos y Enlaces</a>
+  <li><a href="#recursos-y-enlaces" id="toc-recursos-y-enlaces" class="nav-link" data-scroll-target="#recursos-y-enlaces"><span class="header-section-number">20</span> Recursos y Enlaces</a>
   <ul class="collapse">
-  <li><a href="#documentación-oficial" id="toc-documentación-oficial" class="nav-link" data-scroll-target="#documentación-oficial">Documentación Oficial</a></li>
-  <li><a href="#tutoriales" id="toc-tutoriales" class="nav-link" data-scroll-target="#tutoriales">Tutoriales</a></li>
-  <li><a href="#comunidad" id="toc-comunidad" class="nav-link" data-scroll-target="#comunidad">Comunidad</a></li>
-  <li><a href="#configuraciones-de-ejemplo" id="toc-configuraciones-de-ejemplo" class="nav-link" data-scroll-target="#configuraciones-de-ejemplo">Configuraciones de Ejemplo</a></li>
+  <li><a href="#documentación-oficial" id="toc-documentación-oficial" class="nav-link" data-scroll-target="#documentación-oficial"><span class="header-section-number">20.1</span> Documentación Oficial</a></li>
+  <li><a href="#tutoriales" id="toc-tutoriales" class="nav-link" data-scroll-target="#tutoriales"><span class="header-section-number">20.2</span> Tutoriales</a></li>
+  <li><a href="#comunidad" id="toc-comunidad" class="nav-link" data-scroll-target="#comunidad"><span class="header-section-number">20.3</span> Comunidad</a></li>
+  <li><a href="#configuraciones-de-ejemplo" id="toc-configuraciones-de-ejemplo" class="nav-link" data-scroll-target="#configuraciones-de-ejemplo"><span class="header-section-number">20.4</span> Configuraciones de Ejemplo</a></li>
   </ul></li>
-  <li><a href="#conclusión" id="toc-conclusión" class="nav-link" data-scroll-target="#conclusión">Conclusión</a></li>
-  <li><a href="#publicaciones-similares" id="toc-publicaciones-similares" class="nav-link" data-scroll-target="#publicaciones-similares">Publicaciones Similares</a></li>
+  <li><a href="#conclusión" id="toc-conclusión" class="nav-link" data-scroll-target="#conclusión"><span class="header-section-number">21</span> Conclusión</a></li>
+  <li><a href="#publicaciones-similares" id="toc-publicaciones-similares" class="nav-link" data-scroll-target="#publicaciones-similares"><span class="header-section-number">22</span> Publicaciones Similares</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Otros formatos</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF (apaquarto)</a></li><li><a href="index.docx"><i class="bi bi-file-word"></i>MS Word (apaquarto)</a></li></ul></div><div class="quarto-other-links"><h2>Otros Enlaces</h2><ul><li><a href="https://gravatar.com/achalmaedison"><i class="bi bi-link-45deg"></i>Gravatar</a></li></ul></div></nav>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 <style>
   :root {
@@ -589,10 +782,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </li>
 <li>Cambia el directorio del shell al salir</li>
 </ul>
-<section id="instalación" class="level1">
-<h1>Instalación</h1>
-<section id="desde-repositorios" class="level2">
-<h2 class="anchored" data-anchor-id="desde-repositorios">Desde Repositorios</h2>
+<section id="instalación" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Instalación</h1>
+<section id="desde-repositorios" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="desde-repositorios"><span class="header-section-number">1.1</span> Desde Repositorios</h2>
 <p><strong>Ubuntu/Debian:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">sudo</span> apt-get update</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">sudo</span> apt-get install ranger</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -603,27 +796,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p><strong>macOS (Homebrew):</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">brew</span> install ranger</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="desde-pypi" class="level2">
-<h2 class="anchored" data-anchor-id="desde-pypi">Desde PyPI</h2>
+<section id="desde-pypi" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="desde-pypi"><span class="header-section-number">1.2</span> Desde PyPI</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">pip</span> install ranger-fm</span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="co"># O mejor con pipx (entorno aislado)</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="ex">pipx</span> install ranger-fm</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="desde-código-fuente" class="level2">
-<h2 class="anchored" data-anchor-id="desde-código-fuente">Desde Código Fuente</h2>
+<section id="desde-código-fuente" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="desde-código-fuente"><span class="header-section-number">1.3</span> Desde Código Fuente</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">git</span> clone https://github.com/ranger/ranger.git</span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="bu">cd</span> ranger</span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="fu">sudo</span> make install</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="verificar-instalación" class="level2">
-<h2 class="anchored" data-anchor-id="verificar-instalación">Verificar Instalación</h2>
+<section id="verificar-instalación" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="verificar-instalación"><span class="header-section-number">1.4</span> Verificar Instalación</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">ranger</span> <span class="at">--version</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="dependencias-opcionales" class="level2">
-<h2 class="anchored" data-anchor-id="dependencias-opcionales">Dependencias Opcionales</h2>
+<section id="dependencias-opcionales" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="dependencias-opcionales"><span class="header-section-number">1.5</span> Dependencias Opcionales</h2>
 <p>Para habilitar todas las funcionalidades de previsualización y análisis de archivos en <code>ranger</code>, se recomienda instalar las siguientes dependencias según tu distribución.</p>
-<section id="para-debian-ubuntu-derivados" class="level3">
-<h3 class="anchored" data-anchor-id="para-debian-ubuntu-derivados">Para Debian / Ubuntu / derivados</h3>
+<section id="para-debian-ubuntu-derivados" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="para-debian-ubuntu-derivados"><span class="header-section-number">1.5.1</span> Para Debian / Ubuntu / derivados</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Básico (casi imprescindible)</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="fu">sudo</span> apt install file</span>
 <span id="cb8-3"><a href="#cb8-3"></a></span>
@@ -660,8 +853,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb8-34"><a href="#cb8-34"></a><span class="co"># Convertir SVG</span></span>
 <span id="cb8-35"><a href="#cb8-35"></a><span class="fu">sudo</span> apt-get install librsvg2-bin</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="para-arch-linux-manjaro-derivados" class="level3">
-<h3 class="anchored" data-anchor-id="para-arch-linux-manjaro-derivados">Para Arch Linux / Manjaro / derivados</h3>
+<section id="para-arch-linux-manjaro-derivados" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="para-arch-linux-manjaro-derivados"><span class="header-section-number">1.5.2</span> Para Arch Linux / Manjaro / derivados</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Básico (casi imprescindible)</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> file</span>
 <span id="cb9-3"><a href="#cb9-3"></a></span>
@@ -698,8 +891,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb9-34"><a href="#cb9-34"></a><span class="co"># Convertir SVG</span></span>
 <span id="cb9-35"><a href="#cb9-35"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> librsvg</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="instalación-recomendada-mínima-elige-según-tu-caso" class="level3">
-<h3 class="anchored" data-anchor-id="instalación-recomendada-mínima-elige-según-tu-caso">Instalación recomendada mínima (elige según tu caso)</h3>
+<section id="instalación-recomendada-mínima-elige-según-tu-caso" class="level3" data-number="1.5.3">
+<h3 data-number="1.5.3" class="anchored" data-anchor-id="instalación-recomendada-mínima-elige-según-tu-caso"><span class="header-section-number">1.5.3</span> Instalación recomendada mínima (elige según tu caso)</h3>
 <p><strong>Usuario de Arch + kitty/wezterm:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> file highlight bat imagemagick ffmpegthumbnailer <span class="dt">\</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>poppler mediainfo ueberzugpp</span>
@@ -712,10 +905,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </section>
 </section>
 </section>
-<section id="configuración-inicial" class="level1">
-<h1>Configuración Inicial</h1>
-<section id="generar-archivos-de-configuración" class="level2">
-<h2 class="anchored" data-anchor-id="generar-archivos-de-configuración">Generar Archivos de Configuración</h2>
+<section id="configuración-inicial" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Configuración Inicial</h1>
+<section id="generar-archivos-de-configuración" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="generar-archivos-de-configuración"><span class="header-section-number">2.1</span> Generar Archivos de Configuración</h2>
 <p>Ranger puede copiar automáticamente los archivos de configuración por defecto:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Copiar todas las configuraciones</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a><span class="ex">ranger</span> <span class="at">--copy-config</span><span class="op">=</span>all</span>
@@ -726,8 +919,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb12-7"><a href="#cb12-7"></a><span class="ex">ranger</span> <span class="at">--copy-config</span><span class="op">=</span>scope       <span class="co"># Script de previsualización</span></span>
 <span id="cb12-8"><a href="#cb12-8"></a><span class="ex">ranger</span> <span class="at">--copy-config</span><span class="op">=</span>commands    <span class="co"># Comandos personalizados</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="ubicación-de-archivos" class="level2">
-<h2 class="anchored" data-anchor-id="ubicación-de-archivos">Ubicación de Archivos</h2>
+<section id="ubicación-de-archivos" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="ubicación-de-archivos"><span class="header-section-number">2.2</span> Ubicación de Archivos</h2>
 <p>Los archivos de configuración se encuentran en:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="ex">~/.config/ranger/</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="ex">├──</span> rc.conf           <span class="co"># Configuración principal y atajos</span></span>
@@ -737,8 +930,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb13-6"><a href="#cb13-6"></a><span class="ex">├──</span> commands_full.py  <span class="co"># Comandos adicionales</span></span>
 <span id="cb13-7"><a href="#cb13-7"></a><span class="ex">└──</span> plugins/          <span class="co"># Directorio para plugins</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="primer-lanzamiento" class="level2">
-<h2 class="anchored" data-anchor-id="primer-lanzamiento">Primer Lanzamiento</h2>
+<section id="primer-lanzamiento" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="primer-lanzamiento"><span class="header-section-number">2.3</span> Primer Lanzamiento</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="ex">ranger</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Al iniciar ranger por primera vez:</p>
 <ul>
@@ -748,10 +941,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </ul>
 </section>
 </section>
-<section id="interfaz-y-navegación-básica" class="level1">
-<h1>Interfaz y Navegación Básica</h1>
-<section id="estructura-de-la-pantalla" class="level2">
-<h2 class="anchored" data-anchor-id="estructura-de-la-pantalla">Estructura de la Pantalla</h2>
+<section id="interfaz-y-navegación-básica" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Interfaz y Navegación Básica</h1>
+<section id="estructura-de-la-pantalla" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="estructura-de-la-pantalla"><span class="header-section-number">3.1</span> Estructura de la Pantalla</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="ex">┌─────────────────────────────────────────────────────────┐</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="ex">│</span> Directorio Padre │ Directorio Actual │ Previsualización │</span>
 <span id="cb15-3"><a href="#cb15-3"></a><span class="ex">│</span>                  │                   │                  │</span>
@@ -764,16 +957,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb15-10"><a href="#cb15-10"></a><span class="ex">│</span> Barra de Estado: PWD, permisos, tamaño, fecha           │</span>
 <span id="cb15-11"><a href="#cb15-11"></a><span class="ex">└─────────────────────────────────────────────────────────┘</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="columnas" class="level2">
-<h2 class="anchored" data-anchor-id="columnas">Columnas</h2>
+<section id="columnas" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="columnas"><span class="header-section-number">3.2</span> Columnas</h2>
 <ol type="1">
 <li><strong>Columna Izquierda</strong>: Contenido del directorio padre</li>
 <li><strong>Columna Central</strong>: Directorio actual (principal)</li>
 <li><strong>Columna Derecha</strong>: Previsualización del archivo/directorio seleccionado</li>
 </ol>
 </section>
-<section id="barra-de-estado" class="level2">
-<h2 class="anchored" data-anchor-id="barra-de-estado">Barra de Estado</h2>
+<section id="barra-de-estado" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="barra-de-estado"><span class="header-section-number">3.3</span> Barra de Estado</h2>
 <p>Muestra información del archivo seleccionado:</p>
 <ul>
 <li>Permisos (rwxr-xr-x)</li>
@@ -784,10 +977,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </ul>
 </section>
 </section>
-<section id="atajos-de-teclado-fundamentales" class="level1">
-<h1>Atajos de Teclado Fundamentales</h1>
-<section id="navegación-básica-estilo-vim" class="level2">
-<h2 class="anchored" data-anchor-id="navegación-básica-estilo-vim">Navegación Básica (Estilo Vim)</h2>
+<section id="atajos-de-teclado-fundamentales" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Atajos de Teclado Fundamentales</h1>
+<section id="navegación-básica-estilo-vim" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="navegación-básica-estilo-vim"><span class="header-section-number">4.1</span> Navegación Básica (Estilo Vim)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -831,8 +1024,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="movimiento-rápido" class="level2">
-<h2 class="anchored" data-anchor-id="movimiento-rápido">Movimiento Rápido</h2>
+<section id="movimiento-rápido" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="movimiento-rápido"><span class="header-section-number">4.2</span> Movimiento Rápido</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -888,8 +1081,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="salir-y-ayuda" class="level2">
-<h2 class="anchored" data-anchor-id="salir-y-ayuda">Salir y Ayuda</h2>
+<section id="salir-y-ayuda" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="salir-y-ayuda"><span class="header-section-number">4.3</span> Salir y Ayuda</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -918,10 +1111,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </table>
 </section>
 </section>
-<section id="navegación-avanzada" class="level1">
-<h1>Navegación Avanzada</h1>
-<section id="historial-de-navegación" class="level2">
-<h2 class="anchored" data-anchor-id="historial-de-navegación">Historial de Navegación</h2>
+<section id="navegación-avanzada" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Navegación Avanzada</h1>
+<section id="historial-de-navegación" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="historial-de-navegación"><span class="header-section-number">5.1</span> Historial de Navegación</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -949,8 +1142,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="saltos-rápidos" class="level2">
-<h2 class="anchored" data-anchor-id="saltos-rápidos">Saltos Rápidos</h2>
+<section id="saltos-rápidos" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="saltos-rápidos"><span class="header-section-number">5.2</span> Saltos Rápidos</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1010,8 +1203,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="navegación-por-primera-letra" class="level2">
-<h2 class="anchored" data-anchor-id="navegación-por-primera-letra">Navegación por Primera Letra</h2>
+<section id="navegación-por-primera-letra" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="navegación-por-primera-letra"><span class="header-section-number">5.3</span> Navegación por Primera Letra</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1036,8 +1229,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li><code>Ft</code> - Salta a archivos que empiecen con ‘t’, presiona <code>;</code> para siguiente</li>
 </ul>
 </section>
-<section id="ir-a-directorio-específico" class="level2">
-<h2 class="anchored" data-anchor-id="ir-a-directorio-específico">Ir a Directorio Específico</h2>
+<section id="ir-a-directorio-específico" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="ir-a-directorio-específico"><span class="header-section-number">5.4</span> Ir a Directorio Específico</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1062,10 +1255,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </table>
 </section>
 </section>
-<section id="operaciones-con-archivos" class="level1">
-<h1>Operaciones con Archivos</h1>
-<section id="copiar-cortar-y-pegar" class="level2">
-<h2 class="anchored" data-anchor-id="copiar-cortar-y-pegar">Copiar, Cortar y Pegar</h2>
+<section id="operaciones-con-archivos" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Operaciones con Archivos</h1>
+<section id="copiar-cortar-y-pegar" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="copiar-cortar-y-pegar"><span class="header-section-number">6.1</span> Copiar, Cortar y Pegar</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1117,8 +1310,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="eliminar" class="level2">
-<h2 class="anchored" data-anchor-id="eliminar">Eliminar</h2>
+<section id="eliminar" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="eliminar"><span class="header-section-number">6.2</span> Eliminar</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1138,8 +1331,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="crear-y-editar" class="level2">
-<h2 class="anchored" data-anchor-id="crear-y-editar">Crear y Editar</h2>
+<section id="crear-y-editar" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="crear-y-editar"><span class="header-section-number">6.3</span> Crear y Editar</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1183,8 +1376,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="permisos-y-propiedades" class="level2">
-<h2 class="anchored" data-anchor-id="permisos-y-propiedades">Permisos y Propiedades</h2>
+<section id="permisos-y-propiedades" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="permisos-y-propiedades"><span class="header-section-number">6.4</span> Permisos y Propiedades</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1213,10 +1406,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb16-3"><a href="#cb16-3"></a><span class="ex">=755</span>  <span class="co"># Establecer permisos exactos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="selección-múltiple" class="level1">
-<h1>Selección Múltiple</h1>
-<section id="seleccionar-archivos" class="level2">
-<h2 class="anchored" data-anchor-id="seleccionar-archivos">Seleccionar Archivos</h2>
+<section id="selección-múltiple" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Selección Múltiple</h1>
+<section id="seleccionar-archivos" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="seleccionar-archivos"><span class="header-section-number">7.1</span> Seleccionar Archivos</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1244,8 +1437,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="modo-visual" class="level2">
-<h2 class="anchored" data-anchor-id="modo-visual">Modo Visual</h2>
+<section id="modo-visual" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="modo-visual"><span class="header-section-number">7.2</span> Modo Visual</h2>
 <p>En modo visual (<code>V</code>):</p>
 <ul>
 <li><code>j/k</code> - Extender selección arriba/abajo</li>
@@ -1253,8 +1446,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li><code>o</code> - Cambiar punto de anclaje de selección</li>
 </ul>
 </section>
-<section id="operaciones-con-múltiples-archivos" class="level2">
-<h2 class="anchored" data-anchor-id="operaciones-con-múltiples-archivos">Operaciones con Múltiples Archivos</h2>
+<section id="operaciones-con-múltiples-archivos" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="operaciones-con-múltiples-archivos"><span class="header-section-number">7.3</span> Operaciones con Múltiples Archivos</h2>
 <p>Una vez seleccionados:</p>
 <ul>
 <li><code>yy</code> - Copiar todos los seleccionados</li>
@@ -1263,8 +1456,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li><code>:bulkrename</code> - Renombrar múltiples archivos en editor</li>
 </ul>
 </section>
-<section id="renombrado-masivo" class="level2">
-<h2 class="anchored" data-anchor-id="renombrado-masivo">Renombrado Masivo</h2>
+<section id="renombrado-masivo" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="renombrado-masivo"><span class="header-section-number">7.4</span> Renombrado Masivo</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Seleccionar archivos con Space</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a><span class="co"># Ejecutar:</span></span>
 <span id="cb17-3"><a href="#cb17-3"></a><span class="ex">:bulkrename</span></span>
@@ -1275,10 +1468,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb17-8"><a href="#cb17-8"></a><span class="co"># Ranger renombra los archivos automáticamente</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="búsqueda-y-filtrado" class="level1">
-<h1>Búsqueda y Filtrado</h1>
-<section id="búsqueda" class="level2">
-<h2 class="anchored" data-anchor-id="búsqueda">Búsqueda</h2>
+<section id="búsqueda-y-filtrado" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Búsqueda y Filtrado</h1>
+<section id="búsqueda" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="búsqueda"><span class="header-section-number">8.1</span> Búsqueda</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1314,8 +1507,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="filtrado" class="level2">
-<h2 class="anchored" data-anchor-id="filtrado">Filtrado</h2>
+<section id="filtrado" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="filtrado"><span class="header-section-number">8.2</span> Filtrado</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1339,8 +1532,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="ordenamiento" class="level2">
-<h2 class="anchored" data-anchor-id="ordenamiento">Ordenamiento</h2>
+<section id="ordenamiento" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="ordenamiento"><span class="header-section-number">8.3</span> Ordenamiento</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1393,10 +1586,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </table>
 </section>
 </section>
-<section id="pestañas-tabs" class="level1">
-<h1>Pestañas (Tabs)</h1>
-<section id="gestión-de-pestañas" class="level2">
-<h2 class="anchored" data-anchor-id="gestión-de-pestañas">Gestión de Pestañas</h2>
+<section id="pestañas-tabs" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Pestañas (Tabs)</h1>
+<section id="gestión-de-pestañas" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="gestión-de-pestañas"><span class="header-section-number">9.1</span> Gestión de Pestañas</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1444,8 +1637,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="movimiento-entre-pestañas" class="level2">
-<h2 class="anchored" data-anchor-id="movimiento-entre-pestañas">Movimiento Entre Pestañas</h2>
+<section id="movimiento-entre-pestañas" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="movimiento-entre-pestañas"><span class="header-section-number">9.2</span> Movimiento Entre Pestañas</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Con números</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a><span class="ex">1gt</span>   <span class="co"># Ir a pestaña 1</span></span>
 <span id="cb18-3"><a href="#cb18-3"></a><span class="ex">3gt</span>   <span class="co"># Ir a pestaña 3</span></span>
@@ -1455,10 +1648,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb18-7"><a href="#cb18-7"></a><span class="ex">gT</span>    <span class="co"># Anterior</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="marcadores-bookmarks" class="level1">
-<h1>Marcadores (Bookmarks)</h1>
-<section id="crear-y-usar-marcadores" class="level2">
-<h2 class="anchored" data-anchor-id="crear-y-usar-marcadores">Crear y Usar Marcadores</h2>
+<section id="marcadores-bookmarks" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Marcadores (Bookmarks)</h1>
+<section id="crear-y-usar-marcadores" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="crear-y-usar-marcadores"><span class="header-section-number">10.1</span> Crear y Usar Marcadores</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1486,8 +1679,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="marcadores-especiales" class="level2">
-<h2 class="anchored" data-anchor-id="marcadores-especiales">Marcadores Especiales</h2>
+<section id="marcadores-especiales" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="marcadores-especiales"><span class="header-section-number">10.2</span> Marcadores Especiales</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1515,15 +1708,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb19-6"><a href="#cb19-6"></a><span class="co"># Volver rápido</span></span>
 <span id="cb19-7"><a href="#cb19-7"></a><span class="st">'a        # Regresa a /home/usuario/documentos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="ver-marcadores" class="level2">
-<h2 class="anchored" data-anchor-id="ver-marcadores">Ver Marcadores</h2>
+<section id="ver-marcadores" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="ver-marcadores"><span class="header-section-number">10.3</span> Ver Marcadores</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1"></a><span class="ex">:marks</span>    <span class="co"># Ver todos los marcadores</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="previsualización-de-archivos" class="level1">
-<h1>Previsualización de Archivos</h1>
-<section id="configurar-previsualización" class="level2">
-<h2 class="anchored" data-anchor-id="configurar-previsualización">Configurar Previsualización</h2>
+<section id="previsualización-de-archivos" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Previsualización de Archivos</h1>
+<section id="configurar-previsualización" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="configurar-previsualización"><span class="header-section-number">11.1</span> Configurar Previsualización</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1551,8 +1744,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="tipos-de-previsualización" class="level2">
-<h2 class="anchored" data-anchor-id="tipos-de-previsualización">Tipos de Previsualización</h2>
+<section id="tipos-de-previsualización" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="tipos-de-previsualización"><span class="header-section-number">11.2</span> Tipos de Previsualización</h2>
 <p><strong>Texto:</strong></p>
 <ul>
 <li>Archivos de texto plano</li>
@@ -1579,8 +1772,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li>Audio (metadatos con mediainfo)</li>
 </ul>
 </section>
-<section id="configurar-scope.sh" class="level2">
-<h2 class="anchored" data-anchor-id="configurar-scope.sh">Configurar scope.sh</h2>
+<section id="configurar-scope.sh" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="configurar-scope.sh"><span class="header-section-number">11.3</span> Configurar scope.sh</h2>
 <p>El archivo <code>~/.config/ranger/scope.sh</code> controla qué se previsualiza y cómo.</p>
 <p><strong>Ejemplo - Añadir tipo de archivo:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># En scope.sh, añadir nuevo caso</span></span>
@@ -1592,10 +1785,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb21-7"><a href="#cb21-7"></a><span class="cf">esac</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="comandos-de-consola" class="level1">
-<h1>Comandos de Consola</h1>
-<section id="acceder-a-la-consola" class="level2">
-<h2 class="anchored" data-anchor-id="acceder-a-la-consola">Acceder a la Consola</h2>
+<section id="comandos-de-consola" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Comandos de Consola</h1>
+<section id="acceder-a-la-consola" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="acceder-a-la-consola"><span class="header-section-number">12.1</span> Acceder a la Consola</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1623,52 +1816,52 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="comandos-principales" class="level2">
-<h2 class="anchored" data-anchor-id="comandos-principales">Comandos Principales</h2>
+<section id="comandos-principales" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="comandos-principales"><span class="header-section-number">12.2</span> Comandos Principales</h2>
 </section>
-<section id="navegación" class="level2">
-<h2 class="anchored" data-anchor-id="navegación">Navegación</h2>
+<section id="navegación" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="navegación"><span class="header-section-number">12.3</span> Navegación</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1"></a><span class="ex">:cd</span> <span class="op">&lt;</span>directorio<span class="op">&gt;</span>           <span class="co"># Cambiar directorio</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a><span class="ex">:cd</span> <span class="at">-</span>                      <span class="co"># Directorio anterior</span></span>
 <span id="cb22-3"><a href="#cb22-3"></a><span class="ex">:cd</span> ~                      <span class="co"># Ir a HOME</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="operaciones-de-archivos" class="level2">
-<h2 class="anchored" data-anchor-id="operaciones-de-archivos">Operaciones de Archivos</h2>
+<section id="operaciones-de-archivos" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="operaciones-de-archivos"><span class="header-section-number">12.4</span> Operaciones de Archivos</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="ex">:touch</span> <span class="op">&lt;</span>nombre<span class="op">&gt;</span>            <span class="co"># Crear archivo</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a><span class="ex">:mkdir</span> <span class="op">&lt;</span>nombre<span class="op">&gt;</span>            <span class="co"># Crear directorio</span></span>
 <span id="cb23-3"><a href="#cb23-3"></a><span class="ex">:rename</span> <span class="op">&lt;</span>nuevo_nombre<span class="op">&gt;</span>     <span class="co"># Renombrar</span></span>
 <span id="cb23-4"><a href="#cb23-4"></a><span class="ex">:delete</span>                    <span class="co"># Eliminar con confirmación</span></span>
 <span id="cb23-5"><a href="#cb23-5"></a><span class="ex">:chmod</span> <span class="op">&lt;</span>permisos<span class="op">&gt;</span>          <span class="co"># Cambiar permisos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="búsqueda-1" class="level2">
-<h2 class="anchored" data-anchor-id="búsqueda-1">Búsqueda</h2>
+<section id="búsqueda-1" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="búsqueda-1"><span class="header-section-number">12.5</span> Búsqueda</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="ex">:search</span> <span class="op">&lt;</span>patrón<span class="op">&gt;</span>           <span class="co"># Buscar archivos</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="ex">:search_inc</span> <span class="op">&lt;</span>patrón<span class="op">&gt;</span>       <span class="co"># Búsqueda incremental</span></span>
 <span id="cb24-3"><a href="#cb24-3"></a><span class="ex">:filter</span> <span class="op">&lt;</span>patrón<span class="op">&gt;</span>           <span class="co"># Filtrar archivos mostrados</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="pestañas-y-marcadores" class="level2">
-<h2 class="anchored" data-anchor-id="pestañas-y-marcadores">Pestañas y Marcadores</h2>
+<section id="pestañas-y-marcadores" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="pestañas-y-marcadores"><span class="header-section-number">12.6</span> Pestañas y Marcadores</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="ex">:tab_new</span>                   <span class="co"># Nueva pestaña</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a><span class="ex">:tab_close</span>                 <span class="co"># Cerrar pestaña</span></span>
 <span id="cb25-3"><a href="#cb25-3"></a><span class="ex">:tab_move</span> <span class="op">&lt;</span>n<span class="op">&gt;</span>              <span class="co"># Mover a pestaña n</span></span>
 <span id="cb25-4"><a href="#cb25-4"></a><span class="ex">:mark</span> <span class="op">&lt;</span>letra<span class="op">&gt;</span>              <span class="co"># Crear marcador</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="configuración" class="level2">
-<h2 class="anchored" data-anchor-id="configuración">Configuración</h2>
+<section id="configuración" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="configuración"><span class="header-section-number">12.7</span> Configuración</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="ex">:set</span> <span class="op">&lt;</span>opción<span class="op">&gt;</span> <span class="op">&lt;</span>valor<span class="op">&gt;</span>      <span class="co"># Establecer opción</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="ex">:set</span> show_hidden true      <span class="co"># Mostrar archivos ocultos</span></span>
 <span id="cb26-3"><a href="#cb26-3"></a><span class="ex">:set</span> column_ratios 1,3,4   <span class="co"># Cambiar proporciones de columnas</span></span>
 <span id="cb26-4"><a href="#cb26-4"></a><span class="ex">:set</span> colorscheme <span class="op">&lt;</span>nombre<span class="op">&gt;</span>  <span class="co"># Cambiar tema de colores</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="ayuda-y-sistema" class="level2">
-<h2 class="anchored" data-anchor-id="ayuda-y-sistema">Ayuda y Sistema</h2>
+<section id="ayuda-y-sistema" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="ayuda-y-sistema"><span class="header-section-number">12.8</span> Ayuda y Sistema</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1"></a><span class="ex">:help</span>                      <span class="co"># Abrir ayuda</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a><span class="ex">:source</span> <span class="op">&lt;</span>archivo<span class="op">&gt;</span>          <span class="co"># Cargar configuración</span></span>
 <span id="cb27-3"><a href="#cb27-3"></a><span class="ex">:shell</span> <span class="op">&lt;</span>comando<span class="op">&gt;</span>           <span class="co"># Ejecutar comando shell</span></span>
 <span id="cb27-4"><a href="#cb27-4"></a><span class="ex">:quit</span>                      <span class="co"># Salir</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="comandos-de-shell" class="level2">
-<h2 class="anchored" data-anchor-id="comandos-de-shell">Comandos de Shell</h2>
+<section id="comandos-de-shell" class="level2" data-number="12.9">
+<h2 data-number="12.9" class="anchored" data-anchor-id="comandos-de-shell"><span class="header-section-number">12.9</span> Comandos de Shell</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Ejecutar comando y ver output</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a><span class="ex">!ls</span> <span class="at">-la</span></span>
 <span id="cb28-3"><a href="#cb28-3"></a></span>
@@ -1680,22 +1873,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb28-9"><a href="#cb28-9"></a><span class="co"># O</span></span>
 <span id="cb28-10"><a href="#cb28-10"></a><span class="ex">!sudo</span> <span class="op">&lt;</span>comando<span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="autocompletado" class="level2">
-<h2 class="anchored" data-anchor-id="autocompletado">Autocompletado</h2>
+<section id="autocompletado" class="level2" data-number="12.10">
+<h2 data-number="12.10" class="anchored" data-anchor-id="autocompletado"><span class="header-section-number">12.10</span> Autocompletado</h2>
 <ul>
 <li><code>Tab</code> - Autocompletar comando/ruta</li>
 <li><code>Shift+Tab</code> - Autocompletar hacia atrás</li>
 </ul>
 </section>
 </section>
-<section id="configuración-avanzada" class="level1">
-<h1>Configuración Avanzada</h1>
-<section id="rc.conf---configuración-principal" class="level2">
-<h2 class="anchored" data-anchor-id="rc.conf---configuración-principal">rc.conf - Configuración Principal</h2>
+<section id="configuración-avanzada" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Configuración Avanzada</h1>
+<section id="rc.conf---configuración-principal" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="rc.conf---configuración-principal"><span class="header-section-number">13.1</span> rc.conf - Configuración Principal</h2>
 <p>Ubicación: <code>~/.config/ranger/rc.conf</code></p>
 </section>
-<section id="opciones-comunes" class="level2">
-<h2 class="anchored" data-anchor-id="opciones-comunes">Opciones Comunes</h2>
+<section id="opciones-comunes" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="opciones-comunes"><span class="header-section-number">13.2</span> Opciones Comunes</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Mostrar archivos ocultos</span></span>
 <span id="cb29-2"><a href="#cb29-2"></a><span class="bu">set</span> show_hidden true</span>
 <span id="cb29-3"><a href="#cb29-3"></a></span>
@@ -1747,8 +1940,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb29-49"><a href="#cb29-49"></a><span class="co"># Padding alrededor de la selección</span></span>
 <span id="cb29-50"><a href="#cb29-50"></a><span class="bu">set</span> padding_right true</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="mapeos-de-teclado-personalizados" class="level2">
-<h2 class="anchored" data-anchor-id="mapeos-de-teclado-personalizados">Mapeos de Teclado Personalizados</h2>
+<section id="mapeos-de-teclado-personalizados" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="mapeos-de-teclado-personalizados"><span class="header-section-number">13.3</span> Mapeos de Teclado Personalizados</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Mapear tecla a comando</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a><span class="ex">map</span> <span class="op">&lt;</span>tecla<span class="op">&gt;</span> <span class="op">&lt;</span>comando<span class="op">&gt;</span></span>
 <span id="cb30-3"><a href="#cb30-3"></a></span>
@@ -1764,8 +1957,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb30-13"><a href="#cb30-13"></a><span class="co"># Desmap tecla</span></span>
 <span id="cb30-14"><a href="#cb30-14"></a><span class="ex">unmap</span> dd  <span class="co"># Quitar mapeo de dd</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="comandos-de-shell-1" class="level2">
-<h2 class="anchored" data-anchor-id="comandos-de-shell-1">Comandos de Shell</h2>
+<section id="comandos-de-shell-1" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="comandos-de-shell-1"><span class="header-section-number">13.4</span> Comandos de Shell</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Ejecutar comando con archivo actual</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="ex">map</span> X shell <span class="at">-f</span> <span class="op">&lt;</span>comando<span class="op">&gt;</span> %f</span>
 <span id="cb31-3"><a href="#cb31-3"></a></span>
@@ -1776,8 +1969,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb31-8"><a href="#cb31-8"></a><span class="co"># %t - archivos etiquetados (tagged)</span></span>
 <span id="cb31-9"><a href="#cb31-9"></a><span class="co"># %c - ruta completa del archivo actual</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="rifle.conf---lanzador-de-archivos" class="level2">
-<h2 class="anchored" data-anchor-id="rifle.conf---lanzador-de-archivos">rifle.conf - Lanzador de Archivos</h2>
+<section id="rifle.conf---lanzador-de-archivos" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="rifle.conf---lanzador-de-archivos"><span class="header-section-number">13.5</span> rifle.conf - Lanzador de Archivos</h2>
 <p>Ubicación: <code>~/.config/ranger/rifle.conf</code></p>
 <p>Determina qué programa abre cada tipo de archivo.</p>
 <p><strong>Sintaxis:</strong></p>
@@ -1832,8 +2025,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li><code>flag t</code> - Terminal (ejecutar en terminal)</li>
 </ul>
 </section>
-<section id="commands.py---comandos-personalizados" class="level2">
-<h2 class="anchored" data-anchor-id="commands.py---comandos-personalizados">commands.py - Comandos Personalizados</h2>
+<section id="commands.py---comandos-personalizados" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="commands.py---comandos-personalizados"><span class="header-section-number">13.6</span> commands.py - Comandos Personalizados</h2>
 <p>Ubicación: <code>~/.config/ranger/commands.py</code></p>
 <p>Crear comandos Python personalizados.</p>
 <p><strong>Ejemplo - Comando para comprimir:</strong></p>
@@ -1880,14 +2073,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb35-3"><a href="#cb35-3"></a><span class="ex">:mkcd</span> nueva-carpeta         <span class="co"># Crear y entrar</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="rifle---el-lanzador-de-archivos" class="level1">
-<h1>Rifle - El Lanzador de Archivos</h1>
-<section id="qué-es-rifle" class="level2">
-<h2 class="anchored" data-anchor-id="qué-es-rifle">¿Qué es Rifle?</h2>
+<section id="rifle---el-lanzador-de-archivos" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> Rifle - El Lanzador de Archivos</h1>
+<section id="qué-es-rifle" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="qué-es-rifle"><span class="header-section-number">14.1</span> ¿Qué es Rifle?</h2>
 <p>Rifle es el programa que ranger usa para determinar con qué abrir archivos. Es inteligente y tiene fallbacks.</p>
 </section>
-<section id="uso-básico" class="level2">
-<h2 class="anchored" data-anchor-id="uso-básico">Uso Básico</h2>
+<section id="uso-básico" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="uso-básico"><span class="header-section-number">14.2</span> Uso Básico</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Abrir archivo con rifle</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a><span class="ex">rifle</span> archivo.pdf</span>
 <span id="cb36-3"><a href="#cb36-3"></a></span>
@@ -1897,8 +2090,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb36-7"><a href="#cb36-7"></a><span class="co"># Abrir con programa específico</span></span>
 <span id="cb36-8"><a href="#cb36-8"></a><span class="ex">rifle</span> <span class="at">-p</span> 2 archivo.pdf  <span class="co"># Usar opción 2 de la lista</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="dentro-de-ranger" class="level2">
-<h2 class="anchored" data-anchor-id="dentro-de-ranger">Dentro de Ranger</h2>
+<section id="dentro-de-ranger" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="dentro-de-ranger"><span class="header-section-number">14.3</span> Dentro de Ranger</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1918,8 +2111,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="configurar-rifle" class="level2">
-<h2 class="anchored" data-anchor-id="configurar-rifle">Configurar Rifle</h2>
+<section id="configurar-rifle" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="configurar-rifle"><span class="header-section-number">14.4</span> Configurar Rifle</h2>
 <p>Editar <code>~/.config/ranger/rifle.conf</code></p>
 <p><strong>Prioridad:</strong> Primera coincidencia gana</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Ejemplo: Abrir PDFs con zathura si está disponible</span></span>
@@ -1931,8 +2124,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb37-7"><a href="#cb37-7"></a><span class="co"># Si no, convertir a texto</span></span>
 <span id="cb37-8"><a href="#cb37-8"></a><span class="ex">ext</span> pdf, has pdftotext = pdftotext <span class="at">-l</span> 10 <span class="at">-nopgbrk</span> <span class="at">-q</span> <span class="at">--</span> <span class="st">"</span><span class="va">$@</span><span class="st">"</span> <span class="at">-</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="flags-de-rifle" class="level2">
-<h2 class="anchored" data-anchor-id="flags-de-rifle">Flags de Rifle</h2>
+<section id="flags-de-rifle" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="flags-de-rifle"><span class="header-section-number">14.5</span> Flags de Rifle</h2>
 <ul>
 <li><code>f</code> - Fork (ejecutar en segundo plano)</li>
 <li><code>t</code> - Terminal (ejecutar en terminal y esperar)</li>
@@ -1942,35 +2135,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </ul>
 </section>
 </section>
-<section id="plugins-y-extensiones" class="level1">
-<h1>Plugins y Extensiones</h1>
-<section id="ubicación-de-plugins" class="level2">
-<h2 class="anchored" data-anchor-id="ubicación-de-plugins">Ubicación de Plugins</h2>
+<section id="plugins-y-extensiones" class="level1" data-number="15">
+<h1 data-number="15"><span class="header-section-number">15</span> Plugins y Extensiones</h1>
+<section id="ubicación-de-plugins" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="ubicación-de-plugins"><span class="header-section-number">15.1</span> Ubicación de Plugins</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1"></a><span class="ex">~/.config/ranger/plugins/</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="plugins-populares" class="level2">
-<h2 class="anchored" data-anchor-id="plugins-populares">Plugins Populares</h2>
+<section id="plugins-populares" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="plugins-populares"><span class="header-section-number">15.2</span> Plugins Populares</h2>
 </section>
-<section id="ranger_devicons" class="level2">
-<h2 class="anchored" data-anchor-id="ranger_devicons">1. ranger_devicons</h2>
+<section id="ranger_devicons" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="ranger_devicons"><span class="header-section-number">15.3</span> 1. ranger_devicons</h2>
 <p>Añade iconos a tipos de archivo.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">git</span> clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Activar en rc.conf:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1"></a><span class="ex">default_linemode</span> devicons</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="ranger-archives" class="level2">
-<h2 class="anchored" data-anchor-id="ranger-archives">2. ranger-archives</h2>
+<section id="ranger-archives" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="ranger-archives"><span class="header-section-number">15.4</span> 2. ranger-archives</h2>
 <p>Mejorar manejo de archivos comprimidos.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">git</span> clone https://github.com/maximtrp/ranger-archives.git ~/.config/ranger/plugins/ranger-archives</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="fasd-integration" class="level2">
-<h2 class="anchored" data-anchor-id="fasd-integration">3. fasd Integration</h2>
+<section id="fasd-integration" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="fasd-integration"><span class="header-section-number">15.5</span> 3. fasd Integration</h2>
 <p>Integración con fasd (autojump rápido).</p>
 <p><strong>En rc.conf:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1"></a><span class="ex">map</span> f shell fasd <span class="at">-d</span> <span class="kw">|</span> <span class="ex">fzf</span> <span class="at">--no-sort</span> <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-I{}</span> ranger <span class="at">--selectfile</span> <span class="st">"{}"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="fzf-integration" class="level2">
-<h2 class="anchored" data-anchor-id="fzf-integration">4. fzf Integration</h2>
+<section id="fzf-integration" class="level2" data-number="15.6">
+<h2 data-number="15.6" class="anchored" data-anchor-id="fzf-integration"><span class="header-section-number">15.6</span> 4. fzf Integration</h2>
 <p>Búsqueda fuzzy con fzf.</p>
 <p><strong>En commands.py:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="kw">class</span> fzf_select(Command):</span>
@@ -1988,8 +2181,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p><strong>Mapear en rc.conf:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1"></a><span class="ex">map</span> <span class="op">&lt;</span>C-f<span class="op">&gt;</span> fzf_select</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="crear-plugin-propio" class="level2">
-<h2 class="anchored" data-anchor-id="crear-plugin-propio">Crear Plugin Propio</h2>
+<section id="crear-plugin-propio" class="level2" data-number="15.7">
+<h2 data-number="15.7" class="anchored" data-anchor-id="crear-plugin-propio"><span class="header-section-number">15.7</span> Crear Plugin Propio</h2>
 <p><strong>Estructura básica:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># ~/.config/ranger/plugins/mi_plugin.py</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a><span class="im">import</span> ranger.api</span>
@@ -2010,14 +2203,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb45-17"><a href="#cb45-17"></a>ranger.api.hook_init <span class="op">=</span> hook_init</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="integración-con-shell" class="level1">
-<h1>Integración con Shell</h1>
-<section id="cambiar-directorio-al-salir" class="level2">
-<h2 class="anchored" data-anchor-id="cambiar-directorio-al-salir">Cambiar Directorio al Salir</h2>
+<section id="integración-con-shell" class="level1" data-number="16">
+<h1 data-number="16"><span class="header-section-number">16</span> Integración con Shell</h1>
+<section id="cambiar-directorio-al-salir" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="cambiar-directorio-al-salir"><span class="header-section-number">16.1</span> Cambiar Directorio al Salir</h2>
 <p>Ranger puede cambiar el directorio de tu shell al salir.</p>
 </section>
-<section id="bash" class="level2">
-<h2 class="anchored" data-anchor-id="bash">Bash</h2>
+<section id="bash" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="bash"><span class="header-section-number">16.2</span> Bash</h2>
 <p>Añadir a <code>~/.bashrc</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1"></a><span class="kw">function</span><span class="fu"> ranger-cd</span> <span class="kw">{</span></span>
 <span id="cb46-2"><a href="#cb46-2"></a>    <span class="va">tempfile</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="fu">mktemp</span> <span class="at">-t</span> tmp.XXXXXX<span class="va">)</span><span class="st">"</span></span>
@@ -2032,8 +2225,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb46-11"><a href="#cb46-11"></a><span class="co"># Alias para usar</span></span>
 <span id="cb46-12"><a href="#cb46-12"></a><span class="bu">alias</span> rr=<span class="st">'ranger-cd'</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="zsh" class="level2">
-<h2 class="anchored" data-anchor-id="zsh">Zsh</h2>
+<section id="zsh" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="zsh"><span class="header-section-number">16.3</span> Zsh</h2>
 <p>Añadir a <code>~/.zshrc</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1"></a><span class="kw">function</span><span class="fu"> ranger-cd</span> <span class="kw">{</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a>    <span class="va">tempfile</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="fu">mktemp</span> <span class="at">-t</span> tmp.XXXXXX<span class="va">)</span><span class="st">"</span></span>
@@ -2047,8 +2240,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb47-10"><a href="#cb47-10"></a></span>
 <span id="cb47-11"><a href="#cb47-11"></a><span class="bu">alias</span> rr=<span class="st">'ranger-cd'</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="fish" class="level2">
-<h2 class="anchored" data-anchor-id="fish">Fish</h2>
+<section id="fish" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="fish"><span class="header-section-number">16.4</span> Fish</h2>
 <p>Añadir a <code>~/.config/fish/config.fish</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode numberSource fish number-lines code-with-copy"><code class="sourceCode"><span id="cb48-1"><a href="#cb48-1"></a>function ranger-cd</span>
 <span id="cb48-2"><a href="#cb48-2"></a>    set tempfile (mktemp -t tmp.XXXXXX)</span>
@@ -2063,8 +2256,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb48-11"><a href="#cb48-11"></a></span>
 <span id="cb48-12"><a href="#cb48-12"></a>alias rr='ranger-cd'</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="file-picker" class="level2">
-<h2 class="anchored" data-anchor-id="file-picker">File Picker</h2>
+<section id="file-picker" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="file-picker"><span class="header-section-number">16.5</span> File Picker</h2>
 <p>Usar ranger como selector de archivos.</p>
 <p><strong>Script:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1"></a><span class="co">#!/bin/bash</span></span>
@@ -2080,10 +2273,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb50-2"><a href="#cb50-2"></a><span class="bu">echo</span> <span class="st">"Archivo seleccionado: </span><span class="va">$selected_file</span><span class="st">"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="trucos-y-tips-avanzados" class="level1">
-<h1>Trucos y Tips Avanzados</h1>
-<section id="preview-de-archivos-con-sintaxis" class="level2">
-<h2 class="anchored" data-anchor-id="preview-de-archivos-con-sintaxis">Preview de Archivos con Sintaxis</h2>
+<section id="trucos-y-tips-avanzados" class="level1" data-number="17">
+<h1 data-number="17"><span class="header-section-number">17</span> Trucos y Tips Avanzados</h1>
+<section id="preview-de-archivos-con-sintaxis" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="preview-de-archivos-con-sintaxis"><span class="header-section-number">17.1</span> Preview de Archivos con Sintaxis</h2>
 <p>Instalar <code>highlight</code> o <code>bat</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">sudo</span> apt-get install highlight</span>
 <span id="cb51-2"><a href="#cb51-2"></a><span class="co"># O</span></span>
@@ -2095,14 +2288,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb52-4"><a href="#cb52-4"></a>        <span class="bu">exit</span> 2<span class="cf">;;</span></span>
 <span id="cb52-5"><a href="#cb52-5"></a><span class="cf">esac</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="thumbnails-de-videos" class="level2">
-<h2 class="anchored" data-anchor-id="thumbnails-de-videos">Thumbnails de Videos</h2>
+<section id="thumbnails-de-videos" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="thumbnails-de-videos"><span class="header-section-number">17.2</span> Thumbnails de Videos</h2>
 <p>Instalar <code>ffmpegthumbnailer</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">sudo</span> apt-get install ffmpegthumbnailer</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Ya debería funcionar con <code>scope.sh</code> por defecto.</p>
 </section>
-<section id="preview-de-imágenes-terminal-compatible" class="level2">
-<h2 class="anchored" data-anchor-id="preview-de-imágenes-terminal-compatible">Preview de Imágenes (Terminal Compatible)</h2>
+<section id="preview-de-imágenes-terminal-compatible" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="preview-de-imágenes-terminal-compatible"><span class="header-section-number">17.3</span> Preview de Imágenes (Terminal Compatible)</h2>
 <p><strong>Con w3m:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">sudo</span> apt-get install w3m w3m-img</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>En rc.conf:</strong></p>
@@ -2114,8 +2307,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><a href="#cb57-1"></a><span class="ex">pip</span> install ueberzug</span>
 <span id="cb57-2"><a href="#cb57-2"></a><span class="bu">set</span> preview_images_method ueberzug</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="búsqueda-con-fzf" class="level2">
-<h2 class="anchored" data-anchor-id="búsqueda-con-fzf">Búsqueda con FZF</h2>
+<section id="búsqueda-con-fzf" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="búsqueda-con-fzf"><span class="header-section-number">17.4</span> Búsqueda con FZF</h2>
 <p>Integrar búsqueda fuzzy:</p>
 <p><strong>En commands.py:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="im">import</span> subprocess</span>
@@ -2134,24 +2327,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p><strong>Mapear:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1"></a><span class="ex">map</span> <span class="op">&lt;</span>C-f<span class="op">&gt;</span> fzf</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="integración-con-git" class="level2">
-<h2 class="anchored" data-anchor-id="integración-con-git">Integración con Git</h2>
+<section id="integración-con-git" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="integración-con-git"><span class="header-section-number">17.5</span> Integración con Git</h2>
 <p>Ver estado de Git:</p>
 <p><strong>En rc.conf:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1"></a><span class="bu">set</span> vcs_aware true</span>
 <span id="cb60-2"><a href="#cb60-2"></a><span class="bu">set</span> vcs_backend_git enabled</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Ranger mostrará información de Git en archivos/directorios.</p>
 </section>
-<section id="archivos-grandes" class="level2">
-<h2 class="anchored" data-anchor-id="archivos-grandes">Archivos Grandes</h2>
+<section id="archivos-grandes" class="level2" data-number="17.6">
+<h2 data-number="17.6" class="anchored" data-anchor-id="archivos-grandes"><span class="header-section-number">17.6</span> Archivos Grandes</h2>
 <p>Evitar lag con archivos grandes:</p>
 <p><strong>En rc.conf:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb61-1"><a href="#cb61-1"></a><span class="bu">set</span> preview_max_size 10485760  <span class="co"># 10MB</span></span>
 <span id="cb61-2"><a href="#cb61-2"></a><span class="bu">set</span> max_history_size 20</span>
 <span id="cb61-3"><a href="#cb61-3"></a><span class="bu">set</span> max_console_history_size 50</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="abrir-en-programa-externo" class="level2">
-<h2 class="anchored" data-anchor-id="abrir-en-programa-externo">Abrir en Programa Externo</h2>
+<section id="abrir-en-programa-externo" class="level2" data-number="17.7">
+<h2 data-number="17.7" class="anchored" data-anchor-id="abrir-en-programa-externo"><span class="header-section-number">17.7</span> Abrir en Programa Externo</h2>
 <p>Crear atajos para programas específicos:</p>
 <p><strong>En rc.conf:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># Abrir en VS Code</span></span>
@@ -2166,14 +2359,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb62-10"><a href="#cb62-10"></a><span class="co"># Ejecutar script</span></span>
 <span id="cb62-11"><a href="#cb62-11"></a><span class="ex">map</span> ex shell chmod +x %s <span class="kw">&amp;&amp;</span> <span class="ex">./%s</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="sincronizar-con-dropboxdrive" class="level2">
-<h2 class="anchored" data-anchor-id="sincronizar-con-dropboxdrive">Sincronizar con Dropbox/Drive</h2>
+<section id="sincronizar-con-dropboxdrive" class="level2" data-number="17.8">
+<h2 data-number="17.8" class="anchored" data-anchor-id="sincronizar-con-dropboxdrive"><span class="header-section-number">17.8</span> Sincronizar con Dropbox/Drive</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># Crear marcador para cloud storage</span></span>
 <span id="cb63-2"><a href="#cb63-2"></a><span class="ex">map</span> gdb cd ~/Dropbox</span>
 <span id="cb63-3"><a href="#cb63-3"></a><span class="ex">map</span> gdv cd ~/Google\ Drive</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="operaciones-bulk" class="level2">
-<h2 class="anchored" data-anchor-id="operaciones-bulk">Operaciones Bulk</h2>
+<section id="operaciones-bulk" class="level2" data-number="17.9">
+<h2 data-number="17.9" class="anchored" data-anchor-id="operaciones-bulk"><span class="header-section-number">17.9</span> Operaciones Bulk</h2>
 <p>Renombrar múltiples archivos:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb64"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># Seleccionar archivos con Space</span></span>
 <span id="cb64-2"><a href="#cb64-2"></a><span class="co"># Ejecutar:</span></span>
@@ -2183,8 +2376,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb64-6"><a href="#cb64-6"></a><span class="co"># Modificar nombres</span></span>
 <span id="cb64-7"><a href="#cb64-7"></a><span class="co"># Guardar y cerrar</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="preview-de-archivos-jsonyaml" class="level2">
-<h2 class="anchored" data-anchor-id="preview-de-archivos-jsonyaml">Preview de Archivos JSON/YAML</h2>
+<section id="preview-de-archivos-jsonyaml" class="level2" data-number="17.10">
+<h2 data-number="17.10" class="anchored" data-anchor-id="preview-de-archivos-jsonyaml"><span class="header-section-number">17.10</span> Preview de Archivos JSON/YAML</h2>
 <p><strong>En scope.sh:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb65"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># JSON</span></span>
 <span id="cb65-2"><a href="#cb65-2"></a><span class="ex">json</span><span class="er">)</span></span>
@@ -2198,10 +2391,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb65-10"><a href="#cb65-10"></a>    <span class="kw">;;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="solución-de-problemas" class="level1">
-<h1>Solución de Problemas</h1>
-<section id="problema-imágenes-no-se-previsualizan" class="level2">
-<h2 class="anchored" data-anchor-id="problema-imágenes-no-se-previsualizan">Problema: Imágenes no se previsualizan</h2>
+<section id="solución-de-problemas" class="level1" data-number="18">
+<h1 data-number="18"><span class="header-section-number">18</span> Solución de Problemas</h1>
+<section id="problema-imágenes-no-se-previsualizan" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="problema-imágenes-no-se-previsualizan"><span class="header-section-number">18.1</span> Problema: Imágenes no se previsualizan</h2>
 <p><strong>Solución:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb66"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Verificar método configurado</span></span>
 <span id="cb66-2"><a href="#cb66-2"></a><span class="ex">:set</span> preview_images_method</span>
@@ -2213,8 +2406,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb66-8"><a href="#cb66-8"></a><span class="co"># Verificar instalación</span></span>
 <span id="cb66-9"><a href="#cb66-9"></a><span class="fu">which</span> w3mimgdisplay</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-colores-incorrectos" class="level2">
-<h2 class="anchored" data-anchor-id="problema-colores-incorrectos">Problema: Colores incorrectos</h2>
+<section id="problema-colores-incorrectos" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="problema-colores-incorrectos"><span class="header-section-number">18.2</span> Problema: Colores incorrectos</h2>
 <p><strong>Solución:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb67"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Verificar TERM</span></span>
 <span id="cb67-2"><a href="#cb67-2"></a><span class="bu">echo</span> <span class="va">$TERM</span></span>
@@ -2225,8 +2418,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb67-7"><a href="#cb67-7"></a><span class="co"># En rc.conf cambiar colorscheme</span></span>
 <span id="cb67-8"><a href="#cb67-8"></a><span class="bu">set</span> colorscheme default</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-resaltado-de-sintaxis-no-funciona" class="level2">
-<h2 class="anchored" data-anchor-id="problema-resaltado-de-sintaxis-no-funciona">Problema: Resaltado de sintaxis no funciona</h2>
+<section id="problema-resaltado-de-sintaxis-no-funciona" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="problema-resaltado-de-sintaxis-no-funciona"><span class="header-section-number">18.3</span> Problema: Resaltado de sintaxis no funciona</h2>
 <p><strong>Solución:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb68"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># Instalar highlight o pygments</span></span>
 <span id="cb68-2"><a href="#cb68-2"></a><span class="fu">sudo</span> apt-get install highlight</span>
@@ -2236,8 +2429,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb68-6"><a href="#cb68-6"></a></span>
 <span id="cb68-7"><a href="#cb68-7"></a><span class="co"># Verificar scope.sh está configurado correctamente</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-ranger-lento" class="level2">
-<h2 class="anchored" data-anchor-id="problema-ranger-lento">Problema: Ranger lento</h2>
+<section id="problema-ranger-lento" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="problema-ranger-lento"><span class="header-section-number">18.4</span> Problema: Ranger lento</h2>
 <p><strong>Soluciones:</strong></p>
 <ol type="1">
 <li>Limitar tamaño de preview</li>
@@ -2249,23 +2442,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb69-3"><a href="#cb69-3"></a><span class="bu">set</span> preview_images false</span>
 <span id="cb69-4"><a href="#cb69-4"></a><span class="bu">set</span> max_history_size 10</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-no-cambia-directorio-del-shell" class="level2">
-<h2 class="anchored" data-anchor-id="problema-no-cambia-directorio-del-shell">Problema: No cambia directorio del shell</h2>
+<section id="problema-no-cambia-directorio-del-shell" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="problema-no-cambia-directorio-del-shell"><span class="header-section-number">18.5</span> Problema: No cambia directorio del shell</h2>
 <p>Verificar que usas la función wrapper:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb70"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># Debe estar en ~/.bashrc o ~/.zshrc</span></span>
 <span id="cb70-2"><a href="#cb70-2"></a><span class="kw">function</span><span class="fu"> ranger-cd</span> <span class="kw">{</span> <span class="ex">...</span> }</span>
 <span id="cb70-3"><a href="#cb70-3"></a><span class="bu">alias</span> rr=<span class="st">'ranger-cd'</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-archivos-ocultos-no-se-muestran" class="level2">
-<h2 class="anchored" data-anchor-id="problema-archivos-ocultos-no-se-muestran">Problema: Archivos ocultos no se muestran</h2>
+<section id="problema-archivos-ocultos-no-se-muestran" class="level2" data-number="18.6">
+<h2 data-number="18.6" class="anchored" data-anchor-id="problema-archivos-ocultos-no-se-muestran"><span class="header-section-number">18.6</span> Problema: Archivos ocultos no se muestran</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb71"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb71-1"><a href="#cb71-1"></a><span class="co"># Presionar</span></span>
 <span id="cb71-2"><a href="#cb71-2"></a><span class="ex">zh</span></span>
 <span id="cb71-3"><a href="#cb71-3"></a></span>
 <span id="cb71-4"><a href="#cb71-4"></a><span class="co"># O en rc.conf</span></span>
 <span id="cb71-5"><a href="#cb71-5"></a><span class="bu">set</span> show_hidden true</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-rifle-no-encuentra-programas" class="level2">
-<h2 class="anchored" data-anchor-id="problema-rifle-no-encuentra-programas">Problema: Rifle no encuentra programas</h2>
+<section id="problema-rifle-no-encuentra-programas" class="level2" data-number="18.7">
+<h2 data-number="18.7" class="anchored" data-anchor-id="problema-rifle-no-encuentra-programas"><span class="header-section-number">18.7</span> Problema: Rifle no encuentra programas</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb72"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb72-1"><a href="#cb72-1"></a><span class="co"># Verificar PATH</span></span>
 <span id="cb72-2"><a href="#cb72-2"></a><span class="bu">echo</span> <span class="va">$PATH</span></span>
 <span id="cb72-3"><a href="#cb72-3"></a></span>
@@ -2273,10 +2466,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb72-5"><a href="#cb72-5"></a><span class="ex">ext</span> pdf = /usr/bin/zathura <span class="at">--</span> <span class="st">"</span><span class="va">$@</span><span class="st">"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="referencia-completa-de-atajos" class="level1">
-<h1>Referencia Completa de Atajos</h1>
-<section id="navegación-1" class="level2">
-<h2 class="anchored" data-anchor-id="navegación-1">Navegación</h2>
+<section id="referencia-completa-de-atajos" class="level1" data-number="19">
+<h1 data-number="19"><span class="header-section-number">19</span> Referencia Completa de Atajos</h1>
+<section id="navegación-1" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="navegación-1"><span class="header-section-number">19.1</span> Navegación</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2344,8 +2537,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="archivos" class="level2">
-<h2 class="anchored" data-anchor-id="archivos">Archivos</h2>
+<section id="archivos" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="archivos"><span class="header-section-number">19.2</span> Archivos</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2401,8 +2594,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="selección" class="level2">
-<h2 class="anchored" data-anchor-id="selección">Selección</h2>
+<section id="selección" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="selección"><span class="header-section-number">19.3</span> Selección</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2430,8 +2623,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="búsqueda-2" class="level2">
-<h2 class="anchored" data-anchor-id="búsqueda-2">Búsqueda</h2>
+<section id="búsqueda-2" class="level2" data-number="19.4">
+<h2 data-number="19.4" class="anchored" data-anchor-id="búsqueda-2"><span class="header-section-number">19.4</span> Búsqueda</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2463,8 +2656,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="pestañas" class="level2">
-<h2 class="anchored" data-anchor-id="pestañas">Pestañas</h2>
+<section id="pestañas" class="level2" data-number="19.5">
+<h2 data-number="19.5" class="anchored" data-anchor-id="pestañas"><span class="header-section-number">19.5</span> Pestañas</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2496,8 +2689,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="marcadores" class="level2">
-<h2 class="anchored" data-anchor-id="marcadores">Marcadores</h2>
+<section id="marcadores" class="level2" data-number="19.6">
+<h2 data-number="19.6" class="anchored" data-anchor-id="marcadores"><span class="header-section-number">19.6</span> Marcadores</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2521,8 +2714,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="ordenamiento-1" class="level2">
-<h2 class="anchored" data-anchor-id="ordenamiento-1">Ordenamiento</h2>
+<section id="ordenamiento-1" class="level2" data-number="19.7">
+<h2 data-number="19.7" class="anchored" data-anchor-id="ordenamiento-1"><span class="header-section-number">19.7</span> Ordenamiento</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2554,8 +2747,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="vista" class="level2">
-<h2 class="anchored" data-anchor-id="vista">Vista</h2>
+<section id="vista" class="level2" data-number="19.8">
+<h2 data-number="19.8" class="anchored" data-anchor-id="vista"><span class="header-section-number">19.8</span> Vista</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2591,8 +2784,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="sistema" class="level2">
-<h2 class="anchored" data-anchor-id="sistema">Sistema</h2>
+<section id="sistema" class="level2" data-number="19.9">
+<h2 data-number="19.9" class="anchored" data-anchor-id="sistema"><span class="header-section-number">19.9</span> Sistema</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2636,8 +2829,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tbody>
 </table>
 </section>
-<section id="ir-a-g" class="level2">
-<h2 class="anchored" data-anchor-id="ir-a-g">Ir a (g)</h2>
+<section id="ir-a-g" class="level2" data-number="19.10">
+<h2 data-number="19.10" class="anchored" data-anchor-id="ir-a-g"><span class="header-section-number">19.10</span> Ir a (g)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2690,10 +2883,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </table>
 </section>
 </section>
-<section id="recursos-y-enlaces" class="level1">
-<h1>Recursos y Enlaces</h1>
-<section id="documentación-oficial" class="level2">
-<h2 class="anchored" data-anchor-id="documentación-oficial">Documentación Oficial</h2>
+<section id="recursos-y-enlaces" class="level1" data-number="20">
+<h1 data-number="20"><span class="header-section-number">20</span> Recursos y Enlaces</h1>
+<section id="documentación-oficial" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="documentación-oficial"><span class="header-section-number">20.1</span> Documentación Oficial</h2>
 <ul>
 <li><strong>Sitio web</strong>: https://ranger.fm/</li>
 <li><strong>GitHub</strong>: https://github.com/ranger/ranger</li>
@@ -2701,31 +2894,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li><strong>Wiki</strong>: https://github.com/ranger/ranger/wiki</li>
 </ul>
 </section>
-<section id="tutoriales" class="level2">
-<h2 class="anchored" data-anchor-id="tutoriales">Tutoriales</h2>
+<section id="tutoriales" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="tutoriales"><span class="header-section-number">20.2</span> Tutoriales</h2>
 <ul>
 <li><strong>Official User Guide</strong>: En el repositorio de GitHub</li>
 <li><strong>Arch Wiki</strong>: https://wiki.archlinux.org/title/Ranger</li>
 </ul>
 </section>
-<section id="comunidad" class="level2">
-<h2 class="anchored" data-anchor-id="comunidad">Comunidad</h2>
+<section id="comunidad" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="comunidad"><span class="header-section-number">20.3</span> Comunidad</h2>
 <ul>
 <li><strong>IRC</strong>: #ranger en Libera.Chat</li>
 <li><strong>Reddit</strong>: r/ranger</li>
 <li><strong>Issues</strong>: https://github.com/ranger/ranger/issues</li>
 </ul>
 </section>
-<section id="configuraciones-de-ejemplo" class="level2">
-<h2 class="anchored" data-anchor-id="configuraciones-de-ejemplo">Configuraciones de Ejemplo</h2>
+<section id="configuraciones-de-ejemplo" class="level2" data-number="20.4">
+<h2 data-number="20.4" class="anchored" data-anchor-id="configuraciones-de-ejemplo"><span class="header-section-number">20.4</span> Configuraciones de Ejemplo</h2>
 <ul>
 <li><strong>Dotfiles repos</strong>: Buscar en GitHub “ranger config”</li>
 <li><strong>r/unixporn</strong>: Muchas configuraciones compartidas</li>
 </ul>
 </section>
 </section>
-<section id="conclusión" class="level1">
-<h1>Conclusión</h1>
+<section id="conclusión" class="level1" data-number="21">
+<h1 data-number="21"><span class="header-section-number">21</span> Conclusión</h1>
 <p>Ranger es una herramienta poderosa que combina la eficiencia de los atajos de teclado estilo Vim con las capacidades modernas de previsualización y gestión de archivos.</p>
 <p><strong>Consejos finales:</strong></p>
 <ol type="1">
@@ -2746,14 +2939,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li><code>q</code> - Salir</li>
 </ul>
 </section>
-<section id="publicaciones-similares" class="level1">
-<h1>Publicaciones Similares</h1>
+<section id="publicaciones-similares" class="level1" data-number="22">
+<h1 data-number="22"><span class="header-section-number">22</span> Publicaciones Similares</h1>
 <p>Si te interesó este artículo, te recomendamos que explores otros blogs y recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo algunas sugerencias:</p>
 <ol type="1">
 <li><a href="https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows">Comandos De Informacion Windows</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2019-06-19-adb/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2019-06-19-adb">Adb</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc">Limpieza Y Optimizacion De Pc</a></li>
-<li><a href="https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11">Usando Apk En Windown 11</a></li>
+<li><a href="https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy">Scrcpy</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu">Gestionar Versiones De Jdk En Kubuntu</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser">Instalar Tor Browser</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux">Crear Enlaces Duros O Hard Link En Linux</a></li>
@@ -2767,6 +2960,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li><a href="https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim">Atajos De Teclado Y Comandos Para Usar Vim</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify">Instalando Specitify</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow">Gestiona Tus Dotfiles Con Gnu Stow</a></li>
+<li><a href="https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger">Guia De Ranger</a></li>
+<li><a href="https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal">Guia De Kitty Terminal</a></li>
+<li><a href="https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide">Guia De Positron Ide</a></li>
+<li><a href="https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync">Guia De Rsync</a></li>
 </ol>
 <p>Esperamos que encuentres estas publicaciones igualmente interesantes y útiles. ¡Disfruta de la lectura!</p>
 
@@ -2774,14 +2971,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reutilización</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Cómo citar</h2><div><div class="quarto-appendix-secondary-label">Por favor, cita este trabajo como:</div><div id="ref-achalma2025" class="csl-entry quarto-appendix-citeas" role="listitem">
-Achalma, Edison. 2025. <span>“Guía Completa de Ranger,”</span> December.
-<a href="https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/">https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/</a>.
+Achalma, Edison. 2025. <em>Guía Completa de Ranger</em>. accepted,
+December 30. <a href="https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/">https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/</a>.
 </div></div></section></div></main> <!-- /main -->
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGDQM4GK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<!-- ==========================================================================
+  MICROINTERACCIONES — "QUIET LABORATORY" (cargador de módulos)
+  ===========================================================================
+  Inyectado en todas las páginas vía include-after-body (_quarto.yml).
+  El código vive en módulos independientes en assets/js/ (ver su README):
+
+    · navbar.js         → clase .lab-scrolled al hacer scroll
+    · cursor.js         → iluminación que sigue el puntero (--lab-mx/--lab-my)
+    · hero.js           → ajuste del hero de portada al alto visible
+    · scroll-effects.js → aparición escalonada (.lab-reveal/.lab-in)
+
+  Rutas absolutas (/assets/js/...) para funcionar a cualquier profundidad.
+  Sin JS el sitio queda íntegro: nada se oculta por defecto.
+=========================================================================== -->
+<script src="../../assets/js/navbar.js"></script>
+<script src="../../assets/js/cursor.js"></script>
+<script src="../../assets/js/hero.js"></script>
+<script src="../../assets/js/scroll-effects.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -3242,7 +3470,7 @@ Achalma, Edison. 2025. <span>“Guía Completa de Ranger,”</span> December.
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© 2025 Edison Achalma ∙ Made with <a href="https://quarto.org">Quarto</a></p>
+<p>© 2026 Edison Achalma ∙ Made with <a href="https://quarto.org">Quarto</a></p>
 </div>   
     <div class="nav-footer-center">
 <p><a class="link-dark me-1" href="../../accessibility.html" title="Accessibility commitment" target="_blank" rel="noopener"><i class="fa-solid fa-universal-access" aria-label="universal-access"></i></a> <a class="link-dark me-1" href="https://fosstodon.org/@achalmaedison" title="mastodon" target="_blank" rel="noopener"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> <a class="link-dark me-1" href="https://github.com/achalmed" title="github" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-label="github"></i></a> <a class="link-dark me-1" href="https://linkedin.com/in/achalmaedison" title="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a></p>

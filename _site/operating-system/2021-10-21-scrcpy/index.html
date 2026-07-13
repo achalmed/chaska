@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>Scrcpy – Edison Achalma B.Sc. Econ.</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -71,15 +74,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../assets/img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-30b4b9a2d3d7fc4440fb514efb3ce0ba.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c5476e714a85dbfbbcebc64b0d85118e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-cec134992aab4372cb718d1833829c4a.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c5476e714a85dbfbbcebc64b0d85118e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-73ea7a29ae0ac8f38264d57f9eb62418.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-06b466aced5058fffa44584b53f99f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-5389a330c79191949d5bbb2aa435eab0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-06b466aced5058fffa44584b53f99f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -145,13 +151,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 
 
-<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="stylesheet" href="../../assets/css/global.css">
+<link rel="stylesheet" href="../../assets/css/components/bibbase.css">
 <meta property="og:title" content="Edison Achalma B.Sc. Econ.">
 <meta property="og:description" content="Investigador y educador que aplica la ciencia de datos de forma que se dé prioridad a la equidad social.">
 <meta property="og:image" content="https://chaska-x.netlify.app/operating-system/featured.jpg">
-<meta property="og:site_name" content="Actus mercator">
+<meta property="og:site_name" content="Edison Achalma B.Sc. Econ.">
 <meta property="og:locale" content="es_ES">
-<meta name="twitter:title" content="Scrcpy – Edison Achalma B.Sc. Econ.">
+<meta name="twitter:title" content="Scrcpy">
 <meta name="twitter:description" content="Cómo ejecutar aplicaciones Android (APK) directamente en Windows 11 mediante el subsistema WSA, instalación y solución de problemas comunes.">
 <meta name="twitter:image" content="https://chaska-x.netlify.app/operating-system/featured.jpg">
 <meta name="twitter:creator" content="@achalmaedison">
@@ -169,7 +176,169 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="citation_language" content="es">
 </head>
 
-<body class="floating nav-fixed quarto-light">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -261,16 +430,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <div id="quarto-announcement" data-announcement-id="198edcd182a186efde93855487f89d6b" class="alert alert-primary hidden"><i class="bi bi-gift quarto-announcement-icon"></i><div class="quarto-announcement-content">
-<p>¡Bienvenidos a mi mundo! ¡Felices fiestas! Gracias por visitar 🎄</p>
-</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
 </header>
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns" style="position: relative; width: 100%; margin: 0; padding: 0;">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
   <!-- Incluir imagen de fondo si existe featured.jpg, de lo contrario, partículas -->
     <div id="particles-js"></div>
@@ -278,10 +444,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Contenido principal del bloque de título -->
   <div class="title-block-content">
     <div class="quarto-title-block"><div><h1 class="title">Scrcpy</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/achalmed/chaska/blob/main/operating-system/2021-10-21-scrcpy/index.qmd"><i class="bi"></i></button></div></div>
-                <div class="quarto-categories">
-            <div class="quarto-category">Operating System</div>
-          </div>
-        
+    
     <div class="quarto-title-meta-author">
       <div class="quarto-title-meta-heading">Autor/a</div>
       <div class="quarto-title-meta-heading">Afiliación</div>
@@ -311,7 +474,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div>
         <div class="quarto-title-meta-heading">Fecha de última modificación</div>
         <div class="quarto-title-meta-contents">
-          <p class="date-modified">25 de enero de 2026</p>
+          <p class="date-modified">13 de julio de 2026</p>
         </div>
       </div>
         
@@ -331,6 +494,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </div>
 
+    <!-- Categorías tras los metadatos: fila silenciosa junto a las acciones,
+         sin competir con el título -->
+            <div class="quarto-categories">
+            <div class="quarto-category">Operating System</div>
+          </div>
+        
     
     <!-- Cargar script de Particle.js desde CDN, solo si no hay featured.jpg -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
@@ -343,157 +512,155 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
 </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
     <h2 id="toc-title">Contenidos</h2>
    
   <ul>
-  <li><a href="#scrcpy" id="toc-scrcpy" class="nav-link active" data-scroll-target="#scrcpy">Scrcpy</a>
+  <li><a href="#scrcpy" id="toc-scrcpy" class="nav-link active" data-scroll-target="#scrcpy"><span class="header-section-number">1</span> Scrcpy</a>
   <ul class="collapse">
-  <li><a href="#qué-es-scrcpy" id="toc-qué-es-scrcpy" class="nav-link" data-scroll-target="#qué-es-scrcpy">¿Qué es scrcpy?</a></li>
-  <li><a href="#filosofía-de-diseño" id="toc-filosofía-de-diseño" class="nav-link" data-scroll-target="#filosofía-de-diseño">Filosofía de Diseño</a></li>
-  <li><a href="#ventajas-sobre-otras-soluciones" id="toc-ventajas-sobre-otras-soluciones" class="nav-link" data-scroll-target="#ventajas-sobre-otras-soluciones">Ventajas sobre Otras Soluciones</a></li>
+  <li><a href="#qué-es-scrcpy" id="toc-qué-es-scrcpy" class="nav-link" data-scroll-target="#qué-es-scrcpy"><span class="header-section-number">1.1</span> ¿Qué es scrcpy?</a></li>
+  <li><a href="#filosofía-de-diseño" id="toc-filosofía-de-diseño" class="nav-link" data-scroll-target="#filosofía-de-diseño"><span class="header-section-number">1.2</span> Filosofía de Diseño</a></li>
+  <li><a href="#ventajas-sobre-otras-soluciones" id="toc-ventajas-sobre-otras-soluciones" class="nav-link" data-scroll-target="#ventajas-sobre-otras-soluciones"><span class="header-section-number">1.3</span> Ventajas sobre Otras Soluciones</a></li>
   </ul></li>
-  <li><a href="#características-principales" id="toc-características-principales" class="nav-link" data-scroll-target="#características-principales">Características Principales</a>
+  <li><a href="#características-principales" id="toc-características-principales" class="nav-link" data-scroll-target="#características-principales"><span class="header-section-number">2</span> Características Principales</a>
   <ul class="collapse">
-  <li><a href="#funcionalidades-disponibles" id="toc-funcionalidades-disponibles" class="nav-link" data-scroll-target="#funcionalidades-disponibles">Funcionalidades Disponibles</a></li>
-  <li><a href="#casos-de-uso-ideales" id="toc-casos-de-uso-ideales" class="nav-link" data-scroll-target="#casos-de-uso-ideales">Casos de Uso Ideales</a></li>
+  <li><a href="#funcionalidades-disponibles" id="toc-funcionalidades-disponibles" class="nav-link" data-scroll-target="#funcionalidades-disponibles"><span class="header-section-number">2.1</span> Funcionalidades Disponibles</a></li>
+  <li><a href="#casos-de-uso-ideales" id="toc-casos-de-uso-ideales" class="nav-link" data-scroll-target="#casos-de-uso-ideales"><span class="header-section-number">2.2</span> Casos de Uso Ideales</a></li>
   </ul></li>
-  <li><a href="#requisitos-previos" id="toc-requisitos-previos" class="nav-link" data-scroll-target="#requisitos-previos">Requisitos Previos</a>
+  <li><a href="#requisitos-previos" id="toc-requisitos-previos" class="nav-link" data-scroll-target="#requisitos-previos"><span class="header-section-number">3</span> Requisitos Previos</a>
   <ul class="collapse">
-  <li><a href="#en-el-dispositivo-android" id="toc-en-el-dispositivo-android" class="nav-link" data-scroll-target="#en-el-dispositivo-android">En el Dispositivo Android</a></li>
-  <li><a href="#en-arch-linux" id="toc-en-arch-linux" class="nav-link" data-scroll-target="#en-arch-linux">En Arch Linux</a></li>
+  <li><a href="#en-el-dispositivo-android" id="toc-en-el-dispositivo-android" class="nav-link" data-scroll-target="#en-el-dispositivo-android"><span class="header-section-number">3.1</span> En el Dispositivo Android</a></li>
+  <li><a href="#en-arch-linux" id="toc-en-arch-linux" class="nav-link" data-scroll-target="#en-arch-linux"><span class="header-section-number">3.2</span> En Arch Linux</a></li>
   </ul></li>
-  <li><a href="#instalación-en-arch-linux" id="toc-instalación-en-arch-linux" class="nav-link" data-scroll-target="#instalación-en-arch-linux">Instalación en Arch Linux</a>
+  <li><a href="#instalación-en-arch-linux" id="toc-instalación-en-arch-linux" class="nav-link" data-scroll-target="#instalación-en-arch-linux"><span class="header-section-number">4</span> Instalación en Arch Linux</a>
   <ul class="collapse">
-  <li><a href="#método-1-instalación-desde-repositorios-oficiales-recomendado" id="toc-método-1-instalación-desde-repositorios-oficiales-recomendado" class="nav-link" data-scroll-target="#método-1-instalación-desde-repositorios-oficiales-recomendado">Método 1: Instalación desde Repositorios Oficiales (Recomendado)</a></li>
-  <li><a href="#método-2-instalación-desde-aur-versión-de-desarrollo" id="toc-método-2-instalación-desde-aur-versión-de-desarrollo" class="nav-link" data-scroll-target="#método-2-instalación-desde-aur-versión-de-desarrollo">Método 2: Instalación desde AUR (Versión de Desarrollo)</a></li>
-  <li><a href="#método-3-compilación-desde-código-fuente" id="toc-método-3-compilación-desde-código-fuente" class="nav-link" data-scroll-target="#método-3-compilación-desde-código-fuente">Método 3: Compilación desde Código Fuente</a></li>
+  <li><a href="#método-1-instalación-desde-repositorios-oficiales-recomendado" id="toc-método-1-instalación-desde-repositorios-oficiales-recomendado" class="nav-link" data-scroll-target="#método-1-instalación-desde-repositorios-oficiales-recomendado"><span class="header-section-number">4.1</span> Método 1: Instalación desde Repositorios Oficiales (Recomendado)</a></li>
+  <li><a href="#método-2-instalación-desde-aur-versión-de-desarrollo" id="toc-método-2-instalación-desde-aur-versión-de-desarrollo" class="nav-link" data-scroll-target="#método-2-instalación-desde-aur-versión-de-desarrollo"><span class="header-section-number">4.2</span> Método 2: Instalación desde AUR (Versión de Desarrollo)</a></li>
+  <li><a href="#método-3-compilación-desde-código-fuente" id="toc-método-3-compilación-desde-código-fuente" class="nav-link" data-scroll-target="#método-3-compilación-desde-código-fuente"><span class="header-section-number">4.3</span> Método 3: Compilación desde Código Fuente</a></li>
   </ul></li>
-  <li><a href="#configuración-inicial" id="toc-configuración-inicial" class="nav-link" data-scroll-target="#configuración-inicial">Configuración Inicial</a>
+  <li><a href="#configuración-inicial" id="toc-configuración-inicial" class="nav-link" data-scroll-target="#configuración-inicial"><span class="header-section-number">5</span> Configuración Inicial</a>
   <ul class="collapse">
-  <li><a href="#configurar-adb" id="toc-configurar-adb" class="nav-link" data-scroll-target="#configurar-adb">1. Configurar ADB</a></li>
-  <li><a href="#configurar-permisos-de-usuario" id="toc-configurar-permisos-de-usuario" class="nav-link" data-scroll-target="#configurar-permisos-de-usuario">2. Configurar Permisos de Usuario</a></li>
-  <li><a href="#configurar-reglas-udev" id="toc-configurar-reglas-udev" class="nav-link" data-scroll-target="#configurar-reglas-udev">3. Configurar Reglas udev</a></li>
-  <li><a href="#primera-conexión" id="toc-primera-conexión" class="nav-link" data-scroll-target="#primera-conexión">4. Primera Conexión</a></li>
+  <li><a href="#configurar-adb" id="toc-configurar-adb" class="nav-link" data-scroll-target="#configurar-adb"><span class="header-section-number">5.1</span> 1. Configurar ADB</a></li>
+  <li><a href="#configurar-permisos-de-usuario" id="toc-configurar-permisos-de-usuario" class="nav-link" data-scroll-target="#configurar-permisos-de-usuario"><span class="header-section-number">5.2</span> 2. Configurar Permisos de Usuario</a></li>
+  <li><a href="#configurar-reglas-udev" id="toc-configurar-reglas-udev" class="nav-link" data-scroll-target="#configurar-reglas-udev"><span class="header-section-number">5.3</span> 3. Configurar Reglas udev</a></li>
+  <li><a href="#primera-conexión" id="toc-primera-conexión" class="nav-link" data-scroll-target="#primera-conexión"><span class="header-section-number">5.4</span> 4. Primera Conexión</a></li>
   </ul></li>
-  <li><a href="#uso-básico" id="toc-uso-básico" class="nav-link" data-scroll-target="#uso-básico">Uso Básico</a>
+  <li><a href="#uso-básico" id="toc-uso-básico" class="nav-link" data-scroll-target="#uso-básico"><span class="header-section-number">6</span> Uso Básico</a>
   <ul class="collapse">
-  <li><a href="#comando-básico" id="toc-comando-básico" class="nav-link" data-scroll-target="#comando-básico">Comando Básico</a></li>
-  <li><a href="#opciones-más-comunes" id="toc-opciones-más-comunes" class="nav-link" data-scroll-target="#opciones-más-comunes">Opciones Más Comunes</a></li>
-  <li><a href="#ejemplos-de-uso-rápido" id="toc-ejemplos-de-uso-rápido" class="nav-link" data-scroll-target="#ejemplos-de-uso-rápido">Ejemplos de Uso Rápido</a></li>
+  <li><a href="#comando-básico" id="toc-comando-básico" class="nav-link" data-scroll-target="#comando-básico"><span class="header-section-number">6.1</span> Comando Básico</a></li>
+  <li><a href="#opciones-más-comunes" id="toc-opciones-más-comunes" class="nav-link" data-scroll-target="#opciones-más-comunes"><span class="header-section-number">6.2</span> Opciones Más Comunes</a></li>
+  <li><a href="#ejemplos-de-uso-rápido" id="toc-ejemplos-de-uso-rápido" class="nav-link" data-scroll-target="#ejemplos-de-uso-rápido"><span class="header-section-number">6.3</span> Ejemplos de Uso Rápido</a></li>
   </ul></li>
-  <li><a href="#conexión-del-dispositivo" id="toc-conexión-del-dispositivo" class="nav-link" data-scroll-target="#conexión-del-dispositivo">Conexión del Dispositivo</a>
+  <li><a href="#conexión-del-dispositivo" id="toc-conexión-del-dispositivo" class="nav-link" data-scroll-target="#conexión-del-dispositivo"><span class="header-section-number">7</span> Conexión del Dispositivo</a>
   <ul class="collapse">
-  <li><a href="#selección-de-dispositivo" id="toc-selección-de-dispositivo" class="nav-link" data-scroll-target="#selección-de-dispositivo">Selección de Dispositivo</a></li>
-  <li><a href="#conexión-tcpip-inalámbrica" id="toc-conexión-tcpip-inalámbrica" class="nav-link" data-scroll-target="#conexión-tcpip-inalámbrica">Conexión TCP/IP (Inalámbrica)</a>
+  <li><a href="#selección-de-dispositivo" id="toc-selección-de-dispositivo" class="nav-link" data-scroll-target="#selección-de-dispositivo"><span class="header-section-number">7.1</span> Selección de Dispositivo</a></li>
+  <li><a href="#conexión-tcpip-inalámbrica" id="toc-conexión-tcpip-inalámbrica" class="nav-link" data-scroll-target="#conexión-tcpip-inalámbrica"><span class="header-section-number">7.2</span> Conexión TCP/IP (Inalámbrica)</a>
   <ul class="collapse">
-  <li><a href="#método-1-automático" id="toc-método-1-automático" class="nav-link" data-scroll-target="#método-1-automático">Método 1: Automático</a></li>
-  <li><a href="#método-2-manual" id="toc-método-2-manual" class="nav-link" data-scroll-target="#método-2-manual">Método 2: Manual</a></li>
+  <li><a href="#método-1-automático" id="toc-método-1-automático" class="nav-link" data-scroll-target="#método-1-automático"><span class="header-section-number">7.2.1</span> Método 1: Automático</a></li>
+  <li><a href="#método-2-manual" id="toc-método-2-manual" class="nav-link" data-scroll-target="#método-2-manual"><span class="header-section-number">7.2.2</span> Método 2: Manual</a></li>
   </ul></li>
-  <li><a href="#variable-de-entorno" id="toc-variable-de-entorno" class="nav-link" data-scroll-target="#variable-de-entorno">Variable de Entorno</a></li>
+  <li><a href="#variable-de-entorno" id="toc-variable-de-entorno" class="nav-link" data-scroll-target="#variable-de-entorno"><span class="header-section-number">7.3</span> Variable de Entorno</a></li>
   </ul></li>
-  <li><a href="#control-de-video" id="toc-control-de-video" class="nav-link" data-scroll-target="#control-de-video">Control de Video</a>
+  <li><a href="#control-de-video" id="toc-control-de-video" class="nav-link" data-scroll-target="#control-de-video"><span class="header-section-number">8</span> Control de Video</a>
   <ul class="collapse">
-  <li><a href="#resolución-y-calidad" id="toc-resolución-y-calidad" class="nav-link" data-scroll-target="#resolución-y-calidad">Resolución y Calidad</a>
+  <li><a href="#resolución-y-calidad" id="toc-resolución-y-calidad" class="nav-link" data-scroll-target="#resolución-y-calidad"><span class="header-section-number">8.1</span> Resolución y Calidad</a>
   <ul class="collapse">
-  <li><a href="#limitar-resolución" id="toc-limitar-resolución" class="nav-link" data-scroll-target="#limitar-resolución">Limitar Resolución</a></li>
-  <li><a href="#tasa-de-bits" id="toc-tasa-de-bits" class="nav-link" data-scroll-target="#tasa-de-bits">Tasa de Bits</a></li>
-  <li><a href="#tasa-de-fotogramas" id="toc-tasa-de-fotogramas" class="nav-link" data-scroll-target="#tasa-de-fotogramas">Tasa de Fotogramas</a></li>
+  <li><a href="#limitar-resolución" id="toc-limitar-resolución" class="nav-link" data-scroll-target="#limitar-resolución"><span class="header-section-number">8.1.1</span> Limitar Resolución</a></li>
+  <li><a href="#tasa-de-bits" id="toc-tasa-de-bits" class="nav-link" data-scroll-target="#tasa-de-bits"><span class="header-section-number">8.1.2</span> Tasa de Bits</a></li>
+  <li><a href="#tasa-de-fotogramas" id="toc-tasa-de-fotogramas" class="nav-link" data-scroll-target="#tasa-de-fotogramas"><span class="header-section-number">8.1.3</span> Tasa de Fotogramas</a></li>
   </ul></li>
-  <li><a href="#códec-de-video" id="toc-códec-de-video" class="nav-link" data-scroll-target="#códec-de-video">Códec de Video</a></li>
-  <li><a href="#orientación-de-pantalla" id="toc-orientación-de-pantalla" class="nav-link" data-scroll-target="#orientación-de-pantalla">Orientación de Pantalla</a></li>
-  <li><a href="#recorte-de-pantalla" id="toc-recorte-de-pantalla" class="nav-link" data-scroll-target="#recorte-de-pantalla">Recorte de Pantalla</a></li>
-  <li><a href="#bufferización" id="toc-bufferización" class="nav-link" data-scroll-target="#bufferización">Bufferización</a></li>
-  <li><a href="#sin-reproducción-de-video" id="toc-sin-reproducción-de-video" class="nav-link" data-scroll-target="#sin-reproducción-de-video">Sin Reproducción de Video</a></li>
-  <li><a href="#pantalla-virtual" id="toc-pantalla-virtual" class="nav-link" data-scroll-target="#pantalla-virtual">Pantalla Virtual</a></li>
+  <li><a href="#códec-de-video" id="toc-códec-de-video" class="nav-link" data-scroll-target="#códec-de-video"><span class="header-section-number">8.2</span> Códec de Video</a></li>
+  <li><a href="#orientación-de-pantalla" id="toc-orientación-de-pantalla" class="nav-link" data-scroll-target="#orientación-de-pantalla"><span class="header-section-number">8.3</span> Orientación de Pantalla</a></li>
+  <li><a href="#recorte-de-pantalla" id="toc-recorte-de-pantalla" class="nav-link" data-scroll-target="#recorte-de-pantalla"><span class="header-section-number">8.4</span> Recorte de Pantalla</a></li>
+  <li><a href="#bufferización" id="toc-bufferización" class="nav-link" data-scroll-target="#bufferización"><span class="header-section-number">8.5</span> Bufferización</a></li>
+  <li><a href="#sin-reproducción-de-video" id="toc-sin-reproducción-de-video" class="nav-link" data-scroll-target="#sin-reproducción-de-video"><span class="header-section-number">8.6</span> Sin Reproducción de Video</a></li>
+  <li><a href="#pantalla-virtual" id="toc-pantalla-virtual" class="nav-link" data-scroll-target="#pantalla-virtual"><span class="header-section-number">8.7</span> Pantalla Virtual</a></li>
   </ul></li>
-  <li><a href="#control-de-audio" id="toc-control-de-audio" class="nav-link" data-scroll-target="#control-de-audio">Control de Audio</a>
+  <li><a href="#control-de-audio" id="toc-control-de-audio" class="nav-link" data-scroll-target="#control-de-audio"><span class="header-section-number">9</span> Control de Audio</a>
   <ul class="collapse">
-  <li><a href="#habilitardeshabilitar-audio" id="toc-habilitardeshabilitar-audio" class="nav-link" data-scroll-target="#habilitardeshabilitar-audio">Habilitar/Deshabilitar Audio</a></li>
-  <li><a href="#fuente-de-audio" id="toc-fuente-de-audio" class="nav-link" data-scroll-target="#fuente-de-audio">Fuente de Audio</a></li>
-  <li><a href="#duplicación-de-audio-android-13" id="toc-duplicación-de-audio-android-13" class="nav-link" data-scroll-target="#duplicación-de-audio-android-13">Duplicación de Audio (Android 13+)</a></li>
-  <li><a href="#códec-de-audio" id="toc-códec-de-audio" class="nav-link" data-scroll-target="#códec-de-audio">Códec de Audio</a></li>
-  <li><a href="#bitrate-de-audio" id="toc-bitrate-de-audio" class="nav-link" data-scroll-target="#bitrate-de-audio">Bitrate de Audio</a></li>
-  <li><a href="#bufferización-de-audio" id="toc-bufferización-de-audio" class="nav-link" data-scroll-target="#bufferización-de-audio">Bufferización de Audio</a></li>
+  <li><a href="#habilitardeshabilitar-audio" id="toc-habilitardeshabilitar-audio" class="nav-link" data-scroll-target="#habilitardeshabilitar-audio"><span class="header-section-number">9.1</span> Habilitar/Deshabilitar Audio</a></li>
+  <li><a href="#fuente-de-audio" id="toc-fuente-de-audio" class="nav-link" data-scroll-target="#fuente-de-audio"><span class="header-section-number">9.2</span> Fuente de Audio</a></li>
+  <li><a href="#duplicación-de-audio-android-13" id="toc-duplicación-de-audio-android-13" class="nav-link" data-scroll-target="#duplicación-de-audio-android-13"><span class="header-section-number">9.3</span> Duplicación de Audio (Android 13+)</a></li>
+  <li><a href="#códec-de-audio" id="toc-códec-de-audio" class="nav-link" data-scroll-target="#códec-de-audio"><span class="header-section-number">9.4</span> Códec de Audio</a></li>
+  <li><a href="#bitrate-de-audio" id="toc-bitrate-de-audio" class="nav-link" data-scroll-target="#bitrate-de-audio"><span class="header-section-number">9.5</span> Bitrate de Audio</a></li>
+  <li><a href="#bufferización-de-audio" id="toc-bufferización-de-audio" class="nav-link" data-scroll-target="#bufferización-de-audio"><span class="header-section-number">9.6</span> Bufferización de Audio</a></li>
   </ul></li>
-  <li><a href="#grabación-de-pantalla" id="toc-grabación-de-pantalla" class="nav-link" data-scroll-target="#grabación-de-pantalla">Grabación de Pantalla</a>
+  <li><a href="#grabación-de-pantalla" id="toc-grabación-de-pantalla" class="nav-link" data-scroll-target="#grabación-de-pantalla"><span class="header-section-number">10</span> Grabación de Pantalla</a>
   <ul class="collapse">
-  <li><a href="#grabación-básica" id="toc-grabación-básica" class="nav-link" data-scroll-target="#grabación-básica">Grabación Básica</a></li>
-  <li><a href="#formatos-disponibles" id="toc-formatos-disponibles" class="nav-link" data-scroll-target="#formatos-disponibles">Formatos Disponibles</a></li>
-  <li><a href="#grabación-sin-reproducción" id="toc-grabación-sin-reproducción" class="nav-link" data-scroll-target="#grabación-sin-reproducción">Grabación Sin Reproducción</a></li>
-  <li><a href="#límite-de-tiempo" id="toc-límite-de-tiempo" class="nav-link" data-scroll-target="#límite-de-tiempo">Límite de Tiempo</a></li>
-  <li><a href="#ejemplos-de-grabación-profesional" id="toc-ejemplos-de-grabación-profesional" class="nav-link" data-scroll-target="#ejemplos-de-grabación-profesional">Ejemplos de Grabación Profesional</a>
+  <li><a href="#grabación-básica" id="toc-grabación-básica" class="nav-link" data-scroll-target="#grabación-básica"><span class="header-section-number">10.1</span> Grabación Básica</a></li>
+  <li><a href="#formatos-disponibles" id="toc-formatos-disponibles" class="nav-link" data-scroll-target="#formatos-disponibles"><span class="header-section-number">10.2</span> Formatos Disponibles</a></li>
+  <li><a href="#grabación-sin-reproducción" id="toc-grabación-sin-reproducción" class="nav-link" data-scroll-target="#grabación-sin-reproducción"><span class="header-section-number">10.3</span> Grabación Sin Reproducción</a></li>
+  <li><a href="#límite-de-tiempo" id="toc-límite-de-tiempo" class="nav-link" data-scroll-target="#límite-de-tiempo"><span class="header-section-number">10.4</span> Límite de Tiempo</a></li>
+  <li><a href="#ejemplos-de-grabación-profesional" id="toc-ejemplos-de-grabación-profesional" class="nav-link" data-scroll-target="#ejemplos-de-grabación-profesional"><span class="header-section-number">10.5</span> Ejemplos de Grabación Profesional</a>
   <ul class="collapse">
-  <li><a href="#tutorial-de-app-móvil-alta-calidad" id="toc-tutorial-de-app-móvil-alta-calidad" class="nav-link" data-scroll-target="#tutorial-de-app-móvil-alta-calidad">Tutorial de App Móvil (Alta Calidad)</a></li>
-  <li><a href="#presentación-académica-balance" id="toc-presentación-académica-balance" class="nav-link" data-scroll-target="#presentación-académica-balance">Presentación Académica (Balance)</a></li>
-  <li><a href="#grabación-de-podcast-solo-audio" id="toc-grabación-de-podcast-solo-audio" class="nav-link" data-scroll-target="#grabación-de-podcast-solo-audio">Grabación de Podcast (Solo Audio)</a></li>
-  <li><a href="#demo-de-análisis-econométrico-pantalla-audio" id="toc-demo-de-análisis-econométrico-pantalla-audio" class="nav-link" data-scroll-target="#demo-de-análisis-econométrico-pantalla-audio">Demo de Análisis Econométrico (Pantalla + Audio)</a></li>
+  <li><a href="#tutorial-de-app-móvil-alta-calidad" id="toc-tutorial-de-app-móvil-alta-calidad" class="nav-link" data-scroll-target="#tutorial-de-app-móvil-alta-calidad"><span class="header-section-number">10.5.1</span> Tutorial de App Móvil (Alta Calidad)</a></li>
+  <li><a href="#presentación-académica-balance" id="toc-presentación-académica-balance" class="nav-link" data-scroll-target="#presentación-académica-balance"><span class="header-section-number">10.5.2</span> Presentación Académica (Balance)</a></li>
+  <li><a href="#grabación-de-podcast-solo-audio" id="toc-grabación-de-podcast-solo-audio" class="nav-link" data-scroll-target="#grabación-de-podcast-solo-audio"><span class="header-section-number">10.5.3</span> Grabación de Podcast (Solo Audio)</a></li>
+  <li><a href="#demo-de-análisis-econométrico-pantalla-audio" id="toc-demo-de-análisis-econométrico-pantalla-audio" class="nav-link" data-scroll-target="#demo-de-análisis-econométrico-pantalla-audio"><span class="header-section-number">10.5.4</span> Demo de Análisis Econométrico (Pantalla + Audio)</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#atajos-de-teclado" id="toc-atajos-de-teclado" class="nav-link" data-scroll-target="#atajos-de-teclado">Atajos de Teclado</a>
+  <li><a href="#atajos-de-teclado" id="toc-atajos-de-teclado" class="nav-link" data-scroll-target="#atajos-de-teclado"><span class="header-section-number">11</span> Atajos de Teclado</a>
   <ul class="collapse">
-  <li><a href="#tabla-de-atajos" id="toc-tabla-de-atajos" class="nav-link" data-scroll-target="#tabla-de-atajos">Tabla de Atajos</a></li>
+  <li><a href="#tabla-de-atajos" id="toc-tabla-de-atajos" class="nav-link" data-scroll-target="#tabla-de-atajos"><span class="header-section-number">11.1</span> Tabla de Atajos</a></li>
   </ul></li>
-  <li><a href="#casos-de-uso-profesionales" id="toc-casos-de-uso-profesionales" class="nav-link" data-scroll-target="#casos-de-uso-profesionales">Casos de Uso Profesionales</a>
+  <li><a href="#casos-de-uso-profesionales" id="toc-casos-de-uso-profesionales" class="nav-link" data-scroll-target="#casos-de-uso-profesionales"><span class="header-section-number">12</span> Casos de Uso Profesionales</a>
   <ul class="collapse">
-  <li><a href="#caso-1-presentación-académica-con-diapositivas-móviles" id="toc-caso-1-presentación-académica-con-diapositivas-móviles" class="nav-link" data-scroll-target="#caso-1-presentación-académica-con-diapositivas-móviles">Caso 1: Presentación Académica con Diapositivas Móviles</a></li>
-  <li><a href="#caso-2-grabar-tutorial-de-app-econométrica" id="toc-caso-2-grabar-tutorial-de-app-econométrica" class="nav-link" data-scroll-target="#caso-2-grabar-tutorial-de-app-econométrica">Caso 2: Grabar Tutorial de App Econométrica</a></li>
-  <li><a href="#caso-3-demostración-en-vivo-con-webcam" id="toc-caso-3-demostración-en-vivo-con-webcam" class="nav-link" data-scroll-target="#caso-3-demostración-en-vivo-con-webcam">Caso 3: Demostración en Vivo con Webcam</a></li>
-  <li><a href="#caso-4-control-remoto-para-demostraciones" id="toc-caso-4-control-remoto-para-demostraciones" class="nav-link" data-scroll-target="#caso-4-control-remoto-para-demostraciones">Caso 4: Control Remoto para Demostraciones</a></li>
-  <li><a href="#caso-5-documentación-de-aplicación-con-capturas" id="toc-caso-5-documentación-de-aplicación-con-capturas" class="nav-link" data-scroll-target="#caso-5-documentación-de-aplicación-con-capturas">Caso 5: Documentación de Aplicación con Capturas</a></li>
-  <li><a href="#caso-6-podcastentrevista-con-audio-móvil" id="toc-caso-6-podcastentrevista-con-audio-móvil" class="nav-link" data-scroll-target="#caso-6-podcastentrevista-con-audio-móvil">Caso 6: Podcast/Entrevista con Audio Móvil</a></li>
+  <li><a href="#caso-1-presentación-académica-con-diapositivas-móviles" id="toc-caso-1-presentación-académica-con-diapositivas-móviles" class="nav-link" data-scroll-target="#caso-1-presentación-académica-con-diapositivas-móviles"><span class="header-section-number">12.1</span> Caso 1: Presentación Académica con Diapositivas Móviles</a></li>
+  <li><a href="#caso-2-grabar-tutorial-de-app-econométrica" id="toc-caso-2-grabar-tutorial-de-app-econométrica" class="nav-link" data-scroll-target="#caso-2-grabar-tutorial-de-app-econométrica"><span class="header-section-number">12.2</span> Caso 2: Grabar Tutorial de App Econométrica</a></li>
+  <li><a href="#caso-3-demostración-en-vivo-con-webcam" id="toc-caso-3-demostración-en-vivo-con-webcam" class="nav-link" data-scroll-target="#caso-3-demostración-en-vivo-con-webcam"><span class="header-section-number">12.3</span> Caso 3: Demostración en Vivo con Webcam</a></li>
+  <li><a href="#caso-4-control-remoto-para-demostraciones" id="toc-caso-4-control-remoto-para-demostraciones" class="nav-link" data-scroll-target="#caso-4-control-remoto-para-demostraciones"><span class="header-section-number">12.4</span> Caso 4: Control Remoto para Demostraciones</a></li>
+  <li><a href="#caso-5-documentación-de-aplicación-con-capturas" id="toc-caso-5-documentación-de-aplicación-con-capturas" class="nav-link" data-scroll-target="#caso-5-documentación-de-aplicación-con-capturas"><span class="header-section-number">12.5</span> Caso 5: Documentación de Aplicación con Capturas</a></li>
+  <li><a href="#caso-6-podcastentrevista-con-audio-móvil" id="toc-caso-6-podcastentrevista-con-audio-móvil" class="nav-link" data-scroll-target="#caso-6-podcastentrevista-con-audio-móvil"><span class="header-section-number">12.6</span> Caso 6: Podcast/Entrevista con Audio Móvil</a></li>
   </ul></li>
-  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting"><span class="header-section-number">13</span> Troubleshooting</a>
   <ul class="collapse">
-  <li><a href="#problema-1-no-se-detecta-el-dispositivo" id="toc-problema-1-no-se-detecta-el-dispositivo" class="nav-link" data-scroll-target="#problema-1-no-se-detecta-el-dispositivo">Problema 1: “No se detecta el dispositivo”</a></li>
-  <li><a href="#problema-2-error-could-not-install-server" id="toc-problema-2-error-could-not-install-server" class="nav-link" data-scroll-target="#problema-2-error-could-not-install-server">Problema 2: “Error: could not install server”</a></li>
-  <li><a href="#problema-3-pantalla-negra-pero-audio-funciona" id="toc-problema-3-pantalla-negra-pero-audio-funciona" class="nav-link" data-scroll-target="#problema-3-pantalla-negra-pero-audio-funciona">Problema 3: “Pantalla negra pero audio funciona”</a></li>
-  <li><a href="#problema-4-audio-entrecortado-o-robótico" id="toc-problema-4-audio-entrecortado-o-robótico" class="nav-link" data-scroll-target="#problema-4-audio-entrecortado-o-robótico">Problema 4: “Audio entrecortado o robótico”</a></li>
-  <li><a href="#problema-5-latencia-alta-en-wifi" id="toc-problema-5-latencia-alta-en-wifi" class="nav-link" data-scroll-target="#problema-5-latencia-alta-en-wifi">Problema 5: “Latencia alta en WiFi”</a></li>
-  <li><a href="#problema-6-no-se-puede-copiarpegar" id="toc-problema-6-no-se-puede-copiarpegar" class="nav-link" data-scroll-target="#problema-6-no-se-puede-copiarpegar">Problema 6: “No se puede copiar/pegar”</a></li>
-  <li><a href="#problema-7-dispositivo-xiaomi-no-responde" id="toc-problema-7-dispositivo-xiaomi-no-responde" class="nav-link" data-scroll-target="#problema-7-dispositivo-xiaomi-no-responde">Problema 7: “Dispositivo Xiaomi no responde”</a></li>
-  <li><a href="#problema-8-otg-no-funciona-en-windows" id="toc-problema-8-otg-no-funciona-en-windows" class="nav-link" data-scroll-target="#problema-8-otg-no-funciona-en-windows">Problema 8: “OTG no funciona en Windows”</a></li>
+  <li><a href="#problema-1-no-se-detecta-el-dispositivo" id="toc-problema-1-no-se-detecta-el-dispositivo" class="nav-link" data-scroll-target="#problema-1-no-se-detecta-el-dispositivo"><span class="header-section-number">13.1</span> Problema 1: “No se detecta el dispositivo”</a></li>
+  <li><a href="#problema-2-error-could-not-install-server" id="toc-problema-2-error-could-not-install-server" class="nav-link" data-scroll-target="#problema-2-error-could-not-install-server"><span class="header-section-number">13.2</span> Problema 2: “Error: could not install server”</a></li>
+  <li><a href="#problema-3-pantalla-negra-pero-audio-funciona" id="toc-problema-3-pantalla-negra-pero-audio-funciona" class="nav-link" data-scroll-target="#problema-3-pantalla-negra-pero-audio-funciona"><span class="header-section-number">13.3</span> Problema 3: “Pantalla negra pero audio funciona”</a></li>
+  <li><a href="#problema-4-audio-entrecortado-o-robótico" id="toc-problema-4-audio-entrecortado-o-robótico" class="nav-link" data-scroll-target="#problema-4-audio-entrecortado-o-robótico"><span class="header-section-number">13.4</span> Problema 4: “Audio entrecortado o robótico”</a></li>
+  <li><a href="#problema-5-latencia-alta-en-wifi" id="toc-problema-5-latencia-alta-en-wifi" class="nav-link" data-scroll-target="#problema-5-latencia-alta-en-wifi"><span class="header-section-number">13.5</span> Problema 5: “Latencia alta en WiFi”</a></li>
+  <li><a href="#problema-6-no-se-puede-copiarpegar" id="toc-problema-6-no-se-puede-copiarpegar" class="nav-link" data-scroll-target="#problema-6-no-se-puede-copiarpegar"><span class="header-section-number">13.6</span> Problema 6: “No se puede copiar/pegar”</a></li>
+  <li><a href="#problema-7-dispositivo-xiaomi-no-responde" id="toc-problema-7-dispositivo-xiaomi-no-responde" class="nav-link" data-scroll-target="#problema-7-dispositivo-xiaomi-no-responde"><span class="header-section-number">13.7</span> Problema 7: “Dispositivo Xiaomi no responde”</a></li>
+  <li><a href="#problema-8-otg-no-funciona-en-windows" id="toc-problema-8-otg-no-funciona-en-windows" class="nav-link" data-scroll-target="#problema-8-otg-no-funciona-en-windows"><span class="header-section-number">13.8</span> Problema 8: “OTG no funciona en Windows”</a></li>
   </ul></li>
-  <li><a href="#comandos-de-referencia-rápida" id="toc-comandos-de-referencia-rápida" class="nav-link" data-scroll-target="#comandos-de-referencia-rápida">Comandos de Referencia Rápida</a>
+  <li><a href="#comandos-de-referencia-rápida" id="toc-comandos-de-referencia-rápida" class="nav-link" data-scroll-target="#comandos-de-referencia-rápida"><span class="header-section-number">14</span> Comandos de Referencia Rápida</a>
   <ul class="collapse">
-  <li><a href="#uso-general" id="toc-uso-general" class="nav-link" data-scroll-target="#uso-general">Uso General</a></li>
-  <li><a href="#grabación" id="toc-grabación" class="nav-link" data-scroll-target="#grabación">Grabación</a></li>
-  <li><a href="#audio" id="toc-audio" class="nav-link" data-scroll-target="#audio">Audio</a></li>
-  <li><a href="#control" id="toc-control" class="nav-link" data-scroll-target="#control">Control</a></li>
-  <li><a href="#tecladomouse" id="toc-tecladomouse" class="nav-link" data-scroll-target="#tecladomouse">Teclado/Mouse</a></li>
-  <li><a href="#pantalla-virtual-1" id="toc-pantalla-virtual-1" class="nav-link" data-scroll-target="#pantalla-virtual-1">Pantalla Virtual</a></li>
-  <li><a href="#cámara" id="toc-cámara" class="nav-link" data-scroll-target="#cámara">Cámara</a></li>
-  <li><a href="#combinaciones-útiles" id="toc-combinaciones-útiles" class="nav-link" data-scroll-target="#combinaciones-útiles">Combinaciones Útiles</a></li>
+  <li><a href="#uso-general" id="toc-uso-general" class="nav-link" data-scroll-target="#uso-general"><span class="header-section-number">14.1</span> Uso General</a></li>
+  <li><a href="#grabación" id="toc-grabación" class="nav-link" data-scroll-target="#grabación"><span class="header-section-number">14.2</span> Grabación</a></li>
+  <li><a href="#audio" id="toc-audio" class="nav-link" data-scroll-target="#audio"><span class="header-section-number">14.3</span> Audio</a></li>
+  <li><a href="#control" id="toc-control" class="nav-link" data-scroll-target="#control"><span class="header-section-number">14.4</span> Control</a></li>
+  <li><a href="#tecladomouse" id="toc-tecladomouse" class="nav-link" data-scroll-target="#tecladomouse"><span class="header-section-number">14.5</span> Teclado/Mouse</a></li>
+  <li><a href="#pantalla-virtual-1" id="toc-pantalla-virtual-1" class="nav-link" data-scroll-target="#pantalla-virtual-1"><span class="header-section-number">14.6</span> Pantalla Virtual</a></li>
+  <li><a href="#cámara" id="toc-cámara" class="nav-link" data-scroll-target="#cámara"><span class="header-section-number">14.7</span> Cámara</a></li>
+  <li><a href="#combinaciones-útiles" id="toc-combinaciones-útiles" class="nav-link" data-scroll-target="#combinaciones-útiles"><span class="header-section-number">14.8</span> Combinaciones Útiles</a></li>
   </ul></li>
-  <li><a href="#configuración-permanente" id="toc-configuración-permanente" class="nav-link" data-scroll-target="#configuración-permanente">Configuración Permanente</a>
+  <li><a href="#configuración-permanente" id="toc-configuración-permanente" class="nav-link" data-scroll-target="#configuración-permanente"><span class="header-section-number">15</span> Configuración Permanente</a>
   <ul class="collapse">
-  <li><a href="#alias-en-fish" id="toc-alias-en-fish" class="nav-link" data-scroll-target="#alias-en-fish">Alias en Fish</a></li>
-  <li><a href="#script-de-conexión-automática" id="toc-script-de-conexión-automática" class="nav-link" data-scroll-target="#script-de-conexión-automática">Script de Conexión Automática</a></li>
+  <li><a href="#alias-en-fish" id="toc-alias-en-fish" class="nav-link" data-scroll-target="#alias-en-fish"><span class="header-section-number">15.1</span> Alias en Fish</a></li>
+  <li><a href="#script-de-conexión-automática" id="toc-script-de-conexión-automática" class="nav-link" data-scroll-target="#script-de-conexión-automática"><span class="header-section-number">15.2</span> Script de Conexión Automática</a></li>
   </ul></li>
-  <li><a href="#recursos-adicionales" id="toc-recursos-adicionales" class="nav-link" data-scroll-target="#recursos-adicionales">Recursos Adicionales</a>
+  <li><a href="#recursos-adicionales" id="toc-recursos-adicionales" class="nav-link" data-scroll-target="#recursos-adicionales"><span class="header-section-number">16</span> Recursos Adicionales</a>
   <ul class="collapse">
-  <li><a href="#documentación-oficial" id="toc-documentación-oficial" class="nav-link" data-scroll-target="#documentación-oficial">Documentación Oficial</a></li>
-  <li><a href="#comunidad" id="toc-comunidad" class="nav-link" data-scroll-target="#comunidad">Comunidad</a></li>
-  <li><a href="#herramientas-complementarias" id="toc-herramientas-complementarias" class="nav-link" data-scroll-target="#herramientas-complementarias">Herramientas Complementarias</a></li>
+  <li><a href="#documentación-oficial" id="toc-documentación-oficial" class="nav-link" data-scroll-target="#documentación-oficial"><span class="header-section-number">16.1</span> Documentación Oficial</a></li>
+  <li><a href="#comunidad" id="toc-comunidad" class="nav-link" data-scroll-target="#comunidad"><span class="header-section-number">16.2</span> Comunidad</a></li>
+  <li><a href="#herramientas-complementarias" id="toc-herramientas-complementarias" class="nav-link" data-scroll-target="#herramientas-complementarias"><span class="header-section-number">16.3</span> Herramientas Complementarias</a></li>
   </ul></li>
-  <li><a href="#resumen-de-mejores-prácticas" id="toc-resumen-de-mejores-prácticas" class="nav-link" data-scroll-target="#resumen-de-mejores-prácticas">Resumen de Mejores Prácticas</a>
+  <li><a href="#resumen-de-mejores-prácticas" id="toc-resumen-de-mejores-prácticas" class="nav-link" data-scroll-target="#resumen-de-mejores-prácticas"><span class="header-section-number">17</span> Resumen de Mejores Prácticas</a>
   <ul class="collapse">
-  <li><a href="#para-presentaciones" id="toc-para-presentaciones" class="nav-link" data-scroll-target="#para-presentaciones">Para Presentaciones</a></li>
-  <li><a href="#para-grabaciones" id="toc-para-grabaciones" class="nav-link" data-scroll-target="#para-grabaciones">Para Grabaciones</a></li>
-  <li><a href="#para-control-remoto" id="toc-para-control-remoto" class="nav-link" data-scroll-target="#para-control-remoto">Para Control Remoto</a></li>
-  <li><a href="#para-documentación" id="toc-para-documentación" class="nav-link" data-scroll-target="#para-documentación">Para Documentación</a></li>
+  <li><a href="#para-presentaciones" id="toc-para-presentaciones" class="nav-link" data-scroll-target="#para-presentaciones"><span class="header-section-number">17.1</span> Para Presentaciones</a></li>
+  <li><a href="#para-grabaciones" id="toc-para-grabaciones" class="nav-link" data-scroll-target="#para-grabaciones"><span class="header-section-number">17.2</span> Para Grabaciones</a></li>
+  <li><a href="#para-control-remoto" id="toc-para-control-remoto" class="nav-link" data-scroll-target="#para-control-remoto"><span class="header-section-number">17.3</span> Para Control Remoto</a></li>
+  <li><a href="#para-documentación" id="toc-para-documentación" class="nav-link" data-scroll-target="#para-documentación"><span class="header-section-number">17.4</span> Para Documentación</a></li>
   </ul></li>
-  <li><a href="#publicaciones-similares" id="toc-publicaciones-similares" class="nav-link" data-scroll-target="#publicaciones-similares">Publicaciones Similares</a></li>
+  <li><a href="#publicaciones-similares" id="toc-publicaciones-similares" class="nav-link" data-scroll-target="#publicaciones-similares"><span class="header-section-number">18</span> Publicaciones Similares</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Otros formatos</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF (apaquarto)</a></li><li><a href="index.docx"><i class="bi bi-file-word"></i>MS Word (apaquarto)</a></li></ul></div><div class="quarto-other-links"><h2>Otros Enlaces</h2><ul><li><a href="https://gravatar.com/achalmaedison"><i class="bi bi-link-45deg"></i>Gravatar</a></li></ul></div></nav>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 <style>
   :root {
@@ -540,10 +707,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
-<section id="scrcpy" class="level1">
-<h1>Scrcpy</h1>
-<section id="qué-es-scrcpy" class="level2">
-<h2 class="anchored" data-anchor-id="qué-es-scrcpy">¿Qué es scrcpy?</h2>
+<section id="scrcpy" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Scrcpy</h1>
+<section id="qué-es-scrcpy" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="qué-es-scrcpy"><span class="header-section-number">1.1</span> ¿Qué es scrcpy?</h2>
 <p><strong>scrcpy</strong> (screen copy) es una aplicación de código abierto que permite:</p>
 <ul>
 <li><strong>Duplicar</strong> (mirror) la pantalla de dispositivos Android en tu computadora</li>
@@ -553,8 +720,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </ul>
 <p><strong>Pronunciación:</strong> “screen copy”</p>
 </section>
-<section id="filosofía-de-diseño" class="level2">
-<h2 class="anchored" data-anchor-id="filosofía-de-diseño">Filosofía de Diseño</h2>
+<section id="filosofía-de-diseño" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="filosofía-de-diseño"><span class="header-section-number">1.2</span> Filosofía de Diseño</h2>
 <p>scrcpy se enfoca en:</p>
 <ol type="1">
 <li><strong>Ligereza:</strong> Aplicación nativa, solo muestra la pantalla del dispositivo</li>
@@ -566,8 +733,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li><strong>Sin publicidad:</strong> Software libre y de código abierto</li>
 </ol>
 </section>
-<section id="ventajas-sobre-otras-soluciones" class="level2">
-<h2 class="anchored" data-anchor-id="ventajas-sobre-otras-soluciones">Ventajas sobre Otras Soluciones</h2>
+<section id="ventajas-sobre-otras-soluciones" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="ventajas-sobre-otras-soluciones"><span class="header-section-number">1.3</span> Ventajas sobre Otras Soluciones</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -632,10 +799,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </table>
 </section>
 </section>
-<section id="características-principales" class="level1">
-<h1>Características Principales</h1>
-<section id="funcionalidades-disponibles" class="level2">
-<h2 class="anchored" data-anchor-id="funcionalidades-disponibles">Funcionalidades Disponibles</h2>
+<section id="características-principales" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Características Principales</h1>
+<section id="funcionalidades-disponibles" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="funcionalidades-disponibles"><span class="header-section-number">2.1</span> Funcionalidades Disponibles</h2>
 <ul>
 <li><strong>Duplicación de pantalla</strong> (mirroring) en tiempo real</li>
 <li><strong>Reenvío de audio</strong> (Android 11+)</li>
@@ -651,8 +818,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li><strong>Modo OTG</strong> (control sin depuración USB)</li>
 </ul>
 </section>
-<section id="casos-de-uso-ideales" class="level2">
-<h2 class="anchored" data-anchor-id="casos-de-uso-ideales">Casos de Uso Ideales</h2>
+<section id="casos-de-uso-ideales" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="casos-de-uso-ideales"><span class="header-section-number">2.2</span> Casos de Uso Ideales</h2>
 <p><strong>Para ti como economista e informático:</strong></p>
 <ol type="1">
 <li><p><strong>Presentaciones Académicas</strong></p>
@@ -682,10 +849,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </ol>
 </section>
 </section>
-<section id="requisitos-previos" class="level1">
-<h1>Requisitos Previos</h1>
-<section id="en-el-dispositivo-android" class="level2">
-<h2 class="anchored" data-anchor-id="en-el-dispositivo-android">En el Dispositivo Android</h2>
+<section id="requisitos-previos" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Requisitos Previos</h1>
+<section id="en-el-dispositivo-android" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="en-el-dispositivo-android"><span class="header-section-number">3.1</span> En el Dispositivo Android</h2>
 <p><strong>Requisitos mínimos:</strong></p>
 <ul>
 <li>Android 5.0 (API 21) o superior</li>
@@ -708,8 +875,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb1-2"><a href="#cb1-2"></a><span class="co"># Verificar que aparece</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="ex">adb</span> devices</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="en-arch-linux" class="level2">
-<h2 class="anchored" data-anchor-id="en-arch-linux">En Arch Linux</h2>
+<section id="en-arch-linux" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="en-arch-linux"><span class="header-section-number">3.2</span> En Arch Linux</h2>
 <p><strong>Paquetes necesarios:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Verificar que tienes instalado</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="ex">pacman</span> <span class="at">-Q</span> ffmpeg sdl2 adb libusb</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -718,26 +885,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <hr>
 </section>
 </section>
-<section id="instalación-en-arch-linux" class="level1">
-<h1>Instalación en Arch Linux</h1>
-<section id="método-1-instalación-desde-repositorios-oficiales-recomendado" class="level2">
-<h2 class="anchored" data-anchor-id="método-1-instalación-desde-repositorios-oficiales-recomendado">Método 1: Instalación desde Repositorios Oficiales (Recomendado)</h2>
+<section id="instalación-en-arch-linux" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Instalación en Arch Linux</h1>
+<section id="método-1-instalación-desde-repositorios-oficiales-recomendado" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="método-1-instalación-desde-repositorios-oficiales-recomendado"><span class="header-section-number">4.1</span> Método 1: Instalación desde Repositorios Oficiales (Recomendado)</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># scrcpy está en los repositorios oficiales de Arch</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> scrcpy</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Verificar instalación:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">scrcpy</span> <span class="at">--version</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="co"># Debe mostrar: scrcpy 3.3.4 o superior</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="método-2-instalación-desde-aur-versión-de-desarrollo" class="level2">
-<h2 class="anchored" data-anchor-id="método-2-instalación-desde-aur-versión-de-desarrollo">Método 2: Instalación desde AUR (Versión de Desarrollo)</h2>
+<section id="método-2-instalación-desde-aur-versión-de-desarrollo" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="método-2-instalación-desde-aur-versión-de-desarrollo"><span class="header-section-number">4.2</span> Método 2: Instalación desde AUR (Versión de Desarrollo)</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Si quieres la versión más reciente (desarrollo)</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="ex">yay</span> <span class="at">-S</span> scrcpy-git</span>
 <span id="cb6-3"><a href="#cb6-3"></a></span>
 <span id="cb6-4"><a href="#cb6-4"></a><span class="co"># O con paru</span></span>
 <span id="cb6-5"><a href="#cb6-5"></a><span class="ex">paru</span> <span class="at">-S</span> scrcpy-git</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="método-3-compilación-desde-código-fuente" class="level2">
-<h2 class="anchored" data-anchor-id="método-3-compilación-desde-código-fuente">Método 3: Compilación desde Código Fuente</h2>
+<section id="método-3-compilación-desde-código-fuente" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="método-3-compilación-desde-código-fuente"><span class="header-section-number">4.3</span> Método 3: Compilación desde Código Fuente</h2>
 <p><strong>Solo si necesitas modificar el código o tienes requisitos específicos.</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># 1. Instalar dependencias de compilación</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> base-devel meson ninja pkg-config <span class="dt">\</span></span>
@@ -759,10 +926,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb7-18"><a href="#cb7-18"></a><span class="ex">scrcpy</span> <span class="at">--version</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="configuración-inicial" class="level1">
-<h1>Configuración Inicial</h1>
-<section id="configurar-adb" class="level2">
-<h2 class="anchored" data-anchor-id="configurar-adb">1. Configurar ADB</h2>
+<section id="configuración-inicial" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Configuración Inicial</h1>
+<section id="configurar-adb" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="configurar-adb"><span class="header-section-number">5.1</span> 1. Configurar ADB</h2>
 <p><strong>ADB (Android Debug Bridge) es necesario para scrcpy.</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Verificar que adb funciona</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="ex">adb</span> <span class="at">--version</span></span>
@@ -777,8 +944,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb8-11"><a href="#cb8-11"></a><span class="co"># List of devices attached</span></span>
 <span id="cb8-12"><a href="#cb8-12"></a><span class="co"># 0123456789ABCDEF    device</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="configurar-permisos-de-usuario" class="level2">
-<h2 class="anchored" data-anchor-id="configurar-permisos-de-usuario">2. Configurar Permisos de Usuario</h2>
+<section id="configurar-permisos-de-usuario" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="configurar-permisos-de-usuario"><span class="header-section-number">5.2</span> 2. Configurar Permisos de Usuario</h2>
 <p><strong>En Arch Linux, tu usuario debe estar en el grupo <code>adbusers</code>:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Verificar si estás en el grupo</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="fu">groups</span> <span class="kw">|</span> <span class="fu">grep</span> adbusers</span>
@@ -790,8 +957,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span id="cb9-8"><a href="#cb9-8"></a><span class="co"># O ejecutar:</span></span>
 <span id="cb9-9"><a href="#cb9-9"></a><span class="ex">newgrp</span> adbusers</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="configurar-reglas-udev" class="level2">
-<h2 class="anchored" data-anchor-id="configurar-reglas-udev">3. Configurar Reglas udev</h2>
+<section id="configurar-reglas-udev" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="configurar-reglas-udev"><span class="header-section-number">5.3</span> 3. Configurar Reglas udev</h2>
 <p><strong>Para que adb detecte dispositivos sin sudo:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Crear archivo de reglas</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="fu">sudo</span> nano /etc/udev/rules.d/51-android.rules</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -810,8 +977,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">sudo</span> udevadm control <span class="at">--reload-rules</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a><span class="fu">sudo</span> udevadm trigger</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="primera-conexión" class="level2">
-<h2 class="anchored" data-anchor-id="primera-conexión">4. Primera Conexión</h2>
+<section id="primera-conexión" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="primera-conexión"><span class="header-section-number">5.4</span> 4. Primera Conexión</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Conectar dispositivo por USB</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="co"># En el dispositivo, autorizar la computadora (popup que aparece)</span></span>
 <span id="cb13-3"><a href="#cb13-3"></a></span>
@@ -823,10 +990,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <p><strong>Debe aparecer la pantalla del dispositivo en una ventana.</strong></p>
 </section>
 </section>
-<section id="uso-básico" class="level1">
-<h1>Uso Básico</h1>
-<section id="comando-básico" class="level2">
-<h2 class="anchored" data-anchor-id="comando-básico">Comando Básico</h2>
+<section id="uso-básico" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Uso Básico</h1>
+<section id="comando-básico" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="comando-básico"><span class="header-section-number">6.1</span> Comando Básico</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Duplicar pantalla del dispositivo</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a><span class="ex">scrcpy</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Eso es todo.</strong> scrcpy automáticamente:</p>
@@ -837,8 +1004,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <li>Habilita el control con teclado y mouse</li>
 </ol>
 </section>
-<section id="opciones-más-comunes" class="level2">
-<h2 class="anchored" data-anchor-id="opciones-más-comunes">Opciones Más Comunes</h2>
+<section id="opciones-más-comunes" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="opciones-más-comunes"><span class="header-section-number">6.2</span> Opciones Más Comunes</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Limitar resolución (mejor rendimiento)</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="ex">scrcpy</span> <span class="at">-m1920</span>        <span class="co"># máximo 1920px de ancho</span></span>
 <span id="cb15-3"><a href="#cb15-3"></a><span class="ex">scrcpy</span> <span class="at">-m1024</span>        <span class="co"># máximo 1024px (más fluido)</span></span>
@@ -861,8 +1028,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb15-20"><a href="#cb15-20"></a><span class="co"># Apagar pantalla del dispositivo (ahorra batería)</span></span>
 <span id="cb15-21"><a href="#cb15-21"></a><span class="ex">scrcpy</span> <span class="at">-S</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="ejemplos-de-uso-rápido" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplos-de-uso-rápido">Ejemplos de Uso Rápido</h2>
+<section id="ejemplos-de-uso-rápido" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="ejemplos-de-uso-rápido"><span class="header-section-number">6.3</span> Ejemplos de Uso Rápido</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Presentación fluida (baja resolución, alta velocidad)</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="ex">scrcpy</span> <span class="at">-m1024</span> <span class="at">--max-fps</span><span class="op">=</span>60 <span class="at">--no-audio</span></span>
 <span id="cb16-3"><a href="#cb16-3"></a></span>
@@ -876,10 +1043,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb16-11"><a href="#cb16-11"></a><span class="ex">scrcpy</span> <span class="at">--no-video</span> <span class="at">--no-audio</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="conexión-del-dispositivo" class="level1">
-<h1>Conexión del Dispositivo</h1>
-<section id="selección-de-dispositivo" class="level2">
-<h2 class="anchored" data-anchor-id="selección-de-dispositivo">Selección de Dispositivo</h2>
+<section id="conexión-del-dispositivo" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Conexión del Dispositivo</h1>
+<section id="selección-de-dispositivo" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="selección-de-dispositivo"><span class="header-section-number">7.1</span> Selección de Dispositivo</h2>
 <p><strong>Si solo hay un dispositivo conectado:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="ex">scrcpy</span>  <span class="co"># Se conecta automáticamente</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Si hay múltiples dispositivos:</strong></p>
@@ -898,10 +1065,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb18-13"><a href="#cb18-13"></a><span class="ex">scrcpy</span> <span class="at">--select-tcpip</span></span>
 <span id="cb18-14"><a href="#cb18-14"></a><span class="ex">scrcpy</span> <span class="at">-e</span>  <span class="co"># versión corta</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="conexión-tcpip-inalámbrica" class="level2">
-<h2 class="anchored" data-anchor-id="conexión-tcpip-inalámbrica">Conexión TCP/IP (Inalámbrica)</h2>
-<section id="método-1-automático" class="level3">
-<h3 class="anchored" data-anchor-id="método-1-automático">Método 1: Automático</h3>
+<section id="conexión-tcpip-inalámbrica" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="conexión-tcpip-inalámbrica"><span class="header-section-number">7.2</span> Conexión TCP/IP (Inalámbrica)</h2>
+<section id="método-1-automático" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="método-1-automático"><span class="header-section-number">7.2.1</span> Método 1: Automático</h3>
 <p><strong>Desde USB a WiFi automáticamente:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Conectar dispositivo por USB primero</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="ex">scrcpy</span> <span class="at">--tcpip</span></span>
@@ -912,8 +1079,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1"></a><span class="ex">scrcpy</span> <span class="at">--tcpip</span><span class="op">=</span>192.168.1.100       <span class="co"># puerto por defecto 5555</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a><span class="ex">scrcpy</span> <span class="at">--tcpip</span><span class="op">=</span>192.168.1.100:5555  <span class="co"># especificar puerto</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="método-2-manual" class="level3">
-<h3 class="anchored" data-anchor-id="método-2-manual">Método 2: Manual</h3>
+<section id="método-2-manual" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="método-2-manual"><span class="header-section-number">7.2.2</span> Método 2: Manual</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># 1. Conectar dispositivo por USB</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="co"># 2. Habilitar TCP/IP en el dispositivo</span></span>
 <span id="cb21-3"><a href="#cb21-3"></a><span class="ex">adb</span> tcpip 5555</span>
@@ -934,8 +1101,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <p><strong>Nota:</strong> Desde Android 11 hay una opción de depuración inalámbrica en Opciones de Desarrollador.</p>
 </section>
 </section>
-<section id="variable-de-entorno" class="level2">
-<h2 class="anchored" data-anchor-id="variable-de-entorno">Variable de Entorno</h2>
+<section id="variable-de-entorno" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="variable-de-entorno"><span class="header-section-number">7.3</span> Variable de Entorno</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># En Fish</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a><span class="bu">set</span> <span class="at">-gx</span> ANDROID_SERIAL 0123456789ABCDEF</span>
 <span id="cb22-3"><a href="#cb22-3"></a><span class="ex">scrcpy</span></span>
@@ -945,12 +1112,12 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb22-7"><a href="#cb22-7"></a><span class="ex">scrcpy</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="control-de-video" class="level1">
-<h1>Control de Video</h1>
-<section id="resolución-y-calidad" class="level2">
-<h2 class="anchored" data-anchor-id="resolución-y-calidad">Resolución y Calidad</h2>
-<section id="limitar-resolución" class="level3">
-<h3 class="anchored" data-anchor-id="limitar-resolución">Limitar Resolución</h3>
+<section id="control-de-video" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Control de Video</h1>
+<section id="resolución-y-calidad" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="resolución-y-calidad"><span class="header-section-number">8.1</span> Resolución y Calidad</h2>
+<section id="limitar-resolución" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="limitar-resolución"><span class="header-section-number">8.1.1</span> Limitar Resolución</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Limitar ancho/alto máximo</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a><span class="ex">scrcpy</span> <span class="at">--max-size</span><span class="op">=</span>1920</span>
 <span id="cb23-3"><a href="#cb23-3"></a><span class="ex">scrcpy</span> <span class="at">-m1920</span>  <span class="co"># versión corta</span></span>
@@ -961,8 +1128,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb23-8"><a href="#cb23-8"></a><span class="ex">scrcpy</span> <span class="at">-m2560</span>  <span class="co"># Alta calidad (si el dispositivo lo soporta)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Regla:</strong> La otra dimensión se calcula automáticamente manteniendo la relación de aspecto.</p>
 </section>
-<section id="tasa-de-bits" class="level3">
-<h3 class="anchored" data-anchor-id="tasa-de-bits">Tasa de Bits</h3>
+<section id="tasa-de-bits" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="tasa-de-bits"><span class="header-section-number">8.1.2</span> Tasa de Bits</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Cambiar bitrate de video (por defecto 8 Mbps)</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="ex">scrcpy</span> <span class="at">--video-bit-rate</span><span class="op">=</span>2M</span>
 <span id="cb24-3"><a href="#cb24-3"></a><span class="ex">scrcpy</span> <span class="at">-b</span> 2M  <span class="co"># versión corta</span></span>
@@ -973,8 +1140,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb24-8"><a href="#cb24-8"></a><span class="ex">scrcpy</span> <span class="at">-b</span> 8M   <span class="co"># Por defecto</span></span>
 <span id="cb24-9"><a href="#cb24-9"></a><span class="ex">scrcpy</span> <span class="at">-b</span> 12M  <span class="co"># Alta calidad</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="tasa-de-fotogramas" class="level3">
-<h3 class="anchored" data-anchor-id="tasa-de-fotogramas">Tasa de Fotogramas</h3>
+<section id="tasa-de-fotogramas" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="tasa-de-fotogramas"><span class="header-section-number">8.1.3</span> Tasa de Fotogramas</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Limitar FPS</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a><span class="ex">scrcpy</span> <span class="at">--max-fps</span><span class="op">=</span>30   <span class="co"># Ahorra batería</span></span>
 <span id="cb25-3"><a href="#cb25-3"></a><span class="ex">scrcpy</span> <span class="at">--max-fps</span><span class="op">=</span>60   <span class="co"># Fluido</span></span>
@@ -987,8 +1154,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb25-10"><a href="#cb25-10"></a><span class="co"># Presionar MOD+i (Alt+i o Super+i)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="códec-de-video" class="level2">
-<h2 class="anchored" data-anchor-id="códec-de-video">Códec de Video</h2>
+<section id="códec-de-video" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="códec-de-video"><span class="header-section-number">8.2</span> Códec de Video</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Seleccionar códec</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="ex">scrcpy</span> <span class="at">--video-codec</span><span class="op">=</span>h264  <span class="co"># Por defecto, menor latencia</span></span>
 <span id="cb26-3"><a href="#cb26-3"></a><span class="ex">scrcpy</span> <span class="at">--video-codec</span><span class="op">=</span>h265  <span class="co"># Mejor calidad</span></span>
@@ -1003,8 +1170,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <li><strong>AV1:</strong> Mejor compresión, pero pocos dispositivos lo soportan</li>
 </ul>
 </section>
-<section id="orientación-de-pantalla" class="level2">
-<h2 class="anchored" data-anchor-id="orientación-de-pantalla">Orientación de Pantalla</h2>
+<section id="orientación-de-pantalla" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="orientación-de-pantalla"><span class="header-section-number">8.3</span> Orientación de Pantalla</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Orientación de captura (en el dispositivo)</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a><span class="ex">scrcpy</span> <span class="at">--capture-orientation</span><span class="op">=</span>0      <span class="co"># Sin rotación</span></span>
 <span id="cb27-3"><a href="#cb27-3"></a><span class="ex">scrcpy</span> <span class="at">--capture-orientation</span><span class="op">=</span>90     <span class="co"># 90° horario</span></span>
@@ -1020,16 +1187,16 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb27-13"><a href="#cb27-13"></a><span class="co"># Rotar contenido por ángulo personalizado</span></span>
 <span id="cb27-14"><a href="#cb27-14"></a><span class="ex">scrcpy</span> <span class="at">--angle</span><span class="op">=</span>23                   <span class="co"># Rotar 23° horario</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="recorte-de-pantalla" class="level2">
-<h2 class="anchored" data-anchor-id="recorte-de-pantalla">Recorte de Pantalla</h2>
+<section id="recorte-de-pantalla" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="recorte-de-pantalla"><span class="header-section-number">8.4</span> Recorte de Pantalla</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Recortar región específica</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a><span class="ex">scrcpy</span> <span class="at">--crop</span><span class="op">=</span>1224:1440:0:0   <span class="co"># Ancho:Alto:OffsetX:OffsetY</span></span>
 <span id="cb28-3"><a href="#cb28-3"></a></span>
 <span id="cb28-4"><a href="#cb28-4"></a><span class="co"># Ejemplo: recortar solo la mitad superior</span></span>
 <span id="cb28-5"><a href="#cb28-5"></a><span class="ex">scrcpy</span> <span class="at">--crop</span><span class="op">=</span>1080:960:0:0    <span class="co"># Para un dispositivo 1080x1920</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="bufferización" class="level2">
-<h2 class="anchored" data-anchor-id="bufferización">Bufferización</h2>
+<section id="bufferización" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="bufferización"><span class="header-section-number">8.5</span> Bufferización</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Agregar buffer para compensar fluctuaciones de red (WiFi)</span></span>
 <span id="cb29-2"><a href="#cb29-2"></a><span class="ex">scrcpy</span> <span class="at">--video-buffer</span><span class="op">=</span>50    <span class="co"># 50ms de buffer</span></span>
 <span id="cb29-3"><a href="#cb29-3"></a><span class="ex">scrcpy</span> <span class="at">--video-buffer</span><span class="op">=</span>200   <span class="co"># 200ms (más suave, más latencia)</span></span>
@@ -1037,16 +1204,16 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb29-5"><a href="#cb29-5"></a><span class="co"># Sin buffer (por defecto, menor latencia)</span></span>
 <span id="cb29-6"><a href="#cb29-6"></a><span class="ex">scrcpy</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="sin-reproducción-de-video" class="level2">
-<h2 class="anchored" data-anchor-id="sin-reproducción-de-video">Sin Reproducción de Video</h2>
+<section id="sin-reproducción-de-video" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="sin-reproducción-de-video"><span class="header-section-number">8.6</span> Sin Reproducción de Video</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Solo grabar, sin mostrar (útil para grabaciones largas)</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a><span class="ex">scrcpy</span> <span class="at">--no-playback</span> <span class="at">--record</span><span class="op">=</span>archivo.mp4</span>
 <span id="cb30-3"><a href="#cb30-3"></a></span>
 <span id="cb30-4"><a href="#cb30-4"></a><span class="co"># O solo desactivar reproducción de video</span></span>
 <span id="cb30-5"><a href="#cb30-5"></a><span class="ex">scrcpy</span> <span class="at">--no-video-playback</span> <span class="at">--record</span><span class="op">=</span>archivo.mp4</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="pantalla-virtual" class="level2">
-<h2 class="anchored" data-anchor-id="pantalla-virtual">Pantalla Virtual</h2>
+<section id="pantalla-virtual" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="pantalla-virtual"><span class="header-section-number">8.7</span> Pantalla Virtual</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Crear nueva pantalla virtual (no duplica la principal)</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="ex">scrcpy</span> <span class="at">--new-display</span><span class="op">=</span>1920x1080</span>
 <span id="cb31-3"><a href="#cb31-3"></a></span>
@@ -1060,10 +1227,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb31-11"><a href="#cb31-11"></a><span class="ex">scrcpy</span> <span class="at">--new-display</span> <span class="at">--no-vd-system-decorations</span> <span class="at">--start-app</span><span class="op">=</span>org.mozilla.firefox</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="control-de-audio" class="level1">
-<h1>Control de Audio</h1>
-<section id="habilitardeshabilitar-audio" class="level2">
-<h2 class="anchored" data-anchor-id="habilitardeshabilitar-audio">Habilitar/Deshabilitar Audio</h2>
+<section id="control-de-audio" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Control de Audio</h1>
+<section id="habilitardeshabilitar-audio" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="habilitardeshabilitar-audio"><span class="header-section-number">9.1</span> Habilitar/Deshabilitar Audio</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Sin audio (por defecto está habilitado)</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a><span class="ex">scrcpy</span> <span class="at">--no-audio</span></span>
 <span id="cb32-3"><a href="#cb32-3"></a></span>
@@ -1073,8 +1240,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb32-7"><a href="#cb32-7"></a><span class="co"># Audio sin ventana</span></span>
 <span id="cb32-8"><a href="#cb32-8"></a><span class="ex">scrcpy</span> <span class="at">--no-window</span>  <span class="co"># implica --no-video --no-control</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="fuente-de-audio" class="level2">
-<h2 class="anchored" data-anchor-id="fuente-de-audio">Fuente de Audio</h2>
+<section id="fuente-de-audio" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="fuente-de-audio"><span class="header-section-number">9.2</span> Fuente de Audio</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Salida de audio del dispositivo (por defecto)</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a><span class="ex">scrcpy</span> <span class="at">--audio-source</span><span class="op">=</span>output</span>
 <span id="cb33-3"><a href="#cb33-3"></a></span>
@@ -1093,16 +1260,16 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <p><strong>Ejemplo: Dictáfono (grabar micrófono directamente):</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1"></a><span class="ex">scrcpy</span> <span class="at">--audio-source</span><span class="op">=</span>mic <span class="at">--no-video</span> <span class="at">--no-playback</span> <span class="at">--record</span><span class="op">=</span>grabacion.opus</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="duplicación-de-audio-android-13" class="level2">
-<h2 class="anchored" data-anchor-id="duplicación-de-audio-android-13">Duplicación de Audio (Android 13+)</h2>
+<section id="duplicación-de-audio-android-13" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="duplicación-de-audio-android-13"><span class="header-section-number">9.3</span> Duplicación de Audio (Android 13+)</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Reproducir audio en dispositivo Y en la computadora</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a><span class="ex">scrcpy</span> <span class="at">--audio-dup</span></span>
 <span id="cb35-3"><a href="#cb35-3"></a></span>
 <span id="cb35-4"><a href="#cb35-4"></a><span class="co"># Equivalente a:</span></span>
 <span id="cb35-5"><a href="#cb35-5"></a><span class="ex">scrcpy</span> <span class="at">--audio-source</span><span class="op">=</span>playback <span class="at">--audio-dup</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="códec-de-audio" class="level2">
-<h2 class="anchored" data-anchor-id="códec-de-audio">Códec de Audio</h2>
+<section id="códec-de-audio" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="códec-de-audio"><span class="header-section-number">9.4</span> Códec de Audio</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Seleccionar códec</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a><span class="ex">scrcpy</span> <span class="at">--audio-codec</span><span class="op">=</span>opus  <span class="co"># Por defecto</span></span>
 <span id="cb36-3"><a href="#cb36-3"></a><span class="ex">scrcpy</span> <span class="at">--audio-codec</span><span class="op">=</span>aac</span>
@@ -1115,15 +1282,15 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb36-10"><a href="#cb36-10"></a><span class="co"># Opciones adicionales de códec</span></span>
 <span id="cb36-11"><a href="#cb36-11"></a><span class="ex">scrcpy</span> <span class="at">--audio-codec</span><span class="op">=</span>flac <span class="at">--audio-codec-options</span><span class="op">=</span>flac-compression-level=8</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="bitrate-de-audio" class="level2">
-<h2 class="anchored" data-anchor-id="bitrate-de-audio">Bitrate de Audio</h2>
+<section id="bitrate-de-audio" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="bitrate-de-audio"><span class="header-section-number">9.5</span> Bitrate de Audio</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Cambiar bitrate (por defecto 128 Kbps)</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a><span class="ex">scrcpy</span> <span class="at">--audio-bit-rate</span><span class="op">=</span>64K</span>
 <span id="cb37-3"><a href="#cb37-3"></a><span class="ex">scrcpy</span> <span class="at">--audio-bit-rate</span><span class="op">=</span>64000  <span class="co"># equivalente</span></span>
 <span id="cb37-4"><a href="#cb37-4"></a><span class="ex">scrcpy</span> <span class="at">--audio-bit-rate</span><span class="op">=</span>320K   <span class="co"># Alta calidad</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="bufferización-de-audio" class="level2">
-<h2 class="anchored" data-anchor-id="bufferización-de-audio">Bufferización de Audio</h2>
+<section id="bufferización-de-audio" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="bufferización-de-audio"><span class="header-section-number">9.6</span> Bufferización de Audio</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Ajustar buffer de audio (por defecto 50ms)</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a><span class="ex">scrcpy</span> <span class="at">--audio-buffer</span><span class="op">=</span>40    <span class="co"># Menor latencia</span></span>
 <span id="cb38-3"><a href="#cb38-3"></a><span class="ex">scrcpy</span> <span class="at">--audio-buffer</span><span class="op">=</span>100   <span class="co"># Más estable</span></span>
@@ -1134,10 +1301,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb38-8"><a href="#cb38-8"></a><span class="ex">scrcpy</span> <span class="at">--audio-output-buffer</span><span class="op">=</span>10</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="grabación-de-pantalla" class="level1">
-<h1>Grabación de Pantalla</h1>
-<section id="grabación-básica" class="level2">
-<h2 class="anchored" data-anchor-id="grabación-básica">Grabación Básica</h2>
+<section id="grabación-de-pantalla" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Grabación de Pantalla</h1>
+<section id="grabación-básica" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="grabación-básica"><span class="header-section-number">10.1</span> Grabación Básica</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Grabar video y audio</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a><span class="ex">scrcpy</span> <span class="at">--record</span><span class="op">=</span>archivo.mp4</span>
 <span id="cb39-3"><a href="#cb39-3"></a><span class="ex">scrcpy</span> <span class="at">-r</span> archivo.mkv  <span class="co"># versión corta</span></span>
@@ -1151,8 +1318,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb39-11"><a href="#cb39-11"></a><span class="ex">scrcpy</span> <span class="at">--no-video</span> <span class="at">--audio-codec</span><span class="op">=</span>flac <span class="at">--record</span><span class="op">=</span>audio.flac</span>
 <span id="cb39-12"><a href="#cb39-12"></a><span class="ex">scrcpy</span> <span class="at">--no-video</span> <span class="at">--audio-codec</span><span class="op">=</span>raw <span class="at">--record</span><span class="op">=</span>audio.wav</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="formatos-disponibles" class="level2">
-<h2 class="anchored" data-anchor-id="formatos-disponibles">Formatos Disponibles</h2>
+<section id="formatos-disponibles" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="formatos-disponibles"><span class="header-section-number">10.2</span> Formatos Disponibles</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1192,8 +1359,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <p><strong>Especificar formato explícitamente:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1"></a><span class="ex">scrcpy</span> <span class="at">--record</span><span class="op">=</span>archivo <span class="at">--record-format</span><span class="op">=</span>mkv</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="grabación-sin-reproducción" class="level2">
-<h2 class="anchored" data-anchor-id="grabación-sin-reproducción">Grabación Sin Reproducción</h2>
+<section id="grabación-sin-reproducción" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="grabación-sin-reproducción"><span class="header-section-number">10.3</span> Grabación Sin Reproducción</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Grabar sin mostrar en pantalla (ahorra recursos)</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a><span class="ex">scrcpy</span> <span class="at">--no-playback</span> <span class="at">--record</span><span class="op">=</span>archivo.mp4</span>
 <span id="cb41-3"><a href="#cb41-3"></a></span>
@@ -1204,39 +1371,39 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb41-8"><a href="#cb41-8"></a><span class="co"># Solo grabar video, seguir escuchando audio</span></span>
 <span id="cb41-9"><a href="#cb41-9"></a><span class="ex">scrcpy</span> <span class="at">--no-video-playback</span> <span class="at">--record</span><span class="op">=</span>archivo.mp4</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="límite-de-tiempo" class="level2">
-<h2 class="anchored" data-anchor-id="límite-de-tiempo">Límite de Tiempo</h2>
+<section id="límite-de-tiempo" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="límite-de-tiempo"><span class="header-section-number">10.4</span> Límite de Tiempo</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Grabar por 20 segundos</span></span>
 <span id="cb42-2"><a href="#cb42-2"></a><span class="ex">scrcpy</span> <span class="at">--record</span><span class="op">=</span>archivo.mp4 <span class="at">--time-limit</span><span class="op">=</span>20</span>
 <span id="cb42-3"><a href="#cb42-3"></a></span>
 <span id="cb42-4"><a href="#cb42-4"></a><span class="co"># También funciona sin grabar</span></span>
 <span id="cb42-5"><a href="#cb42-5"></a><span class="ex">scrcpy</span> <span class="at">--time-limit</span><span class="op">=</span>30  <span class="co"># Duplicar por 30 segundos y cerrar</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="ejemplos-de-grabación-profesional" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplos-de-grabación-profesional">Ejemplos de Grabación Profesional</h2>
-<section id="tutorial-de-app-móvil-alta-calidad" class="level3">
-<h3 class="anchored" data-anchor-id="tutorial-de-app-móvil-alta-calidad">Tutorial de App Móvil (Alta Calidad)</h3>
+<section id="ejemplos-de-grabación-profesional" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="ejemplos-de-grabación-profesional"><span class="header-section-number">10.5</span> Ejemplos de Grabación Profesional</h2>
+<section id="tutorial-de-app-móvil-alta-calidad" class="level3" data-number="10.5.1">
+<h3 data-number="10.5.1" class="anchored" data-anchor-id="tutorial-de-app-móvil-alta-calidad"><span class="header-section-number">10.5.1</span> Tutorial de App Móvil (Alta Calidad)</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1"></a><span class="ex">scrcpy</span> <span class="at">--video-codec</span><span class="op">=</span>h265 <span class="at">-m1920</span> <span class="at">--max-fps</span><span class="op">=</span>60 <span class="dt">\</span></span>
 <span id="cb43-2"><a href="#cb43-2"></a>  <span class="at">--audio-codec</span><span class="op">=</span>aac <span class="dt">\</span></span>
 <span id="cb43-3"><a href="#cb43-3"></a>  <span class="at">--record</span><span class="op">=</span>tutorial-app.mp4</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="presentación-académica-balance" class="level3">
-<h3 class="anchored" data-anchor-id="presentación-académica-balance">Presentación Académica (Balance)</h3>
+<section id="presentación-académica-balance" class="level3" data-number="10.5.2">
+<h3 data-number="10.5.2" class="anchored" data-anchor-id="presentación-académica-balance"><span class="header-section-number">10.5.2</span> Presentación Académica (Balance)</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1"></a><span class="ex">scrcpy</span> <span class="at">-m1920</span> <span class="at">--max-fps</span><span class="op">=</span>30 <span class="dt">\</span></span>
 <span id="cb44-2"><a href="#cb44-2"></a>  <span class="at">--video-bit-rate</span><span class="op">=</span>4M <span class="dt">\</span></span>
 <span id="cb44-3"><a href="#cb44-3"></a>  <span class="at">--audio-bit-rate</span><span class="op">=</span>128K <span class="dt">\</span></span>
 <span id="cb44-4"><a href="#cb44-4"></a>  <span class="at">--record</span><span class="op">=</span>presentacion.mkv</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="grabación-de-podcast-solo-audio" class="level3">
-<h3 class="anchored" data-anchor-id="grabación-de-podcast-solo-audio">Grabación de Podcast (Solo Audio)</h3>
+<section id="grabación-de-podcast-solo-audio" class="level3" data-number="10.5.3">
+<h3 data-number="10.5.3" class="anchored" data-anchor-id="grabación-de-podcast-solo-audio"><span class="header-section-number">10.5.3</span> Grabación de Podcast (Solo Audio)</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1"></a><span class="ex">scrcpy</span> <span class="at">--audio-source</span><span class="op">=</span>mic <span class="dt">\</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a>  <span class="at">--audio-codec</span><span class="op">=</span>opus <span class="dt">\</span></span>
 <span id="cb45-3"><a href="#cb45-3"></a>  <span class="at">--no-video</span> <span class="dt">\</span></span>
 <span id="cb45-4"><a href="#cb45-4"></a>  <span class="at">--no-playback</span> <span class="dt">\</span></span>
 <span id="cb45-5"><a href="#cb45-5"></a>  <span class="at">--record</span><span class="op">=</span>podcast.opus</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="demo-de-análisis-econométrico-pantalla-audio" class="level3">
-<h3 class="anchored" data-anchor-id="demo-de-análisis-econométrico-pantalla-audio">Demo de Análisis Econométrico (Pantalla + Audio)</h3>
+<section id="demo-de-análisis-econométrico-pantalla-audio" class="level3" data-number="10.5.4">
+<h3 data-number="10.5.4" class="anchored" data-anchor-id="demo-de-análisis-econométrico-pantalla-audio"><span class="header-section-number">10.5.4</span> Demo de Análisis Econométrico (Pantalla + Audio)</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1"></a><span class="ex">scrcpy</span> <span class="at">--video-codec</span><span class="op">=</span>h264 <span class="dt">\</span></span>
 <span id="cb46-2"><a href="#cb46-2"></a>  <span class="at">-m1920</span> <span class="dt">\</span></span>
 <span id="cb46-3"><a href="#cb46-3"></a>  <span class="at">--max-fps</span><span class="op">=</span>60 <span class="dt">\</span></span>
@@ -1246,8 +1413,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 </section>
 </section>
 </section>
-<section id="atajos-de-teclado" class="level1">
-<h1>Atajos de Teclado</h1>
+<section id="atajos-de-teclado" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Atajos de Teclado</h1>
 <p><strong>MOD</strong> es el modificador de atajos. Por defecto: <code>Alt</code> (izquierda) o <code>Super</code> (Windows/Cmd).</p>
 <p><strong>Cambiar MOD:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Usar Ctrl derecho</span></span>
@@ -1255,8 +1422,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb47-3"><a href="#cb47-3"></a></span>
 <span id="cb47-4"><a href="#cb47-4"></a><span class="co"># Usar múltiples modificadores</span></span>
 <span id="cb47-5"><a href="#cb47-5"></a><span class="ex">scrcpy</span> <span class="at">--shortcut-mod</span><span class="op">=</span>lctrl,lsuper</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="tabla-de-atajos" class="level2">
-<h2 class="anchored" data-anchor-id="tabla-de-atajos">Tabla de Atajos</h2>
+<section id="tabla-de-atajos" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="tabla-de-atajos"><span class="header-section-number">11.1</span> Tabla de Atajos</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1446,10 +1613,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <hr>
 </section>
 </section>
-<section id="casos-de-uso-profesionales" class="level1">
-<h1>Casos de Uso Profesionales</h1>
-<section id="caso-1-presentación-académica-con-diapositivas-móviles" class="level2">
-<h2 class="anchored" data-anchor-id="caso-1-presentación-académica-con-diapositivas-móviles">Caso 1: Presentación Académica con Diapositivas Móviles</h2>
+<section id="casos-de-uso-profesionales" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Casos de Uso Profesionales</h1>
+<section id="caso-1-presentación-académica-con-diapositivas-móviles" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="caso-1-presentación-académica-con-diapositivas-móviles"><span class="header-section-number">12.1</span> Caso 1: Presentación Académica con Diapositivas Móviles</h2>
 <p><strong>Escenario:</strong> Presentar análisis econométrico desde app móvil en clase.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1"></a><span class="co"># Configuración óptima</span></span>
 <span id="cb48-2"><a href="#cb48-2"></a><span class="ex">scrcpy</span> <span class="at">-m1920</span> <span class="dt">\</span></span>
@@ -1469,8 +1636,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <li><code>-f</code>: Pantalla completa</li>
 </ul>
 </section>
-<section id="caso-2-grabar-tutorial-de-app-econométrica" class="level2">
-<h2 class="anchored" data-anchor-id="caso-2-grabar-tutorial-de-app-econométrica">Caso 2: Grabar Tutorial de App Econométrica</h2>
+<section id="caso-2-grabar-tutorial-de-app-econométrica" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="caso-2-grabar-tutorial-de-app-econométrica"><span class="header-section-number">12.2</span> Caso 2: Grabar Tutorial de App Econométrica</h2>
 <p><strong>Escenario:</strong> Grabar tutorial de uso de app de estadística.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># Grabación profesional</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a><span class="ex">scrcpy</span> <span class="at">--video-codec</span><span class="op">=</span>h265 <span class="dt">\</span></span>
@@ -1491,8 +1658,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <li><code>--stay-awake</code>: No se apaga durante grabación</li>
 </ul>
 </section>
-<section id="caso-3-demostración-en-vivo-con-webcam" class="level2">
-<h2 class="anchored" data-anchor-id="caso-3-demostración-en-vivo-con-webcam">Caso 3: Demostración en Vivo con Webcam</h2>
+<section id="caso-3-demostración-en-vivo-con-webcam" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="caso-3-demostración-en-vivo-con-webcam"><span class="header-section-number">12.3</span> Caso 3: Demostración en Vivo con Webcam</h2>
 <p><strong>Escenario:</strong> Usar cámara del dispositivo como webcam para videollamada.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Configurar como webcam (Linux)</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a><span class="ex">scrcpy</span> <span class="at">--video-source</span><span class="op">=</span>camera <span class="dt">\</span></span>
@@ -1502,8 +1669,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb50-6"><a href="#cb50-6"></a>  <span class="at">--no-playback</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Luego usar <code>/dev/video2</code> en Zoom, Google Meet, etc.</strong></p>
 </section>
-<section id="caso-4-control-remoto-para-demostraciones" class="level2">
-<h2 class="anchored" data-anchor-id="caso-4-control-remoto-para-demostraciones">Caso 4: Control Remoto para Demostraciones</h2>
+<section id="caso-4-control-remoto-para-demostraciones" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="caso-4-control-remoto-para-demostraciones"><span class="header-section-number">12.4</span> Caso 4: Control Remoto para Demostraciones</h2>
 <p><strong>Escenario:</strong> Controlar dispositivo de forma remota vía WiFi.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># 1. Conectar por USB una vez</span></span>
 <span id="cb51-2"><a href="#cb51-2"></a><span class="ex">scrcpy</span> <span class="at">--tcpip</span></span>
@@ -1512,8 +1679,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb51-5"><a href="#cb51-5"></a><span class="co"># 3. Ahora funciona inalámbrico</span></span>
 <span id="cb51-6"><a href="#cb51-6"></a><span class="ex">scrcpy</span> <span class="at">-m1024</span> <span class="at">--max-fps</span><span class="op">=</span>30</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="caso-5-documentación-de-aplicación-con-capturas" class="level2">
-<h2 class="anchored" data-anchor-id="caso-5-documentación-de-aplicación-con-capturas">Caso 5: Documentación de Aplicación con Capturas</h2>
+<section id="caso-5-documentación-de-aplicación-con-capturas" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="caso-5-documentación-de-aplicación-con-capturas"><span class="header-section-number">12.5</span> Caso 5: Documentación de Aplicación con Capturas</h2>
 <p><strong>Escenario:</strong> Documentar flujo de trabajo de app.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Grabar sesión completa</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a><span class="ex">scrcpy</span> <span class="at">--video-codec</span><span class="op">=</span>h265 <span class="dt">\</span></span>
@@ -1526,8 +1693,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb52-9"><a href="#cb52-9"></a><span class="co"># Luego extraer frames con ffmpeg:</span></span>
 <span id="cb52-10"><a href="#cb52-10"></a><span class="ex">ffmpeg</span> <span class="at">-i</span> documentacion-flujo.mkv <span class="at">-vf</span> fps=1/5 captura_%04d.png</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="caso-6-podcastentrevista-con-audio-móvil" class="level2">
-<h2 class="anchored" data-anchor-id="caso-6-podcastentrevista-con-audio-móvil">Caso 6: Podcast/Entrevista con Audio Móvil</h2>
+<section id="caso-6-podcastentrevista-con-audio-móvil" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="caso-6-podcastentrevista-con-audio-móvil"><span class="header-section-number">12.6</span> Caso 6: Podcast/Entrevista con Audio Móvil</h2>
 <p><strong>Escenario:</strong> Grabar entrevista usando el teléfono como grabadora.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1"></a><span class="ex">scrcpy</span> <span class="at">--audio-source</span><span class="op">=</span>mic <span class="dt">\</span></span>
 <span id="cb53-2"><a href="#cb53-2"></a>  <span class="at">--audio-codec</span><span class="op">=</span>flac <span class="dt">\</span></span>
@@ -1538,10 +1705,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <hr>
 </section>
 </section>
-<section id="troubleshooting" class="level1">
-<h1>Troubleshooting</h1>
-<section id="problema-1-no-se-detecta-el-dispositivo" class="level2">
-<h2 class="anchored" data-anchor-id="problema-1-no-se-detecta-el-dispositivo">Problema 1: “No se detecta el dispositivo”</h2>
+<section id="troubleshooting" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Troubleshooting</h1>
+<section id="problema-1-no-se-detecta-el-dispositivo" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="problema-1-no-se-detecta-el-dispositivo"><span class="header-section-number">13.1</span> Problema 1: “No se detecta el dispositivo”</h2>
 <p><strong>Síntomas:</strong></p>
 <pre><code>adb devices
 # List of devices attached
@@ -1570,8 +1737,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb55-21"><a href="#cb55-21"></a><span class="co"># 7. Probar con sudo (temporal, para descartar permisos)</span></span>
 <span id="cb55-22"><a href="#cb55-22"></a><span class="fu">sudo</span> adb devices</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-2-error-could-not-install-server" class="level2">
-<h2 class="anchored" data-anchor-id="problema-2-error-could-not-install-server">Problema 2: “Error: could not install server”</h2>
+<section id="problema-2-error-could-not-install-server" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="problema-2-error-could-not-install-server"><span class="header-section-number">13.2</span> Problema 2: “Error: could not install server”</h2>
 <p><strong>Causa:</strong> No hay espacio en <code>/data/local/tmp</code> o permisos incorrectos.</p>
 <p><strong>Soluciones:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># 1. Limpiar archivos temporales en dispositivo</span></span>
@@ -1586,8 +1753,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb56-10"><a href="#cb56-10"></a><span class="co"># 4. Intentar de nuevo</span></span>
 <span id="cb56-11"><a href="#cb56-11"></a><span class="ex">scrcpy</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-3-pantalla-negra-pero-audio-funciona" class="level2">
-<h2 class="anchored" data-anchor-id="problema-3-pantalla-negra-pero-audio-funciona">Problema 3: “Pantalla negra pero audio funciona”</h2>
+<section id="problema-3-pantalla-negra-pero-audio-funciona" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="problema-3-pantalla-negra-pero-audio-funciona"><span class="header-section-number">13.3</span> Problema 3: “Pantalla negra pero audio funciona”</h2>
 <p><strong>Causas posibles:</strong></p>
 <ul>
 <li>Códec de video no soportado</li>
@@ -1610,8 +1777,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb57-13"><a href="#cb57-13"></a><span class="co"># 5. Verificar FFmpeg</span></span>
 <span id="cb57-14"><a href="#cb57-14"></a><span class="ex">ffmpeg</span> <span class="at">-version</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-4-audio-entrecortado-o-robótico" class="level2">
-<h2 class="anchored" data-anchor-id="problema-4-audio-entrecortado-o-robótico">Problema 4: “Audio entrecortado o robótico”</h2>
+<section id="problema-4-audio-entrecortado-o-robótico" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="problema-4-audio-entrecortado-o-robótico"><span class="header-section-number">13.4</span> Problema 4: “Audio entrecortado o robótico”</h2>
 <p><strong>Soluciones:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># 1. Aumentar buffer de audio</span></span>
 <span id="cb58-2"><a href="#cb58-2"></a><span class="ex">scrcpy</span> <span class="at">--audio-buffer</span><span class="op">=</span>200</span>
@@ -1627,8 +1794,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb58-12"><a href="#cb58-12"></a></span>
 <span id="cb58-13"><a href="#cb58-13"></a><span class="co"># 5. Conexión por cable (en lugar de WiFi)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-5-latencia-alta-en-wifi" class="level2">
-<h2 class="anchored" data-anchor-id="problema-5-latencia-alta-en-wifi">Problema 5: “Latencia alta en WiFi”</h2>
+<section id="problema-5-latencia-alta-en-wifi" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="problema-5-latencia-alta-en-wifi"><span class="header-section-number">13.5</span> Problema 5: “Latencia alta en WiFi”</h2>
 <p><strong>Soluciones:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># 1. Usar cable USB</span></span>
 <span id="cb59-2"><a href="#cb59-2"></a><span class="co"># WiFi siempre tendrá más latencia que USB</span></span>
@@ -1644,8 +1811,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb59-12"><a href="#cb59-12"></a></span>
 <span id="cb59-13"><a href="#cb59-13"></a><span class="co"># 5. Reducir interferencias (cerrar otras apps de red)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-6-no-se-puede-copiarpegar" class="level2">
-<h2 class="anchored" data-anchor-id="problema-6-no-se-puede-copiarpegar">Problema 6: “No se puede copiar/pegar”</h2>
+<section id="problema-6-no-se-puede-copiarpegar" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="problema-6-no-se-puede-copiarpegar"><span class="header-section-number">13.6</span> Problema 6: “No se puede copiar/pegar”</h2>
 <p><strong>Requisito:</strong> Android 7 o superior.</p>
 <p><strong>Soluciones:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1"></a><span class="co"># 1. Verificar versión de Android</span></span>
@@ -1660,8 +1827,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb60-10"><a href="#cb60-10"></a><span class="co"># 4. Pegar como eventos de teclas</span></span>
 <span id="cb60-11"><a href="#cb60-11"></a><span class="co"># MOD+Shift+v</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-7-dispositivo-xiaomi-no-responde" class="level2">
-<h2 class="anchored" data-anchor-id="problema-7-dispositivo-xiaomi-no-responde">Problema 7: “Dispositivo Xiaomi no responde”</h2>
+<section id="problema-7-dispositivo-xiaomi-no-responde" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="problema-7-dispositivo-xiaomi-no-responde"><span class="header-section-number">13.7</span> Problema 7: “Dispositivo Xiaomi no responde”</h2>
 <p><strong>Solución específica Xiaomi:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># Habilitar opción adicional en Opciones de desarrollador:</span></span>
 <span id="cb61-2"><a href="#cb61-2"></a><span class="co"># "Depuración USB (Configuración de seguridad)"</span></span>
@@ -1672,8 +1839,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb61-7"><a href="#cb61-7"></a><span class="ex">adb</span> devices</span>
 <span id="cb61-8"><a href="#cb61-8"></a><span class="ex">scrcpy</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-8-otg-no-funciona-en-windows" class="level2">
-<h2 class="anchored" data-anchor-id="problema-8-otg-no-funciona-en-windows">Problema 8: “OTG no funciona en Windows”</h2>
+<section id="problema-8-otg-no-funciona-en-windows" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="problema-8-otg-no-funciona-en-windows"><span class="header-section-number">13.8</span> Problema 8: “OTG no funciona en Windows”</h2>
 <p><strong>Causa:</strong> Windows no permite abrir dispositivo USB si ya está abierto por otro proceso (adb).</p>
 <p><strong>Solución:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># Usar OTG requiere que adb NO esté corriendo</span></span>
@@ -1685,10 +1852,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb62-7"><a href="#cb62-7"></a><span class="co"># Nota: En OTG no hay duplicación de pantalla</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="comandos-de-referencia-rápida" class="level1">
-<h1>Comandos de Referencia Rápida</h1>
-<section id="uso-general" class="level2">
-<h2 class="anchored" data-anchor-id="uso-general">Uso General</h2>
+<section id="comandos-de-referencia-rápida" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> Comandos de Referencia Rápida</h1>
+<section id="uso-general" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="uso-general"><span class="header-section-number">14.1</span> Uso General</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># Básico</span></span>
 <span id="cb63-2"><a href="#cb63-2"></a><span class="ex">scrcpy</span>                          <span class="co"># Duplicar pantalla</span></span>
 <span id="cb63-3"><a href="#cb63-3"></a><span class="ex">scrcpy</span> <span class="at">-m1024</span>                   <span class="co"># Limitar a 1024px</span></span>
@@ -1707,8 +1874,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb63-16"><a href="#cb63-16"></a><span class="ex">scrcpy</span> <span class="at">--video-codec</span><span class="op">=</span>h265</span>
 <span id="cb63-17"><a href="#cb63-17"></a><span class="ex">scrcpy</span> <span class="at">--audio-codec</span><span class="op">=</span>aac</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="grabación" class="level2">
-<h2 class="anchored" data-anchor-id="grabación">Grabación</h2>
+<section id="grabación" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="grabación"><span class="header-section-number">14.2</span> Grabación</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb64"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># Video y audio</span></span>
 <span id="cb64-2"><a href="#cb64-2"></a><span class="ex">scrcpy</span> <span class="at">-r</span> archivo.mp4</span>
 <span id="cb64-3"><a href="#cb64-3"></a><span class="ex">scrcpy</span> <span class="at">--record</span><span class="op">=</span>archivo.mkv</span>
@@ -1725,8 +1892,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb64-14"><a href="#cb64-14"></a><span class="co"># Límite de tiempo</span></span>
 <span id="cb64-15"><a href="#cb64-15"></a><span class="ex">scrcpy</span> <span class="at">-r</span> archivo.mp4 <span class="at">--time-limit</span><span class="op">=</span>60</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="audio" class="level2">
-<h2 class="anchored" data-anchor-id="audio">Audio</h2>
+<section id="audio" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="audio"><span class="header-section-number">14.3</span> Audio</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb65"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># Sin audio</span></span>
 <span id="cb65-2"><a href="#cb65-2"></a><span class="ex">scrcpy</span> <span class="at">--no-audio</span></span>
 <span id="cb65-3"><a href="#cb65-3"></a></span>
@@ -1740,8 +1907,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb65-11"><a href="#cb65-11"></a><span class="co"># Duplicar audio (dispositivo + PC)</span></span>
 <span id="cb65-12"><a href="#cb65-12"></a><span class="ex">scrcpy</span> <span class="at">--audio-dup</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="control" class="level2">
-<h2 class="anchored" data-anchor-id="control">Control</h2>
+<section id="control" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="control"><span class="header-section-number">14.4</span> Control</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb66"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Sin control</span></span>
 <span id="cb66-2"><a href="#cb66-2"></a><span class="ex">scrcpy</span> <span class="at">-n</span></span>
 <span id="cb66-3"><a href="#cb66-3"></a></span>
@@ -1752,8 +1919,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb66-8"><a href="#cb66-8"></a><span class="ex">scrcpy</span> <span class="at">--show-touches</span></span>
 <span id="cb66-9"><a href="#cb66-9"></a><span class="ex">scrcpy</span> <span class="at">-t</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="tecladomouse" class="level2">
-<h2 class="anchored" data-anchor-id="tecladomouse">Teclado/Mouse</h2>
+<section id="tecladomouse" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="tecladomouse"><span class="header-section-number">14.5</span> Teclado/Mouse</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb67"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Simulación física (HID)</span></span>
 <span id="cb67-2"><a href="#cb67-2"></a><span class="ex">scrcpy</span> <span class="at">-K</span>                       <span class="co"># Teclado UHID</span></span>
 <span id="cb67-3"><a href="#cb67-3"></a><span class="ex">scrcpy</span> <span class="at">-M</span>                       <span class="co"># Mouse UHID</span></span>
@@ -1763,8 +1930,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb67-7"><a href="#cb67-7"></a><span class="ex">scrcpy</span> <span class="at">--otg</span></span>
 <span id="cb67-8"><a href="#cb67-8"></a><span class="ex">scrcpy</span> <span class="at">--otg</span> <span class="at">-G</span>                 <span class="co"># Con gamepad</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="pantalla-virtual-1" class="level2">
-<h2 class="anchored" data-anchor-id="pantalla-virtual-1">Pantalla Virtual</h2>
+<section id="pantalla-virtual-1" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="pantalla-virtual-1"><span class="header-section-number">14.6</span> Pantalla Virtual</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb68"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># Crear display virtual</span></span>
 <span id="cb68-2"><a href="#cb68-2"></a><span class="ex">scrcpy</span> <span class="at">--new-display</span><span class="op">=</span>1920x1080</span>
 <span id="cb68-3"><a href="#cb68-3"></a></span>
@@ -1774,8 +1941,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb68-7"><a href="#cb68-7"></a><span class="co"># Sin decoraciones</span></span>
 <span id="cb68-8"><a href="#cb68-8"></a><span class="ex">scrcpy</span> <span class="at">--new-display</span> <span class="at">--no-vd-system-decorations</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="cámara" class="level2">
-<h2 class="anchored" data-anchor-id="cámara">Cámara</h2>
+<section id="cámara" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="cámara"><span class="header-section-number">14.7</span> Cámara</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb69"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># Duplicar cámara</span></span>
 <span id="cb69-2"><a href="#cb69-2"></a><span class="ex">scrcpy</span> <span class="at">--video-source</span><span class="op">=</span>camera</span>
 <span id="cb69-3"><a href="#cb69-3"></a></span>
@@ -1789,8 +1956,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb69-11"><a href="#cb69-11"></a>  <span class="at">--v4l2-sink</span><span class="op">=</span>/dev/video2 <span class="dt">\</span></span>
 <span id="cb69-12"><a href="#cb69-12"></a>  <span class="at">--no-playback</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="combinaciones-útiles" class="level2">
-<h2 class="anchored" data-anchor-id="combinaciones-útiles">Combinaciones Útiles</h2>
+<section id="combinaciones-útiles" class="level2" data-number="14.8">
+<h2 data-number="14.8" class="anchored" data-anchor-id="combinaciones-útiles"><span class="header-section-number">14.8</span> Combinaciones Útiles</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb70"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># Presentación fluida</span></span>
 <span id="cb70-2"><a href="#cb70-2"></a><span class="ex">scrcpy</span> <span class="at">-m1024</span> <span class="at">--max-fps</span><span class="op">=</span>60 <span class="at">--no-audio</span> <span class="at">-f</span> <span class="at">-w</span></span>
 <span id="cb70-3"><a href="#cb70-3"></a></span>
@@ -1809,10 +1976,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb70-16"><a href="#cb70-16"></a>  <span class="at">--no-playback</span> <span class="at">-r</span> grabacion.opus</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="configuración-permanente" class="level1">
-<h1>Configuración Permanente</h1>
-<section id="alias-en-fish" class="level2">
-<h2 class="anchored" data-anchor-id="alias-en-fish">Alias en Fish</h2>
+<section id="configuración-permanente" class="level1" data-number="15">
+<h1 data-number="15"><span class="header-section-number">15</span> Configuración Permanente</h1>
+<section id="alias-en-fish" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="alias-en-fish"><span class="header-section-number">15.1</span> Alias en Fish</h2>
 <p><strong>Agregar a <code>~/.config/fish/config.fish</code>:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb71"><pre class="sourceCode numberSource fish number-lines code-with-copy"><code class="sourceCode"><span id="cb71-1"><a href="#cb71-1"></a># =============================================================================</span>
 <span id="cb71-2"><a href="#cb71-2"></a># ALIAS DE SCRCPY</span>
@@ -1839,8 +2006,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <p><strong>Recargar:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb72"><pre class="sourceCode numberSource fish number-lines code-with-copy"><code class="sourceCode"><span id="cb72-1"><a href="#cb72-1"></a>source ~/.config/fish/config.fish</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="script-de-conexión-automática" class="level2">
-<h2 class="anchored" data-anchor-id="script-de-conexión-automática">Script de Conexión Automática</h2>
+<section id="script-de-conexión-automática" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="script-de-conexión-automática"><span class="header-section-number">15.2</span> Script de Conexión Automática</h2>
 <p><strong>Crear <code>~/bin/scrcpy-auto</code>:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb73"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb73-1"><a href="#cb73-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb73-2"><a href="#cb73-2"></a></span>
@@ -1869,25 +2036,25 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <span id="cb75-2"><a href="#cb75-2"></a><span class="ex">scrcpy-auto</span> <span class="at">--record</span><span class="op">=</span>video.mp4</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="recursos-adicionales" class="level1">
-<h1>Recursos Adicionales</h1>
-<section id="documentación-oficial" class="level2">
-<h2 class="anchored" data-anchor-id="documentación-oficial">Documentación Oficial</h2>
+<section id="recursos-adicionales" class="level1" data-number="16">
+<h1 data-number="16"><span class="header-section-number">16</span> Recursos Adicionales</h1>
+<section id="documentación-oficial" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="documentación-oficial"><span class="header-section-number">16.1</span> Documentación Oficial</h2>
 <ul>
 <li><strong>GitHub:</strong> https://github.com/Genymobile/scrcpy</li>
 <li><strong>Documentación:</strong> https://github.com/Genymobile/scrcpy/tree/master/doc</li>
 <li><strong>FAQ:</strong> https://github.com/Genymobile/scrcpy/blob/master/FAQ.md</li>
 </ul>
 </section>
-<section id="comunidad" class="level2">
-<h2 class="anchored" data-anchor-id="comunidad">Comunidad</h2>
+<section id="comunidad" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="comunidad"><span class="header-section-number">16.2</span> Comunidad</h2>
 <ul>
 <li><strong>Reddit:</strong> r/scrcpy</li>
 <li><strong>Issues:</strong> https://github.com/Genymobile/scrcpy/issues</li>
 </ul>
 </section>
-<section id="herramientas-complementarias" class="level2">
-<h2 class="anchored" data-anchor-id="herramientas-complementarias">Herramientas Complementarias</h2>
+<section id="herramientas-complementarias" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="herramientas-complementarias"><span class="header-section-number">16.3</span> Herramientas Complementarias</h2>
 <p><strong>Para editar grabaciones:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb76"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb76-1"><a href="#cb76-1"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> ffmpeg kdenlive obs-studio</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Para capturas de pantalla adicionales:</strong></p>
@@ -1896,39 +2063,39 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb78"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb78-1"><a href="#cb78-1"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> obs-studio</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="resumen-de-mejores-prácticas" class="level1">
-<h1>Resumen de Mejores Prácticas</h1>
-<section id="para-presentaciones" class="level2">
-<h2 class="anchored" data-anchor-id="para-presentaciones">Para Presentaciones</h2>
+<section id="resumen-de-mejores-prácticas" class="level1" data-number="17">
+<h1 data-number="17"><span class="header-section-number">17</span> Resumen de Mejores Prácticas</h1>
+<section id="para-presentaciones" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="para-presentaciones"><span class="header-section-number">17.1</span> Para Presentaciones</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb79"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb79-1"><a href="#cb79-1"></a><span class="ex">scrcpy</span> <span class="at">-m1920</span> <span class="at">--max-fps</span><span class="op">=</span>60 <span class="at">--no-audio</span> <span class="at">--always-on-top</span> <span class="at">--stay-awake</span> <span class="at">-f</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="para-grabaciones" class="level2">
-<h2 class="anchored" data-anchor-id="para-grabaciones">Para Grabaciones</h2>
+<section id="para-grabaciones" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="para-grabaciones"><span class="header-section-number">17.2</span> Para Grabaciones</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb80"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb80-1"><a href="#cb80-1"></a><span class="ex">scrcpy</span> <span class="at">--video-codec</span><span class="op">=</span>h265 <span class="at">-m1920</span> <span class="at">--max-fps</span><span class="op">=</span>60 <span class="dt">\</span></span>
 <span id="cb80-2"><a href="#cb80-2"></a>  <span class="at">--audio-codec</span><span class="op">=</span>aac <span class="at">--show-touches</span> <span class="dt">\</span></span>
 <span id="cb80-3"><a href="#cb80-3"></a>  <span class="at">--record</span><span class="op">=</span>archivo.mp4</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="para-control-remoto" class="level2">
-<h2 class="anchored" data-anchor-id="para-control-remoto">Para Control Remoto</h2>
+<section id="para-control-remoto" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="para-control-remoto"><span class="header-section-number">17.3</span> Para Control Remoto</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb81"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb81-1"><a href="#cb81-1"></a><span class="co"># Primera vez (USB)</span></span>
 <span id="cb81-2"><a href="#cb81-2"></a><span class="ex">scrcpy</span> <span class="at">--tcpip</span></span>
 <span id="cb81-3"><a href="#cb81-3"></a></span>
 <span id="cb81-4"><a href="#cb81-4"></a><span class="co"># Siguientes veces (WiFi)</span></span>
 <span id="cb81-5"><a href="#cb81-5"></a><span class="ex">scrcpy</span> <span class="at">-m1024</span> <span class="at">--max-fps</span><span class="op">=</span>30</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="para-documentación" class="level2">
-<h2 class="anchored" data-anchor-id="para-documentación">Para Documentación</h2>
+<section id="para-documentación" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="para-documentación"><span class="header-section-number">17.4</span> Para Documentación</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb82"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb82-1"><a href="#cb82-1"></a><span class="ex">scrcpy</span> <span class="at">-m1920</span> <span class="at">--show-touches</span> <span class="at">--stay-awake</span> <span class="at">--record</span><span class="op">=</span>doc.mkv</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="publicaciones-similares" class="level1">
-<h1>Publicaciones Similares</h1>
+<section id="publicaciones-similares" class="level1" data-number="18">
+<h1 data-number="18"><span class="header-section-number">18</span> Publicaciones Similares</h1>
 <p>Si te interesó este artículo, te recomendamos que explores otros blogs y recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo algunas sugerencias:</p>
 <ol type="1">
 <li><a href="https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows">Comandos De Informacion Windows</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2019-06-19-adb/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2019-06-19-adb">Adb</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc">Limpieza Y Optimizacion De Pc</a></li>
-<li><a href="https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11">Usando Apk En Windown 11</a></li>
+<li><a href="https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy">Scrcpy</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu">Gestionar Versiones De Jdk En Kubuntu</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser">Instalar Tor Browser</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux">Crear Enlaces Duros O Hard Link En Linux</a></li>
@@ -1942,6 +2109,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 <li><a href="https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim">Atajos De Teclado Y Comandos Para Usar Vim</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify">Instalando Specitify</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow">Gestiona Tus Dotfiles Con Gnu Stow</a></li>
+<li><a href="https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger">Guia De Ranger</a></li>
+<li><a href="https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal">Guia De Kitty Terminal</a></li>
+<li><a href="https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide">Guia De Positron Ide</a></li>
+<li><a href="https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync">Guia De Rsync</a></li>
 </ol>
 <p>Esperamos que encuentres estas publicaciones igualmente interesantes y útiles. ¡Disfruta de la lectura!</p>
 
@@ -1949,13 +2120,44 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2a70", MODE="0666", GROUP="adbusers"</code></
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reutilización</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Cómo citar</h2><div><div class="quarto-appendix-secondary-label">Por favor, cita este trabajo como:</div><div id="ref-achalma2021" class="csl-entry quarto-appendix-citeas" role="listitem">
-Achalma, Edison. 2021. <span>“Scrcpy,”</span> October. <a href="https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/">https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/</a>.
+Achalma, Edison. 2021. <em>Scrcpy</em>. accepted, October 21. <a href="https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/">https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/</a>.
 </div></div></section></div></main> <!-- /main -->
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGDQM4GK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<!-- ==========================================================================
+  MICROINTERACCIONES — "QUIET LABORATORY" (cargador de módulos)
+  ===========================================================================
+  Inyectado en todas las páginas vía include-after-body (_quarto.yml).
+  El código vive en módulos independientes en assets/js/ (ver su README):
+
+    · navbar.js         → clase .lab-scrolled al hacer scroll
+    · cursor.js         → iluminación que sigue el puntero (--lab-mx/--lab-my)
+    · hero.js           → ajuste del hero de portada al alto visible
+    · scroll-effects.js → aparición escalonada (.lab-reveal/.lab-in)
+
+  Rutas absolutas (/assets/js/...) para funcionar a cualquier profundidad.
+  Sin JS el sitio queda íntegro: nada se oculta por defecto.
+=========================================================================== -->
+<script src="../../assets/js/navbar.js"></script>
+<script src="../../assets/js/cursor.js"></script>
+<script src="../../assets/js/hero.js"></script>
+<script src="../../assets/js/scroll-effects.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -2416,7 +2618,7 @@ Achalma, Edison. 2021. <span>“Scrcpy,”</span> October. <a href="https://chas
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© 2025 Edison Achalma ∙ Made with <a href="https://quarto.org">Quarto</a></p>
+<p>© 2026 Edison Achalma ∙ Made with <a href="https://quarto.org">Quarto</a></p>
 </div>   
     <div class="nav-footer-center">
 <p><a class="link-dark me-1" href="../../accessibility.html" title="Accessibility commitment" target="_blank" rel="noopener"><i class="fa-solid fa-universal-access" aria-label="universal-access"></i></a> <a class="link-dark me-1" href="https://fosstodon.org/@achalmaedison" title="mastodon" target="_blank" rel="noopener"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> <a class="link-dark me-1" href="https://github.com/achalmed" title="github" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-label="github"></i></a> <a class="link-dark me-1" href="https://linkedin.com/in/achalmaedison" title="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a></p>

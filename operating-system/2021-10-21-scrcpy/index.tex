@@ -124,6 +124,7 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -227,19 +228,9 @@ Cristóbal de Huamanga, Portal Independencia N°
 
 
 
-\usepackage{hyperref}
 \hypersetup{
   pdftitle={Scrcpy},
-  pdfauthor={Edison Achalma},
-  pdfsubject={Este abstract será actualizado una vez que se complete el contenido final del artículo.},
-  pdfkeywords={keyword1, keyword2},
-  unicode=true,
-  colorlinks=true,
-  linkcolor=blue,
-  citecolor=blue,
-  urlcolor=blue,
-  pdfcreator={Quarto},
-  pdflang={es}
+  pdfauthor={Autor}
 }
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
@@ -384,6 +375,7 @@ scrcpy se enfoca en:
 \subsection{Ventajas sobre Otras
 Soluciones}\label{ventajas-sobre-otras-soluciones}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lllll@{}}
 \toprule\noalign{}
 Característica & scrcpy & Vysor & AirDroid & TeamViewer \\
@@ -399,6 +391,7 @@ Sin cuenta & Sí & No & No & No \\
 Funciona sin internet & Sí & Sí & No & No \\
 Grabación nativa & Sí & Premium & Premium & No \\
 \end{longtable}
+}
 
 \section{Características
 Principales}\label{caracteruxedsticas-principales}
@@ -1177,6 +1170,7 @@ Audio}\label{habilitardeshabilitar-audio}
 
 \subsection{Formatos Disponibles}\label{formatos-disponibles}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lll@{}}
 \toprule\noalign{}
 Formato & Extensiones & Uso \\
@@ -1192,6 +1186,7 @@ OPUS & \texttt{.opus} & Solo audio, excelente compresión \\
 FLAC & \texttt{.flac} & Solo audio, sin pérdida \\
 WAV & \texttt{.wav} & Solo audio, sin comprimir \\
 \end{longtable}
+}
 
 \textbf{Especificar formato explícitamente:}
 
@@ -1303,6 +1298,7 @@ Audio)}\label{demo-de-anuxe1lisis-economuxe9trico-pantalla-audio}
 
 \subsection{Tabla de Atajos}\label{tabla-de-atajos}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Acción & Atajo \\
@@ -1355,6 +1351,7 @@ Inclinación horizontal & \texttt{Ctrl+Shift+clic+mover} \\
 Instalar APK & Arrastrar archivo \texttt{.apk} \\
 Enviar archivo & Arrastrar archivo (no-APK) \\
 \end{longtable}
+}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -2072,9 +2069,8 @@ algunas sugerencias:
   \href{https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc}{Limpieza
   Y Optimizacion De Pc}
 \item
-  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf}{\faIcon{file-pdf}}
-  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11}{Usando
-  Apk En Windown 11}
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy}{Scrcpy}
 \item
   \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf}{\faIcon{file-pdf}}
   \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu}{Gestionar
@@ -2127,6 +2123,22 @@ algunas sugerencias:
   \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.pdf}{\faIcon{file-pdf}}
   \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow}{Gestiona
   Tus Dotfiles Con Gnu Stow}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger}{Guia
+  De Ranger}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal}{Guia
+  De Kitty Terminal}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide}{Guia
+  De Positron Ide}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync}{Guia
+  De Rsync}
 \end{enumerate}
 
 Esperamos que encuentres estas publicaciones igualmente interesantes y

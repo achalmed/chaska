@@ -124,6 +124,7 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -227,19 +228,9 @@ Cristóbal de Huamanga, Portal Independencia N°
 
 
 
-\usepackage{hyperref}
 \hypersetup{
-  pdftitle={Guía completa de comandos ADB Android},
-  pdfauthor={Edison Achalma},
-  pdfsubject={Este abstract será actualizado una vez que se complete el contenido final del artículo.},
-  pdfkeywords={keyword1, keyword2},
-  unicode=true,
-  colorlinks=true,
-  linkcolor=blue,
-  citecolor=blue,
-  urlcolor=blue,
-  pdfcreator={Quarto},
-  pdflang={es}
+  pdftitle={Gu\'{\i}a completa de comandos ADB Android},
+  pdfauthor={Autor}
 }
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
@@ -2807,6 +2798,7 @@ Completo}\label{script-bash-backup-completo}
 \subsection{Atajos de Teclado en
 Terminal}\label{atajos-de-teclado-en-terminal}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Atajo & Acción \\
@@ -2820,6 +2812,7 @@ Atajo & Acción \\
 \texttt{Ctrl+L} & Limpiar pantalla \\
 \texttt{↑} / \texttt{↓} & Historial de comandos \\
 \end{longtable}
+}
 
 \subsection{Variables de Entorno
 Útiles}\label{variables-de-entorno-uxfatiles}
@@ -3044,9 +3037,8 @@ algunas sugerencias:
   \href{https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc}{Limpieza
   Y Optimizacion De Pc}
 \item
-  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf}{\faIcon{file-pdf}}
-  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11}{Usando
-  Apk En Windown 11}
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy}{Scrcpy}
 \item
   \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf}{\faIcon{file-pdf}}
   \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu}{Gestionar
@@ -3099,6 +3091,22 @@ algunas sugerencias:
   \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.pdf}{\faIcon{file-pdf}}
   \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow}{Gestiona
   Tus Dotfiles Con Gnu Stow}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger}{Guia
+  De Ranger}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal}{Guia
+  De Kitty Terminal}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide}{Guia
+  De Positron Ide}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync}{Guia
+  De Rsync}
 \end{enumerate}
 
 Esperamos que encuentres estas publicaciones igualmente interesantes y

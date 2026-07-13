@@ -170,7 +170,7 @@ Si te interesó este artículo, te recomendamos que explores otros blogs y recur
 1. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows/index.pdf) [Comandos De Informacion Windows](https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows)
 2. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2019-06-19-adb/index.pdf) [Adb](https://chaska-x.netlify.app/operating-system/2019-06-19-adb)
 3. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.pdf) [Limpieza Y Optimizacion De Pc](https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc)
-4. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf) [Usando Apk En Windown 11](https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11)
+4. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/index.pdf) [Scrcpy](https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy)
 5. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf) [Gestionar Versiones De Jdk En Kubuntu](https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu)
 6. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser/index.pdf) [Instalar Tor Browser](https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser)
 7. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.pdf) [Crear Enlaces Duros O Hard Link En Linux](https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux)
@@ -184,6 +184,10 @@ Si te interesó este artículo, te recomendamos que explores otros blogs y recur
 15. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.pdf) [Atajos De Teclado Y Comandos Para Usar Vim](https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim)
 16. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify/index.pdf) [Instalando Specitify](https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify)
 17. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.pdf) [Gestiona Tus Dotfiles Con Gnu Stow](https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow)
+18. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/index.pdf) [Guia De Ranger](https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger)
+19. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/index.pdf) [Guia De Kitty Terminal](https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal)
+20. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/index.pdf) [Guia De Positron Ide](https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide)
+21. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync/index.pdf) [Guia De Rsync](https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync)
 
 
 Esperamos que encuentres estas publicaciones igualmente interesantes y útiles. ¡Disfruta de la lectura!

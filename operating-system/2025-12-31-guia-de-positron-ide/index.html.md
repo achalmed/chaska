@@ -5,21 +5,21 @@ copyrightext: All rights reserved
 title: Guía Completa de Positron IDE
 abstract: Positron es un IDE moderno y especializado en ciencia de datos, construido sobre el núcleo open-source de VS Code (Code OSS) y desarrollado por Posit Software. Ofrece soporte nativo para Python y R, consola interactiva avanzada, paneles especializados (Variables, Data Explorer, Plots, Help), integración completa con Quarto y herramientas de asistencia IA. Esta guía completa cubre desde la instalación multiplataforma hasta la configuración avanzada, migración desde VS Code, personalización profunda y mejores prácticas para flujos de trabajo intensivos en análisis de datos, programación estadística y publicación científica reproducible.
 keywords:
-- Positron IDE
-- Ciencia de datos
-- Python
-- R 
-- Quarto
+  - Positron IDE
+  - Ciencia de datos
+  - Python
+  - R
+  - Quarto
 categories:
-- Operating System
+  - Operating System
 tags:
-- operating_system
-- positron_IDE
-- ciencia_de_datos
-- python
-- r 
-- quarto
-- visualcode
+  - operating_system
+  - positron_IDE
+  - ciencia_de_datos
+  - python
+  - r
+  - quarto
+  - visualcode
 author-note:
   status-changes:
     affiliation-change: null
@@ -37,7 +37,7 @@ eval: false
 citation:
   type: article-journal
   author:
-  - Edison Achalma
+    - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github/index.pdf
 date: 12/31/2025
 draft: false
@@ -46,2350 +46,1133 @@ image: featured.png
 
 ![](featured.png)
 
-**¿Qué es Positron?**
+---
 
-Positron es un IDE moderno y extensible para ciencia de datos construido sobre **Code OSS** (el núcleo open-source de VS Code). Desarrollado por **Posit Software** (anteriormente RStudio), está diseñado específicamente para flujos de trabajo de ciencia de datos.
+title: "Guía Completa de Positron"
+subtitle: "Instalación, Configuración y Personalización"
+author: "Edison Achalma — UNSCH, Ayacucho"
+fecha: "Junio 2026"
+version-positron: "2026.06.0"
 
-**Características Principales:**
+---
 
-- **Basado en Code OSS**: Toda la potencia de VS Code
-- **Soporte nativo Python y R**: Sin necesidad de extensiones externas
-- **Console interactiva**: IPython/IRKernel integrada
-- **Data Explorer**: Visualización de dataframes en vivo
-- **Variables Pane**: Inspección de variables
-- **Plots Pane**: Visualización de gráficos
-- **Help Pane**: Documentación integrada
-- **Connections Pane**: Gestión de bases de datos
-- **Quarto integrado**: Documentos dinámicos
-- **AI Assistant**: Positron Assistant y Databot
-- **Open VSX**: Marketplace de extensiones open-source
+# Guía Completa de Positron: Instalación, Configuración y Personalización
 
-**Positron vs VS Code vs RStudio**
+> Guía de referencia personal para arrancar con Positron desde cero en Linux (Kubuntu / Arch), dejarlo configurado a mi gusto y tener mi `settings.json` final listo para copiar y pegar.
+> Basada en la documentación oficial de Posit (`positron.posit.co`) — versión **Positron 2026.06.0**.
 
-| Característica                  | Positron                  | VS Code                   | RStudio                   |
-|---------------------------------|---------------------------|---------------------------|---------------------------|
-| Base técnica                    | Code OSS                  | Propietario + Code OSS    | Propietario (Posit)       |
-| Soporte nativo Python           | Sí                        | No (extensión)            | Limitado                  |
-| Soporte nativo R                | Sí                        | No (extensión)            | Sí (muy optimizado)       |
-| Consola interactiva             | Sí                        | No                        | Sí                        |
-| Panel de datos/variables/plots  | Sí                        | No                        | Sí                        |
-| Soporte Quarto                  | Sí (nativo)               | Sí (extensión)            | Sí                        |
-| Extensiones                     | Open VSX                  | VS Marketplace            | Limitadas                 |
-| Asistente IA integrado          | Sí                        | No (requiere Copilot)     | No                        |
-| Multilenguaje                   | Sí (R + Python)           | Sí (muy amplio)           | Limitado (foco en R)      |
-| Estabilidad                     | Alta                      | Muy alta                  | Muy alta                  |
-| Crashes afectan el IDE          | No                        | No                        | Sí                        |
+---
 
+## Índice
 
-- **Positron** se posiciona como el sucesor natural para flujos de trabajo modernos de ciencia de datos que usan **R y Python** por igual. Combina lo mejor de RStudio (consola interactiva, panes de datos/plots/variables) con la extensibilidad y modernidad de VS Code.
-- **VS Code** sigue siendo el rey de la versatilidad general, pero requiere mucha configuración para obtener una experiencia fluida en R o Python data science.
-- **RStudio** permanece muy bien mantenido por Posit, con optimizaciones específicas para R que aún no están al 100% en Positron (ej. algunos add-ins, soporte completo de .Rproj en ciertos casos, o features muy nicho como Sweave o ciertos publishing tools). Si tu trabajo es 95–100% R y no necesitas Python, RStudio sigue siendo excelente y estable.
+1. [¿Qué es Positron?](#1-qué-es-positron)
+2. [Requisitos previos](#2-requisitos-previos)
+3. [Instalación en Linux](#3-instalación-en-linux)
+4. [Primer arranque y comando en terminal](#4-primer-arranque-y-comando-en-terminal)
+5. [Actualizaciones](#5-actualizaciones)
+6. [Tour de la interfaz](#6-tour-de-la-interfaz)
+7. [Atajos de teclado esenciales](#7-atajos-de-teclado-esenciales)
+8. [Extensiones: Open VSX y P3M](#8-extensiones-open-vsx-y-p3m)
+9. [Dónde vive la configuración](#9-dónde-vive-la-configuración)
+10. [Personalización visual (temas, iconos, fuentes)](#10-personalización-visual-temas-iconos-fuentes)
+11. [Personalización del layout](#11-personalización-del-layout)
+12. [Configuración del editor](#12-configuración-del-editor)
+13. [Configuración de Git](#13-configuración-de-git)
+14. [Posit Assistant (IA integrada)](#14-posit-assistant-ia-integrada)
+15. [Atajos personalizados (keybindings.json)](#15-atajos-personalizados-keybindingsjson)
+16. [Solución de problemas comunes](#16-solución-de-problemas-comunes)
+17. [Mi configuración final (`settings.json`)](#17-mi-configuración-final-settingsjson)
 
+---
 
-# Instalación
+## 1. ¿Qué es Positron?
 
-## Requisitos del Sistema
+**Positron** es un IDE moderno y extensible para ciencia de datos, construido sobre **Code OSS** (el núcleo open-source de VS Code) y desarrollado por **Posit Software, PBC** (antes RStudio). A diferencia de VS Code, trae soporte **nativo** para Python y R, sin depender de extensiones externas frágiles.
 
-**Mínimos:**
+**Características principales:**
 
-- Sistema Operativo: Linux, macOS, Windows
-- Espacio en disco: 500 MB
-- RAM: 2 GB (4 GB recomendado)
+- Basado en Code OSS → hereda toda la infraestructura de VS Code (paleta de comandos, atajos, configuración por `settings.json`, extensiones).
+- Soporte nativo de Python y R, con consola interactiva (kernel Ark, IPython/IRKernel).
+- **Variables Pane**: inspección en vivo de variables del entorno.
+- **Data Explorer**: exploración interactiva de dataframes.
+- **Plots Pane**: historial y exportación de gráficos.
+- **Help Pane**: documentación contextual integrada.
+- **Connections Pane**: gestión de conexiones a bases de datos.
+- **Packages Pane**: gestión visual de paquetes R/Python.
+- Soporte nativo de **Quarto**, incluyendo salida en línea (_inline output_) para documentos `.qmd`.
+- **Posit Assistant**: asistente de IA integrado en el IDE (sucesor del antiguo "Positron Assistant").
+- Galería de extensiones servida desde **P3M** (Posit Public Package Manager), con el mismo catálogo que Open VSX.
+- Licencia: **Elastic License 2.0** (source-available, gratuito para uso individual).
 
-## Linux (Ubuntu/Debian)
+### Positron vs. VS Code vs. RStudio
 
-```bash
-# Descargar desde el sitio oficial
-# https://github.com/posit-dev/positron/releases
+| Característica                    | Positron             | VS Code                 | RStudio              |
+| --------------------------------- | -------------------- | ----------------------- | -------------------- |
+| Base técnica                      | Code OSS             | Propietario + Code OSS  | Propietario (Posit)  |
+| Soporte nativo Python             | Sí                   | No (requiere extensión) | Limitado             |
+| Soporte nativo R                  | Sí                   | No (requiere extensión) | Sí (muy optimizado)  |
+| Consola interactiva               | Sí                   | No                      | Sí                   |
+| Variables / Data Explorer / Plots | Sí                   | No                      | Sí                   |
+| Soporte Quarto                    | Sí (nativo)          | Sí (extensión)          | Sí                   |
+| Galería de extensiones            | P3M / Open VSX       | VS Marketplace          | Limitada             |
+| Asistente IA integrado            | Sí (Posit Assistant) | No (requiere Copilot)   | No                   |
+| Multilenguaje (R + Python)        | Sí                   | Sí (muy amplio)         | Limitado (foco en R) |
 
-# O instalar desde .deb
-sudo dpkg -i positron_*.deb
-sudo apt-get install -f  # Instalar dependencias
+**Cuándo usar cada uno:** si tu trabajo combina R y Python (como flujos con `reticulate`, Quarto multi-lenguaje, etc.), Positron es la opción natural. Si tu trabajo es 100 % R y dependes de funciones muy específicas de RStudio (ciertos _add-ins_, Sweave, publishing tools de nicho), RStudio sigue siendo una alternativa sólida y bien mantenida.
+
+---
+
+## 2. Requisitos previos
+
+Antes de instalar, conviene tener listo lo siguiente (documentación oficial: _Install Positron_):
+
+- **Sistema operativo**: Linux (Ubuntu/Debian o RHEL-based), macOS o Windows.
+- **Espacio en disco**: ~500 MB mínimo para el propio IDE.
+- **RAM**: 2 GB mínimo, 4 GB recomendado.
+
+### Python
+
+- Positron soporta las versiones **activamente mantenidas de Python, de la 3.9 a la 3.13**.
+- Gestores de versiones recomendados: **uv** (recomendado por Posit) o **pyenv**.
+- Positron requiere el **kernel IPython** (versión 6.19.1 o superior) para comunicarse con Python. Por defecto, este kernel viene **integrado (bundled)** con Positron para la implementación estándar de CPython.
+- Si prefieres control fino sobre tu entorno, puedes desactivar el kernel integrado con `python.useBundledIpykernel: false` e instalar `ipykernel` manualmente vía `pip install ipykernel`.
+
+### R (opcional, si lo vas a usar)
+
+- Se requiere **R 4.2 o superior**. Instálalo siguiendo las instrucciones de tu sistema en [cloud.r-project.org](https://cloud.r-project.org/).
+- Si quieres manejar múltiples versiones de R en paralelo, la herramienta **[rig](https://github.com/r-lib/rig)** funciona muy bien con Positron.
+- Si desarrollas paquetes R, conviene tener actualizados estos paquetes (mejoran la integración con Positron):
+
+```r
+# Con pak (recomendado por Posit)
+pak::pak(c("usethis", "cli", "crayon", "rlang", "roxygen2", "pkgload"))
+
+# O con base R
+install.packages(c("usethis", "cli", "crayon", "rlang", "roxygen2", "pkgload"))
 ```
 
-## macOS
+---
 
-```bash
-# Descargar .dmg desde:
-# https://github.com/posit-dev/positron/releases
+## 3. Instalación en Linux
 
-# O con Homebrew
-brew install --cask positron
+Positron se distribuye oficialmente como paquete **`.deb`** (Debian/Ubuntu, incluye Kubuntu) y **`.rpm`** (Red Hat/Fedora), para arquitecturas **x64** y **arm64**.
+
+### Paso 1 — Descargar el instalador
+
+Descarga el paquete correspondiente a tu arquitectura desde la página oficial de descargas:
+
+👉 **https://positron.posit.co/download.html**
+
+Para Kubuntu/Ubuntu (x64), el paquete tiene este formato de nombre:
+
+```
+Positron-2026.06.0-211-x64.deb
 ```
 
-## Windows
+O directamente por terminal:
 
 ```bash
-# Descargar instalador desde:
-# https://github.com/posit-dev/positron/releases
+# Debian/Ubuntu/Kubuntu x64
+wget https://cdn.posit.co/positron/releases/deb/x86_64/Positron-2026.06.0-211-x64.deb
 
-# Ejecutar positron-setup.exe
+# Debian/Ubuntu arm64
+wget https://cdn.posit.co/positron/releases/deb/arm64/Positron-2026.06.0-211-arm64.deb
 ```
 
-## Verificar Instalación
+> 💡 Verifica siempre la versión más reciente en la página oficial, ya que el número de build cambia con cada release mensual.
+
+### Paso 2 — Instalar el paquete `.deb`
 
 ```bash
-# Abrir Positron
-positron
+# Instalar el paquete descargado
+sudo dpkg -i Positron-2026.06.0-211-x64.deb
 
-# O desde línea de comandos
+# Resolver dependencias faltantes, si las hay
+sudo apt-get install -f
+```
+
+### Paso 3 — Verificar la instalación
+
+```bash
 positron --version
 ```
 
-## Configurar Comando en Terminal
+Si el comando no se reconoce, revisa la sección de [solución de problemas](#16-solución-de-problemas-comunes).
 
-**Linux/macOS:**
+### Alternativa: Arch Linux / Archcraft
+
+Positron no se distribuye oficialmente como paquete `.rpm`/`.deb` para Arch, pero puedes:
+
+- Usar un paquete de la **AUR** (por ejemplo `positron-bin`), si está disponible y confías en el mantenedor.
+- O extraer el `.deb` manualmente con herramientas como `ar` y `tar` y colocar los binarios en `/opt/positron`, creando luego un symlink (ver sección 4).
 
 ```bash
-# Añadir a ~/.bashrc o ~/.zshrc
-export PATH="$PATH:/path/to/positron/bin"
-
-# O crear symlink
-sudo ln -s /path/to/positron/bin/positron /usr/local/bin/positron
+# Extracción manual de un .deb en un sistema sin dpkg (ej. Arch)
+mkdir positron-extract && cd positron-extract
+ar x ../Positron-2026.06.0-211-x64.deb
+tar -xf data.tar.xz
+# El binario queda típicamente en ./usr/share/positron/
 ```
 
-# Migración desde VS Code
+### Notas importantes para Linux
 
-## Importar Configuración
+- El instalador `.deb` **no se autoactualiza** como en macOS/Windows: en Linux, Positron solo **te notifica** cuando hay una actualización disponible; debes descargar e instalar el nuevo `.deb`/`.rpm` manualmente.
+- Existe un detalle conocido y ya corregido en versiones recientes: versiones antiguas del desinstalador `.deb` podían eliminar por error las fuentes APT y la llave de firma de VS Code si lo tenías instalado también. Esto está solucionado desde el changelog de 2026.06.0.
 
-**Automáticamente al primer inicio:**
+---
 
-1. Positron te preguntará si quieres importar settings de VS Code
-2. Click en "Yes" para importar
-3. Revisa los settings importados
-4. Guarda los cambios
+## 4. Primer arranque y comando en terminal
 
-**Manualmente:**
+### Abrir Positron
 
-```
-Command Palette (Ctrl+Shift+P) → Preferences: Import Settings...
-```
+```bash
+# Desde el lanzador de aplicaciones de tu DE (KDE/otros), o desde terminal:
+positron
 
-## Diferencias Clave
+# Abrir Positron en la carpeta actual
+positron .
 
-**Extensiones:**
-
-- Positron usa **Open VSX** en lugar de VS Marketplace
-- Algunas extensiones pueden no estar disponibles
-- Python y R son nativos (no necesitas ms-python.python)
-
-**Features Nuevas:**
-
-- **Console**: Reemplaza el terminal para código interactivo
-- **Variables Pane**: Inspección de datos en vivo
-- **Data Explorer**: Visualización de dataframes
-- **Plots Pane**: Gráficos integrados
-- **Help Pane**: Documentación contextual
-
-## Extensiones a Reemplazar
-
-| VS Code | Positron |
-|---------|----------|
-| ms-python.python | Built-in (nativo) |
-| REditorSupport.r | Built-in (posit.air-vscode) |
-| Jupyter | Built-in |
-| GitLens | Instalar desde Open VSX |
-| Prettier | Instalar desde Open VSX |
-
-
-# Configuración Inicial
-
-## Ubicación de Archivos
-
-```
-Linux: ~/.config/Positron/User/settings.json
-macOS: ~/Library/Application Support/Positron/User/settings.json
-Windows: %APPDATA%\Positron\User\settings.json
+# Abrir Positron en una carpeta específica
+positron /ruta/a/mi/proyecto
 ```
 
-## Abrir Settings
+En Linux, el paquete `.deb`/`.rpm` coloca el binario directamente en el `PATH` del sistema durante la instalación, así que normalmente **no necesitas configurar nada adicional** para usar el comando `positron` desde la terminal (a diferencia de macOS, donde hay que ejecutar _"Install 'positron' command in PATH"_ desde la paleta de comandos).
 
-**GUI:**
+Si por alguna razón el comando no está disponible (instalación manual, symlink roto, etc.), créalo tú mismo:
+
+```bash
+# Crear un symlink manual hacia el binario
+sudo ln -s /usr/share/positron/positron /usr/local/bin/positron
+
+# O añadir la ruta a tu PATH en ~/.zshrc (Edison usa zsh)
+echo 'export PATH="$PATH:/usr/share/positron"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+### Importar configuración desde VS Code
+
+Si vienes de VS Code, en el primer arranque Positron puede ofrecerte importar tu configuración existente:
+
+1. Acepta el prompt de importación al iniciar por primera vez.
+2. Revisa los _settings_ importados (algunos no aplican porque Positron tiene su propia gestión de Python/R nativa).
+3. Guarda los cambios.
+
+También puedes hacerlo manualmente en cualquier momento:
 
 ```
-File → Preferences → Settings (Ctrl+,)
+Paleta de Comandos (Ctrl+Shift+P) → Preferences: Import Settings...
 ```
 
-**JSON:**
+> ⚠️ Importante: extensiones como `ms-python.python` o `REditorSupport.r` **no deben usarse** en Positron — ya tiene soporte nativo equivalente e incompatibilidades conocidas con ambas (ver sección 8).
 
-```
-Command Palette → Preferences: Open User Settings (JSON)
-```
+---
 
-## Configuración Básica Recomendada
+## 5. Actualizaciones
+
+Comportamiento oficial de actualización por plataforma:
+
+- **macOS** y la instalación de usuario en **Windows**: si hay una actualización, Positron la descarga e instala automáticamente en segundo plano.
+- **Windows (instalación de sistema)**: descarga la actualización y te avisa con un ícono en la esquina inferior izquierda.
+- **Linux**: Positron **muestra una notificación** cuando hay una actualización disponible, pero la instalación del nuevo paquete `.deb`/`.rpm` la haces tú manualmente.
+
+### Desactivar la verificación automática de actualizaciones
 
 ```json
 {
-    // Editor
-    "editor.fontSize": 14,
-    "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Hack Nerd Font', monospace",
-    "editor.fontLigatures": true,
-    "editor.lineNumbers": "on",
-    "editor.minimap.enabled": false,
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.cursorBlinking": "smooth",
-    "editor.cursorSmoothCaretAnimation": "on",
-    
-    // Tema
-    "workbench.colorTheme": "Default Positron Dark",
-    "workbench.iconTheme": "material-icon-theme",
-    
-    // Terminal
-    "terminal.integrated.fontFamily": "'Hack Nerd Font', monospace",
-    "terminal.integrated.fontSize": 13,
-    "terminal.integrated.defaultProfile.linux": "bash",
-    "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.inheritEnv": false,
-    
-    // Git
-    "git.enableSmartCommit": true,
-    "git.autofetch": true,
-    "git.confirmSync": false,
-    
-    // Files
-    "files.autoSave": "onFocusChange",
-    "files.associations": {
-        "*.qmd": "quarto",
-        "*.Rmd": "rmarkdown",
-        "renv.lock": "json"
-    },
-    
-    // Quarto
-    "quarto.visualEditor.spellingDictionary": "es_ES",
-    
-    // Positron-specific
-    "positron.assistant.enable": true,
-    "positron.assistant.showTokenUsage.enable": true
+  "update.mode": "none"
 }
 ```
 
-# Interfaz de Usuario
+### Canal de _daily builds_ (opcional, para probar features nuevas)
 
-## Layout Principal
-
-```
-┌─────────────────────────────────────────────────────┐
-│ Title Bar                                           │
-├──────────────────┬──────────────────────────────────┤
-│                  │                                  │
-│  Activity Bar    │                                  │
-│  (left/bottom)   │       Editor Area                │
-│                  │                                  │
-│  - Explorer      │                                  │
-│  - Search        ├──────────────────────────────────┤
-│  - Source Ctrl   │                                  │
-│  - Run/Debug     │       Console / Terminal         │
-│  - Extensions    │                                  │
-│                  │                                  │
-├──────────────────┴──────────────────────────────────┤
-│  Status Bar                                         │
-└─────────────────────────────────────────────────────┘
-```
-
-## Panes Exclusivos de Positron
-
-**Variables Pane:**
-
-```
-Muestra todas las variables en el entorno actual
-- Nombre
-- Tipo
-- Valor/Tamaño
-- Preview
-```
-
-**Data Explorer:**
-
-```
-Visualización interactiva de dataframes
-- Filtrado
-- Ordenamiento
-- Búsqueda
-- Exportación
-```
-
-**Plots Pane:**
-
-```
-Visualización de gráficos generados
-- Historial de plots
-- Zoom
-- Exportar
-```
-
-**Help Pane:**
-
-```
-Documentación contextual
-- Búsqueda integrada
-- Ejemplos
-- Argumentos de funciones
-```
-
-**Console:**
-
-```
-Shell interactivo para Python/R
-- Completado de código
-- Syntax highlighting
-- Integración con Variables/Plots
-```
-
-## Personalizar Layout
-
-**Activity Bar Position:**
+Si quieres recibir compilaciones diarias en lugar de la release mensual estable:
 
 ```json
-"workbench.activityBar.location": "bottom" // o "top", "left"
+{
+  "update.positron.channel": "dailies"
+}
 ```
 
-**Side Bar Position:**
+> Los _daily builds_ solo pasan pruebas automatizadas (no el QA completo), y se retienen 60 días. Las releases mensuales nunca se eliminan. No se recomienda para un entorno de trabajo principal si priorizas estabilidad.
 
-```json
-"workbench.sideBar.location": "right" // o "left"
+---
+
+## 6. Tour de la interfaz
+
+### Layout general (heredado de Code OSS)
+
+```
+┌───────────────────────────────────────────────────────┐
+│ Title Bar / Command Center                            │
+├──────────────┬──────────────────────────────────────--┤
+│              │                                         │
+│ Activity Bar │             Editor Area                 │
+│ (Explorer,   │                                         │
+│  Git, Run,   │                                         │
+│  Extensions) ├──────────────────────────────────────--┤
+│              │       Console  /  Terminal              │
+├──────────────┴──────────────────────────────────────--┤
+│ Status Bar                                              │
+└───────────────────────────────────────────────────────┘
 ```
 
-**Command Palette Position:**
+A la derecha (o izquierda, según configures `workbench.sideBar.location`) se ubica la **barra lateral secundaria**, donde viven los paneles exclusivos de Positron.
 
-```
-Arrastrarlo a la posición deseada
-```
+### Paneles exclusivos de Positron
 
-# Atajos de Teclado
+| Panel                | Función                                                                                                                                                                   |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Console**          | Shell interactiva para Python (IPython/Ark) o R (IRKernel). Reemplaza al terminal para ejecución de código, con autocompletado e integración directa con Variables/Plots. |
+| **Variables Pane**   | Lista todas las variables del entorno activo: nombre, tipo, valor/tamaño, dimensiones (en dataframes). Doble clic en un dataframe lo abre en el Data Explorer.            |
+| **Data Explorer**    | Visualización interactiva de dataframes: filtrado, ordenamiento, búsqueda, estadísticas por columna, exportación a CSV/Excel.                                             |
+| **Plots Pane**       | Historial de gráficos generados, con zoom, pan y exportación a PNG/SVG/PDF.                                                                                               |
+| **Help Pane**        | Documentación contextual de funciones, paquetes y argumentos, con búsqueda integrada.                                                                                     |
+| **Connections Pane** | Gestión de conexiones a bases de datos.                                                                                                                                   |
+| **Packages Pane**    | Vista de paquetes R/Python instalados, adjuntos y desactualizados, con instalación/actualización integrada.                                                               |
 
-## Atajos Específicos de Positron
+### Console vs. Terminal — la distinción clave
 
-| Atajo | Acción |
-|-------|--------|
-| `Ctrl+Enter` | Ejecutar línea/selección en Console |
-| `Ctrl+Alt+Home` | Ejecutar desde inicio hasta línea actual |
-| `Ctrl+Alt+End` | Ejecutar desde línea actual hasta fin |
-| `Ctrl+Shift+0` | Reiniciar intérprete |
-| `Ctrl+Shift+P` | Ejecutar archivo completo en Console |
-| `F1` | Ayuda contextual |
-| `Ctrl+K, Ctrl+R` | Ayuda contextual (alternativo) |
-| `Ctrl+K, F` | Enfocar Console |
-| `Ctrl+K, V` | Enfocar Variables pane |
-| `Ctrl+L` | Limpiar Console |
+|                | **Terminal**                                               | **Console**                                                     |
+| -------------- | ---------------------------------------------------------- | --------------------------------------------------------------- |
+| Qué es         | Shell del sistema (zsh, bash, fish…)                       | Intérprete interactivo (IPython / IRKernel)                     |
+| Para qué sirve | Comandos del sistema, instalación de paquetes, git por CLI | Ejecutar código Python/R, inspeccionar variables, generar plots |
+| Se integra con | Nada en particular                                         | Variables Pane, Plots Pane, Data Explorer                       |
 
-## Atajos Generales (heredados de VS Code)
+---
 
-**Editor:**
+## 7. Atajos de teclado esenciales
 
-| Atajo | Acción |
-|-------|--------|
-| `Ctrl+P` | Quick Open (buscar archivo) |
-| `Ctrl+Shift+P` | Command Palette |
-| `Ctrl+,` | Settings |
-| `Ctrl+B` | Toggle Sidebar |
-| `Ctrl+J` | Toggle Panel |
-| `Ctrl+Shift+E` | Explorer |
-| `Ctrl+Shift+F` | Search |
-| `Ctrl+Shift+G` | Source Control |
-| `Ctrl+Shift+D` | Run & Debug |
-| `Ctrl+Shift+X` | Extensions |
+Positron hereda **todos** los atajos de VS Code y añade un conjunto propio para flujos de ciencia de datos.
+
+### Atajos específicos de Positron (los más importantes)
+
+| Atajo (Linux)   | Acción                                                                                              |
+| --------------- | --------------------------------------------------------------------------------------------------- |
+| `Ctrl+Enter`    | Ejecutar la línea/selección actual en la Console (si no hay selección, ejecuta la sentencia actual) |
+| `Ctrl+Alt+Home` | Ejecutar desde el inicio del documento hasta la línea actual                                        |
+| `Ctrl+Alt+End`  | Ejecutar desde la línea actual hasta el final del documento                                         |
+| `Ctrl+Shift+0`  | Reiniciar el intérprete activo en la Console                                                        |
+| `Ctrl+Shift+S`  | Ejecutar el archivo completo en la Console (equivalente a `source()` en R o `%run` en Python)       |
+| `F1`            | Mostrar ayuda contextual del símbolo bajo el cursor                                                 |
+| `Ctrl+K, F`     | Enfocar la Console                                                                                  |
+| `Ctrl+K, V`     | Enfocar el panel de Variables                                                                       |
+| `Ctrl+L`        | Limpiar la Console                                                                                  |
+
+> 📝 Nota: los atajos exactos pueden variar ligeramente según el teclado/distro. Si uno no coincide, ábrelo desde la Paleta de Comandos (`Ctrl+Shift+P` → _Preferences: Open Keyboard Shortcuts_) y búscalo por nombre de comando.
+
+### Atajos generales heredados de VS Code
+
+**Navegación y vistas:**
+
+| Atajo          | Acción                                 |
+| -------------- | -------------------------------------- |
+| `Ctrl+P`       | Quick Open (buscar archivo por nombre) |
+| `Ctrl+Shift+P` | Paleta de comandos                     |
+| `Ctrl+,`       | Abrir Settings                         |
+| `Ctrl+B`       | Mostrar/ocultar barra lateral          |
+| `Ctrl+J`       | Mostrar/ocultar panel inferior         |
+| `Ctrl+Shift+E` | Explorer                               |
+| `Ctrl+Shift+G` | Source Control (Git)                   |
+| `Ctrl+Shift+X` | Extensions                             |
 
 **Edición:**
 
-| Atajo | Acción |
-|-------|--------|
-| `Ctrl+Space` | Trigger suggestions |
-| `Ctrl+Shift+K` | Delete line |
-| `Alt+Up/Down` | Move line up/down |
-| `Shift+Alt+Up/Down` | Copy line up/down |
-| `Ctrl+/` | Toggle comment |
-| `Ctrl+Shift+[` | Fold region |
-| `Ctrl+Shift+]` | Unfold region |
-| `Ctrl+K Ctrl+0` | Fold all |
-| `Ctrl+K Ctrl+J` | Unfold all |
+| Atajo             | Acción                                          |
+| ----------------- | ----------------------------------------------- |
+| `Ctrl+Space`      | Disparar sugerencias de autocompletado          |
+| `Alt+↑ / ↓`       | Mover línea arriba/abajo                        |
+| `Shift+Alt+↑ / ↓` | Duplicar línea arriba/abajo                     |
+| `Ctrl+/`          | Comentar/descomentar línea                      |
+| `Ctrl+D`          | Seleccionar siguiente ocurrencia (multi-cursor) |
+| `Ctrl+Shift+L`    | Seleccionar todas las ocurrencias               |
+| `Alt+Click`       | Añadir cursor manual                            |
 
-**Navegación:**
+**Navegación de código:**
 
-| Atajo | Acción |
-|-------|--------|
-| `Ctrl+G` | Go to line |
-| `Ctrl+Shift+O` | Go to symbol |
-| `Ctrl+T` | Show all symbols |
-| `F12` | Go to definition |
-| `Alt+F12` | Peek definition |
-| `Shift+F12` | Show references |
-| `Ctrl+K F12` | Open definition to side |
+| Atajo          | Acción                     |
+| -------------- | -------------------------- |
+| `Ctrl+G`       | Ir a línea                 |
+| `F12`          | Ir a definición            |
+| `Shift+F12`    | Mostrar referencias        |
+| `Ctrl+Shift+O` | Ir a símbolo en el archivo |
 
-**Terminal:**
-
-| Atajo | Acción |
-|-------|--------|
-| `` Ctrl+` `` | Toggle terminal |
-| `` Ctrl+Shift+` `` | New terminal |
-| `Ctrl+Shift+C` | Copy |
-| `Ctrl+Shift+V` | Paste |
-
-## Personalizar Atajos
-
-**Abrir configuración:**
+### Crear tus propios atajos
 
 ```
-Command Palette → Preferences: Open Keyboard Shortcuts
+Paleta de Comandos → Preferences: Open Keyboard Shortcuts (JSON)
 ```
 
-**Archivo JSON:**
+Esto abre tu `keybindings.json` personal — ver ejemplos en la [sección 15](#15-atajos-personalizados-keybindingsjson).
 
-```
-Command Palette → Preferences: Open Keyboard Shortcuts (JSON)
-```
+---
 
-**Ejemplo de customización:**
+## 8. Extensiones: Open VSX y P3M
 
-```json
-[
-    {
-        "key": "ctrl+shift+r",
-        "command": "workbench.action.executeCode.console",
-        "when": "editorTextFocus",
-        "args": {
-            "langId": "r",
-            "code": "reprex::reprex_selection()",
-            "focus": true
-        }
-    },
-    {
-        "key": "ctrl+alt+f",
-        "command": "workbench.action.formatDocument"
-    },
-    {
-        "key": "f2",
-        "command": "positron.dataExplorer.openDataExplorer"
-    }
-]
-```
+### Por qué Positron no usa el VS Code Marketplace
 
-# Configuración Avanzada
+Por motivos de licencia (Microsoft no permite el acceso a su Marketplace fuera de builds oficiales de VS Code), Positron obtiene extensiones de un catálogo alterno.
 
-## Settings.json Completo (Base)
+- **Por defecto**, Positron navega e instala extensiones desde **Posit Public Package Manager (P3M)**, infraestructura propia de Posit pensada para distribución confiable.
+- El catálogo servido por P3M es **el mismo conjunto de extensiones disponible en [Open VSX](https://open-vsx.org/)**, el proyecto open-source de Eclipse que actúa como alternativa neutral al Marketplace de Microsoft.
+- Si prefieres consultar Open VSX directamente en vez de P3M, puedes cambiarlo con:
 
 ```json
 {
-    // ==========================================
-    // EDITOR
-    // ==========================================
-    "editor.fontSize": 13,
-    "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Hack Nerd Font', monospace",
-    "editor.fontLigatures": true,
-    "editor.lineNumbers": "on",
-    "editor.rulers": [80, 120],
-    "editor.wordWrap": "off",
-    "editor.minimap.enabled": false,
-    "editor.scrollbar.vertical": "auto",
-    "editor.scrollbar.horizontal": "hidden",
-    "editor.cursorBlinking": "smooth",
-    "editor.cursorSmoothCaretAnimation": "on",
-    "editor.cursorStyle": "line",
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": false,
-    "editor.tabSize": 4,
-    "editor.insertSpaces": true,
-    "editor.detectIndentation": true,
-    "editor.renderWhitespace": "selection",
-    "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": true,
-    "editor.linkedEditing": true,
-    "editor.suggest.preview": true,
-    "editor.inlineSuggest.enabled": true,
-    "editor.quickSuggestions": {
-        "other": true,
-        "comments": false,
-        "strings": false
-    },
-    
-    // ==========================================
-    // WORKBENCH
-    // ==========================================
-    "workbench.colorTheme": "Default Positron Dark",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.productIconTheme": "Default",
-    "workbench.activityBar.location": "bottom",
-    "workbench.sideBar.location": "left",
-    "workbench.panel.defaultLocation": "bottom",
-    "workbench.statusBar.visible": true,
-    "workbench.editor.showTabs": "multiple",
-    "workbench.editor.tabSizing": "fit",
-    "workbench.editor.highlightModifiedTabs": true,
-    "workbench.editor.labelFormat": "short",
-    "workbench.editor.limit.enabled": true,
-    "workbench.editor.limit.value": 10,
-    "workbench.editor.empty.hint": "hidden",
-    "workbench.startupEditor": "none",
-    
-    // ==========================================
-    // TERMINAL
-    // ==========================================
-    "terminal.integrated.fontFamily": "'Hack Nerd Font', 'FiraCode Nerd Font', monospace",
-    "terminal.integrated.fontSize": 12,
-    "terminal.integrated.fontWeight": "normal",
-    "terminal.integrated.lineHeight": 1.2,
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.cursorStyle": "line",
-    "terminal.integrated.defaultProfile.linux": "bash",
-    "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.inheritEnv": false,
-    "terminal.integrated.enablePersistentSessions": false,
-    "terminal.integrated.scrollback": 10000,
-    
-    // ==========================================
-    // FILES
-    // ==========================================
-    "files.autoSave": "onFocusChange",
-    "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.associations": {
-        "*.qmd": "quarto",
-        "*.Rmd": "rmarkdown",
-        "*.renv.lock": "json",
-        "renv.lock": "json",
-        "*.ipynb": "jupyter-notebook"
-    },
-    "files.exclude": {
-        "**/.git": true,
-        "**/.DS_Store": true,
-        "**/__pycache__": true,
-        "**/.Rproj.user": true,
-        "**/.ipynb_checkpoints": true,
-        "**/node_modules": true
-    },
-    
-    // ==========================================
-    // GIT
-    // ==========================================
-    "git.enableSmartCommit": true,
-    "git.autofetch": true,
-    "git.confirmSync": false,
-    "git.openRepositoryInParentFolders": "always",
-    "git.suggestSmartCommit": false,
-    
-    // ==========================================
-    // SEARCH
-    // ==========================================
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/bower_components": true,
-        "**/.git": true,
-        "**/__pycache__": true,
-        "**/.Rproj.user": true,
-        "**/.ipynb_checkpoints": true
-    },
-    
-    // ==========================================
-    // DIFF EDITOR
-    // ==========================================
-    "diffEditor.ignoreTrimWhitespace": false,
-    "diffEditor.renderSideBySide": true,
-    "diffEditor.wordWrap": "off",
-    "diffEditor.maxComputationTime": 0,
-    
-    // ==========================================
-    // LANGUAGE-SPECIFIC
-    // ==========================================
-    "[python]": {
-        "editor.defaultFormatter": "charliermarsh.ruff",
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": "explicit"
-        },
-        "diffEditor.ignoreTrimWhitespace": false
-    },
-    "[r]": {
-        "editor.tabSize": 2,
-        "editor.insertSpaces": true
-    },
-    "[quarto]": {
-        "editor.defaultFormatter": "quarto.quarto",
-        "editor.wordWrap": "on"
-    },
-    "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.wordWrap": "on"
-    },
-    "[yaml]": {
-        "editor.defaultFormatter": "quarto.quarto",
-        "editor.tabSize": 2
-    },
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    
-    // ==========================================
-    // QUARTO
-    // ==========================================
-    "quarto.visualEditor.spellingDictionary": "es_ES",
-    "quarto.render.previewType": "internal",
-    
-    // ==========================================
-    // POSITRON-SPECIFIC
-    // ==========================================
-    "positron.assistant.enable": true,
-    "positron.assistant.alwaysEnableApplyInEditorAction": true,
-    "positron.assistant.alwaysIncludeCopilotTools": true,
-    "positron.assistant.showTokenUsage.enable": true
+  "positron.extensions.gallerySource": "openvsx" // "p3m" (por defecto) | "openvsx"
 }
 ```
 
-# Python en Positron
+> Open VSX incluye la mayoría de extensiones populares de VS Code, pero no todas: algunos autores no publican ahí o no mantienen esa versión actualizada.
 
-## Prerequisitos
+### Extensiones incluidas por defecto
 
-**Versiones soportadas:** Python 3.9 - 3.13
+**Built-in (núcleo, no editables):** manejan funcionalidad esencial como los backends de R y Python. Se actualizan junto con Positron. Para verlas: busca `@builtin` en la pestaña de Extensions.
 
-**Gestores recomendados:**
+**Bootstrapped (preinstaladas automáticamente, pero desinstalables):**
 
-- `uv` (recomendado)
-- `pyenv`
-- `conda`/`mamba`
-- `venv`
+| Extensión            | Función                                                           |
+| -------------------- | ----------------------------------------------------------------- |
+| `charliermarsh.ruff` | Linter y formateador de Python (escrito en Rust, muy rápido)      |
+| `meta.pyrefly`       | Language server de Python: tipado, autocompletado, diagnósticos   |
+| `posit.shiny`        | Soporte para apps Shiny (Python y R)                              |
+| `posit.publisher`    | Publicación a Posit Connect / Posit Connect Cloud                 |
+| `quarto.quarto`      | Soporte completo de Quarto (autocompletado YAML, render, preview) |
+| `posit.air-vscode`   | Soporte de R: formateo, sintaxis, debugging                       |
 
-## Instalar Python
-
-**Con uv (recomendado):**
-
-```bash
-# Instalar uv
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# Instalar Python
-uv python install 3.12
-
-# Ver versiones instaladas
-uv python list
-```
-
-**Con pyenv:**
-
-```bash
-# Instalar pyenv
-curl https://pyenv.run | bash
-
-# Instalar Python
-pyenv install 3.12.0
-pyenv global 3.12.0
-```
-
-**Con conda:**
-
-```bash
-# Crear entorno
-conda create -n myenv python=3.12
-conda activate myenv
-```
-
-## Configurar Python en Positron
-
-**Settings para Anaconda:**
+Si no usas alguna (por ejemplo, R), puedes desactivarla sin desinstalarla:
 
 ```json
 {
-    "python.defaultInterpreterPath": "/home/achalmaedison/anaconda3/bin/python",
-    "python.condaPath": "/home/achalmaedison/anaconda3/bin/conda",
-    "python.terminal.activateEnvironment": true,
-    "python.terminal.activateEnvInCurrentTerminal": true
+  "extensions.allowed": {
+    "posit.air-vscode": false,
+    "*": true
+  }
 }
 ```
 
-**IPython Kernel:**
+### Extensiones NO compatibles — evitar instalarlas
 
-```json
-{
-    // Usar IPython kernel empaquetado (recomendado)
-    "python.useBundledIpykernel": true,
-    
-    // O instalar manualmente
-    // python.useBundledIpykernel": false
-}
-```
+| Extensión          | Por qué evitarla                                                                                                  |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| `REditorSupport.r` | Conflicta directamente con `posit.air-vscode`, que ya cubre lo mismo de forma nativa                              |
+| `ms-python.python` | Positron incluye un fork propio adaptado, con soporte nativo de consola y ayuda                                   |
+| `GitHub.copilot`   | No funciona por restricciones de licencia de Microsoft fuera de VS Code oficial — usa Posit Assistant en su lugar |
 
-## Seleccionar Intérprete
-
-**Command Palette:**
-
-```
-Python: Select Interpreter
-```
-
-**Desde Console:**
-Click en el selector de intérprete en la esquina superior derecha
-
-## Características Python
-
-**Code Completion:**
-
-- IntelliSense (Jedi)
-- Type hints
-- Import suggestions
-
-**Type Checking:**
-
-- Pyright integrado
-- Configuración en `pyrightconfig.json`
-
-**Formatting:**
-
-- Ruff (recomendado)
-- Black
-- autopep8
-
-**Linting:**
-
-- Ruff
-- Pylint
-- Flake8
-
-## Configuración Python Avanzada
-
-```json
-{
-    // Intérprete
-    "python.defaultInterpreterPath": "/path/to/python",
-    
-    // IPython
-    "python.useBundledIpykernel": true,
-    "python.enableAutoReload": true,
-    
-    // Formatting
-    "python.formatting.provider": "none",
-    "[python]": {
-        "editor.defaultFormatter": "charliermarsh.ruff",
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": "explicit",
-            "source.fixAll": "explicit"
-        }
-    },
-    
-    // Linting
-    "python.linting.enabled": true,
-    "python.linting.ruffEnabled": true,
-    
-    // Terminal
-    "python.terminal.activateEnvironment": true,
-    "python.terminal.activateEnvInCurrentTerminal": true
-}
-```
-
-## Paquetes Esenciales
-
-```bash
-# Data Science
-pip install numpy pandas matplotlib seaborn scikit-learn
-
-# Jupyter
-pip install ipykernel jupyter
-
-# Development
-pip install ruff black isort mypy pytest
-
-# Para Positron Console
-pip install ipython
-```
-
-# R en Positron
-
-## Prerequisitos
-
-**Versión requerida:** R 4.2 o superior
-
-## Instalar R
-
-**Linux:**
-
-```bash
-# Ubuntu/Debian
-sudo apt install r-base r-base-dev
-
-# O desde CRAN
-# https://cloud.r-project.org/
-```
-
-**macOS:**
-
-```bash
-# Con Homebrew
-brew install r
-
-# O descargar desde CRAN
-# https://cloud.r-project.org/
-```
-
-**Con rig (múltiples versiones):**
-
-```bash
-# Instalar rig
-curl -Ls https://github.com/r-lib/rig/releases/latest/download/rig-linux-latest.tar.gz | sudo tar xz -C /usr/local
-
-# Instalar R
-rig add release
-rig add devel
-
-# Cambiar versión
-rig default 4.3
-```
-
-## Paquetes R Esenciales para Positron
+Si usas R y tienes lógica en tu `.Rprofile` pensada para el terminal de la extensión R de VS Code, debes excluirla explícitamente en Positron:
 
 ```r
-# Paquetes core
-install.packages(c(
-    "usethis", 
-    "cli", 
-    "crayon", 
-    "rlang", 
-    "roxygen2", 
-    "pkgload"
-))
-
-# Con pak (recomendado)
-pak::pak(c(
-    "usethis", 
-    "cli", 
-    "crayon", 
-    "rlang", 
-    "roxygen2", 
-    "pkgload"
-))
-
-# Tidyverse
-install.packages("tidyverse")
-
-# Desarrollo
-install.packages(c(
-    "devtools",
-    "testthat",
-    "lintr",
-    "styler"
-))
-```
-
-## Configurar R en Positron
-
-**Seleccionar intérprete R:**
-
-```
-Command Palette → R: Select Interpreter
-```
-
-**Settings:**
-
-```json
-{
-    "r.alwaysUseActiveTerminal": true,
-    "r.bracketedPaste": true,
-    "r.plot.useHttpgd": true
+if (interactive() && Sys.getenv("RSTUDIO") == "" && Sys.getenv("POSITRON") == "") {
+  ## código pensado solo para mejor comportamiento en terminal con VS Code + REditorSupport.r
 }
 ```
 
-## IRKernel
+### Confianza y seguridad de extensiones
 
-Positron maneja IRKernel automáticamente. Si necesitas configurarlo manualmente:
+Antes de instalar una extensión de terceros, Posit recomienda verificar:
 
-```r
-# Instalar IRKernel
-install.packages('IRkernel')
+- **Verified Publisher**: insignia que confirma que el autor controla ese _namespace_ en Open VSX.
+- **Descargas totales**: indicador de adopción.
+- **Repositorio**: revisa el código fuente si es open source.
+- **Calificaciones** y **fecha de la última publicación** (¿se mantiene activa?).
 
-# Registrar con Jupyter
-IRkernel::installspec(user = TRUE)
-```
+Positron te pedirá confirmar tu confianza la primera vez que instales una extensión de un _namespace_ nuevo.
 
-## Características R
+### Extensiones recomendadas para instalar manualmente
 
-**Code Completion:**
+| Categoría     | Extensión                                              |
+| ------------- | ------------------------------------------------------ |
+| Tema          | Material Icon Theme, One Dark Pro, GitHub Theme        |
+| Formateo      | Prettier (`esbenp.prettier-vscode`)                    |
+| LaTeX         | LaTeX Workshop (`James-Yu.latex-workshop`)             |
+| Markdown      | Markdown All in One                                    |
+| Productividad | GitLens, Better Comments, Code Spell Checker (español) |
 
-- Funciones
-- Paquetes
-- Variables
-- Archivos
-
-**Help:**
-
-- Documentación integrada
-- Ejemplos
-- Vignettes
-
-**Debugging:**
-
-- Breakpoints
-- Step through
-- Inspect variables
-
-## Rtools (Windows)
-
-Si usas Windows y desarrollas paquetes:
-
-```bash
-# Con rig
-rig system rtools add
-
-# O manual desde CRAN
-# https://cran.r-project.org/bin/windows/Rtools/
-```
-
-# Extensiones
-
-## Open VSX vs VS Marketplace
-
-Positron usa **Open VSX** por razones de licencia. La mayoría de extensiones populares están disponibles, pero algunas pueden faltar.
-
-## Acceder a Extensiones
+### Instalación manual (offline / `.vsix`)
 
 ```
-View → Extensions (Ctrl+Shift+X)
+Paleta de Comandos → Extensions: Install from VSIX...
 ```
 
-## Extensiones Pre-instaladas
+---
 
-**Built-in (core):**
+## 9. Dónde vive la configuración
 
-- Python backend (posit.positron-python)
-- R backend (posit.air-vscode)
-
-**Bootstrapped (auto-instaladas):**
-
-- `charliermarsh.ruff`: Linter Python
-- `meta.pyrefly`: Python language server
-- `posit.shiny`: Soporte Shiny
-- `posit.publisher`: Publishing tool
-- `quarto.quarto`: Soporte Quarto
-
-## Extensiones Recomendadas
-
-**Temas:**
+### Ubicación del archivo `settings.json`
 
 ```
-- material-icon-theme (iconos)
-- One Dark Pro
-- GitHub Theme
-- Dracula
-- Nord
+Linux:   ~/.config/Positron/User/settings.json
+macOS:   ~/Library/Application Support/Positron/User/settings.json
+Windows: %APPDATA%\Positron\User\settings.json
 ```
 
-**Productividad:**
+### Cómo abrirlo
+
+**Vía interfaz gráfica (recomendado para explorar opciones):**
 
 ```
-- GitLens (si disponible)
-- Better Comments
-- Bookmarks
-- Todo Tree
+File → Preferences → Settings   (o Ctrl+,)
 ```
 
-**Formateo:**
+**Directamente como JSON (recomendado para copiar/pegar configuraciones):**
 
 ```
-- Prettier (esbenp.prettier-vscode)
-- EditorConfig
+Paleta de Comandos → Preferences: Open User Settings (JSON)
 ```
 
-**Markdown/Docs:**
+### Settings por workspace (proyecto específico)
+
+Si quieres una configuración distinta solo para un proyecto puntual (por ejemplo, un repo Quarto que usa reglas de formato diferentes), crea:
 
 ```
-- Markdown All in One
-- Markdown Preview Enhanced
+.vscode/settings.json
 ```
 
-**LaTeX:**
+dentro de la carpeta del proyecto. Estos valores tienen prioridad sobre tu configuración de usuario global, solo dentro de ese workspace.
+
+---
+
+## 10. Personalización visual (temas, iconos, fuentes)
+
+### Tema de color
 
 ```
-- LaTeX Workshop (James-Yu.latex-workshop)
+Paleta de Comandos → Preferences: Color Theme   (Ctrl+K Ctrl+T)
 ```
 
-## Instalar Extensión
-
-**Desde GUI:**
-
-1. Abrir Extensions (Ctrl+Shift+X)
-2. Buscar extensión
-3. Click en Install
-
-**Desde VSIX:**
-
-```
-Command Palette → Extensions: Install from VSIX
-```
-
-## Gestionar Extensiones Bootstrapped
-
-Si quieres deshabilitar una extensión bootstrapped:
+Temas incluidos por defecto: _Default Positron Dark_, _Default Positron Light_, y las variantes heredadas de Code OSS (Dark+, Light+). Para más opciones, instala temas desde la pestaña de Extensions (ej. One Dark Pro, Dracula, Nord, Gruvbox).
 
 ```json
 {
-    "extensions.allowed": {
-        "posit.air-vscode": false,  // Deshabilitar R si solo usas Python
-        "*": true
+  "workbench.colorTheme": "Default Positron Dark"
+}
+```
+
+### Tema de iconos de archivos
+
+```
+Paleta de Comandos → Preferences: File Icon Theme
+```
+
+```json
+{
+  "workbench.iconTheme": "material-icon-theme"
+}
+```
+
+### Personalizar colores específicos
+
+```json
+{
+  "workbench.colorCustomizations": {
+    "[Default Positron Dark]": {
+      "editor.background": "#1a1a1a",
+      "sideBar.background": "#1e1e1e",
+      "activityBar.background": "#252525"
     }
+  }
 }
 ```
 
-## Extensiones No Compatibles
+### Tipografía
 
-**NO usar:**
-
-- `ms-python.python` (Positron tiene soporte Python nativo)
-- `REditorSupport.r` (conflicto con posit.air-vscode)
-
-# Temas y Personalización Visual
-
-## Temas de Color
-
-**Cambiar tema:**
-
-```
-Command Palette → Preferences: Color Theme (Ctrl+K Ctrl+T)
-```
-
-**Temas incluidos:**
-
-- Default Positron Dark
-- Default Positron Light
-- Dark+ (heredado de VS Code)
-- Light+ (heredado de VS Code)
-
-**Instalar más temas:**
-
-```
-Extensions → Buscar "theme"
-```
-
-**Temas populares:**
-
-- One Dark Pro
-- Material Theme
-- GitHub Theme
-- Dracula
-- Nord
-- Gruvbox
-
-**En settings.json:**
-
-```json
-{
-    "workbench.colorTheme": "One Dark Pro Mix"
-}
-```
-
-## Temas de Iconos
-
-```
-Command Palette → Preferences: File Icon Theme
-```
-
-**Recomendados:**
-
-- Material Icon Theme (recomendado)
-- Seti
-- Minimal
-
-```json
-{
-    "workbench.iconTheme": "material-icon-theme"
-}
-```
-
-## Customizar Colores
-
-```json
-{
-    "workbench.colorCustomizations": {
-        "[Default Positron Dark]": {
-            "editor.background": "#1a1a1a",
-            "sideBar.background": "#1e1e1e",
-            "activityBar.background": "#252525"
-        }
-    },
-    "editor.tokenColorCustomizations": {
-        "[Default Positron Dark]": {
-            "comments": "#6A9955",
-            "strings": "#CE9178"
-        }
-    }
-}
-```
-
-## Fuentes
-
-**Fuentes recomendadas con ligaduras:**
+Fuentes recomendadas con ligaduras (combinan símbolos como `!=` o `=>` en un solo glifo):
 
 - JetBrains Mono
 - Fira Code
 - Cascadia Code
-- Hack Nerd Font
-- Victor Mono
-
-**Configurar:**
+- Hack Nerd Font (recomendada para terminal, incluye íconos)
 
 ```json
 {
-    "editor.fontFamily": "'JetBrains Mono', 'Fira Code', monospace",
-    "editor.fontLigatures": true,
-    "editor.fontSize": 13,
-    "terminal.integrated.fontFamily": "'Hack Nerd Font', monospace",
-    "terminal.integrated.fontSize": 12
+  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "terminal.integrated.fontFamily": "'Hack Nerd Font', monospace",
+  "terminal.integrated.fontSize": 12
 }
 ```
 
-# Terminal
-
-## Terminal vs Console
-
-**Terminal:**
-
-- Shell del sistema (bash, zsh, fish, etc.)
-- Comandos del sistema
-- Instalación de paquetes
-- Operaciones de archivos
-
-**Console:**
-
-- Intérprete interactivo (IPython/IRKernel)
-- Ejecución de código Python/R
-- Inspección de variables
-- Integración con Variables/Plots panes
-
-## Configurar Terminal
-
-```json
-{
-    // Perfil por defecto
-    "terminal.integrated.defaultProfile.linux": "bash",
-    
-    // Fuente
-    "terminal.integrated.fontFamily": "'Hack Nerd Font', monospace",
-    "terminal.integrated.fontSize": 12,
-    
-    // Comportamiento
-    "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.cursorStyle": "line",
-    "terminal.integrated.scrollback": 10000,
-    
-    // Entorno
-    "terminal.integrated.inheritEnv": false
-}
-```
-
-## Perfiles de Terminal
-
-```json
-{
-    "terminal.integrated.profiles.linux": {
-        "bash": {
-            "path": "/bin/bash",
-            "icon": "terminal-bash"
-        },
-        "zsh": {
-            "path": "/usr/bin/zsh",
-            "icon": "terminal"
-        },
-        "fish": {
-            "path": "/usr/bin/fish",
-            "icon": "terminal"
-        }
-    }
-}
-```
-
-## Atajos de Terminal
-
-| Atajo | Acción |
-|-------|--------|
-| `` Ctrl+` `` | Toggle terminal |
-| `` Ctrl+Shift+` `` | New terminal |
-| `Ctrl+Shift+C` | Copy |
-| `Ctrl+Shift+V` | Paste |
-| `Ctrl+Shift+5` | Split terminal |
-
-# Console
-
-## ¿Qué es el Console?
-
-El Console es una shell interactiva para Python (IPython) o R (IRKernel) integrada directamente en Positron.
-
-**Características:**
-
-- Ejecución interactiva de código
-- Code completion
-- Syntax highlighting
-- Integración con Variables pane
-- Integración con Plots pane
-- Historial persistente
-
-## Ejecutar Código en Console
-
-**Desde Editor:**
-
-- `Ctrl+Enter`: Ejecutar línea/selección
-- `Ctrl+Alt+Home`: Ejecutar desde inicio hasta cursor
-- `Ctrl+Alt+End`: Ejecutar desde cursor hasta fin
-- `Ctrl+Shift+P`: Ejecutar archivo completo
-
-**Directamente en Console:**
-
-- Escribir código y presionar Enter
-
-## Console Settings
-
-```json
-{
-    // Python
-    "python.useBundledIpykernel": true,
-    "python.enableAutoReload": true,
-    
-    // R
-    "r.alwaysUseActiveTerminal": true
-}
-```
-
-## Atajos Console
-
-| Atajo | Acción |
-|-------|--------|
-| `Ctrl+K, F` | Enfocar Console |
-| `Ctrl+L` | Limpiar Console |
-| `Ctrl+Shift+0` | Reiniciar intérprete |
-| `Ctrl+Up/Down` | Navegar historial |
-
-# Variables Pane
-
-## ¿Qué es Variables Pane?
-
-Panel que muestra todas las variables en el entorno actual.
-
-**Información mostrada:**
-
-- Nombre
-- Tipo
-- Valor (para primitivos)
-- Tamaño (para colecciones)
-- Dimensiones (para dataframes)
-
-## Usar Variables Pane
-
-**Abrir:**
-
-```
-View → Variables (Ctrl+K, V)
-```
-
-**Operaciones:**
-
-- Click en variable para expandir
-- Double-click para abrir en Data Explorer (si es dataframe)
-- Right-click para opciones (copy, delete, etc.)
-
-## Filtrar Variables
-
-Usa la barra de búsqueda en el panel para filtrar variables por nombre.
-
-# Data Explorer
-
-## ¿Qué es Data Explorer?
-
-Visualizador interactivo de dataframes (pandas, tibble, data.frame).
-
-**Características:**
-
-- Vista tabular de datos
-- Ordenamiento por columnas
-- Filtrado
-- Búsqueda
-- Estadísticas de columnas
-- Exportar a CSV/Excel
-
-## Abrir Data Explorer
-
-**Desde Variables Pane:**
-Double-click en un dataframe
-
-**Desde Console:**
-
-```python
-# Python
-import pandas as pd
-df = pd.read_csv('data.csv')
-# Double-click en 'df' en Variables pane
-```
-
-```r
-# R
-df <- read.csv('data.csv')
-View(df)
-```
-
-**Command Palette:**
-
-```
-Data Explorer: Open Data Explorer
-```
-
-## Usar Data Explorer
-
-**Ordenar:**
-Click en header de columna
-
-**Filtrar:**
-Click en icono de filtro en header
-
-**Buscar:**
-Ctrl+F en Data Explorer
-
-**Exportar:**
-Right-click → Export
-
-# Plots Pane
-
-## ¿Qué es Plots Pane?
-
-Panel para visualización de gráficos generados en Python o R.
-
-**Características:**
-
-- Historial de plots
-- Zoom
-- Pan
-- Exportar (PNG, SVG, PDF)
-- Tamaño ajustable
-
-## Generar Plots
-
-**Python (matplotlib):**
-
-```python
-import matplotlib.pyplot as plt
-import numpy as np
-
-x = np.linspace(0, 10, 100)
-y = np.sin(x)
-
-plt.plot(x, y)
-plt.title('Sin Wave')
-plt.show()
-```
-
-**Python (seaborn):**
-
-```python
-import seaborn as sns
-import pandas as pd
-
-df = pd.read_csv('data.csv')
-sns.scatterplot(data=df, x='x', y='y', hue='category')
-plt.show()
-```
-
-**R (ggplot2):**
-
-```r
-library(ggplot2)
-
-ggplot(mtcars, aes(x = mpg, y = hp)) +
-  geom_point() +
-  theme_minimal()
-```
-
-## Exportar Plots
-
-**Desde Plots Pane:**
-
-1. Hover sobre el plot
-2. Click en icono de exportar
-3. Elegir formato (PNG, SVG, PDF)
-4. Especificar ubicación
-
-**Desde código:**
-
-```python
-# Python
-plt.savefig('plot.png', dpi=300)
-```
-
-```r
-# R
-ggsave('plot.png', width = 8, height = 6, dpi = 300)
-```
-
-# Help Pane
-
-## ¿Qué es Help Pane?
-
-Panel de documentación contextual integrado.
-
-**Características:**
-
-- Documentación de funciones
-- Argumentos
-- Ejemplos
-- Links a vignettes/tutorials
-- Búsqueda
-
-## Obtener Ayuda
-
-**Atajo F1:**
-Coloca cursor sobre función y presiona F1
-
-**Desde Console:**
-
-```python
-# Python
-help(print)
-?print
-```
-
-```r
-# R
-?mean
-help(mean)
-```
-
-**Command Palette:**
-
-```
-Help: Show Help for Symbol Under Cursor
-```
-
-# Quarto
-
-## ¿Qué es Quarto?
-
-Sistema de publicación científica y técnica de código abierto.
-
-**Formatos de salida:**
-
-- HTML
-- PDF
-- Word
-- Reveal.js (presentations)
-- Dashboards
-- Websites
-- Books
-
-## Configurar Quarto
-
-**Instalar Quarto:**
-
-```bash
-# Linux
-sudo curl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb
-sudo dpkg -i quarto-linux-amd64.deb
-
-# macOS
-brew install quarto
-
-# Verificar
-quarto --version
-```
-
-**Settings:**
-
-```json
-{
-    "quarto.visualEditor.spellingDictionary": "es_ES",
-    "quarto.render.previewType": "internal",
-    "[quarto]": {
-        "editor.defaultFormatter": "quarto.quarto",
-        "editor.wordWrap": "on"
-    }
-}
-```
-
-## Crear Documento Quarto
-
-**Nuevo archivo:**
-
-```
-File → New File → Quarto Document
-```
-
-**Estructura básica (.qmd):**
-
-```yaml
----
-title: "Mi Documento"
-author: "Tu Nombre"
-format: html
-execute:
-  echo: true
 ---
 
-# Introducción
+## 11. Personalización del layout
 
-Este es un documento Quarto.
+### Posición de la barra de actividad (íconos de Explorer, Git, etc.)
 
-::: {#f430b798 .cell}
-``` {.python .cell-code}
-import pandas as pd
-import matplotlib.pyplot as plt
-
-df = pd.read_csv('data.csv')
-df.head()
-```
-:::
-
-
-# Análisis
-
-::: {#01cf9fca .cell}
-``` {.python .cell-code}
-plt.plot(df['x'], df['y'])
-plt.show()
-```
-:::
-
-
-## Renderizar
-
-**Command Palette:**
-
-```
-Quarto: Render Document
+```json
+{
+  "workbench.activityBar.location": "bottom" // "default" | "top" | "bottom" | "hidden"
+}
 ```
 
-**Atajo:**
+### Posición de la barra lateral principal
+
+```json
+{
+  "workbench.sideBar.location": "right" // "left" | "right"
+}
+```
+
+### Pestañas de editor
+
+```json
+{
+  "workbench.editor.showTabs": "single", // "multiple" | "single" | "none"
+  "workbench.editor.tabSizing": "fixed" // "fit" | "shrink" | "fixed"
+}
+```
+
+### Barra de estado y breadcrumbs
+
+```json
+{
+  "workbench.statusBar.visible": false,
+  "breadcrumbs.enabled": false
+}
+```
+
+### Modo Zen (máxima concentración, sin distracciones)
 
 ```
-Ctrl+Shift+K
+Paleta de Comandos → View: Toggle Zen Mode   (Ctrl+K Z)
 ```
 
-**Terminal:**
+```json
+{
+  "zenMode.centerLayout": true,
+  "zenMode.hideTabs": true,
+  "zenMode.hideStatusBar": true,
+  "zenMode.hideActivityBar": true,
+  "zenMode.restore": true
+}
+```
+
+---
+
+## 12. Configuración del editor
+
+### Lo esencial
+
+```json
+{
+  "editor.fontSize": 13,
+  "editor.fontFamily": "'JetBrains Mono', monospace",
+  "editor.lineNumbers": "on", // "on" | "off" | "relative" | "interval"
+  "editor.rulers": [80, 160], // guías verticales de columna
+  "editor.wordWrap": "off", // "off" | "on" | "wordWrapColumn" | "bounded"
+  "editor.tabSize": 4,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true
+}
+```
+
+### Configuración por lenguaje (muy útil si trabajas Python + Quarto + LaTeX + R)
+
+```json
+{
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "[quarto]": {
+    "editor.defaultFormatter": "quarto.quarto"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[latex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop"
+  },
+  "[r]": {
+    "editor.defaultFormatter": "Posit.air-vscode",
+    "editor.formatOnSave": true
+  }
+}
+```
+
+### Python: intérprete y kernel
+
+```json
+{
+  "python.defaultInterpreterPath": "/ruta/a/tu/anaconda3/bin/python",
+  "python.condaPath": "/ruta/a/tu/anaconda3/bin/conda",
+  "python.terminal.activateEnvironment": true,
+  "python.useBundledIpykernel": true,
+  "python.enableAutoReload": true
+}
+```
+
+### R: formateo con Air
+
+```json
+{
+  "r.alwaysUseActiveTerminal": true,
+  "r.bracketedPaste": true
+}
+```
+
+> El formateador `Posit.air-vscode` también admite un archivo `air.toml` en la raíz de un proyecto R, con opciones como `line-width`, `indent-width` e `indent-style`. Más en: https://posit-dev.github.io/air/configuration.html
+
+### Quarto
+
+```json
+{
+  "quarto.visualEditor.spellingDictionary": "es_ES"
+}
+```
+
+Renderizar un documento:
+
+```
+Paleta de Comandos → Quarto: Render Document   (o Ctrl+Shift+K)
+```
 
 ```bash
-quarto render document.qmd
-quarto render document.qmd --to pdf
+quarto render documento.qmd
+quarto render documento.qmd --to pdf
 ```
 
-## Preview
+### Terminal integrada
 
-**Live preview:**
-
-```
-Quarto: Preview
-```
-
-## Características Quarto en Positron
-
-- Syntax highlighting
-- Code execution inline
-- Preview live
-- Autocompletado YAML
-- Snippets
-
-# Jupyter Notebooks
-
-## Soporte Jupyter
-
-Positron tiene soporte nativo para Jupyter notebooks (.ipynb).
-
-**Características:**
-
-- Ejecución de celdas
-- Output inline
-- Plots inline
-- Variables en Variables pane
-- Code completion
-
-## Crear Notebook
-
-```
-File → New File → Jupyter Notebook
+```json
+{
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.scrollback": 5000,
+  "terminal.integrated.copyOnSelection": true
+}
 ```
 
-## Seleccionar Kernel
+---
 
-Click en "Select Kernel" en la esquina superior derecha
+## 13. Configuración de Git
 
-## Ejecutar Celdas
-
-**Atajos:**
-
-- `Shift+Enter`: Ejecutar celda y avanzar
-- `Ctrl+Enter`: Ejecutar celda
-- `Alt+Enter`: Ejecutar celda e insertar abajo
-
-## Convertir entre Quarto y Jupyter
-
-**Quarto → Jupyter:**
-
-```bash
-quarto convert document.qmd
-```
-
-**Jupyter → Quarto:**
-
-```bash
-quarto convert notebook.ipynb
-```
-
-# Git y Control de Versiones
-
-## Configurar Git
-
-**Primera vez:**
+### Configuración inicial de Git (una sola vez, fuera de Positron)
 
 ```bash
 git config --global user.name "Tu Nombre"
 git config --global user.email "tu@email.com"
 ```
 
-**Settings Positron:**
+### Settings recomendados de Git en Positron
 
 ```json
 {
-    "git.enableSmartCommit": true,
-    "git.autofetch": true,
-    "git.confirmSync": false,
-    "git.openRepositoryInParentFolders": "always"
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.openRepositoryInParentFolders": "always",
+  "git.defaultBranchName": "main"
 }
 ```
 
-## Source Control Panel
-
-**Abrir:**
+### Panel de Source Control
 
 ```
-View → Source Control (Ctrl+Shift+G)
+Ctrl+Shift+G
 ```
 
-**Operaciones:**
+Desde ahí puedes: ver cambios, hacer _stage_/_unstage_, escribir el mensaje de commit, hacer _push_/_pull_, crear ramas y ver el historial — todo sin salir del editor.
 
-- Ver cambios
-- Stage/Unstage
-- Commit
-- Push/Pull
-- Ver historial
-- Crear branches
-- Merge
+---
 
-## Workflow Git
+## 14. Posit Assistant (IA integrada)
 
-```
-1. Hacer cambios en archivos
-2. Ver cambios en Source Control panel
-3. Stage cambios (click en +)
-4. Escribir mensaje de commit
-5. Click en ✓ (commit)
-6. Sync changes (push/pull)
-```
+⚠️ **Cambio importante de nomenclatura (versión 2026.06.0):** el antiguo _Positron Assistant_ fue renombrado a **Posit Assistant**. El setting `positron.assistant.enable` quedó **deprecado** en favor de `assistant.enabled`. El antiguo seguirá funcionando un tiempo por compatibilidad, pero conviene migrar ya.
 
-## GitLens (si disponible)
-
-Instalar desde Extensions si está disponible en Open VSX.
-
-# AI Tools
-
-## Positron Assistant
-
-Asistente AI integrado para ayudar con código.
-
-**Habilitar:**
+### Activarlo
 
 ```json
 {
-    "positron.assistant.enable": true,
-    "positron.assistant.alwaysEnableApplyInEditorAction": true,
-    "positron.assistant.showTokenUsage.enable": true
+  "assistant.enabled": true,
+  "positron.assistant.alwaysEnableApplyInEditorAction": true,
+  "positron.assistant.showTokenUsage.enable": true
 }
 ```
 
-**Usar:**
+### Usarlo
 
 ```
-Command Palette → Positron: Open Assistant
+Paleta de Comandos → Positron: Open Assistant
 ```
 
-**Características:**
+Funciones principales: generar código, explicar código existente, refactorizar, documentar y ayudar a depurar — con acceso directo a tu sesión activa de R o Python.
 
-- Generar código
-- Explicar código
-- Refactorizar
-- Documentar
-- Debuggear
+### Databot
 
-## Databot
-
-Asistente especializado para análisis de datos.
-
-**Usar:**
+Asistente especializado en análisis de datos conversacional, también accesible desde la paleta de comandos:
 
 ```
-Command Palette → Positron: Open Databot
+Paleta de Comandos → Positron: Open Databot
 ```
 
-**Ejemplos de prompts:**
+Ejemplos de instrucciones útiles: _"crea un gráfico de dispersión de x vs y"_, _"agrupa por categoría y calcula la media"_, _"filtra datos donde columna > 100"_.
+
+---
+
+## 15. Atajos personalizados (`keybindings.json`)
+
+Como Positron está construido sobre VS Code, puedes definir atajos propios para cualquier comando, incluidos los específicos de Positron (`workbench.action.executeCode.console`, etc.).
 
 ```
-"Crear un gráfico de dispersión de x vs y"
-"Agrupar por categoría y calcular media"
-"Filtrar datos donde columna > 100"
-"Crear modelo lineal de y ~ x"
+Paleta de Comandos → Preferences: Open Keyboard Shortcuts (JSON)
 ```
 
-# Configuración Minimalista
-
-## Objetivos
-
-- UI limpia
-- Sin distracciones
-- Foco en código
-- Performance óptima
-
-## Settings Minimalistas
+### Ejemplo: abrir el Data Explorer con F2 desde el panel de Variables
 
 ```json
-{
-    // ==========================================
-    // MINIMALISTA
-    // ==========================================
-    
-    // Editor limpio
-    "editor.minimap.enabled": false,
-    "editor.scrollbar.vertical": "hidden",
-    "editor.scrollbar.horizontal": "hidden",
-    "editor.lineNumbers": "off",  // o "relative"
-    "editor.glyphMargin": false,
-    "editor.folding": false,
-    "editor.guides.indentation": false,
-    "editor.renderWhitespace": "none",
-    "editor.renderLineHighlight": "none",
-    "editor.overviewRulerBorder": false,
-    
-    // Workbench limpio
-    "workbench.statusBar.visible": false,
-    "workbench.activityBar.location": "hidden",  // o "bottom"
-    "workbench.editor.showTabs": "single",
-    "workbench.editor.tabSizing": "shrink",
-    "breadcrumbs.enabled": false,
-    "workbench.sideBar.location": "right",
-    
-    // Terminal limpio
-    "terminal.integrated.tabs.enabled": false,
-    
-    // Tema minimalista
-    "workbench.colorTheme": "Default Positron Dark",
-    "workbench.iconTheme": "minimal",
-    
-    // Zen Mode (Ctrl+K Z)
-    "zenMode.centerLayout": true,
-    "zenMode.fullScreen": false,
-    "zenMode.hideLineNumbers": false,
-    "zenMode.hideTabs": true,
-    "zenMode.hideStatusBar": true,
-    
-    // Resto de settings esenciales
-    "editor.fontSize": 14,
-    "editor.fontFamily": "'JetBrains Mono', monospace",
-    "editor.fontLigatures": true,
-    "editor.formatOnSave": true,
-    "files.autoSave": "onFocusChange"
-}
+[
+  {
+    "key": "f2",
+    "command": "positron.dataExplorer.openDataExplorer",
+    "when": "positronVariablesFocus"
+  }
+]
 ```
 
-## Zen Mode
-
-**Activar:**
-
-```
-Command Palette → View: Toggle Zen Mode (Ctrl+K Z)
-```
-
-**O personalizar:**
+### Ejemplo: generar un reprex en R desde tu selección
 
 ```json
-{
-    "zenMode.centerLayout": true,
-    "zenMode.fullScreen": false,
-    "zenMode.hideLineNumbers": false,
-    "zenMode.hideTabs": true,
-    "zenMode.hideStatusBar": true,
-    "zenMode.hideActivityBar": true,
-    "zenMode.restore": true
-}
-```
-
-# Mi Configuración Específica
-
-Esta es mi configuración de VS Code adaptada para Positron:
-
-```json
-{
-    // ==========================================
-    // PYTHON (ANACONDA)
-    // ==========================================
-    "python.defaultInterpreterPath": "/home/achalmaedison/anaconda3/bin/python",
-    "python.condaPath": "/home/achalmaedison/anaconda3/bin/conda",
-    "python.terminal.activateEnvironment": true,
-    "python.terminal.activateEnvInCurrentTerminal": true,
-    "python.useBundledIpykernel": true,
-    "python.enableAutoReload": true,
-    
-    // ==========================================
-    // TERMINAL
-    // ==========================================
-    "terminal.integrated.inheritEnv": false,
-    "terminal.integrated.fontSize": 12,
-    "terminal.integrated.fontFamily": "Hack Nerd Font",
-    "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.cursorStyle": "underline",
-    "terminal.integrated.cursorStyleInactive": "line",
-    "terminal.integrated.defaultProfile.linux": "fish",  // Cambiado de zsh a fish
-    "terminal.integrated.enablePersistentSessions": false,
-    "terminal.integrated.suggest.enabled": true,
-    "terminal.integrated.accessibleViewFocusOnCommandExecution": true,
-    
-    // ==========================================
-    // EDITOR
-    // ==========================================
-    "editor.fontSize": 13,
-    "editor.fontFamily": "'Hack Nerd Font', 'JetBrains Mono', monospace",
-    "editor.fontLigatures": true,
-    "editor.minimap.enabled": false,
-    "editor.minimap.autohide": true,
-    "editor.scrollbar.horizontal": "hidden",
-    "editor.scrollbar.vertical": "hidden",
-    "editor.overviewRulerBorder": false,
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": true,
-    "editor.glyphMargin": false,
-    "editor.linkedEditing": true,
-    "editor.cursorBlinking": "expand",
-    "editor.cursorSmoothCaretAnimation": "on",
-    "editor.guides.indentation": false,
-    "editor.matchBrackets": "never",
-    "editor.suggest.preview": true,
-    "editor.inlineSuggest.syntaxHighlightingEnabled": true,
-    
-    // ==========================================
-    // WORKBENCH
-    // ==========================================
-    "workbench.colorTheme": "One Dark Pro Mix",  // Tu tema favorito
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.productIconTheme": "fluent-icons",
-    "workbench.activityBar.location": "bottom",  // Mantener en bottom
-    "workbench.sideBar.location": "right",
-    "workbench.statusBar.visible": false,  // Oculto para minimalista
-    "workbench.editor.showTabs": "single",
-    "workbench.editor.tabSizing": "fixed",
-    "workbench.editor.highlightModifiedTabs": true,
-    "workbench.editor.limit.enabled": true,
-    "workbench.editor.empty.hint": "hidden",
-    "workbench.editor.wrapTabs": true,
-    "workbench.editor.centeredLayoutFixedWidth": true,
-    "window.customTitleBarVisibility": "auto",
-    "breadcrumbs.enabled": false,
-    
-    // ==========================================
-    // FILES
-    // ==========================================
-    "files.autoSave": "onFocusChange",
-    "files.associations": {
-        "renv.lock": "json",
-        "*.qmd": "quarto",
-        "*.Rmd": "rmarkdown"
-    },
-    
-    // ==========================================
-    // GIT
-    // ==========================================
-    "git.enableSmartCommit": true,
-    "git.autofetch": true,
-    "git.confirmSync": false,
-    "git.openRepositoryInParentFolders": "always",
-    
-    // ==========================================
-    // DIFF EDITOR
-    // ==========================================
-    "diffEditor.ignoreTrimWhitespace": false,
-    "diffEditor.maxComputationTime": 0,
-    "diffEditor.codeLens": true,
-    "diffEditor.wordWrap": "off",
-    
-    // ==========================================
-    // LANGUAGE-SPECIFIC
-    // ==========================================
-    "[python]": {
-        "editor.defaultFormatter": "charliermarsh.ruff",
-        "diffEditor.ignoreTrimWhitespace": false
-    },
-    "[quarto]": {
-        "editor.defaultFormatter": "quarto.quarto"
-    },
-    "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[yaml]": {
-        "editor.defaultFormatter": "quarto.quarto"
-    },
-    "[latex]": {
-        "editor.defaultFormatter": "James-Yu.latex-workshop"
-    },
-    
-    // ==========================================
-    // QUARTO
-    // ==========================================
-    "quarto.visualEditor.spellingDictionary": "es_ES",
-    
-    // ==========================================
-    // NOTEBOOKS
-    // ==========================================
-    "notebook.output.wordWrap": true,
-    "jupyter.interactiveWindow.textEditor.executeSelection": true,
-    
-    // ==========================================
-    // MISC
-    // ==========================================
-    "debug.console.wordWrap": false,
-    "chat.editor.wordWrap": "on",
-    "yaml.schemas": {
-        "https://quarto.org/schemas/quarto.yaml": "*.qmd"
-    },
-    
-    // ==========================================
-    // POSITRON-SPECIFIC
-    // ==========================================
-    "positron.assistant.enable": true,
-    "positron.assistant.alwaysEnableApplyInEditorAction": true,
-    "positron.assistant.alwaysIncludeCopilotTools": true,
-    "positron.assistant.showTokenUsage.enable": true,
-    
-    // ==========================================
-    // ACCESSIBILITY (ocultar para minimalista)
-    // ==========================================
-    "accessibility.verbosity.terminal": false,
-    "accessibility.hideAccessibleView": true,
-    
-    // ==========================================
-    // EXTENSIONES (si las instalas)
-    // ==========================================
-    // GitLens (si disponible)
-    "gitlens.graph.minimap.additionalTypes": [
-        "localBranches",
-        "stashes",
-        "remoteBranches",
-        "pullRequests",
-        "tags"
-    ],
-    
-    // CodeSnap (si disponible)
-    "codesnap.transparentBackground": true,
-    "codesnap.showWindowTitle": true,
-    "codesnap.containerPadding": "0em",
-    "codesnap.roundedCorners": false,
-    
-    // LaTeX Workshop (si usas LaTeX)
-    "latex-workshop.formatting.latex": "latexindent",
-    "latex-workshop.latex.option.maxPrintLine.enabled": false,
-    
-    // Indenticator (si lo instalas)
-    "indenticator.width": 0.5,
-    "indenticator.color.dark": "rgba(255,255,255,0.1)"
-}
-```
-
-## Extensiones a Instalar (desde Open VSX)
-
-Para replicar el setup de VS Code, se instala:
-
-1. **Material Icon Theme**
-2. **One Dark Pro** (tema)
-3. **Prettier** (formateo Markdown)
-4. **LaTeX Workshop** (si usas LaTeX)
-5. **GitLens** (si disponible)
-6. **Better Comments** (opcional)
-7. **Code Spell Checker** (opcional, español)
-
-## Notas sobre Extensiones No Disponibles
-
-**No disponibles/innecesarias en Positron:**
-
-- `animations` (vscode-animations): No compatible
-- `glassit`: No compatible (transparencia)
-- `apc.imports`: No compatible
-- Python extension: Ya incluida nativamente
-- GitHub Copilot: Usa Positron Assistant en su lugar
-
-# Trucos y Tips
-
-## Command Palette
-
-```
-Ctrl+Shift+P
-```
-Todo está en el Command Palette. No recuerdas un atajo? Búscalo aquí.
-
-## Quick Open
-
-```
-Ctrl+P
-```
-Abre archivos rápidamente sin usar el Explorer.
-
-## Multi-Cursor
-
-```
-Alt+Click: Añadir cursor
-Ctrl+Alt+Up/Down: Añadir cursor arriba/abajo
-Ctrl+D: Seleccionar siguiente ocurrencia
-Ctrl+Shift+L: Seleccionar todas las ocurrencias
-```
-
-## Snippets
-
-Crea tus propios snippets en:
-
-```
-File → Preferences → Configure User Snippets
-```
-
-**Ejemplo Python:**
-
-```json
-{
-    "Import pandas": {
-        "prefix": "imp",
-        "body": [
-            "import pandas as pd",
-            "import numpy as np",
-            "import matplotlib.pyplot as plt"
-        ]
+[
+  {
+    "key": "ctrl+shift+r",
+    "command": "workbench.action.executeCode.console",
+    "when": "editorTextFocus",
+    "args": {
+      "langId": "r",
+      "code": "reprex::reprex_selection()",
+      "focus": true
     }
-}
+  }
+]
 ```
 
-## Integrated Terminal Profiles
-
-Configura perfiles para diferentes shells o entornos virtuales.
-
-## Workspace Settings
-
-Para proyectos específicos, usa workspace settings:
-
-```
-.vscode/settings.json
-```
-
-## Fold/Unfold Code
-
-```
-Ctrl+Shift+[: Fold
-Ctrl+Shift+]: Unfold
-Ctrl+K Ctrl+0: Fold all
-Ctrl+K Ctrl+J: Unfold all
-```
-
-## Breadcrumbs
-
-Si los necesitas:
+> ⚠️ El terminal integrado puede interceptar algunos atajos antes de que lleguen a Positron. Si un atajo no responde dentro del terminal, agrégalo a `terminal.integrated.commandsToSkipShell`:
 
 ```json
 {
-    "breadcrumbs.enabled": true
+  "terminal.integrated.commandsToSkipShell": [
+    "workbench.action.positronConsole.focusConsole"
+  ]
 }
 ```
 
-## Integrated Git Diff
+---
+
+## 16. Solución de problemas comunes
+
+### El intérprete de Python no se detecta
 
 ```
-Click en archivo modificado en Source Control
+Paleta de Comandos → Python: Select Interpreter
 ```
 
-## Sync Settings
+O fíjalo manualmente:
 
-Positron puede sincronizar settings entre máquinas (similar a VS Code Settings Sync).
-
-
-## Trucos prácticos que uso día a día
-
-**1. Ejecutar código selectivamente sin salir del editor**
-
-- `Ctrl + Enter` → Ejecuta la línea actual o selección
-- `Ctrl + Alt + Home` → Ejecuta **todo desde el inicio del archivo hasta la línea actual** (ideal para setups y carga de datos)
-- `Ctrl + Alt + End` → Ejecuta **desde la línea actual hasta el final** (muy útil para pruebas rápidas al final del script)
-- `Ctrl + Shift + P` (o `Cmd` en macOS) → Ejecuta **archivo completo** en la consola
-
-**Truco pro**: Combina `Ctrl + Alt + Home` + `Ctrl + Enter` para rehacer rápidamente todo el análisis desde cero sin tocar el ratón.
-
-**2. Navegación ultrarrápida entre editor y consola**
-
-```text
-Ctrl + K → F     → Enfocar consola (muy rápido para escribir rápido)
-Ctrl + K → V     → Enfocar panel de Variables
-Ctrl + K → R     → Enfocar panel de Help (documentación)
-Ctrl + L         → Limpiar la consola (equivalente al clásico Ctrl + L de RStudio)
-Ctrl + Shift + 0 → Reiniciar el intérprete (cuando todo se pone loco)
-```
-
-**Truco diario**: Crea un flujo mental "editor → consola → variables" y usa estos tres atajos en secuencia rapidísima.
-
-**3. El workflow más rápido para explorar dataframes (mi favorito)**
-
-1. Cargas datos en consola o script:
-   ```python
-   import pandas as pd
-   df = pd.read_csv("datos_grandes.csv")
-   ```
-   o
-   ```r
-   df <- read_csv("datos_grandes.csv")
-   ```
-
-2. Opciones rápidas de exploración:
-
-   - Doble clic en `df` en el **Variables Pane** → abre **Data Explorer** completo (filtrar, ordenar, buscar, estadísticas)
-   - `View(df)` (R) o `df.head(20)` (Python) → vista rápida en consola
-   - Clic derecho en variable → "View in Data Explorer"
-   - Atajo personalizado recomendado (agrega a keybindings.json):
-     ```json
-     {
-         "key": "f2",
-         "command": "positron.dataExplorer.openDataExplorer",
-         "when": "positronVariablesFocus"
-     }
-     ```
-
-**4. Trucos rápidos de transformación de texto**
-
-Positron hereda estas joyas de Code OSS:
-
-- **Mayúsculas / minúsculas / título / oración**:
-  1. Selecciona texto
-  2. `Ctrl + Shift + P` → escribe "Transform to"
-  3. Elige: Upper Case / Lower Case / Title Case / Sentence Case
-
-- **Multi-cursor express** (imprescindible para renombrar columnas):
-  - `Ctrl + D` → selecciona siguiente ocurrencia
-  - `Ctrl + Shift + L` → selecciona **todas** las ocurrencias en el archivo
-  - `Alt + Click` → múltiples cursores manuales
-
-- **Truco ultra-rápido**: `Ctrl + Shift + P` → "Join Lines" (une líneas seleccionadas en una) → genial para convertir listas largas en una sola línea de código.
-
-**5. Cambio rápido entre Python y R en el mismo proyecto**
-
-- Usa el selector de intérprete en la **barra superior** (junto al nombre del archivo)
-- Puedes tener **dos sesiones simultáneas**: una Python y otra R
-- Truco práctico:
-  1. Cargas datos en Python (pandas)
-  2. Cambias a sesión R
-  3. Usas `reticulate::py$df` para traer el dataframe de Python a R
-  4. Sigues limpiando con tidyverse
-
-**6. Trucos con Plots Pane que ahorran mucho tiempo**
-
-- Historial automático de gráficos → flechas arriba/abajo para navegar
-- Clic derecho en plot → Exportar (PNG/SVG/PDF) rápido
-- Truco: `plt.show()` (Python) o `print()` (ggplot2) → aparece automáticamente
-- Usa `plt.ion()` (modo interactivo matplotlib) para actualizar gráficos en vivo sin repetir `show()`
-
-**7. Bonus: Mini-flujo de análisis exprés**
-
-```text
-1. Ctrl + N → nuevo script
-2. Pega/pega datos o carga rápida
-3. Ctrl + Alt + Home → ejecuta todo hasta cursor
-4. Doble clic variable → Data Explorer
-5. F1 sobre función → Help pane
-6. Selecciona gráfico → Plots pane
-7. Ctrl + Shift + K → renderiza Quarto (si estás en .qmd)
-```
-
-# Solución de Problemas
-
-## Problema: Python interpreter no detectado
-
-**Solución:**
-
-```
-Command Palette → Python: Select Interpreter
-```
-
-O especificar manualmente:
 ```json
 {
-    "python.defaultInterpreterPath": "/path/to/python"
+  "python.defaultInterpreterPath": "/ruta/a/tu/python"
 }
 ```
 
-## Problema: R no funciona
-
-**Verificar instalación:**
+### R no funciona
 
 ```bash
 which R
 R --version
 ```
 
-**Instalar paquetes necesarios:**
-
 ```r
 pak::pak(c("usethis", "cli", "crayon", "rlang"))
 ```
 
-## Problema: Console no inicia
-
-**Reiniciar intérprete:**
+### La Console no inicia
 
 ```
-Ctrl+Shift+0
+Ctrl+Shift+0    # reiniciar el intérprete
 ```
-
-**Verificar IPython:**
 
 ```bash
 pip install ipython
 ```
 
-## Problema: Extensiones no aparecen
+### Las extensiones esperadas no aparecen
 
-**Recordar:** Positron usa Open VSX, no VS Marketplace. Algunas extensiones pueden no estar disponibles.
+Recuerda: Positron usa P3M/Open VSX, no el VS Code Marketplace. Si una extensión no está disponible ahí, instálala manualmente desde un archivo `.vsix` (ver sección 8).
 
-**Alternativa:** Instalar .vsix manualmente desde GitHub de la extensión.
-
-## Problema: Terminal no hereda PATH
+### La terminal no hereda el `PATH` correctamente
 
 ```json
 {
-    "terminal.integrated.inheritEnv": false
+  "terminal.integrated.inheritEnv": false
 }
 ```
 
-O agregar al shell config (~/.bashrc, ~/.zshrc, etc.):
+Y añade la ruta necesaria directamente en tu shell config (`~/.zshrc`):
 
 ```bash
-export PATH="/path/to/anaconda3/bin:$PATH"
+export PATH="/ruta/a/tu/anaconda3/bin:$PATH"
 ```
 
-## Problema: Plots no aparecen
-
-**Python:**
+### Los plots no aparecen (Python)
 
 ```python
 import matplotlib.pyplot as plt
-plt.ion()  # Interactive mode
+plt.ion()  # modo interactivo
 ```
 
-**R:**
-
-```r
-options(device = "quartz")  # macOS
-# o
-options(device = "x11")  # Linux
-```
-
-## Problema: Quarto no renderiza
-
-**Verificar instalación:**
+### Quarto no renderiza
 
 ```bash
 quarto check
 ```
 
-**Reinstalar extensión:**
-
 ```
-Extensions → Quarto → Reload
+Paleta de Comandos → Quarto: extensión → Reload
 ```
 
-## Problema: Settings no se guardan
+### Los settings no se guardan
 
-**Ubicación correcta:**
+Verifica la ruta y permisos del archivo:
+
+```bash
+ls -la ~/.config/Positron/User/settings.json
+chmod 644 ~/.config/Positron/User/settings.json
+```
+
+### Rendimiento lento
+
+```json
+{
+  "editor.minimap.enabled": false,
+  "terminal.integrated.scrollback": 1000
+}
+```
+
+Y revisa si tienes extensiones innecesarias activas que puedas desactivar desde la pestaña de Extensions.
+
+---
+
+## 17. Mi configuración final (`settings.json`)
+
+Configuración lista para copiar y pegar completa en:
 
 ```
 ~/.config/Positron/User/settings.json
 ```
 
-**Permisos:**
+Está organizada por bloques temáticos, comentada en español, y usa nombres de settings **actualizados a la versión 2026.06.0** (por ejemplo: `assistant.enabled` en vez del deprecado `positron.assistant.enable`; `packages.enabled` en vez del deprecado `positron.packages.enable`).
 
-```bash
-chmod 644 ~/.config/Positron/User/settings.json
-```
-
-## Problema: Performance lenta
-
-**Deshabilitar extensiones innecesarias**
-
-**Reducir history:**
+> ⚠️ Antes de pegar: revisa especialmente la sección 1 (rutas de Python/Anaconda) y ajusta `tu-usuario` a tu ruta real. El resto puedes dejarlo tal cual y refinar sobre la marcha.
 
 ```json
+// ════════════════════════════════════════════════════════════════════════
+// CONFIGURACIÓN DE POSITRON — Edison Achalma (UNSCH, Ayacucho)
+// Positron 2026.06.0 · Python (Anaconda) + Quarto + LaTeX + R + zsh + Linux
+// ════════════════════════════════════════════════════════════════════════
 {
-    "terminal.integrated.scrollback": 1000
+  // ──────────────────────────────────────────────────────────────────────
+  // 1. PYTHON (ANACONDA / CONDA)
+  // ──────────────────────────────────────────────────────────────────────
+  "python.defaultInterpreterPath": "/home/tu-usuario/anaconda3/bin/python",
+  "python.condaPath": "/home/tu-usuario/anaconda3/bin/conda",
+  "python.terminal.activateEnvironment": true,
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  "python.useBundledIpykernel": true,
+  "python.enableAutoReload": true,
+  "interpreters.startupBehavior": "always",
+  "interpreters.discoveryCache.enabled": true,
+
+  // ──────────────────────────────────────────────────────────────────────
+  // 2. PAQUETES (panel "Packages")
+  // ──────────────────────────────────────────────────────────────────────
+  "packages.enabled": true,
+  "packages.r.installer": "auto",
+
+  // ──────────────────────────────────────────────────────────────────────
+  // 3. TERMINAL
+  // ──────────────────────────────────────────────────────────────────────
+  "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontFamily": "'Hack Nerd Font', 'FiraCode Nerd Font', monospace",
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "underline",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.enablePersistentSessions": false,
+  "terminal.integrated.scrollback": 5000,
+
+  // ──────────────────────────────────────────────────────────────────────
+  // 4. EDITOR
+  // ──────────────────────────────────────────────────────────────────────
+  "editor.fontSize": 13,
+  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Hack Nerd Font', monospace",
+  "editor.fontLigatures": true,
+  "editor.lineNumbers": "on",
+  "editor.rulers": [80, 160],
+  "editor.wordWrap": "off",
+  "editor.minimap.enabled": true,
+  "editor.minimap.autohide": true,
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorStyle": "line",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true,
+  "editor.renderWhitespace": "selection",
+  "editor.glyphMargin": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.guides.indentation": false,
+  "editor.matchBrackets": "never",
+  "editor.linkedEditing": true,
+  "editor.suggest.preview": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.inlineSuggest.syntaxHighlightingEnabled": true,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  },
+
+  // ──────────────────────────────────────────────────────────────────────
+  // 5. WORKBENCH (apariencia general del IDE)
+  // ──────────────────────────────────────────────────────────────────────
+  "workbench.colorTheme": "Default Positron Dark",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.activityBar.location": "bottom",
+  "workbench.sideBar.location": "right",
+  "workbench.statusBar.visible": false,
+  "workbench.editor.showTabs": "single",
+  "workbench.editor.tabSizing": "fixed",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.empty.hint": "hidden",
+  "window.commandCenter": true,
+  "breadcrumbs.enabled": false,
+
+  // ──────────────────────────────────────────────────────────────────────
+  // 6. FILES
+  // ──────────────────────────────────────────────────────────────────────
+  "files.autoSave": "onFocusChange",
+  "files.associations": {
+    "renv.lock": "json",
+    "*.qmd": "quarto",
+    "*.Rmd": "rmarkdown",
+    "*.csv": "csv"
+  },
+  "files.exclude": {
+    "**/_site": true,
+    "**/.quarto": true,
+    "**/__pycache__": true,
+    "**/.ipynb_checkpoints": true
+  },
+
+  // ──────────────────────────────────────────────────────────────────────
+  // 7. GIT
+  // ──────────────────────────────────────────────────────────────────────
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.openRepositoryInParentFolders": "always",
+  "git.defaultBranchName": "main",
+  "git.branchProtection": ["main"],
+  "git.pullTags": true,
+  "git.requireGitUserConfig": true,
+  "git.useForcePushWithLease": true,
+  "git.useForcePushIfIncludes": true,
+
+  // ──────────────────────────────────────────────────────────────────────
+  // 8. CONFIGURACIÓN POR LENGUAJE
+  // ──────────────────────────────────────────────────────────────────────
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "[quarto]": {
+    "editor.defaultFormatter": "quarto.quarto"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "quarto.quarto"
+  },
+  "[latex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop"
+  },
+  "[r]": {
+    "editor.defaultFormatter": "Posit.air-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+
+  // ──────────────────────────────────────────────────────────────────────
+  // 9. NOTEBOOKS (Jupyter / .ipynb)
+  // ──────────────────────────────────────────────────────────────────────
+  "notebook.output.wordWrap": true,
+  "jupyter.interactiveWindow.textEditor.executeSelection": true,
+
+  // ──────────────────────────────────────────────────────────────────────
+  // 10. QUARTO
+  // ──────────────────────────────────────────────────────────────────────
+  "quarto.visualEditor.spellingDictionary": "es_ES",
+  "yaml.schemas": {
+    "https://quarto.org/schemas/quarto.yaml": "*.qmd"
+  },
+
+  // ──────────────────────────────────────────────────────────────────────
+  // 11. POSIT ASSISTANT (antes "Positron Assistant")
+  // ──────────────────────────────────────────────────────────────────────
+  "assistant.enabled": true,
+  "positron.assistant.alwaysEnableApplyInEditorAction": true,
+  "positron.assistant.showTokenUsage.enable": true,
+
+  // ──────────────────────────────────────────────────────────────────────
+  // 12. MATERIAL ICON THEME
+  // ──────────────────────────────────────────────────────────────────────
+  "material-icon-theme.files.color": "#42a5f5",
+  "material-icon-theme.folders.color": "#ef5350",
+  "material-icon-theme.folders.theme": "specific",
+  "material-icon-theme.opacity": 1,
+  "material-icon-theme.saturation": 1,
+
+  // ──────────────────────────────────────────────────────────────────────
+  // 13. PRETTIER
+  // ──────────────────────────────────────────────────────────────────────
+  "prettier.printWidth": 80,
+  "prettier.proseWrap": "preserve",
+  "prettier.requirePragma": false,
+  "prettier.requireConfig": false,
+
+  // ──────────────────────────────────────────────────────────────────────
+  // 14. LATEX WORKSHOP
+  // ──────────────────────────────────────────────────────────────────────
+  "latex-workshop.formatting.latex": "latexindent",
+  "latex-workshop.latex.option.maxPrintLine.enabled": false,
+
+  // ──────────────────────────────────────────────────────────────────────
+  // 15. ACTUALIZACIONES
+  // ──────────────────────────────────────────────────────────────────────
+  "update.mode": "default"
 }
 ```
 
-**Deshabilitar features:**
+---
 
-```json
-{
-    "editor.minimap.enabled": false,
-    "editor.suggest.preview": false
-}
-```
+## Referencias
 
-# Conclusión
-
-## Resumen de Cambios de VS Code a Positron
-
-**Lo Mismo:**
-
-- Editor de código
-- Atajos de teclado (95%)
-- Terminal
-- Extensions system
-- Git integration
-- Settings system
-
-**Lo Nuevo:**
-
-- Console (IPython/IRKernel)
-- Variables Pane
-- Data Explorer
-- Plots Pane
-- Help Pane
-- Connections Pane
-- Soporte Python/R nativo
-- AI Assistant (Positron Assistant, Databot)
-
-**Lo Diferente:**
-
-- Open VSX en lugar de VS Marketplace
-- Algunas extensiones no disponibles
-- Mejor integración para data science
-
-## Próximos Pasos
-
-1. **Instalar Positron**
-2. **Importar settings de VS Code**
-3. **Configurar Python/R**
-4. **Instalar extensiones esenciales**
-5. **Personalizar tema y layout**
-6. **Explorar Console y panes**
-7. **Crear tu primer documento Quarto**
-
-## Recursos
-
-**Documentación:**
-
-- https://positron.posit.co/
-- https://github.com/posit-dev/positron
-
-**Comunidad:**
-
-- GitHub Discussions: https://github.com/posit-dev/positron/discussions
-- Posit Community: https://community.posit.co/
-
-**Aprendizaje:**
-
-- Quarto: https://quarto.org/
-- Python: https://docs.python.org/
-- R: https://www.r-project.org/
-
-
+- Instalación: https://positron.posit.co/install.html
+- Descargas y notas de versión: https://positron.posit.co/download.html
+- Extensiones: https://positron.posit.co/extensions.html
+- Atajos de teclado: https://positron.posit.co/keyboard-shortcuts.html
+- Lanzar desde terminal: https://positron.posit.co/add-to-path.html
+- Actualizaciones: https://positron.posit.co/updating.html
+- Repositorio oficial: https://github.com/posit-dev/positron
 
 # Publicaciones Similares
 
@@ -2399,7 +1182,7 @@ Si te interesó este artículo, te recomendamos que explores otros blogs y recur
 1. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows/index.pdf) [Comandos De Informacion Windows](https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows)
 2. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2019-06-19-adb/index.pdf) [Adb](https://chaska-x.netlify.app/operating-system/2019-06-19-adb)
 3. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.pdf) [Limpieza Y Optimizacion De Pc](https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc)
-4. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf) [Usando Apk En Windown 11](https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11)
+4. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/index.pdf) [Scrcpy](https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy)
 5. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf) [Gestionar Versiones De Jdk En Kubuntu](https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu)
 6. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser/index.pdf) [Instalar Tor Browser](https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser)
 7. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.pdf) [Crear Enlaces Duros O Hard Link En Linux](https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux)
@@ -2413,6 +1196,10 @@ Si te interesó este artículo, te recomendamos que explores otros blogs y recur
 15. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.pdf) [Atajos De Teclado Y Comandos Para Usar Vim](https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim)
 16. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify/index.pdf) [Instalando Specitify](https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify)
 17. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.pdf) [Gestiona Tus Dotfiles Con Gnu Stow](https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow)
+18. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/index.pdf) [Guia De Ranger](https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger)
+19. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/index.pdf) [Guia De Kitty Terminal](https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal)
+20. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/index.pdf) [Guia De Positron Ide](https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide)
+21. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync/index.pdf) [Guia De Rsync](https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync)
 
 
 Esperamos que encuentres estas publicaciones igualmente interesantes y útiles. ¡Disfruta de la lectura!

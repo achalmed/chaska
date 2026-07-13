@@ -124,6 +124,7 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -246,6 +247,10 @@ Cristóbal de Huamanga, Portal Independencia N°
 
 
 
+\hypersetup{
+  pdftitle={Gu\'{\i}a Completa de Ranger},
+  pdfauthor={Autor}
+}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -693,6 +698,7 @@ Fundamentales}\label{atajos-de-teclado-fundamentales}
 \subsection{Navegación Básica (Estilo
 Vim)}\label{navegaciuxf3n-buxe1sica-estilo-vim}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -709,9 +715,11 @@ Tecla & Acción \\
 \texttt{←} & Ir al directorio padre \\
 \texttt{→} & Entrar a directorio / Abrir archivo \\
 \end{longtable}
+}
 
 \subsection{Movimiento Rápido}\label{movimiento-ruxe1pido}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -731,9 +739,11 @@ Tecla & Acción \\
 \texttt{Ctrl+b} & Página completa arriba \\
 \texttt{Ctrl+f} & Página completa abajo \\
 \end{longtable}
+}
 
 \subsection{Salir y Ayuda}\label{salir-y-ayuda}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -746,11 +756,13 @@ Tecla & Acción \\
 \texttt{?} & Abrir manual de ayuda \\
 \texttt{W} & Ver log de ranger \\
 \end{longtable}
+}
 
 \section{Navegación Avanzada}\label{navegaciuxf3n-avanzada}
 
 \subsection{Historial de Navegación}\label{historial-de-navegaciuxf3n}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -763,9 +775,11 @@ Tecla & Acción \\
 \texttt{Alt+Left} & Historial atrás \\
 \texttt{Alt+Right} & Historial adelante \\
 \end{longtable}
+}
 
 \subsection{Saltos Rápidos}\label{saltos-ruxe1pidos}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -786,10 +800,12 @@ Tecla & Acción \\
 \texttt{g/} & Ir a / (root) \\
 \texttt{g?} & Ir a /usr/share/doc/ranger \\
 \end{longtable}
+}
 
 \subsection{Navegación por Primera
 Letra}\label{navegaciuxf3n-por-primera-letra}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -802,6 +818,7 @@ con letra \\
 \texttt{F\textless{}letra\textgreater{}} & Buscar archivo que empiece
 con letra (multi-match) \\
 \end{longtable}
+}
 
 \textbf{Ejemplo:}
 
@@ -817,6 +834,7 @@ con letra (multi-match) \\
 \subsection{Ir a Directorio
 Específico}\label{ir-a-directorio-especuxedfico}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -828,11 +846,13 @@ Tecla & Acción \\
 \texttt{:cd\ /ruta} & Ir a ruta específica \\
 \texttt{:cd\ -} & Ir al directorio anterior \\
 \end{longtable}
+}
 
 \section{Operaciones con Archivos}\label{operaciones-con-archivos}
 
 \subsection{Copiar, Cortar y Pegar}\label{copiar-cortar-y-pegar}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -851,9 +871,11 @@ Tecla & Acción \\
 \texttt{ud} & Deshacer (undo) operación de cortar \\
 \texttt{uy} & Deshacer (undo) operación de copiar \\
 \end{longtable}
+}
 
 \subsection{Eliminar}\label{eliminar}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -864,9 +886,11 @@ Tecla & Acción \\
 \texttt{dD} & Eliminar archivo (pide confirmación) \\
 \texttt{dT} & Mover a papelera (si está configurada) \\
 \end{longtable}
+}
 
 \subsection{Crear y Editar}\label{crear-y-editar}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -883,9 +907,11 @@ Tecla & Acción \\
 \texttt{A} & Renombrar - cursor después de extensión \\
 \texttt{I} & Renombrar - cursor al principio \\
 \end{longtable}
+}
 
 \subsection{Permisos y Propiedades}\label{permisos-y-propiedades}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -899,6 +925,7 @@ Tecla & Acción \\
 \texttt{-\textless{}permisos\textgreater{}} & Quitar permisos (ej:
 \texttt{-w}) \\
 \end{longtable}
+}
 
 \textbf{Ejemplos:}
 
@@ -914,6 +941,7 @@ Tecla & Acción \\
 
 \subsection{Seleccionar Archivos}\label{seleccionar-archivos}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -926,6 +954,7 @@ Tecla & Acción \\
 \texttt{V} & Entrar en modo visual (selección continua) \\
 \texttt{uv} & Desmarcar todos los archivos \\
 \end{longtable}
+}
 
 \subsection{Modo Visual}\label{modo-visual}
 
@@ -977,6 +1006,7 @@ Una vez seleccionados:
 
 \subsection{Búsqueda}\label{buxfasqueda}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -991,9 +1021,11 @@ Tecla & Acción \\
 \texttt{ct} & Buscar en subdirectorios (content search) \\
 \texttt{cs} & Cancelar búsqueda \\
 \end{longtable}
+}
 
 \subsection{Filtrado}\label{filtrado}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -1005,9 +1037,11 @@ Tecla & Acción \\
 \texttt{zz} & Cambiar configuración de filtro \\
 \texttt{zh} & Mostrar/ocultar archivos ocultos \\
 \end{longtable}
+}
 
 \subsection{Ordenamiento}\label{ordenamiento}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -1026,11 +1060,13 @@ Tecla & Acción \\
 \texttt{oz} & Aleatorio \\
 \texttt{oS} & Ordenar naturalmente (números: 1, 2, 10 no 1, 10, 2) \\
 \end{longtable}
+}
 
 \section{Pestañas (Tabs)}\label{pestauxf1as-tabs}
 
 \subsection{Gestión de Pestañas}\label{gestiuxf3n-de-pestauxf1as}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -1048,6 +1084,7 @@ Tecla & Acción \\
 \texttt{Alt+9} & Ir a pestaña 9 \\
 \texttt{uq} & Restaurar pestaña cerrada \\
 \end{longtable}
+}
 
 \subsection{Movimiento Entre
 Pestañas}\label{movimiento-entre-pestauxf1as}
@@ -1068,6 +1105,7 @@ Pestañas}\label{movimiento-entre-pestauxf1as}
 
 \subsection{Crear y Usar Marcadores}\label{crear-y-usar-marcadores}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -1083,9 +1121,11 @@ marcador (ej: \texttt{\textquotesingle{}a}) \\
 (igual que ') \\
 \texttt{um\textless{}letra\textgreater{}} & Eliminar marcador \\
 \end{longtable}
+}
 
 \subsection{Marcadores Especiales}\label{marcadores-especiales}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Marcador & Ubicación \\
@@ -1096,6 +1136,7 @@ Marcador & Ubicación \\
 \texttt{\textquotesingle{}\textquotesingle{}} & Posición anterior \\
 \texttt{} `` & Posición anterior (backtick) \\
 \end{longtable}
+}
 
 \textbf{Ejemplo de uso:}
 
@@ -1125,6 +1166,7 @@ Archivos}\label{previsualizaciuxf3n-de-archivos}
 \subsection{Configurar
 Previsualización}\label{configurar-previsualizaciuxf3n}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -1137,6 +1179,7 @@ Tecla & Acción \\
 \texttt{zi} & Activar/desactivar previsualización de imágenes \\
 \texttt{zv} & Cambiar modo de vista (Miller, Multipane) \\
 \end{longtable}
+}
 
 \subsection{Tipos de
 Previsualización}\label{tipos-de-previsualizaciuxf3n}
@@ -1214,6 +1257,7 @@ qué se previsualiza y cómo.
 
 \subsection{Acceder a la Consola}\label{acceder-a-la-consola}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -1226,6 +1270,7 @@ Tecla & Acción \\
 \texttt{s} & Abrir shell en directorio actual \\
 \texttt{S} & Abrir shell con escalada de privilegios \\
 \end{longtable}
+}
 
 \subsection{Comandos Principales}\label{comandos-principales}
 
@@ -1591,6 +1636,7 @@ archivos. Es inteligente y tiene fallbacks.
 
 \subsection{Dentro de Ranger}\label{dentro-de-ranger}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -1601,6 +1647,7 @@ Tecla & Acción \\
 \texttt{r} & Abrir con programa (muestra opciones) \\
 \texttt{Enter} o \texttt{l} & Abrir con programa por defecto \\
 \end{longtable}
+}
 
 \subsection{Configurar Rifle}\label{configurar-rifle}
 
@@ -2173,6 +2220,7 @@ Atajos}\label{referencia-completa-de-atajos}
 
 \subsection{Navegación}\label{navegaciuxf3n-1}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -2195,9 +2243,11 @@ Tecla & Acción \\
 \texttt{Ctrl+b} & Página completa arriba \\
 \texttt{Ctrl+f} & Página completa abajo \\
 \end{longtable}
+}
 
 \subsection{Archivos}\label{archivos}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -2217,9 +2267,11 @@ Tecla & Acción \\
 \texttt{E} & Editar con editor \\
 \texttt{i} & Inspeccionar archivo \\
 \end{longtable}
+}
 
 \subsection{Selección}\label{selecciuxf3n}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -2232,9 +2284,11 @@ Tecla & Acción \\
 \texttt{V} & Modo visual \\
 \texttt{uv} & Desmarcar todos \\
 \end{longtable}
+}
 
 \subsection{Búsqueda}\label{buxfasqueda-2}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -2248,9 +2302,11 @@ Tecla & Acción \\
 \texttt{N} & Resultado anterior \\
 \texttt{f\textless{}letra\textgreater{}} & Buscar por primera letra \\
 \end{longtable}
+}
 
 \subsection{Pestañas}\label{pestauxf1as}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -2264,9 +2320,11 @@ Tecla & Acción \\
 \texttt{gc} / \texttt{Ctrl+w} & Cerrar pestaña \\
 \texttt{Alt+1...9} & Ir a pestaña N \\
 \end{longtable}
+}
 
 \subsection{Marcadores}\label{marcadores}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -2279,9 +2337,11 @@ Tecla & Acción \\
 marcador \\
 \texttt{um\textless{}letra\textgreater{}} & Eliminar marcador \\
 \end{longtable}
+}
 
 \subsection{Ordenamiento}\label{ordenamiento-1}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -2295,9 +2355,11 @@ Tecla & Acción \\
 \texttt{oe} & Por extensión \\
 \texttt{or} & Invertir orden \\
 \end{longtable}
+}
 
 \subsection{Vista}\label{vista}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -2312,9 +2374,11 @@ Tecla & Acción \\
 \texttt{zh} & Toggle archivos ocultos \\
 \texttt{zf} & Filtrar \\
 \end{longtable}
+}
 
 \subsection{Sistema}\label{sistema}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -2331,9 +2395,11 @@ Tecla & Acción \\
 \texttt{s} & Shell \\
 \texttt{S} & Shell como root \\
 \end{longtable}
+}
 
 \subsection{Ir a (g)}\label{ir-a-g}
 
+{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Tecla & Acción \\
@@ -2352,6 +2418,7 @@ Tecla & Acción \\
 \texttt{gr} & / \\
 \texttt{gR} & / \\
 \end{longtable}
+}
 
 \section{Recursos y Enlaces}\label{recursos-y-enlaces}
 
@@ -2467,9 +2534,8 @@ algunas sugerencias:
   \href{https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc}{Limpieza
   Y Optimizacion De Pc}
 \item
-  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf}{\faIcon{file-pdf}}
-  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11}{Usando
-  Apk En Windown 11}
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy}{Scrcpy}
 \item
   \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf}{\faIcon{file-pdf}}
   \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu}{Gestionar
@@ -2522,6 +2588,22 @@ algunas sugerencias:
   \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.pdf}{\faIcon{file-pdf}}
   \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow}{Gestiona
   Tus Dotfiles Con Gnu Stow}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger}{Guia
+  De Ranger}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal}{Guia
+  De Kitty Terminal}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide}{Guia
+  De Positron Ide}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync}{Guia
+  De Rsync}
 \end{enumerate}
 
 Esperamos que encuentres estas publicaciones igualmente interesantes y

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>Guía completa de comandos ADB Android – Edison Achalma B.Sc. Econ.</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -71,15 +74,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../assets/img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-30b4b9a2d3d7fc4440fb514efb3ce0ba.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c5476e714a85dbfbbcebc64b0d85118e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-cec134992aab4372cb718d1833829c4a.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c5476e714a85dbfbbcebc64b0d85118e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-73ea7a29ae0ac8f38264d57f9eb62418.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-06b466aced5058fffa44584b53f99f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-5389a330c79191949d5bbb2aa435eab0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-06b466aced5058fffa44584b53f99f5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -145,13 +151,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 
 
-<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="stylesheet" href="../../assets/css/global.css">
+<link rel="stylesheet" href="../../assets/css/components/bibbase.css">
 <meta property="og:title" content="Edison Achalma B.Sc. Econ.">
 <meta property="og:description" content="Investigador y educador que aplica la ciencia de datos de forma que se dé prioridad a la equidad social.">
 <meta property="og:image" content="https://chaska-x.netlify.app/operating-system/featured.jpg">
-<meta property="og:site_name" content="Actus mercator">
+<meta property="og:site_name" content="Edison Achalma B.Sc. Econ.">
 <meta property="og:locale" content="es_ES">
-<meta name="twitter:title" content="Guía completa de comandos ADB Android – Edison Achalma B.Sc. Econ.">
+<meta name="twitter:title" content="Guía completa de comandos ADB Android">
 <meta name="twitter:description" content="Uso avanzado de Android Debug Bridge (ADB) para depuración, instalación de apps, gestión de archivos y control remoto de dispositivos Android.">
 <meta name="twitter:image" content="https://chaska-x.netlify.app/operating-system/featured.jpg">
 <meta name="twitter:creator" content="@achalmaedison">
@@ -169,7 +176,169 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="citation_language" content="es">
 </head>
 
-<body class="floating nav-fixed quarto-light">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -261,13 +430,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns" style="position: relative; width: 100%; margin: 0; padding: 0;">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
   <!-- Incluir imagen de fondo si existe featured.jpg, de lo contrario, partículas -->
     <div id="particles-js"></div>
@@ -275,10 +444,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Contenido principal del bloque de título -->
   <div class="title-block-content">
     <div class="quarto-title-block"><div><h1 class="title">Guía completa de comandos ADB Android</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/achalmed/chaska/blob/main/operating-system/2019-06-19-adb/index.qmd"><i class="bi"></i></button></div></div>
-                <div class="quarto-categories">
-            <div class="quarto-category">Operating System</div>
-          </div>
-        
+    
     <div class="quarto-title-meta-author">
       <div class="quarto-title-meta-heading">Autor/a</div>
       <div class="quarto-title-meta-heading">Afiliación</div>
@@ -308,7 +474,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div>
         <div class="quarto-title-meta-heading">Fecha de última modificación</div>
         <div class="quarto-title-meta-contents">
-          <p class="date-modified">25 de enero de 2026</p>
+          <p class="date-modified">13 de julio de 2026</p>
         </div>
       </div>
         
@@ -328,6 +494,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </div>
 
+    <!-- Categorías tras los metadatos: fila silenciosa junto a las acciones,
+         sin competir con el título -->
+            <div class="quarto-categories">
+            <div class="quarto-category">Operating System</div>
+          </div>
+        
     
     <!-- Cargar script de Particle.js desde CDN, solo si no hay featured.jpg -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
@@ -340,184 +512,182 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
 </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
     <h2 id="toc-title">Contenidos</h2>
    
   <ul>
-  <li><a href="#adb" id="toc-adb" class="nav-link active" data-scroll-target="#adb">ADB</a>
+  <li><a href="#adb" id="toc-adb" class="nav-link active" data-scroll-target="#adb"><span class="header-section-number">1</span> ADB</a>
   <ul class="collapse">
-  <li><a href="#qué-es-android-debug-bridge" id="toc-qué-es-android-debug-bridge" class="nav-link" data-scroll-target="#qué-es-android-debug-bridge">¿Qué es Android Debug Bridge?</a></li>
-  <li><a href="#componentes-de-adb" id="toc-componentes-de-adb" class="nav-link" data-scroll-target="#componentes-de-adb">Componentes de ADB</a></li>
-  <li><a href="#funcionamiento" id="toc-funcionamiento" class="nav-link" data-scroll-target="#funcionamiento">Funcionamiento</a></li>
-  <li><a href="#ventajas-de-adb" id="toc-ventajas-de-adb" class="nav-link" data-scroll-target="#ventajas-de-adb">Ventajas de ADB</a></li>
+  <li><a href="#qué-es-android-debug-bridge" id="toc-qué-es-android-debug-bridge" class="nav-link" data-scroll-target="#qué-es-android-debug-bridge"><span class="header-section-number">1.1</span> ¿Qué es Android Debug Bridge?</a></li>
+  <li><a href="#componentes-de-adb" id="toc-componentes-de-adb" class="nav-link" data-scroll-target="#componentes-de-adb"><span class="header-section-number">1.2</span> Componentes de ADB</a></li>
+  <li><a href="#funcionamiento" id="toc-funcionamiento" class="nav-link" data-scroll-target="#funcionamiento"><span class="header-section-number">1.3</span> Funcionamiento</a></li>
+  <li><a href="#ventajas-de-adb" id="toc-ventajas-de-adb" class="nav-link" data-scroll-target="#ventajas-de-adb"><span class="header-section-number">1.4</span> Ventajas de ADB</a></li>
   </ul></li>
-  <li><a href="#arquitectura-de-adb" id="toc-arquitectura-de-adb" class="nav-link" data-scroll-target="#arquitectura-de-adb">Arquitectura de ADB</a>
+  <li><a href="#arquitectura-de-adb" id="toc-arquitectura-de-adb" class="nav-link" data-scroll-target="#arquitectura-de-adb"><span class="header-section-number">2</span> Arquitectura de ADB</a>
   <ul class="collapse">
-  <li><a href="#proceso-de-conexión" id="toc-proceso-de-conexión" class="nav-link" data-scroll-target="#proceso-de-conexión">Proceso de Conexión</a></li>
-  <li><a href="#puertos-y-conexiones" id="toc-puertos-y-conexiones" class="nav-link" data-scroll-target="#puertos-y-conexiones">Puertos y Conexiones</a></li>
+  <li><a href="#proceso-de-conexión" id="toc-proceso-de-conexión" class="nav-link" data-scroll-target="#proceso-de-conexión"><span class="header-section-number">2.1</span> Proceso de Conexión</a></li>
+  <li><a href="#puertos-y-conexiones" id="toc-puertos-y-conexiones" class="nav-link" data-scroll-target="#puertos-y-conexiones"><span class="header-section-number">2.2</span> Puertos y Conexiones</a></li>
   </ul></li>
-  <li><a href="#instalación-en-arch-linux" id="toc-instalación-en-arch-linux" class="nav-link" data-scroll-target="#instalación-en-arch-linux">Instalación en Arch Linux</a>
+  <li><a href="#instalación-en-arch-linux" id="toc-instalación-en-arch-linux" class="nav-link" data-scroll-target="#instalación-en-arch-linux"><span class="header-section-number">3</span> Instalación en Arch Linux</a>
   <ul class="collapse">
-  <li><a href="#método-1-repositorios-oficiales-recomendado" id="toc-método-1-repositorios-oficiales-recomendado" class="nav-link" data-scroll-target="#método-1-repositorios-oficiales-recomendado">Método 1: Repositorios Oficiales (Recomendado)</a></li>
-  <li><a href="#método-2-android-sdk-completo" id="toc-método-2-android-sdk-completo" class="nav-link" data-scroll-target="#método-2-android-sdk-completo">Método 2: Android SDK Completo</a></li>
-  <li><a href="#método-3-descarga-manual" id="toc-método-3-descarga-manual" class="nav-link" data-scroll-target="#método-3-descarga-manual">Método 3: Descarga Manual</a></li>
+  <li><a href="#método-1-repositorios-oficiales-recomendado" id="toc-método-1-repositorios-oficiales-recomendado" class="nav-link" data-scroll-target="#método-1-repositorios-oficiales-recomendado"><span class="header-section-number">3.1</span> Método 1: Repositorios Oficiales (Recomendado)</a></li>
+  <li><a href="#método-2-android-sdk-completo" id="toc-método-2-android-sdk-completo" class="nav-link" data-scroll-target="#método-2-android-sdk-completo"><span class="header-section-number">3.2</span> Método 2: Android SDK Completo</a></li>
+  <li><a href="#método-3-descarga-manual" id="toc-método-3-descarga-manual" class="nav-link" data-scroll-target="#método-3-descarga-manual"><span class="header-section-number">3.3</span> Método 3: Descarga Manual</a></li>
   </ul></li>
-  <li><a href="#configuración-inicial" id="toc-configuración-inicial" class="nav-link" data-scroll-target="#configuración-inicial">Configuración Inicial</a>
+  <li><a href="#configuración-inicial" id="toc-configuración-inicial" class="nav-link" data-scroll-target="#configuración-inicial"><span class="header-section-number">4</span> Configuración Inicial</a>
   <ul class="collapse">
-  <li><a href="#verificar-instalación" id="toc-verificar-instalación" class="nav-link" data-scroll-target="#verificar-instalación">1. Verificar Instalación</a></li>
-  <li><a href="#configurar-permisos-de-usuario" id="toc-configurar-permisos-de-usuario" class="nav-link" data-scroll-target="#configurar-permisos-de-usuario">2. Configurar Permisos de Usuario</a></li>
-  <li><a href="#configurar-reglas-udev" id="toc-configurar-reglas-udev" class="nav-link" data-scroll-target="#configurar-reglas-udev">3. Configurar Reglas udev</a></li>
-  <li><a href="#habilitar-depuración-usb-en-android" id="toc-habilitar-depuración-usb-en-android" class="nav-link" data-scroll-target="#habilitar-depuración-usb-en-android">4. Habilitar Depuración USB en Android</a></li>
-  <li><a href="#primera-conexión" id="toc-primera-conexión" class="nav-link" data-scroll-target="#primera-conexión">5. Primera Conexión</a></li>
+  <li><a href="#verificar-instalación" id="toc-verificar-instalación" class="nav-link" data-scroll-target="#verificar-instalación"><span class="header-section-number">4.1</span> 1. Verificar Instalación</a></li>
+  <li><a href="#configurar-permisos-de-usuario" id="toc-configurar-permisos-de-usuario" class="nav-link" data-scroll-target="#configurar-permisos-de-usuario"><span class="header-section-number">4.2</span> 2. Configurar Permisos de Usuario</a></li>
+  <li><a href="#configurar-reglas-udev" id="toc-configurar-reglas-udev" class="nav-link" data-scroll-target="#configurar-reglas-udev"><span class="header-section-number">4.3</span> 3. Configurar Reglas udev</a></li>
+  <li><a href="#habilitar-depuración-usb-en-android" id="toc-habilitar-depuración-usb-en-android" class="nav-link" data-scroll-target="#habilitar-depuración-usb-en-android"><span class="header-section-number">4.4</span> 4. Habilitar Depuración USB en Android</a></li>
+  <li><a href="#primera-conexión" id="toc-primera-conexión" class="nav-link" data-scroll-target="#primera-conexión"><span class="header-section-number">4.5</span> 5. Primera Conexión</a></li>
   </ul></li>
-  <li><a href="#conexión-de-dispositivos" id="toc-conexión-de-dispositivos" class="nav-link" data-scroll-target="#conexión-de-dispositivos">Conexión de Dispositivos</a>
+  <li><a href="#conexión-de-dispositivos" id="toc-conexión-de-dispositivos" class="nav-link" data-scroll-target="#conexión-de-dispositivos"><span class="header-section-number">5</span> Conexión de Dispositivos</a>
   <ul class="collapse">
-  <li><a href="#conexión-usb" id="toc-conexión-usb" class="nav-link" data-scroll-target="#conexión-usb">Conexión USB</a></li>
-  <li><a href="#conexión-wifi-android-11" id="toc-conexión-wifi-android-11" class="nav-link" data-scroll-target="#conexión-wifi-android-11">Conexión WiFi (Android 11+)</a>
+  <li><a href="#conexión-usb" id="toc-conexión-usb" class="nav-link" data-scroll-target="#conexión-usb"><span class="header-section-number">5.1</span> Conexión USB</a></li>
+  <li><a href="#conexión-wifi-android-11" id="toc-conexión-wifi-android-11" class="nav-link" data-scroll-target="#conexión-wifi-android-11"><span class="header-section-number">5.2</span> Conexión WiFi (Android 11+)</a>
   <ul class="collapse">
-  <li><a href="#método-1-vinculación-con-código" id="toc-método-1-vinculación-con-código" class="nav-link" data-scroll-target="#método-1-vinculación-con-código">Método 1: Vinculación con Código</a></li>
-  <li><a href="#método-2-desde-usb-a-wifi-android-10-y-anteriores" id="toc-método-2-desde-usb-a-wifi-android-10-y-anteriores" class="nav-link" data-scroll-target="#método-2-desde-usb-a-wifi-android-10-y-anteriores">Método 2: Desde USB a WiFi (Android 10 y anteriores)</a></li>
+  <li><a href="#método-1-vinculación-con-código" id="toc-método-1-vinculación-con-código" class="nav-link" data-scroll-target="#método-1-vinculación-con-código"><span class="header-section-number">5.2.1</span> Método 1: Vinculación con Código</a></li>
+  <li><a href="#método-2-desde-usb-a-wifi-android-10-y-anteriores" id="toc-método-2-desde-usb-a-wifi-android-10-y-anteriores" class="nav-link" data-scroll-target="#método-2-desde-usb-a-wifi-android-10-y-anteriores"><span class="header-section-number">5.2.2</span> Método 2: Desde USB a WiFi (Android 10 y anteriores)</a></li>
   </ul></li>
-  <li><a href="#reconexión-automática" id="toc-reconexión-automática" class="nav-link" data-scroll-target="#reconexión-automática">Reconexión Automática</a></li>
-  <li><a href="#variable-de-entorno-android_serial" id="toc-variable-de-entorno-android_serial" class="nav-link" data-scroll-target="#variable-de-entorno-android_serial">Variable de Entorno ANDROID_SERIAL</a></li>
+  <li><a href="#reconexión-automática" id="toc-reconexión-automática" class="nav-link" data-scroll-target="#reconexión-automática"><span class="header-section-number">5.3</span> Reconexión Automática</a></li>
+  <li><a href="#variable-de-entorno-android_serial" id="toc-variable-de-entorno-android_serial" class="nav-link" data-scroll-target="#variable-de-entorno-android_serial"><span class="header-section-number">5.4</span> Variable de Entorno ANDROID_SERIAL</a></li>
   </ul></li>
-  <li><a href="#comandos-básicos" id="toc-comandos-básicos" class="nav-link" data-scroll-target="#comandos-básicos">Comandos Básicos</a>
+  <li><a href="#comandos-básicos" id="toc-comandos-básicos" class="nav-link" data-scroll-target="#comandos-básicos"><span class="header-section-number">6</span> Comandos Básicos</a>
   <ul class="collapse">
-  <li><a href="#gestión-del-servidor-adb" id="toc-gestión-del-servidor-adb" class="nav-link" data-scroll-target="#gestión-del-servidor-adb">Gestión del Servidor ADB</a></li>
-  <li><a href="#información-del-dispositivo" id="toc-información-del-dispositivo" class="nav-link" data-scroll-target="#información-del-dispositivo">Información del Dispositivo</a></li>
-  <li><a href="#reiniciar-dispositivo" id="toc-reiniciar-dispositivo" class="nav-link" data-scroll-target="#reiniciar-dispositivo">Reiniciar Dispositivo</a></li>
-  <li><a href="#logs-y-debugging" id="toc-logs-y-debugging" class="nav-link" data-scroll-target="#logs-y-debugging">Logs y Debugging</a></li>
+  <li><a href="#gestión-del-servidor-adb" id="toc-gestión-del-servidor-adb" class="nav-link" data-scroll-target="#gestión-del-servidor-adb"><span class="header-section-number">6.1</span> Gestión del Servidor ADB</a></li>
+  <li><a href="#información-del-dispositivo" id="toc-información-del-dispositivo" class="nav-link" data-scroll-target="#información-del-dispositivo"><span class="header-section-number">6.2</span> Información del Dispositivo</a></li>
+  <li><a href="#reiniciar-dispositivo" id="toc-reiniciar-dispositivo" class="nav-link" data-scroll-target="#reiniciar-dispositivo"><span class="header-section-number">6.3</span> Reiniciar Dispositivo</a></li>
+  <li><a href="#logs-y-debugging" id="toc-logs-y-debugging" class="nav-link" data-scroll-target="#logs-y-debugging"><span class="header-section-number">6.4</span> Logs y Debugging</a></li>
   </ul></li>
-  <li><a href="#gestión-de-aplicaciones" id="toc-gestión-de-aplicaciones" class="nav-link" data-scroll-target="#gestión-de-aplicaciones">Gestión de Aplicaciones</a>
+  <li><a href="#gestión-de-aplicaciones" id="toc-gestión-de-aplicaciones" class="nav-link" data-scroll-target="#gestión-de-aplicaciones"><span class="header-section-number">7</span> Gestión de Aplicaciones</a>
   <ul class="collapse">
-  <li><a href="#instalar-apk" id="toc-instalar-apk" class="nav-link" data-scroll-target="#instalar-apk">Instalar APK</a></li>
-  <li><a href="#desinstalar-aplicación" id="toc-desinstalar-aplicación" class="nav-link" data-scroll-target="#desinstalar-aplicación">Desinstalar Aplicación</a></li>
-  <li><a href="#listar-aplicaciones" id="toc-listar-aplicaciones" class="nav-link" data-scroll-target="#listar-aplicaciones">Listar Aplicaciones</a></li>
-  <li><a href="#información-de-aplicación" id="toc-información-de-aplicación" class="nav-link" data-scroll-target="#información-de-aplicación">Información de Aplicación</a></li>
-  <li><a href="#iniciar-aplicación" id="toc-iniciar-aplicación" class="nav-link" data-scroll-target="#iniciar-aplicación">Iniciar Aplicación</a></li>
-  <li><a href="#detener-aplicación" id="toc-detener-aplicación" class="nav-link" data-scroll-target="#detener-aplicación">Detener Aplicación</a></li>
-  <li><a href="#limpiar-datos-de-aplicación" id="toc-limpiar-datos-de-aplicación" class="nav-link" data-scroll-target="#limpiar-datos-de-aplicación">Limpiar Datos de Aplicación</a></li>
-  <li><a href="#habilitardeshabilitar-aplicación" id="toc-habilitardeshabilitar-aplicación" class="nav-link" data-scroll-target="#habilitardeshabilitar-aplicación">Habilitar/Deshabilitar Aplicación</a></li>
+  <li><a href="#instalar-apk" id="toc-instalar-apk" class="nav-link" data-scroll-target="#instalar-apk"><span class="header-section-number">7.1</span> Instalar APK</a></li>
+  <li><a href="#desinstalar-aplicación" id="toc-desinstalar-aplicación" class="nav-link" data-scroll-target="#desinstalar-aplicación"><span class="header-section-number">7.2</span> Desinstalar Aplicación</a></li>
+  <li><a href="#listar-aplicaciones" id="toc-listar-aplicaciones" class="nav-link" data-scroll-target="#listar-aplicaciones"><span class="header-section-number">7.3</span> Listar Aplicaciones</a></li>
+  <li><a href="#información-de-aplicación" id="toc-información-de-aplicación" class="nav-link" data-scroll-target="#información-de-aplicación"><span class="header-section-number">7.4</span> Información de Aplicación</a></li>
+  <li><a href="#iniciar-aplicación" id="toc-iniciar-aplicación" class="nav-link" data-scroll-target="#iniciar-aplicación"><span class="header-section-number">7.5</span> Iniciar Aplicación</a></li>
+  <li><a href="#detener-aplicación" id="toc-detener-aplicación" class="nav-link" data-scroll-target="#detener-aplicación"><span class="header-section-number">7.6</span> Detener Aplicación</a></li>
+  <li><a href="#limpiar-datos-de-aplicación" id="toc-limpiar-datos-de-aplicación" class="nav-link" data-scroll-target="#limpiar-datos-de-aplicación"><span class="header-section-number">7.7</span> Limpiar Datos de Aplicación</a></li>
+  <li><a href="#habilitardeshabilitar-aplicación" id="toc-habilitardeshabilitar-aplicación" class="nav-link" data-scroll-target="#habilitardeshabilitar-aplicación"><span class="header-section-number">7.8</span> Habilitar/Deshabilitar Aplicación</a></li>
   </ul></li>
-  <li><a href="#transferencia-de-archivos" id="toc-transferencia-de-archivos" class="nav-link" data-scroll-target="#transferencia-de-archivos">Transferencia de Archivos</a>
+  <li><a href="#transferencia-de-archivos" id="toc-transferencia-de-archivos" class="nav-link" data-scroll-target="#transferencia-de-archivos"><span class="header-section-number">8</span> Transferencia de Archivos</a>
   <ul class="collapse">
-  <li><a href="#copiar-archivos-al-dispositivo-push" id="toc-copiar-archivos-al-dispositivo-push" class="nav-link" data-scroll-target="#copiar-archivos-al-dispositivo-push">Copiar Archivos al Dispositivo (Push)</a></li>
-  <li><a href="#copiar-archivos-del-dispositivo-pull" id="toc-copiar-archivos-del-dispositivo-pull" class="nav-link" data-scroll-target="#copiar-archivos-del-dispositivo-pull">Copiar Archivos del Dispositivo (Pull)</a></li>
-  <li><a href="#explorar-sistema-de-archivos" id="toc-explorar-sistema-de-archivos" class="nav-link" data-scroll-target="#explorar-sistema-de-archivos">Explorar Sistema de Archivos</a></li>
-  <li><a href="#creareliminar-archivos-y-directorios" id="toc-creareliminar-archivos-y-directorios" class="nav-link" data-scroll-target="#creareliminar-archivos-y-directorios">Crear/Eliminar Archivos y Directorios</a></li>
+  <li><a href="#copiar-archivos-al-dispositivo-push" id="toc-copiar-archivos-al-dispositivo-push" class="nav-link" data-scroll-target="#copiar-archivos-al-dispositivo-push"><span class="header-section-number">8.1</span> Copiar Archivos al Dispositivo (Push)</a></li>
+  <li><a href="#copiar-archivos-del-dispositivo-pull" id="toc-copiar-archivos-del-dispositivo-pull" class="nav-link" data-scroll-target="#copiar-archivos-del-dispositivo-pull"><span class="header-section-number">8.2</span> Copiar Archivos del Dispositivo (Pull)</a></li>
+  <li><a href="#explorar-sistema-de-archivos" id="toc-explorar-sistema-de-archivos" class="nav-link" data-scroll-target="#explorar-sistema-de-archivos"><span class="header-section-number">8.3</span> Explorar Sistema de Archivos</a></li>
+  <li><a href="#creareliminar-archivos-y-directorios" id="toc-creareliminar-archivos-y-directorios" class="nav-link" data-scroll-target="#creareliminar-archivos-y-directorios"><span class="header-section-number">8.4</span> Crear/Eliminar Archivos y Directorios</a></li>
   </ul></li>
-  <li><a href="#shell-de-android" id="toc-shell-de-android" class="nav-link" data-scroll-target="#shell-de-android">Shell de Android</a>
+  <li><a href="#shell-de-android" id="toc-shell-de-android" class="nav-link" data-scroll-target="#shell-de-android"><span class="header-section-number">9</span> Shell de Android</a>
   <ul class="collapse">
-  <li><a href="#acceder-al-shell" id="toc-acceder-al-shell" class="nav-link" data-scroll-target="#acceder-al-shell">Acceder al Shell</a></li>
-  <li><a href="#comandos-unix-disponibles" id="toc-comandos-unix-disponibles" class="nav-link" data-scroll-target="#comandos-unix-disponibles">Comandos Unix Disponibles</a></li>
-  <li><a href="#propiedades-del-sistema" id="toc-propiedades-del-sistema" class="nav-link" data-scroll-target="#propiedades-del-sistema">Propiedades del Sistema</a></li>
-  <li><a href="#configuraciones-del-sistema" id="toc-configuraciones-del-sistema" class="nav-link" data-scroll-target="#configuraciones-del-sistema">Configuraciones del Sistema</a></li>
+  <li><a href="#acceder-al-shell" id="toc-acceder-al-shell" class="nav-link" data-scroll-target="#acceder-al-shell"><span class="header-section-number">9.1</span> Acceder al Shell</a></li>
+  <li><a href="#comandos-unix-disponibles" id="toc-comandos-unix-disponibles" class="nav-link" data-scroll-target="#comandos-unix-disponibles"><span class="header-section-number">9.2</span> Comandos Unix Disponibles</a></li>
+  <li><a href="#propiedades-del-sistema" id="toc-propiedades-del-sistema" class="nav-link" data-scroll-target="#propiedades-del-sistema"><span class="header-section-number">9.3</span> Propiedades del Sistema</a></li>
+  <li><a href="#configuraciones-del-sistema" id="toc-configuraciones-del-sistema" class="nav-link" data-scroll-target="#configuraciones-del-sistema"><span class="header-section-number">9.4</span> Configuraciones del Sistema</a></li>
   </ul></li>
-  <li><a href="#administrador-de-actividades" id="toc-administrador-de-actividades" class="nav-link" data-scroll-target="#administrador-de-actividades">Administrador de Actividades</a>
+  <li><a href="#administrador-de-actividades" id="toc-administrador-de-actividades" class="nav-link" data-scroll-target="#administrador-de-actividades"><span class="header-section-number">10</span> Administrador de Actividades</a>
   <ul class="collapse">
-  <li><a href="#sintaxis-básica" id="toc-sintaxis-básica" class="nav-link" data-scroll-target="#sintaxis-básica">Sintaxis Básica</a></li>
-  <li><a href="#iniciar-actividad" id="toc-iniciar-actividad" class="nav-link" data-scroll-target="#iniciar-actividad">Iniciar Actividad</a></li>
-  <li><a href="#iniciar-servicio" id="toc-iniciar-servicio" class="nav-link" data-scroll-target="#iniciar-servicio">Iniciar Servicio</a></li>
-  <li><a href="#enviar-broadcast" id="toc-enviar-broadcast" class="nav-link" data-scroll-target="#enviar-broadcast">Enviar Broadcast</a></li>
-  <li><a href="#forzar-detención" id="toc-forzar-detención" class="nav-link" data-scroll-target="#forzar-detención">Forzar Detención</a></li>
-  <li><a href="#matar-proceso" id="toc-matar-proceso" class="nav-link" data-scroll-target="#matar-proceso">Matar Proceso</a></li>
-  <li><a href="#modificar-pantalla" id="toc-modificar-pantalla" class="nav-link" data-scroll-target="#modificar-pantalla">Modificar Pantalla</a></li>
-  <li><a href="#ejemplos-de-intents" id="toc-ejemplos-de-intents" class="nav-link" data-scroll-target="#ejemplos-de-intents">Ejemplos de Intents</a></li>
+  <li><a href="#sintaxis-básica" id="toc-sintaxis-básica" class="nav-link" data-scroll-target="#sintaxis-básica"><span class="header-section-number">10.1</span> Sintaxis Básica</a></li>
+  <li><a href="#iniciar-actividad" id="toc-iniciar-actividad" class="nav-link" data-scroll-target="#iniciar-actividad"><span class="header-section-number">10.2</span> Iniciar Actividad</a></li>
+  <li><a href="#iniciar-servicio" id="toc-iniciar-servicio" class="nav-link" data-scroll-target="#iniciar-servicio"><span class="header-section-number">10.3</span> Iniciar Servicio</a></li>
+  <li><a href="#enviar-broadcast" id="toc-enviar-broadcast" class="nav-link" data-scroll-target="#enviar-broadcast"><span class="header-section-number">10.4</span> Enviar Broadcast</a></li>
+  <li><a href="#forzar-detención" id="toc-forzar-detención" class="nav-link" data-scroll-target="#forzar-detención"><span class="header-section-number">10.5</span> Forzar Detención</a></li>
+  <li><a href="#matar-proceso" id="toc-matar-proceso" class="nav-link" data-scroll-target="#matar-proceso"><span class="header-section-number">10.6</span> Matar Proceso</a></li>
+  <li><a href="#modificar-pantalla" id="toc-modificar-pantalla" class="nav-link" data-scroll-target="#modificar-pantalla"><span class="header-section-number">10.7</span> Modificar Pantalla</a></li>
+  <li><a href="#ejemplos-de-intents" id="toc-ejemplos-de-intents" class="nav-link" data-scroll-target="#ejemplos-de-intents"><span class="header-section-number">10.8</span> Ejemplos de Intents</a></li>
   </ul></li>
-  <li><a href="#administrador-de-paquetes" id="toc-administrador-de-paquetes" class="nav-link" data-scroll-target="#administrador-de-paquetes">Administrador de Paquetes</a>
+  <li><a href="#administrador-de-paquetes" id="toc-administrador-de-paquetes" class="nav-link" data-scroll-target="#administrador-de-paquetes"><span class="header-section-number">11</span> Administrador de Paquetes</a>
   <ul class="collapse">
-  <li><a href="#listar-paquetes" id="toc-listar-paquetes" class="nav-link" data-scroll-target="#listar-paquetes">Listar Paquetes</a></li>
-  <li><a href="#información-del-paquete" id="toc-información-del-paquete" class="nav-link" data-scroll-target="#información-del-paquete">Información del Paquete</a></li>
-  <li><a href="#otorgarrevocar-permisos" id="toc-otorgarrevocar-permisos" class="nav-link" data-scroll-target="#otorgarrevocar-permisos">Otorgar/Revocar Permisos</a></li>
-  <li><a href="#habilitardeshabilitar-paquete" id="toc-habilitardeshabilitar-paquete" class="nav-link" data-scroll-target="#habilitardeshabilitar-paquete">Habilitar/Deshabilitar Paquete</a></li>
-  <li><a href="#limpiar-datos" id="toc-limpiar-datos" class="nav-link" data-scroll-target="#limpiar-datos">Limpiar Datos</a></li>
-  <li><a href="#usuarios" id="toc-usuarios" class="nav-link" data-scroll-target="#usuarios">Usuarios</a></li>
+  <li><a href="#listar-paquetes" id="toc-listar-paquetes" class="nav-link" data-scroll-target="#listar-paquetes"><span class="header-section-number">11.1</span> Listar Paquetes</a></li>
+  <li><a href="#información-del-paquete" id="toc-información-del-paquete" class="nav-link" data-scroll-target="#información-del-paquete"><span class="header-section-number">11.2</span> Información del Paquete</a></li>
+  <li><a href="#otorgarrevocar-permisos" id="toc-otorgarrevocar-permisos" class="nav-link" data-scroll-target="#otorgarrevocar-permisos"><span class="header-section-number">11.3</span> Otorgar/Revocar Permisos</a></li>
+  <li><a href="#habilitardeshabilitar-paquete" id="toc-habilitardeshabilitar-paquete" class="nav-link" data-scroll-target="#habilitardeshabilitar-paquete"><span class="header-section-number">11.4</span> Habilitar/Deshabilitar Paquete</a></li>
+  <li><a href="#limpiar-datos" id="toc-limpiar-datos" class="nav-link" data-scroll-target="#limpiar-datos"><span class="header-section-number">11.5</span> Limpiar Datos</a></li>
+  <li><a href="#usuarios" id="toc-usuarios" class="nav-link" data-scroll-target="#usuarios"><span class="header-section-number">11.6</span> Usuarios</a></li>
   </ul></li>
-  <li><a href="#captura-de-pantalla-y-grabación" id="toc-captura-de-pantalla-y-grabación" class="nav-link" data-scroll-target="#captura-de-pantalla-y-grabación">Captura de Pantalla y Grabación</a>
+  <li><a href="#captura-de-pantalla-y-grabación" id="toc-captura-de-pantalla-y-grabación" class="nav-link" data-scroll-target="#captura-de-pantalla-y-grabación"><span class="header-section-number">12</span> Captura de Pantalla y Grabación</a>
   <ul class="collapse">
-  <li><a href="#captura-de-pantalla" id="toc-captura-de-pantalla" class="nav-link" data-scroll-target="#captura-de-pantalla">Captura de Pantalla</a></li>
-  <li><a href="#grabación-de-video" id="toc-grabación-de-video" class="nav-link" data-scroll-target="#grabación-de-video">Grabación de Video</a></li>
+  <li><a href="#captura-de-pantalla" id="toc-captura-de-pantalla" class="nav-link" data-scroll-target="#captura-de-pantalla"><span class="header-section-number">12.1</span> Captura de Pantalla</a></li>
+  <li><a href="#grabación-de-video" id="toc-grabación-de-video" class="nav-link" data-scroll-target="#grabación-de-video"><span class="header-section-number">12.2</span> Grabación de Video</a></li>
   </ul></li>
-  <li><a href="#redirección-de-puertos" id="toc-redirección-de-puertos" class="nav-link" data-scroll-target="#redirección-de-puertos">Redirección de Puertos</a>
+  <li><a href="#redirección-de-puertos" id="toc-redirección-de-puertos" class="nav-link" data-scroll-target="#redirección-de-puertos"><span class="header-section-number">13</span> Redirección de Puertos</a>
   <ul class="collapse">
-  <li><a href="#forward-host-dispositivo" id="toc-forward-host-dispositivo" class="nav-link" data-scroll-target="#forward-host-dispositivo">Forward (Host → Dispositivo)</a></li>
-  <li><a href="#reverse-dispositivo-host" id="toc-reverse-dispositivo-host" class="nav-link" data-scroll-target="#reverse-dispositivo-host">Reverse (Dispositivo → Host)</a></li>
+  <li><a href="#forward-host-dispositivo" id="toc-forward-host-dispositivo" class="nav-link" data-scroll-target="#forward-host-dispositivo"><span class="header-section-number">13.1</span> Forward (Host → Dispositivo)</a></li>
+  <li><a href="#reverse-dispositivo-host" id="toc-reverse-dispositivo-host" class="nav-link" data-scroll-target="#reverse-dispositivo-host"><span class="header-section-number">13.2</span> Reverse (Dispositivo → Host)</a></li>
   </ul></li>
-  <li><a href="#comandos-adb-para-conectar-y-instalar-en-windows" id="toc-comandos-adb-para-conectar-y-instalar-en-windows" class="nav-link" data-scroll-target="#comandos-adb-para-conectar-y-instalar-en-windows">Comandos ADB para Conectar y Instalar en Windows</a>
+  <li><a href="#comandos-adb-para-conectar-y-instalar-en-windows" id="toc-comandos-adb-para-conectar-y-instalar-en-windows" class="nav-link" data-scroll-target="#comandos-adb-para-conectar-y-instalar-en-windows"><span class="header-section-number">14</span> Comandos ADB para Conectar y Instalar en Windows</a>
   <ul class="collapse">
-  <li><a href="#versión-de-microsoft-windows-10.0.22000.282" id="toc-versión-de-microsoft-windows-10.0.22000.282" class="nav-link" data-scroll-target="#versión-de-microsoft-windows-10.0.22000.282">Versión de Microsoft Windows: 10.0.22000.282</a></li>
-  <li><a href="#cambio-de-directorio-a-la-ubicación-de-adb" id="toc-cambio-de-directorio-a-la-ubicación-de-adb" class="nav-link" data-scroll-target="#cambio-de-directorio-a-la-ubicación-de-adb">Cambio de directorio a la ubicación de <code>ADB</code></a></li>
-  <li><a href="#conexión-con-adb" id="toc-conexión-con-adb" class="nav-link" data-scroll-target="#conexión-con-adb">Conexión con ADB</a></li>
-  <li><a href="#instalación-de-instagram-apk" id="toc-instalación-de-instagram-apk" class="nav-link" data-scroll-target="#instalación-de-instagram-apk">Instalación de Instagram APK</a></li>
-  <li><a href="#descarga-de-adb" id="toc-descarga-de-adb" class="nav-link" data-scroll-target="#descarga-de-adb">Descarga de ADB</a></li>
-  <li><a href="#configuración" id="toc-configuración" class="nav-link" data-scroll-target="#configuración">Configuración</a></li>
-  <li><a href="#comandos-para-conexión-e-instalación-de-aplicaciones" id="toc-comandos-para-conexión-e-instalación-de-aplicaciones" class="nav-link" data-scroll-target="#comandos-para-conexión-e-instalación-de-aplicaciones">Comandos para conexión e instalación de aplicaciones</a></li>
-  <li><a href="#ejemplo-de-salida-esperada" id="toc-ejemplo-de-salida-esperada" class="nav-link" data-scroll-target="#ejemplo-de-salida-esperada">Ejemplo de salida esperada</a></li>
+  <li><a href="#versión-de-microsoft-windows-10.0.22000.282" id="toc-versión-de-microsoft-windows-10.0.22000.282" class="nav-link" data-scroll-target="#versión-de-microsoft-windows-10.0.22000.282"><span class="header-section-number">14.1</span> Versión de Microsoft Windows: 10.0.22000.282</a></li>
+  <li><a href="#cambio-de-directorio-a-la-ubicación-de-adb" id="toc-cambio-de-directorio-a-la-ubicación-de-adb" class="nav-link" data-scroll-target="#cambio-de-directorio-a-la-ubicación-de-adb"><span class="header-section-number">14.2</span> Cambio de directorio a la ubicación de <code>ADB</code></a></li>
+  <li><a href="#conexión-con-adb" id="toc-conexión-con-adb" class="nav-link" data-scroll-target="#conexión-con-adb"><span class="header-section-number">14.3</span> Conexión con ADB</a></li>
+  <li><a href="#instalación-de-instagram-apk" id="toc-instalación-de-instagram-apk" class="nav-link" data-scroll-target="#instalación-de-instagram-apk"><span class="header-section-number">14.4</span> Instalación de Instagram APK</a></li>
+  <li><a href="#descarga-de-adb" id="toc-descarga-de-adb" class="nav-link" data-scroll-target="#descarga-de-adb"><span class="header-section-number">14.5</span> Descarga de ADB</a></li>
+  <li><a href="#configuración" id="toc-configuración" class="nav-link" data-scroll-target="#configuración"><span class="header-section-number">14.6</span> Configuración</a></li>
+  <li><a href="#comandos-para-conexión-e-instalación-de-aplicaciones" id="toc-comandos-para-conexión-e-instalación-de-aplicaciones" class="nav-link" data-scroll-target="#comandos-para-conexión-e-instalación-de-aplicaciones"><span class="header-section-number">14.7</span> Comandos para conexión e instalación de aplicaciones</a></li>
+  <li><a href="#ejemplo-de-salida-esperada" id="toc-ejemplo-de-salida-esperada" class="nav-link" data-scroll-target="#ejemplo-de-salida-esperada"><span class="header-section-number">14.8</span> Ejemplo de salida esperada</a></li>
   </ul></li>
-  <li><a href="#windows-11-cómo-descargar-apk-usando-el-subsistema-de-windows-para-android-y-adb" id="toc-windows-11-cómo-descargar-apk-usando-el-subsistema-de-windows-para-android-y-adb" class="nav-link" data-scroll-target="#windows-11-cómo-descargar-apk-usando-el-subsistema-de-windows-para-android-y-adb">Windows 11: Cómo descargar APK usando el Subsistema de Windows para Android y ADB</a>
+  <li><a href="#windows-11-cómo-descargar-apk-usando-el-subsistema-de-windows-para-android-y-adb" id="toc-windows-11-cómo-descargar-apk-usando-el-subsistema-de-windows-para-android-y-adb" class="nav-link" data-scroll-target="#windows-11-cómo-descargar-apk-usando-el-subsistema-de-windows-para-android-y-adb"><span class="header-section-number">15</span> Windows 11: Cómo descargar APK usando el Subsistema de Windows para Android y ADB</a>
   <ul class="collapse">
-  <li><a href="#paso-1-habilitar-el-modo-de-desarrollador-en-el-subsistema-de-windows" id="toc-paso-1-habilitar-el-modo-de-desarrollador-en-el-subsistema-de-windows" class="nav-link" data-scroll-target="#paso-1-habilitar-el-modo-de-desarrollador-en-el-subsistema-de-windows">Paso 1: Habilitar el modo de desarrollador en el subsistema de Windows</a></li>
-  <li><a href="#paso-2-instalar-las-herramientas-de-la-plataforma-sdk" id="toc-paso-2-instalar-las-herramientas-de-la-plataforma-sdk" class="nav-link" data-scroll-target="#paso-2-instalar-las-herramientas-de-la-plataforma-sdk">Paso 2: Instalar las herramientas de la plataforma SDK</a></li>
-  <li><a href="#paso-3-instalar-la-aplicación-de-android" id="toc-paso-3-instalar-la-aplicación-de-android" class="nav-link" data-scroll-target="#paso-3-instalar-la-aplicación-de-android">Paso 3: Instalar la aplicación de Android</a></li>
+  <li><a href="#paso-1-habilitar-el-modo-de-desarrollador-en-el-subsistema-de-windows" id="toc-paso-1-habilitar-el-modo-de-desarrollador-en-el-subsistema-de-windows" class="nav-link" data-scroll-target="#paso-1-habilitar-el-modo-de-desarrollador-en-el-subsistema-de-windows"><span class="header-section-number">15.1</span> Paso 1: Habilitar el modo de desarrollador en el subsistema de Windows</a></li>
+  <li><a href="#paso-2-instalar-las-herramientas-de-la-plataforma-sdk" id="toc-paso-2-instalar-las-herramientas-de-la-plataforma-sdk" class="nav-link" data-scroll-target="#paso-2-instalar-las-herramientas-de-la-plataforma-sdk"><span class="header-section-number">15.2</span> Paso 2: Instalar las herramientas de la plataforma SDK</a></li>
+  <li><a href="#paso-3-instalar-la-aplicación-de-android" id="toc-paso-3-instalar-la-aplicación-de-android" class="nav-link" data-scroll-target="#paso-3-instalar-la-aplicación-de-android"><span class="header-section-number">15.3</span> Paso 3: Instalar la aplicación de Android</a></li>
   </ul></li>
-  <li><a href="#casos-de-uso-profesionales" id="toc-casos-de-uso-profesionales" class="nav-link" data-scroll-target="#casos-de-uso-profesionales">Casos de Uso Profesionales</a>
+  <li><a href="#casos-de-uso-profesionales" id="toc-casos-de-uso-profesionales" class="nav-link" data-scroll-target="#casos-de-uso-profesionales"><span class="header-section-number">16</span> Casos de Uso Profesionales</a>
   <ul class="collapse">
-  <li><a href="#caso-1-instalación-masiva-de-apks" id="toc-caso-1-instalación-masiva-de-apks" class="nav-link" data-scroll-target="#caso-1-instalación-masiva-de-apks">Caso 1: Instalación Masiva de APKs</a></li>
-  <li><a href="#caso-2-backup-automático-de-aplicación" id="toc-caso-2-backup-automático-de-aplicación" class="nav-link" data-scroll-target="#caso-2-backup-automático-de-aplicación">Caso 2: Backup Automático de Aplicación</a></li>
-  <li><a href="#caso-3-testing-automatizado" id="toc-caso-3-testing-automatizado" class="nav-link" data-scroll-target="#caso-3-testing-automatizado">Caso 3: Testing Automatizado</a></li>
-  <li><a href="#caso-4-análisis-de-rendimiento" id="toc-caso-4-análisis-de-rendimiento" class="nav-link" data-scroll-target="#caso-4-análisis-de-rendimiento">Caso 4: Análisis de Rendimiento</a></li>
-  <li><a href="#caso-5-captura-automatizada-de-screenshots" id="toc-caso-5-captura-automatizada-de-screenshots" class="nav-link" data-scroll-target="#caso-5-captura-automatizada-de-screenshots">Caso 5: Captura Automatizada de Screenshots</a></li>
-  <li><a href="#caso-6-monitoreo-de-logs-en-tiempo-real" id="toc-caso-6-monitoreo-de-logs-en-tiempo-real" class="nav-link" data-scroll-target="#caso-6-monitoreo-de-logs-en-tiempo-real">Caso 6: Monitoreo de Logs en Tiempo Real</a></li>
-  <li><a href="#caso-7-instalación-y-testing-rápido" id="toc-caso-7-instalación-y-testing-rápido" class="nav-link" data-scroll-target="#caso-7-instalación-y-testing-rápido">Caso 7: Instalación y Testing Rápido</a></li>
+  <li><a href="#caso-1-instalación-masiva-de-apks" id="toc-caso-1-instalación-masiva-de-apks" class="nav-link" data-scroll-target="#caso-1-instalación-masiva-de-apks"><span class="header-section-number">16.1</span> Caso 1: Instalación Masiva de APKs</a></li>
+  <li><a href="#caso-2-backup-automático-de-aplicación" id="toc-caso-2-backup-automático-de-aplicación" class="nav-link" data-scroll-target="#caso-2-backup-automático-de-aplicación"><span class="header-section-number">16.2</span> Caso 2: Backup Automático de Aplicación</a></li>
+  <li><a href="#caso-3-testing-automatizado" id="toc-caso-3-testing-automatizado" class="nav-link" data-scroll-target="#caso-3-testing-automatizado"><span class="header-section-number">16.3</span> Caso 3: Testing Automatizado</a></li>
+  <li><a href="#caso-4-análisis-de-rendimiento" id="toc-caso-4-análisis-de-rendimiento" class="nav-link" data-scroll-target="#caso-4-análisis-de-rendimiento"><span class="header-section-number">16.4</span> Caso 4: Análisis de Rendimiento</a></li>
+  <li><a href="#caso-5-captura-automatizada-de-screenshots" id="toc-caso-5-captura-automatizada-de-screenshots" class="nav-link" data-scroll-target="#caso-5-captura-automatizada-de-screenshots"><span class="header-section-number">16.5</span> Caso 5: Captura Automatizada de Screenshots</a></li>
+  <li><a href="#caso-6-monitoreo-de-logs-en-tiempo-real" id="toc-caso-6-monitoreo-de-logs-en-tiempo-real" class="nav-link" data-scroll-target="#caso-6-monitoreo-de-logs-en-tiempo-real"><span class="header-section-number">16.6</span> Caso 6: Monitoreo de Logs en Tiempo Real</a></li>
+  <li><a href="#caso-7-instalación-y-testing-rápido" id="toc-caso-7-instalación-y-testing-rápido" class="nav-link" data-scroll-target="#caso-7-instalación-y-testing-rápido"><span class="header-section-number">16.7</span> Caso 7: Instalación y Testing Rápido</a></li>
   </ul></li>
-  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting"><span class="header-section-number">17</span> Troubleshooting</a>
   <ul class="collapse">
-  <li><a href="#problema-1-adb-command-not-found" id="toc-problema-1-adb-command-not-found" class="nav-link" data-scroll-target="#problema-1-adb-command-not-found">Problema 1: “adb: command not found”</a></li>
-  <li><a href="#problema-2-no-permissions-missing-udev-rules" id="toc-problema-2-no-permissions-missing-udev-rules" class="nav-link" data-scroll-target="#problema-2-no-permissions-missing-udev-rules">Problema 2: “no permissions (missing udev rules?)”</a></li>
-  <li><a href="#problema-3-device-offline-o-unauthorized" id="toc-problema-3-device-offline-o-unauthorized" class="nav-link" data-scroll-target="#problema-3-device-offline-o-unauthorized">Problema 3: “device offline” o “unauthorized”</a></li>
-  <li><a href="#problema-4-more-than-one-deviceemulator" id="toc-problema-4-more-than-one-deviceemulator" class="nav-link" data-scroll-target="#problema-4-more-than-one-deviceemulator">Problema 4: “more than one device/emulator”</a></li>
-  <li><a href="#problema-5-conexión-wifi-se-desconecta" id="toc-problema-5-conexión-wifi-se-desconecta" class="nav-link" data-scroll-target="#problema-5-conexión-wifi-se-desconecta">Problema 5: Conexión WiFi se desconecta</a></li>
-  <li><a href="#problema-6-daemon-not-running-starting-now" id="toc-problema-6-daemon-not-running-starting-now" class="nav-link" data-scroll-target="#problema-6-daemon-not-running-starting-now">Problema 6: “daemon not running; starting now”</a></li>
-  <li><a href="#problema-7-insufficient-permissions-for-device" id="toc-problema-7-insufficient-permissions-for-device" class="nav-link" data-scroll-target="#problema-7-insufficient-permissions-for-device">Problema 7: “insufficient permissions for device”</a></li>
-  <li><a href="#problema-8-error-protocol-fault-no-status" id="toc-problema-8-error-protocol-fault-no-status" class="nav-link" data-scroll-target="#problema-8-error-protocol-fault-no-status">Problema 8: “error: protocol fault (no status)”</a></li>
+  <li><a href="#problema-1-adb-command-not-found" id="toc-problema-1-adb-command-not-found" class="nav-link" data-scroll-target="#problema-1-adb-command-not-found"><span class="header-section-number">17.1</span> Problema 1: “adb: command not found”</a></li>
+  <li><a href="#problema-2-no-permissions-missing-udev-rules" id="toc-problema-2-no-permissions-missing-udev-rules" class="nav-link" data-scroll-target="#problema-2-no-permissions-missing-udev-rules"><span class="header-section-number">17.2</span> Problema 2: “no permissions (missing udev rules?)”</a></li>
+  <li><a href="#problema-3-device-offline-o-unauthorized" id="toc-problema-3-device-offline-o-unauthorized" class="nav-link" data-scroll-target="#problema-3-device-offline-o-unauthorized"><span class="header-section-number">17.3</span> Problema 3: “device offline” o “unauthorized”</a></li>
+  <li><a href="#problema-4-more-than-one-deviceemulator" id="toc-problema-4-more-than-one-deviceemulator" class="nav-link" data-scroll-target="#problema-4-more-than-one-deviceemulator"><span class="header-section-number">17.4</span> Problema 4: “more than one device/emulator”</a></li>
+  <li><a href="#problema-5-conexión-wifi-se-desconecta" id="toc-problema-5-conexión-wifi-se-desconecta" class="nav-link" data-scroll-target="#problema-5-conexión-wifi-se-desconecta"><span class="header-section-number">17.5</span> Problema 5: Conexión WiFi se desconecta</a></li>
+  <li><a href="#problema-6-daemon-not-running-starting-now" id="toc-problema-6-daemon-not-running-starting-now" class="nav-link" data-scroll-target="#problema-6-daemon-not-running-starting-now"><span class="header-section-number">17.6</span> Problema 6: “daemon not running; starting now”</a></li>
+  <li><a href="#problema-7-insufficient-permissions-for-device" id="toc-problema-7-insufficient-permissions-for-device" class="nav-link" data-scroll-target="#problema-7-insufficient-permissions-for-device"><span class="header-section-number">17.7</span> Problema 7: “insufficient permissions for device”</a></li>
+  <li><a href="#problema-8-error-protocol-fault-no-status" id="toc-problema-8-error-protocol-fault-no-status" class="nav-link" data-scroll-target="#problema-8-error-protocol-fault-no-status"><span class="header-section-number">17.8</span> Problema 8: “error: protocol fault (no status)”</a></li>
   </ul></li>
-  <li><a href="#automatización-con-scripts" id="toc-automatización-con-scripts" class="nav-link" data-scroll-target="#automatización-con-scripts">Automatización con Scripts</a>
+  <li><a href="#automatización-con-scripts" id="toc-automatización-con-scripts" class="nav-link" data-scroll-target="#automatización-con-scripts"><span class="header-section-number">18</span> Automatización con Scripts</a>
   <ul class="collapse">
-  <li><a href="#script-fish-instalador-de-apk-mejorado" id="toc-script-fish-instalador-de-apk-mejorado" class="nav-link" data-scroll-target="#script-fish-instalador-de-apk-mejorado">Script Fish: Instalador de APK Mejorado</a></li>
-  <li><a href="#script-bash-backup-completo" id="toc-script-bash-backup-completo" class="nav-link" data-scroll-target="#script-bash-backup-completo">Script Bash: Backup Completo</a></li>
-  <li><a href="#alias-útiles-para-fish" id="toc-alias-útiles-para-fish" class="nav-link" data-scroll-target="#alias-útiles-para-fish">Alias Útiles para Fish</a></li>
+  <li><a href="#script-fish-instalador-de-apk-mejorado" id="toc-script-fish-instalador-de-apk-mejorado" class="nav-link" data-scroll-target="#script-fish-instalador-de-apk-mejorado"><span class="header-section-number">18.1</span> Script Fish: Instalador de APK Mejorado</a></li>
+  <li><a href="#script-bash-backup-completo" id="toc-script-bash-backup-completo" class="nav-link" data-scroll-target="#script-bash-backup-completo"><span class="header-section-number">18.2</span> Script Bash: Backup Completo</a></li>
+  <li><a href="#alias-útiles-para-fish" id="toc-alias-útiles-para-fish" class="nav-link" data-scroll-target="#alias-útiles-para-fish"><span class="header-section-number">18.3</span> Alias Útiles para Fish</a></li>
   </ul></li>
-  <li><a href="#referencia-rápida" id="toc-referencia-rápida" class="nav-link" data-scroll-target="#referencia-rápida">Referencia Rápida</a>
+  <li><a href="#referencia-rápida" id="toc-referencia-rápida" class="nav-link" data-scroll-target="#referencia-rápida"><span class="header-section-number">19</span> Referencia Rápida</a>
   <ul class="collapse">
-  <li><a href="#comandos-esenciales" id="toc-comandos-esenciales" class="nav-link" data-scroll-target="#comandos-esenciales">Comandos Esenciales</a></li>
-  <li><a href="#atajos-de-teclado-en-terminal" id="toc-atajos-de-teclado-en-terminal" class="nav-link" data-scroll-target="#atajos-de-teclado-en-terminal">Atajos de Teclado en Terminal</a></li>
-  <li><a href="#variables-de-entorno-útiles" id="toc-variables-de-entorno-útiles" class="nav-link" data-scroll-target="#variables-de-entorno-útiles">Variables de Entorno Útiles</a></li>
-  <li><a href="#locations-importantes" id="toc-locations-importantes" class="nav-link" data-scroll-target="#locations-importantes">Locations Importantes</a></li>
-  <li><a href="#intents-comunes" id="toc-intents-comunes" class="nav-link" data-scroll-target="#intents-comunes">Intents Comunes</a></li>
+  <li><a href="#comandos-esenciales" id="toc-comandos-esenciales" class="nav-link" data-scroll-target="#comandos-esenciales"><span class="header-section-number">19.1</span> Comandos Esenciales</a></li>
+  <li><a href="#atajos-de-teclado-en-terminal" id="toc-atajos-de-teclado-en-terminal" class="nav-link" data-scroll-target="#atajos-de-teclado-en-terminal"><span class="header-section-number">19.2</span> Atajos de Teclado en Terminal</a></li>
+  <li><a href="#variables-de-entorno-útiles" id="toc-variables-de-entorno-útiles" class="nav-link" data-scroll-target="#variables-de-entorno-útiles"><span class="header-section-number">19.3</span> Variables de Entorno Útiles</a></li>
+  <li><a href="#locations-importantes" id="toc-locations-importantes" class="nav-link" data-scroll-target="#locations-importantes"><span class="header-section-number">19.4</span> Locations Importantes</a></li>
+  <li><a href="#intents-comunes" id="toc-intents-comunes" class="nav-link" data-scroll-target="#intents-comunes"><span class="header-section-number">19.5</span> Intents Comunes</a></li>
   </ul></li>
-  <li><a href="#recursos-adicionales" id="toc-recursos-adicionales" class="nav-link" data-scroll-target="#recursos-adicionales">Recursos Adicionales</a>
+  <li><a href="#recursos-adicionales" id="toc-recursos-adicionales" class="nav-link" data-scroll-target="#recursos-adicionales"><span class="header-section-number">20</span> Recursos Adicionales</a>
   <ul class="collapse">
-  <li><a href="#documentación-oficial" id="toc-documentación-oficial" class="nav-link" data-scroll-target="#documentación-oficial">Documentación Oficial</a></li>
-  <li><a href="#comunidad" id="toc-comunidad" class="nav-link" data-scroll-target="#comunidad">Comunidad</a></li>
-  <li><a href="#herramientas-complementarias" id="toc-herramientas-complementarias" class="nav-link" data-scroll-target="#herramientas-complementarias">Herramientas Complementarias</a></li>
+  <li><a href="#documentación-oficial" id="toc-documentación-oficial" class="nav-link" data-scroll-target="#documentación-oficial"><span class="header-section-number">20.1</span> Documentación Oficial</a></li>
+  <li><a href="#comunidad" id="toc-comunidad" class="nav-link" data-scroll-target="#comunidad"><span class="header-section-number">20.2</span> Comunidad</a></li>
+  <li><a href="#herramientas-complementarias" id="toc-herramientas-complementarias" class="nav-link" data-scroll-target="#herramientas-complementarias"><span class="header-section-number">20.3</span> Herramientas Complementarias</a></li>
   </ul></li>
-  <li><a href="#mejores-prácticas" id="toc-mejores-prácticas" class="nav-link" data-scroll-target="#mejores-prácticas">Mejores Prácticas</a>
+  <li><a href="#mejores-prácticas" id="toc-mejores-prácticas" class="nav-link" data-scroll-target="#mejores-prácticas"><span class="header-section-number">21</span> Mejores Prácticas</a>
   <ul class="collapse">
-  <li><a href="#seguridad" id="toc-seguridad" class="nav-link" data-scroll-target="#seguridad">Seguridad</a></li>
-  <li><a href="#rendimiento" id="toc-rendimiento" class="nav-link" data-scroll-target="#rendimiento">Rendimiento</a></li>
-  <li><a href="#desarrollo" id="toc-desarrollo" class="nav-link" data-scroll-target="#desarrollo">Desarrollo</a></li>
+  <li><a href="#seguridad" id="toc-seguridad" class="nav-link" data-scroll-target="#seguridad"><span class="header-section-number">21.1</span> Seguridad</a></li>
+  <li><a href="#rendimiento" id="toc-rendimiento" class="nav-link" data-scroll-target="#rendimiento"><span class="header-section-number">21.2</span> Rendimiento</a></li>
+  <li><a href="#desarrollo" id="toc-desarrollo" class="nav-link" data-scroll-target="#desarrollo"><span class="header-section-number">21.3</span> Desarrollo</a></li>
   </ul></li>
-  <li><a href="#publicaciones-similares" id="toc-publicaciones-similares" class="nav-link" data-scroll-target="#publicaciones-similares">Publicaciones Similares</a></li>
+  <li><a href="#publicaciones-similares" id="toc-publicaciones-similares" class="nav-link" data-scroll-target="#publicaciones-similares"><span class="header-section-number">22</span> Publicaciones Similares</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Otros formatos</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF (apaquarto)</a></li><li><a href="index.docx"><i class="bi bi-file-word"></i>MS Word (apaquarto)</a></li></ul></div><div class="quarto-other-links"><h2>Otros Enlaces</h2><ul><li><a href="https://gravatar.com/achalmaedison"><i class="bi bi-link-45deg"></i>Gravatar</a></li></ul></div></nav>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 <style>
   :root {
@@ -564,14 +734,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
-<section id="adb" class="level1">
-<h1>ADB</h1>
-<section id="qué-es-android-debug-bridge" class="level2">
-<h2 class="anchored" data-anchor-id="qué-es-android-debug-bridge">¿Qué es Android Debug Bridge?</h2>
+<section id="adb" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> ADB</h1>
+<section id="qué-es-android-debug-bridge" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="qué-es-android-debug-bridge"><span class="header-section-number">1.1</span> ¿Qué es Android Debug Bridge?</h2>
 <p><strong>Android Debug Bridge (ADB)</strong> es una herramienta de línea de comandos versátil que permite comunicarte con dispositivos Android. Es parte esencial del SDK de Android y proporciona acceso completo al sistema operativo del dispositivo.</p>
 </section>
-<section id="componentes-de-adb" class="level2">
-<h2 class="anchored" data-anchor-id="componentes-de-adb">Componentes de ADB</h2>
+<section id="componentes-de-adb" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="componentes-de-adb"><span class="header-section-number">1.2</span> Componentes de ADB</h2>
 <p>ADB es un programa cliente-servidor con tres componentes:</p>
 <ol type="1">
 <li><p><strong>Cliente</strong></p>
@@ -595,8 +765,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </ul></li>
 </ol>
 </section>
-<section id="funcionamiento" class="level2">
-<h2 class="anchored" data-anchor-id="funcionamiento">Funcionamiento</h2>
+<section id="funcionamiento" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="funcionamiento"><span class="header-section-number">1.3</span> Funcionamiento</h2>
 <pre><code>┌─────────────────────────────────────────────┐
 │          ARCH LINUX (Host)                  │
 │                                             │
@@ -620,8 +790,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 │                                            │
 └────────────────────────────────────────────┘</code></pre>
 </section>
-<section id="ventajas-de-adb" class="level2">
-<h2 class="anchored" data-anchor-id="ventajas-de-adb">Ventajas de ADB</h2>
+<section id="ventajas-de-adb" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="ventajas-de-adb"><span class="header-section-number">1.4</span> Ventajas de ADB</h2>
 <p><strong>Para desarrollo:</strong></p>
 <ul>
 <li>Instalar y depurar aplicaciones</li>
@@ -646,10 +816,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <hr>
 </section>
 </section>
-<section id="arquitectura-de-adb" class="level1">
-<h1>Arquitectura de ADB</h1>
-<section id="proceso-de-conexión" class="level2">
-<h2 class="anchored" data-anchor-id="proceso-de-conexión">Proceso de Conexión</h2>
+<section id="arquitectura-de-adb" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Arquitectura de ADB</h1>
+<section id="proceso-de-conexión" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="proceso-de-conexión"><span class="header-section-number">2.1</span> Proceso de Conexión</h2>
 <p><strong>1. Inicio del Cliente</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">adb</span> devices</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>2. Verificación del Servidor</strong></p>
@@ -672,8 +842,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <li>Respuesta llega al cliente</li>
 </ul>
 </section>
-<section id="puertos-y-conexiones" class="level2">
-<h2 class="anchored" data-anchor-id="puertos-y-conexiones">Puertos y Conexiones</h2>
+<section id="puertos-y-conexiones" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="puertos-y-conexiones"><span class="header-section-number">2.2</span> Puertos y Conexiones</h2>
 <p><strong>Emuladores:</strong></p>
 <pre><code>Emulador 1: consola 5554, adb 5555
 Emulador 2: consola 5556, adb 5557
@@ -686,10 +856,10 @@ Emulador 3: consola 5558, adb 5559
 </ul>
 </section>
 </section>
-<section id="instalación-en-arch-linux" class="level1">
-<h1>Instalación en Arch Linux</h1>
-<section id="método-1-repositorios-oficiales-recomendado" class="level2">
-<h2 class="anchored" data-anchor-id="método-1-repositorios-oficiales-recomendado">Método 1: Repositorios Oficiales (Recomendado)</h2>
+<section id="instalación-en-arch-linux" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Instalación en Arch Linux</h1>
+<section id="método-1-repositorios-oficiales-recomendado" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="método-1-repositorios-oficiales-recomendado"><span class="header-section-number">3.1</span> Método 1: Repositorios Oficiales (Recomendado)</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># ADB está en el paquete android-tools</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> android-tools</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Verificar instalación:</strong></p>
@@ -698,8 +868,8 @@ Emulador 3: consola 5558, adb 5559
 <span id="cb5-3"><a href="#cb5-3"></a><span class="co"># Android Debug Bridge version 1.0.41</span></span>
 <span id="cb5-4"><a href="#cb5-4"></a><span class="co"># Version 35.0.1-11580240</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="método-2-android-sdk-completo" class="level2">
-<h2 class="anchored" data-anchor-id="método-2-android-sdk-completo">Método 2: Android SDK Completo</h2>
+<section id="método-2-android-sdk-completo" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="método-2-android-sdk-completo"><span class="header-section-number">3.2</span> Método 2: Android SDK Completo</h2>
 <p><strong>Si necesitas todas las herramientas de Android:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># 1. Instalar dependencias</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> jdk17-openjdk</span>
@@ -714,8 +884,8 @@ Emulador 3: consola 5558, adb 5559
 <p><strong>Recargar configuración:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource fish number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href="#cb7-1"></a>source ~/.config/fish/config.fish</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="método-3-descarga-manual" class="level2">
-<h2 class="anchored" data-anchor-id="método-3-descarga-manual">Método 3: Descarga Manual</h2>
+<section id="método-3-descarga-manual" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="método-3-descarga-manual"><span class="header-section-number">3.3</span> Método 3: Descarga Manual</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># 1. Crear directorio</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/android/platform-tools</span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="bu">cd</span> ~/android/platform-tools</span>
@@ -733,10 +903,10 @@ Emulador 3: consola 5558, adb 5559
 <span id="cb8-15"><a href="#cb8-15"></a><span class="bu">echo</span> <span class="st">'set -gx PATH $PATH ~/android/platform-tools'</span> <span class="op">&gt;&gt;</span> ~/.config/fish/config.fish</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="configuración-inicial" class="level1">
-<h1>Configuración Inicial</h1>
-<section id="verificar-instalación" class="level2">
-<h2 class="anchored" data-anchor-id="verificar-instalación">1. Verificar Instalación</h2>
+<section id="configuración-inicial" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Configuración Inicial</h1>
+<section id="verificar-instalación" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="verificar-instalación"><span class="header-section-number">4.1</span> 1. Verificar Instalación</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Versión de ADB</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="ex">adb</span> version</span>
 <span id="cb9-3"><a href="#cb9-3"></a></span>
@@ -746,8 +916,8 @@ Emulador 3: consola 5558, adb 5559
 <span id="cb9-7"><a href="#cb9-7"></a><span class="co"># Lista de comandos</span></span>
 <span id="cb9-8"><a href="#cb9-8"></a><span class="ex">adb</span> help</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="configurar-permisos-de-usuario" class="level2">
-<h2 class="anchored" data-anchor-id="configurar-permisos-de-usuario">2. Configurar Permisos de Usuario</h2>
+<section id="configurar-permisos-de-usuario" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="configurar-permisos-de-usuario"><span class="header-section-number">4.2</span> 2. Configurar Permisos de Usuario</h2>
 <p><strong>En Arch Linux, necesitas estar en el grupo <code>adbusers</code>:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Verificar si el grupo existe</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="fu">getent</span> group adbusers</span>
@@ -768,8 +938,8 @@ Emulador 3: consola 5558, adb 5559
 <span id="cb11-5"><a href="#cb11-5"></a></span>
 <span id="cb11-6"><a href="#cb11-6"></a><span class="co"># Opción 3: Reiniciar sistema</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="configurar-reglas-udev" class="level2">
-<h2 class="anchored" data-anchor-id="configurar-reglas-udev">3. Configurar Reglas udev</h2>
+<section id="configurar-reglas-udev" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="configurar-reglas-udev"><span class="header-section-number">4.3</span> 3. Configurar Reglas udev</h2>
 <p><strong>Las reglas udev permiten que ADB detecte dispositivos sin sudo.</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Crear archivo de reglas</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a><span class="fu">sudo</span> nano /etc/udev/rules.d/51-android.rules</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -816,8 +986,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">sudo</span> udevadm control <span class="at">--reload-rules</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a><span class="fu">sudo</span> udevadm trigger</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="habilitar-depuración-usb-en-android" class="level2">
-<h2 class="anchored" data-anchor-id="habilitar-depuración-usb-en-android">4. Habilitar Depuración USB en Android</h2>
+<section id="habilitar-depuración-usb-en-android" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="habilitar-depuración-usb-en-android"><span class="header-section-number">4.4</span> 4. Habilitar Depuración USB en Android</h2>
 <p><strong>En el dispositivo Android:</strong></p>
 <ol type="1">
 <li><p><strong>Activar Opciones de Desarrollador:</strong></p>
@@ -837,8 +1007,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 </ul></li>
 </ol>
 </section>
-<section id="primera-conexión" class="level2">
-<h2 class="anchored" data-anchor-id="primera-conexión">5. Primera Conexión</h2>
+<section id="primera-conexión" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="primera-conexión"><span class="header-section-number">4.5</span> 5. Primera Conexión</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Conectar dispositivo por USB</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a></span>
 <span id="cb15-3"><a href="#cb15-3"></a><span class="co"># Iniciar servidor ADB</span></span>
@@ -859,10 +1029,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb16-4"><a href="#cb16-4"></a><span class="co"># ABC123456789    device</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="conexión-de-dispositivos" class="level1">
-<h1>Conexión de Dispositivos</h1>
-<section id="conexión-usb" class="level2">
-<h2 class="anchored" data-anchor-id="conexión-usb">Conexión USB</h2>
+<section id="conexión-de-dispositivos" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Conexión de Dispositivos</h1>
+<section id="conexión-usb" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="conexión-usb"><span class="header-section-number">5.1</span> Conexión USB</h2>
 <p><strong>Básica (un solo dispositivo):</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Listar dispositivos</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a><span class="ex">adb</span> devices</span>
@@ -888,10 +1058,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb19-7"><a href="#cb19-7"></a><span class="co"># Solo emulador (si hay uno solo)</span></span>
 <span id="cb19-8"><a href="#cb19-8"></a><span class="ex">adb</span> <span class="at">-e</span> shell</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="conexión-wifi-android-11" class="level2">
-<h2 class="anchored" data-anchor-id="conexión-wifi-android-11">Conexión WiFi (Android 11+)</h2>
-<section id="método-1-vinculación-con-código" class="level3">
-<h3 class="anchored" data-anchor-id="método-1-vinculación-con-código">Método 1: Vinculación con Código</h3>
+<section id="conexión-wifi-android-11" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="conexión-wifi-android-11"><span class="header-section-number">5.2</span> Conexión WiFi (Android 11+)</h2>
+<section id="método-1-vinculación-con-código" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="método-1-vinculación-con-código"><span class="header-section-number">5.2.1</span> Método 1: Vinculación con Código</h3>
 <p><strong>En el dispositivo:</strong></p>
 <ol type="1">
 <li>Ir a: <code>Ajustes</code> → <code>Opciones de desarrollador</code></li>
@@ -912,8 +1082,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb20-10"><a href="#cb20-10"></a><span class="co"># Verificar</span></span>
 <span id="cb20-11"><a href="#cb20-11"></a><span class="ex">adb</span> devices</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="método-2-desde-usb-a-wifi-android-10-y-anteriores" class="level3">
-<h3 class="anchored" data-anchor-id="método-2-desde-usb-a-wifi-android-10-y-anteriores">Método 2: Desde USB a WiFi (Android 10 y anteriores)</h3>
+<section id="método-2-desde-usb-a-wifi-android-10-y-anteriores" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="método-2-desde-usb-a-wifi-android-10-y-anteriores"><span class="header-section-number">5.2.2</span> Método 2: Desde USB a WiFi (Android 10 y anteriores)</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># 1. Conectar dispositivo por USB</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="ex">adb</span> devices</span>
 <span id="cb21-3"><a href="#cb21-3"></a></span>
@@ -935,8 +1105,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1"></a><span class="ex">adb</span> usb</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="reconexión-automática" class="level2">
-<h2 class="anchored" data-anchor-id="reconexión-automática">Reconexión Automática</h2>
+<section id="reconexión-automática" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="reconexión-automática"><span class="header-section-number">5.3</span> Reconexión Automática</h2>
 <p><strong>Si se pierde conexión WiFi:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Reintentar conexión</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a><span class="ex">adb</span> connect 192.168.1.100:5555</span>
@@ -946,8 +1116,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb23-6"><a href="#cb23-6"></a><span class="ex">adb</span> start-server</span>
 <span id="cb23-7"><a href="#cb23-7"></a><span class="ex">adb</span> connect 192.168.1.100:5555</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="variable-de-entorno-android_serial" class="level2">
-<h2 class="anchored" data-anchor-id="variable-de-entorno-android_serial">Variable de Entorno ANDROID_SERIAL</h2>
+<section id="variable-de-entorno-android_serial" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="variable-de-entorno-android_serial"><span class="header-section-number">5.4</span> Variable de Entorno ANDROID_SERIAL</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Fish</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="bu">set</span> <span class="at">-gx</span> ANDROID_SERIAL ABC123456789</span>
 <span id="cb24-3"><a href="#cb24-3"></a><span class="ex">adb</span> shell  <span class="co"># Se conecta automáticamente a ABC123456789</span></span>
@@ -961,10 +1131,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <hr>
 </section>
 </section>
-<section id="comandos-básicos" class="level1">
-<h1>Comandos Básicos</h1>
-<section id="gestión-del-servidor-adb" class="level2">
-<h2 class="anchored" data-anchor-id="gestión-del-servidor-adb">Gestión del Servidor ADB</h2>
+<section id="comandos-básicos" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Comandos Básicos</h1>
+<section id="gestión-del-servidor-adb" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="gestión-del-servidor-adb"><span class="header-section-number">6.1</span> Gestión del Servidor ADB</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Iniciar servidor</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a><span class="ex">adb</span> start-server</span>
 <span id="cb25-3"><a href="#cb25-3"></a></span>
@@ -980,8 +1150,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb25-13"><a href="#cb25-13"></a><span class="co"># Ver puerto del servidor</span></span>
 <span id="cb25-14"><a href="#cb25-14"></a><span class="co"># (siempre es 5037 por defecto)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="información-del-dispositivo" class="level2">
-<h2 class="anchored" data-anchor-id="información-del-dispositivo">Información del Dispositivo</h2>
+<section id="información-del-dispositivo" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="información-del-dispositivo"><span class="header-section-number">6.2</span> Información del Dispositivo</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Listar dispositivos conectados</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="ex">adb</span> devices</span>
 <span id="cb26-3"><a href="#cb26-3"></a><span class="ex">adb</span> devices <span class="at">-l</span>  <span class="co"># con detalles</span></span>
@@ -1011,8 +1181,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb26-27"><a href="#cb26-27"></a><span class="ex">adb</span> get-state</span>
 <span id="cb26-28"><a href="#cb26-28"></a><span class="co"># Posibles valores: device, offline, bootloader, recovery</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="reiniciar-dispositivo" class="level2">
-<h2 class="anchored" data-anchor-id="reiniciar-dispositivo">Reiniciar Dispositivo</h2>
+<section id="reiniciar-dispositivo" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="reiniciar-dispositivo"><span class="header-section-number">6.3</span> Reiniciar Dispositivo</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Reinicio normal</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a><span class="ex">adb</span> reboot</span>
 <span id="cb27-3"><a href="#cb27-3"></a></span>
@@ -1025,8 +1195,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb27-10"><a href="#cb27-10"></a><span class="co"># Reiniciar en modo fastboot</span></span>
 <span id="cb27-11"><a href="#cb27-11"></a><span class="ex">adb</span> reboot-bootloader</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="logs-y-debugging" class="level2">
-<h2 class="anchored" data-anchor-id="logs-y-debugging">Logs y Debugging</h2>
+<section id="logs-y-debugging" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="logs-y-debugging"><span class="header-section-number">6.4</span> Logs y Debugging</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Ver logs en tiempo real</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a><span class="ex">adb</span> logcat</span>
 <span id="cb28-3"><a href="#cb28-3"></a></span>
@@ -1047,10 +1217,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <hr>
 </section>
 </section>
-<section id="gestión-de-aplicaciones" class="level1">
-<h1>Gestión de Aplicaciones</h1>
-<section id="instalar-apk" class="level2">
-<h2 class="anchored" data-anchor-id="instalar-apk">Instalar APK</h2>
+<section id="gestión-de-aplicaciones" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Gestión de Aplicaciones</h1>
+<section id="instalar-apk" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="instalar-apk"><span class="header-section-number">7.1</span> Instalar APK</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Instalación básica</span></span>
 <span id="cb29-2"><a href="#cb29-2"></a><span class="ex">adb</span> install app.apk</span>
 <span id="cb29-3"><a href="#cb29-3"></a></span>
@@ -1078,8 +1248,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb29-25"><a href="#cb29-25"></a><span class="co"># Instalación incremental (Android 11+)</span></span>
 <span id="cb29-26"><a href="#cb29-26"></a><span class="ex">adb</span> install <span class="at">--incremental</span> app.apk</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="desinstalar-aplicación" class="level2">
-<h2 class="anchored" data-anchor-id="desinstalar-aplicación">Desinstalar Aplicación</h2>
+<section id="desinstalar-aplicación" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="desinstalar-aplicación"><span class="header-section-number">7.2</span> Desinstalar Aplicación</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Desinstalar</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a><span class="ex">adb</span> uninstall com.example.app</span>
 <span id="cb30-3"><a href="#cb30-3"></a></span>
@@ -1089,8 +1259,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb30-7"><a href="#cb30-7"></a><span class="co"># Desinstalar del dispositivo específico</span></span>
 <span id="cb30-8"><a href="#cb30-8"></a><span class="ex">adb</span> <span class="at">-s</span> ABC123 uninstall com.example.app</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="listar-aplicaciones" class="level2">
-<h2 class="anchored" data-anchor-id="listar-aplicaciones">Listar Aplicaciones</h2>
+<section id="listar-aplicaciones" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="listar-aplicaciones"><span class="header-section-number">7.3</span> Listar Aplicaciones</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Todas las aplicaciones</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="ex">adb</span> shell pm list packages</span>
 <span id="cb31-3"><a href="#cb31-3"></a></span>
@@ -1112,8 +1282,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb31-19"><a href="#cb31-19"></a><span class="co"># Con ruta del APK</span></span>
 <span id="cb31-20"><a href="#cb31-20"></a><span class="ex">adb</span> shell pm list packages <span class="at">-f</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="información-de-aplicación" class="level2">
-<h2 class="anchored" data-anchor-id="información-de-aplicación">Información de Aplicación</h2>
+<section id="información-de-aplicación" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="información-de-aplicación"><span class="header-section-number">7.4</span> Información de Aplicación</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Ruta del APK</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a><span class="ex">adb</span> shell pm path com.android.chrome</span>
 <span id="cb32-3"><a href="#cb32-3"></a></span>
@@ -1126,8 +1296,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb32-10"><a href="#cb32-10"></a><span class="co"># Versión</span></span>
 <span id="cb32-11"><a href="#cb32-11"></a><span class="ex">adb</span> shell dumpsys package com.android.chrome <span class="kw">|</span> <span class="fu">grep</span> versionName</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="iniciar-aplicación" class="level2">
-<h2 class="anchored" data-anchor-id="iniciar-aplicación">Iniciar Aplicación</h2>
+<section id="iniciar-aplicación" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="iniciar-aplicación"><span class="header-section-number">7.5</span> Iniciar Aplicación</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Iniciar actividad principal</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a><span class="ex">adb</span> shell monkey <span class="at">-p</span> com.android.chrome <span class="at">-c</span> android.intent.category.LAUNCHER 1</span>
 <span id="cb33-3"><a href="#cb33-3"></a></span>
@@ -1137,21 +1307,21 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb33-7"><a href="#cb33-7"></a><span class="co"># Iniciar con intent</span></span>
 <span id="cb33-8"><a href="#cb33-8"></a><span class="ex">adb</span> shell am start <span class="at">-a</span> android.intent.action.VIEW <span class="at">-d</span> https://google.com</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="detener-aplicación" class="level2">
-<h2 class="anchored" data-anchor-id="detener-aplicación">Detener Aplicación</h2>
+<section id="detener-aplicación" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="detener-aplicación"><span class="header-section-number">7.6</span> Detener Aplicación</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Forzar detención</span></span>
 <span id="cb34-2"><a href="#cb34-2"></a><span class="ex">adb</span> shell am force-stop com.android.chrome</span>
 <span id="cb34-3"><a href="#cb34-3"></a></span>
 <span id="cb34-4"><a href="#cb34-4"></a><span class="co"># Matar proceso</span></span>
 <span id="cb34-5"><a href="#cb34-5"></a><span class="ex">adb</span> shell am kill com.android.chrome</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="limpiar-datos-de-aplicación" class="level2">
-<h2 class="anchored" data-anchor-id="limpiar-datos-de-aplicación">Limpiar Datos de Aplicación</h2>
+<section id="limpiar-datos-de-aplicación" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="limpiar-datos-de-aplicación"><span class="header-section-number">7.7</span> Limpiar Datos de Aplicación</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Borrar todos los datos y caché</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a><span class="ex">adb</span> shell pm clear com.android.chrome</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="habilitardeshabilitar-aplicación" class="level2">
-<h2 class="anchored" data-anchor-id="habilitardeshabilitar-aplicación">Habilitar/Deshabilitar Aplicación</h2>
+<section id="habilitardeshabilitar-aplicación" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="habilitardeshabilitar-aplicación"><span class="header-section-number">7.8</span> Habilitar/Deshabilitar Aplicación</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Deshabilitar</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a><span class="ex">adb</span> shell pm disable-user com.example.app</span>
 <span id="cb36-3"><a href="#cb36-3"></a></span>
@@ -1159,10 +1329,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb36-5"><a href="#cb36-5"></a><span class="ex">adb</span> shell pm enable com.example.app</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="transferencia-de-archivos" class="level1">
-<h1>Transferencia de Archivos</h1>
-<section id="copiar-archivos-al-dispositivo-push" class="level2">
-<h2 class="anchored" data-anchor-id="copiar-archivos-al-dispositivo-push">Copiar Archivos al Dispositivo (Push)</h2>
+<section id="transferencia-de-archivos" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Transferencia de Archivos</h1>
+<section id="copiar-archivos-al-dispositivo-push" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="copiar-archivos-al-dispositivo-push"><span class="header-section-number">8.1</span> Copiar Archivos al Dispositivo (Push)</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Sintaxis básica</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a><span class="ex">adb</span> push archivo_local ruta_dispositivo</span>
 <span id="cb37-3"><a href="#cb37-3"></a></span>
@@ -1178,8 +1348,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb37-13"><a href="#cb37-13"></a><span class="co"># Con dispositivo específico</span></span>
 <span id="cb37-14"><a href="#cb37-14"></a><span class="ex">adb</span> <span class="at">-s</span> ABC123 push archivo.txt /sdcard/</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="copiar-archivos-del-dispositivo-pull" class="level2">
-<h2 class="anchored" data-anchor-id="copiar-archivos-del-dispositivo-pull">Copiar Archivos del Dispositivo (Pull)</h2>
+<section id="copiar-archivos-del-dispositivo-pull" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="copiar-archivos-del-dispositivo-pull"><span class="header-section-number">8.2</span> Copiar Archivos del Dispositivo (Pull)</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Sintaxis básica</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a><span class="ex">adb</span> pull ruta_dispositivo archivo_local</span>
 <span id="cb38-3"><a href="#cb38-3"></a></span>
@@ -1194,8 +1364,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb38-12"><a href="#cb38-12"></a><span class="co"># Con dispositivo específico</span></span>
 <span id="cb38-13"><a href="#cb38-13"></a><span class="ex">adb</span> <span class="at">-s</span> ABC123 pull /sdcard/foto.jpg ./</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="explorar-sistema-de-archivos" class="level2">
-<h2 class="anchored" data-anchor-id="explorar-sistema-de-archivos">Explorar Sistema de Archivos</h2>
+<section id="explorar-sistema-de-archivos" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="explorar-sistema-de-archivos"><span class="header-section-number">8.3</span> Explorar Sistema de Archivos</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Listar contenido de directorio</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a><span class="ex">adb</span> shell ls /sdcard/</span>
 <span id="cb39-3"><a href="#cb39-3"></a></span>
@@ -1214,8 +1384,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb39-16"><a href="#cb39-16"></a><span class="co"># Espacio disponible</span></span>
 <span id="cb39-17"><a href="#cb39-17"></a><span class="ex">adb</span> shell df <span class="at">-h</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="creareliminar-archivos-y-directorios" class="level2">
-<h2 class="anchored" data-anchor-id="creareliminar-archivos-y-directorios">Crear/Eliminar Archivos y Directorios</h2>
+<section id="creareliminar-archivos-y-directorios" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="creareliminar-archivos-y-directorios"><span class="header-section-number">8.4</span> Crear/Eliminar Archivos y Directorios</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># Crear directorio</span></span>
 <span id="cb40-2"><a href="#cb40-2"></a><span class="ex">adb</span> shell mkdir /sdcard/MiCarpeta</span>
 <span id="cb40-3"><a href="#cb40-3"></a></span>
@@ -1236,10 +1406,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <hr>
 </section>
 </section>
-<section id="shell-de-android" class="level1">
-<h1>Shell de Android</h1>
-<section id="acceder-al-shell" class="level2">
-<h2 class="anchored" data-anchor-id="acceder-al-shell">Acceder al Shell</h2>
+<section id="shell-de-android" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Shell de Android</h1>
+<section id="acceder-al-shell" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="acceder-al-shell"><span class="header-section-number">9.1</span> Acceder al Shell</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Shell interactivo</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a><span class="ex">adb</span> shell</span>
 <span id="cb41-3"><a href="#cb41-3"></a></span>
@@ -1254,8 +1424,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb41-12"><a href="#cb41-12"></a><span class="ex">adb</span> shell</span>
 <span id="cb41-13"><a href="#cb41-13"></a><span class="co"># Ahora estarás como root (#)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="comandos-unix-disponibles" class="level2">
-<h2 class="anchored" data-anchor-id="comandos-unix-disponibles">Comandos Unix Disponibles</h2>
+<section id="comandos-unix-disponibles" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="comandos-unix-disponibles"><span class="header-section-number">9.2</span> Comandos Unix Disponibles</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Listar herramientas disponibles</span></span>
 <span id="cb42-2"><a href="#cb42-2"></a><span class="ex">adb</span> shell ls /system/bin</span>
 <span id="cb42-3"><a href="#cb42-3"></a></span>
@@ -1282,8 +1452,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <li><code>chown</code> - Cambiar propietario</li>
 </ul>
 </section>
-<section id="propiedades-del-sistema" class="level2">
-<h2 class="anchored" data-anchor-id="propiedades-del-sistema">Propiedades del Sistema</h2>
+<section id="propiedades-del-sistema" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="propiedades-del-sistema"><span class="header-section-number">9.3</span> Propiedades del Sistema</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Listar todas las propiedades</span></span>
 <span id="cb43-2"><a href="#cb43-2"></a><span class="ex">adb</span> shell getprop</span>
 <span id="cb43-3"><a href="#cb43-3"></a></span>
@@ -1301,8 +1471,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb43-15"><a href="#cb43-15"></a><span class="ex">adb</span> shell getprop ro.serialno                <span class="co"># Serial</span></span>
 <span id="cb43-16"><a href="#cb43-16"></a><span class="ex">adb</span> shell getprop net.hostname               <span class="co"># Hostname</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="configuraciones-del-sistema" class="level2">
-<h2 class="anchored" data-anchor-id="configuraciones-del-sistema">Configuraciones del Sistema</h2>
+<section id="configuraciones-del-sistema" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="configuraciones-del-sistema"><span class="header-section-number">9.4</span> Configuraciones del Sistema</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Ver configuración</span></span>
 <span id="cb44-2"><a href="#cb44-2"></a><span class="ex">adb</span> shell settings get global wifi_on</span>
 <span id="cb44-3"><a href="#cb44-3"></a><span class="ex">adb</span> shell settings get system screen_brightness</span>
@@ -1317,11 +1487,11 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb44-12"><a href="#cb44-12"></a><span class="ex">adb</span> shell settings list secure</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="administrador-de-actividades" class="level1">
-<h1>Administrador de Actividades</h1>
+<section id="administrador-de-actividades" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Administrador de Actividades</h1>
 <p><strong>El Administrador de Actividades (am) controla actividades, servicios e intents.</strong></p>
-<section id="sintaxis-básica" class="level2">
-<h2 class="anchored" data-anchor-id="sintaxis-básica">Sintaxis Básica</h2>
+<section id="sintaxis-básica" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="sintaxis-básica"><span class="header-section-number">10.1</span> Sintaxis Básica</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># Desde shell</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a><span class="ex">adb</span> shell</span>
 <span id="cb45-3"><a href="#cb45-3"></a><span class="ex">am</span> comando</span>
@@ -1329,8 +1499,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb45-5"><a href="#cb45-5"></a><span class="co"># Comando directo</span></span>
 <span id="cb45-6"><a href="#cb45-6"></a><span class="ex">adb</span> shell am comando</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="iniciar-actividad" class="level2">
-<h2 class="anchored" data-anchor-id="iniciar-actividad">Iniciar Actividad</h2>
+<section id="iniciar-actividad" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="iniciar-actividad"><span class="header-section-number">10.2</span> Iniciar Actividad</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Iniciar actividad por acción</span></span>
 <span id="cb46-2"><a href="#cb46-2"></a><span class="ex">adb</span> shell am start <span class="at">-a</span> android.intent.action.VIEW</span>
 <span id="cb46-3"><a href="#cb46-3"></a></span>
@@ -1349,32 +1519,32 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb46-16"><a href="#cb46-16"></a><span class="co"># Habilitar debugging</span></span>
 <span id="cb46-17"><a href="#cb46-17"></a><span class="ex">adb</span> shell am start <span class="at">-D</span> <span class="at">-n</span> com.example.app/.MainActivity</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="iniciar-servicio" class="level2">
-<h2 class="anchored" data-anchor-id="iniciar-servicio">Iniciar Servicio</h2>
+<section id="iniciar-servicio" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="iniciar-servicio"><span class="header-section-number">10.3</span> Iniciar Servicio</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1"></a><span class="ex">adb</span> shell am startservice <span class="at">-n</span> com.example.app/.MyService</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="enviar-broadcast" class="level2">
-<h2 class="anchored" data-anchor-id="enviar-broadcast">Enviar Broadcast</h2>
+<section id="enviar-broadcast" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="enviar-broadcast"><span class="header-section-number">10.4</span> Enviar Broadcast</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1"></a><span class="co"># Broadcast simple</span></span>
 <span id="cb48-2"><a href="#cb48-2"></a><span class="ex">adb</span> shell am broadcast <span class="at">-a</span> android.intent.action.BOOT_COMPLETED</span>
 <span id="cb48-3"><a href="#cb48-3"></a></span>
 <span id="cb48-4"><a href="#cb48-4"></a><span class="co"># Con datos extra</span></span>
 <span id="cb48-5"><a href="#cb48-5"></a><span class="ex">adb</span> shell am broadcast <span class="at">-a</span> com.example.ACTION <span class="at">--es</span> key value</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="forzar-detención" class="level2">
-<h2 class="anchored" data-anchor-id="forzar-detención">Forzar Detención</h2>
+<section id="forzar-detención" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="forzar-detención"><span class="header-section-number">10.5</span> Forzar Detención</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1"></a><span class="ex">adb</span> shell am force-stop com.android.chrome</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="matar-proceso" class="level2">
-<h2 class="anchored" data-anchor-id="matar-proceso">Matar Proceso</h2>
+<section id="matar-proceso" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="matar-proceso"><span class="header-section-number">10.6</span> Matar Proceso</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Matar app</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a><span class="ex">adb</span> shell am kill com.android.chrome</span>
 <span id="cb50-3"><a href="#cb50-3"></a></span>
 <span id="cb50-4"><a href="#cb50-4"></a><span class="co"># Matar todos los procesos en segundo plano</span></span>
 <span id="cb50-5"><a href="#cb50-5"></a><span class="ex">adb</span> shell am kill-all</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="modificar-pantalla" class="level2">
-<h2 class="anchored" data-anchor-id="modificar-pantalla">Modificar Pantalla</h2>
+<section id="modificar-pantalla" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="modificar-pantalla"><span class="header-section-number">10.7</span> Modificar Pantalla</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Cambiar tamaño de pantalla</span></span>
 <span id="cb51-2"><a href="#cb51-2"></a><span class="ex">adb</span> shell am display-size 1920x1080</span>
 <span id="cb51-3"><a href="#cb51-3"></a></span>
@@ -1387,8 +1557,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb51-10"><a href="#cb51-10"></a><span class="co"># Restablecer</span></span>
 <span id="cb51-11"><a href="#cb51-11"></a><span class="ex">adb</span> shell am display-density reset</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="ejemplos-de-intents" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplos-de-intents">Ejemplos de Intents</h2>
+<section id="ejemplos-de-intents" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="ejemplos-de-intents"><span class="header-section-number">10.8</span> Ejemplos de Intents</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Abrir configuración WiFi</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a><span class="ex">adb</span> shell am start <span class="at">-a</span> android.settings.WIFI_SETTINGS</span>
 <span id="cb52-3"><a href="#cb52-3"></a></span>
@@ -1411,11 +1581,11 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb52-20"><a href="#cb52-20"></a><span class="ex">adb</span> shell am start <span class="at">-a</span> android.intent.action.SEND <span class="at">--es</span> android.intent.extra.TEXT <span class="st">"Texto"</span> <span class="at">--et</span> android.intent.extra.SUBJECT <span class="st">"Asunto"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="administrador-de-paquetes" class="level1">
-<h1>Administrador de Paquetes</h1>
+<section id="administrador-de-paquetes" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Administrador de Paquetes</h1>
 <p><strong>El Administrador de Paquetes (pm) gestiona aplicaciones instaladas.</strong></p>
-<section id="listar-paquetes" class="level2">
-<h2 class="anchored" data-anchor-id="listar-paquetes">Listar Paquetes</h2>
+<section id="listar-paquetes" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="listar-paquetes"><span class="header-section-number">11.1</span> Listar Paquetes</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># Todos los paquetes</span></span>
 <span id="cb53-2"><a href="#cb53-2"></a><span class="ex">adb</span> shell pm list packages</span>
 <span id="cb53-3"><a href="#cb53-3"></a></span>
@@ -1437,8 +1607,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb53-19"><a href="#cb53-19"></a><span class="co"># Buscar específico</span></span>
 <span id="cb53-20"><a href="#cb53-20"></a><span class="ex">adb</span> shell pm list packages <span class="kw">|</span> <span class="fu">grep</span> chrome</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="información-del-paquete" class="level2">
-<h2 class="anchored" data-anchor-id="información-del-paquete">Información del Paquete</h2>
+<section id="información-del-paquete" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="información-del-paquete"><span class="header-section-number">11.2</span> Información del Paquete</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># Ruta del APK</span></span>
 <span id="cb54-2"><a href="#cb54-2"></a><span class="ex">adb</span> shell pm path com.android.chrome</span>
 <span id="cb54-3"><a href="#cb54-3"></a></span>
@@ -1454,8 +1624,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb54-13"><a href="#cb54-13"></a><span class="co"># Grupos de permisos</span></span>
 <span id="cb54-14"><a href="#cb54-14"></a><span class="ex">adb</span> shell pm list permission-groups</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="otorgarrevocar-permisos" class="level2">
-<h2 class="anchored" data-anchor-id="otorgarrevocar-permisos">Otorgar/Revocar Permisos</h2>
+<section id="otorgarrevocar-permisos" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="otorgarrevocar-permisos"><span class="header-section-number">11.3</span> Otorgar/Revocar Permisos</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># Otorgar permiso</span></span>
 <span id="cb55-2"><a href="#cb55-2"></a><span class="ex">adb</span> shell pm grant com.example.app android.permission.CAMERA</span>
 <span id="cb55-3"><a href="#cb55-3"></a></span>
@@ -1469,21 +1639,21 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb55-11"><a href="#cb55-11"></a><span class="co"># android.permission.ACCESS_FINE_LOCATION</span></span>
 <span id="cb55-12"><a href="#cb55-12"></a><span class="co"># android.permission.RECORD_AUDIO</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="habilitardeshabilitar-paquete" class="level2">
-<h2 class="anchored" data-anchor-id="habilitardeshabilitar-paquete">Habilitar/Deshabilitar Paquete</h2>
+<section id="habilitardeshabilitar-paquete" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="habilitardeshabilitar-paquete"><span class="header-section-number">11.4</span> Habilitar/Deshabilitar Paquete</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># Deshabilitar</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a><span class="ex">adb</span> shell pm disable-user com.example.app</span>
 <span id="cb56-3"><a href="#cb56-3"></a></span>
 <span id="cb56-4"><a href="#cb56-4"></a><span class="co"># Habilitar</span></span>
 <span id="cb56-5"><a href="#cb56-5"></a><span class="ex">adb</span> shell pm enable com.example.app</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="limpiar-datos" class="level2">
-<h2 class="anchored" data-anchor-id="limpiar-datos">Limpiar Datos</h2>
+<section id="limpiar-datos" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="limpiar-datos"><span class="header-section-number">11.5</span> Limpiar Datos</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># Borrar datos de aplicación</span></span>
 <span id="cb57-2"><a href="#cb57-2"></a><span class="ex">adb</span> shell pm clear com.android.chrome</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="usuarios" class="level2">
-<h2 class="anchored" data-anchor-id="usuarios">Usuarios</h2>
+<section id="usuarios" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="usuarios"><span class="header-section-number">11.6</span> Usuarios</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># Listar usuarios</span></span>
 <span id="cb58-2"><a href="#cb58-2"></a><span class="ex">adb</span> shell pm list users</span>
 <span id="cb58-3"><a href="#cb58-3"></a></span>
@@ -1497,10 +1667,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb58-11"><a href="#cb58-11"></a><span class="ex">adb</span> shell pm get-max-users</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="captura-de-pantalla-y-grabación" class="level1">
-<h1>Captura de Pantalla y Grabación</h1>
-<section id="captura-de-pantalla" class="level2">
-<h2 class="anchored" data-anchor-id="captura-de-pantalla">Captura de Pantalla</h2>
+<section id="captura-de-pantalla-y-grabación" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Captura de Pantalla y Grabación</h1>
+<section id="captura-de-pantalla" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="captura-de-pantalla"><span class="header-section-number">12.1</span> Captura de Pantalla</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># Capturar y guardar en dispositivo</span></span>
 <span id="cb59-2"><a href="#cb59-2"></a><span class="ex">adb</span> shell screencap /sdcard/screenshot.png</span>
 <span id="cb59-3"><a href="#cb59-3"></a></span>
@@ -1515,8 +1685,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb59-12"><a href="#cb59-12"></a><span class="co"># Con timestamp</span></span>
 <span id="cb59-13"><a href="#cb59-13"></a><span class="ex">adb</span> exec-out screencap <span class="at">-p</span> <span class="op">&gt;</span> screenshot_<span class="va">$(</span><span class="fu">date</span> +%Y%m%d_%H%M%S<span class="va">)</span>.png</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="grabación-de-video" class="level2">
-<h2 class="anchored" data-anchor-id="grabación-de-video">Grabación de Video</h2>
+<section id="grabación-de-video" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="grabación-de-video"><span class="header-section-number">12.2</span> Grabación de Video</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1"></a><span class="co"># Grabar video (hasta 3 minutos por defecto)</span></span>
 <span id="cb60-2"><a href="#cb60-2"></a><span class="ex">adb</span> shell screenrecord /sdcard/video.mp4</span>
 <span id="cb60-3"><a href="#cb60-3"></a></span>
@@ -1548,10 +1718,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 </ul>
 </section>
 </section>
-<section id="redirección-de-puertos" class="level1">
-<h1>Redirección de Puertos</h1>
-<section id="forward-host-dispositivo" class="level2">
-<h2 class="anchored" data-anchor-id="forward-host-dispositivo">Forward (Host → Dispositivo)</h2>
+<section id="redirección-de-puertos" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Redirección de Puertos</h1>
+<section id="forward-host-dispositivo" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="forward-host-dispositivo"><span class="header-section-number">13.1</span> Forward (Host → Dispositivo)</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># Redirigir puerto host 6100 a dispositivo 7100</span></span>
 <span id="cb61-2"><a href="#cb61-2"></a><span class="ex">adb</span> forward tcp:6100 tcp:7100</span>
 <span id="cb61-3"><a href="#cb61-3"></a></span>
@@ -1569,8 +1739,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb61-15"><a href="#cb61-15"></a><span class="ex">adb</span> forward tcp:8080 tcp:8080</span>
 <span id="cb61-16"><a href="#cb61-16"></a><span class="co"># Ahora accesible en: http://localhost:8080</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="reverse-dispositivo-host" class="level2">
-<h2 class="anchored" data-anchor-id="reverse-dispositivo-host">Reverse (Dispositivo → Host)</h2>
+<section id="reverse-dispositivo-host" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="reverse-dispositivo-host"><span class="header-section-number">13.2</span> Reverse (Dispositivo → Host)</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># Redirigir puerto dispositivo 9000 a host 9000</span></span>
 <span id="cb62-2"><a href="#cb62-2"></a><span class="ex">adb</span> reverse tcp:9000 tcp:9000</span>
 <span id="cb62-3"><a href="#cb62-3"></a></span>
@@ -1589,29 +1759,29 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb62-16"><a href="#cb62-16"></a><span class="co"># Dispositivo puede acceder a http://localhost:3000</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="comandos-adb-para-conectar-y-instalar-en-windows" class="level1">
-<h1>Comandos ADB para Conectar y Instalar en Windows</h1>
-<section id="versión-de-microsoft-windows-10.0.22000.282" class="level2">
-<h2 class="anchored" data-anchor-id="versión-de-microsoft-windows-10.0.22000.282">Versión de Microsoft Windows: 10.0.22000.282</h2>
+<section id="comandos-adb-para-conectar-y-instalar-en-windows" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> Comandos ADB para Conectar y Instalar en Windows</h1>
+<section id="versión-de-microsoft-windows-10.0.22000.282" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="versión-de-microsoft-windows-10.0.22000.282"><span class="header-section-number">14.1</span> Versión de Microsoft Windows: 10.0.22000.282</h2>
 <ol start="3" type="a">
 <li>Microsoft Corporation. Todos los derechos reservados.</li>
 </ol>
 </section>
-<section id="cambio-de-directorio-a-la-ubicación-de-adb" class="level2">
-<h2 class="anchored" data-anchor-id="cambio-de-directorio-a-la-ubicación-de-adb">Cambio de directorio a la ubicación de <code>ADB</code></h2>
+<section id="cambio-de-directorio-a-la-ubicación-de-adb" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="cambio-de-directorio-a-la-ubicación-de-adb"><span class="header-section-number">14.2</span> Cambio de directorio a la ubicación de <code>ADB</code></h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1"></a></span>
 <span id="cb63-2"><a href="#cb63-2"></a><span class="ex">C:\Users\achalmaedison</span><span class="op">&gt;</span>cd <span class="st">"C:\Users\achalmaedison\Downloads\ADB"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="conexión-con-adb" class="level2">
-<h2 class="anchored" data-anchor-id="conexión-con-adb">Conexión con ADB</h2>
+<section id="conexión-con-adb" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="conexión-con-adb"><span class="header-section-number">14.3</span> Conexión con ADB</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb64"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb64-1"><a href="#cb64-1"></a></span>
 <span id="cb64-2"><a href="#cb64-2"></a><span class="ex">C:\Users\achalmaedison\Downloads\ADB</span><span class="op">&gt;</span>adb connect 127.0.0.1:58526</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Salida esperada:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb65"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb65-1"><a href="#cb65-1"></a></span>
 <span id="cb65-2"><a href="#cb65-2"></a><span class="ex">Ya</span> conectado a 127.0.0.1:58526</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="instalación-de-instagram-apk" class="level2">
-<h2 class="anchored" data-anchor-id="instalación-de-instagram-apk">Instalación de Instagram APK</h2>
+<section id="instalación-de-instagram-apk" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="instalación-de-instagram-apk"><span class="header-section-number">14.4</span> Instalación de Instagram APK</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb66"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><a href="#cb66-1"></a></span>
 <span id="cb66-2"><a href="#cb66-2"></a><span class="ex">C:\Users\achalmaedison\Downloads\ADB</span><span class="op">&gt;</span>adb install Instagram.apk</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Salida esperada:</strong></p>
@@ -1621,13 +1791,13 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb67-4"><a href="#cb67-4"></a><span class="ex">Instalación</span> Exitosa</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Este es un ejemplo de cómo utilizar los comandos ADB en un entorno Windows.</p>
 </section>
-<section id="descarga-de-adb" class="level2">
-<h2 class="anchored" data-anchor-id="descarga-de-adb">Descarga de ADB</h2>
+<section id="descarga-de-adb" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="descarga-de-adb"><span class="header-section-number">14.5</span> Descarga de ADB</h2>
 <p>Puedes descargar ADB desde el siguiente enlace:</p>
 <p><a href="https://developer.android.com/studio/releases/platform-tools">Plataforma de herramientas de Android</a></p>
 </section>
-<section id="configuración" class="level2">
-<h2 class="anchored" data-anchor-id="configuración">Configuración</h2>
+<section id="configuración" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="configuración"><span class="header-section-number">14.6</span> Configuración</h2>
 <ol type="1">
 <li><p>Configurar el subsistema de Android.</p></li>
 <li><p>Activar el modo desarrollador.</p></li>
@@ -1638,8 +1808,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb68"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb68-1"><a href="#cb68-1"></a></span>
 <span id="cb68-2"><a href="#cb68-2"></a><span class="bu">cd</span> C:<span class="dt">\p</span>latform-tools</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="comandos-para-conexión-e-instalación-de-aplicaciones" class="level2">
-<h2 class="anchored" data-anchor-id="comandos-para-conexión-e-instalación-de-aplicaciones">Comandos para conexión e instalación de aplicaciones</h2>
+<section id="comandos-para-conexión-e-instalación-de-aplicaciones" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="comandos-para-conexión-e-instalación-de-aplicaciones"><span class="header-section-number">14.7</span> Comandos para conexión e instalación de aplicaciones</h2>
 <p>Conectar el dispositivo:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb69"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb69-1"><a href="#cb69-1"></a></span>
 <span id="cb69-2"><a href="#cb69-2"></a><span class="ex">adb</span> connect 127.0.0.1:58526</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1650,8 +1820,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb71-2"><a href="#cb71-2"></a><span class="ex">adb</span> install facebook-354-0-0-22-110.apk</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Nota:</strong> Si los comandos no funcionan, intenta reiniciar el sistema.</p>
 </section>
-<section id="ejemplo-de-salida-esperada" class="level2">
-<h2 class="anchored" data-anchor-id="ejemplo-de-salida-esperada">Ejemplo de salida esperada</h2>
+<section id="ejemplo-de-salida-esperada" class="level2" data-number="14.8">
+<h2 data-number="14.8" class="anchored" data-anchor-id="ejemplo-de-salida-esperada"><span class="header-section-number">14.8</span> Ejemplo de salida esperada</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb72"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb72-1"><a href="#cb72-1"></a></span>
 <span id="cb72-2"><a href="#cb72-2"></a><span class="ex">Microsoft</span> Windows [Version 10.0.22000.527]</span>
 <span id="cb72-3"><a href="#cb72-3"></a></span>
@@ -1674,11 +1844,11 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb75-2"><a href="#cb75-2"></a><span class="ex">C:\platform-tools</span><span class="op">&gt;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="windows-11-cómo-descargar-apk-usando-el-subsistema-de-windows-para-android-y-adb" class="level1">
-<h1>Windows 11: Cómo descargar APK usando el Subsistema de Windows para Android y ADB</h1>
+<section id="windows-11-cómo-descargar-apk-usando-el-subsistema-de-windows-para-android-y-adb" class="level1" data-number="15">
+<h1 data-number="15"><span class="header-section-number">15</span> Windows 11: Cómo descargar APK usando el Subsistema de Windows para Android y ADB</h1>
 <p>Aquí te explicamos cómo descargar un archivo APK para instalar una aplicación de Android en tu PC con Windows 11 usando el Subsistema de Windows para Android. Puedes instalar el Subsistema de Windows para Android manualmente en tu PC con su archivo Msixbundle siguiendo nuestra <a href="https://nerdschalk.com/android-apps-on-windows-11-dev-channel-how-to-install-windows-subsystem-for-android-manually-with-msixbundle/">guía aquí</a>.</p>
-<section id="paso-1-habilitar-el-modo-de-desarrollador-en-el-subsistema-de-windows" class="level2">
-<h2 class="anchored" data-anchor-id="paso-1-habilitar-el-modo-de-desarrollador-en-el-subsistema-de-windows">Paso 1: Habilitar el modo de desarrollador en el subsistema de Windows</h2>
+<section id="paso-1-habilitar-el-modo-de-desarrollador-en-el-subsistema-de-windows" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="paso-1-habilitar-el-modo-de-desarrollador-en-el-subsistema-de-windows"><span class="header-section-number">15.1</span> Paso 1: Habilitar el modo de desarrollador en el subsistema de Windows</h2>
 <ol type="1">
 <li>Instala el <a href="https://nerdschalk.com/android-apps-on-windows-11-dev-channel-how-to-install-windows-subsystem-for-android-manually-with-msixbundle/">Subsistema de Windows para Android</a>.</li>
 <li>Abre la aplicación ‘Subsistema de Windows para Android’ en tu PC. Para ello, presiona la tecla <strong>Windows</strong> y busca <strong>Subsistema de Windows para Android</strong>.</li>
@@ -1686,8 +1856,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <li>Dentro de la aplicación, activa el <strong>Modo Desarrollador</strong>.</li>
 </ol>
 </section>
-<section id="paso-2-instalar-las-herramientas-de-la-plataforma-sdk" class="level2">
-<h2 class="anchored" data-anchor-id="paso-2-instalar-las-herramientas-de-la-plataforma-sdk">Paso 2: Instalar las herramientas de la plataforma SDK</h2>
+<section id="paso-2-instalar-las-herramientas-de-la-plataforma-sdk" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="paso-2-instalar-las-herramientas-de-la-plataforma-sdk"><span class="header-section-number">15.2</span> Paso 2: Instalar las herramientas de la plataforma SDK</h2>
 <ol type="1">
 <li>Visita la página de herramientas de la plataforma SDK de Google <a href="https://developer.android.com/studio/releases/platform-tools.html">aquí</a>.</li>
 <li>Descarga <strong>SDK Platform-Tools para Windows</strong>.</li>
@@ -1699,8 +1869,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <li>Abre la carpeta <code>platform-tools</code>, donde encontrarás <code>adb.exe</code> y otros archivos.</li>
 </ol>
 </section>
-<section id="paso-3-instalar-la-aplicación-de-android" class="level2">
-<h2 class="anchored" data-anchor-id="paso-3-instalar-la-aplicación-de-android">Paso 3: Instalar la aplicación de Android</h2>
+<section id="paso-3-instalar-la-aplicación-de-android" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="paso-3-instalar-la-aplicación-de-android"><span class="header-section-number">15.3</span> Paso 3: Instalar la aplicación de Android</h2>
 <ol type="1">
 <li><p>Abre la carpeta <strong>platform-tools</strong>.</p></li>
 <li><p>Haz clic en la barra de direcciones, escribe <strong><code>cmd</code></strong> y presiona <strong>Enter</strong>.</p></li>
@@ -1725,10 +1895,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 </ol>
 </section>
 </section>
-<section id="casos-de-uso-profesionales" class="level1">
-<h1>Casos de Uso Profesionales</h1>
-<section id="caso-1-instalación-masiva-de-apks" class="level2">
-<h2 class="anchored" data-anchor-id="caso-1-instalación-masiva-de-apks">Caso 1: Instalación Masiva de APKs</h2>
+<section id="casos-de-uso-profesionales" class="level1" data-number="16">
+<h1 data-number="16"><span class="header-section-number">16</span> Casos de Uso Profesionales</h1>
+<section id="caso-1-instalación-masiva-de-apks" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="caso-1-instalación-masiva-de-apks"><span class="header-section-number">16.1</span> Caso 1: Instalación Masiva de APKs</h2>
 <p><strong>Escenario:</strong> Instalar múltiples APKs en varios dispositivos.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb80"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb80-1"><a href="#cb80-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb80-2"><a href="#cb80-2"></a><span class="co"># instalar_apks.sh</span></span>
@@ -1755,8 +1925,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb81"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb81-1"><a href="#cb81-1"></a><span class="fu">chmod</span> +x instalar_apks.sh</span>
 <span id="cb81-2"><a href="#cb81-2"></a><span class="ex">./instalar_apks.sh</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="caso-2-backup-automático-de-aplicación" class="level2">
-<h2 class="anchored" data-anchor-id="caso-2-backup-automático-de-aplicación">Caso 2: Backup Automático de Aplicación</h2>
+<section id="caso-2-backup-automático-de-aplicación" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="caso-2-backup-automático-de-aplicación"><span class="header-section-number">16.2</span> Caso 2: Backup Automático de Aplicación</h2>
 <p><strong>Escenario:</strong> Respaldar datos de aplicación específica.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb82"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb82-1"><a href="#cb82-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb82-2"><a href="#cb82-2"></a><span class="co"># backup_app.sh</span></span>
@@ -1783,8 +1953,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb82-23"><a href="#cb82-23"></a></span>
 <span id="cb82-24"><a href="#cb82-24"></a><span class="bu">echo</span> <span class="st">"Backup completado en: </span><span class="va">$BACKUP_DIR</span><span class="st">"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="caso-3-testing-automatizado" class="level2">
-<h2 class="anchored" data-anchor-id="caso-3-testing-automatizado">Caso 3: Testing Automatizado</h2>
+<section id="caso-3-testing-automatizado" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="caso-3-testing-automatizado"><span class="header-section-number">16.3</span> Caso 3: Testing Automatizado</h2>
 <p><strong>Escenario:</strong> Ejecutar suite de tests en dispositivo.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb83"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb83-1"><a href="#cb83-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb83-2"><a href="#cb83-2"></a><span class="co"># run_tests.sh</span></span>
@@ -1806,8 +1976,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb83-18"><a href="#cb83-18"></a><span class="co"># Generar reporte</span></span>
 <span id="cb83-19"><a href="#cb83-19"></a><span class="ex">adb</span> pull /sdcard/test-results.xml ./</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="caso-4-análisis-de-rendimiento" class="level2">
-<h2 class="anchored" data-anchor-id="caso-4-análisis-de-rendimiento">Caso 4: Análisis de Rendimiento</h2>
+<section id="caso-4-análisis-de-rendimiento" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="caso-4-análisis-de-rendimiento"><span class="header-section-number">16.4</span> Caso 4: Análisis de Rendimiento</h2>
 <p><strong>Escenario:</strong> Capturar métricas de rendimiento de aplicación.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb84"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb84-1"><a href="#cb84-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb84-2"><a href="#cb84-2"></a><span class="co"># performance_test.sh</span></span>
@@ -1841,8 +2011,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb84-30"><a href="#cb84-30"></a></span>
 <span id="cb84-31"><a href="#cb84-31"></a><span class="bu">echo</span> <span class="st">"Análisis completado"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="caso-5-captura-automatizada-de-screenshots" class="level2">
-<h2 class="anchored" data-anchor-id="caso-5-captura-automatizada-de-screenshots">Caso 5: Captura Automatizada de Screenshots</h2>
+<section id="caso-5-captura-automatizada-de-screenshots" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="caso-5-captura-automatizada-de-screenshots"><span class="header-section-number">16.5</span> Caso 5: Captura Automatizada de Screenshots</h2>
 <p><strong>Escenario:</strong> Capturar screenshots para documentación.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb85"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb85-1"><a href="#cb85-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb85-2"><a href="#cb85-2"></a><span class="co"># capture_screenshots.sh</span></span>
@@ -1875,8 +2045,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb85-29"><a href="#cb85-29"></a></span>
 <span id="cb85-30"><a href="#cb85-30"></a><span class="bu">echo</span> <span class="st">"Screenshots guardados en: </span><span class="va">$OUTPUT_DIR</span><span class="st">"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="caso-6-monitoreo-de-logs-en-tiempo-real" class="level2">
-<h2 class="anchored" data-anchor-id="caso-6-monitoreo-de-logs-en-tiempo-real">Caso 6: Monitoreo de Logs en Tiempo Real</h2>
+<section id="caso-6-monitoreo-de-logs-en-tiempo-real" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="caso-6-monitoreo-de-logs-en-tiempo-real"><span class="header-section-number">16.6</span> Caso 6: Monitoreo de Logs en Tiempo Real</h2>
 <p><strong>Escenario:</strong> Filtrar logs de aplicación específica.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb86"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb86-1"><a href="#cb86-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb86-2"><a href="#cb86-2"></a><span class="co"># monitor_logs.sh</span></span>
@@ -1892,8 +2062,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb86-12"><a href="#cb86-12"></a><span class="co"># Filtrar logs por PID</span></span>
 <span id="cb86-13"><a href="#cb86-13"></a><span class="ex">adb</span> logcat <span class="at">--pid</span><span class="op">=</span><span class="st">"</span><span class="va">$PID</span><span class="st">"</span> <span class="at">-v</span> time</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="caso-7-instalación-y-testing-rápido" class="level2">
-<h2 class="anchored" data-anchor-id="caso-7-instalación-y-testing-rápido">Caso 7: Instalación y Testing Rápido</h2>
+<section id="caso-7-instalación-y-testing-rápido" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="caso-7-instalación-y-testing-rápido"><span class="header-section-number">16.7</span> Caso 7: Instalación y Testing Rápido</h2>
 <p><strong>Escenario:</strong> Ciclo desarrollo-testing rápido.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb87"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb87-1"><a href="#cb87-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb87-2"><a href="#cb87-2"></a><span class="co"># quick_test.sh</span></span>
@@ -1920,10 +2090,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb87-23"><a href="#cb87-23"></a><span class="ex">adb</span> logcat <span class="kw">|</span> <span class="fu">grep</span> <span class="st">"</span><span class="va">$PACKAGE</span><span class="st">"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="troubleshooting" class="level1">
-<h1>Troubleshooting</h1>
-<section id="problema-1-adb-command-not-found" class="level2">
-<h2 class="anchored" data-anchor-id="problema-1-adb-command-not-found">Problema 1: “adb: command not found”</h2>
+<section id="troubleshooting" class="level1" data-number="17">
+<h1 data-number="17"><span class="header-section-number">17</span> Troubleshooting</h1>
+<section id="problema-1-adb-command-not-found" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="problema-1-adb-command-not-found"><span class="header-section-number">17.1</span> Problema 1: “adb: command not found”</h2>
 <p><strong>Causa:</strong> ADB no está instalado o no está en PATH.</p>
 <p><strong>Soluciones:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb88"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb88-1"><a href="#cb88-1"></a><span class="co"># 1. Verificar instalación</span></span>
@@ -1938,8 +2108,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb88-10"><a href="#cb88-10"></a><span class="co"># 4. Si instalaste manualmente, agregar a PATH</span></span>
 <span id="cb88-11"><a href="#cb88-11"></a><span class="bu">set</span> <span class="at">-gx</span> PATH <span class="va">$PATH</span> ~/android/platform-tools</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-2-no-permissions-missing-udev-rules" class="level2">
-<h2 class="anchored" data-anchor-id="problema-2-no-permissions-missing-udev-rules">Problema 2: “no permissions (missing udev rules?)”</h2>
+<section id="problema-2-no-permissions-missing-udev-rules" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="problema-2-no-permissions-missing-udev-rules"><span class="header-section-number">17.2</span> Problema 2: “no permissions (missing udev rules?)”</h2>
 <p><strong>Causa:</strong> Reglas udev faltantes o usuario no en grupo adbusers.</p>
 <p><strong>Soluciones:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb89"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb89-1"><a href="#cb89-1"></a><span class="co"># 1. Verificar grupo</span></span>
@@ -1959,8 +2129,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb89-15"><a href="#cb89-15"></a></span>
 <span id="cb89-16"><a href="#cb89-16"></a><span class="co"># 5. Reconectar dispositivo</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-3-device-offline-o-unauthorized" class="level2">
-<h2 class="anchored" data-anchor-id="problema-3-device-offline-o-unauthorized">Problema 3: “device offline” o “unauthorized”</h2>
+<section id="problema-3-device-offline-o-unauthorized" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="problema-3-device-offline-o-unauthorized"><span class="header-section-number">17.3</span> Problema 3: “device offline” o “unauthorized”</h2>
 <p><strong>Causa:</strong> Dispositivo no autorizado o conexión interrumpida.</p>
 <p><strong>Soluciones:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb90"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb90-1"><a href="#cb90-1"></a><span class="co"># 1. Revocar autorizaciones en dispositivo</span></span>
@@ -1975,8 +2145,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb90-10"><a href="#cb90-10"></a><span class="ex">adb</span> start-server</span>
 <span id="cb90-11"><a href="#cb90-11"></a><span class="ex">adb</span> devices</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-4-more-than-one-deviceemulator" class="level2">
-<h2 class="anchored" data-anchor-id="problema-4-more-than-one-deviceemulator">Problema 4: “more than one device/emulator”</h2>
+<section id="problema-4-more-than-one-deviceemulator" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="problema-4-more-than-one-deviceemulator"><span class="header-section-number">17.4</span> Problema 4: “more than one device/emulator”</h2>
 <p><strong>Causa:</strong> Múltiples dispositivos conectados sin especificar cuál usar.</p>
 <p><strong>Soluciones:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb91"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb91-1"><a href="#cb91-1"></a><span class="co"># 1. Listar dispositivos</span></span>
@@ -1993,8 +2163,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb91-12"><a href="#cb91-12"></a><span class="ex">adb</span> <span class="at">-d</span> shell</span>
 <span id="cb91-13"><a href="#cb91-13"></a><span class="ex">adb</span> <span class="at">-e</span> shell</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-5-conexión-wifi-se-desconecta" class="level2">
-<h2 class="anchored" data-anchor-id="problema-5-conexión-wifi-se-desconecta">Problema 5: Conexión WiFi se desconecta</h2>
+<section id="problema-5-conexión-wifi-se-desconecta" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="problema-5-conexión-wifi-se-desconecta"><span class="header-section-number">17.5</span> Problema 5: Conexión WiFi se desconecta</h2>
 <p><strong>Causa:</strong> Red inestable o dispositivo cambia de red.</p>
 <p><strong>Soluciones:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb92"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb92-1"><a href="#cb92-1"></a><span class="co"># 1. Verificar que ambos estén en misma red</span></span>
@@ -2012,15 +2182,15 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb92-13"><a href="#cb92-13"></a><span class="co"># 4. Ping para verificar conectividad</span></span>
 <span id="cb92-14"><a href="#cb92-14"></a><span class="fu">ping</span> 192.168.1.100</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-6-daemon-not-running-starting-now" class="level2">
-<h2 class="anchored" data-anchor-id="problema-6-daemon-not-running-starting-now">Problema 6: “daemon not running; starting now”</h2>
+<section id="problema-6-daemon-not-running-starting-now" class="level2" data-number="17.6">
+<h2 data-number="17.6" class="anchored" data-anchor-id="problema-6-daemon-not-running-starting-now"><span class="header-section-number">17.6</span> Problema 6: “daemon not running; starting now”</h2>
 <p><strong>Causa:</strong> Servidor ADB no estaba corriendo (normal).</p>
 <p><strong>No es un error.</strong> ADB inicia automáticamente el servidor.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb93"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb93-1"><a href="#cb93-1"></a><span class="co"># Si quieres iniciar manualmente:</span></span>
 <span id="cb93-2"><a href="#cb93-2"></a><span class="ex">adb</span> start-server</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-7-insufficient-permissions-for-device" class="level2">
-<h2 class="anchored" data-anchor-id="problema-7-insufficient-permissions-for-device">Problema 7: “insufficient permissions for device”</h2>
+<section id="problema-7-insufficient-permissions-for-device" class="level2" data-number="17.7">
+<h2 data-number="17.7" class="anchored" data-anchor-id="problema-7-insufficient-permissions-for-device"><span class="header-section-number">17.7</span> Problema 7: “insufficient permissions for device”</h2>
 <p><strong>Causa:</strong> Permisos USB incorrectos.</p>
 <p><strong>Soluciones:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb94"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb94-1"><a href="#cb94-1"></a><span class="co"># 1. Verificar reglas udev (ver Problema 2)</span></span>
@@ -2036,8 +2206,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb94-11"><a href="#cb94-11"></a><span class="co"># 4. Recargar reglas</span></span>
 <span id="cb94-12"><a href="#cb94-12"></a><span class="fu">sudo</span> udevadm control <span class="at">--reload-rules</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="problema-8-error-protocol-fault-no-status" class="level2">
-<h2 class="anchored" data-anchor-id="problema-8-error-protocol-fault-no-status">Problema 8: “error: protocol fault (no status)”</h2>
+<section id="problema-8-error-protocol-fault-no-status" class="level2" data-number="17.8">
+<h2 data-number="17.8" class="anchored" data-anchor-id="problema-8-error-protocol-fault-no-status"><span class="header-section-number">17.8</span> Problema 8: “error: protocol fault (no status)”</h2>
 <p><strong>Causa:</strong> Comunicación corrupta con dispositivo.</p>
 <p><strong>Soluciones:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb95"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb95-1"><a href="#cb95-1"></a><span class="co"># 1. Desconectar y reconectar dispositivo</span></span>
@@ -2052,10 +2222,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb95-10"><a href="#cb95-10"></a><span class="co"># 4. Como último recurso, reiniciar computadora</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="automatización-con-scripts" class="level1">
-<h1>Automatización con Scripts</h1>
-<section id="script-fish-instalador-de-apk-mejorado" class="level2">
-<h2 class="anchored" data-anchor-id="script-fish-instalador-de-apk-mejorado">Script Fish: Instalador de APK Mejorado</h2>
+<section id="automatización-con-scripts" class="level1" data-number="18">
+<h1 data-number="18"><span class="header-section-number">18</span> Automatización con Scripts</h1>
+<section id="script-fish-instalador-de-apk-mejorado" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="script-fish-instalador-de-apk-mejorado"><span class="header-section-number">18.1</span> Script Fish: Instalador de APK Mejorado</h2>
 <p><strong>Crear <code>~/.config/fish/functions/adb-install-smart.fish</code>:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb96"><pre class="sourceCode numberSource fish number-lines code-with-copy"><code class="sourceCode"><span id="cb96-1"><a href="#cb96-1"></a>function adb-install-smart --description "Instalar APK con opciones inteligentes"</span>
 <span id="cb96-2"><a href="#cb96-2"></a>    if test (count $argv) -lt 1</span>
@@ -2116,8 +2286,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb97"><pre class="sourceCode numberSource fish number-lines code-with-copy"><code class="sourceCode"><span id="cb97-1"><a href="#cb97-1"></a>adb-install-smart app.apk</span>
 <span id="cb97-2"><a href="#cb97-2"></a>adb-install-smart app.apk -r -g</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="script-bash-backup-completo" class="level2">
-<h2 class="anchored" data-anchor-id="script-bash-backup-completo">Script Bash: Backup Completo</h2>
+<section id="script-bash-backup-completo" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="script-bash-backup-completo"><span class="header-section-number">18.2</span> Script Bash: Backup Completo</h2>
 <p><strong>Crear <code>~/bin/adb-backup-full</code>:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb98"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb98-1"><a href="#cb98-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb98-2"><a href="#cb98-2"></a><span class="co"># adb-backup-full - Backup completo del dispositivo</span></span>
@@ -2207,8 +2377,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb99-3"><a href="#cb99-3"></a><span class="ex">adb-backup-full</span> <span class="at">-s</span> ABC123456789</span>
 <span id="cb99-4"><a href="#cb99-4"></a><span class="ex">adb-backup-full</span> <span class="at">-d</span> ~/mis-backups/backup-especial</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="alias-útiles-para-fish" class="level2">
-<h2 class="anchored" data-anchor-id="alias-útiles-para-fish">Alias Útiles para Fish</h2>
+<section id="alias-útiles-para-fish" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="alias-útiles-para-fish"><span class="header-section-number">18.3</span> Alias Útiles para Fish</h2>
 <p><strong>Agregar a <code>~/.config/fish/config.fish</code>:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb100"><pre class="sourceCode numberSource fish number-lines code-with-copy"><code class="sourceCode"><span id="cb100-1"><a href="#cb100-1"></a># =============================================================================</span>
 <span id="cb100-2"><a href="#cb100-2"></a># ALIAS DE ADB</span>
@@ -2257,10 +2427,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb101"><pre class="sourceCode numberSource fish number-lines code-with-copy"><code class="sourceCode"><span id="cb101-1"><a href="#cb101-1"></a>source ~/.config/fish/config.fish</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="referencia-rápida" class="level1">
-<h1>Referencia Rápida</h1>
-<section id="comandos-esenciales" class="level2">
-<h2 class="anchored" data-anchor-id="comandos-esenciales">Comandos Esenciales</h2>
+<section id="referencia-rápida" class="level1" data-number="19">
+<h1 data-number="19"><span class="header-section-number">19</span> Referencia Rápida</h1>
+<section id="comandos-esenciales" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="comandos-esenciales"><span class="header-section-number">19.1</span> Comandos Esenciales</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb102"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb102-1"><a href="#cb102-1"></a><span class="co"># SERVIDOR</span></span>
 <span id="cb102-2"><a href="#cb102-2"></a><span class="ex">adb</span> start-server              <span class="co"># Iniciar servidor</span></span>
 <span id="cb102-3"><a href="#cb102-3"></a><span class="ex">adb</span> kill-server               <span class="co"># Detener servidor</span></span>
@@ -2314,8 +2484,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb102-51"><a href="#cb102-51"></a><span class="ex">adb</span> reboot recovery           <span class="co"># Recovery</span></span>
 <span id="cb102-52"><a href="#cb102-52"></a><span class="ex">adb</span> reboot bootloader         <span class="co"># Bootloader</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="atajos-de-teclado-en-terminal" class="level2">
-<h2 class="anchored" data-anchor-id="atajos-de-teclado-en-terminal">Atajos de Teclado en Terminal</h2>
+<section id="atajos-de-teclado-en-terminal" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="atajos-de-teclado-en-terminal"><span class="header-section-number">19.2</span> Atajos de Teclado en Terminal</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2347,8 +2517,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 </tbody>
 </table>
 </section>
-<section id="variables-de-entorno-útiles" class="level2">
-<h2 class="anchored" data-anchor-id="variables-de-entorno-útiles">Variables de Entorno Útiles</h2>
+<section id="variables-de-entorno-útiles" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="variables-de-entorno-útiles"><span class="header-section-number">19.3</span> Variables de Entorno Útiles</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb103"><pre class="sourceCode numberSource fish number-lines code-with-copy"><code class="sourceCode"><span id="cb103-1"><a href="#cb103-1"></a># Fish</span>
 <span id="cb103-2"><a href="#cb103-2"></a>set -gx ANDROID_SERIAL ABC123456789</span>
 <span id="cb103-3"><a href="#cb103-3"></a>set -gx ANDROID_HOME /opt/android-sdk</span>
@@ -2359,8 +2529,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb103-8"><a href="#cb103-8"></a>export ANDROID_HOME=/opt/android-sdk</span>
 <span id="cb103-9"><a href="#cb103-9"></a>export ADB_TRACE=all</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="locations-importantes" class="level2">
-<h2 class="anchored" data-anchor-id="locations-importantes">Locations Importantes</h2>
+<section id="locations-importantes" class="level2" data-number="19.4">
+<h2 data-number="19.4" class="anchored" data-anchor-id="locations-importantes"><span class="header-section-number">19.4</span> Locations Importantes</h2>
 <pre><code>/sdcard/              # Almacenamiento interno (equivale a /storage/emulated/0/)
 /sdcard/DCIM/         # Fotos de cámara
 /sdcard/Download/     # Descargas
@@ -2371,8 +2541,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 /system/app/          # Apps del sistema (requiere root)
 /data/app/            # Apps de usuario (requiere root)</code></pre>
 </section>
-<section id="intents-comunes" class="level2">
-<h2 class="anchored" data-anchor-id="intents-comunes">Intents Comunes</h2>
+<section id="intents-comunes" class="level2" data-number="19.5">
+<h2 data-number="19.5" class="anchored" data-anchor-id="intents-comunes"><span class="header-section-number">19.5</span> Intents Comunes</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb105"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb105-1"><a href="#cb105-1"></a><span class="co"># Configuración</span></span>
 <span id="cb105-2"><a href="#cb105-2"></a><span class="ex">android.settings.SETTINGS</span></span>
 <span id="cb105-3"><a href="#cb105-3"></a><span class="ex">android.settings.WIFI_SETTINGS</span></span>
@@ -2387,26 +2557,26 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb105-12"><a href="#cb105-12"></a><span class="ex">android.media.action.IMAGE_CAPTURE</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="recursos-adicionales" class="level1">
-<h1>Recursos Adicionales</h1>
-<section id="documentación-oficial" class="level2">
-<h2 class="anchored" data-anchor-id="documentación-oficial">Documentación Oficial</h2>
+<section id="recursos-adicionales" class="level1" data-number="20">
+<h1 data-number="20"><span class="header-section-number">20</span> Recursos Adicionales</h1>
+<section id="documentación-oficial" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="documentación-oficial"><span class="header-section-number">20.1</span> Documentación Oficial</h2>
 <ul>
 <li><strong>ADB Official:</strong> https://developer.android.com/studio/command-line/adb</li>
 <li><strong>Platform Tools:</strong> https://developer.android.com/studio/releases/platform-tools</li>
 <li><strong>Android Debug:</strong> https://developer.android.com/studio/debug</li>
 </ul>
 </section>
-<section id="comunidad" class="level2">
-<h2 class="anchored" data-anchor-id="comunidad">Comunidad</h2>
+<section id="comunidad" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="comunidad"><span class="header-section-number">20.2</span> Comunidad</h2>
 <ul>
 <li><strong>XDA Developers:</strong> https://www.xda-developers.com/</li>
 <li><strong>Stack Overflow:</strong> https://stackoverflow.com/questions/tagged/adb</li>
 <li><strong>Android Developers:</strong> https://developer.android.com/</li>
 </ul>
 </section>
-<section id="herramientas-complementarias" class="level2">
-<h2 class="anchored" data-anchor-id="herramientas-complementarias">Herramientas Complementarias</h2>
+<section id="herramientas-complementarias" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="herramientas-complementarias"><span class="header-section-number">20.3</span> Herramientas Complementarias</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb106"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb106-1"><a href="#cb106-1"></a><span class="co"># En Arch Linux</span></span>
 <span id="cb106-2"><a href="#cb106-2"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> android-tools android-udev scrcpy</span>
 <span id="cb106-3"><a href="#cb106-3"></a></span>
@@ -2414,10 +2584,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <span id="cb106-5"><a href="#cb106-5"></a><span class="ex">yay</span> <span class="at">-S</span> apktool android-sdk-platform-tools</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="mejores-prácticas" class="level1">
-<h1>Mejores Prácticas</h1>
-<section id="seguridad" class="level2">
-<h2 class="anchored" data-anchor-id="seguridad">Seguridad</h2>
+<section id="mejores-prácticas" class="level1" data-number="21">
+<h1 data-number="21"><span class="header-section-number">21</span> Mejores Prácticas</h1>
+<section id="seguridad" class="level2" data-number="21.1">
+<h2 data-number="21.1" class="anchored" data-anchor-id="seguridad"><span class="header-section-number">21.1</span> Seguridad</h2>
 <ol type="1">
 <li><p><strong>Depuración USB solo cuando sea necesario</strong></p>
 <ul>
@@ -2437,8 +2607,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 </ul></li>
 </ol>
 </section>
-<section id="rendimiento" class="level2">
-<h2 class="anchored" data-anchor-id="rendimiento">Rendimiento</h2>
+<section id="rendimiento" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="rendimiento"><span class="header-section-number">21.2</span> Rendimiento</h2>
 <ol type="1">
 <li><p><strong>Cerrar servidor cuando no lo uses</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb107"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb107-1"><a href="#cb107-1"></a><span class="ex">adb</span> kill-server</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
@@ -2455,8 +2625,8 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 </ul></li>
 </ol>
 </section>
-<section id="desarrollo" class="level2">
-<h2 class="anchored" data-anchor-id="desarrollo">Desarrollo</h2>
+<section id="desarrollo" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="desarrollo"><span class="header-section-number">21.3</span> Desarrollo</h2>
 <ol type="1">
 <li><p><strong>Automatizar tareas repetitivas</strong></p>
 <ul>
@@ -2473,14 +2643,14 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 </ol>
 </section>
 </section>
-<section id="publicaciones-similares" class="level1">
-<h1>Publicaciones Similares</h1>
+<section id="publicaciones-similares" class="level1" data-number="22">
+<h1 data-number="22"><span class="header-section-number">22</span> Publicaciones Similares</h1>
 <p>Si te interesó este artículo, te recomendamos que explores otros blogs y recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo algunas sugerencias:</p>
 <ol type="1">
 <li><a href="https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows">Comandos De Informacion Windows</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2019-06-19-adb/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2019-06-19-adb">Adb</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc">Limpieza Y Optimizacion De Pc</a></li>
-<li><a href="https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11">Usando Apk En Windown 11</a></li>
+<li><a href="https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy">Scrcpy</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu">Gestionar Versiones De Jdk En Kubuntu</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser">Instalar Tor Browser</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux">Crear Enlaces Duros O Hard Link En Linux</a></li>
@@ -2494,6 +2664,10 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 <li><a href="https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim">Atajos De Teclado Y Comandos Para Usar Vim</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify">Instalando Specitify</a></li>
 <li><a href="https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow">Gestiona Tus Dotfiles Con Gnu Stow</a></li>
+<li><a href="https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger">Guia De Ranger</a></li>
+<li><a href="https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal">Guia De Kitty Terminal</a></li>
+<li><a href="https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide">Guia De Positron Ide</a></li>
+<li><a href="https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync/index.pdf"><i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i></a> <a href="https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync">Guia De Rsync</a></li>
 </ol>
 <p>Esperamos que encuentres estas publicaciones igualmente interesantes y útiles. ¡Disfruta de la lectura!</p>
 
@@ -2501,14 +2675,45 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="2d95", MODE="0666", GROUP="adbusers"</code></
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reutilización</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Cómo citar</h2><div><div class="quarto-appendix-secondary-label">Por favor, cita este trabajo como:</div><div id="ref-achalma2019" class="csl-entry quarto-appendix-citeas" role="listitem">
-Achalma, Edison. 2019. <span>“Guía completa de comandos ADB
-Android,”</span> June. <a href="https://chaska-x.netlify.app/operating-system/2019-06-19-adb/">https://chaska-x.netlify.app/operating-system/2019-06-19-adb/</a>.
+Achalma, Edison. 2019. <em>Guía completa de comandos ADB Android</em>.
+accepted, June 19. <a href="https://chaska-x.netlify.app/operating-system/2019-06-19-adb/">https://chaska-x.netlify.app/operating-system/2019-06-19-adb/</a>.
 </div></div></section></div></main> <!-- /main -->
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGDQM4GK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<!-- ==========================================================================
+  MICROINTERACCIONES — "QUIET LABORATORY" (cargador de módulos)
+  ===========================================================================
+  Inyectado en todas las páginas vía include-after-body (_quarto.yml).
+  El código vive en módulos independientes en assets/js/ (ver su README):
+
+    · navbar.js         → clase .lab-scrolled al hacer scroll
+    · cursor.js         → iluminación que sigue el puntero (--lab-mx/--lab-my)
+    · hero.js           → ajuste del hero de portada al alto visible
+    · scroll-effects.js → aparición escalonada (.lab-reveal/.lab-in)
+
+  Rutas absolutas (/assets/js/...) para funcionar a cualquier profundidad.
+  Sin JS el sitio queda íntegro: nada se oculta por defecto.
+=========================================================================== -->
+<script src="../../assets/js/navbar.js"></script>
+<script src="../../assets/js/cursor.js"></script>
+<script src="../../assets/js/hero.js"></script>
+<script src="../../assets/js/scroll-effects.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

@@ -3,7 +3,6 @@ project:
   output-dir: _site
   # Compila assets/scss/05-pages/*.scss → assets/css/pages/*.css en cada render
   pre-render: scripts/build-page-css.sh
-  output-dir: _site
   resources:
     - assets/img/sidebar.jpg
 
@@ -154,4 +153,3 @@ format:
       desc-position: right
       loop: false
     
-

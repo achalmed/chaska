@@ -2,98 +2,94 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://chaska-x.netlify.app/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload/index.html</loc>
-    <lastmod>2025-12-22T10:24:27.379Z</lastmod>
-  </url>
-  <url>
-    <loc>https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.html</loc>
-    <lastmod>2025-12-22T10:24:27.409Z</lastmod>
-  </url>
-  <url>
-    <loc>https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html</loc>
-    <lastmod>2026-01-02T20:09:53.208Z</lastmod>
-  </url>
-  <url>
-    <loc>https://chaska-x.netlify.app/operating-system/2022-09-27-comandos-vim/index.html</loc>
-    <lastmod>2025-12-31T03:27:18.413Z</lastmod>
-  </url>
-  <url>
-    <loc>https://chaska-x.netlify.app/operating-system/2023-06-20-04-administracion-particiones-volumenes/index.html</loc>
-    <lastmod>2025-12-22T10:24:27.601Z</lastmod>
-  </url>
-  <url>
-    <loc>https://chaska-x.netlify.app/operating-system/2019-06-19-adb/index.html</loc>
-    <lastmod>2026-01-25T14:37:18.586Z</lastmod>
-  </url>
-  <url>
-    <loc>https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.html</loc>
-    <lastmod>2025-12-22T10:24:27.468Z</lastmod>
-  </url>
-  <url>
-    <loc>https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.html</loc>
-    <lastmod>2025-12-22T10:24:27.651Z</lastmod>
-  </url>
-  <url>
-    <loc>https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows/index.html</loc>
-    <lastmod>2025-12-22T10:24:27.357Z</lastmod>
-  </url>
-  <url>
-    <loc>https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github/index.html</loc>
-    <lastmod>2025-12-31T01:31:18.530Z</lastmod>
+    <lastmod>2026-06-20T16:40:37.666Z</lastmod>
   </url>
   <url>
     <loc>https://chaska-x.netlify.app/index.html</loc>
-    <lastmod>2026-01-04T03:07:48.403Z</lastmod>
-  </url>
-  <url>
-    <loc>https://chaska-x.netlify.app/operating-system/2023-06-18-02-distribuciones-linux/index.html</loc>
-    <lastmod>2025-12-22T10:24:27.544Z</lastmod>
+    <lastmod>2026-07-02T20:07:50.032Z</lastmod>
   </url>
   <url>
     <loc>https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser/index.html</loc>
-    <lastmod>2025-12-22T10:24:27.454Z</lastmod>
-  </url>
-  <url>
-    <loc>https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify/index.html</loc>
-    <lastmod>2025-12-22T10:24:27.680Z</lastmod>
-  </url>
-  <url>
-    <loc>https://chaska-x.netlify.app/operating-system/2023-06-17-01-introduccion-linux/index.html</loc>
-    <lastmod>2025-12-22T10:24:27.935Z</lastmod>
-  </url>
-  <url>
-    <loc>https://chaska-x.netlify.app/operating-system/2023-06-19-03-instalacion-linux/index.html</loc>
-    <lastmod>2025-12-22T10:24:27.565Z</lastmod>
+    <lastmod>2026-06-20T16:40:37.690Z</lastmod>
   </url>
   <url>
     <loc>https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.html</loc>
-    <lastmod>2025-12-22T10:24:27.440Z</lastmod>
+    <lastmod>2026-06-20T16:40:37.689Z</lastmod>
   </url>
   <url>
-    <loc>https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/index.html</loc>
-    <lastmod>2025-12-22T10:24:27.424Z</lastmod>
+    <loc>https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.html</loc>
+    <lastmod>2026-06-20T16:40:37.690Z</lastmod>
+  </url>
+  <url>
+    <loc>https://chaska-x.netlify.app/operating-system/2023-06-17-01-introduccion-linux/index.html</loc>
+    <lastmod>2026-06-20T16:40:37.693Z</lastmod>
+  </url>
+  <url>
+    <loc>https://chaska-x.netlify.app/operating-system/2019-06-19-adb/index.html</loc>
+    <lastmod>2026-06-20T16:40:37.686Z</lastmod>
   </url>
   <url>
     <loc>https://chaska-x.netlify.app/operating-system/2023-05-02-00-primeros-pasos-en-linux/index.html</loc>
-    <lastmod>2025-12-22T10:24:27.526Z</lastmod>
+    <lastmod>2026-06-20T16:40:37.693Z</lastmod>
   </url>
   <url>
-    <loc>https://chaska-x.netlify.app/SECURITY.html</loc>
-    <lastmod>2025-12-07T23:57:47.650Z</lastmod>
-  </url>
-  <url>
-    <loc>https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/index.html</loc>
-    <lastmod>2026-01-16T03:00:46.587Z</lastmod>
-  </url>
-  <url>
-    <loc>https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/index.html</loc>
-    <lastmod>2026-01-16T02:56:59.121Z</lastmod>
+    <loc>https://chaska-x.netlify.app/operating-system/2022-09-27-comandos-vim/index.html</loc>
+    <lastmod>2026-06-20T16:40:37.690Z</lastmod>
   </url>
   <url>
     <loc>https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/index.html</loc>
-    <lastmod>2026-01-16T03:18:48.676Z</lastmod>
+    <lastmod>2026-06-21T21:05:15.899Z</lastmod>
+  </url>
+  <url>
+    <loc>https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.html</loc>
+    <lastmod>2026-06-20T16:40:37.695Z</lastmod>
+  </url>
+  <url>
+    <loc>https://chaska-x.netlify.app/operating-system/2023-06-19-03-instalacion-linux/index.html</loc>
+    <lastmod>2026-06-20T16:40:37.694Z</lastmod>
+  </url>
+  <url>
+    <loc>https://chaska-x.netlify.app/operating-system/2023-06-18-02-distribuciones-linux/index.html</loc>
+    <lastmod>2026-06-20T16:40:37.693Z</lastmod>
+  </url>
+  <url>
+    <loc>https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify/index.html</loc>
+    <lastmod>2026-06-20T16:40:37.696Z</lastmod>
+  </url>
+  <url>
+    <loc>https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/index.html</loc>
+    <lastmod>2026-06-20T16:40:37.703Z</lastmod>
+  </url>
+  <url>
+    <loc>https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.html</loc>
+    <lastmod>2026-06-20T16:40:37.688Z</lastmod>
   </url>
   <url>
     <loc>https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/index.html</loc>
-    <lastmod>2026-01-25T14:41:27.961Z</lastmod>
+    <lastmod>2026-06-20T16:40:37.688Z</lastmod>
+  </url>
+  <url>
+    <loc>https://chaska-x.netlify.app/operating-system/2023-06-20-04-administracion-particiones-volumenes/index.html</loc>
+    <lastmod>2026-06-20T16:40:37.694Z</lastmod>
+  </url>
+  <url>
+    <loc>https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/index.html</loc>
+    <lastmod>2026-06-20T16:40:37.701Z</lastmod>
+  </url>
+  <url>
+    <loc>https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.html</loc>
+    <lastmod>2026-06-20T16:40:37.697Z</lastmod>
+  </url>
+  <url>
+    <loc>https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github/index.html</loc>
+    <lastmod>2026-07-02T13:58:58.914Z</lastmod>
+  </url>
+  <url>
+    <loc>https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows/index.html</loc>
+    <lastmod>2026-06-20T16:40:37.685Z</lastmod>
+  </url>
+  <url>
+    <loc>https://chaska-x.netlify.app/SECURITY.html</loc>
+    <lastmod>2026-06-20T16:43:04.736Z</lastmod>
   </url>
 </urlset>

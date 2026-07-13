@@ -1,0 +1,2615 @@
+\documentclass[
+  doc,
+  floatsintext,
+  longtable,
+  a4paper,
+  nolmodern,
+  notxfonts,
+  notimes,
+  12pt,
+  colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{apa7}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\geometry{inner=1in, outer=1in}
+\fancyhfoffset[LE,RO]{0cm}
+
+
+\usepackage[bidi=default]{babel}
+\babelprovide[main,import]{spanish}
+
+
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+\RequirePackage{longtable}
+\RequirePackage{threeparttablex}
+
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+	{0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+	{-.5em}%
+	{\normalfont\normalsize\bfseries\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{0.5em}%
+	{0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+	{-\z@\relax}%
+	{\normalfont\normalsize\bfseries\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+
+
+
+\usepackage{longtable, booktabs, multirow, multicol, colortbl, hhline, caption, array, float, xpatch}
+\usepackage{subcaption}
+
+
+\renewcommand\thesubfigure{\Alph{subfigure}}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.7}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{listings,theorems, breakable, skins}
+\usepackage{fontawesome5}
+
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{ACACAC}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582EC}
+\definecolor{quarto-callout-important-color-frame}{HTML}{D9534F}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{F0AD4E}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02B875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{FD7E14}
+
+%\newlength\Oldarrayrulewidth
+%\newlength\Oldtabcolsep
+
+
+\usepackage{hyperref}
+
+
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+
+
+\usepackage{newtx}
+
+\defaultfontfeatures{Scale=MatchLowercase}
+\defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+
+
+
+
+
+\title{Guía Completa de rsync}
+
+
+\shorttitle{Guía Completa de rsync}
+
+
+\usepackage{etoolbox}
+
+
+
+\ccoppy{\textcopyright~2025}
+
+
+
+\author{Edison Achalma}
+
+
+
+\affiliation{
+{Escuela Profesional de Economía, Universidad Nacional de San Cristóbal
+de Huamanga}}
+
+
+
+
+\leftheader{Achalma}
+
+\date{2025-12-31}
+
+
+\abstract{Positron es un IDE moderno y especializado en ciencia de
+datos, construido sobre el núcleo open-source de VS Code (Code OSS) y
+desarrollado por Posit Software. Ofrece soporte nativo para Python y R,
+consola interactiva avanzada, paneles especializados (Variables, Data
+Explorer, Plots, Help), integración completa con Quarto y herramientas
+de asistencia IA. Esta guía completa cubre desde la instalación
+multiplataforma hasta la configuración avanzada, migración desde VS
+Code, personalización profunda y mejores prácticas para flujos de
+trabajo intensivos en análisis de datos, programación estadística y
+publicación científica reproducible. }
+
+\keywords{Rsync}
+
+\authornote{\par{\addORCIDlink{Edison Achalma}{0000-0001-6996-3364}} 
+\par{ }
+\par{   El autor no tiene conflictos de interés que revelar.    Los
+roles de autor se clasificaron utilizando la taxonomía de roles de
+colaborador (CRediT; https://credit.niso.org/) de la siguiente
+manera:  Edison Achalma:   conceptualización, metodología, análisis
+formal, investigación, recursos, curación de
+datos, redacción, visualización, supervisión, administración del
+proyecto}
+\par{La correspondencia relativa a este artículo debe dirigirse a Edison
+Achalma, Escuela Profesional de Economía, Universidad Nacional de San
+Cristóbal de Huamanga, Portal Independencia N°
+57, Ayacucho, AYA 5001, Perú, Email: \href{mailto:elmer.achalma.09@unsch.edu.pe}{elmer.achalma.09@unsch.edu.pe}}
+}
+
+\makeatletter
+\let\endoldlt\endlongtable
+\def\endlongtable{
+\hline
+\endoldlt
+}
+\makeatother
+
+\urlstyle{same}
+
+
+
+\hypersetup{
+  pdftitle={Gu\'{\i}a Completa de rsync},
+  pdfauthor={Autor}
+}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Tabla de contenidos}
+\else
+  \newcommand\contentsname{Tabla de contenidos}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Lista de Figuras}
+\else
+  \newcommand\listfigurename{Lista de Figuras}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Lista de Tablas}
+\else
+  \newcommand\listtablename{Lista de Tablas}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabla}
+\else
+  \newcommand\tablename{Tabla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listado}
+\newcommand*\listoflistings{\listof{codelisting}{Lista de Listados}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\makeatother
+
+% From https://tex.stackexchange.com/a/645996/211326
+%%% apa7 doesn't want to add appendix section titles in the toc
+%%% let's make it do it
+\makeatletter
+\xpatchcmd{\appendix}
+  {\par}
+  {\addcontentsline{toc}{section}{\@currentlabelname}\par}
+  {}{}
+\makeatother
+
+%% Disable longtable counter
+%% https://tex.stackexchange.com/a/248395/211326
+
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\LT@caption}
+  {\bgroup}
+  {\bgroup\global\LTpatch@captiontrue}
+  {}{}
+\patchcmd{\longtable}
+  {\par}
+  {\par\global\LTpatch@captionfalse}
+  {}{}
+\apptocmd{\endlongtable}
+  {\ifLTpatch@caption\else\addtocounter{table}{-1}\fi}
+  {}{}
+\newif\ifLTpatch@caption
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+
+\hypertarget{toc}{}
+\tableofcontents
+\newpage
+\section[Introduction]{Guía Completa de rsync}
+
+\setcounter{secnumdepth}{3}
+
+\setlength\LTleft{0pt}
+
+
+
+
+\pandocbounded{\includegraphics[keepaspectratio]{featured.png}}
+
+\textbf{¿Qué es rsync?}
+
+\textbf{rsync} (remote sync) es una herramienta de sincronización de
+archivos y directorios que:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Sincroniza eficientemente:} Solo transfiere las diferencias
+  entre archivos
+\item
+  \textbf{Preserva metadatos:} Permisos, propietarios, timestamps,
+  enlaces simbólicos
+\item
+  \textbf{Funciona local y remotamente:} A través de SSH u otros
+  protocolos
+\item
+  \textbf{Es incremental:} Solo copia lo que ha cambiado
+\item
+  \textbf{Permite recuperación:} Puede reanudar transferencias
+  interrumpidas
+\end{itemize}
+
+\subsection{Ventajas de rsync}\label{ventajas-de-rsync}
+
+\textbf{Comparado con \texttt{cp}:}
+
+\begin{itemize}
+\tightlist
+\item
+  Solo copia archivos modificados
+\item
+  Preserva todos los atributos
+\item
+  Muestra progreso
+\item
+  Puede excluir archivos/directorios
+\item
+  Funciona sobre red
+\end{itemize}
+
+\textbf{Comparado con \texttt{scp}:}
+
+\begin{itemize}
+\tightlist
+\item
+  Mucho más rápido (solo diferencias)
+\item
+  Puede reanudar transferencias
+\item
+  Mejor manejo de errores
+\item
+  Más opciones de filtrado
+\end{itemize}
+
+\textbf{Comparado con otras herramientas:}
+
+\begin{itemize}
+\tightlist
+\item
+  Más eficiente que tar para backups incrementales
+\item
+  Más flexible que soluciones comerciales
+\item
+  Multiplataforma (Linux, macOS, Windows)
+\end{itemize}
+
+\subsection{Casos de Uso Ideales}\label{casos-de-uso-ideales}
+
+\textbf{Para ti como economista e informático:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Backup de Proyectos Quarto}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    10+ blogs académicos
+  \item
+    Preservar estructura y metadatos
+  \item
+    Backups incrementales diarios
+  \end{itemize}
+\item
+  \textbf{Sincronización de Scripts}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Scripts de automatización
+  \item
+    Mantener versiones actualizadas
+  \item
+    Entre diferentes máquinas
+  \end{itemize}
+\item
+  \textbf{Documentos de Investigación}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Papers y artículos
+  \item
+    Datos de análisis
+  \item
+    Referencias bibliográficas
+  \end{itemize}
+\item
+  \textbf{Configuraciones del Sistema}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Dotfiles (Fish, Quarto, etc.)
+  \item
+    Configuraciones de aplicaciones
+  \item
+    Recuperación rápida
+  \end{itemize}
+\end{enumerate}
+
+\section{Instalación en Arch Linux}\label{instalaciuxf3n-en-arch-linux}
+
+\subsection{Verificar Instalación}\label{verificar-instalaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# rsync viene preinstalado en Arch Linux}
+\FunctionTok{rsync} \AttributeTok{{-}{-}version}
+
+\CommentTok{\# Salida esperada:}
+\CommentTok{\# rsync  version 3.2.7  protocol version 31}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Instalar si no está
+presente}\label{instalar-si-no-estuxe1-presente}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ rsync}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Instalar SSH (necesario para sincronización
+remota)}\label{instalar-ssh-necesario-para-sincronizaciuxf3n-remota}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Verificar SSH}
+\FunctionTok{ssh} \AttributeTok{{-}V}
+
+\CommentTok{\# Instalar si falta}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ openssh}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Conceptos Fundamentales}\label{conceptos-fundamentales}
+
+\subsection{Algoritmo de rsync}\label{algoritmo-de-rsync}
+
+rsync usa un algoritmo que:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Divide archivos en bloques}
+\item
+  \textbf{Calcula checksums} de cada bloque
+\item
+  \textbf{Compara checksums} entre origen y destino
+\item
+  \textbf{Transfiere solo bloques diferentes}
+\item
+  \textbf{Reconstruye archivo} en destino
+\end{enumerate}
+
+\textbf{Resultado:} Transferencias ultra-rápidas, especialmente con
+archivos grandes parcialmente modificados.
+
+\subsection{Terminología}\label{terminologuxeda}
+
+\textbf{Origen (Source):}
+
+\begin{itemize}
+\tightlist
+\item
+  El directorio/archivo a copiar
+\item
+  Puede ser local o remoto
+\end{itemize}
+
+\textbf{Destino (Destination):}
+
+\begin{itemize}
+\tightlist
+\item
+  Donde se copiarán los archivos
+\item
+  Puede ser local o remoto
+\end{itemize}
+
+\textbf{Trailing Slash (\texttt{/}):}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{CON slash final:} \texttt{origen/} → copia CONTENIDO del
+  directorio
+\item
+  \textbf{SIN slash final:} \texttt{origen} → copia el DIRECTORIO mismo
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ejemplo con slash:}
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ origen/ destino/}
+\CommentTok{\# Copia: origen/archivo1 → destino/archivo1}
+
+\CommentTok{\# Ejemplo sin slash:}
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ origen destino/}
+\CommentTok{\# Copia: origen/archivo1 → destino/origen/archivo1}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Esto es CRÍTICO y causa errores comunes.}
+
+\section{Sintaxis Básica}\label{sintaxis-buxe1sica}
+
+\subsection{Estructura General}\label{estructura-general}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rsync} \PreprocessorTok{[}\SpecialStringTok{OPCIONES}\PreprocessorTok{]}\NormalTok{ ORIGEN DESTINO}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Ejemplos Básicos}\label{ejemplos-buxe1sicos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Local a local}
+\FunctionTok{rsync}\NormalTok{ archivo.txt /ruta/destino/}
+
+\CommentTok{\# Local a remoto (SSH)}
+\FunctionTok{rsync}\NormalTok{ archivo.txt usuario@servidor:/ruta/remota/}
+
+\CommentTok{\# Remoto a local (SSH)}
+\FunctionTok{rsync}\NormalTok{ usuario@servidor:/ruta/remota/archivo.txt ./}
+
+\CommentTok{\# Directorio completo}
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ /ruta/origen/ /ruta/destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Formato de Rutas Remotas}\label{formato-de-rutas-remotas}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# SSH (por defecto, puerto 22)}
+\ExtensionTok{usuario@host:/ruta/}
+
+\CommentTok{\# SSH con puerto específico}
+\FunctionTok{rsync} \AttributeTok{{-}e} \StringTok{"ssh {-}p 2222"}\NormalTok{ archivo.txt usuario@host:/ruta/}
+
+\CommentTok{\# Rsync daemon (puerto 873)}
+\ExtensionTok{rsync://host/modulo/ruta}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Opciones Esenciales}\label{opciones-esenciales}
+
+\subsection{Opciones Fundamentales}\label{opciones-fundamentales}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{{-}a,} \AttributeTok{{-}{-}archive}
+    \CommentTok{\# Modo archivo: preserva casi todo}
+    \CommentTok{\# Equivale a: {-}rlptgoD}
+    \CommentTok{\# Recomendado para backups}
+    \FunctionTok{rsync} \AttributeTok{{-}a}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}v,} \AttributeTok{{-}{-}verbose}
+    \CommentTok{\# Modo verboso: muestra archivos procesados}
+    \FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}h,} \AttributeTok{{-}{-}human{-}readable}
+    \CommentTok{\# Números legibles (KB, MB, GB)}
+    \FunctionTok{rsync} \AttributeTok{{-}avh}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}z,} \AttributeTok{{-}{-}compress}
+    \CommentTok{\# Comprime durante transferencia (útil para red)}
+    \FunctionTok{rsync} \AttributeTok{{-}avz}\NormalTok{ origen/ usuario@servidor:/destino/}
+
+\ExtensionTok{{-}P}
+    \CommentTok{\# Equivale a: {-}{-}partial {-}{-}progress}
+    \CommentTok{\# Muestra progreso y mantiene archivos parciales}
+    \FunctionTok{rsync} \AttributeTok{{-}avP}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}{-}progress}
+    \CommentTok{\# Muestra progreso de cada archivo}
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}progress}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}n,} \AttributeTok{{-}{-}dry{-}run}
+    \CommentTok{\# Prueba sin ejecutar (muy útil para verificar)}
+    \FunctionTok{rsync} \AttributeTok{{-}avn}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}u,} \AttributeTok{{-}{-}update}
+    \CommentTok{\# Solo actualiza archivos más antiguos en destino}
+    \FunctionTok{rsync} \AttributeTok{{-}avu}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}{-}delete}
+    \CommentTok{\# Elimina archivos en destino que no existen en origen}
+    \CommentTok{\# ¡PELIGROSO! Usar con cuidado}
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}{-}delete{-}after}
+    \CommentTok{\# Elimina después de transferir (más seguro)}
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete{-}after}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}b,} \AttributeTok{{-}{-}backup}
+    \CommentTok{\# Crea backup de archivos que se sobrescriben}
+    \FunctionTok{rsync} \AttributeTok{{-}avb}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}{-}backup{-}dir=DIR}
+    \CommentTok{\# Guarda backups en directorio específico}
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}backup} \AttributeTok{{-}{-}backup{-}dir}\OperatorTok{=}\NormalTok{../backups origen/ destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Opciones de Preservación}\label{opciones-de-preservaciuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{{-}r,} \AttributeTok{{-}{-}recursive}
+    \CommentTok{\# Recursivo: incluye subdirectorios}
+    \FunctionTok{rsync} \AttributeTok{{-}r}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}l,} \AttributeTok{{-}{-}links}
+    \CommentTok{\# Preserva enlaces simbólicos}
+    \FunctionTok{rsync} \AttributeTok{{-}l}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}p,} \AttributeTok{{-}{-}perms}
+    \CommentTok{\# Preserva permisos}
+    \FunctionTok{rsync} \AttributeTok{{-}p}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}t,} \AttributeTok{{-}{-}times}
+    \CommentTok{\# Preserva timestamps de modificación}
+    \FunctionTok{rsync} \AttributeTok{{-}t}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}g,} \AttributeTok{{-}{-}group}
+    \CommentTok{\# Preserva grupo}
+    \FunctionTok{rsync} \AttributeTok{{-}g}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}o,} \AttributeTok{{-}{-}owner}
+    \CommentTok{\# Preserva propietario (requiere root)}
+    \FunctionTok{rsync} \AttributeTok{{-}o}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}D}
+    \CommentTok{\# Preserva dispositivos y archivos especiales}
+    \CommentTok{\# Equivale a: {-}{-}devices {-}{-}specials}
+    \FunctionTok{rsync} \AttributeTok{{-}D}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}A,} \AttributeTok{{-}{-}acls}
+    \CommentTok{\# Preserva ACLs (listas de control de acceso)}
+    \FunctionTok{rsync} \AttributeTok{{-}A}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}X,} \AttributeTok{{-}{-}xattrs}
+    \CommentTok{\# Preserva atributos extendidos}
+    \FunctionTok{rsync} \AttributeTok{{-}X}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}H,} \AttributeTok{{-}{-}hard{-}links}
+    \CommentTok{\# Preserva enlaces duros}
+    \FunctionTok{rsync} \AttributeTok{{-}H}\NormalTok{ origen/ destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Opciones de Exclusión}\label{opciones-de-exclusiuxf3n}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{{-}{-}exclude=PATRÓN}
+    \CommentTok{\# Excluir archivos/directorios}
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}*.tmp\textquotesingle{}}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}{-}exclude{-}from=ARCHIVO}
+    \CommentTok{\# Excluir según archivo de patrones}
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}exclude{-}from}\OperatorTok{=}\NormalTok{excludes.txt origen/ destino/}
+
+\ExtensionTok{{-}{-}include=PATRÓN}
+    \CommentTok{\# Incluir archivos (se procesa antes de exclude)}
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}include}\OperatorTok{=}\StringTok{\textquotesingle{}*.pdf\textquotesingle{}} \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}*\textquotesingle{}}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}{-}filter=REGLA}
+    \CommentTok{\# Filtro avanzado}
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}filter}\OperatorTok{=}\StringTok{\textquotesingle{}{-} *.tmp\textquotesingle{}}\NormalTok{ origen/ destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Opciones de Rendimiento}\label{opciones-de-rendimiento}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{{-}{-}partial}
+    \CommentTok{\# Mantiene archivos parcialmente transferidos}
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}partial}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}{-}partial{-}dir=DIR}
+    \CommentTok{\# Guarda archivos parciales en directorio temporal}
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}partial{-}dir}\OperatorTok{=}\NormalTok{.rsync{-}partial origen/ destino/}
+
+\ExtensionTok{{-}{-}timeout=SEGUNDOS}
+    \CommentTok{\# Timeout de I/O}
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}timeout}\OperatorTok{=}\NormalTok{300 origen/ destino/}
+
+\ExtensionTok{{-}{-}bwlimit=KBPS}
+    \CommentTok{\# Limitar ancho de banda (KB/s)}
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}bwlimit}\OperatorTok{=}\NormalTok{1000 origen/ destino/}
+
+\ExtensionTok{{-}{-}sparse}
+    \CommentTok{\# Optimiza archivos dispersos}
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}sparse}\NormalTok{ origen/ destino/}
+
+\ExtensionTok{{-}{-}whole{-}file}
+    \CommentTok{\# Transferir archivos completos (útil en LAN rápida)}
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}whole{-}file}\NormalTok{ origen/ destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Modos de Operación}\label{modos-de-operaciuxf3n}
+
+\subsection{1. Copia Local}\label{copia-local}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Copiar directorio}
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ /origen/ /destino/}
+
+\CommentTok{\# Copiar archivo único}
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ archivo.txt /destino/}
+
+\CommentTok{\# Copiar múltiples archivos}
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ archivo1.txt archivo2.txt /destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{2. Transferencia Remota vía
+SSH}\label{transferencia-remota-vuxeda-ssh}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Local → Remoto}
+\FunctionTok{rsync} \AttributeTok{{-}avz}\NormalTok{ /origen/ usuario@servidor:/destino/}
+
+\CommentTok{\# Remoto → Local}
+\FunctionTok{rsync} \AttributeTok{{-}avz}\NormalTok{ usuario@servidor:/origen/ /destino/}
+
+\CommentTok{\# Con puerto SSH específico}
+\FunctionTok{rsync} \AttributeTok{{-}avz} \AttributeTok{{-}e} \StringTok{"ssh {-}p 2222"}\NormalTok{ /origen/ usuario@servidor:/destino/}
+
+\CommentTok{\# Con clave SSH específica}
+\FunctionTok{rsync} \AttributeTok{{-}avz} \AttributeTok{{-}e} \StringTok{"ssh {-}i \textasciitilde{}/.ssh/id\_rsa\_backup"}\NormalTok{ /origen/ usuario@servidor:/destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{3. Rsync Daemon}\label{rsync-daemon}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Conectar a daemon rsync}
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ rsync://servidor/modulo/ruta /destino/}
+
+\CommentTok{\# Con autenticación}
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ usuario@rsync://servidor/modulo/ruta /destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{4. Sincronización
+Bidireccional}\label{sincronizaciuxf3n-bidireccional}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Sincronizar A → B}
+\FunctionTok{rsync} \AttributeTok{{-}avu}\NormalTok{ /ruta/A/ /ruta/B/}
+
+\CommentTok{\# Sincronizar B → A}
+\FunctionTok{rsync} \AttributeTok{{-}avu}\NormalTok{ /ruta/B/ /ruta/A/}
+
+\CommentTok{\# Nota: No es sincronización bidireccional simultánea}
+\CommentTok{\# Para eso usar herramientas como Unison o Syncthing}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Patrones de Inclusión y
+Exclusión}\label{patrones-de-inclusiuxf3n-y-exclusiuxf3n}
+
+\subsection{Patrones Básicos}\label{patrones-buxe1sicos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Excluir extensión específica}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}*.tmp\textquotesingle{}}\NormalTok{ origen/ destino/}
+
+\CommentTok{\# Excluir directorio}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}node\_modules/\textquotesingle{}}\NormalTok{ origen/ destino/}
+
+\CommentTok{\# Excluir múltiples patrones}
+\FunctionTok{rsync} \AttributeTok{{-}av} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}*.tmp\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}*.log\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}.git/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+\NormalTok{  origen/ destino/}
+
+\CommentTok{\# Incluir solo ciertos archivos}
+\FunctionTok{rsync} \AttributeTok{{-}av} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}include}\OperatorTok{=}\StringTok{\textquotesingle{}*.pdf\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}include}\OperatorTok{=}\StringTok{\textquotesingle{}*.docx\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}*\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+\NormalTok{  origen/ destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Archivo de Exclusiones}\label{archivo-de-exclusiones}
+
+\textbf{Crear \texttt{excludes.txt}:}
+
+\begin{verbatim}
+# Comentarios comienzan con #
+*.tmp
+*.log
+*.swp
+*~
+.git/
+.gitignore
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+desktop.ini
+\end{verbatim}
+
+\textbf{Usar archivo:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}exclude{-}from}\OperatorTok{=}\NormalTok{excludes.txt origen/ destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Patrones Avanzados}\label{patrones-avanzados}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Comodines}
+\ExtensionTok{*}        \CommentTok{\# Cualquier cosa}
+\ExtensionTok{?}        \CommentTok{\# Un carácter}
+\ExtensionTok{**}       \CommentTok{\# Cualquier cosa, incluyendo /}
+\ExtensionTok{[abc]}    \CommentTok{\# a, b o c}
+\ExtensionTok{[0{-}9]}    \CommentTok{\# Números}
+
+\CommentTok{\# Ejemplos:}
+\ExtensionTok{{-}{-}exclude=}\StringTok{\textquotesingle{}*.tmp\textquotesingle{}}              \CommentTok{\# Todos los .tmp}
+\ExtensionTok{{-}{-}exclude=}\StringTok{\textquotesingle{}test\_*.py\textquotesingle{}}          \CommentTok{\# test\_algo.py}
+\ExtensionTok{{-}{-}exclude=}\StringTok{\textquotesingle{}**/temp/\textquotesingle{}}           \CommentTok{\# temp/ en cualquier nivel}
+\ExtensionTok{{-}{-}exclude=}\StringTok{\textquotesingle{}/cache/\textquotesingle{}}            \CommentTok{\# Solo /cache/ en raíz}
+\ExtensionTok{{-}{-}exclude=}\StringTok{\textquotesingle{}*/cache/\textquotesingle{}}           \CommentTok{\# cache/ en primer nivel}
+\ExtensionTok{{-}{-}exclude=}\StringTok{\textquotesingle{}**/.*\textquotesingle{}}              \CommentTok{\# Archivos ocultos en cualquier lugar}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Filtros con --filter}\label{filtros-con-filter}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Sintaxis: {-}{-}filter=\textquotesingle{}REGLA PATRÓN\textquotesingle{}}
+\CommentTok{\# Reglas:}
+\CommentTok{\#   {-}  (exclude)}
+\CommentTok{\#   +  (include)}
+\CommentTok{\#   P  (protect {-} no eliminar)}
+\CommentTok{\#   R  (risk {-} se puede eliminar)}
+\CommentTok{\#   !  (clear {-} limpiar lista)}
+
+\CommentTok{\# Ejemplos:}
+\FunctionTok{rsync} \AttributeTok{{-}av} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}filter}\OperatorTok{=}\StringTok{\textquotesingle{}{-} *.tmp\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}filter}\OperatorTok{=}\StringTok{\textquotesingle{}+ *.pdf\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+\NormalTok{  origen/ destino/}
+
+\CommentTok{\# Archivo de filtros}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}filter}\OperatorTok{=}\StringTok{\textquotesingle{}. filter{-}rules.txt\textquotesingle{}}\NormalTok{ origen/ destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Sincronización Local}\label{sincronizaciuxf3n-local}
+
+\subsection{Backup de Proyectos
+Quarto}\label{backup-de-proyectos-quarto}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Backup de un blog específico}
+\FunctionTok{rsync} \AttributeTok{{-}av} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}\_site/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}.quarto/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}*.log\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+\NormalTok{  \textasciitilde{}/Proyectos/epsilon{-}y{-}beta/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  /media/backup/blogs/epsilon{-}y{-}beta/}
+
+\CommentTok{\# Backup de todos los blogs}
+\FunctionTok{rsync} \AttributeTok{{-}av} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}\_site/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}.quarto/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}*.log\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+\NormalTok{  \textasciitilde{}/Proyectos/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  /media/backup/Proyectos/}
+
+\CommentTok{\# Con verificación previa (dry{-}run)}
+\FunctionTok{rsync} \AttributeTok{{-}avn} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}\_site/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}.quarto/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+\NormalTok{  \textasciitilde{}/Proyectos/epsilon{-}y{-}beta/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  /media/backup/blogs/epsilon{-}y{-}beta/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Backup de Scripts}\label{backup-de-scripts}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Backup de scripts de automatización}
+\FunctionTok{rsync} \AttributeTok{{-}av} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}*.pyc\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}\_\_pycache\_\_/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+\NormalTok{  \textasciitilde{}/Proyectos/scripts/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  /media/backup/scripts/}
+
+\CommentTok{\# Con compresión (aunque sea local, útil para discos lentos)}
+\FunctionTok{rsync} \AttributeTok{{-}avz} \DataTypeTok{\textbackslash{}}
+\NormalTok{  \textasciitilde{}/Proyectos/scripts/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  /media/usb/backups/scripts/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Sincronizar
+Configuraciones}\label{sincronizar-configuraciones}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Backup de configuraciones de Fish}
+\FunctionTok{rsync} \AttributeTok{{-}av} \DataTypeTok{\textbackslash{}}
+\NormalTok{  \textasciitilde{}/.config/fish/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  /media/backup/config/fish/}
+
+\CommentTok{\# Backup de dotfiles}
+\FunctionTok{rsync} \AttributeTok{{-}av} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}.git/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+\NormalTok{  \textasciitilde{}/dotfiles/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  /media/backup/dotfiles/}
+
+\CommentTok{\# Backup selectivo de configuraciones}
+\FunctionTok{rsync} \AttributeTok{{-}av} \DataTypeTok{\textbackslash{}}
+\NormalTok{  \textasciitilde{}/.config/fish/config.fish }\DataTypeTok{\textbackslash{}}
+\NormalTok{  \textasciitilde{}/.config/quarto/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  \textasciitilde{}/.gitconfig }\DataTypeTok{\textbackslash{}}
+\NormalTok{  /media/backup/configs/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Espejo de Directorio
+(Mirror)}\label{espejo-de-directorio-mirror}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear espejo exacto (¡CUIDADO con {-}{-}delete!)}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete}\NormalTok{ origen/ destino/}
+
+\CommentTok{\# Espejo con backups de archivos eliminados}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}backup} \AttributeTok{{-}{-}backup{-}dir}\OperatorTok{=}\NormalTok{../deleted\_}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d}\VariableTok{)} \DataTypeTok{\textbackslash{}}
+\NormalTok{  origen/ destino/}
+
+\CommentTok{\# Espejo excluyendo ciertos archivos}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}*.tmp\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}.cache/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+\NormalTok{  origen/ destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Sincronización Remota}\label{sincronizaciuxf3n-remota}
+
+\subsection{SSH: Configuración
+Básica}\label{ssh-configuraciuxf3n-buxe1sica}
+
+\textbf{1. Generar clave SSH (si no existe):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Generar clave}
+\FunctionTok{ssh{-}keygen} \AttributeTok{{-}t}\NormalTok{ ed25519 }\AttributeTok{{-}C} \StringTok{"backup{-}key"}
+
+\CommentTok{\# Copiar clave al servidor}
+\ExtensionTok{ssh{-}copy{-}id}\NormalTok{ usuario@servidor}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{2. Configurar SSH (\textasciitilde/.ssh/config):}
+
+\begin{verbatim}
+Host backup-server
+    HostName 192.168.1.100
+    User achalmaedison
+    Port 22
+    IdentityFile ~/.ssh/id_ed25519
+    Compression yes
+\end{verbatim}
+
+\textbf{3. Usar alias en rsync:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# En lugar de:}
+\FunctionTok{rsync} \AttributeTok{{-}avz}\NormalTok{ /origen/ usuario@192.168.1.100:/destino/}
+
+\CommentTok{\# Usar:}
+\FunctionTok{rsync} \AttributeTok{{-}avz}\NormalTok{ /origen/ backup{-}server:/destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Backup a Servidor Remoto}\label{backup-a-servidor-remoto}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Backup básico}
+\FunctionTok{rsync} \AttributeTok{{-}avz}\NormalTok{ /home/achalmaedison/Proyectos/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  backup{-}server:/backups/Proyectos/}
+
+\CommentTok{\# Con exclusiones}
+\FunctionTok{rsync} \AttributeTok{{-}avz} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}\_site/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}node\_modules/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}*.log\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+\NormalTok{  /home/achalmaedison/Proyectos/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  backup{-}server:/backups/Proyectos/}
+
+\CommentTok{\# Con progreso y parciales}
+\FunctionTok{rsync} \AttributeTok{{-}avzP}\NormalTok{ /home/achalmaedison/Documentos/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  backup{-}server:/backups/Documentos/}
+
+\CommentTok{\# Con límite de ancho de banda (1 MB/s)}
+\FunctionTok{rsync} \AttributeTok{{-}avz} \AttributeTok{{-}{-}bwlimit}\OperatorTok{=}\NormalTok{1000 }\DataTypeTok{\textbackslash{}}
+\NormalTok{  /home/achalmaedison/Videos/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  backup{-}server:/backups/Videos/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Restaurar desde Servidor
+Remoto}\label{restaurar-desde-servidor-remoto}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Restaurar todo}
+\FunctionTok{rsync} \AttributeTok{{-}avz}\NormalTok{ backup{-}server:/backups/Proyectos/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  /home/achalmaedison/Proyectos\_restaurados/}
+
+\CommentTok{\# Restaurar archivo específico}
+\FunctionTok{rsync} \AttributeTok{{-}avz} \DataTypeTok{\textbackslash{}}
+\NormalTok{  backup{-}server:/backups/Proyectos/epsilon{-}y{-}beta/index.qmd }\DataTypeTok{\textbackslash{}}
+\NormalTok{  ./}
+
+\CommentTok{\# Restaurar con verificación (dry{-}run primero)}
+\FunctionTok{rsync} \AttributeTok{{-}avzn}\NormalTok{ backup{-}server:/backups/ /restore/}
+\FunctionTok{rsync} \AttributeTok{{-}avz}\NormalTok{ backup{-}server:/backups/ /restore/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Sincronización entre
+Servidores}\label{sincronizaciuxf3n-entre-servidores}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Desde servidor1 a servidor2}
+\FunctionTok{rsync} \AttributeTok{{-}avz} \DataTypeTok{\textbackslash{}}
+\NormalTok{  usuario1@servidor1:/datos/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  usuario2@servidor2:/backup/}
+
+\CommentTok{\# Nota: la transferencia pasa por tu máquina local}
+\CommentTok{\# Para transferencia directa servidor{-}a{-}servidor, ejecutar rsync en uno de ellos}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Backup Incremental}\label{backup-incremental}
+
+\subsection{Concepto de Backup
+Incremental}\label{concepto-de-backup-incremental}
+
+\textbf{Backup completo:} Primera copia completa\\
+\textbf{Backup incremental:} Solo cambios desde el último backup\\
+\textbf{Ventaja:} Ahorra espacio y tiempo
+
+\subsection{Método 1: Hard Links
+(Recomendado)}\label{muxe9todo-1-hard-links-recomendado}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Primer backup (completo)}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete} \DataTypeTok{\textbackslash{}}
+\NormalTok{  /origen/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  /backup/2026{-}01{-}25/}
+
+\CommentTok{\# Segundo backup (incremental con hard links)}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}link{-}dest}\OperatorTok{=}\NormalTok{/backup/2026{-}01{-}25/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  /origen/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  /backup/2026{-}01{-}26/}
+
+\CommentTok{\# Tercer backup}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}link{-}dest}\OperatorTok{=}\NormalTok{/backup/2026{-}01{-}26/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  /origen/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  /backup/2026{-}01{-}27/}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Ventajas:}
+
+\begin{itemize}
+\tightlist
+\item
+  Cada backup parece completo
+\item
+  Archivos sin cambios son hard links (no duplican espacio)
+\item
+  Archivos modificados se copian completamente
+\item
+  Fácil restauración: elegir fecha y copiar
+\end{itemize}
+
+\textbf{Estructura resultante:}
+
+\begin{verbatim}
+/backup/
+├── 2026-01-25/  (backup completo)
+├── 2026-01-26/  (solo cambios, resto hard links)
+└── 2026-01-27/  (solo cambios, resto hard links)
+\end{verbatim}
+
+\subsection{Método 2: Directorio de
+Backup}\label{muxe9todo-2-directorio-de-backup}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Backup con directorio para sobrescritos}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}backup} \AttributeTok{{-}{-}backup{-}dir}\OperatorTok{=}\NormalTok{../incrementales/}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d\_\%H\%M\%S}\VariableTok{)} \DataTypeTok{\textbackslash{}}
+\NormalTok{  /origen/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{  /backup/actual/}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Ventajas:}
+
+\begin{itemize}
+\tightlist
+\item
+  Siempre hay un backup ``actual'' completo
+\item
+  Archivos sobrescritos se guardan en carpetas con fecha
+\item
+  Fácil ver qué cambió cada día
+\end{itemize}
+
+\subsection{Método 3: Snapshots con
+Timestamp}\label{muxe9todo-3-snapshots-con-timestamp}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Script de backup incremental}
+\CommentTok{\#!/bin/bash}
+
+\VariableTok{FECHA}\OperatorTok{=}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d\_\%H\%M\%S}\VariableTok{)}
+\VariableTok{ORIGEN}\OperatorTok{=}\StringTok{"/home/achalmaedison/Proyectos"}
+\VariableTok{BACKUP\_DIR}\OperatorTok{=}\StringTok{"/media/backup/Proyectos"}
+\VariableTok{ULTIMO}\OperatorTok{=}\VariableTok{$(}\FunctionTok{ls} \AttributeTok{{-}1} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{"} \KeywordTok{|} \FunctionTok{tail} \AttributeTok{{-}n}\NormalTok{ 1}\VariableTok{)}
+
+\CommentTok{\# Crear nuevo backup}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}link{-}dest}\OperatorTok{=}\StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/}\VariableTok{$ULTIMO}\StringTok{"} \DataTypeTok{\textbackslash{}}
+  \StringTok{"}\VariableTok{$ORIGEN}\StringTok{/"} \DataTypeTok{\textbackslash{}}
+  \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/}\VariableTok{$FECHA}\StringTok{/"}
+
+\CommentTok{\# Crear enlace simbólico "latest"}
+\FunctionTok{ln} \AttributeTok{{-}snf} \StringTok{"}\VariableTok{$FECHA}\StringTok{"} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/latest"}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Casos de Uso Profesionales}\label{casos-de-uso-profesionales}
+
+\subsection{Caso 1: Backup Diario de Blogs
+Quarto}\label{caso-1-backup-diario-de-blogs-quarto}
+
+\textbf{Escenario:} Backup automático de 10+ blogs académicos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# backup{-}blogs.sh}
+
+\VariableTok{FECHA}\OperatorTok{=}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d}\VariableTok{)}
+\VariableTok{ORIGEN}\OperatorTok{=}\StringTok{"/home/achalmaedison/Proyectos"}
+\VariableTok{DESTINO}\OperatorTok{=}\StringTok{"/media/backup/blogs"}
+
+\CommentTok{\# Lista de blogs}
+\VariableTok{BLOGS}\OperatorTok{=}\VariableTok{(}
+    \StringTok{"epsilon{-}y{-}beta"}
+    \StringTok{"axiomata"}
+    \StringTok{"methodica"}
+    \StringTok{"aequilibria"}
+    \StringTok{"optimums"}
+    \StringTok{"pecunia{-}fluxus"}
+    \StringTok{"actus{-}mercator"}
+    \StringTok{"res{-}publica"}
+    \StringTok{"dialectica{-}y{-}mercado"}
+    \StringTok{"numerus{-}scriptum"}
+    \StringTok{"chaska"}
+\VariableTok{)}
+
+\BuiltInTok{echo} \StringTok{"=== Backup de Blogs {-} }\VariableTok{$FECHA}\StringTok{ ==="}
+
+\ControlFlowTok{for}\NormalTok{ blog }\KeywordTok{in} \StringTok{"}\VariableTok{$\{BLOGS}\OperatorTok{[@]}\VariableTok{\}}\StringTok{"}\KeywordTok{;} \ControlFlowTok{do}
+    \BuiltInTok{echo} \StringTok{"Respaldando: }\VariableTok{$blog}\StringTok{"}
+
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}\_site/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}.quarto/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}*.log\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}.Rproj.user/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}*.Rproj\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+        \StringTok{"}\VariableTok{$ORIGEN}\StringTok{/}\VariableTok{$blog}\StringTok{/"} \DataTypeTok{\textbackslash{}}
+        \StringTok{"}\VariableTok{$DESTINO}\StringTok{/}\VariableTok{$blog}\StringTok{/"} \DataTypeTok{\textbackslash{}}
+        \OperatorTok{\textgreater{}\textgreater{}} \StringTok{"/var/log/backup{-}blogs{-}}\VariableTok{$FECHA}\StringTok{.log"} \DecValTok{2}\OperatorTok{\textgreater{}\&}\DecValTok{1}
+
+    \ControlFlowTok{if} \BuiltInTok{[} \VariableTok{$?} \OtherTok{{-}eq}\NormalTok{ 0 }\BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+        \BuiltInTok{echo} \StringTok{"  ✓ Completado"}
+    \ControlFlowTok{else}
+        \BuiltInTok{echo} \StringTok{"  ✗ Error"}
+    \ControlFlowTok{fi}
+\ControlFlowTok{done}
+
+\BuiltInTok{echo} \StringTok{"=== Backup Completado ==="}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 2: Sincronización de Scripts entre
+Máquinas}\label{caso-2-sincronizaciuxf3n-de-scripts-entre-muxe1quinas}
+
+\textbf{Escenario:} Mantener scripts actualizados en laptop y desktop.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# sync{-}scripts.sh}
+
+\VariableTok{HOST}\OperatorTok{=}\VariableTok{$(}\FunctionTok{hostname}\VariableTok{)}
+\VariableTok{SCRIPTS\_DIR}\OperatorTok{=}\StringTok{"/home/achalmaedison/Proyectos/scripts"}
+
+\ControlFlowTok{if} \BuiltInTok{[} \StringTok{"}\VariableTok{$HOST}\StringTok{"} \OtherTok{=} \StringTok{"laptop"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+    \CommentTok{\# Laptop → Desktop}
+    \BuiltInTok{echo} \StringTok{"Sincronizando desde laptop a desktop..."}
+    \FunctionTok{rsync} \AttributeTok{{-}avzu} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}\_\_pycache\_\_/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}*.pyc\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}.git/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+        \StringTok{"}\VariableTok{$SCRIPTS\_DIR}\StringTok{/"} \DataTypeTok{\textbackslash{}}
+\NormalTok{        desktop:/home/achalmaedison/Proyectos/scripts/}
+
+\ControlFlowTok{elif} \BuiltInTok{[} \StringTok{"}\VariableTok{$HOST}\StringTok{"} \OtherTok{=} \StringTok{"desktop"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+    \CommentTok{\# Desktop → Laptop}
+    \BuiltInTok{echo} \StringTok{"Sincronizando desde desktop a laptop..."}
+    \FunctionTok{rsync} \AttributeTok{{-}avzu} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}\_\_pycache\_\_/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}*.pyc\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}.git/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+        \StringTok{"}\VariableTok{$SCRIPTS\_DIR}\StringTok{/"} \DataTypeTok{\textbackslash{}}
+\NormalTok{        laptop:/home/achalmaedison/Proyectos/scripts/}
+\ControlFlowTok{fi}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 3: Backup Incremental
+Semanal}\label{caso-3-backup-incremental-semanal}
+
+\textbf{Escenario:} Backup semanal con retención de 4 semanas.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# backup{-}semanal.sh}
+
+\VariableTok{SEMANA}\OperatorTok{=}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\_W\%U}\VariableTok{)}
+\VariableTok{ORIGEN}\OperatorTok{=}\StringTok{"/home/achalmaedison"}
+\VariableTok{BACKUP\_BASE}\OperatorTok{=}\StringTok{"/media/backup/semanal"}
+\VariableTok{BACKUP\_DIR}\OperatorTok{=}\StringTok{"}\VariableTok{$BACKUP\_BASE}\StringTok{/}\VariableTok{$SEMANA}\StringTok{"}
+\VariableTok{ULTIMO}\OperatorTok{=}\VariableTok{$(}\FunctionTok{ls} \AttributeTok{{-}1t} \StringTok{"}\VariableTok{$BACKUP\_BASE}\StringTok{"} \KeywordTok{|} \FunctionTok{head} \AttributeTok{{-}n}\NormalTok{ 1}\VariableTok{)}
+
+\BuiltInTok{echo} \StringTok{"=== Backup Semanal {-} Semana }\VariableTok{$SEMANA}\StringTok{ ==="}
+
+\CommentTok{\# Crear backup incremental}
+\ControlFlowTok{if} \BuiltInTok{[} \OtherTok{{-}d} \StringTok{"}\VariableTok{$BACKUP\_BASE}\StringTok{/}\VariableTok{$ULTIMO}\StringTok{"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}link{-}dest}\OperatorTok{=}\StringTok{"}\VariableTok{$BACKUP\_BASE}\StringTok{/}\VariableTok{$ULTIMO}\StringTok{"} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude{-}from}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/.rsync{-}exclude"} \DataTypeTok{\textbackslash{}}
+        \StringTok{"}\VariableTok{$ORIGEN}\StringTok{/"} \DataTypeTok{\textbackslash{}}
+        \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/"}
+\ControlFlowTok{else}
+    \CommentTok{\# Primer backup (completo)}
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude{-}from}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/.rsync{-}exclude"} \DataTypeTok{\textbackslash{}}
+        \StringTok{"}\VariableTok{$ORIGEN}\StringTok{/"} \DataTypeTok{\textbackslash{}}
+        \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/"}
+\ControlFlowTok{fi}
+
+\CommentTok{\# Enlace simbólico al último}
+\FunctionTok{ln} \AttributeTok{{-}snf} \StringTok{"}\VariableTok{$SEMANA}\StringTok{"} \StringTok{"}\VariableTok{$BACKUP\_BASE}\StringTok{/latest"}
+
+\CommentTok{\# Eliminar backups antiguos (más de 4 semanas)}
+\BuiltInTok{cd} \StringTok{"}\VariableTok{$BACKUP\_BASE}\StringTok{"}
+\FunctionTok{ls} \AttributeTok{{-}1t} \KeywordTok{|} \FunctionTok{tail} \AttributeTok{{-}n}\NormalTok{ +5 }\KeywordTok{|} \FunctionTok{xargs} \AttributeTok{{-}I}\NormalTok{ \{\} rm }\AttributeTok{{-}rf}\NormalTok{ \{\}}
+
+\BuiltInTok{echo} \StringTok{"Backup completado en: }\VariableTok{$BACKUP\_DIR}\StringTok{"}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Archivo \texttt{\textasciitilde{}/.rsync-exclude}:}
+
+\begin{verbatim}
+# Cachés y temporales
+.cache/
+.thumbnails/
+*.tmp
+*.temp
+*~
+
+# Compilados
+*.pyc
+__pycache__/
+*.o
+*.so
+
+# IDEs
+.vscode/
+.idea/
+
+# Quarto
+_site/
+.quarto/
+
+# Git
+.git/
+
+# Logs
+*.log
+
+# Grandes
+*.iso
+*.img
+\end{verbatim}
+
+\subsection{Caso 4: Backup a Servidor Remoto
+Cifrado}\label{caso-4-backup-a-servidor-remoto-cifrado}
+
+\textbf{Escenario:} Backup cifrado de documentos sensibles.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# backup{-}cifrado.sh}
+
+\VariableTok{FECHA}\OperatorTok{=}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d\_\%H\%M\%S}\VariableTok{)}
+\VariableTok{ORIGEN}\OperatorTok{=}\StringTok{"/home/achalmaedison/Documentos/Sensibles"}
+\VariableTok{DESTINO}\OperatorTok{=}\StringTok{"backup{-}server:/backups/cifrados"}
+\VariableTok{TEMP}\OperatorTok{=}\StringTok{"/tmp/backup{-}}\VariableTok{$FECHA}\StringTok{"}
+\VariableTok{ARCHIVO}\OperatorTok{=}\StringTok{"backup{-}}\VariableTok{$FECHA}\StringTok{.tar.gz.gpg"}
+
+\BuiltInTok{echo} \StringTok{"=== Backup Cifrado {-} }\VariableTok{$FECHA}\StringTok{ ==="}
+
+\CommentTok{\# 1. Sincronizar a temporal}
+\FunctionTok{rsync} \AttributeTok{{-}av} \StringTok{"}\VariableTok{$ORIGEN}\StringTok{/"} \StringTok{"}\VariableTok{$TEMP}\StringTok{/"}
+
+\CommentTok{\# 2. Comprimir}
+\FunctionTok{tar} \AttributeTok{{-}czf} \StringTok{"}\VariableTok{$TEMP}\StringTok{.tar.gz"} \AttributeTok{{-}C} \StringTok{"}\VariableTok{$(}\FunctionTok{dirname} \VariableTok{$TEMP)}\StringTok{"} \StringTok{"}\VariableTok{$(}\FunctionTok{basename} \VariableTok{$TEMP)}\StringTok{"}
+
+\CommentTok{\# 3. Cifrar}
+\ExtensionTok{gpg} \AttributeTok{{-}{-}encrypt} \AttributeTok{{-}{-}recipient}\NormalTok{ backup@example.com }\StringTok{"}\VariableTok{$TEMP}\StringTok{.tar.gz"}
+
+\CommentTok{\# 4. Transferir}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}progress} \StringTok{"}\VariableTok{$TEMP}\StringTok{.tar.gz.gpg"} \StringTok{"}\VariableTok{$DESTINO}\StringTok{/}\VariableTok{$ARCHIVO}\StringTok{"}
+
+\CommentTok{\# 5. Limpiar}
+\FunctionTok{rm} \AttributeTok{{-}rf} \StringTok{"}\VariableTok{$TEMP}\StringTok{"} \StringTok{"}\VariableTok{$TEMP}\StringTok{.tar.gz"} \StringTok{"}\VariableTok{$TEMP}\StringTok{.tar.gz.gpg"}
+
+\BuiltInTok{echo} \StringTok{"Backup cifrado completado: }\VariableTok{$ARCHIVO}\StringTok{"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 5: Sincronización Bidireccional
+Cuidadosa}\label{caso-5-sincronizaciuxf3n-bidireccional-cuidadosa}
+
+\textbf{Escenario:} Sincronizar cambios entre dos ubicaciones sin
+pérdida.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# sync{-}bidireccional.sh}
+
+\VariableTok{RUTA\_A}\OperatorTok{=}\StringTok{"/home/achalmaedison/Proyectos/epsilon{-}y{-}beta"}
+\VariableTok{RUTA\_B}\OperatorTok{=}\StringTok{"/media/usb/epsilon{-}y{-}beta"}
+
+\BuiltInTok{echo} \StringTok{"=== Sincronización Bidireccional ==="}
+
+\CommentTok{\# A → B (solo archivos más nuevos)}
+\BuiltInTok{echo} \StringTok{"Sincronizando A → B..."}
+\FunctionTok{rsync} \AttributeTok{{-}avu} \AttributeTok{{-}{-}progress} \StringTok{"}\VariableTok{$RUTA\_A}\StringTok{/"} \StringTok{"}\VariableTok{$RUTA\_B}\StringTok{/"}
+
+\CommentTok{\# B → A (solo archivos más nuevos)}
+\BuiltInTok{echo} \StringTok{"Sincronizando B → A..."}
+\FunctionTok{rsync} \AttributeTok{{-}avu} \AttributeTok{{-}{-}progress} \StringTok{"}\VariableTok{$RUTA\_B}\StringTok{/"} \StringTok{"}\VariableTok{$RUTA\_A}\StringTok{/"}
+
+\BuiltInTok{echo} \StringTok{"Sincronización completada"}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Nota:} Para sincronización bidireccional real con detección de
+conflictos, usar \texttt{Unison} o \texttt{Syncthing}.
+
+\subsection{Caso 6: Backup de Base de Datos con
+rsync}\label{caso-6-backup-de-base-de-datos-con-rsync}
+
+\textbf{Escenario:} Backup de bases de datos SQLite.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# backup{-}databases.sh}
+
+\VariableTok{FECHA}\OperatorTok{=}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d\_\%H\%M\%S}\VariableTok{)}
+\VariableTok{DB\_DIR}\OperatorTok{=}\StringTok{"/home/achalmaedison/databases"}
+\VariableTok{BACKUP\_DIR}\OperatorTok{=}\StringTok{"/media/backup/databases"}
+\VariableTok{TEMP\_DIR}\OperatorTok{=}\StringTok{"/tmp/db{-}backup{-}}\VariableTok{$FECHA}\StringTok{"}
+
+\FunctionTok{mkdir} \AttributeTok{{-}p} \StringTok{"}\VariableTok{$TEMP\_DIR}\StringTok{"}
+
+\BuiltInTok{echo} \StringTok{"=== Backup de Bases de Datos ==="}
+
+\CommentTok{\# Copiar y comprimir bases de datos}
+\ControlFlowTok{for}\NormalTok{ db }\KeywordTok{in} \StringTok{"}\VariableTok{$DB\_DIR}\StringTok{"}\NormalTok{/}\PreprocessorTok{*}\NormalTok{.db}\KeywordTok{;} \ControlFlowTok{do}
+    \VariableTok{nombre}\OperatorTok{=}\VariableTok{$(}\FunctionTok{basename} \StringTok{"}\VariableTok{$db}\StringTok{"}\VariableTok{)}
+    \BuiltInTok{echo} \StringTok{"Procesando: }\VariableTok{$nombre}\StringTok{"}
+
+    \CommentTok{\# Checkpoint WAL (si existe)}
+    \ExtensionTok{sqlite3} \StringTok{"}\VariableTok{$db}\StringTok{"} \StringTok{"PRAGMA wal\_checkpoint(FULL);"}
+
+    \CommentTok{\# Copiar}
+    \FunctionTok{cp} \StringTok{"}\VariableTok{$db}\StringTok{"} \StringTok{"}\VariableTok{$TEMP\_DIR}\StringTok{/}\VariableTok{$nombre}\StringTok{"}
+
+    \CommentTok{\# Comprimir}
+    \FunctionTok{gzip} \StringTok{"}\VariableTok{$TEMP\_DIR}\StringTok{/}\VariableTok{$nombre}\StringTok{"}
+\ControlFlowTok{done}
+
+\CommentTok{\# Sincronizar al backup}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete} \DataTypeTok{\textbackslash{}}
+    \StringTok{"}\VariableTok{$TEMP\_DIR}\StringTok{/"} \DataTypeTok{\textbackslash{}}
+    \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/}\VariableTok{$FECHA}\StringTok{/"}
+
+\CommentTok{\# Enlace al último}
+\FunctionTok{ln} \AttributeTok{{-}snf} \StringTok{"}\VariableTok{$FECHA}\StringTok{"} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/latest"}
+
+\CommentTok{\# Limpiar temporal}
+\FunctionTok{rm} \AttributeTok{{-}rf} \StringTok{"}\VariableTok{$TEMP\_DIR}\StringTok{"}
+
+\CommentTok{\# Eliminar backups antiguos (más de 30 días)}
+\FunctionTok{find} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{"} \AttributeTok{{-}maxdepth}\NormalTok{ 1 }\AttributeTok{{-}type}\NormalTok{ d }\AttributeTok{{-}mtime}\NormalTok{ +30 }\AttributeTok{{-}exec}\NormalTok{ rm }\AttributeTok{{-}rf}\NormalTok{ \{\} }\DataTypeTok{\textbackslash{};}
+
+\BuiltInTok{echo} \StringTok{"Backup completado"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Caso 7: Replicación de
+Configuraciones}\label{caso-7-replicaciuxf3n-de-configuraciones}
+
+\textbf{Escenario:} Replicar dotfiles y configuraciones entre máquinas.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# replicate{-}configs.sh}
+
+\VariableTok{USUARIO}\OperatorTok{=}\StringTok{"achalmaedison"}
+\VariableTok{CONFIGS}\OperatorTok{=}\VariableTok{(}
+    \StringTok{".config/fish"}
+    \StringTok{".config/nvim"}
+    \StringTok{".config/quarto"}
+    \StringTok{".gitconfig"}
+    \StringTok{".ssh/config"}
+\VariableTok{)}
+
+\VariableTok{DESTINO}\OperatorTok{=}\StringTok{"}\VariableTok{$1}\StringTok{"}
+
+\ControlFlowTok{if} \BuiltInTok{[} \OtherTok{{-}z} \StringTok{"}\VariableTok{$DESTINO}\StringTok{"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+    \BuiltInTok{echo} \StringTok{"Uso: }\VariableTok{$0}\StringTok{ \textless{}usuario@host\textgreater{}"}
+    \BuiltInTok{exit}\NormalTok{ 1}
+\ControlFlowTok{fi}
+
+\BuiltInTok{echo} \StringTok{"=== Replicando Configuraciones ==="}
+
+\ControlFlowTok{for}\NormalTok{ config }\KeywordTok{in} \StringTok{"}\VariableTok{$\{CONFIGS}\OperatorTok{[@]}\VariableTok{\}}\StringTok{"}\KeywordTok{;} \ControlFlowTok{do}
+    \BuiltInTok{echo} \StringTok{"Replicando: }\VariableTok{$config}\StringTok{"}
+
+    \ControlFlowTok{if} \BuiltInTok{[} \OtherTok{{-}f} \StringTok{"}\VariableTok{$HOME}\StringTok{/}\VariableTok{$config}\StringTok{"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+        \CommentTok{\# Es un archivo}
+        \FunctionTok{rsync} \AttributeTok{{-}av} \StringTok{"}\VariableTok{$HOME}\StringTok{/}\VariableTok{$config}\StringTok{"} \StringTok{"}\VariableTok{$DESTINO}\StringTok{:\textasciitilde{}/}\VariableTok{$config}\StringTok{"}
+    \ControlFlowTok{elif} \BuiltInTok{[} \OtherTok{{-}d} \StringTok{"}\VariableTok{$HOME}\StringTok{/}\VariableTok{$config}\StringTok{"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+        \CommentTok{\# Es un directorio}
+        \FunctionTok{rsync} \AttributeTok{{-}av} \StringTok{"}\VariableTok{$HOME}\StringTok{/}\VariableTok{$config}\StringTok{/"} \StringTok{"}\VariableTok{$DESTINO}\StringTok{:\textasciitilde{}/}\VariableTok{$config}\StringTok{/"}
+    \ControlFlowTok{fi}
+\ControlFlowTok{done}
+
+\BuiltInTok{echo} \StringTok{"Replicación completada"}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Automatización con
+Systemd}\label{automatizaciuxf3n-con-systemd}
+
+\subsection{Timer de Systemd para Backups
+Automáticos}\label{timer-de-systemd-para-backups-automuxe1ticos}
+
+\subsubsection{1. Crear Script de Backup}\label{crear-script-de-backup}
+
+\textbf{\texttt{/usr/local/bin/backup-proyectos.sh}:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+
+\VariableTok{FECHA}\OperatorTok{=}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d\_\%H\%M\%S}\VariableTok{)}
+\VariableTok{LOG}\OperatorTok{=}\StringTok{"/var/log/backup{-}proyectos.log"}
+
+\KeywordTok{\{}
+    \BuiltInTok{echo} \StringTok{"=== Backup {-} }\VariableTok{$FECHA}\StringTok{ ==="}
+
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}\_site/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}.quarto/\textquotesingle{}} \DataTypeTok{\textbackslash{}}
+\NormalTok{        /home/achalmaedison/Proyectos/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{        /media/backup/Proyectos/}
+
+    \ControlFlowTok{if} \BuiltInTok{[} \VariableTok{$?} \OtherTok{{-}eq}\NormalTok{ 0 }\BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+        \BuiltInTok{echo} \StringTok{"Backup completado exitosamente"}
+    \ControlFlowTok{else}
+        \BuiltInTok{echo} \StringTok{"Error en backup"}
+    \ControlFlowTok{fi}
+
+    \BuiltInTok{echo} \StringTok{""}
+\KeywordTok{\}} \OperatorTok{\textgreater{}\textgreater{}} \StringTok{"}\VariableTok{$LOG}\StringTok{"} \DecValTok{2}\OperatorTok{\textgreater{}\&}\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ chmod +x /usr/local/bin/backup{-}proyectos.sh}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{2. Crear Servicio Systemd}\label{crear-servicio-systemd}
+
+\textbf{\texttt{/etc/systemd/system/backup-proyectos.service}:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{[Unit]}
+\DataTypeTok{Description}\OtherTok{=}\StringTok{Backup de Proyectos Quarto}
+\DataTypeTok{After}\OtherTok{=}\StringTok{network.target}
+
+\KeywordTok{[Service]}
+\DataTypeTok{Type}\OtherTok{=}\StringTok{oneshot}
+\DataTypeTok{User}\OtherTok{=}\StringTok{achalmaedison}
+\DataTypeTok{ExecStart}\OtherTok{=}\StringTok{/usr/local/bin/backup{-}proyectos.sh}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{3. Crear Timer}\label{crear-timer}
+
+\textbf{\texttt{/etc/systemd/system/backup-proyectos.timer}:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{[Unit]}
+\DataTypeTok{Description}\OtherTok{=}\StringTok{Timer para Backup de Proyectos}
+\DataTypeTok{Requires}\OtherTok{=}\StringTok{backup{-}proyectos.service}
+
+\KeywordTok{[Timer]}
+\CommentTok{\# Ejecutar diariamente a las 2 AM}
+\DataTypeTok{OnCalendar}\OtherTok{=}\StringTok{daily}
+\DataTypeTok{OnCalendar}\OtherTok{=}\StringTok{02:00}
+\DataTypeTok{Persistent}\OtherTok{=}\KeywordTok{true}
+
+\KeywordTok{[Install]}
+\DataTypeTok{WantedBy}\OtherTok{=}\StringTok{timers.target}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{4. Habilitar y Activar}\label{habilitar-y-activar}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Recargar systemd}
+\FunctionTok{sudo}\NormalTok{ systemctl daemon{-}reload}
+
+\CommentTok{\# Habilitar timer}
+\FunctionTok{sudo}\NormalTok{ systemctl enable backup{-}proyectos.timer}
+
+\CommentTok{\# Iniciar timer}
+\FunctionTok{sudo}\NormalTok{ systemctl start backup{-}proyectos.timer}
+
+\CommentTok{\# Verificar estado}
+\ExtensionTok{systemctl}\NormalTok{ status backup{-}proyectos.timer}
+
+\CommentTok{\# Ver próxima ejecución}
+\ExtensionTok{systemctl}\NormalTok{ list{-}timers backup{-}proyectos.timer}
+
+\CommentTok{\# Ejecutar manualmente (probar)}
+\FunctionTok{sudo}\NormalTok{ systemctl start backup{-}proyectos.service}
+
+\CommentTok{\# Ver logs}
+\ExtensionTok{journalctl} \AttributeTok{{-}u}\NormalTok{ backup{-}proyectos.service}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Múltiples Timers}\label{muxfaltiples-timers}
+
+\textbf{Backup semanal completo:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# /etc/systemd/system/backup{-}semanal.timer}
+\KeywordTok{[Unit]}
+\DataTypeTok{Description}\OtherTok{=}\StringTok{Backup Semanal Completo}
+
+\KeywordTok{[Timer]}
+\CommentTok{\# Cada domingo a las 3 AM}
+\DataTypeTok{OnCalendar}\OtherTok{=}\StringTok{Sun 03:00}
+\DataTypeTok{Persistent}\OtherTok{=}\KeywordTok{true}
+
+\KeywordTok{[Install]}
+\DataTypeTok{WantedBy}\OtherTok{=}\StringTok{timers.target}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Backup mensual:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# /etc/systemd/system/backup{-}mensual.timer}
+\KeywordTok{[Unit]}
+\DataTypeTok{Description}\OtherTok{=}\StringTok{Backup Mensual}
+
+\KeywordTok{[Timer]}
+\CommentTok{\# Primer día del mes a las 4 AM}
+\DataTypeTok{OnCalendar}\OtherTok{=}\StringTok{monthly}
+\DataTypeTok{OnCalendar}\OtherTok{=}\StringTok{04:00}
+\DataTypeTok{Persistent}\OtherTok{=}\KeywordTok{true}
+
+\KeywordTok{[Install]}
+\DataTypeTok{WantedBy}\OtherTok{=}\StringTok{timers.target}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Troubleshooting}\label{troubleshooting}
+
+\subsection{Problema 1: ``Permission
+denied''}\label{problema-1-permission-denied}
+
+\textbf{Causa:} Falta de permisos en origen o destino.
+
+\textbf{Soluciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Verificar permisos de origen}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ /ruta/origen/}
+
+\CommentTok{\# Verificar permisos de destino}
+\FunctionTok{ls} \AttributeTok{{-}la}\NormalTok{ /ruta/destino/}
+
+\CommentTok{\# Si es problema de propietario, cambiar}
+\FunctionTok{sudo}\NormalTok{ chown }\AttributeTok{{-}R} \VariableTok{$USER}\NormalTok{:}\VariableTok{$USER}\NormalTok{ /ruta/destino/}
+
+\CommentTok{\# O usar sudo con rsync (no recomendado)}
+\FunctionTok{sudo}\NormalTok{ rsync }\AttributeTok{{-}av}\NormalTok{ /origen/ /destino/}
+
+\CommentTok{\# Para remoto, verificar permisos SSH}
+\FunctionTok{ssh}\NormalTok{ usuario@servidor ls }\AttributeTok{{-}la}\NormalTok{ /ruta/destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema 2: Archivos no se
+actualizan}\label{problema-2-archivos-no-se-actualizan}
+
+\textbf{Causa:} Timestamps o opciones incorrectas.
+
+\textbf{Soluciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Verificar si archivos son realmente diferentes}
+\FunctionTok{diff}\NormalTok{ archivo\_origen archivo\_destino}
+
+\CommentTok{\# Forzar actualización ignorando timestamps}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}ignore{-}times}\NormalTok{ /origen/ /destino/}
+
+\CommentTok{\# Usar checksums (más lento pero seguro)}
+\FunctionTok{rsync} \AttributeTok{{-}avc}\NormalTok{ /origen/ /destino/}
+
+\CommentTok{\# Actualizar solo si origen es más nuevo}
+\FunctionTok{rsync} \AttributeTok{{-}avu}\NormalTok{ /origen/ /destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema 3: ``rsync: connection unexpectedly
+closed''}\label{problema-3-rsync-connection-unexpectedly-closed}
+
+\textbf{Causa:} Conexión SSH interrumpida o timeout.
+
+\textbf{Soluciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Aumentar timeout}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}timeout}\OperatorTok{=}\NormalTok{600 /origen/ usuario@servidor:/destino/}
+
+\CommentTok{\# Usar compresión (reduce tiempo de transferencia)}
+\FunctionTok{rsync} \AttributeTok{{-}avz}\NormalTok{ /origen/ usuario@servidor:/destino/}
+
+\CommentTok{\# Usar partial (mantiene archivos parciales)}
+\FunctionTok{rsync} \AttributeTok{{-}avP}\NormalTok{ /origen/ usuario@servidor:/destino/}
+
+\CommentTok{\# Configurar SSH keepalive (\textasciitilde{}/.ssh/config)}
+\ExtensionTok{Host} \PreprocessorTok{*}
+    \ExtensionTok{ServerAliveInterval}\NormalTok{ 60}
+    \ExtensionTok{ServerAliveCountMax}\NormalTok{ 3}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema 4: Espacio insuficiente en
+destino}\label{problema-4-espacio-insuficiente-en-destino}
+
+\textbf{Causa:} Destino lleno o archivos muy grandes.
+
+\textbf{Soluciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Verificar espacio disponible}
+\FunctionTok{df} \AttributeTok{{-}h}\NormalTok{ /destino/}
+
+\CommentTok{\# Usar {-}{-}delete{-}after en lugar de {-}{-}delete (usa menos espacio temporal)}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete{-}after}\NormalTok{ /origen/ /destino/}
+
+\CommentTok{\# Excluir archivos grandes}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}max{-}size}\OperatorTok{=}\NormalTok{100M /origen/ /destino/}
+
+\CommentTok{\# Limpiar backups antiguos primero}
+\FunctionTok{find}\NormalTok{ /destino/backups/ }\AttributeTok{{-}mtime}\NormalTok{ +30 }\AttributeTok{{-}delete}
+
+\CommentTok{\# Usar compresión}
+\FunctionTok{rsync} \AttributeTok{{-}avz}\NormalTok{ /origen/ /destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema 5: Transferencia muy
+lenta}\label{problema-5-transferencia-muy-lenta}
+
+\textbf{Causa:} Red lenta, archivos grandes, falta de compresión.
+
+\textbf{Soluciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Habilitar compresión}
+\FunctionTok{rsync} \AttributeTok{{-}avz}\NormalTok{ /origen/ usuario@servidor:/destino/}
+
+\CommentTok{\# Usar {-}{-}whole{-}file en LAN rápida}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}whole{-}file}\NormalTok{ /origen/ /destino/}
+
+\CommentTok{\# Limitar archivos procesados}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}max{-}size}\OperatorTok{=}\NormalTok{10M /origen/ /destino/}
+
+\CommentTok{\# Limitar ancho de banda (útil para no saturar red)}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}bwlimit}\OperatorTok{=}\NormalTok{1000 /origen/ /destino/}
+
+\CommentTok{\# Usar opciones de rendimiento SSH}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}e} \StringTok{"ssh {-}c aes128{-}gcm@openssh.com"} \DataTypeTok{\textbackslash{}}
+\NormalTok{    /origen/ usuario@servidor:/destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema 6: ``some files/attrs were not
+transferred''}\label{problema-6-some-filesattrs-were-not-transferred}
+
+\textbf{Causa:} Permisos especiales, ACLs, xattrs.
+
+\textbf{Soluciones:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ver qué archivos fallaron}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}itemize{-}changes}\NormalTok{ /origen/ /destino/ }\DecValTok{2}\OperatorTok{\textgreater{}\&}\DecValTok{1} \KeywordTok{|} \FunctionTok{grep} \AttributeTok{{-}i}\NormalTok{ error}
+
+\CommentTok{\# Ignorar errores de permisos (útil para copias entre sistemas)}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}no{-}perms} \AttributeTok{{-}{-}no{-}owner} \AttributeTok{{-}{-}no{-}group}\NormalTok{ /origen/ /destino/}
+
+\CommentTok{\# Preservar solo lo esencial}
+\FunctionTok{rsync} \AttributeTok{{-}rltv}\NormalTok{ /origen/ /destino/}
+
+\CommentTok{\# Ejecutar con sudo (si necesario)}
+\FunctionTok{sudo}\NormalTok{ rsync }\AttributeTok{{-}av}\NormalTok{ /origen/ /destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema 7: Trailing slash causa estructura
+incorrecta}\label{problema-7-trailing-slash-causa-estructura-incorrecta}
+
+\textbf{Problema común:} Olvidar o agregar \texttt{/} incorrectamente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# INCORRECTO (crea origen/ dentro de destino/)}
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ origen destino/}
+\CommentTok{\# Resultado: destino/origen/archivos}
+
+\CommentTok{\# CORRECTO (copia contenido de origen/ a destino/)}
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ origen/ destino/}
+\CommentTok{\# Resultado: destino/archivos}
+
+\CommentTok{\# Regla mnemotécnica:}
+\CommentTok{\# origen/  → "dame el CONTENIDO"}
+\CommentTok{\# origen   → "dame el DIRECTORIO"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Problema 8: --delete elimina archivos
+importantes}\label{problema-8-delete-elimina-archivos-importantes}
+
+\textbf{Prevención y recuperación:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# SIEMPRE usar {-}{-}dry{-}run primero}
+\FunctionTok{rsync} \AttributeTok{{-}avn} \AttributeTok{{-}{-}delete}\NormalTok{ origen/ destino/}
+
+\CommentTok{\# Usar {-}{-}backup con {-}{-}delete}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}backup} \AttributeTok{{-}{-}backup{-}dir}\OperatorTok{=}\NormalTok{../deleted\_}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d}\VariableTok{)} \DataTypeTok{\textbackslash{}}
+\NormalTok{    origen/ destino/}
+
+\CommentTok{\# Usar {-}{-}delete{-}after (más seguro)}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete{-}after}\NormalTok{ origen/ destino/}
+
+\CommentTok{\# Restaurar archivos eliminados accidentalmente}
+\FunctionTok{cp}\NormalTok{ ../deleted\_20260125/archivo.txt destino/}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Scripts de Backup}\label{scripts-de-backup}
+
+\subsection{Script Fish: Backup Inteligente de
+Proyectos}\label{script-fish-backup-inteligente-de-proyectos}
+
+\textbf{\texttt{\textasciitilde{}/.config/fish/functions/backup-proyecto.fish}:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{function backup{-}proyecto {-}{-}description "Backup inteligente de proyectos Quarto"}
+\NormalTok{    set {-}l proyecto $argv[1]}
+\NormalTok{    set {-}l destino $argv[2]}
+
+\NormalTok{    if test (count $argv) {-}lt 2}
+\NormalTok{        echo "Uso: backup{-}proyecto \textless{}proyecto\textgreater{} \textless{}destino\textgreater{}"}
+\NormalTok{        echo ""}
+\NormalTok{        echo "Ejemplo:"}
+\NormalTok{        echo "  backup{-}proyecto epsilon{-}y{-}beta /media/backup/blogs/"}
+\NormalTok{        return 1}
+\NormalTok{    end}
+
+\NormalTok{    set {-}l origen "$HOME/Proyectos/$proyecto"}
+
+\NormalTok{    \# Verificar que el proyecto existe}
+\NormalTok{    if not test {-}d "$origen"}
+\NormalTok{        echo "Error: Proyecto no encontrado: $origen"}
+\NormalTok{        return 1}
+\NormalTok{    end}
+
+\NormalTok{    \# Crear destino si no existe}
+\NormalTok{    mkdir {-}p "$destino"}
+
+\NormalTok{    echo "=== Backup de $proyecto ==="}
+\NormalTok{    echo "Origen: $origen"}
+\NormalTok{    echo "Destino: $destino"}
+\NormalTok{    echo ""}
+
+\NormalTok{    \# Ejecutar rsync}
+\NormalTok{    rsync {-}av {-}{-}delete \textbackslash{}}
+\NormalTok{        {-}{-}exclude=\textquotesingle{}\_site/\textquotesingle{} \textbackslash{}}
+\NormalTok{        {-}{-}exclude=\textquotesingle{}.quarto/\textquotesingle{} \textbackslash{}}
+\NormalTok{        {-}{-}exclude=\textquotesingle{}*.log\textquotesingle{} \textbackslash{}}
+\NormalTok{        {-}{-}exclude=\textquotesingle{}.Rproj.user/\textquotesingle{} \textbackslash{}}
+\NormalTok{        {-}{-}progress \textbackslash{}}
+\NormalTok{        "$origen/" \textbackslash{}}
+\NormalTok{        "$destino/$proyecto/"}
+
+\NormalTok{    if test $status {-}eq 0}
+\NormalTok{        echo ""}
+\NormalTok{        echo "✓ Backup completado exitosamente"}
+\NormalTok{    else}
+\NormalTok{        echo ""}
+\NormalTok{        echo "✗ Error en backup"}
+\NormalTok{        return 1}
+\NormalTok{    end}
+\NormalTok{end}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Usar:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{backup{-}proyecto epsilon{-}y{-}beta /media/backup/blogs/}
+\NormalTok{backup{-}proyecto scripts /media/usb/backups/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Script Bash: Backup Completo con
+Rotación}\label{script-bash-backup-completo-con-rotaciuxf3n}
+
+\textbf{\texttt{\textasciitilde{}/bin/backup-completo.sh}:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# backup{-}completo.sh {-} Backup completo con rotación de versiones}
+
+\BuiltInTok{set} \AttributeTok{{-}e}
+
+\CommentTok{\# Configuración}
+\VariableTok{ORIGEN}\OperatorTok{=}\StringTok{"/home/achalmaedison/Proyectos"}
+\VariableTok{BACKUP\_BASE}\OperatorTok{=}\StringTok{"/media/backup/Proyectos"}
+\VariableTok{RETENER}\OperatorTok{=}\NormalTok{7  }\CommentTok{\# días}
+\VariableTok{LOG}\OperatorTok{=}\StringTok{"/var/log/backup{-}completo.log"}
+
+\CommentTok{\# Fecha actual}
+\VariableTok{FECHA}\OperatorTok{=}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d\_\%H\%M\%S}\VariableTok{)}
+\VariableTok{DIA}\OperatorTok{=}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%A}\VariableTok{)}
+
+\CommentTok{\# Directorio de backup}
+\VariableTok{BACKUP\_DIR}\OperatorTok{=}\StringTok{"}\VariableTok{$BACKUP\_BASE}\StringTok{/}\VariableTok{$FECHA}\StringTok{"}
+\VariableTok{ULTIMO}\OperatorTok{=}\VariableTok{$(}\FunctionTok{ls} \AttributeTok{{-}1t} \StringTok{"}\VariableTok{$BACKUP\_BASE}\StringTok{"} \DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{/dev/null }\KeywordTok{|} \FunctionTok{head} \AttributeTok{{-}n}\NormalTok{ 1}\VariableTok{)}
+
+\CommentTok{\# Función de log}
+\FunctionTok{log()} \KeywordTok{\{}
+    \BuiltInTok{echo} \StringTok{"[}\VariableTok{$(}\FunctionTok{date} \StringTok{\textquotesingle{}+\%Y{-}\%m{-}\%d \%H:\%M:\%S\textquotesingle{}}\VariableTok{)}\StringTok{] }\VariableTok{$*}\StringTok{"} \KeywordTok{|} \FunctionTok{tee} \AttributeTok{{-}a} \StringTok{"}\VariableTok{$LOG}\StringTok{"}
+\KeywordTok{\}}
+
+\CommentTok{\# Inicio}
+\ExtensionTok{log} \StringTok{"=== Inicio de Backup Completo ==="}
+\ExtensionTok{log} \StringTok{"Origen: }\VariableTok{$ORIGEN}\StringTok{"}
+\ExtensionTok{log} \StringTok{"Destino: }\VariableTok{$BACKUP\_DIR}\StringTok{"}
+
+\CommentTok{\# Crear directorio de backup}
+\FunctionTok{mkdir} \AttributeTok{{-}p} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{"}
+
+\CommentTok{\# Ejecutar rsync con hard links si existe backup anterior}
+\ControlFlowTok{if} \BuiltInTok{[} \OtherTok{{-}d} \StringTok{"}\VariableTok{$BACKUP\_BASE}\StringTok{/}\VariableTok{$ULTIMO}\StringTok{"} \BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+    \ExtensionTok{log} \StringTok{"Backup incremental usando: }\VariableTok{$ULTIMO}\StringTok{"}
+
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}link{-}dest}\OperatorTok{=}\StringTok{"}\VariableTok{$BACKUP\_BASE}\StringTok{/}\VariableTok{$ULTIMO}\StringTok{"} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude{-}from}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/.rsync{-}exclude{-}proyectos"} \DataTypeTok{\textbackslash{}}
+        \StringTok{"}\VariableTok{$ORIGEN}\StringTok{/"} \DataTypeTok{\textbackslash{}}
+        \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/"} \DataTypeTok{\textbackslash{}}
+        \DecValTok{2}\OperatorTok{\textgreater{}\&}\DecValTok{1} \KeywordTok{|} \FunctionTok{tee} \AttributeTok{{-}a} \StringTok{"}\VariableTok{$LOG}\StringTok{"}
+\ControlFlowTok{else}
+    \ExtensionTok{log} \StringTok{"Primer backup (completo)"}
+
+    \FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}{-}exclude{-}from}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/.rsync{-}exclude{-}proyectos"} \DataTypeTok{\textbackslash{}}
+        \StringTok{"}\VariableTok{$ORIGEN}\StringTok{/"} \DataTypeTok{\textbackslash{}}
+        \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/"} \DataTypeTok{\textbackslash{}}
+        \DecValTok{2}\OperatorTok{\textgreater{}\&}\DecValTok{1} \KeywordTok{|} \FunctionTok{tee} \AttributeTok{{-}a} \StringTok{"}\VariableTok{$LOG}\StringTok{"}
+\ControlFlowTok{fi}
+
+\CommentTok{\# Verificar éxito}
+\ControlFlowTok{if} \BuiltInTok{[} \VariableTok{$\{PIPESTATUS}\OperatorTok{[}\DecValTok{0}\OperatorTok{]}\VariableTok{\}} \OtherTok{{-}eq}\NormalTok{ 0 }\BuiltInTok{]}\KeywordTok{;} \ControlFlowTok{then}
+    \ExtensionTok{log} \StringTok{"✓ Backup completado exitosamente"}
+
+    \CommentTok{\# Crear enlace simbólico al último}
+    \FunctionTok{ln} \AttributeTok{{-}snf} \StringTok{"}\VariableTok{$FECHA}\StringTok{"} \StringTok{"}\VariableTok{$BACKUP\_BASE}\StringTok{/latest"}
+    \FunctionTok{ln} \AttributeTok{{-}snf} \StringTok{"}\VariableTok{$FECHA}\StringTok{"} \StringTok{"}\VariableTok{$BACKUP\_BASE}\StringTok{/}\VariableTok{$DIA}\StringTok{"}
+
+    \CommentTok{\# Estadísticas}
+    \VariableTok{TAMANO}\OperatorTok{=}\VariableTok{$(}\FunctionTok{du} \AttributeTok{{-}sh} \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{"} \KeywordTok{|} \FunctionTok{cut} \AttributeTok{{-}f1}\VariableTok{)}
+    \ExtensionTok{log} \StringTok{"Tamaño del backup: }\VariableTok{$TAMANO}\StringTok{"}
+
+    \CommentTok{\# Rotación: eliminar backups antiguos}
+    \ExtensionTok{log} \StringTok{"Eliminando backups antiguos (\textgreater{}}\VariableTok{$RETENER}\StringTok{ días)..."}
+    \FunctionTok{find} \StringTok{"}\VariableTok{$BACKUP\_BASE}\StringTok{"} \AttributeTok{{-}maxdepth}\NormalTok{ 1 }\AttributeTok{{-}type}\NormalTok{ d }\AttributeTok{{-}mtime}\NormalTok{ +}\VariableTok{$RETENER} \DataTypeTok{\textbackslash{}}
+\NormalTok{        ! }\AttributeTok{{-}name} \StringTok{"}\VariableTok{$(}\FunctionTok{basename} \VariableTok{$BACKUP\_BASE)}\StringTok{"} \DataTypeTok{\textbackslash{}}
+        \AttributeTok{{-}exec}\NormalTok{ rm }\AttributeTok{{-}rf}\NormalTok{ \{\} }\DataTypeTok{\textbackslash{};} \DecValTok{2}\OperatorTok{\textgreater{}\&}\DecValTok{1} \KeywordTok{|} \FunctionTok{tee} \AttributeTok{{-}a} \StringTok{"}\VariableTok{$LOG}\StringTok{"}
+
+    \ExtensionTok{log} \StringTok{"Backups actuales:"}
+    \FunctionTok{ls} \AttributeTok{{-}lt} \StringTok{"}\VariableTok{$BACKUP\_BASE}\StringTok{"} \KeywordTok{|} \FunctionTok{grep}\NormalTok{ \^{}d }\KeywordTok{|} \FunctionTok{tee} \AttributeTok{{-}a} \StringTok{"}\VariableTok{$LOG}\StringTok{"}
+
+\ControlFlowTok{else}
+    \ExtensionTok{log} \StringTok{"✗ Error en backup"}
+    \BuiltInTok{exit}\NormalTok{ 1}
+\ControlFlowTok{fi}
+
+\ExtensionTok{log} \StringTok{"=== Fin de Backup ==="}
+\BuiltInTok{echo} \StringTok{""}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Archivo \texttt{\textasciitilde{}/.rsync-exclude-proyectos}:}
+
+\begin{verbatim}
+# Quarto
+_site/
+.quarto/
+*.Rproj
+.Rproj.user/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Node
+node_modules/
+package-lock.json
+
+# Logs
+*.log
+
+# Temporales
+*.tmp
+*.temp
+*~
+.DS_Store
+\end{verbatim}
+
+\textbf{Hacer ejecutable:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{chmod}\NormalTok{ +x \textasciitilde{}/bin/backup{-}completo.sh}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Script: Verificación de
+Backups}\label{script-verificaciuxf3n-de-backups}
+
+\textbf{\texttt{\textasciitilde{}/bin/verificar-backup.sh}:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#!/bin/bash}
+\CommentTok{\# verificar{-}backup.sh {-} Verificar integridad de backups}
+
+\VariableTok{ORIGEN}\OperatorTok{=}\StringTok{"/home/achalmaedison/Proyectos"}
+\VariableTok{BACKUP\_DIR}\OperatorTok{=}\StringTok{"/media/backup/Proyectos/latest"}
+
+\BuiltInTok{echo} \StringTok{"=== Verificación de Backup ==="}
+\BuiltInTok{echo} \StringTok{"Comparando: }\VariableTok{$ORIGEN}\StringTok{ ↔ }\VariableTok{$BACKUP\_DIR}\StringTok{"}
+\BuiltInTok{echo} \StringTok{""}
+
+\CommentTok{\# Comparar con checksums}
+\FunctionTok{rsync} \AttributeTok{{-}avcn} \AttributeTok{{-}{-}delete} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}exclude{-}from}\OperatorTok{=}\StringTok{"}\VariableTok{$HOME}\StringTok{/.rsync{-}exclude{-}proyectos"} \DataTypeTok{\textbackslash{}}
+    \StringTok{"}\VariableTok{$ORIGEN}\StringTok{/"} \DataTypeTok{\textbackslash{}}
+    \StringTok{"}\VariableTok{$BACKUP\_DIR}\StringTok{/"} \DataTypeTok{\textbackslash{}}
+    \KeywordTok{|} \FunctionTok{tee}\NormalTok{ verificacion.log}
+
+\CommentTok{\# Analizar resultados}
+\ControlFlowTok{if} \FunctionTok{grep} \AttributeTok{{-}q} \StringTok{"deleting\textbackslash{}|sending\textbackslash{}|receiving"}\NormalTok{ verificacion.log}\KeywordTok{;} \ControlFlowTok{then}
+    \BuiltInTok{echo} \StringTok{""}
+    \BuiltInTok{echo} \StringTok{"⚠ ATENCIÓN: Hay diferencias entre origen y backup"}
+    \BuiltInTok{echo} \StringTok{"Ver detalles en: verificacion.log"}
+\ControlFlowTok{else}
+    \BuiltInTok{echo} \StringTok{""}
+    \BuiltInTok{echo} \StringTok{"✓ Backup verificado: origen y backup idénticos"}
+\ControlFlowTok{fi}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Mejores Prácticas}\label{mejores-pruxe1cticas}
+
+\subsection{Seguridad}\label{seguridad}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Nunca usar rsync como root innecesariamente}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mal}
+\FunctionTok{sudo}\NormalTok{ rsync }\AttributeTok{{-}av}\NormalTok{ /origen/ /destino/}
+
+\CommentTok{\# Bien (ajustar permisos primero)}
+\FunctionTok{sudo}\NormalTok{ chown }\AttributeTok{{-}R} \VariableTok{$USER}\NormalTok{:}\VariableTok{$USER}\NormalTok{ /destino/}
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ /origen/ /destino/}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Usar SSH keys en lugar de contraseñas}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ssh{-}keygen} \AttributeTok{{-}t}\NormalTok{ ed25519}
+\ExtensionTok{ssh{-}copy{-}id}\NormalTok{ usuario@servidor}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Cifrar backups sensibles}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rsync}\NormalTok{ + tar + gpg}
+\CommentTok{\# Ver Caso 4 en sección anterior}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Restringir permisos de scripts}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{chmod}\NormalTok{ 700 \textasciitilde{}/bin/backup{-}scripts.sh}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+\subsection{Rendimiento}\label{rendimiento}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Usar compresión solo cuando sea necesario}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Red lenta: SÍ}
+\FunctionTok{rsync} \AttributeTok{{-}avz}\NormalTok{ /origen/ remoto:/destino/}
+
+\CommentTok{\# LAN rápida: NO}
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ /origen/ /destino/}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Aprovechar --link-dest para backups incrementales}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Ahorra espacio sin sacrificar acceso}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}link{-}dest}\OperatorTok{=}\NormalTok{/backup/anterior/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{    /origen/ /backup/nuevo/}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Excluir lo innecesario}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{{-}{-}exclude=}\StringTok{\textquotesingle{}\_site/\textquotesingle{}}
+\ExtensionTok{{-}{-}exclude=}\StringTok{\textquotesingle{}node\_modules/\textquotesingle{}}
+\ExtensionTok{{-}{-}exclude=}\StringTok{\textquotesingle{}*.log\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Usar --partial para transferencias grandes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rsync} \AttributeTok{{-}avP}\NormalTok{ /grande/ remoto:/destino/}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+\subsection{Confiabilidad}\label{confiabilidad}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{SIEMPRE usar --dry-run primero}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rsync} \AttributeTok{{-}avn} \AttributeTok{{-}{-}delete}\NormalTok{ /origen/ /destino/}
+\CommentTok{\# Revisar salida}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete}\NormalTok{ /origen/ /destino/}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Hacer backups de backups críticos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Backup → Disco externo → Servidor remoto}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Verificar backups periódicamente}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rsync} \AttributeTok{{-}avcn}\NormalTok{ /origen/ /backup/}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Mantener logs}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ /origen/ /destino/ }\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{ backup.log }\DecValTok{2}\OperatorTok{\textgreater{}\&}\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Probar restauraciones}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Regularmente, restaurar archivos de prueba}
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ /backup/test/ /tmp/restore{-}test/}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+\subsection{Organización}\label{organizaciuxf3n}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Estructura de directorios clara}
+
+\begin{verbatim}
+/media/backup/
+├── diario/
+│   ├── 2026-01-25/
+│   ├── 2026-01-26/
+│   └── latest -> 2026-01-26
+├── semanal/
+│   ├── 2026_W04/
+│   └── latest -> 2026_W04
+└── mensual/
+    ├── 2026-01/
+    └── latest -> 2026-01
+\end{verbatim}
+\item
+  \textbf{Nombrar backups con timestamp}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{FECHA}\OperatorTok{=}\VariableTok{$(}\FunctionTok{date}\NormalTok{ +\%Y\%m\%d\_\%H\%M\%S}\VariableTok{)}
+\ExtensionTok{/backup/}\VariableTok{$FECHA}\ExtensionTok{/}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \textbf{Mantener README en backups}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat} \OperatorTok{\textgreater{}}\NormalTok{ /backup/README.txt }\OperatorTok{\textless{}\textless{} EOF}
+\StringTok{Backup de: Proyectos Quarto}
+\StringTok{Fecha: }\VariableTok{$(}\FunctionTok{date}\VariableTok{)}
+\StringTok{Origen: /home/achalmaedison/Proyectos}
+\StringTok{Script: \textasciitilde{}/bin/backup{-}proyectos.sh}
+\OperatorTok{EOF}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+\section{Referencia Rápida}\label{referencia-ruxe1pida}
+
+\subsection{Comandos Esenciales}\label{comandos-esenciales}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# BÁSICO}
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ origen/ destino/             }\CommentTok{\# Básico con archivo}
+\FunctionTok{rsync} \AttributeTok{{-}avh}\NormalTok{ origen/ destino/            }\CommentTok{\# Con tamaños legibles}
+\FunctionTok{rsync} \AttributeTok{{-}avP}\NormalTok{ origen/ destino/            }\CommentTok{\# Con progreso}
+
+\CommentTok{\# EXCLUSIÓN}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}exclude}\OperatorTok{=}\StringTok{\textquotesingle{}*.tmp\textquotesingle{}}\NormalTok{ origen/ destino/}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}exclude{-}from}\OperatorTok{=}\NormalTok{excludes.txt origen/ destino/}
+
+\CommentTok{\# ELIMINACIÓN}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete}\NormalTok{ origen/ destino/            }\CommentTok{\# Espejo exacto}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}delete{-}after}\NormalTok{ origen/ destino/      }\CommentTok{\# Más seguro}
+
+\CommentTok{\# BACKUP INCREMENTAL}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}link{-}dest}\OperatorTok{=}\NormalTok{/backup/anterior/ }\DataTypeTok{\textbackslash{}}
+\NormalTok{    origen/ /backup/nuevo/}
+
+\CommentTok{\# REMOTO}
+\FunctionTok{rsync} \AttributeTok{{-}avz}\NormalTok{ origen/ usuario@servidor:/destino/  }\CommentTok{\# SSH}
+\FunctionTok{rsync} \AttributeTok{{-}avz}\NormalTok{ usuario@servidor:/origen/ destino/  }\CommentTok{\# Desde remoto}
+
+\CommentTok{\# VERIFICACIÓN}
+\FunctionTok{rsync} \AttributeTok{{-}avcn}\NormalTok{ origen/ destino/           }\CommentTok{\# Dry{-}run con checksum}
+
+\CommentTok{\# RECUPERACIÓN}
+\FunctionTok{rsync} \AttributeTok{{-}av} \AttributeTok{{-}{-}partial}\NormalTok{ origen/ destino/   }\CommentTok{\# Reanudar interrumpida}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Opciones Más Usadas}\label{opciones-muxe1s-usadas}
+
+\begin{verbatim}
+-a  --archive        # Modo archivo (recomendado)
+-v  --verbose        # Verboso
+-h  --human-readable # Tamaños legibles
+-z  --compress       # Comprimir durante transferencia
+-P                   # --partial --progress
+-n  --dry-run        # Simular (no ejecutar)
+-u  --update         # Solo si más nuevo
+-r  --recursive      # Recursivo
+-l  --links          # Copiar symlinks
+-p  --perms          # Preservar permisos
+-t  --times          # Preservar timestamps
+-g  --group          # Preservar grupo
+-o  --owner          # Preservar dueño
+-D                   # --devices --specials
+
+--delete             # Eliminar extras en destino
+--exclude=PATRÓN     # Excluir archivos
+--include=PATRÓN     # Incluir archivos
+--link-dest=DIR      # Hard links para incrementales
+--backup             # Backup de sobrescritos
+--backup-dir=DIR     # Donde guardar backups
+--bwlimit=KBPS       # Limitar ancho de banda
+--timeout=SEGUNDOS   # Timeout de I/O
+\end{verbatim}
+
+\subsection{Patrones de Exclusión
+Comunes}\label{patrones-de-exclusiuxf3n-comunes}
+
+\begin{verbatim}
+*.tmp
+*.log
+*.swp
+*~
+.git/
+.svn/
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+node_modules/
+_site/
+.quarto/
+\end{verbatim}
+
+\subsection{Trailing Slash: Regla de
+Oro}\label{trailing-slash-regla-de-oro}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# CON slash (/) = CONTENIDO}
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ origen/ destino/}
+\CommentTok{\# Copia: origen/archivo → destino/archivo}
+
+\CommentTok{\# SIN slash = DIRECTORIO}
+\FunctionTok{rsync} \AttributeTok{{-}av}\NormalTok{ origen destino/}
+\CommentTok{\# Copia: origen/archivo → destino/origen/archivo}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Estructura de Backup
+Recomendada}\label{estructura-de-backup-recomendada}
+
+\begin{verbatim}
+/media/backup/
+├── Proyectos/
+│   ├── 20260125_120000/
+│   ├── 20260126_120000/
+│   └── latest -> 20260126_120000
+├── Documentos/
+│   └── latest/
+└── Config/
+    └── latest/
+\end{verbatim}
+
+\subsection{Alias Fish Útiles}\label{alias-fish-uxfatiles}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\# \textasciitilde{}/.config/fish/config.fish}
+
+\NormalTok{\# Básicos}
+\NormalTok{alias rsync{-}backup="rsync {-}avh {-}{-}progress"}
+\NormalTok{alias rsync{-}mirror="rsync {-}avh {-}{-}delete {-}{-}progress"}
+\NormalTok{alias rsync{-}test="rsync {-}avhn"}
+
+\NormalTok{\# Backups específicos}
+\NormalTok{alias backup{-}proyectos="rsync {-}av {-}{-}exclude=\textquotesingle{}\_site/\textquotesingle{} {-}{-}exclude=\textquotesingle{}.quarto/\textquotesingle{} \textasciitilde{}/Proyectos/ /media/backup/Proyectos/"}
+\NormalTok{alias backup{-}docs="rsync {-}av \textasciitilde{}/Documentos/ /media/backup/Documentos/"}
+\NormalTok{alias backup{-}config="rsync {-}av \textasciitilde{}/.config/ /media/backup/config/"}
+
+\NormalTok{\# Remotos}
+\NormalTok{alias rsync{-}upload="rsync {-}avz {-}{-}progress"}
+\NormalTok{alias rsync{-}download="rsync {-}avz {-}{-}progress"}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Recursos Adicionales}\label{recursos-adicionales}
+
+\subsection{Documentación Oficial}\label{documentaciuxf3n-oficial}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Man page:} \texttt{man\ rsync}
+\item
+  \textbf{Sitio oficial:} https://rsync.samba.org/
+\item
+  \textbf{Documentación:} https://rsync.samba.org/documentation.html
+\end{itemize}
+
+\subsection{Herramientas
+Complementarias}\label{herramientas-complementarias}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# En Arch Linux}
+\FunctionTok{sudo}\NormalTok{ pacman }\AttributeTok{{-}S}\NormalTok{ rsync rclone unison}
+
+\CommentTok{\# Otras utilidades}
+\ExtensionTok{yay} \AttributeTok{{-}S}\NormalTok{ grsync  }\CommentTok{\# GUI para rsync}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Alternativas y
+Complementos}\label{alternativas-y-complementos}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{rclone:} rsync para servicios cloud (Google Drive, Dropbox,
+  etc.)
+\item
+  \textbf{Unison:} Sincronización bidireccional real
+\item
+  \textbf{Syncthing:} Sincronización continua P2P
+\item
+  \textbf{Borg:} Backups incrementales con deduplicación
+\item
+  \textbf{Restic:} Backups cifrados con snapshots
+\end{itemize}
+
+\section{Publicaciones Similares}\label{publicaciones-similares}
+
+Si te interesó este artículo, te recomendamos que explores otros blogs y
+recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo
+algunas sugerencias:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows}{Comandos
+  De Informacion Windows}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2019-06-19-adb/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2019-06-19-adb}{Adb}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc}{Limpieza
+  Y Optimizacion De Pc}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2021-10-21-scrcpy}{Scrcpy}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu}{Gestionar
+  Versiones De Jdk En Kubuntu}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2022-07-21-instalar-tor-browser}{Instalar
+  Tor Browser}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux}{Crear
+  Enlaces Duros O Hard Link En Linux}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2022-09-27-comandos-vim/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2022-09-27-comandos-vim}{Comandos
+  Vim}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-02-16-guia-de-git-y-github}{Guia
+  De Git Y Github}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-05-02-00-primeros-pasos-en-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-05-02-00-primeros-pasos-en-linux}{00
+  Primeros Pasos En Linux}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-17-01-introduccion-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-17-01-introduccion-linux}{01
+  Introduccion Linux}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-18-02-distribuciones-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-18-02-distribuciones-linux}{02
+  Distribuciones Linux}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-19-03-instalacion-linux/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-19-03-instalacion-linux}{03
+  Instalacion Linux}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-20-04-administracion-particiones-volumenes/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-06-20-04-administracion-particiones-volumenes}{04
+  Administracion Particiones Volumenes}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim}{Atajos
+  De Teclado Y Comandos Para Usar Vim}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify}{Instalando
+  Specitify}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow}{Gestiona
+  Tus Dotfiles Con Gnu Stow}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-30-guia-de-ranger}{Guia
+  De Ranger}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-kitty-terminal}{Guia
+  De Kitty Terminal}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide}{Guia
+  De Positron Ide}
+\item
+  \href{https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync/index.pdf}{\faIcon{file-pdf}}
+  \href{https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync}{Guia
+  De Rsync}
+\end{enumerate}
+
+Esperamos que encuentres estas publicaciones igualmente interesantes y
+útiles. ¡Disfruta de la lectura!
+
+
+
+
+
+
+\end{document}
