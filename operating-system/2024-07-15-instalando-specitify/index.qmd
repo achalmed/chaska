@@ -4,9 +4,7 @@ copyrightext: All rights reserved
 title: Instalación de Specitify en Linux fácilmente
 abstract: Este abstract será actualizado una vez que se complete el contenido final
   del artículo.
-keywords:
-- keyword1
-- keyword2
+keywords: []
 categories:
 - Operating System
 tags:
@@ -34,7 +32,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/operating-system/2024-07-15-instalando-specitify/index.pdf
-date: 07/15/2024
+date: 2024-07-15
 draft: false
 image: ../featured.jpg
 ---

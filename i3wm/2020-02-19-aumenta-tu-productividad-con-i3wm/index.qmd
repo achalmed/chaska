@@ -2,9 +2,7 @@
 copyrightnotice: 2020
 copyrightext: All rights reserved
 title: Aumenta productividad con i3wm
-keywords:
-- keyword1
-- keyword2
+keywords: []
 categories:
 - I3wm
 tags:
@@ -30,7 +28,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/i3wm/2020-02-19-aumenta-tu-productividad-con-i3wm/index.pdf
-date: 02/19/2020
+date: 2020-02-19
 draft: true
 image: ../featured.jpg
 ---

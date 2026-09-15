@@ -5,9 +5,7 @@ copyrightext: All rights reserved
 title: Atajos y comandos avanzados de Vim
 abstract: Este abstract será actualizado una vez que se complete el contenido final
   del artículo.
-keywords:
-- keyword1
-- keyword2
+keywords: []
 categories:
 - Operating System
 tags:
@@ -34,7 +32,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/index.pdf
-date: 07/01/2023
+date: 2023-07-01
 draft: false
 image: ../featured.jpg
 ---

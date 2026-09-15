@@ -45,7 +45,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/index.pdf
-date: 07/10/2025
+date: 2025-07-10
 draft: false
 image: ../featured.jpg
 ---

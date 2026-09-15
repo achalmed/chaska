@@ -4,9 +4,7 @@ copyrightext: All rights reserved
 title: Ejecutando payloads en ethical hacking
 abstract: Este abstract será actualizado una vez que se complete el contenido final
   del artículo.
-keywords:
-- keyword1
-- keyword2
+keywords: []
 categories:
 - Operating System
 tags:
@@ -32,7 +30,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload/index.pdf
-date: 09/03/2024
+date: 2024-09-03
 draft: false
 image: ../featured.jpg
 ---

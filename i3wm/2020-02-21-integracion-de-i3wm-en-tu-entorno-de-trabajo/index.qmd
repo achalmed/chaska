@@ -2,9 +2,7 @@
 copyrightnotice: 2020
 copyrightext: All rights reserved
 title: Integrando i3wm en tu flujo de trabajo
-keywords:
-- keyword1
-- keyword2
+keywords: []
 categories:
 - I3wm
 tags:
@@ -30,7 +28,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/i3wm/2020-02-21-integracion-de-i3wm-en-tu-entorno-de-trabajo/index.pdf
-date: 02/21/2020
+date: 2020-02-21
 draft: true
 image: ../featured.jpg
 ---

@@ -2,9 +2,7 @@
 copyrightnotice: 2020
 copyrightext: All rights reserved
 title: Atajos esenciales de teclado en i3wm
-keywords:
-- keyword1
-- keyword2
+keywords: []
 categories:
 - I3wm
 tags:
@@ -30,7 +28,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/i3wm/2020-02-17-atajos-de-teclado-y-comandos-esenciales-de-i3wm/index.pdf
-date: 02/17/2020
+date: 2020-02-17
 draft: true
 image: ../featured.jpg
 ---

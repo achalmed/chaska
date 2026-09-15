@@ -4,9 +4,7 @@ copyrightext: All rights reserved
 title: Gestionar múltiples versiones JDK en Kubuntu
 abstract: Este abstract será actualizado una vez que se complete el contenido final
   del artículo.
-keywords:
-- keyword1
-- keyword2
+keywords: []
 categories:
 - Operating System
 tags:
@@ -32,7 +30,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/index.pdf
-date: 05/12/2022
+date: 2022-05-12
 draft: false
 image: ../featured.jpg
 ---

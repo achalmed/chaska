@@ -4,9 +4,7 @@ copyrightext: All rights reserved
 title: Administración de particiones y volúmenes
 abstract: Este abstract será actualizado una vez que se complete el contenido final
   del artículo.
-keywords:
-- keyword1
-- keyword2
+keywords: []
 categories:
 - Operating System
 tags:
@@ -33,7 +31,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/operating-system/2023-06-20-04-administracion-particiones-volumenes/index.pdf
-date: 06/20/2023
+date: 2023-06-20
 draft: false
 image: ../featured.jpg
 ---

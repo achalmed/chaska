@@ -1,3 +1,8 @@
+---
+tipo: fragmento
+titulo: índice de publicaciones de i3wm; lo genera script_generador_publicacion_similar
+---
+
 1. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/i3wm/2020-02-15-introduccion-a-i3wm/index.pdf) [Introduccion A I3wm](https://chaska-x.netlify.app/i3wm/2020-02-15-introduccion-a-i3wm)
 2. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/i3wm/2020-02-16-guia-de-instalacion-y-configuracion-de-i3wm/index.pdf) [Guia De Instalacion Y Configuracion De I3wm](https://chaska-x.netlify.app/i3wm/2020-02-16-guia-de-instalacion-y-configuracion-de-i3wm)
 3. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/i3wm/2020-02-17-atajos-de-teclado-y-comandos-esenciales-de-i3wm/index.pdf) [Atajos De Teclado Y Comandos Esenciales De I3wm](https://chaska-x.netlify.app/i3wm/2020-02-17-atajos-de-teclado-y-comandos-esenciales-de-i3wm)

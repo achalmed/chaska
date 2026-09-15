@@ -5,9 +5,7 @@ copyrightext: All rights reserved
 title: Comandos esenciales de información en Windows
 abstract: Este abstract será actualizado una vez que se complete el contenido final
   del artículo.
-keywords:
-- keyword1
-- keyword2
+keywords: []
 categories:
 - Operating System
 tags:
@@ -33,7 +31,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows/index.pdf
-date: 05/21/2017
+date: 2017-05-21
 draft: false
 image: ../featured.jpg
 ---

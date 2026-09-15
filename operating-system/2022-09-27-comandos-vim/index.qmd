@@ -35,7 +35,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/operating-system/2022-09-27-comandos-vim/index.pdf
-date: 09/27/2022
+date: 2022-09-27
 draft: false
 image: ../featured.jpg
 ---

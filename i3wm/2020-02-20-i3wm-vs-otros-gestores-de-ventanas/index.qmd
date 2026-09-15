@@ -2,9 +2,7 @@
 copyrightnotice: 2020
 copyrightext: All rights reserved
 title: i3wm frente a otros gestores de ventanas
-keywords:
-- keyword1
-- keyword2
+keywords: []
 categories:
 - I3wm
 tags:
@@ -30,7 +28,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/i3wm/2020-02-20-i3wm-vs-otros-gestores-de-ventanas/index.pdf
-date: 02/20/2020
+date: 2020-02-20
 draft: true
 image: ../featured.jpg
 ---

@@ -4,9 +4,7 @@ copyrightext: All rights reserved
 title: Limpieza y optimización de PC Windows
 abstract: Este abstract será actualizado una vez que se complete el contenido final
   del artículo.
-keywords:
-- keyword1
-- keyword2
+keywords: []
 categories:
 - Operating System
 tags:
@@ -32,7 +30,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/index.pdf
-date: 08/17/2021
+date: 2021-08-17
 draft: false
 image: ../featured.jpg
 ---

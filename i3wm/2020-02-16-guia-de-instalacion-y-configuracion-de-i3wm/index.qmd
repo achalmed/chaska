@@ -2,9 +2,7 @@
 copyrightnotice: 2020
 copyrightext: All rights reserved
 title: Instalación y configuración inicial de i3wm
-keywords:
-- keyword1
-- keyword2
+keywords: []
 categories:
 - I3wm
 tags:
@@ -30,7 +28,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/i3wm/2020-02-16-guia-de-instalacion-y-configuracion-de-i3wm/index.pdf
-date: 02/16/2020
+date: 2020-02-16
 draft: true
 image: ../featured.jpg
 ---

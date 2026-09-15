@@ -1,1 +1,6 @@
+---
+tipo: fragmento
+titulo: índice de publicaciones de ciberseguridad-ethical-hacking-ceh; lo genera script_generador_publicacion_similar
+---
+
 1. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload/index.pdf) [Ejecutando Payload](https://chaska-x.netlify.app/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload)

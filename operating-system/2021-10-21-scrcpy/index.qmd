@@ -3,12 +3,10 @@ documentmode: doc
 copyrightnotice: 2021
 copyrightext: All rights reserved
 title: Scrcpy 
-Subtittle: Control de Dispositivos Android en Arch Linux
+subtitle: Control de Dispositivos Android en Arch Linux
 abstract: Este abstract será actualizado una vez que se complete el contenido final
   del artículo.
-keywords:
-- keyword1
-- keyword2
+keywords: []
 categories:
 - Operating System
 tags:
@@ -35,7 +33,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/operating-system/2021-10-21-usando-apk-en-windown-11/index.pdf
-date: 10/21/2021
+date: 2021-10-21
 draft: false
 image: ../featured.jpg
 ---
