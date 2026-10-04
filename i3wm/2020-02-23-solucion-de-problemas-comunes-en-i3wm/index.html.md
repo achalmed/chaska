@@ -2,9 +2,7 @@
 copyrightnotice: 2020
 copyrightext: All rights reserved
 title: Solución de problemas frecuentes en i3wm
-keywords:
-- keyword1
-- keyword2
+keywords: []
 categories:
 - I3wm
 tags:
@@ -30,7 +28,7 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/i3wm/2020-02-23-solucion-de-problemas-comunes-en-i3wm/index.pdf
-date: 02/23/2020
+date: 2020-02-23
 draft: true
 image: ../featured.jpg
 ---
@@ -71,10 +69,20 @@ image: ../featured.jpg
 ## Pruebas y evaluación de cambios antes de implementarlos en la configuración
 
 
+---
+tipo: fragmento
+titulo: texto de apertura del bloque «Publicaciones similares» (incluido en cada post)
+---
+
 # Publicaciones Similares
 
 Si te interesó este artículo, te recomendamos que explores otros blogs y recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo algunas sugerencias:
 
+
+---
+tipo: fragmento
+titulo: índice de publicaciones de i3wm; lo genera script_generador_publicacion_similar
+---
 
 1. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/i3wm/2020-02-15-introduccion-a-i3wm/index.pdf) [Introduccion A I3wm](https://chaska-x.netlify.app/i3wm/2020-02-15-introduccion-a-i3wm)
 2. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/i3wm/2020-02-16-guia-de-instalacion-y-configuracion-de-i3wm/index.pdf) [Guia De Instalacion Y Configuracion De I3wm](https://chaska-x.netlify.app/i3wm/2020-02-16-guia-de-instalacion-y-configuracion-de-i3wm)
@@ -87,6 +95,11 @@ Si te interesó este artículo, te recomendamos que explores otros blogs y recur
 9. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/i3wm/2020-02-22-casos-de-uso-avanzados-de-i3wm/index.pdf) [Casos De Uso Avanzados De I3wm](https://chaska-x.netlify.app/i3wm/2020-02-22-casos-de-uso-avanzados-de-i3wm)
 10. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/i3wm/2020-02-23-solucion-de-problemas-comunes-en-i3wm/index.pdf) [Solucion De Problemas Comunes En I3wm](https://chaska-x.netlify.app/i3wm/2020-02-23-solucion-de-problemas-comunes-en-i3wm)
 
+
+---
+tipo: fragmento
+titulo: texto de cierre del bloque «Publicaciones similares» (incluido en cada post)
+---
 
 Esperamos que encuentres estas publicaciones igualmente interesantes y útiles. ¡Disfruta de la lectura!
 

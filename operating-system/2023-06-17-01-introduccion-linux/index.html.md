@@ -4,9 +4,7 @@ copyrightext: All rights reserved
 title: Introducción completa al sistema Linux
 abstract: Este abstract será actualizado una vez que se complete el contenido final
   del artículo.
-keywords:
-- keyword1
-- keyword2
+keywords: []
 categories:
 - Operating System
 tags:
@@ -33,8 +31,8 @@ citation:
   author:
   - Edison Achalma
   pdf-url: https://chaska-x.netlify.app/operating-system/2023-06-17-01-introduccion-linux/index.pdf
-date: 06/17/2023
-draft: 1.0
+date: 2023-06-17
+draft: true
 image: ../featured.jpg
 ---
 
@@ -92,10 +90,20 @@ Cuando hablamos de sistemas operativos, existen diferentes opciones entre las cu
 
 5.  **Costo:** Una de las grandes ventajas de GNU/Linux es su costo. Muchas distribuciones son de código abierto y se pueden obtener de forma gratuita. Esto supone un ahorro significativo en comparación con los sistemas operativos comerciales como Windows y macOS. Además, la mayoría del software disponible para GNU/Linux también es gratuito, lo que te permite ahorrar aún más en la adquisición de programas adicionales.
 
+---
+tipo: fragmento
+titulo: texto de apertura del bloque «Publicaciones similares» (incluido en cada post)
+---
+
 # Publicaciones Similares
 
 Si te interesó este artículo, te recomendamos que explores otros blogs y recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo algunas sugerencias:
 
+
+---
+tipo: fragmento
+titulo: índice de publicaciones de operating-system; lo genera script_generador_publicacion_similar
+---
 
 1. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows/index.pdf) [Comandos De Informacion Windows](https://chaska-x.netlify.app/operating-system/2017-05-21-comandos-de-informacion-windows)
 2. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2019-06-19-adb/index.pdf) [Adb](https://chaska-x.netlify.app/operating-system/2019-06-19-adb)
@@ -119,6 +127,11 @@ Si te interesó este artículo, te recomendamos que explores otros blogs y recur
 20. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide/index.pdf) [Guia De Positron Ide](https://chaska-x.netlify.app/operating-system/2025-12-31-guia-de-positron-ide)
 21. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync/index.pdf) [Guia De Rsync](https://chaska-x.netlify.app/operating-system/2026-04-23-guia-de-rsync)
 
+
+---
+tipo: fragmento
+titulo: texto de cierre del bloque «Publicaciones similares» (incluido en cada post)
+---
 
 Esperamos que encuentres estas publicaciones igualmente interesantes y útiles. ¡Disfruta de la lectura!
 
