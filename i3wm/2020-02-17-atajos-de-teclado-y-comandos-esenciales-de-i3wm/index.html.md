@@ -67,20 +67,14 @@ image: ../featured.jpg
 ## Fuentes de información y ayuda para mejorar tus habilidades en i3wm
 
 
----
-tipo: fragmento
-titulo: texto de apertura del bloque «Publicaciones similares» (incluido en cada post)
----
+<!-- fragmento de inclusión — texto de apertura del bloque «Publicaciones similares» (incluido en cada post) -->
 
 # Publicaciones Similares
 
 Si te interesó este artículo, te recomendamos que explores otros blogs y recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo algunas sugerencias:
 
 
----
-tipo: fragmento
-titulo: índice de publicaciones de i3wm; lo genera script_generador_publicacion_similar
----
+<!-- fragmento de inclusión — índice de publicaciones de i3wm; lo genera script_generador_publicacion_similar -->
 
 1. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/i3wm/2020-02-15-introduccion-a-i3wm/index.pdf) [Introduccion A I3wm](https://chaska-x.netlify.app/i3wm/2020-02-15-introduccion-a-i3wm)
 2. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/i3wm/2020-02-16-guia-de-instalacion-y-configuracion-de-i3wm/index.pdf) [Guia De Instalacion Y Configuracion De I3wm](https://chaska-x.netlify.app/i3wm/2020-02-16-guia-de-instalacion-y-configuracion-de-i3wm)
@@ -94,10 +88,7 @@ titulo: índice de publicaciones de i3wm; lo genera script_generador_publicacion
 10. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/i3wm/2020-02-23-solucion-de-problemas-comunes-en-i3wm/index.pdf) [Solucion De Problemas Comunes En I3wm](https://chaska-x.netlify.app/i3wm/2020-02-23-solucion-de-problemas-comunes-en-i3wm)
 
 
----
-tipo: fragmento
-titulo: texto de cierre del bloque «Publicaciones similares» (incluido en cada post)
----
+<!-- fragmento de inclusión — texto de cierre del bloque «Publicaciones similares» (incluido en cada post) -->
 
 Esperamos que encuentres estas publicaciones igualmente interesantes y útiles. ¡Disfruta de la lectura!
 

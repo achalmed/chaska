@@ -130,28 +130,19 @@ Espero que hayas encontrado esta guía informativa y útil. ¡Hasta la próxima!
 
 
 
----
-tipo: fragmento
-titulo: texto de apertura del bloque «Publicaciones similares» (incluido en cada post)
----
+<!-- fragmento de inclusión — texto de apertura del bloque «Publicaciones similares» (incluido en cada post) -->
 
 # Publicaciones Similares
 
 Si te interesó este artículo, te recomendamos que explores otros blogs y recursos relacionados que pueden ampliar tus conocimientos. Aquí te dejo algunas sugerencias:
 
 
----
-tipo: fragmento
-titulo: índice de publicaciones de ciberseguridad-ethical-hacking-ceh; lo genera script_generador_publicacion_similar
----
+<!-- fragmento de inclusión — índice de publicaciones de ciberseguridad-ethical-hacking-ceh; lo genera script_generador_publicacion_similar -->
 
 1. [{{< fa regular file-pdf >}}](https://chaska-x.netlify.app/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload/index.pdf) [Ejecutando Payload](https://chaska-x.netlify.app/ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload)
 
 
----
-tipo: fragmento
-titulo: texto de cierre del bloque «Publicaciones similares» (incluido en cada post)
----
+<!-- fragmento de inclusión — texto de cierre del bloque «Publicaciones similares» (incluido en cada post) -->
 
 Esperamos que encuentres estas publicaciones igualmente interesantes y útiles. ¡Disfruta de la lectura!
 
