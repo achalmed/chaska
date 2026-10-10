@@ -2,15 +2,15 @@
 tipo: readme
 estado: activo
 ---
-# pub_chaska/ — Tecnología y seguridad: blog satélite del hub `04 index` (repo chaska, chaska-x.netlify.app)
+# chaska/ — Tecnología y seguridad: blog satélite del hub `04 index` (repo chaska, chaska-x.netlify.app)
 
-<!-- GENERADO por `04 index/scripts/pubs.py readme --aplicar` desde `04 index/_pubs/pubs.yml` (2026-10-08); no editar aquí: se regenera desde el hub -->
+<!-- GENERADO por `04 index/scripts/pubs.py readme --aplicar` desde `04 index/_pubs/pubs.yml` (2026-10-10); no editar aquí: se regenera desde el hub -->
 
 ## Qué es
 
 Ciberseguridad, privacidad digital, sistemas operativos y herramientas. Es uno de los 11 blogs satélite de la familia Quarto de Edison Achalma: un sitio Quarto
 con repositorio y sitio Netlify propios, incluido como submódulo git en el hub `04 index` (repo
-`website-achalma`) bajo `04 index/_pubs/pub_chaska/`. El mismo blog tiene tres nombres: carpeta `pub_chaska`, repo
+`website-achalma`) bajo `04 index/_pubs/chaska/`. El mismo blog tiene tres nombres: carpeta `chaska`, repo
 GitHub `achalmed/chaska` y dominio `chaska-x.netlify.app`; el registro de los tres es `04 index/_pubs/pubs.yml`.
 
 El único dominio no derivable del nombre (`chaska-x`, porque `chaska` ya estaba tomado en Netlify).
@@ -28,7 +28,7 @@ quarto render                               # regenera _site/ (freeze: true: el 
 git add -- <carpeta del post> _contenido_*.qmd _site && git commit -m "post: …"   # confirmar AQUÍ primero…
 ../../scripts/puerta-r6.sh .                # puerta R6: _site/index.html al día antes del push (también es el hook pre-push)
 git push                                    # …al remoto propio (ssh git@github.com:achalmed/chaska.git)
-cd ../.. && git add _pubs/pub_chaska && git commit -m "pubs: chaska al último commit"   # y mover el puntero en el hub
+cd ../.. && git add _pubs/chaska && git commit -m "pubs: chaska al último commit"   # y mover el puntero en el hub
 ```
 
 ## Estructura
