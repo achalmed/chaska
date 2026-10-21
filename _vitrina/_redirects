@@ -1,6 +1,5 @@
 # _redirects — GENERADO por aula (src/integracion/recursos.mjs); no editar.
 # Cada post del sitio Quarto de chaska lleva a su página nueva; los archivos del post (PDF, DOCX, figuras) también.
-/operating-system/2022-07-21-instalar-tor-browser/*  /cursos/linux/instalar-tor-browser/:splat  301
 /operating-system/2022-08-14-crear-enlaces-duros-o-hard-link-en-linux/*  /cursos/linux/crear-enlaces-duros-o-hard-link-en-linux/:splat  301
 /operating-system/2022-09-27-comandos-vim/*  /cursos/linux/comandos-vim/:splat  301
 /operating-system/2023-05-02-00-primeros-pasos-en-linux/*  /cursos/linux/primeros-pasos-en-linux/:splat  301
@@ -8,13 +7,14 @@
 /operating-system/2023-06-19-03-instalacion-linux/*  /cursos/linux/instalacion-linux/:splat  301
 /operating-system/2023-06-20-04-administracion-particiones-volumenes/*  /cursos/linux/administracion-particiones-volumenes/:splat  301
 /operating-system/2023-07-01-atajos-de-teclado-y-comandos-para-usar-vim/*  /cursos/linux/atajos-de-teclado-y-comandos-para-usar-vim/:splat  301
-/operating-system/2024-07-15-instalando-specitify/*  /cursos/linux/instalando-specitify/:splat  301
 /operating-system/2025-07-10-gestiona-tus-dotfiles-con-gnu-stow/*  /cursos/linux/gestiona-tus-dotfiles-con-gnu-stow/:splat  301
 /operating-system/2025-12-30-guia-de-ranger/*  /cursos/linux/guia-de-ranger/:splat  301
 /operating-system/2025-12-31-guia-de-kitty-terminal/*  /cursos/linux/guia-de-kitty-terminal/:splat  301
 /operating-system/2025-12-31-guia-de-positron-ide/*  /blog/guia-de-positron-ide/:splat  301
 /ciberseguridad-ethical-hacking-ceh/2024-09-03-ejecutando-payload/*  /blog/ejecutando-payload/:splat  301
+/operating-system/2024-07-15-instalando-specitify/*  /blog/instalando-specitify/:splat  301
 /operating-system/2023-02-16-guia-de-git-y-github/*  /blog/guia-de-git-y-github/:splat  301
+/operating-system/2022-07-21-instalar-tor-browser/*  /blog/instalar-tor-browser/:splat  301
 /operating-system/2022-05-12-gestionar-versiones-de-jdk-en-kubuntu/*  /blog/gestionar-versiones-de-jdk-en-kubuntu/:splat  301
 /operating-system/2021-10-21-scrcpy/*  /blog/scrcpy/:splat  301
 /operating-system/2021-08-17-limpieza-y-optimizacion-de-pc/*  /blog/limpieza-y-optimizacion-de-pc/:splat  301
