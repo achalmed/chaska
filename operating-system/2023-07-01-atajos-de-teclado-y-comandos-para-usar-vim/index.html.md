@@ -35,6 +35,8 @@ citation:
 date: 2023-07-01
 draft: false
 image: ../featured.jpg
+curso: linux
+tema: "2.5"
 ---
 
 # Introducción a Vim

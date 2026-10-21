@@ -31,6 +31,8 @@ citation:
 date: 2020-02-23
 draft: true
 image: ../featured.jpg
+curso: linux
+tema: "3.10"
 ---
 
 1. Introducción a la solución de problemas en i3wm

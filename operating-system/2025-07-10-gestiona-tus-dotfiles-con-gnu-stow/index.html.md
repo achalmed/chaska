@@ -48,6 +48,8 @@ citation:
 date: 2025-07-10
 draft: false
 image: ../featured.jpg
+curso: linux
+tema: "2.7"
 ---
 
 ¿Alguna vez has perdido horas configurando tu terminal o editor tras cambiar de computadora? Los **dotfiles**, esos archivos ocultos como `.bashrc` o `.gitconfig`, guardan tus personalizaciones, pero gestionarlos a mano es un caos. **GNU Stow** simplifica todo: organiza tus configuraciones en un repositorio central y usa **enlaces simbólicos** para sincronizarlas en minutos.

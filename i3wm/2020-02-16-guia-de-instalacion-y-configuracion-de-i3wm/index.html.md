@@ -31,6 +31,8 @@ citation:
 date: 2020-02-16
 draft: true
 image: ../featured.jpg
+curso: linux
+tema: "3.2"
 ---
 
 # Introducción a i3wm en diferentes distribuciones de Linux

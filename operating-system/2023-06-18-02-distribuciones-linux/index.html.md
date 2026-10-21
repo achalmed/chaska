@@ -34,6 +34,8 @@ citation:
 date: 2023-06-18
 draft: false
 image: ../featured.jpg
+curso: linux
+tema: "1.3"
 ---
 
 ¡Bienvenido al fascinante mundo de las distribuciones de Linux! Si eres un entusiasta de la tecnología, un aficionado a la informática o simplemente estás buscando una alternativa al sistema operativo convencional, estás en el lugar adecuado. En este blog, exploraremos las diversas distribuciones de Linux, sus características únicas y las ventajas que ofrecen. Prepárate para descubrir un universo de posibilidades, personalización y libertad que te sorprenderá. ¡Acompáñanos en este apasionante viaje por las distribuciones de Linux y despierta tu curiosidad tecnológica!
