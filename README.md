@@ -4,11 +4,11 @@ estado: activo
 ---
 # chaska/ — Tecnología y seguridad: blog satélite del hub `web` (repo chaska, chaska-x.netlify.app)
 
-<!-- GENERADO por `web/scripts/pubs.py readme --aplicar` desde `web/_pubs/pubs.yml` (2026-10-20); no editar aquí: se regenera desde el hub -->
+<!-- GENERADO por `web/scripts/pubs.py readme --aplicar` desde `web/_pubs/pubs.yml` (2026-10-21); no editar aquí: se regenera desde el hub -->
 
 ## Qué es
 
-Ciberseguridad, privacidad digital, sistemas operativos y herramientas. Es uno de los 11 blogs satélite de la familia Quarto de Edison Achalma: un sitio Quarto
+Ciberseguridad, privacidad digital, sistemas operativos y herramientas. Es uno de los blogs satélite de la familia Quarto de Edison Achalma: un sitio Quarto
 con repositorio y sitio Netlify propios, incluido como submódulo git en el hub `web` (repo
 `website-achalma`) bajo `web/_pubs/chaska/`. El mismo blog tiene tres nombres: carpeta `chaska`, repo
 GitHub `achalmed/chaska` y dominio `chaska-x.netlify.app`; el registro de los tres es `web/_pubs/pubs.yml`.
