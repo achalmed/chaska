@@ -31,6 +31,8 @@ citation:
 date: 2020-02-15
 draft: true
 image: ../featured.jpg
+curso: linux
+tema: "3.1"
 ---
 
 # ¿Qué es i3wm?

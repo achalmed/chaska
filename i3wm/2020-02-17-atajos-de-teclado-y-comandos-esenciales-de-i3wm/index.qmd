@@ -31,6 +31,8 @@ citation:
 date: 2020-02-17
 draft: true
 image: ../featured.jpg
+curso: linux
+tema: "3.3"
 ---
 
 1. Introducción al flujo de trabajo en i3wm

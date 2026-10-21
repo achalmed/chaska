@@ -31,6 +31,8 @@ citation:
 date: 2020-02-19
 draft: true
 image: ../featured.jpg
+curso: linux
+tema: "3.6"
 ---
 
 1. Introducción a la productividad en i3wm

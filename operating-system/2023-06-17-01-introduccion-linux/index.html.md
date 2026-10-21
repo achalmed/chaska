@@ -34,6 +34,8 @@ citation:
 date: 2023-06-17
 draft: true
 image: ../featured.jpg
+curso: linux
+tema: "1.2"
 ---
 
 ¡Hola, estimado lector! Ya sea que acabes de adentrarte en el fascinante mundo de GNU/Linux y su acogedora comunidad, o que lleves un tiempo utilizando Linux y estés ansioso por aprender cada vez más, esta página es perfecta para ti.

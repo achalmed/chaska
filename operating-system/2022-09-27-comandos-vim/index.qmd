@@ -38,6 +38,8 @@ citation:
 date: 2022-09-27
 draft: false
 image: ../featured.jpg
+curso: linux
+tema: "2.4"
 ---
 
 **¿Qué es Vim?**

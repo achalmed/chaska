@@ -31,6 +31,8 @@ citation:
 date: 2020-02-18
 draft: true
 image: ../featured.jpg
+curso: linux
+tema: "3.4"
 ---
 
 1. Introducción a la gestión eficiente de ventanas en i3wm

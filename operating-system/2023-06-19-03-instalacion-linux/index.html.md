@@ -34,6 +34,8 @@ citation:
 date: 2023-06-19
 draft: false
 image: ../featured.jpg
+curso: linux
+tema: "1.4"
 ---
 
 ¡Hola, lector!

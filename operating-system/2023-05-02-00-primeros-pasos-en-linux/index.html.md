@@ -34,6 +34,8 @@ citation:
 date: 2023-05-02
 draft: false
 image: ../featured.jpg
+curso: linux
+tema: "1.1"
 ---
 
 # LINUX primeros pasos como usuario

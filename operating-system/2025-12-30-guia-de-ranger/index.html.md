@@ -38,6 +38,8 @@ citation:
 date: 2025-12-30
 draft: false
 image: featured.png
+curso: linux
+tema: "2.3"
 ---
 
 ![](featured.png)

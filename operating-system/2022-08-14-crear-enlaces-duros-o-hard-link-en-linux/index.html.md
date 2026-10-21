@@ -33,6 +33,8 @@ citation:
 date: 2022-08-14
 draft: false
 image: ../featured.jpg
+curso: linux
+tema: "2.1"
 ---
 
 ## Cómo Crear un Enlace Duro (Hard Link) en Linux

@@ -34,6 +34,8 @@ citation:
 date: 2023-06-20
 draft: false
 image: ../featured.jpg
+curso: linux
+tema: "1.5"
 ---
 
 ¡Hola, lector! Te doy la más cordial bienvenida a esta nueva entrega de nuestra serie de introducción a Linux. En esta ocasión, vamos a sumergirnos en un tema fascinante y fundamental: las Particiones y Volúmenes en Linux.

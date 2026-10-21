@@ -31,6 +31,8 @@ citation:
 date: 2020-02-21
 draft: true
 image: ../featured.jpg
+curso: linux
+tema: "3.8"
 ---
 
 1. Introducción a la integración de i3wm en tu entorno de trabajo

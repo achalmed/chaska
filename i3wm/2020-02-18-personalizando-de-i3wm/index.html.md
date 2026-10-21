@@ -31,6 +31,8 @@ citation:
 date: 2020-02-18
 draft: true
 image: ../featured.jpg
+curso: linux
+tema: "3.5"
 ---
 
 1. Introducción a la personalización en i3wm

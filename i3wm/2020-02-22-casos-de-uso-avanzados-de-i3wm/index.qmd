@@ -31,6 +31,8 @@ citation:
 date: 2020-02-22
 draft: true
 image: ../featured.jpg
+curso: linux
+tema: "3.9"
 ---
 
 1. Introducción a los casos de uso avanzados en i3wm
